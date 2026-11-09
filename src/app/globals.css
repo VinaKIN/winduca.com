@@ -1,0 +1,128 @@
+@import "tailwindcss";
+
+/*
+  WINDUCA — design tokens theo Bộ nhận diện thương hiệu v1.4 (03/11/2026).
+  Quy tắc cứng: không gradient, không ánh kim giả, không xanh dương công nghiệp.
+  Champagne KHÔNG dùng làm chữ trên nền Ngà (tương phản 2,1:1).
+*/
+:root {
+  --nga: #f4f1ea;        /* Ngà anode — nền chính, ~55% */
+  --than-chi: #2b2b2d;   /* Than chì — chữ, nền tối, ~20% */
+  --inox: #c8c9c6;       /* Inox xước — viền, ~9% */
+  --kinh-suong: #dde3df; /* Kính sương — nền nhẹ, ~7% */
+  --champagne: #bfa678;  /* Champagne sáng — nhấn, ~6% */
+  --do-do: #7b1e2b;      /* Đỏ đô — chỉ ≤3%, không làm nút */
+}
+
+@theme inline {
+  --color-nga: var(--nga);
+  --color-than-chi: var(--than-chi);
+  --color-inox: var(--inox);
+  --color-kinh-suong: var(--kinh-suong);
+  --color-champagne: var(--champagne);
+  --color-do-do: var(--do-do);
+  --font-sans: var(--font-be-vietnam-pro), system-ui, sans-serif;
+  --font-display: var(--font-montserrat), system-ui, sans-serif;
+}
+
+html {
+  background: var(--nga);
+  color: var(--than-chi);
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-be-vietnam-pro), system-ui, sans-serif;
+  font-size: 1rem;
+  line-height: 1.6;
+  font-variant-numeric: tabular-nums;
+  background: var(--nga);
+  color: var(--than-chi);
+}
+
+::selection {
+  background: var(--champagne);
+  color: var(--than-chi);
+}
+
+/* Nhãn mục: chữ hoa, giãn 0,12em (đúng thang chữ brand kit) */
+.nhan-muc {
+  font-weight: 600;
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+/* Tiêu đề: giãn chữ ≤ 0,05em, không chữ nghiêng */
+.tieu-de {
+  font-family: var(--font-montserrat), system-ui, sans-serif;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  line-height: 1.12;
+}
+
+/* Vạch Champagne mảnh — chữ ký thiết kế */
+.vach-champagne {
+  height: 1px;
+  background: var(--champagne);
+}
+
+/* Kính mờ: chỉ dùng cho header, thẻ thông số 3D, cửa sổ bật. Blur nhẹ, viền 1px, KHÔNG gradient */
+.kinh-mo {
+  background: rgba(43, 43, 45, 0.6);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(200, 201, 198, 0.25);
+}
+
+/* Nút: góc 2px, không bo viên thuốc. Đặt trong @layer components để lớp tiện ích (hidden, md:...) ghi đè được. */
+@layer components {
+.nut {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  min-height: 3rem;
+  padding: 0.75rem 1.5rem;
+  border-radius: 2px;
+  font-weight: 600;
+  font-size: 0.9375rem;
+  line-height: 1.3;
+  text-align: center;
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+.nut-chinh {
+  background: var(--champagne);
+  color: var(--than-chi);
+  border: 1px solid var(--champagne);
+}
+.nut-chinh:hover {
+  background: var(--nga);
+  border-color: var(--nga);
+}
+.nut-vien {
+  border: 1px solid var(--nga);
+  color: var(--nga);
+}
+.nut-vien:hover {
+  background: var(--nga);
+  color: var(--than-chi);
+}
+}
+
+:focus-visible {
+  outline: 2px solid var(--champagne);
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
