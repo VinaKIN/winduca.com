@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState, type ReactNode } from "react";
+import { asset } from "@/lib/asset";
 import { HOTLINE, HOTLINE_TEL, KIEU_CUA } from "@/lib/site";
 
 /**
@@ -65,7 +66,7 @@ function Logo({ lop }: { lop: string }) {
   return (
     <Link href="/" aria-label="WINDUCA — trang chủ" className="block">
       {/* Bản âm bản trong suốt (cắt sát logo) — chữ Ngà trên nền tối */}
-      <Image src="/brand/WINDUCA-ngang-am-ban-trong.svg" alt="WINDUCA" width={677} height={102} priority className={lop} />
+      <Image src={asset("/brand/WINDUCA-ngang-am-ban-trong.svg")} alt="WINDUCA" width={677} height={102} priority className={lop} />
     </Link>
   );
 }
@@ -172,7 +173,7 @@ export function Header() {
           <div className="mx-auto grid max-w-[1440px] gap-12 px-5 pb-16 pt-8 md:grid-cols-[1fr_1.1fr_1.2fr] md:px-10 md:pt-12">
             {/* biểu tượng vương miện lớn mờ, kiểu Winboss */}
             <div className="hidden items-start justify-center md:flex" aria-hidden="true">
-              <Image src="/brand/WINDUCA-bieu-tuong-am-ban-trong.svg" alt="" width={400} height={260} className="w-64 opacity-[0.16]" />
+              <Image src={asset("/brand/WINDUCA-bieu-tuong-am-ban-trong.svg")} alt="" width={400} height={260} className="w-64 opacity-[0.16]" />
             </div>
 
             <nav aria-label="Điều hướng chính">

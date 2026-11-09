@@ -5,6 +5,7 @@ import { Faq } from "./Faq";
 import { LeadForm } from "./LeadForm";
 import { HomeFormTabs } from "./HomeFormTabs";
 import { Section, Wrap, ChoXacNhan, NhanMinhHoa } from "./ui";
+import { asset } from "@/lib/asset";
 import { CONG_TRINH_MINH_HOA, FAQ_CHUNG, KIEU_CUA } from "@/lib/site";
 
 export function TuyenNgonVaBaThe() {
@@ -114,7 +115,7 @@ export function KhoiChuNha() {
       <div className="mt-16 grid items-center gap-10 lg:grid-cols-2">
         <div className="relative aspect-[4/3] overflow-hidden bg-than-chi">
           <Image
-            src="/images/chu-nha.jpg"
+            src={asset("/images/chu-nha.jpg")}
             alt="Phòng khách mở ra hồ bơi qua cửa kính lớn (hình minh họa)"
             fill
             sizes="(min-width: 1024px) 50vw, 100vw"

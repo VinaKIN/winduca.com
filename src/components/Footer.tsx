@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { asset } from "@/lib/asset";
 import { HOTLINE, HOTLINE_TEL, MENU } from "@/lib/site";
 
 export function Footer() {
@@ -9,7 +10,7 @@ export function Footer() {
         <div className="grid gap-12 md:grid-cols-[1.2fr_1fr_1fr_1fr]">
           <div>
             <Image
-              src="/brand/WINDUCA-chinh-slogan-am-ban.svg"
+              src={asset("/brand/WINDUCA-chinh-slogan-am-ban.svg")}
               alt="WINDUCA — Premium Window & Door"
               width={220}
               height={190}

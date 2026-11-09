@@ -4,6 +4,7 @@ import "./globals.css";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { CookieBanner } from "@/components/CookieBanner";
+import { asset } from "@/lib/asset";
 
 const montserrat = Montserrat({
   variable: "--font-montserrat",
@@ -23,7 +24,7 @@ export const metadata: Metadata = {
   title: "WINDUCA — Cửa nhôm kiến trúc cao cấp",
   description:
     "Hệ thống nhôm cầu cách nhiệt tiêu chuẩn châu Âu cho biệt thự và penthouse. Nhận hộp mẫu góc nhôm, đặt lịch trải nghiệm.",
-  icons: { icon: "/brand/WINDUCA-bieu-tuong-mau.svg" },
+  icons: { icon: asset("/brand/WINDUCA-bieu-tuong-mau.svg") },
   // Bản xem thử nội bộ: chặn công cụ tìm kiếm cho tới ngày go-live.
   robots: { index: false, follow: false },
 };

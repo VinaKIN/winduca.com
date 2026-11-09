@@ -2,6 +2,7 @@
 
 import { useRouter } from "next/navigation";
 import { useRef, useState, type FormEvent } from "react";
+import { BAN_XEM_THU_TINH } from "@/lib/asset";
 import { HOTLINE, HOTLINE_TEL, KIEU_CUA, LOAI_CONG_TRINH } from "@/lib/site";
 
 export type LoaiForm = "sample-box" | "showroom" | "ban-ve" | "tai-lieu" | "lien-he";
@@ -70,6 +71,11 @@ export function LeadForm({ loai, tone = "sang", kieuCuaMacDinh = "", khiXong }: 
     setLoiTruong(l);
     if (Object.keys(l).length) return;
 
+    if (BAN_XEM_THU_TINH) {
+      setLoi("Bản xem thử tĩnh chưa nhận được biểu mẫu.");
+      return;
+    }
+
     fd.set("loai", loai);
     setDangGui(true);
     try {
@@ -99,6 +105,11 @@ export function LeadForm({ loai, tone = "sang", kieuCuaMacDinh = "", khiXong }: 
 
   return (
     <form ref={formRef} onSubmit={guiDi} noValidate className="grid gap-5 md:grid-cols-2" aria-label="Biểu mẫu liên hệ">
+      {BAN_XEM_THU_TINH && (
+        <p className="rounded-sm border border-dashed border-champagne p-3 text-sm md:col-span-2">
+          Đây là bản xem thử tĩnh: biểu mẫu chưa gửi được. Anh chị vui lòng gọi hotline {HOTLINE}.
+        </p>
+      )}
       {/* bẫy spam: người thật không thấy */}
       <div className="absolute -left-[9999px]" aria-hidden="true">
         <label>
