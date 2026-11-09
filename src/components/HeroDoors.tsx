@@ -1,8 +1,32 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
+import { HERO_ANH, HERO_VIDEO } from "@/lib/site";
 import { useMediaQuery } from "@/lib/hooks";
+
+/** Nền hero bằng ảnh hoặc video (muted, lặp). Video chỉ phát khi không giảm chuyển động và không bật tiết kiệm dữ liệu. */
+function HeroMedia({ anh, video }: { anh: string | null; video: string | null }) {
+  return (
+    <>
+      {anh && <Image src={anh} alt="" fill priority sizes="100vw" className="object-cover" />}
+      {video && (
+        <video
+          className="absolute inset-0 h-full w-full object-cover"
+          src={video}
+          poster={anh ?? undefined}
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="metadata"
+          aria-hidden="true"
+        />
+      )}
+    </>
+  );
+}
 
 /**
  * Hero cửa trượt (câu 101, 413, 431, 433, 441).
@@ -18,6 +42,7 @@ export function HeroDoors() {
   const [tuMoDong, setTuMo] = useState(0);
   const [lech, setLech] = useState(0);
   const giamChuyenDong = useMediaQuery("(prefers-reduced-motion: reduce)");
+  const tietKiemDuLieu = useMediaQuery("(prefers-reduced-data: reduce)");
   // Khi giảm chuyển động: cửa mở sẵn, không hoạt ảnh
   const tuMo = giamChuyenDong ? 0.7 : tuMoDong;
 
@@ -83,6 +108,9 @@ export function HeroDoors() {
           }}
           aria-hidden="true"
         >
+          {HERO_ANH || HERO_VIDEO ? (
+            <HeroMedia anh={HERO_ANH} video={giamChuyenDong || tietKiemDuLieu ? null : HERO_VIDEO} />
+          ) : (
           <svg viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice" className="h-full w-full">
             {/* Trời chạng vạng: các dải phẳng, không gradient */}
             <rect width="1600" height="900" fill="#2d2b2c" />
@@ -123,6 +151,7 @@ export function HeroDoors() {
             <rect x="900" y="722" width="260" height="3" fill="#bfa678" opacity="0.28" />
             <rect y="780" width="1600" height="120" fill="#141416" />
           </svg>
+          )}
         </div>
 
         {/* LỚP PHỦ PHẲNG Than chì để chữ đọc rõ (không gradient) */}

@@ -86,13 +86,13 @@ export function CrossSection({
   const hien3D = webgl && thayDuoc && (!manHinhNho || daBam);
 
   return (
-    <section id="mat-cat" className="bg-than-chi text-nga" aria-labelledby="tieu-de-mat-cat">
+    <section id="mat-cat" className="bg-white text-than-chi" aria-labelledby="tieu-de-mat-cat">
       <div className="mx-auto max-w-[1440px] px-5 py-24 md:px-10 md:py-36">
-        <p className="nhan-muc text-champagne">{nhan}</p>
+        <p className="nhan-muc text-than-chi/70">{nhan}</p>
         <h2 id="tieu-de-mat-cat" className="tieu-de mt-4 max-w-2xl text-3xl md:text-5xl">
           {tieuDe}
         </h2>
-        <p className="mt-5 max-w-xl text-base font-light text-nga/85 md:text-lg">
+        <p className="mt-5 max-w-xl text-base font-light text-than-chi/80 md:text-lg">
           Tiêu chuẩn kỹ thuật châu Âu, trong từng lớp cấu tạo.
         </p>
 
@@ -131,7 +131,7 @@ export function CrossSection({
 
           {/* ĐIỀU KHIỂN + LỚP */}
           <div>
-            <label htmlFor="tach-lop" className="nhan-muc block text-nga/90">
+            <label htmlFor="tach-lop" className="nhan-muc block text-than-chi/80">
               Tách lớp
             </label>
             <input
@@ -145,12 +145,12 @@ export function CrossSection({
               className="mt-3 w-full accent-[#bfa678]"
               aria-label="Tách các lớp cấu tạo"
             />
-            <div className="mt-2 flex justify-between text-xs text-nga/60">
+            <div className="mt-2 flex justify-between text-xs text-than-chi/60">
               <span>Liền khối</span>
               <span>Tách rời</span>
             </div>
 
-            <ul className="mt-8 divide-y divide-inox/20 border-y border-inox/20">
+            <ul className="mt-8 divide-y divide-than-chi/15 border-y border-than-chi/15">
               {LOP.map((l, i) => {
                 const dangChon = chon === l.id;
                 return (
@@ -166,7 +166,7 @@ export function CrossSection({
                     >
                       <span
                         className="mt-1 inline-block h-2.5 w-2.5 shrink-0 rotate-45"
-                        style={{ background: l.mau, outline: "1px solid rgba(200,201,198,0.4)" }}
+                        style={{ background: l.mau, outline: "1px solid rgba(43,43,45,0.35)" }}
                         aria-hidden="true"
                       />
                       <span>
@@ -174,7 +174,7 @@ export function CrossSection({
                           {String(i + 1).padStart(2, "0")} · {l.ten}
                         </span>
                         <span
-                          className={`mt-1 block text-sm font-light text-nga/80 transition-all ${
+                          className={`mt-1 block text-sm font-light text-than-chi/80 transition-all ${
                             dangChon ? "max-h-40 opacity-100" : "max-h-0 overflow-hidden opacity-0"
                           }`}
                         >
@@ -190,17 +190,20 @@ export function CrossSection({
         </div>
 
         {/* BẢNG THÔNG SỐ — 6 hàng, mỗi ô nhãn "Đang chờ xác nhận" (chưa có phiếu kiểm định) */}
-        <div className="kinh-mo mt-14 rounded-sm">
-          <div className="grid divide-y divide-inox/20 sm:grid-cols-2 sm:divide-y-0 lg:grid-cols-3">
+        <div className="mt-14 rounded-sm border border-than-chi/15 bg-nga">
+          <div className="grid divide-y divide-than-chi/15 sm:grid-cols-2 sm:divide-y-0 lg:grid-cols-3">
             {THONG_SO.map((ten) => (
-              <div key={ten} className="border-inox/20 p-5 sm:border-b lg:[&:nth-last-child(-n+3)]:border-b-0">
-                <p className="nhan-muc text-nga/70">{ten}</p>
-                <p className="mt-2 text-sm font-medium text-champagne">Đang chờ xác nhận</p>
+              <div key={ten} className="border-than-chi/15 p-5 sm:border-b lg:[&:nth-last-child(-n+3)]:border-b-0">
+                <p className="nhan-muc text-than-chi/70">{ten}</p>
+                <p className="mt-2 inline-flex items-center gap-2 text-sm font-medium text-than-chi/80">
+                  <span className="h-1.5 w-1.5 rotate-45 bg-champagne" aria-hidden="true" />
+                  Đang chờ xác nhận
+                </p>
               </div>
             ))}
           </div>
         </div>
-        <p className="mt-4 text-xs text-nga/60">
+        <p className="mt-4 text-xs text-than-chi/60">
           Thông số kỹ thuật sẽ được công bố cùng nguồn kiểm định khi có kết quả xác nhận.
         </p>
       </div>

@@ -1,5 +1,13 @@
 /** Hằng số và nội dung dùng chung. Mọi con số kỹ thuật chưa xác nhận KHÔNG có ở đây. */
 
+/**
+ * Ảnh/video nền cho hero. Đặt tệp vào public/images rồi điền đường dẫn.
+ * Để null thì hero dùng hình minh họa tạm. Ảnh phải có giấy phép dùng thương mại,
+ * ghi nguồn vào public/images/NGUON-ANH.md, và KHÔNG chứa logo/tên hãng khác.
+ */
+export const HERO_ANH: string | null = null; // ví dụ "/images/hero.jpg"
+export const HERO_VIDEO: string | null = null; // ví dụ "/images/hero.mp4" (muted, ≤ 8MB, có HERO_ANH làm poster)
+
 export const HOTLINE = "0947 686 668";
 export const HOTLINE_TEL = "tel:0947686668";
 

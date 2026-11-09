@@ -7,7 +7,7 @@ export function SaoChep({ noiDung }: { noiDung: string }) {
   return (
     <button
       type="button"
-      className="nut nut-vien !min-h-10 !py-2 text-sm"
+      className="nut nut-vien-sang !min-h-10 !py-2 text-sm"
       onClick={async () => {
         try {
           await navigator.clipboard.writeText(noiDung);

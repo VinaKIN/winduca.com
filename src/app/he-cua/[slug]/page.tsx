@@ -57,11 +57,11 @@ export default async function KieuCuaPage({ params }: PageProps<"/he-cua/[slug]"
 
       <DoorExplorer tenKieuCua={k.ten} />
 
-      <Section tone="toi" nhan="Thông số" tieuDe="Thông số kỹ thuật" moTa="Các giá trị sẽ được công bố cùng nguồn kiểm định khi có kết quả xác nhận.">
-        <dl className="kinh-mo grid divide-y divide-inox/20 rounded-sm sm:grid-cols-2 sm:divide-y-0 lg:grid-cols-3">
+      <Section tone="nga" nhan="Thông số" tieuDe="Thông số kỹ thuật" moTa="Các giá trị sẽ được công bố cùng nguồn kiểm định khi có kết quả xác nhận.">
+        <dl className="border border-than-chi/15 bg-white grid divide-y divide-than-chi/15 rounded-sm sm:grid-cols-2 sm:divide-y-0 lg:grid-cols-3">
           {THONG_SO_BANG.map((ten) => (
-            <div key={ten} className="border-inox/20 p-5 sm:border-b">
-              <dt className="nhan-muc text-nga/70">{ten}</dt>
+            <div key={ten} className="border-than-chi/15 p-5 sm:border-b">
+              <dt className="nhan-muc text-than-chi/70">{ten}</dt>
               <dd className="mt-2">
                 <ChoXacNhan />
               </dd>
@@ -77,12 +77,12 @@ export default async function KieuCuaPage({ params }: PageProps<"/he-cua/[slug]"
         </p>
       </Section>
 
-      <Section tone="toi" nhan="Tài liệu kỹ thuật" tieuDe="Tài liệu cho kiến trúc sư">
+      <Section tone="nga" nhan="Tài liệu kỹ thuật" tieuDe="Tài liệu cho kiến trúc sư">
         <ul className="grid gap-4 md:grid-cols-3">
           {["Mặt cắt DWG", "Mô hình BIM (RFA, IFC)", "Catalog / hồ sơ kỹ thuật"].map((t) => (
-            <li key={t} className="flex items-center justify-between border border-inox/25 p-5 opacity-80">
+            <li key={t} className="flex items-center justify-between border border-than-chi/20 p-5 opacity-80">
               <span className="text-sm font-semibold">{t}</span>
-              <span className="rounded-sm border border-inox/40 px-2 py-1 text-xs">Sắp có</span>
+              <span className="rounded-sm border border-than-chi/30 px-2 py-1 text-xs">Sắp có</span>
             </li>
           ))}
         </ul>
@@ -105,8 +105,8 @@ export default async function KieuCuaPage({ params }: PageProps<"/he-cua/[slug]"
         <Faq muc={FAQ_CHUNG.slice(0, 4)} />
       </Section>
 
-      <Section id="dang-ky" tone="toi" tieuDe={`Quan tâm ${k.ten.toLowerCase()}?`} moTa="Nhận hộp mẫu góc nhôm tại nhà. Chúng tôi không hỏi ngân sách và không đăng giá.">
-        <LeadForm loai="sample-box" tone="toi" kieuCuaMacDinh={k.ten} />
+      <Section id="dang-ky" tone="nga" tieuDe={`Quan tâm ${k.ten.toLowerCase()}?`} moTa="Nhận hộp mẫu góc nhôm tại nhà. Chúng tôi không hỏi ngân sách và không đăng giá.">
+        <LeadForm loai="sample-box" tone="sang" kieuCuaMacDinh={k.ten} />
       </Section>
 
       <Section tone="sang" nhan="Kiểu cửa khác">

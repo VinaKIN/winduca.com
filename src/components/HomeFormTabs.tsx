@@ -7,7 +7,7 @@ export function HomeFormTabs({ kieuCuaMacDinh }: { kieuCuaMacDinh?: string }) {
   const [tab, setTab] = useState<"sample-box" | "showroom">("sample-box");
   return (
     <div>
-      <div role="tablist" aria-label="Chọn hình thức" className="mb-8 flex gap-0 border-b border-inox/30">
+      <div role="tablist" aria-label="Chọn hình thức" className="mb-8 flex gap-0 border-b border-than-chi/20">
         {(
           [
             ["sample-box", "Nhận hộp mẫu"],
@@ -21,14 +21,14 @@ export function HomeFormTabs({ kieuCuaMacDinh }: { kieuCuaMacDinh?: string }) {
             aria-selected={tab === id}
             onClick={() => setTab(id)}
             className={`-mb-px border-b-2 px-5 py-3 text-sm font-semibold transition-colors ${
-              tab === id ? "border-champagne text-nga" : "border-transparent text-nga/60 hover:text-nga"
+              tab === id ? "border-champagne text-than-chi" : "border-transparent text-than-chi/55 hover:text-than-chi"
             }`}
           >
             {ten}
           </button>
         ))}
       </div>
-      <LeadForm key={tab} loai={tab} tone="toi" kieuCuaMacDinh={kieuCuaMacDinh} />
+      <LeadForm key={tab} loai={tab} tone="sang" kieuCuaMacDinh={kieuCuaMacDinh} />
     </div>
   );
 }

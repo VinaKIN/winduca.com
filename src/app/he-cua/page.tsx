@@ -52,11 +52,11 @@ export default function HeCua() {
         </ul>
       </Section>
 
-      <Section tone="toi" nhan="Chọn theo nhu cầu" tieuDe="Kiểu cửa nào phù hợp với không gian của bạn?">
+      <Section tone="nga" nhan="Chọn theo nhu cầu" tieuDe="Kiểu cửa nào phù hợp với không gian của bạn?">
         <div className="overflow-x-auto">
           <table className="w-full min-w-[720px] border-collapse text-left text-sm">
             <thead>
-              <tr className="border-b border-inox/30 text-nga/70">
+              <tr className="border-b border-than-chi/20 text-than-chi/70">
                 <th className="py-3 pr-4 font-semibold">Kiểu cửa</th>
                 <th className="py-3 pr-4 font-semibold">Không gian phù hợp</th>
                 <th className="py-3 pr-4 font-semibold">Khẩu độ</th>
@@ -65,21 +65,21 @@ export default function HeCua() {
             </thead>
             <tbody>
               {KIEU_CUA.map((k) => (
-                <tr key={k.slug} className="border-b border-inox/15 align-top">
+                <tr key={k.slug} className="border-b border-than-chi/10 align-top">
                   <td className="py-4 pr-4 font-semibold">
                     <Link href={`/he-cua/${k.slug}`} className="underline">
                       {k.ten}
                     </Link>
                   </td>
-                  <td className="py-4 pr-4 text-nga/85">{k.khongGian.join(" · ")}</td>
-                  <td className="py-4 pr-4 text-nga/85">{k.khauDo}</td>
-                  <td className="py-4 text-nga/85">{k.cachMo}</td>
+                  <td className="py-4 pr-4 text-than-chi/85">{k.khongGian.join(" · ")}</td>
+                  <td className="py-4 pr-4 text-than-chi/85">{k.khauDo}</td>
+                  <td className="py-4 text-than-chi/85">{k.cachMo}</td>
                 </tr>
               ))}
             </tbody>
           </table>
         </div>
-        <p className="mt-6 text-sm text-nga/70">
+        <p className="mt-6 text-sm text-than-chi/70">
           Bảng chỉ mang tính tham khảo theo nhu cầu sử dụng.{" "}
           <Link href="/lien-he" className="underline">
             Nhờ chuyên gia tư vấn kiểu cửa phù hợp

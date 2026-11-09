@@ -26,7 +26,7 @@
 }
 
 html {
-  background: var(--nga);
+  background: #ffffff; /* nền trắng (anh Huy chốt 09/11/2026); Ngà dùng cho các khối xen kẽ */
   color: var(--than-chi);
   scroll-behavior: smooth;
 }
@@ -36,7 +36,7 @@ body {
   font-size: 1rem;
   line-height: 1.6;
   font-variant-numeric: tabular-nums;
-  background: var(--nga);
+  background: #ffffff;
   color: var(--than-chi);
 }
 
@@ -107,6 +107,25 @@ body {
 .nut-vien:hover {
   background: var(--nga);
   color: var(--than-chi);
+}
+/* Nút trên nền sáng */
+.nut-dac {
+  background: var(--than-chi);
+  color: var(--nga);
+  border: 1px solid var(--than-chi);
+}
+.nut-dac:hover {
+  background: var(--champagne);
+  border-color: var(--champagne);
+  color: var(--than-chi);
+}
+.nut-vien-sang {
+  border: 1px solid var(--than-chi);
+  color: var(--than-chi);
+}
+.nut-vien-sang:hover {
+  background: var(--than-chi);
+  color: var(--nga);
 }
 }
 

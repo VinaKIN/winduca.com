@@ -62,12 +62,12 @@ export default function DanhChoKts() {
         </a>
       </PageHero>
 
-      <Section id="thu-vien" tone="toi" nhan="Thư viện kỹ thuật" tieuDe="DWG · PDF · BIM" moTa="Các tệp đang được hoàn thiện. Đăng ký để được báo khi có tệp.">
+      <Section id="thu-vien" tone="nga" nhan="Thư viện kỹ thuật" tieuDe="DWG · PDF · BIM" moTa="Các tệp đang được hoàn thiện. Đăng ký để được báo khi có tệp.">
         <ThuVienKts />
-        <div className="mt-14 max-w-3xl border-t border-inox/20 pt-10">
+        <div className="mt-14 max-w-3xl border-t border-than-chi/15 pt-10">
           <h3 className="tieu-de text-xl">Đăng ký nhận tài liệu</h3>
           <div className="mt-6">
-            <LeadForm loai="tai-lieu" tone="toi" />
+            <LeadForm loai="tai-lieu" tone="sang" />
           </div>
         </div>
       </Section>
@@ -76,17 +76,17 @@ export default function DanhChoKts() {
         <MatCat2D className="mx-auto aspect-[4/3] max-w-3xl" />
       </Section>
 
-      <Section tone="toi" nhan="Mô tả kỹ thuật mẫu" tieuDe="Mô tả để dán vào thuyết minh hoặc hồ sơ mời thầu." moTa="Văn bản định tính, chưa có số liệu kỹ thuật. Số liệu sẽ được bổ sung cùng nguồn kiểm định.">
+      <Section tone="nga" nhan="Mô tả kỹ thuật mẫu" tieuDe="Mô tả để dán vào thuyết minh hoặc hồ sơ mời thầu." moTa="Văn bản định tính, chưa có số liệu kỹ thuật. Số liệu sẽ được bổ sung cùng nguồn kiểm định.">
         <div className="grid gap-6 lg:grid-cols-2">
           {KIEU_CUA.map((k) => {
             const nd = moTaKyThuat(k.ten, k.cachMo);
             return (
-              <article key={k.slug} className="border border-inox/25 p-6">
+              <article key={k.slug} className="border border-than-chi/20 p-6">
                 <div className="flex items-center justify-between gap-4">
                   <h3 className="tieu-de text-lg">{k.ten}</h3>
                   <SaoChep noiDung={nd} />
                 </div>
-                <pre className="mt-4 whitespace-pre-wrap font-sans text-sm leading-relaxed text-nga/85">{nd}</pre>
+                <pre className="mt-4 whitespace-pre-wrap font-sans text-sm leading-relaxed text-than-chi/85">{nd}</pre>
               </article>
             );
           })}
@@ -112,8 +112,8 @@ export default function DanhChoKts() {
         </p>
       </Section>
 
-      <Section tone="toi" tieuDe="Gửi bản vẽ để tư vấn" moTa="Chúng tôi không hỏi ngân sách.">
-        <LeadForm loai="ban-ve" tone="toi" />
+      <Section tone="nga" tieuDe="Gửi bản vẽ để tư vấn" moTa="Chúng tôi không hỏi ngân sách.">
+        <LeadForm loai="ban-ve" tone="sang" />
       </Section>
 
       <Section tone="sang" nhan="Trao đổi trực tiếp" tieuDe="Đặt lịch trao đổi 1-1 hoặc đưa khách đến showroom.">

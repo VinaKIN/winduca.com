@@ -40,5 +40,5 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-# cho phép file m?u bi?n môi tru?ng (không ch?a khóa)
+# allow the env example file (contains no secrets)
 !.env.example

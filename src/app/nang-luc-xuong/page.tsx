@@ -51,16 +51,16 @@ export default function NangLucXuong() {
         </ol>
       </Section>
 
-      <Section tone="toi" nhan="Công đoạn tại xưởng" tieuDe="Những gì được làm tại xưởng.">
+      <Section tone="nga" nhan="Công đoạn tại xưởng" tieuDe="Những gì được làm tại xưởng.">
         <ul className="grid gap-4 md:grid-cols-2">
           {CONG_DOAN.map((c) => (
-            <li key={c} className="flex items-center gap-4 border border-inox/25 p-6">
+            <li key={c} className="flex items-center gap-4 border border-than-chi/20 p-6">
               <span className="h-2.5 w-2.5 shrink-0 rotate-45 bg-champagne" aria-hidden="true" />
               {c}
             </li>
           ))}
         </ul>
-        <p className="mt-8 max-w-2xl text-sm text-nga/70">
+        <p className="mt-8 max-w-2xl text-sm text-than-chi/70">
           Thanh nhôm định hình là vật tư đầu vào; xưởng thực hiện các công đoạn gia công, lắp ráp và hoàn thiện nêu trên.
         </p>
       </Section>
@@ -84,16 +84,16 @@ export default function NangLucXuong() {
         </p>
       </Section>
 
-      <Section tone="toi" nhan="Bảo vệ & bảo hành" tieuDe="Đến tay anh chị trong tình trạng nguyên vẹn.">
+      <Section tone="nga" nhan="Bảo vệ & bảo hành" tieuDe="Đến tay anh chị trong tình trạng nguyên vẹn.">
         <ul className="grid gap-4 md:grid-cols-3">
           {[
             ["Màng bảo vệ kính", "Bề mặt kính được bảo vệ trong quá trình vận chuyển và lắp đặt."],
             ["Băng bảo vệ thanh nhôm", "Bề mặt khung nhôm được bảo vệ cho đến khi bàn giao."],
             ["Dấu bảo hành & tem", "Mỗi bộ cửa có dấu bảo hành và tem. Thời hạn: theo chính sách công bố."],
           ].map(([t, m]) => (
-            <li key={t} className="border border-inox/25 p-6">
+            <li key={t} className="border border-than-chi/20 p-6">
               <h3 className="tieu-de text-lg">{t}</h3>
-              <p className="mt-2 text-sm text-nga/80">{m}</p>
+              <p className="mt-2 text-sm text-than-chi/80">{m}</p>
             </li>
           ))}
         </ul>

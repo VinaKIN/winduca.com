@@ -13,7 +13,7 @@ export function TuyenNgonVaBaThe() {
     { id: "khoi-nha-thau", nhan: "Nhà thầu", mota: "Gửi bản vẽ, nhận bóc tách từ đội kỹ thuật.", cta: "Gửi bản vẽ" },
   ];
   return (
-    <section className="bg-nga">
+    <section className="bg-white">
       <Wrap className="py-24 md:py-40">
         <p className="nhan-muc text-than-chi/70">02 / 09 · Dành cho ai</p>
         <p className="tieu-de mt-6 max-w-4xl text-3xl md:text-6xl">Chúng tôi chọn sự bền bỉ thay vì phô trương.</p>
@@ -23,7 +23,7 @@ export function TuyenNgonVaBaThe() {
             <li key={t.id}>
               <a
                 href={`#${t.id}`}
-                className="group relative block h-full border border-than-chi/20 bg-nga p-7 transition-colors duration-300 hover:bg-than-chi hover:text-nga"
+                className="group relative block h-full border border-than-chi/20 bg-white p-7 transition-colors duration-300 hover:bg-than-chi hover:text-nga"
               >
                 <span className="nhan-muc text-than-chi/60 group-hover:text-champagne">{String(i + 1).padStart(2, "0")}</span>
                 <span className="tieu-de mt-6 block text-2xl">{t.nhan}</span>
@@ -50,7 +50,7 @@ export function KhoiKTS() {
   return (
     <Section
       id="khoi-kts"
-      tone="toi"
+      tone="nga"
       nhan="03 / 09 · Kiến trúc sư & nhà thiết kế"
       tieuDe="Tài liệu kỹ thuật, sẵn sàng cho bản vẽ của bạn."
       moTa="Thư viện mặt cắt, mô hình BIM và hồ sơ kỹ thuật cho từng kiểu cửa. Đang được hoàn thiện cùng đội kỹ thuật."
@@ -58,22 +58,22 @@ export function KhoiKTS() {
       <div className="grid gap-8 lg:grid-cols-[1.2fr_1fr]">
         <MatCat2D className="aspect-[4/3]" />
         <div>
-          <ul className="divide-y divide-inox/20 border-y border-inox/20">
+          <ul className="divide-y divide-than-chi/15 border-y border-than-chi/15">
             {tep.map((t) => (
-              <li key={t.ten} className="flex items-center justify-between gap-4 py-5 opacity-80">
+              <li key={t.ten} className="flex items-center justify-between gap-4 py-5">
                 <span>
                   <span className="block text-sm font-semibold">{t.ten}</span>
-                  <span className="mt-1 block text-xs text-nga/60">{t.loai}</span>
+                  <span className="mt-1 block text-xs text-than-chi/60">{t.loai}</span>
                 </span>
-                <span className="rounded-sm border border-inox/40 px-2 py-1 text-xs">Sắp có</span>
+                <span className="rounded-sm border border-than-chi/30 px-2 py-1 text-xs">Sắp có</span>
               </li>
             ))}
           </ul>
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-            <Link href="/danh-cho-kts#thu-vien" className="nut nut-chinh">
+            <Link href="/danh-cho-kts#thu-vien" className="nut nut-dac">
               Tải thư viện kỹ thuật
             </Link>
-            <Link href="/danh-cho-kts#tu-van" className="nut nut-vien">
+            <Link href="/danh-cho-kts#tu-van" className="nut nut-vien-sang">
               Gửi bản vẽ để tư vấn
             </Link>
           </div>
@@ -92,14 +92,14 @@ export function KhoiChuNha() {
   return (
     <Section
       id="khoi-chu-nha"
-      tone="sang"
+      tone="nga"
       nhan="05 / 09 · Chủ nhà"
       tieuDe="Chạm vào chất liệu, trước khi quyết định."
       moTa="Nhận hộp mẫu góc nhôm tại nhà, hoặc đặt lịch trải nghiệm tại showroom WINDUCA."
     >
       <div className="grid gap-px border border-than-chi/15 bg-than-chi/15 md:grid-cols-3">
         {noiDau.map((n, i) => (
-          <div key={n.t} className="bg-nga p-8">
+          <div key={n.t} className="bg-white p-8">
             <span className="nhan-muc text-than-chi/60">{String(i + 1).padStart(2, "0")}</span>
             <h3 className="tieu-de mt-6 text-xl">{n.t}</h3>
             <p className="mt-3 text-sm text-than-chi/80">{n.m}</p>
@@ -120,10 +120,10 @@ export function KhoiChuNha() {
             ngay trong hộp mẫu.
           </p>
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-            <Link href="/trai-nghiem#sample-box" className="nut border border-than-chi bg-than-chi text-nga hover:bg-nga hover:text-than-chi">
+            <Link href="/trai-nghiem#sample-box" className="nut nut-dac">
               Nhận hộp mẫu góc nhôm
             </Link>
-            <Link href="/trai-nghiem#showroom" className="nut border border-than-chi text-than-chi hover:bg-than-chi hover:text-nga">
+            <Link href="/trai-nghiem#showroom" className="nut nut-vien-sang">
               Đặt lịch xem showroom
             </Link>
           </div>
@@ -137,12 +137,12 @@ export function KhoiNhaThau() {
   return (
     <Section
       id="khoi-nha-thau"
-      tone="toi"
+      tone="sang"
       nhan="06 / 09 · Nhà thầu"
       tieuDe="Gửi bản vẽ, nhận bóc tách."
       moTa="Đội kỹ thuật WINDUCA đề xuất giải pháp và bóc tách theo bản vẽ của công trình. Chúng tôi không hỏi ngân sách."
     >
-      <LeadForm loai="ban-ve" tone="toi" />
+      <LeadForm loai="ban-ve" tone="sang" />
     </Section>
   );
 }
@@ -156,7 +156,7 @@ export function QuyTrinh() {
     { t: "Bảo hành & bảo trì", m: "Theo chính sách công bố của WINDUCA." },
   ];
   return (
-    <Section id="quy-trinh" tone="sang" nhan="07 / 09 · Quy trình" tieuDe="Từ buổi tư vấn đến ngày bàn giao.">
+    <Section id="quy-trinh" tone="nga" nhan="07 / 09 · Quy trình" tieuDe="Từ buổi tư vấn đến ngày bàn giao.">
       <ol className="grid gap-0 md:grid-cols-5">
         {buoc.map((b, i) => (
           <li key={b.t} className="relative border-t border-champagne pt-8 md:pr-6">
@@ -179,7 +179,6 @@ export function CongTrinhMinhHoa() {
       nhan="08 / 09 · Cảm hứng & tham chiếu"
       tieuDe="Cảm hứng từ những không gian sống."
       moTa="Các hình dưới đây là hình minh họa. Công trình thực tế của WINDUCA đang được cập nhật."
-      className="border-t border-than-chi/10"
     >
       <ul className="grid grid-cols-2 gap-3 md:grid-cols-3">
         {CONG_TRINH_MINH_HOA.slice(0, 6).map((c, i) => (
@@ -204,12 +203,12 @@ export function CongTrinhMinhHoa() {
 export function FaqVaForm() {
   return (
     <>
-      <Section id="faq" tone="sang" nhan="09 / 09 · Câu hỏi thường gặp" tieuDe="Những điều anh chị thường hỏi." className="border-t border-than-chi/10">
+      <Section id="faq" tone="nga" nhan="09 / 09 · Câu hỏi thường gặp" tieuDe="Những điều anh chị thường hỏi.">
         <Faq muc={FAQ_CHUNG} />
       </Section>
       <Section
         id="dang-ky"
-        tone="toi"
+        tone="sang"
         tieuDe="Bắt đầu cho ngôi nhà của bạn"
         moTa="Nhận hộp mẫu góc nhôm, hoặc đăng ký lịch tư vấn trực tiếp từ chuyên viên WINDUCA."
       >

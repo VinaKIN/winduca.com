@@ -48,7 +48,7 @@ export function LeadForm({ loai, tone = "sang", kieuCuaMacDinh = "", khiXong }: 
   const o = `mt-2 w-full rounded-[2px] border px-3 py-3 text-base outline-none transition-colors focus:border-champagne ${
     toi
       ? "border-inox/40 bg-than-chi/40 text-nga placeholder:text-nga/50"
-      : "border-than-chi/25 bg-nga text-than-chi placeholder:text-than-chi/50"
+      : "border-than-chi/25 bg-white text-than-chi placeholder:text-than-chi/50"
   }`;
   const phu = `mt-1 text-xs ${toi ? "text-nga/60" : "text-than-chi/60"}`;
   const loiCss = "mt-1 text-xs text-do-do " + (toi ? "!text-[#e0a0a8]" : "");

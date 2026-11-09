@@ -4,7 +4,12 @@ export function Wrap({ children, className = "" }: { children: ReactNode; classN
   return <div className={`mx-auto max-w-[1440px] px-5 md:px-10 ${className}`}>{children}</div>;
 }
 
-/** Khối trang: nền sáng (Ngà) hoặc tối (Than chì), có nhãn số kiểu tạp chí */
+/**
+ * Khối trang. Nền trắng là mặc định (anh Huy 09/11/2026):
+ *  - "sang": nền trắng
+ *  - "nga": nền Ngà (#F4F1EA) xen kẽ
+ *  - "toi": nền Than chì — chỉ dành cho khối cần tương phản (ví dụ khung 3D)
+ */
 export function Section({
   id,
   tone = "sang",
@@ -15,7 +20,7 @@ export function Section({
   className = "",
 }: {
   id?: string;
-  tone?: "sang" | "toi";
+  tone?: "sang" | "nga" | "toi";
   nhan?: string;
   tieuDe?: string;
   moTa?: string;
@@ -23,8 +28,9 @@ export function Section({
   className?: string;
 }) {
   const toi = tone === "toi";
+  const nen = toi ? "bg-than-chi text-nga" : tone === "nga" ? "bg-nga text-than-chi" : "bg-white text-than-chi";
   return (
-    <section id={id} className={`${toi ? "bg-than-chi text-nga" : "bg-nga text-than-chi"} ${className}`}>
+    <section id={id} className={`${nen} ${className}`}>
       <Wrap className="py-20 md:py-32">
         {nhan && <p className={`nhan-muc ${toi ? "text-champagne" : "text-than-chi/70"}`}>{nhan}</p>}
         {tieuDe && <h2 className="tieu-de mt-4 max-w-3xl text-3xl md:text-5xl">{tieuDe}</h2>}
@@ -39,7 +45,7 @@ export function Section({
   );
 }
 
-/** Hero ngắn cho trang con (nền Than chì) */
+/** Hero ngắn cho trang con (nền Than chì, sẽ nhận ảnh/video khi có) */
 export function PageHero({
   nhan,
   tieuDe,
@@ -66,7 +72,7 @@ export function PageHero({
         </defs>
         <rect width="100%" height="100%" fill="url(#luoi-10)" />
       </svg>
-      <Wrap className="relative pb-16 pt-36 md:pb-24 md:pt-48">
+      <Wrap className="relative pb-16 pt-40 md:pb-24 md:pt-52">
         <p className="nhan-muc text-champagne">{nhan}</p>
         <h1 className="tieu-de mt-5 max-w-4xl text-4xl md:text-6xl">{tieuDe}</h1>
         {moTa && <p className="mt-6 max-w-2xl text-base font-light text-nga/85 md:text-lg">{moTa}</p>}
@@ -87,10 +93,10 @@ export function NhanMinhHoa({ className = "" }: { className?: string }) {
   );
 }
 
-/** Nhãn trạng thái. Champagne CHỈ dùng trên nền tối (brand kit: không dùng làm chữ trên nền Ngà). */
+/** Nhãn trạng thái. Champagne CHỈ dùng trên nền tối (brand kit: không dùng làm chữ trên nền sáng). */
 export function ChoXacNhan({
   children = "Đang chờ xác nhận",
-  tone = "toi",
+  tone = "sang",
 }: {
   children?: ReactNode;
   tone?: "sang" | "toi";

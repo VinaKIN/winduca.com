@@ -76,8 +76,8 @@ export default async function ChiTiet({ params }: PageProps<"/cong-trinh/[slug]"
         </ul>
       </Section>
 
-      <Section tone="toi" tieuDe="Tôi muốn không gian như thế này" moTa="Chúng tôi ghi nhận tham chiếu để chuyên viên tư vấn đúng nhu cầu. Không hỏi ngân sách.">
-        <LeadForm loai="lien-he" tone="toi" />
+      <Section tone="nga" tieuDe="Tôi muốn không gian như thế này" moTa="Chúng tôi ghi nhận tham chiếu để chuyên viên tư vấn đúng nhu cầu. Không hỏi ngân sách.">
+        <LeadForm loai="lien-he" tone="sang" />
       </Section>
 
       <Section tone="sang">

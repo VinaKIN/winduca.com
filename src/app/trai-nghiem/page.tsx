@@ -43,8 +43,8 @@ export default function TraiNghiem() {
         </ol>
       </Section>
 
-      <Section tone="toi" tieuDe="Đăng ký nhận hộp mẫu" moTa="Chúng tôi không hỏi ngân sách và không đăng giá.">
-        <LeadForm loai="sample-box" tone="toi" />
+      <Section tone="nga" tieuDe="Đăng ký nhận hộp mẫu" moTa="Chúng tôi không hỏi ngân sách và không đăng giá.">
+        <LeadForm loai="sample-box" tone="sang" />
       </Section>
 
       {/* Showroom */}
@@ -96,8 +96,8 @@ export default function TraiNghiem() {
         </div>
       </Section>
 
-      <Section tone="toi" tieuDe="Đặt lịch trải nghiệm showroom" moTa="Chuyên viên sẽ xác nhận giờ cụ thể qua điện thoại.">
-        <LeadForm loai="showroom" tone="toi" />
+      <Section tone="nga" tieuDe="Đặt lịch trải nghiệm showroom" moTa="Chuyên viên sẽ xác nhận giờ cụ thể qua điện thoại.">
+        <LeadForm loai="showroom" tone="sang" />
       </Section>
 
       <Section tone="sang" nhan="Dành cho kiến trúc sư">
