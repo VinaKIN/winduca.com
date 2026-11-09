@@ -1,10 +1,12 @@
 import Image from "next/image";
+import Link from "next/link";
+import { HOTLINE, HOTLINE_TEL, MENU } from "@/lib/site";
 
 export function Footer() {
   return (
     <footer className="bg-than-chi text-nga">
       <div className="mx-auto max-w-[1440px] px-5 py-16 md:px-10 md:py-24">
-        <div className="grid gap-12 md:grid-cols-[1.2fr_1fr_1fr]">
+        <div className="grid gap-12 md:grid-cols-[1.2fr_1fr_1fr_1fr]">
           <div>
             <Image
               src="/brand/WINDUCA-chinh-slogan-am-ban.svg"
@@ -19,10 +21,21 @@ export function Footer() {
           </div>
 
           <div>
+            <p className="nhan-muc text-champagne">Trang</p>
+            <ul className="mt-5 space-y-2 text-sm">
+              {MENU.map((m) => (
+                <li key={m.href}>
+                  <Link href={m.href}>{m.label}</Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div>
             <p className="nhan-muc text-champagne">Liên hệ</p>
             <ul className="mt-5 space-y-2 text-sm">
               <li>
-                <a href="tel:0947686668">Hotline 0947 686 668</a>
+                <a href={HOTLINE_TEL}>Hotline {HOTLINE}</a>
               </li>
               <li className="text-inox">Email: [CHỖ TRỐNG]</li>
               <li className="text-inox">Địa chỉ showroom: [CHỜ XÁC NHẬN]</li>
@@ -31,18 +44,23 @@ export function Footer() {
 
           <div>
             <p className="nhan-muc text-champagne">Pháp lý</p>
-            <ul className="mt-5 space-y-2 text-sm text-inox">
-              <li>[CHỖ TRỐNG] Tên pháp nhân</li>
-              <li>[CHỖ TRỐNG] Mã số thuế</li>
-              <li>[CHỖ TRỐNG] Địa chỉ đăng ký</li>
+            <ul className="mt-5 space-y-2 text-sm">
+              <li>
+                <Link href="/chinh-sach-bao-mat">Chính sách bảo mật</Link>
+              </li>
+              <li>
+                <Link href="/dieu-khoan-su-dung">Điều khoản sử dụng</Link>
+              </li>
+              <li>
+                <Link href="/chinh-sach-cookie">Chính sách cookie</Link>
+              </li>
+              <li className="pt-2 text-inox">[CHỖ TRỐNG] Tên pháp nhân · MST · Địa chỉ</li>
             </ul>
           </div>
         </div>
 
         <div className="mt-16 h-px bg-champagne" />
-        <p className="mt-6 text-xs text-inox">
-          © 2026 WINDUCA. Hình ảnh trên trang mang tính minh họa.
-        </p>
+        <p className="mt-6 text-xs text-inox">© 2026 WINDUCA. Hình ảnh trên trang mang tính minh họa.</p>
       </div>
     </footer>
   );

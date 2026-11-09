@@ -47,7 +47,15 @@ const THONG_SO = [
   "Hệ số truyền nhiệt khung (Uf)",
 ];
 
-export function CrossSection() {
+export function CrossSection({
+  nhan = "04 / 09 · Cấu tạo",
+  tieuDe = "Xem tận mắt cấu tạo",
+  mauNhom = "#bfa678",
+}: {
+  nhan?: string;
+  tieuDe?: string;
+  mauNhom?: string;
+}) {
   const khung = useRef<HTMLDivElement>(null);
   const [thayDuoc, setThayDuoc] = useState(false);
   const webgl = useWebGL();
@@ -80,9 +88,9 @@ export function CrossSection() {
   return (
     <section id="mat-cat" className="bg-than-chi text-nga" aria-labelledby="tieu-de-mat-cat">
       <div className="mx-auto max-w-[1440px] px-5 py-24 md:px-10 md:py-36">
-        <p className="nhan-muc text-champagne">02 / 09 · Cấu tạo</p>
+        <p className="nhan-muc text-champagne">{nhan}</p>
         <h2 id="tieu-de-mat-cat" className="tieu-de mt-4 max-w-2xl text-3xl md:text-5xl">
-          Xem tận mắt cấu tạo
+          {tieuDe}
         </h2>
         <p className="mt-5 max-w-xl text-base font-light text-nga/85 md:text-lg">
           Tiêu chuẩn kỹ thuật châu Âu, trong từng lớp cấu tạo.
@@ -98,7 +106,7 @@ export function CrossSection() {
 
             <div className="absolute inset-0">
               {hien3D ? (
-                <Canvas3D tach={tach} chon={chon} tuXoay={tuXoay} />
+                <Canvas3D tach={tach} chon={chon} tuXoay={tuXoay} mauNhom={mauNhom} />
               ) : (
                 <div className="relative h-full w-full">
                   <MatCatTinh />

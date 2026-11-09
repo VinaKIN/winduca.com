@@ -94,7 +94,7 @@ function Khoi({
   );
 }
 
-function MatCat({ tach, chon }: { tach: number; chon: LopId | null }) {
+function MatCat({ tach, chon, mauNhom }: { tach: number; chon: LopId | null; mauNhom: string }) {
   const dim = (id: LopId) => (chon && chon !== id ? 0.18 : 1);
 
   const nhomNgoai = useMemo(() => hinhChuNhat(-3.4, -3.5, -0.6, 3.5, [-2.8, -2.6, -1.2, 2.6]), []);
@@ -111,8 +111,8 @@ function MatCat({ tach, chon }: { tach: number; chon: LopId | null }) {
   return (
     <group position={[-1.3, 0, 0]}>
       {/* Khung nhôm: hai nửa dạt ra hai bên khi tách lớp */}
-      <Khoi shape={nhomNgoai} mau="#bfa678" vitri={[-1.8 * tach, 0, 0]} mo={dim("nhom")} kim={0.65} tho={0.42} />
-      <Khoi shape={nhomTrong} mau="#bfa678" vitri={[1.8 * tach, 0, 0]} mo={dim("nhom")} kim={0.65} tho={0.42} />
+      <Khoi shape={nhomNgoai} mau={mauNhom} vitri={[-1.8 * tach, 0, 0]} mo={dim("nhom")} kim={0.65} tho={0.42} />
+      <Khoi shape={nhomTrong} mau={mauNhom} vitri={[1.8 * tach, 0, 0]} mo={dim("nhom")} kim={0.65} tho={0.42} />
       {/* Thanh cầu cách nhiệt: dạt lên/xuống */}
       <Khoi shape={cauTren} mau="#f4f1ea" vitri={[0, 1.6 * tach, 0]} mo={dim("cau")} />
       <Khoi shape={cauDuoi} mau="#f4f1ea" vitri={[0, -1.6 * tach, 0]} mo={dim("cau")} />
@@ -132,10 +132,12 @@ export default function CrossSection3D({
   tach,
   chon,
   tuXoay,
+  mauNhom = "#bfa678",
 }: {
   tach: number;
   chon: LopId | null;
   tuXoay: boolean;
+  mauNhom?: string;
 }) {
   return (
     <Canvas
@@ -147,7 +149,7 @@ export default function CrossSection3D({
       <ambientLight intensity={0.9} />
       <directionalLight position={[6, 8, 8]} intensity={2.2} color="#fff1dc" />
       <directionalLight position={[-6, -3, 4]} intensity={0.8} color="#dde3df" />
-      <MatCat tach={tach} chon={chon} />
+      <MatCat tach={tach} chon={chon} mauNhom={mauNhom} />
       <OrbitControls
         enableZoom={false}
         enablePan={false}

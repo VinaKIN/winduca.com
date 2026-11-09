@@ -69,7 +69,7 @@ body {
 
 /* Kính mờ: chỉ dùng cho header, thẻ thông số 3D, cửa sổ bật. Blur nhẹ, viền 1px, KHÔNG gradient */
 .kinh-mo {
-  background: rgba(43, 43, 45, 0.6);
+  background: rgba(43, 43, 45, 0.92); /* đủ đặc để chữ Ngà luôn đạt tương phản, kể cả khi trượt qua section sáng */
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   border: 1px solid rgba(200, 201, 198, 0.25);

@@ -97,11 +97,20 @@ Cấu trúc 9 mục trang chủ bản đã sửa · chính sách Sample Box (ph�
 
 | Mốc | Nội dung | Trạng thái |
 |---|---|---|
-| 1 | Khung, token, header/footer, hero cửa trượt, mặt cắt 3D tách lớp | ✅ dựng (chờ anh duyệt) |
-| 2 | Ba thẻ lối tắt, khối KTS/Chủ nhà/Nhà thầu, quy trình, công trình minh họa, FAQ, form | ⏳ |
-| 3 | Trang Hệ cửa + 4 kiểu cửa, Trải nghiệm, Dành cho KTS | ⏳ |
-| 4 | Công trình, Năng lực & Xưởng, Liên hệ, Chính sách, 404, `/cam-on` | ⏳ |
-| 5 | Sanity CMS, form thật (email + Telegram), cookie, đo lường | ⏳ |
-| 6 | Kiểm thử thiết bị, Lighthouse, kiểm duyệt ranh đỏ, Vercel, anh duyệt, trỏ tên miền | ⏳ |
+| 1 | Khung, token, header/footer, hero cửa trượt, mặt cắt 3D tách lớp | ✅ dựng |
+| 2 | Trang chủ đủ 9 khối: ba thẻ lối tắt, KTS, Chủ nhà, Nhà thầu, quy trình, công trình minh họa, FAQ, form | ✅ dựng |
+| 3 | Hệ cửa + 4 kiểu cửa, Trải nghiệm (hộp mẫu), Dành cho KTS | ✅ dựng |
+| 4 | Công trình (+chi tiết minh họa), Năng lực & Xưởng, Liên hệ, 3 trang chính sách (bản nháp), 404, `/cam-on` | ✅ dựng |
+| 5 | Biểu mẫu + `/api/lead` (chuyển tiếp kho nhận, Telegram chỉ mã), cookie banner | ✅ dựng; **chờ cấu hình**: kho nhận, Telegram, Turnstile |
+| 5b | Sanity CMS cho team marketing | ⏳ chưa làm |
+| 6 | Kiểm thử thiết bị thật, Lighthouse, kiểm duyệt ranh đỏ lần cuối, Vercel, anh duyệt, trỏ tên miền | ⏳ |
+
+### Việc còn lại trước go-live
+- Nối kho nhận lead (`LEAD_WEBHOOK_URL/SECRET`), Telegram, Turnstile; đặt email chung.
+- Thay cảnh minh họa bằng ảnh thật (hero, công trình); mặt cắt 3D bằng biên dạng thật (cần DWG).
+- Điền dữ liệu `[CHỖ TRỐNG]`/`[CHỜ XÁC NHẬN]`: pháp nhân, địa chỉ showroom, chính sách Sample Box, bảo hành, thông tin xưởng.
+- Pháp chế duyệt 3 trang chính sách (hiện là bản nháp, có banner trên trang).
+- Google Maps nhúng (chỉ tải sau đồng ý cookie) khi có địa chỉ; GA4/Meta Pixel khi có khóa.
+- Gắn Sanity, kiểm thử trên thiết bị thật, Lighthouse mobile ≥ 90.
 
 **Quy tắc đẩy code:** commit cục bộ mỗi mốc; **chỉ push lên GitHub sau khi anh Huy duyệt** mốc có nội dung công khai (câu 197).

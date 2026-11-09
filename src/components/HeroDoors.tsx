@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { useMediaQuery } from "@/lib/hooks";
 
@@ -185,12 +186,12 @@ export function HeroDoors() {
               tràn viền cho biệt thự và penthouse.
             </p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-              <a href="#dang-ky" className="nut nut-chinh sm:max-w-sm">
+              <Link href="/trai-nghiem#sample-box" className="nut nut-chinh sm:max-w-sm">
                 Đăng Ký Trải Nghiệm Hộp Mẫu Góc Nhôm Tận Nơi
-              </a>
-              <a href="#dang-ky" className="nut nut-vien sm:max-w-sm">
+              </Link>
+              <Link href="/trai-nghiem#showroom" className="nut nut-vien sm:max-w-sm">
                 Đặt Lịch Trải Nghiệm Showroom Thực Tế
-              </a>
+              </Link>
             </div>
           </div>
         </div>
