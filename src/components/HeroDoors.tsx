@@ -10,7 +10,7 @@ import { useMediaQuery } from "@/lib/hooks";
 function HeroMedia({ anh, video }: { anh: string | null; video: string | null }) {
   return (
     <>
-      {anh && <Image src={anh} alt="" fill priority sizes="100vw" className="object-cover" />}
+      {anh && <Image src={anh} alt="" fill priority quality={60} sizes="100vw" className="object-cover" />}
       {video && (
         <video
           className="absolute inset-0 h-full w-full object-cover"
@@ -155,7 +155,7 @@ export function HeroDoors() {
         </div>
 
         {/* LỚP PHỦ PHẲNG Than chì để chữ đọc rõ (không gradient) */}
-        <div className="absolute inset-0 bg-than-chi/35" aria-hidden="true" />
+        <div className="absolute inset-0 bg-than-chi/45" aria-hidden="true" />
 
         {/* HAI TẤM CỬA TRƯỢT */}
         <div className="pointer-events-none absolute inset-0 flex" aria-hidden="true">

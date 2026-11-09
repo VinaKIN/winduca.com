@@ -1,9 +1,10 @@
+import Image from "next/image";
 import Link from "next/link";
 import { CanhMinhHoa, MatCat2D } from "./Illustration";
 import { Faq } from "./Faq";
 import { LeadForm } from "./LeadForm";
 import { HomeFormTabs } from "./HomeFormTabs";
-import { Section, Wrap, ChoXacNhan } from "./ui";
+import { Section, Wrap, ChoXacNhan, NhanMinhHoa } from "./ui";
 import { CONG_TRINH_MINH_HOA, FAQ_CHUNG, KIEU_CUA } from "@/lib/site";
 
 export function TuyenNgonVaBaThe() {
@@ -111,7 +112,16 @@ export function KhoiChuNha() {
       </div>
 
       <div className="mt-16 grid items-center gap-10 lg:grid-cols-2">
-        <CanhMinhHoa seed={2} className="aspect-[4/3]" />
+        <div className="relative aspect-[4/3] overflow-hidden bg-than-chi">
+          <Image
+            src="/images/chu-nha.jpg"
+            alt="Phòng khách mở ra hồ bơi qua cửa kính lớn (hình minh họa)"
+            fill
+            sizes="(min-width: 1024px) 50vw, 100vw"
+            className="object-cover"
+          />
+          <NhanMinhHoa className="left-3 top-3" />
+        </div>
         <div>
           <p className="nhan-muc text-than-chi/70">Hoàn thiện &amp; cảm giác chạm</p>
           <h3 className="tieu-de mt-4 text-2xl md:text-3xl">Bề mặt anode hóa và sơn tĩnh điện</h3>
