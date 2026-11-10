@@ -38,7 +38,7 @@ export function GioiThieuKhoi() {
     { so: "02", t: "Danh mục đa dạng", m: "Bốn kiểu cửa: trượt nâng, đi mở quay, xếp trượt và cửa sổ, cùng hệ phụ kiện đồng bộ." },
   ];
   return (
-    <section className="bg-white py-10 md:py-12">
+    <section className="bg-white py-8 md:py-10">
       <Wrap>
         <div className="grid items-center gap-12 lg:grid-cols-[1fr_1.05fr] lg:gap-14">
           <div>
@@ -88,12 +88,12 @@ export function GioiThieuKhoi() {
 /* ---------- Sản phẩm nổi bật ---------- */
 export function SanPhamKhoi() {
   return (
-    <section className="overflow-hidden bg-nga py-10 md:py-[6.5rem]">
+    <section className="overflow-hidden bg-nga py-8 md:py-10">
       <div className="text-center">
         <NhanDo>Sản phẩm</NhanDo>
         <h2 className="mt-3 text-[clamp(1.75rem,3.4vw,2.75rem)] font-light">Hệ cửa nổi bật</h2>
       </div>
-      <div className="mt-12">
+      <div className="mt-6">
         <SanPhamBangChuyen />
       </div>
     </section>
@@ -114,7 +114,7 @@ export function DichVuKhoi() {
     { n: "Số quốc gia" },
   ];
   return (
-    <section className="bg-white py-10 md:py-12">
+    <section className="bg-white py-8 md:py-10">
       <Wrap>
         <div className="grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:gap-14">
           <div className="lg:sticky lg:top-32 lg:self-start">
@@ -141,10 +141,10 @@ export function DichVuKhoi() {
           <ul className="flex snap-x snap-mandatory gap-4 overflow-x-auto pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
             {dv.map((d) => (
               <li key={d.so} className="w-full shrink-0 snap-center">
-                <Link href="/lien-he" className="group relative block min-h-[340px] overflow-hidden rounded-[24px] bg-than-chi text-white md:min-h-[400px] md:rounded-[32px]">
+                <Link href="/lien-he" className="group relative block min-h-[340px] overflow-hidden rounded-[24px] bg-than-chi text-white md:h-[clamp(300px,52svh,440px)] md:min-h-0 md:rounded-[32px]">
                   <Image src={asset(d.anh)} alt="" fill quality={60} sizes="(min-width: 1024px) 45vw, 100vw" className="object-cover transition-transform duration-700 group-hover:scale-[1.04]" style={{ objectPosition: d.pos }} />
                   <div className="absolute inset-0 bg-than-chi/55" aria-hidden="true" />
-                  <div className="relative flex h-full min-h-[340px] flex-col justify-between p-6 md:min-h-[400px] md:p-8">
+                  <div className="relative flex h-full min-h-[340px] flex-col justify-between p-6 md:min-h-0 md:p-8">
                     <span className="text-sm font-bold text-white/80">{d.so}</span>
                     <div className="flex items-end justify-between gap-6">
                       <div>
@@ -174,7 +174,7 @@ export function CongTrinhKhoi() {
     { src: RESORT, pos: "50% 50%" },
   ];
   return (
-    <section className="bg-nga py-10 md:py-12">
+    <section className="bg-nga py-8 md:py-10">
       <Wrap>
         <div className="flex flex-wrap items-end justify-between gap-6">
           <div>
@@ -185,10 +185,10 @@ export function CongTrinhKhoi() {
             Xem thêm
           </Link>
         </div>
-        <ul className="mt-12 grid gap-5 md:grid-cols-3">
+        <ul className="mt-6 grid gap-5 md:grid-cols-3">
           {LOAI_DU_AN.map((l, i) => (
             <li key={l}>
-              <Link href="/cong-trinh" className="group relative block aspect-[4/5] overflow-hidden rounded-[24px] bg-than-chi md:rounded-[32px]">
+              <Link href="/cong-trinh" className="group relative block aspect-[4/5] overflow-hidden md:aspect-auto md:h-[clamp(260px,52svh,480px)] rounded-[24px] bg-than-chi md:rounded-[32px]">
                 <Image src={asset(anh[i].src)} alt="" fill quality={60} sizes="(min-width: 768px) 30vw, 100vw" className="object-cover transition-transform duration-700 group-hover:scale-[1.05]" style={{ objectPosition: anh[i].pos }} />
                 <div className="absolute inset-0 bg-than-chi/35" aria-hidden="true" />
                 <NhanMinhHoa className="left-4 top-4" />
@@ -272,7 +272,7 @@ export const BAI_SAP_CO = [
 
 export function TinTucKhoi() {
   return (
-    <section className="bg-white py-10 md:py-12">
+    <section className="bg-white py-8 md:py-10">
       <Wrap>
         <div className="flex flex-wrap items-end justify-between gap-6">
           <div>

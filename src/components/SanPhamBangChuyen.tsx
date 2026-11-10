@@ -52,14 +52,14 @@ export function SanPhamBangChuyen() {
         ref={ds}
         onScroll={khiCuon}
         aria-label="Danh sách hệ cửa"
-        className="flex snap-x snap-mandatory gap-4 overflow-x-auto px-5 pb-2 [scrollbar-width:none] md:gap-6 md:px-[8vw] [&::-webkit-scrollbar]:hidden"
+        className="flex snap-x snap-mandatory gap-4 overflow-x-auto px-5 pb-2 [scrollbar-width:none] md:gap-6 md:px-10 [&::-webkit-scrollbar]:hidden"
       >
         {KIEU_CUA.map((k, n) => (
           <li
             key={k.slug}
             className="relative grid w-[88%] shrink-0 snap-center overflow-hidden rounded-[28px] bg-than-chi text-white md:w-[78%] md:grid-cols-[1.15fr_1fr] md:rounded-[36px]"
           >
-            <div className="relative min-h-[240px] md:min-h-[420px]">
+            <div className="relative min-h-[240px] md:h-[clamp(300px,50svh,460px)] md:min-h-0">
               <Image
                 src={asset(ANH[n % ANH.length].src)}
                 alt=""
