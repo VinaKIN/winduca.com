@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useRef, useState } from "react";
+import { useRef, useState, type PointerEvent as RPointerEvent } from "react";
 import { asset } from "@/lib/asset";
 import { KIEU_CUA } from "@/lib/site";
 
@@ -33,6 +33,45 @@ const ANH_HOVER = [
 export function SanPhamBangChuyen() {
   const ds = useRef<HTMLUListElement>(null);
   const [chiSo, setChiSo] = useState(0);
+  const [dangKeo, setDangKeo] = useState(false);
+  const keo = useRef({ giu: false, x: 0, trai: 0, daKeo: false, vx: 0, tx: 0 });
+
+  /** Kéo bằng chuột: giữ và rê ngang, thả ra thì thẻ gần nhất tự về giữa (hoặc thẻ kế bên nếu vẩy nhanh). */
+  function xuongChuot(e: RPointerEvent<HTMLUListElement>) {
+    if (e.pointerType !== "mouse" || e.button !== 0) return;
+    const el = ds.current;
+    if (!el) return;
+    keo.current = { giu: true, x: e.clientX, trai: el.scrollLeft, daKeo: false, vx: 0, tx: e.clientX };
+  }
+  function diChuot(e: RPointerEvent<HTMLUListElement>) {
+    const k = keo.current;
+    const el = ds.current;
+    if (!k.giu || !el) return;
+    const dx = e.clientX - k.x;
+    if (!k.daKeo && Math.abs(dx) > 6) {
+      k.daKeo = true;
+      setDangKeo(true);
+      el.setPointerCapture(e.pointerId);
+    }
+    if (k.daKeo) {
+      k.vx = e.clientX - k.tx;
+      k.tx = e.clientX;
+      el.scrollLeft = k.trai - dx;
+    }
+  }
+  function thaChuot() {
+    const k = keo.current;
+    if (!k.giu) return;
+    k.giu = false;
+    if (!k.daKeo) return;
+    setDangKeo(false);
+    const nhanh = Math.abs(k.vx) > 12;
+    toi(nhanh ? chiSo + (k.vx < 0 ? 1 : -1) : chiSo);
+    // chặn cú bấm sau khi kéo, để không mở nhầm liên kết
+    setTimeout(() => {
+      keo.current.daKeo = false;
+    }, 0);
+  }
 
   function toi(k: number) {
     const el = ds.current;
@@ -65,8 +104,20 @@ export function SanPhamBangChuyen() {
       <ul
         ref={ds}
         onScroll={khiCuon}
+        onPointerDown={xuongChuot}
+        onPointerMove={diChuot}
+        onPointerUp={thaChuot}
+        onPointerCancel={thaChuot}
+        onClickCapture={(e) => {
+          if (keo.current.daKeo) {
+            e.preventDefault();
+            e.stopPropagation();
+          }
+        }}
         aria-label="Danh sách hệ cửa"
-        className="flex snap-x snap-mandatory gap-4 overflow-x-auto px-5 pb-2 [scrollbar-width:none] md:gap-6 md:px-10 [&::-webkit-scrollbar]:hidden"
+        className={`flex gap-4 overflow-x-auto px-5 pb-2 [scrollbar-width:none] md:gap-6 md:px-10 [&::-webkit-scrollbar]:hidden md:select-none ${
+          dangKeo ? "cursor-grabbing [scroll-snap-type:none]" : "cursor-grab snap-x snap-mandatory"
+        }`}
       >
         {KIEU_CUA.map((k, n) => (
           <li
@@ -81,6 +132,7 @@ export function SanPhamBangChuyen() {
                 quality={60}
                 sizes="(min-width: 768px) 45vw, 88vw"
                 className="object-cover"
+                draggable={false}
                 style={{ objectPosition: ANH[n % ANH.length].pos }}
               />
               <Image
@@ -90,6 +142,7 @@ export function SanPhamBangChuyen() {
                 quality={60}
                 sizes="(min-width: 768px) 45vw, 88vw"
                 className="object-cover opacity-0 transition-opacity duration-700 group-hover:opacity-100"
+                draggable={false}
                 style={{ objectPosition: ANH_HOVER[n % ANH_HOVER.length].pos }}
               />
             </div>
