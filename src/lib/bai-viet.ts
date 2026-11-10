@@ -113,4 +113,36 @@ export const BAI_VIET: BaiViet[] = [
     ],
     ketLuan: "Anh chị có thể nhận hộp mẫu góc nhôm để chạm thử và so màu với không gian của mình.",
   },
+  {
+    slug: "thanh-cau-cach-nhiet-trong-khung-nhom",
+    chuyenMuc: "Material & Engineering",
+    tieuDe: "Thanh cầu cách nhiệt trong khung nhôm hoạt động thế nào?",
+    tomTat: "Thanh cầu là phần ngăn giữa hai nửa khung nhôm, giúp hạn chế nhiệt truyền qua khung cửa.",
+    anh: "/images/mat-cat-khung-cua.jpg",
+    ngay: "2026-11-10",
+    noiDung: [
+      {
+        h: "Vì sao khung nhôm cần ngăn dẫn nhiệt?",
+        p: [
+          "Nhôm là kim loại dẫn nhiệt tốt. Nếu khung chỉ là một khối nhôm liền, nhiệt có thể truyền thẳng từ mặt ngoài vào mặt trong, hoặc ngược lại.",
+          "Điều này ảnh hưởng đến cảm giác nhiệt gần khung cửa, và khi chênh lệch nhiệt độ lớn có thể gây đọng hơi nước trên bề mặt khung.",
+        ],
+      },
+      {
+        h: "Thanh cầu nằm ở đâu?",
+        p: [
+          "Khung được chia thành hai nửa, một nửa hướng ra ngoài và một nửa hướng vào trong. Giữa hai nửa là các thanh làm từ vật liệu dẫn nhiệt kém hơn nhôm, thường là polyamide, nối hai nửa thành một thanh khung chắc chắn.",
+          "Vì vậy trên bản vẽ mặt cắt, khung thường gồm hai khoang nhôm và phần nối ở giữa.",
+        ],
+      },
+      {
+        h: "Nên xem gì khi chọn?",
+        p: [
+          "Hãy hỏi nhà cung cấp về tài liệu kỹ thuật của hệ nhôm: cấu tạo mặt cắt, vật liệu thanh cầu và kết quả kiểm định nếu có. Khả năng cách nhiệt của cả bộ cửa còn phụ thuộc vào kính, gioăng và cách lắp đặt, không chỉ khung.",
+          "Số liệu cụ thể nên lấy từ phiếu kiểm định của từng hệ cửa.",
+        ],
+      },
+    ],
+    ketLuan: "Anh chị có thể gửi bản vẽ để đội kỹ thuật WINDUCA tư vấn chi tiết phù hợp với công trình.",
+  },
 ];

@@ -295,6 +295,7 @@ export const BAI_SAP_CO = [
   { loai: "Kiến thức", t: "Cửa trượt nâng khác gì cửa trượt thường?", anh: VILLA, pos: "50% 72%" },
   { loai: "Kỹ thuật", t: "Cách đọc chỉ số Uw của cửa cách nhiệt", anh: RESORT2, pos: "50% 50%" },
   { loai: "Hoàn thiện", t: "Anode hóa hay sơn tĩnh điện: chọn thế nào?", anh: NHAO, pos: "50% 80%" },
+  { loai: "Cấu tạo", t: "Thanh cầu cách nhiệt trong khung nhôm hoạt động thế nào?", anh: "/images/mat-cat-khung-cua.jpg", pos: "50% 45%" },
 ];
 
 export function TinTucKhoi() {
@@ -310,17 +311,17 @@ export function TinTucKhoi() {
             Xem thêm
           </Link>
         </div>
-        {/* Bố cục bento: một thẻ lớn bên trái, hai thẻ ngang xếp chồng bên phải; chữ đặt trên ảnh */}
-        <ul className="mt-5 grid gap-3 md:gap-4 lg:h-[470px] lg:grid-cols-[1.2fr_1fr] lg:grid-rows-2">
+        {/* Bố cục bento 4 thẻ: một thẻ lớn bên trái; bên phải một thẻ ngang phía trên và hai thẻ nhỏ phía dưới; chữ đặt trên ảnh */}
+        <ul className="mt-5 grid gap-3 md:grid-cols-2 md:gap-4 lg:h-[470px] lg:grid-cols-[1.25fr_1fr_1fr] lg:grid-rows-2">
           {BAI_SAP_CO.map((b, i) => {
             const bai = BAI_VIET.find((x) => x.tieuDe === b.t);
             const lon = i === 0;
             return (
-              <li key={b.t} className={lon ? "lg:row-span-2" : ""}>
+              <li key={b.t} className={lon ? "md:col-span-2 lg:col-span-1 lg:row-span-2" : i === 1 ? "md:col-span-2 lg:col-span-2" : ""}>
                 <Link
                   href={`/tin-tuc/${bai?.slug ?? ""}`}
                   className={`group relative flex h-full w-full flex-col justify-between overflow-hidden rounded-[18px] bg-than-chi p-4 text-white md:rounded-[22px] md:p-6 ${
-                    lon ? "aspect-[4/3] lg:aspect-auto" : "aspect-[16/9] lg:aspect-auto"
+                    lon ? "aspect-[4/3] lg:aspect-auto" : i === 1 ? "aspect-[16/9] md:aspect-[21/9] lg:aspect-auto" : "aspect-[16/10] lg:aspect-auto"
                   }`}
                 >
                   <Image
@@ -328,7 +329,7 @@ export function TinTucKhoi() {
                     alt=""
                     fill
                     quality={65}
-                    sizes={lon ? "(min-width: 1024px) 55vw, 100vw" : "(min-width: 1024px) 45vw, 100vw"}
+                    sizes={lon ? "(min-width: 1024px) 45vw, 100vw" : "(min-width: 1024px) 28vw, 100vw"}
                     className="object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-[1.05]"
                     style={{ objectPosition: b.pos }}
                   />
