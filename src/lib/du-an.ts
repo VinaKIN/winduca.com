@@ -12,6 +12,9 @@ export type DuAn = {
   heCua: string[]; // tên kiểu cửa đã dùng
   anhTongThe: string; // đường dẫn trong /images/du-an/
   anhChiTiet: string[];
+  /** Ảnh THẬT chụp cùng góc trước và sau thi công (tuỳ chọn). Có cả hai thì hiện thanh kéo so sánh. */
+  anhTruoc?: string;
+  anhSau?: string;
   yeuCauKienTruc: string;
   giaiPhap: string;
   ketQua: string;

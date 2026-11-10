@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { PageHero, Section } from "@/components/ui";
+import { TruocSau } from "@/components/TruocSau";
 import { asset } from "@/lib/asset";
 import { DU_AN } from "@/lib/du-an";
 
@@ -27,7 +28,7 @@ export default async function CaseStudy({ params }: PageProps<"/cong-trinh/du-an
 
   return (
     <>
-      <PageHero nhan={`${d.loai} · ${d.khuVuc}`} tieuDe={d.ten} anh={d.anhTongThe} />
+      <PageHero congNghe nhan={`${d.loai} · ${d.khuVuc}`} tieuDe={d.ten} anh={d.anhTongThe} />
       <Section tone="sang" nhan="Case Study" tieuDe="Tổng quan công trình">
         <div className="relative aspect-[16/9] overflow-hidden rounded-[20px] bg-than-chi md:max-h-[50svh] md:w-full">
           <Image src={asset(d.anhTongThe)} alt={d.ten} fill quality={70} sizes="100vw" className="object-cover" priority />
@@ -61,6 +62,11 @@ export default async function CaseStudy({ params }: PageProps<"/cong-trinh/du-an
           ))}
         </div>
       </Section>
+      {d.anhTruoc && d.anhSau && (
+        <Section tone="nga" nhan="Trước và sau" tieuDe="Kéo để so sánh trước và sau thi công">
+          <TruocSau truoc={d.anhTruoc} sau={d.anhSau} alt={d.ten} />
+        </Section>
+      )}
       {d.anhChiTiet.length > 0 && (
         <Section tone="sang" nhan="Chi tiết" tieuDe="Ảnh chi tiết cửa sau thi công">
           <ul className="grid grid-cols-2 gap-3 md:grid-cols-3">
