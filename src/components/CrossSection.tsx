@@ -93,7 +93,7 @@ export function CrossSection({
           {nhan.slice(0, 2)}
         </span>
       )}
-      <div className="relative mx-auto max-w-[1440px] px-5 py-8 md:px-10 md:py-10">
+      <div className="relative mx-auto max-w-[1440px] px-5 py-6 md:px-10">
         <div className="grid gap-5 md:grid-cols-[14rem_1fr] md:gap-12">
           <div>
             <p className="nhan-muc text-than-chi/70">{nhan.replace(/^\d{2}\s*\/\s*\d{2}\s*·\s*/, "")}</p>

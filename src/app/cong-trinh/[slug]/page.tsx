@@ -34,7 +34,7 @@ export default async function ChiTiet({ params }: PageProps<"/cong-trinh/[slug]"
     <>
       <PageHero congNghe nhan={`Cảm hứng · ${c.loai} · ${c.khuVuc}`} tieuDe={c.ten} anh={anhCT(i)} />
 
-      <section className="luoi-ban-ve nen-sang py-10 md:py-14">
+      <section className="luoi-ban-ve nen-sang py-7">
         <Wrap>
           <div className="grid gap-6 lg:grid-cols-[1.5fr_1fr] lg:gap-10">
             <Hien className="dau-goc relative h-[clamp(240px,46svh,420px)] overflow-hidden rounded-[6px] bg-than-chi">
@@ -73,7 +73,7 @@ export default async function ChiTiet({ params }: PageProps<"/cong-trinh/[slug]"
         </Wrap>
       </section>
 
-      <section className="nen-nga py-10 md:py-14">
+      <section className="nen-nga py-7">
         <Wrap>
           <Hien>
             <p className="nhan-muc text-accent">Thêm hình ảnh</p>
@@ -88,7 +88,7 @@ export default async function ChiTiet({ params }: PageProps<"/cong-trinh/[slug]"
         </Wrap>
       </section>
 
-      <section className="relative overflow-hidden nen-toi py-8 text-white md:py-10">
+      <section className="relative overflow-hidden nen-toi py-6 text-white">
         <div className="luoi-ban-ve-toi pointer-events-none absolute inset-0" aria-hidden="true" />
         <Wrap className="relative">
           <div className="grid gap-6 lg:grid-cols-[0.8fr_1.4fr] lg:gap-12">
@@ -106,7 +106,7 @@ export default async function ChiTiet({ params }: PageProps<"/cong-trinh/[slug]"
         </Wrap>
       </section>
 
-      <section className="nen-sang py-6 md:py-8">
+      <section className="nen-sang py-5">
         <Wrap>
           <div className="flex items-center justify-between gap-4 text-sm font-semibold">
             <NutHut href={`/cong-trinh/${truoc.slug}`} className="nut nut-vien-sang">

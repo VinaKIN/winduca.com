@@ -26,7 +26,7 @@ export function Footer() {
       <section className="nen-ky-thuat relative overflow-hidden bg-[#121011]">
         <Image src={asset("/images/hero.jpg")} alt="" fill quality={60} sizes="100vw" className="scale-105 object-cover opacity-30 blur-[4px]" aria-hidden="true" />
         <div className="absolute inset-0 bg-gradient-to-br from-[#0e0c0d]/90 via-[#1a1617]/80 to-[#2a1014]/70" aria-hidden="true" />
-        <Wrap className="relative py-8 md:py-10">
+        <Wrap className="relative py-6 md:py-7">
           <div className="mx-auto max-w-6xl rounded-[10px] bg-white p-4 shadow-[0_40px_80px_-40px_rgba(0,0,0,0.8)] md:p-6">
             <div className="rounded-[4px] bg-than-chi px-6 py-6 text-white md:px-10 md:py-7">
               <div className="grid gap-6 md:grid-cols-[0.9fr_1.3fr] md:items-center">
@@ -65,7 +65,7 @@ export function Footer() {
 
       {/* Chân trang (bố cục kiểu Winboss): trái logo, liên kết, mạng xã hội; phải bản đồ và liên hệ */}
       <div className="footer-sau text-white">
-        <Wrap className="pb-6 pt-10 md:pt-12">
+        <Wrap className="pb-5 pt-8 md:pt-9">
           <div className="grid gap-8 lg:grid-cols-[0.8fr_1.2fr] lg:gap-14">
             <div className="flex flex-col justify-between gap-6">
               <div className="w-fit">

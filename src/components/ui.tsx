@@ -38,7 +38,7 @@ export function Section({
   const co = Boolean(nhanChu || tieuDe || moTa);
   return (
     <section id={id} className={`relative overflow-hidden ${nen} ${tone === "sang" ? "luoi-ban-ve" : ""} ${nhanChu ? "muc-so" : ""} ${className}`}>
-      <Wrap className={`relative ${gon ? "py-8 md:py-9" : "py-10 md:py-14"}`}>
+      <Wrap className={`relative ${gon ? "py-5" : "py-7"}`}>
         {co && (
           <Hien>
             {nhanChu && <p className={`nhan-muc nhan-so ${toi ? "text-accent" : "text-accent"}`}>{nhanChu}</p>}
@@ -47,7 +47,7 @@ export function Section({
           </Hien>
         )}
         {children && (
-          <Hien tre={80} className={co ? (gon ? "mt-5" : "mt-6 md:mt-8") : ""}>
+          <Hien tre={80} className={co ? (gon ? "mt-4" : "mt-5") : ""}>
             {children}
           </Hien>
         )}
@@ -109,7 +109,7 @@ export function PageHero({
         <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-accent" />
         Premium Window &amp; Door
       </p>
-      <Wrap className="relative pb-10 pt-28 md:min-h-[400px] md:pb-14 md:pt-40">
+      <Wrap className="relative pb-8 pt-24 md:min-h-[300px] md:pb-10 md:pt-32">
         <div className={anhPhai ? "grid items-center gap-8 lg:grid-cols-[1.05fr_0.95fr] lg:gap-14" : ""}>
           <div>
             <p className="nhan-muc text-accent">{nhan}</p>
@@ -120,7 +120,7 @@ export function PageHero({
           {anhPhai && (
             <div className="relative w-full max-w-xl lg:max-w-none">
               <div className="absolute inset-x-3 -bottom-3 top-3 -right-3 hidden rounded-[8px] border border-accent/60 sm:block" aria-hidden="true" />
-              <KhungAnh src={anhPhai} alt="" chuThich={chuThichAnh} so={soAnh} viTri={viTriAnh} tyLe="aspect-[16/11]" uuTien className="shadow-[0_30px_70px_-30px_rgba(0,0,0,0.8)]" />
+              <KhungAnh src={anhPhai} alt="" chuThich={chuThichAnh} so={soAnh} viTri={viTriAnh} tyLe="aspect-[16/9]" uuTien className="shadow-[0_30px_70px_-30px_rgba(0,0,0,0.8)]" />
             </div>
           )}
         </div>
