@@ -6,10 +6,10 @@ export default function NotFound() {
       {/* Cửa trượt hé mở: chi tiết trang trí */}
       <div aria-hidden="true" className="pointer-events-none absolute inset-y-0 right-0 flex w-1/2 justify-end">
         <div className="h-full w-1/3 border-l border-inox/30 bg-kinh-suong/10" />
-        <div className="ml-6 h-full w-1/3 border-l border-champagne bg-kinh-suong/5" />
+        <div className="ml-6 h-full w-1/3 border-l border-accent bg-kinh-suong/5" />
       </div>
       <div className="relative mx-auto w-full max-w-[1440px]">
-        <p className="nhan-muc text-champagne">404</p>
+        <p className="nhan-muc text-accent">404</p>
         <h1 className="tieu-de mt-4 max-w-2xl text-4xl md:text-6xl">Cánh cửa này chưa mở.</h1>
         <p className="mt-5 max-w-xl text-nga/85">Trang anh chị tìm không tồn tại hoặc đã được chuyển đi.</p>
         <ul className="mt-10 flex flex-col gap-3 sm:flex-row">

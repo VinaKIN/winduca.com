@@ -76,7 +76,7 @@ export function HopMau() {
               aria-pressed={chon === i}
               className="flex w-full items-start gap-4 py-4 text-left"
             >
-              <span className="mt-1.5 inline-block h-2.5 w-2.5 shrink-0 rotate-45 bg-champagne" aria-hidden="true" />
+              <span className="mt-1.5 inline-block h-2.5 w-2.5 shrink-0 rotate-45 bg-accent" aria-hidden="true" />
               <span>
                 <span className="block text-sm font-semibold">
                   {String(i + 1).padStart(2, "0")} · {m.ten}

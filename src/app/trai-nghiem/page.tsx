@@ -34,7 +34,7 @@ export default function TraiNghiem() {
             ["Hỏi địa chỉ nhận hộp", "Địa chỉ được hỏi qua điện thoại, không thu trên website."],
             ["Giao hộp mẫu", "Chính sách nhận hộp mẫu sẽ được công bố khi có xác nhận."],
           ].map(([t, m], i) => (
-            <li key={t} className="border-t border-champagne pt-6">
+            <li key={t} className="border-t border-accent pt-6">
               <span className="nhan-muc text-than-chi/60">{String(i + 1).padStart(2, "0")}</span>
               <h3 className="tieu-de mt-3 text-lg">{t}</h3>
               <p className="mt-2 text-sm text-than-chi/80">{m}</p>

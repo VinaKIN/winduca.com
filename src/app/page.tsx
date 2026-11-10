@@ -1,28 +1,30 @@
-import { HeroDoors } from "@/components/HeroDoors";
-import { CrossSection } from "@/components/CrossSection";
+import { HeroSlider } from "@/components/HeroSlider";
 import {
-  CongTrinhMinhHoa,
-  FaqVaForm,
-  KhoiChuNha,
-  KhoiKTS,
-  KhoiNhaThau,
-  QuyTrinh,
-  TuyenNgonVaBaThe,
-} from "@/components/HomeSections";
+  CongTrinhKhoi,
+  DaiChuChay,
+  DichVuKhoi,
+  GioiThieuKhoi,
+  SanPhamKhoi,
+  TinTucKhoi,
+  ViSaoKhoi,
+} from "@/components/TrangChuKhoi";
 
-/** Trang chủ — 9 khối: Hero · Ba thẻ · KTS · 3D · Chủ nhà · Nhà thầu · Quy trình · Công trình · FAQ + Form */
+/**
+ * Trang chủ theo bố cục Winboss (11/11/2026):
+ * Hero băng chuyền · Giới thiệu · Hệ cửa nổi bật · Dịch vụ + số liệu · Công trình theo loại ·
+ * Dải chữ chạy · Vì sao chọn · Tin tức. (Khối "Đăng ký tham quan" nằm ở chân trang, dùng chung mọi trang.)
+ */
 export default function Home() {
   return (
     <>
-      <HeroDoors />
-      <TuyenNgonVaBaThe />
-      <KhoiKTS />
-      <CrossSection />
-      <KhoiChuNha />
-      <KhoiNhaThau />
-      <QuyTrinh />
-      <CongTrinhMinhHoa />
-      <FaqVaForm />
+      <HeroSlider />
+      <GioiThieuKhoi />
+      <SanPhamKhoi />
+      <DichVuKhoi />
+      <CongTrinhKhoi />
+      <DaiChuChay />
+      <ViSaoKhoi />
+      <TinTucKhoi />
     </>
   );
 }

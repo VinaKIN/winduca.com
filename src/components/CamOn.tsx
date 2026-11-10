@@ -35,7 +35,7 @@ export function CamOn() {
   return (
     <section className="bg-than-chi px-5 pb-24 pt-40 text-nga md:px-10 md:pt-52">
       <div className="mx-auto max-w-[1440px]">
-        <p className="nhan-muc text-champagne">Đã nhận</p>
+        <p className="nhan-muc text-accent">Đã nhận</p>
         <h1 className="tieu-de mt-4 max-w-3xl text-4xl md:text-6xl">{nd.tieuDe}</h1>
         <p className="mt-6 max-w-2xl text-nga/85">{nd.mota}</p>
         {ma && <p className="mt-6 text-sm text-nga/60">Mã tiếp nhận: {ma}</p>}

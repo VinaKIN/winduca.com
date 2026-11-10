@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useState } from "react";
 import { CanhMinhHoa } from "./Illustration";
-import { CONG_TRINH_MINH_HOA, KIEU_CUA, LOAI_CONG_TRINH } from "@/lib/site";
+import { CONG_TRINH_MINH_HOA, KIEU_CUA, LOAI_DU_AN } from "@/lib/site";
 
 export function CongTrinhLuoi() {
   const [loai, setLoai] = useState("Tất cả");
@@ -19,8 +19,8 @@ export function CongTrinhLuoi() {
   );
 
   const chip = (b: boolean) =>
-    `border px-3 py-1.5 text-xs font-semibold transition-colors ${
-      b ? "border-than-chi bg-than-chi text-nga" : "border-than-chi/30 hover:border-champagne"
+    `rounded-full border px-4 py-2 text-xs font-bold transition-colors ${
+      b ? "border-accent bg-accent text-white" : "border-than-chi/25 hover:border-accent hover:text-accent"
     }`;
   const nhom = (nhan: string, ds2: string[], cur: string, set: (v: string) => void) => (
     <div>
@@ -38,7 +38,7 @@ export function CongTrinhLuoi() {
   return (
     <div>
       <div className="sticky top-16 z-30 -mx-5 flex flex-wrap gap-x-8 gap-y-4 border-b border-than-chi/10 bg-nga/95 px-5 py-4 backdrop-blur md:top-20 md:-mx-10 md:px-10">
-        {nhom("Loại hình", LOAI_CONG_TRINH, loai, setLoai)}
+        {nhom("Loại hình", LOAI_DU_AN, loai, setLoai)}
         {nhom("Kiểu cửa", KIEU_CUA.map((k) => k.ten), kieu, setKieu)}
         {nhom("Khu vực", ["Miền Bắc", "Miền Trung", "Miền Nam"], khuVuc, setKhuVuc)}
       </div>
@@ -71,7 +71,7 @@ export function CongTrinhLuoi() {
 
       {ds.length > soHien && (
         <div className="mt-10 text-center">
-          <button type="button" onClick={() => setSoHien((n) => n + 9)} className="nut border border-than-chi hover:bg-than-chi hover:text-nga">
+          <button type="button" onClick={() => setSoHien((n) => n + 9)} className="nut nut-vien-sang">
             Xem thêm
           </button>
         </div>

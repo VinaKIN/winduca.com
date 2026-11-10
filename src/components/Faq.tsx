@@ -19,7 +19,7 @@ export function Faq({ muc }: { muc: { q: string; a: string }[] }) {
               <span className="tieu-de text-lg md:text-xl">{m.q}</span>
               <span
                 aria-hidden="true"
-                className={`inline-block h-2.5 w-2.5 shrink-0 bg-champagne transition-transform duration-300 ${
+                className={`inline-block h-2.5 w-2.5 shrink-0 bg-accent transition-transform duration-300 ${
                   dangMo ? "rotate-[135deg]" : "rotate-45"
                 }`}
               />

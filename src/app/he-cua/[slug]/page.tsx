@@ -113,7 +113,7 @@ export default async function KieuCuaPage({ params }: PageProps<"/he-cua/[slug]"
         <ul className="grid gap-4 md:grid-cols-3">
           {khac.map((x) => (
             <li key={x.slug}>
-              <Link href={`/he-cua/${x.slug}`} className="block border border-than-chi/20 p-6 hover:border-champagne">
+              <Link href={`/he-cua/${x.slug}`} className="block border border-than-chi/20 p-6 hover:border-accent">
                 <span className="tieu-de text-lg">{x.ten}</span>
                 <span className="mt-2 block text-sm text-than-chi/75">{x.tagline}</span>
               </Link>

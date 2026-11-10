@@ -28,7 +28,7 @@ export function DoorExplorer({ tenKieuCua }: { tenKieuCua: string }) {
                   type="button"
                   onClick={() => setChon(i)}
                   aria-pressed={chon === i}
-                  className={`block w-full text-left ${chon === i ? "outline outline-2 outline-offset-4 outline-champagne" : ""}`}
+                  className={`block w-full text-left ${chon === i ? "outline outline-2 outline-offset-4 outline-accent" : ""}`}
                 >
                   <span className="block h-20 w-full border border-than-chi/20" style={{ background: m.hex }} />
                   <span className="mt-3 block text-sm font-semibold">{m.ten}</span>

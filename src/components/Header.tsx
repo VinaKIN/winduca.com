@@ -5,15 +5,11 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState, type ReactNode } from "react";
 import { asset } from "@/lib/asset";
-import { HERO_ANH, HOTLINE, HOTLINE_TEL, KIEU_CUA, MENU_CHINH } from "@/lib/site";
+import { HERO_ANH, HOTLINE, HOTLINE_TEL, MENU_CHINH } from "@/lib/site";
 
 /**
- * Header theo mẫu tham chiếu NexaHome (10/11/2026):
- * - Từ xl: "tai" Ngà bên trái (logo) và bên phải (nút hành động), giữa là ô khuyết để lộ ảnh hero,
- *   điều hướng chữ trắng nằm trên ảnh. Header nằm ở đầu trang và cuộn đi cùng trang.
- *   Khi cuộn xuống, một thanh Ngà bo tròn nổi lên cố định để vẫn bấm được menu.
- * - Dưới xl: một thanh Ngà bo tròn cố định (logo · nút đăng ký · nút menu).
- * - Menu toàn màn hình: khung Ngà bo góc, bảng trắng chứa danh sách trang + thẻ ảnh kèm liên hệ.
+ * Header kiểu Winboss (11/11/2026): hai nút tròn trắng (gọi, thư) bên trái · logo giữa · nút ba gạch bên phải.
+ * Nằm trên ảnh/đầu trang, hóa nền Than đen khi cuộn. Bấm ba gạch mở menu toàn màn hình (5 mục theo mẫu).
  */
 
 function BieuTuong({ children }: { children: ReactNode }) {
@@ -49,40 +45,33 @@ function MuiTen({ lop = "" }: { lop?: string }) {
   );
 }
 
-function Logo({ lop }: { lop: string }) {
-  return (
-    <Link href="/" aria-label="WINDUCA — trang chủ" className="block shrink-0">
-      {/* Bản màu, nền trong suốt, đặt trên nền Ngà */}
-      <Image src={asset("/brand/WINDUCA-ngang-mau-trong.svg")} alt="WINDUCA" width={677} height={102} priority className={lop} />
+function NutTron({ href, nhan, children }: { href: string; nhan: string; children: ReactNode }) {
+  const ngoai = href.startsWith("tel:") || href.startsWith("mailto:");
+  const lop =
+    "flex h-10 w-10 items-center justify-center rounded-full bg-white text-accent transition-colors hover:bg-accent hover:text-white md:h-14 md:w-14";
+  return ngoai ? (
+    <a href={href} aria-label={nhan} className={lop}>
+      {children}
+    </a>
+  ) : (
+    <Link href={href} aria-label={nhan} className={lop}>
+      {children}
     </Link>
   );
 }
 
-function DieuHuongGiua({ tren, dangO }: { tren: boolean; dangO: (href: string) => boolean }) {
+function Logo({ lop, tren }: { lop: string; tren: boolean }) {
   return (
-    <nav aria-label="Điều hướng chính">
-      <ul className="flex items-center">
-        {KIEU_CUA.map((k) => {
-          const href = `/he-cua/${k.slug}`;
-          const hien = dangO(href);
-          return (
-            <li key={k.slug}>
-              <Link
-                href={href}
-                aria-current={hien ? "page" : undefined}
-                className={`inline-flex items-center rounded-full px-4 py-2 text-[0.8125rem] font-medium transition-colors ${
-                  tren
-                    ? `text-nga hover:bg-white/10 ${hien ? "bg-white/15" : ""}`
-                    : `hover:bg-than-chi/[0.06] ${hien ? "bg-than-chi/[0.06] text-than-chi" : "text-than-chi/80"}`
-                }`}
-              >
-                {k.ten}
-              </Link>
-            </li>
-          );
-        })}
-      </ul>
-    </nav>
+    <Link href="/" aria-label="WINDUCA — trang chủ" className="block shrink-0">
+      <Image
+        src={asset(tren ? "/brand/WINDUCA-ngang-am-ban-trong.svg" : "/brand/WINDUCA-ngang-mau-trong.svg")}
+        alt="WINDUCA"
+        width={677}
+        height={102}
+        priority
+        className={lop}
+      />
+    </Link>
   );
 }
 
@@ -99,7 +88,7 @@ export function Header() {
   }
 
   useEffect(() => {
-    const onScroll = () => setDaCuon(window.scrollY > 400);
+    const onScroll = () => setDaCuon(window.scrollY > 40);
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
@@ -120,93 +109,37 @@ export function Header() {
 
   const dangO = (href: string) => (href === "/" ? duongDan === "/" : duongDan.startsWith(href));
 
-  const nutMenu = (
-    <button
-      type="button"
-      className="flex h-12 w-12 items-center justify-center rounded-full bg-than-chi text-nga transition-colors hover:bg-champagne hover:text-than-chi"
-      aria-expanded={moMenu}
-      aria-controls="menu-toan-man-hinh"
-      aria-label="Mở menu"
-      onClick={() => setMoMenu(true)}
-    >
-      <span className="flex flex-col gap-[5px]">
-        <span className="block h-[2px] w-5 bg-current" />
-        <span className="block h-[2px] w-5 bg-current" />
-        <span className="block h-[2px] w-3.5 bg-current" />
-      </span>
-    </button>
-  );
-
   return (
     <>
-      {/* ===== TỪ xl: header dạng "tai" nằm ở đầu trang, đè lên ảnh hero ===== */}
-      <header className="absolute inset-x-0 top-0 z-40 hidden xl:block">
-        <div className="relative h-[84px] w-full">
-          {/* Tai trái: logo, dính sát góc màn hình */}
-          <div className="absolute left-0 top-0 flex h-full w-[280px] items-center rounded-br-[32px] bg-nga pl-12">
-            <Logo lop="h-7 w-auto" />
+      <header className={`fixed inset-x-0 top-0 z-50 transition-colors duration-300 ${daCuon ? "bg-than-chi/95 backdrop-blur-md" : "bg-transparent"}`}>
+        <div className="relative mx-auto flex h-20 max-w-[1440px] items-center justify-between px-5 md:h-28 md:px-10">
+          <div className="flex items-center gap-2 md:gap-4">
+            <NutTron href={HOTLINE_TEL} nhan={`Gọi hotline ${HOTLINE}`}>
+              <IconDienThoai />
+            </NutTron>
+            <NutTron href="/lien-he" nhan="Gửi liên hệ">
+              <IconThu />
+            </NutTron>
           </div>
 
-          {/* Điều hướng giữa, trên nền đặc của hero */}
-          <div className="absolute inset-y-0 left-[280px] right-[352px] flex items-center justify-center">
-            <div className="rounded-full bg-than-chi/45 px-2 py-1 backdrop-blur-sm">
-              <DieuHuongGiua tren dangO={dangO} />
-            </div>
+          <div className="absolute left-1/2 -translate-x-1/2">
+            <Logo lop="h-5 w-auto md:h-9" tren />
           </div>
 
-          {/* Tai phải: nút hành động, dính sát góc màn hình */}
-          <div className="absolute right-0 top-0 flex h-full w-[352px] items-center justify-end gap-2 rounded-bl-[32px] bg-nga pr-5">
-
-            <Link
-              href="/trai-nghiem"
-              className="inline-flex items-center rounded-full bg-than-chi px-6 py-3 text-[0.8125rem] font-semibold text-nga transition-colors hover:bg-champagne hover:text-than-chi"
-            >
-              Đăng ký trải nghiệm
-            </Link>
-            <button
-              type="button"
-              aria-label="Mở menu"
-              aria-expanded={moMenu}
-              aria-controls="menu-toan-man-hinh"
-              onClick={() => setMoMenu(true)}
-              className="flex h-12 w-12 items-center justify-center rounded-full bg-than-chi text-nga transition-colors hover:bg-champagne hover:text-than-chi"
-            >
-              <span className="flex flex-col gap-[5px]">
-                <span className="block h-[2px] w-5 bg-current" />
-                <span className="block h-[2px] w-5 bg-current" />
-                <span className="block h-[2px] w-3.5 bg-current" />
-              </span>
-            </button>
-          </div>
+          <button
+            type="button"
+            className="flex h-12 w-12 flex-col items-center justify-center gap-[7px]"
+            aria-expanded={moMenu}
+            aria-controls="menu-toan-man-hinh"
+            aria-label="Mở menu"
+            onClick={() => setMoMenu(true)}
+          >
+            <span className="block h-[2px] w-8 bg-white" />
+            <span className="block h-[2px] w-8 bg-white" />
+            <span className="block h-[2px] w-8 bg-white" />
+          </button>
         </div>
       </header>
-
-      {/* ===== Thanh Ngà bo tròn cố định: luôn hiện dưới xl; từ xl chỉ hiện sau khi cuộn ===== */}
-      <div
-        className={`fixed inset-x-0 top-0 z-50 px-3 pt-3 transition-all duration-300 md:px-6 md:pt-5 ${
-          daCuon ? "" : "xl:invisible xl:-translate-y-[160%] xl:opacity-0"
-        }`}
-      >
-        <div
-          className={`mx-auto mt-2 flex h-16 max-w-[1420px] items-center justify-between gap-4 rounded-full bg-nga/95 pl-6 pr-2 backdrop-blur-md md:mt-2.5 md:h-[72px] md:pl-8 ${
-            daCuon ? "shadow-[0_8px_30px_rgba(43,43,45,0.14)]" : "shadow-none"
-          }`}
-        >
-          <Logo lop="h-6 w-auto md:h-7" />
-          <div className="hidden xl:block">
-            <DieuHuongGiua tren={false} dangO={dangO} />
-          </div>
-          <div className="flex items-center gap-2">
-            <Link
-              href="/trai-nghiem"
-              className="hidden items-center rounded-full bg-than-chi px-6 py-3 text-[0.8125rem] font-semibold text-nga transition-colors hover:bg-champagne hover:text-than-chi sm:inline-flex"
-            >
-              Đăng ký trải nghiệm
-            </Link>
-            {nutMenu}
-          </div>
-        </div>
-      </div>
 
       {/* ===== MENU TOÀN MÀN HÌNH ===== */}
       {moMenu && (
@@ -220,15 +153,15 @@ export function Header() {
           <div className="mx-auto flex min-h-full max-w-[1440px] flex-col rounded-[28px] bg-nga p-2 md:rounded-[40px] md:p-2.5">
             {/* Thanh trên: logo · nút Đóng */}
             <div className="flex h-16 items-center justify-between pl-5 pr-1 md:h-[72px] md:pl-8 md:pr-2">
-              <Logo lop="h-6 w-auto md:h-7" />
+              <Logo lop="h-6 w-auto md:h-7" tren={false} />
               <button
                 type="button"
                 aria-label="Đóng menu"
                 onClick={() => setMoMenu(false)}
-                className="group flex items-center gap-2 rounded-full bg-than-chi py-1 pl-6 pr-1 text-[0.8125rem] font-semibold text-nga transition-colors hover:bg-champagne hover:text-than-chi"
+                className="group flex items-center gap-2 rounded-full bg-than-chi py-1 pl-6 pr-1 text-[0.8125rem] font-bold uppercase tracking-[0.04em] text-white transition-colors hover:bg-accent"
               >
                 Đóng
-                <span className="flex h-10 w-10 items-center justify-center rounded-full bg-nga text-than-chi">
+                <span className="flex h-10 w-10 items-center justify-center rounded-full bg-accent text-white">
                   <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" aria-hidden="true">
                     <path d="M6 6l12 12M18 6 6 18" />
                   </svg>
@@ -242,13 +175,10 @@ export function Header() {
                 <ul>
                   {MENU_CHINH.map((m, i) => (
                     <li key={m.label} className={`py-4 md:py-5 ${i > 0 ? "border-t border-inox/60" : ""}`}>
-                      <Link
-                        href={m.href}
-                        className="group flex items-center gap-5 text-than-chi"
-                      >
-                        <span className="w-6 text-[11px] font-semibold tracking-[0.12em] text-than-chi/40">{String(i + 1).padStart(2, "0")}</span>
-                        <span className="tieu-de text-[1.25rem] uppercase tracking-[0.04em] md:text-[1.6rem]">{m.label}</span>
-                        <span className="ml-auto text-than-chi opacity-0 transition-all duration-300 group-hover:translate-x-1 group-hover:opacity-100">
+                      <Link href={m.href} className="group flex items-center gap-5 text-than-chi">
+                        <span className="w-6 text-[11px] font-bold tracking-[0.12em] text-accent">{String(i + 1).padStart(2, "0")}</span>
+                        <span className="tieu-de text-[1.25rem] font-bold uppercase tracking-[0.02em] md:text-[1.6rem]">{m.label}</span>
+                        <span className="ml-auto text-accent opacity-0 transition-all duration-300 group-hover:translate-x-1 group-hover:opacity-100">
                           <MuiTen />
                         </span>
                       </Link>
@@ -259,7 +189,7 @@ export function Header() {
                               <Link
                                 href={c.href}
                                 aria-current={dangO(c.href) ? "page" : undefined}
-                                className={`text-sm transition-colors hover:text-than-chi ${dangO(c.href) ? "font-semibold text-than-chi" : "text-than-chi/65"}`}
+                                className={`text-sm transition-colors hover:text-accent ${dangO(c.href) ? "font-bold text-accent" : "text-than-chi/65"}`}
                               >
                                 {c.label}
                               </Link>
@@ -277,16 +207,16 @@ export function Header() {
                 {HERO_ANH && <Image src={HERO_ANH} alt="" fill quality={60} sizes="(min-width: 1024px) 40vw, 100vw" className="object-cover" aria-hidden="true" />}
                 <div className="absolute inset-0 bg-than-chi/20" aria-hidden="true" />
                 <div className="absolute inset-x-3 bottom-3 rounded-[22px] bg-nga p-5 md:inset-x-4 md:bottom-4 md:rounded-[26px] md:p-6">
-                  <p className="tieu-de text-xl text-than-chi">Liên hệ</p>
+                  <p className="tieu-de text-xl font-bold text-than-chi">Liên hệ</p>
                   <ul className="mt-4 space-y-3 text-[0.9rem] text-than-chi/85">
                     <li className="flex items-start gap-3">
-                      <span className="mt-0.5 text-than-chi/70">
+                      <span className="mt-0.5 text-accent">
                         <IconViTri />
                       </span>
                       <span>Địa chỉ showroom: [CHỜ XÁC NHẬN]</span>
                     </li>
                     <li className="flex items-start gap-3">
-                      <span className="mt-0.5 text-than-chi/70">
+                      <span className="mt-0.5 text-accent">
                         <IconDienThoai />
                       </span>
                       <a href={HOTLINE_TEL} className="font-medium hover:underline">
@@ -294,7 +224,7 @@ export function Header() {
                       </a>
                     </li>
                     <li className="flex items-start gap-3">
-                      <span className="mt-0.5 text-than-chi/70">
+                      <span className="mt-0.5 text-accent">
                         <IconThu />
                       </span>
                       <span>Email: [CHỖ TRỐNG]</span>
@@ -302,10 +232,10 @@ export function Header() {
                   </ul>
                   <Link
                     href="/trai-nghiem"
-                    className="group mt-5 inline-flex w-full items-center justify-between gap-4 rounded-full bg-than-chi py-1.5 pl-6 pr-1.5 text-sm font-semibold text-nga transition-colors hover:bg-champagne hover:text-than-chi sm:w-auto"
+                    className="group mt-5 inline-flex w-full items-center justify-between gap-4 rounded-full bg-than-chi py-1.5 pl-6 pr-1.5 text-[0.8125rem] font-bold uppercase tracking-[0.04em] text-white transition-colors hover:bg-accent sm:w-auto"
                   >
                     Đăng ký trải nghiệm
-                    <span className="flex h-10 w-10 items-center justify-center rounded-full bg-nga text-than-chi transition-transform duration-300 group-hover:rotate-45">
+                    <span className="flex h-10 w-10 items-center justify-center rounded-full bg-accent text-white transition-transform duration-300 group-hover:rotate-45">
                       <MuiTen />
                     </span>
                   </Link>

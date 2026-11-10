@@ -26,7 +26,7 @@ export function TuyenNgonVaBaThe() {
         <div className="grid gap-5 md:grid-cols-[14rem_1fr] md:gap-12">
           <div>
             <p className="nhan-muc text-than-chi/60">Dành cho ai</p>
-            <div className="mt-4 h-px w-14 bg-champagne" />
+            <div className="mt-4 h-px w-14 bg-accent" />
           </div>
           <p className="tieu-de max-w-4xl text-[clamp(1.9rem,4.6vw,4rem)] [text-wrap:balance]">
             Chúng tôi chọn sự bền bỉ thay vì phô trương.
@@ -41,15 +41,15 @@ export function TuyenNgonVaBaThe() {
                 href={`#${t.id}`}
                 className="group relative flex h-full min-h-[17rem] flex-col justify-between p-8 transition-colors duration-500 hover:bg-nga md:p-10"
               >
-                <span className="absolute left-0 top-0 h-px w-0 bg-champagne transition-all duration-500 group-hover:w-full" aria-hidden="true" />
+                <span className="absolute left-0 top-0 h-px w-0 bg-accent transition-all duration-500 group-hover:w-full" aria-hidden="true" />
                 <span className="so-lon !text-[3.5rem] leading-none">{String(i + 1).padStart(2, "0")}</span>
                 <span>
                   <span className="tieu-de block text-2xl">{t.nhan}</span>
                   <span className="mt-3 block text-sm font-light text-than-chi/75">{t.mota}</span>
                   <span className="mt-8 flex items-center gap-3 text-sm font-semibold text-than-chi">
                     {t.cta}
-                    <span className="h-px w-8 bg-champagne transition-all duration-500 group-hover:w-14" aria-hidden="true" />
-                    <span className="h-2 w-2 rotate-45 bg-champagne" aria-hidden="true" />
+                    <span className="h-px w-8 bg-accent transition-all duration-500 group-hover:w-14" aria-hidden="true" />
+                    <span className="h-2 w-2 rotate-45 bg-accent" aria-hidden="true" />
                   </span>
                 </span>
               </a>
@@ -212,8 +212,8 @@ export function QuyTrinh() {
     <Section id="quy-trinh" tone="nga" nhan="07 / 09 · Quy trình" tieuDe="Từ buổi tư vấn đến ngày bàn giao.">
       <ol className="grid gap-0 md:grid-cols-5">
         {buoc.map((b, i) => (
-          <li key={b.t} className="relative border-t border-champagne pt-8 md:pr-6">
-            <span className="absolute -top-[5px] left-0 h-2.5 w-2.5 rotate-45 bg-champagne" aria-hidden="true" />
+          <li key={b.t} className="relative border-t border-accent pt-8 md:pr-6">
+            <span className="absolute -top-[5px] left-0 h-2.5 w-2.5 rotate-45 bg-accent" aria-hidden="true" />
             <span className="nhan-muc text-than-chi/60">{String(i + 1).padStart(2, "0")}</span>
             <h3 className="tieu-de mt-3 text-lg">{b.t}</h3>
             <p className="mt-2 text-sm text-than-chi/80">{b.m}</p>
@@ -272,20 +272,20 @@ export function FaqVaForm() {
         <div className="grid gap-12 lg:grid-cols-[1fr_1.5fr] lg:gap-16">
           <aside className="lg:sticky lg:top-32 lg:self-start">
             <p className="nhan-muc text-than-chi/70">Liên hệ trực tiếp</p>
-            <a href="tel:0947686668" className="tieu-de mt-4 block text-3xl hover:text-champagne md:text-4xl">
+            <a href="tel:0947686668" className="tieu-de mt-4 block text-3xl hover:text-accent md:text-4xl">
               0947 686 668
             </a>
             <ul className="mt-8 space-y-4 border-t border-than-chi/15 pt-6 text-sm text-than-chi/80">
               <li className="flex gap-3">
-                <span className="mt-2 h-1.5 w-1.5 shrink-0 rotate-45 bg-champagne" aria-hidden="true" />
+                <span className="mt-2 h-1.5 w-1.5 shrink-0 rotate-45 bg-accent" aria-hidden="true" />
                 Chúng tôi không hỏi ngân sách và không đăng giá.
               </li>
               <li className="flex gap-3">
-                <span className="mt-2 h-1.5 w-1.5 shrink-0 rotate-45 bg-champagne" aria-hidden="true" />
+                <span className="mt-2 h-1.5 w-1.5 shrink-0 rotate-45 bg-accent" aria-hidden="true" />
                 Chuyên viên liên hệ trong giờ làm việc.
               </li>
               <li className="flex gap-3">
-                <span className="mt-2 h-1.5 w-1.5 shrink-0 rotate-45 bg-champagne" aria-hidden="true" />
+                <span className="mt-2 h-1.5 w-1.5 shrink-0 rotate-45 bg-accent" aria-hidden="true" />
                 Địa chỉ nhận hộp mẫu được hỏi qua điện thoại, không thu trên website.
               </li>
             </ul>

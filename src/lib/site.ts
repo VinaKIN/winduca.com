@@ -26,12 +26,13 @@ export const MENU = [
 export type MucMenu = { href: string; label: string; con?: { href: string; label: string }[] };
 export const MENU_CHINH: MucMenu[] = [
   {
-    href: "/nang-luc-xuong",
+    href: "/gioi-thieu",
     label: "Giới thiệu",
     con: [
       { href: "/nang-luc-xuong", label: "Năng lực & Xưởng" },
       { href: "/cong-trinh", label: "Công trình" },
       { href: "/trai-nghiem", label: "Trải nghiệm" },
+      { href: "/hop-tac", label: "Hợp tác đối tác" },
     ],
   },
   {
@@ -138,7 +139,10 @@ export const MAU_HOAN_THIEN = [
   { ten: "Đồng sẫm", hex: "#8a6b45" },
 ];
 
-export const LOAI_CONG_TRINH = ["Biệt thự", "Penthouse", "Cải tạo nhà phố", "Khác"];
+export const LOAI_CONG_TRINH = ["Biệt thự", "Nhà phố cao cấp", "Khách sạn & Resort", "Penthouse", "Khác"];
+
+/** 3 loại hình hiển thị ở khối Công trình và bộ lọc (theo bố cục Winboss) */
+export const LOAI_DU_AN = ["Biệt thự", "Nhà phố cao cấp", "Khách sạn & Resort"];
 
 export type CongTrinhMinhHoa = {
   slug: string;
@@ -151,17 +155,17 @@ export type CongTrinhMinhHoa = {
 /** 12 mục MINH HỌA (anh Huy chọn 09/11/2026). Không phải công trình thật. */
 export const CONG_TRINH_MINH_HOA: CongTrinhMinhHoa[] = [
   { slug: "minh-hoa-01", ten: "Biệt thự ven biển", loai: "Biệt thự", khuVuc: "Miền Trung", kieuCua: "Cửa trượt nâng" },
-  { slug: "minh-hoa-02", ten: "Penthouse nhìn ra thành phố", loai: "Penthouse", khuVuc: "Miền Nam", kieuCua: "Cửa xếp trượt" },
+  { slug: "minh-hoa-02", ten: "Khách sạn trung tâm", loai: "Khách sạn & Resort", khuVuc: "Miền Nam", kieuCua: "Cửa xếp trượt" },
   { slug: "minh-hoa-03", ten: "Biệt thự vườn", loai: "Biệt thự", khuVuc: "Miền Bắc", kieuCua: "Cửa đi mở quay" },
-  { slug: "minh-hoa-04", ten: "Nhà phố cải tạo", loai: "Cải tạo nhà phố", khuVuc: "Miền Bắc", kieuCua: "Cửa sổ" },
+  { slug: "minh-hoa-04", ten: "Nhà phố cải tạo", loai: "Nhà phố cao cấp", khuVuc: "Miền Bắc", kieuCua: "Cửa sổ" },
   { slug: "minh-hoa-05", ten: "Biệt thự hồ bơi", loai: "Biệt thự", khuVuc: "Miền Nam", kieuCua: "Cửa trượt nâng" },
-  { slug: "minh-hoa-06", ten: "Penthouse sân thượng", loai: "Penthouse", khuVuc: "Miền Bắc", kieuCua: "Cửa xếp trượt" },
+  { slug: "minh-hoa-06", ten: "Resort nghỉ dưỡng", loai: "Khách sạn & Resort", khuVuc: "Miền Bắc", kieuCua: "Cửa xếp trượt" },
   { slug: "minh-hoa-07", ten: "Biệt thự đồi", loai: "Biệt thự", khuVuc: "Miền Trung", kieuCua: "Cửa trượt nâng" },
-  { slug: "minh-hoa-08", ten: "Nhà phố mặt tiền kính", loai: "Cải tạo nhà phố", khuVuc: "Miền Nam", kieuCua: "Cửa đi mở quay" },
+  { slug: "minh-hoa-08", ten: "Nhà phố mặt tiền kính", loai: "Nhà phố cao cấp", khuVuc: "Miền Nam", kieuCua: "Cửa đi mở quay" },
   { slug: "minh-hoa-09", ten: "Biệt thự nghỉ dưỡng", loai: "Biệt thự", khuVuc: "Miền Trung", kieuCua: "Cửa xếp trượt" },
-  { slug: "minh-hoa-10", ten: "Penthouse hai tầng", loai: "Penthouse", khuVuc: "Miền Nam", kieuCua: "Cửa trượt nâng" },
+  { slug: "minh-hoa-10", ten: "Khách sạn ven biển", loai: "Khách sạn & Resort", khuVuc: "Miền Nam", kieuCua: "Cửa trượt nâng" },
   { slug: "minh-hoa-11", ten: "Biệt thự ven sông", loai: "Biệt thự", khuVuc: "Miền Nam", kieuCua: "Cửa đi mở quay" },
-  { slug: "minh-hoa-12", ten: "Nhà vườn hiện đại", loai: "Khác", khuVuc: "Miền Bắc", kieuCua: "Cửa sổ" },
+  { slug: "minh-hoa-12", ten: "Nhà phố hiện đại", loai: "Nhà phố cao cấp", khuVuc: "Miền Bắc", kieuCua: "Cửa sổ" },
 ];
 
 export const FAQ_CHUNG = [

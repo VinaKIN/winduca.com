@@ -96,7 +96,7 @@ export function CrossSection({
         <div className="grid gap-5 md:grid-cols-[14rem_1fr] md:gap-12">
           <div>
             <p className="nhan-muc text-than-chi/70">{nhan.replace(/^\d{2}\s*\/\s*\d{2}\s*·\s*/, "")}</p>
-            <div className="mt-4 h-px w-14 bg-champagne" />
+            <div className="mt-4 h-px w-14 bg-accent" />
           </div>
           <div>
             <h2 id="tieu-de-mat-cat" className="tieu-de max-w-2xl text-[clamp(1.75rem,3.4vw,3rem)]">
@@ -113,7 +113,7 @@ export function CrossSection({
           <div ref={khung} className="relative aspect-[4/3] overflow-hidden border border-inox/25 bg-[#232325]">
             {/* dấu góc khung kiểu bản vẽ */}
             {["left-3 top-3 border-l border-t", "right-3 top-3 border-r border-t", "left-3 bottom-3 border-b border-l", "right-3 bottom-3 border-b border-r"].map((c) => (
-              <span key={c} className={`pointer-events-none absolute h-4 w-4 border-champagne ${c}`} />
+              <span key={c} className={`pointer-events-none absolute h-4 w-4 border-accent ${c}`} />
             ))}
 
             <div className="absolute inset-0">
@@ -208,7 +208,7 @@ export function CrossSection({
               <div key={ten} className="border-than-chi/15 p-5 sm:border-b lg:[&:nth-last-child(-n+3)]:border-b-0">
                 <p className="nhan-muc text-than-chi/70">{ten}</p>
                 <p className="mt-2 inline-flex items-center gap-2 text-sm font-medium text-than-chi/80">
-                  <span className="h-1.5 w-1.5 rotate-45 bg-champagne" aria-hidden="true" />
+                  <span className="h-1.5 w-1.5 rotate-45 bg-accent" aria-hidden="true" />
                   Đang chờ xác nhận
                 </p>
               </div>

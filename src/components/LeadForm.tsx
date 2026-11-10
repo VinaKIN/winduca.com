@@ -35,9 +35,11 @@ type Props = {
   kieuCuaMacDinh?: string;
   /** Gọi sau khi gửi thành công (ví dụ tải tệp). Nếu có thì không chuyển sang /cam-on. */
   khiXong?: (ma: string) => void;
+  /** Dạng gọn: chỉ họ tên, SĐT, email, đồng ý (dùng ở chân trang). */
+  gon?: boolean;
 };
 
-export function LeadForm({ loai, tone = "sang", kieuCuaMacDinh = "", khiXong }: Props) {
+export function LeadForm({ loai, tone = "sang", kieuCuaMacDinh = "", khiXong, gon = false }: Props) {
   const router = useRouter();
   const formRef = useRef<HTMLFormElement>(null);
   const [dangGui, setDangGui] = useState(false);
@@ -46,7 +48,7 @@ export function LeadForm({ loai, tone = "sang", kieuCuaMacDinh = "", khiXong }: 
   const toi = tone === "toi";
 
   const nhan = `block text-sm font-medium ${toi ? "text-nga" : "text-than-chi"}`;
-  const o = `mt-2 w-full rounded-[2px] border px-3 py-3 text-base outline-none transition-colors focus:border-champagne ${
+  const o = `mt-2 w-full rounded-md border px-3 py-3 text-base outline-none transition-colors focus:border-accent ${
     toi
       ? "border-inox/40 bg-than-chi/40 text-nga placeholder:text-nga/50"
       : "border-than-chi/25 bg-white text-than-chi placeholder:text-than-chi/50"
@@ -106,7 +108,7 @@ export function LeadForm({ loai, tone = "sang", kieuCuaMacDinh = "", khiXong }: 
   return (
     <form ref={formRef} onSubmit={guiDi} noValidate className="grid gap-5 md:grid-cols-2" aria-label="Biểu mẫu liên hệ">
       {BAN_XEM_THU_TINH && (
-        <p className="rounded-sm border border-dashed border-champagne p-3 text-sm md:col-span-2">
+        <p className="rounded-sm border border-dashed border-accent p-3 text-sm md:col-span-2">
           Đây là bản xem thử tĩnh: biểu mẫu chưa gửi được. Anh chị vui lòng gọi hotline {HOTLINE}.
         </p>
       )}
@@ -141,7 +143,7 @@ export function LeadForm({ loai, tone = "sang", kieuCuaMacDinh = "", khiXong }: 
         {loiTruong.email && <p className={loiCss}>{loiTruong.email}</p>}
       </div>
 
-      {(loai === "tai-lieu" || loai === "lien-he" || loai === "ban-ve") && (
+      {!gon && (loai === "tai-lieu" || loai === "lien-he" || loai === "ban-ve") && (
         <div>
           <label className={nhan} htmlFor={`vaitro-${loai}`}>
             Bạn là
@@ -157,7 +159,7 @@ export function LeadForm({ loai, tone = "sang", kieuCuaMacDinh = "", khiXong }: 
         </div>
       )}
 
-      {loai === "lien-he" && (
+      {!gon && loai === "lien-he" && (
         <div>
           <label className={nhan} htmlFor="chude-lien-he">
             Chủ đề
@@ -258,7 +260,7 @@ export function LeadForm({ loai, tone = "sang", kieuCuaMacDinh = "", khiXong }: 
             <label className={nhan} htmlFor="tep-ban-ve">
               Bản vẽ (PDF, DWG, JPG, PNG)
             </label>
-            <input id="tep-ban-ve" name="tep" type="file" accept=".pdf,.dwg,.jpg,.jpeg,.png" className={`${o} file:mr-4 file:rounded-[2px] file:border-0 file:bg-champagne file:px-3 file:py-2 file:text-sm file:font-semibold file:text-than-chi`} />
+            <input id="tep-ban-ve" name="tep" type="file" accept=".pdf,.dwg,.jpg,.jpeg,.png" className={`${o} file:mr-4 file:rounded-[2px] file:border-0 file:bg-accent file:px-3 file:py-2 file:text-sm file:font-semibold file:text-white`} />
             <p className={phu}>
               Tối đa 30MB. Bản vẽ chỉ dùng để tư vấn cho đúng công trình này, không chia sẻ cho bên thứ ba, xóa sau 30
               ngày; anh chị có thể yêu cầu xóa sớm.
@@ -268,7 +270,7 @@ export function LeadForm({ loai, tone = "sang", kieuCuaMacDinh = "", khiXong }: 
         </>
       )}
 
-      {(loai === "lien-he" || loai === "ban-ve") && (
+      {!gon && (loai === "lien-he" || loai === "ban-ve") && (
         <div className="md:col-span-2">
           <label className={nhan} htmlFor={`ghichu-${loai}`}>
             Nội dung
@@ -279,7 +281,7 @@ export function LeadForm({ loai, tone = "sang", kieuCuaMacDinh = "", khiXong }: 
 
       <div className="md:col-span-2">
         <label className={`flex items-start gap-3 text-sm ${toi ? "text-nga/90" : "text-than-chi/85"}`}>
-          <input type="checkbox" name="dongY" className="mt-1 h-4 w-4 accent-[#bfa678]" />
+          <input type="checkbox" name="dongY" className="mt-1 h-4 w-4 accent-[#e31937]" />
           <span>{CAU_DONG_Y[loai]}</span>
         </label>
         {loiTruong.dongY && <p className={loiCss}>{loiTruong.dongY}</p>}

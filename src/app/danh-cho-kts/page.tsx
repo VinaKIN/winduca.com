@@ -100,7 +100,7 @@ export default function DanhChoKts() {
             ["Đội kỹ thuật đề xuất", "Giải pháp và chi tiết tham khảo theo bản vẽ."],
             ["Trao đổi, hoàn thiện", "Qua điện thoại, Zalo, email hoặc họp online."],
           ].map(([t, m], i) => (
-            <li key={t} className="border-t border-champagne pt-6">
+            <li key={t} className="border-t border-accent pt-6">
               <span className="nhan-muc text-than-chi/60">{String(i + 1).padStart(2, "0")}</span>
               <h3 className="tieu-de mt-3 text-lg">{t}</h3>
               <p className="mt-2 text-sm text-than-chi/80">{m}</p>

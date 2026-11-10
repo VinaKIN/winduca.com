@@ -20,7 +20,7 @@ export function ThuVienKts() {
   );
   const chip = (dangChon: boolean) =>
     `border px-3 py-1.5 text-xs font-semibold transition-colors ${
-      dangChon ? "border-champagne bg-champagne text-than-chi" : "border-than-chi/30 text-nga hover:border-champagne"
+      dangChon ? "border-accent bg-accent text-than-chi" : "border-than-chi/30 text-nga hover:border-accent"
     }`;
   return (
     <div>

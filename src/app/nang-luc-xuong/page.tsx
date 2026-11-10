@@ -41,8 +41,8 @@ export default function NangLucXuong() {
       <Section tone="sang" nhan="Từ bản vẽ đến bộ cửa" tieuDe="Bảy bước của một bộ cửa WINDUCA.">
         <ol className="grid gap-x-6 gap-y-10 md:grid-cols-2 lg:grid-cols-4">
           {BUOC.map(([t, m], i) => (
-            <li key={t} className="relative border-t border-champagne pt-8">
-              <span className="absolute -top-[5px] left-0 h-2.5 w-2.5 rotate-45 bg-champagne" aria-hidden="true" />
+            <li key={t} className="relative border-t border-accent pt-8">
+              <span className="absolute -top-[5px] left-0 h-2.5 w-2.5 rotate-45 bg-accent" aria-hidden="true" />
               <span className="nhan-muc text-than-chi/60">{String(i + 1).padStart(2, "0")}</span>
               <h3 className="tieu-de mt-3 text-lg">{t}</h3>
               <p className="mt-2 text-sm text-than-chi/80">{m}</p>
@@ -55,7 +55,7 @@ export default function NangLucXuong() {
         <ul className="grid gap-4 md:grid-cols-2">
           {CONG_DOAN.map((c) => (
             <li key={c} className="flex items-center gap-4 border border-than-chi/20 p-6">
-              <span className="h-2.5 w-2.5 shrink-0 rotate-45 bg-champagne" aria-hidden="true" />
+              <span className="h-2.5 w-2.5 shrink-0 rotate-45 bg-accent" aria-hidden="true" />
               {c}
             </li>
           ))}
@@ -72,7 +72,7 @@ export default function NangLucXuong() {
             ["Sau gia công", "Kiểm tra bộ cửa sau khi gia công và lắp ráp."],
             ["Trước giao", "Kiểm tra lần cuối trước khi đóng gói và giao."],
           ].map(([t, m], i) => (
-            <li key={t} className="border-t border-champagne pt-6">
+            <li key={t} className="border-t border-accent pt-6">
               <span className="nhan-muc text-than-chi/60">{String(i + 1).padStart(2, "0")}</span>
               <h3 className="tieu-de mt-3 text-lg">{t}</h3>
               <p className="mt-2 text-sm text-than-chi/80">{m}</p>
