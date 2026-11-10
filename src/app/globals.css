@@ -469,3 +469,59 @@ section.nen-nga {
   height: 2px;
   background: linear-gradient(90deg, var(--accent), rgba(227, 25, 55, 0.2));
 }
+
+/* ===== Nền kỹ thuật cho mọi khối nền tối: mặt cắt nhôm + lưới tọa độ + tương tác chuột (10/11/2026) ===== */
+:root {
+  --cat-nhom: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 640 440' fill='none' stroke='white' stroke-width='1.2'><rect x='60' y='70' width='150' height='112'/><rect x='80' y='90' width='110' height='72'/><path d='M80 126H190M135 90V162'/><rect x='210' y='98' width='40' height='56'/><path d='M210 112l40-14M210 128l40-14M210 144l40-14M210 154l40-14'/><rect x='250' y='70' width='150' height='112'/><rect x='270' y='90' width='110' height='72'/><path d='M270 126H380M325 90V162'/><rect x='420' y='40' width='7' height='230'/><rect x='446' y='40' width='7' height='230'/><rect x='427' y='40' width='19' height='14'/><rect x='427' y='256' width='19' height='14'/><path d='M400 112q14 10 0 22t0 22'/><rect x='60' y='214' width='150' height='56'/><rect x='80' y='230' width='110' height='24'/><rect x='250' y='214' width='150' height='56'/><rect x='270' y='230' width='110' height='24'/><rect x='210' y='226' width='40' height='32'/><path d='M60 320H453M60 312V328M453 312V328M60 360H210M60 352V368M210 352V368M250 360H400M250 352V368M400 352V368'/><path d='M30 70V270M22 70H38M22 270H38'/><path d='M520 60h60M550 30v60M520 340h60M550 310v60'/><circle cx='550' cy='60' r='18'/><circle cx='550' cy='340' r='18'/><path d='M231 126L300 28H532' stroke='%23e31937'/><circle cx='231' cy='126' r='4' fill='%23e31937' stroke='none'/><circle cx='437' cy='150' r='4' fill='%23e31937' stroke='none'/><circle cx='135' cy='126' r='4' fill='%23e31937' stroke='none'/></svg>");
+  --luoi-toi: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='64' height='64'><path d='M64 0H0V64' fill='none' stroke='white' stroke-opacity='0.5'/></svg>");
+}
+.nen-toi,
+.nen-ky-thuat {
+  position: relative;
+  isolation: isolate;
+  --mx: -999px;
+  --my: -999px;
+}
+.nen-toi::before,
+.nen-ky-thuat::before,
+.nen-toi::after,
+.nen-ky-thuat::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background-repeat: no-repeat, repeat;
+  background-position: right 3% center, 0 0;
+  background-size: min(54%, 760px) auto, 64px 64px;
+}
+.nen-toi::before,
+.nen-ky-thuat::before {
+  background-image: var(--cat-nhom), var(--luoi-toi);
+  opacity: 0.22;
+}
+.nen-toi::after,
+.nen-ky-thuat::after {
+  background-image: var(--cat-nhom);
+  opacity: 0.95;
+  -webkit-mask-image: radial-gradient(280px 280px at var(--mx) var(--my), #000 0%, transparent 70%);
+  mask-image: radial-gradient(280px 280px at var(--mx) var(--my), #000 0%, transparent 70%);
+}
+.nen-toi > .mx-auto,
+.nen-ky-thuat > .mx-auto {
+  position: relative;
+  z-index: 2;
+}
+@media (max-width: 1023px) {
+  .nen-toi::before,
+  .nen-ky-thuat::before,
+  .nen-toi::after,
+  .nen-ky-thuat::after {
+    background-position: center bottom -8%, 0 0;
+    background-size: 120% auto, 64px 64px;
+  }
+  .nen-toi::before,
+  .nen-ky-thuat::before {
+    opacity: 0.09;
+  }
+}

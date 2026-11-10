@@ -4,6 +4,7 @@ import "./globals.css";
 import { Header } from "@/components/Header";
 import { Analytics } from "@/components/Analytics";
 import { Footer } from "@/components/Footer";
+import { NenTuongTac } from "@/components/NenTuongTac";
 import { NutLienHeNhanh } from "@/components/NutLienHeNhanh";
 import { asset } from "@/lib/asset";
 import { HOTLINE } from "@/lib/site";
@@ -49,6 +50,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <Footer />
         <NutLienHeNhanh />
         <Analytics />
+        <NenTuongTac />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{

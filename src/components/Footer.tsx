@@ -22,9 +22,9 @@ export function Footer() {
   return (
     <footer>
       {/* Đăng ký tham quan */}
-      <section className="relative overflow-hidden bg-than-chi">
-        <Image src={asset("/images/hero.jpg")} alt="" fill quality={60} sizes="100vw" className="object-cover" aria-hidden="true" />
-        <div className="absolute inset-0 bg-than-chi/70" aria-hidden="true" />
+      <section className="nen-ky-thuat relative overflow-hidden bg-[#121011]">
+        <Image src={asset("/images/hero.jpg")} alt="" fill quality={60} sizes="100vw" className="scale-105 object-cover opacity-30 blur-[4px]" aria-hidden="true" />
+        <div className="absolute inset-0 bg-gradient-to-br from-[#0e0c0d]/90 via-[#1a1617]/80 to-[#2a1014]/70" aria-hidden="true" />
         <Wrap className="relative py-12 md:py-16">
           <div className="mx-auto max-w-5xl overflow-hidden rounded-[28px] bg-white md:rounded-[36px]">
             <div className="bg-than-chi px-6 py-8 text-white md:px-12 md:py-10">
