@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { ChinhSach } from "@/components/ChinhSach";
+import { DIA_CHI, EMAIL } from "@/lib/site";
 
 export const metadata: Metadata = { title: "Chính sách bảo mật | WINDUCA" };
 
@@ -54,7 +55,7 @@ export default function ChinhSachBaoMat() {
 
       <h2>6. Thông tin liên hệ</h2>
       <p>
-        WINDUCA — [CHỖ TRỐNG] tên pháp nhân, mã số thuế, địa chỉ. Hotline: 0947 686 668. Email: [CHỖ TRỐNG].
+        WINDUCA — [CHỖ TRỐNG] tên pháp nhân, mã số thuế. Địa chỉ: {DIA_CHI}. Hotline: 0947 686 668. Email: {EMAIL}.
       </p>
     </ChinhSach>
   );

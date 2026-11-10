@@ -5,7 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState, type ReactNode } from "react";
 import { asset } from "@/lib/asset";
-import { HERO_ANH, HOTLINE, HOTLINE_TEL, MENU_CHINH } from "@/lib/site";
+import { DIA_CHI, EMAIL, HERO_ANH, HOTLINE, HOTLINE_TEL, MENU_CHINH } from "@/lib/site";
 
 /**
  * Header kiểu Winboss (11/11/2026): hai nút tròn trắng (gọi, thư) bên trái · logo giữa · nút ba gạch bên phải.
@@ -77,7 +77,6 @@ function Logo({ lop, tren }: { lop: string; tren: boolean }) {
 
 export function Header() {
   const duongDan = usePathname();
-  const [daCuon, setDaCuon] = useState(false);
   const [moMenu, setMoMenu] = useState(false);
   const [duongDanMo, setDuongDanMo] = useState(duongDan);
 
@@ -86,13 +85,6 @@ export function Header() {
     setDuongDanMo(duongDan);
     setMoMenu(false);
   }
-
-  useEffect(() => {
-    const onScroll = () => setDaCuon(window.scrollY > 40);
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
 
   // Khóa cuộn nền và đóng bằng phím Esc khi menu mở
   useEffect(() => {
@@ -107,14 +99,11 @@ export function Header() {
     };
   }, [moMenu]);
 
-  // Chỉ trong suốt ở đầu trang chủ (hero ảnh tối); trang khác và khi cuộn: nền Than đen đặc để chữ trắng luôn đọc được.
-  const trongSuot = duongDan === "/" && !daCuon;
-
   const dangO = (href: string) => (href === "/" ? duongDan === "/" : duongDan.startsWith(href));
 
   return (
     <>
-      <header className={`fixed inset-x-0 top-0 z-50 transition-colors duration-300 ${trongSuot ? "bg-transparent" : "bg-than-chi/95 backdrop-blur-md"}`}>
+      <header className={`absolute inset-x-0 top-0 z-50 ${duongDan === "/" ? "bg-transparent" : "bg-than-chi"}`}>
         <div className="relative mx-auto flex h-20 max-w-[1440px] items-center justify-between px-5 md:h-[90px] md:px-10">
           <div className="flex items-center gap-2 md:gap-4">
             <NutTron href={HOTLINE_TEL} nhan={`Gọi hotline ${HOTLINE}`}>
@@ -216,7 +205,7 @@ export function Header() {
                       <span className="mt-0.5 text-accent">
                         <IconViTri />
                       </span>
-                      <span>Địa chỉ showroom: [CHỜ XÁC NHẬN]</span>
+                      <span>Địa chỉ: {DIA_CHI}</span>
                     </li>
                     <li className="flex items-start gap-3">
                       <span className="mt-0.5 text-accent">
@@ -230,7 +219,7 @@ export function Header() {
                       <span className="mt-0.5 text-accent">
                         <IconThu />
                       </span>
-                      <span>Email: [CHỖ TRỐNG]</span>
+                      <a href={`mailto:${EMAIL}`} className="hover:underline">Email: {EMAIL}</a>
                     </li>
                   </ul>
                   <Link

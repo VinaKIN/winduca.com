@@ -3,7 +3,7 @@ import Link from "next/link";
 import { LeadForm } from "./LeadForm";
 import { Wrap } from "./ui";
 import { asset } from "@/lib/asset";
-import { HOTLINE, HOTLINE_TEL } from "@/lib/site";
+import { DIA_CHI, EMAIL, HOTLINE, HOTLINE_TEL, MAPS_URL } from "@/lib/site";
 
 /**
  * Chân trang kiểu Winboss (11/11/2026): khối "Trải nghiệm không gian" + form đăng ký tham quan trên ảnh tối,
@@ -33,11 +33,11 @@ export function Footer() {
                   </li>
                   <li className="flex items-center gap-3">
                     <span className="h-2 w-2 shrink-0 rounded-full bg-accent" aria-hidden="true" />
-                    <span className="text-white/80">Email: [CHỖ TRỐNG]</span>
+                    <a href={`mailto:${EMAIL}`} className="text-white/80 hover:underline">Email: {EMAIL}</a>
                   </li>
                   <li className="flex items-center gap-3 sm:col-span-2">
                     <span className="h-2 w-2 shrink-0 rounded-full bg-accent" aria-hidden="true" />
-                    <span className="text-white/80">Showroom: [CHỜ XÁC NHẬN] địa chỉ và giờ làm việc</span>
+                    <a href={MAPS_URL} target="_blank" rel="noopener noreferrer" className="text-white/80 hover:underline">Địa chỉ: {DIA_CHI}</a>
                   </li>
                 </ul>
               </div>
@@ -62,7 +62,7 @@ export function Footer() {
           <div className="grid gap-12 lg:grid-cols-[1.1fr_0.9fr_1.2fr]">
             <div>
               <Image
-                src={asset("/brand/WINDUCA-chinh-slogan-am-ban.svg")}
+                src={asset("/brand/WINDUCA-chinh-slogan-am-ban-trong.svg")}
                 alt="WINDUCA — Premium Window & Door"
                 width={220}
                 height={190}
@@ -118,17 +118,27 @@ export function Footer() {
             </div>
 
             <div>
-              <div className="flex aspect-[16/8] items-center justify-center rounded-2xl border border-white/20 bg-white/5 text-sm text-white/60">
-                Bản đồ showroom: [CHỜ XÁC NHẬN]
-              </div>
+              <a
+                href={MAPS_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex aspect-[16/8] flex-col items-center justify-center gap-2 rounded-2xl border border-white/20 bg-white/5 px-6 text-center text-sm text-white/80 transition-colors hover:border-accent hover:text-white"
+              >
+                <span>{DIA_CHI}</span>
+                <span className="font-bold uppercase tracking-[0.08em] text-accent">Xem bản đồ</span>
+              </a>
               <ul className="mt-6 space-y-2 text-sm text-white/80">
                 <li>
                   <a href={HOTLINE_TEL} className="hover:text-accent">
                     {HOTLINE}
                   </a>
                 </li>
-                <li>Email: [CHỖ TRỐNG]</li>
-                <li>[CHỖ TRỐNG] Tên pháp nhân · MST · Địa chỉ</li>
+                <li>
+                  <a href={`mailto:${EMAIL}`} className="hover:text-accent">
+                    {EMAIL}
+                  </a>
+                </li>
+                <li>{DIA_CHI}</li>
               </ul>
             </div>
           </div>

@@ -13,6 +13,10 @@ export const HERO_VIDEO: string | null = null; // ví dụ "/images/hero.mp4" (m
 export const HOTLINE = "0947 686 668";
 export const HOTLINE_TEL = "tel:0947686668";
 
+export const EMAIL = "info@winduca.com";
+export const DIA_CHI = "Tòa nhà VinaKIN Building, 280A5 Lương Định Của, Bình Trưng, Hồ Chí Minh";
+export const MAPS_URL = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(DIA_CHI)}`;
+
 export const MENU = [
   { href: "/he-cua", label: "Hệ cửa" },
   { href: "/cong-trinh", label: "Công trình" },

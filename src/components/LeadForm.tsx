@@ -111,11 +111,6 @@ export function LeadForm({ loai, tone = "sang", kieuCuaMacDinh = "", khiXong, go
 
   return (
     <form ref={formRef} onSubmit={guiDi} noValidate className="grid gap-5 md:grid-cols-2" aria-label="Biểu mẫu liên hệ">
-      {CHUA_CO_NOI_NHAN && (
-        <p className="rounded-sm border border-dashed border-accent p-3 text-sm md:col-span-2">
-          Đây là bản xem thử tĩnh: biểu mẫu chưa gửi được. Anh chị vui lòng gọi hotline {HOTLINE}.
-        </p>
-      )}
       {/* bẫy spam: người thật không thấy */}
       <div className="absolute -left-[9999px]" aria-hidden="true">
         <label>

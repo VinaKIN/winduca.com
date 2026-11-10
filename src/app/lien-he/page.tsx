@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { LeadForm } from "@/components/LeadForm";
 import { PageHero, Section } from "@/components/ui";
-import { HOTLINE, HOTLINE_TEL } from "@/lib/site";
+import { DIA_CHI, EMAIL, HOTLINE, HOTLINE_TEL, MAPS_URL } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Liên hệ | WINDUCA",
@@ -31,11 +31,11 @@ export default function LienHe() {
               </div>
               <div>
                 <dt className="font-semibold">Email</dt>
-                <dd className="text-than-chi/70">[CHỖ TRỐNG]</dd>
+                <dd className="text-than-chi/70"><a href={`mailto:${EMAIL}`} className="hover:underline">{EMAIL}</a></dd>
               </div>
               <div>
                 <dt className="font-semibold">Showroom</dt>
-                <dd className="text-than-chi/70">[CHỜ XÁC NHẬN] địa chỉ và giờ làm việc</dd>
+                <dd className="text-than-chi/70"><a href={MAPS_URL} target="_blank" rel="noopener noreferrer" className="hover:underline">{DIA_CHI}</a></dd>
               </div>
             </dl>
           </div>

@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { HopMau } from "@/components/HopMau";
 import { LeadForm } from "@/components/LeadForm";
 import { PageHero, Section } from "@/components/ui";
-import { HOTLINE, HOTLINE_TEL } from "@/lib/site";
+import { DIA_CHI, HOTLINE, HOTLINE_TEL, MAPS_URL } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Trải nghiệm WINDUCA — Hộp mẫu góc nhôm & Showroom",
@@ -73,7 +73,7 @@ export default function TraiNghiem() {
             <dl className="mt-5 space-y-4 text-sm">
               <div>
                 <dt className="font-semibold">Địa chỉ</dt>
-                <dd className="text-than-chi/70">[CHỜ XÁC NHẬN]</dd>
+                <dd className="text-than-chi/70"><a href={MAPS_URL} target="_blank" rel="noopener noreferrer" className="hover:underline">{DIA_CHI}</a></dd>
               </div>
               <div>
                 <dt className="font-semibold">Hotline</dt>
