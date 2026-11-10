@@ -178,3 +178,21 @@ body {
     transition-duration: 0.01ms !important;
   }
 }
+
+/*
+  Design Tokens tập trung (10/11/2026). Chỉ gom giá trị đang dùng, KHÔNG đổi diện mạo Winboss đã chốt.
+  Dùng var(--...) khi viết CSS mới để đổi màu, khoảng cách, bo góc đồng bộ toàn site.
+*/
+:root {
+  --container: 1440px;
+  --gutter-mobile: 1.25rem;
+  --gutter-desktop: 2.5rem;
+  --section-y-mobile: 4rem;
+  --section-y-desktop: 6rem;
+  --card-gap: 1.5rem;
+  --radius-card: 24px;
+  --radius-button: 999px;
+  --font-heading: var(--font-roboto), system-ui, sans-serif;
+  --font-body: var(--font-roboto), system-ui, sans-serif;
+  --transition: 0.3s ease;
+}

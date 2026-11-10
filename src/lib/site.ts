@@ -41,11 +41,14 @@ export const MENU_CHINH: MucMenu[] = [
     ],
   },
   {
-    href: "/nang-luc-xuong",
+    href: "/giai-phap",
     label: "Giải pháp",
     con: [
+      { href: "/giai-phap/biet-thu", label: "Biệt thự" },
+      { href: "/giai-phap/penthouse", label: "Penthouse" },
+      { href: "/giai-phap/nha-pho-cao-cap", label: "Nhà phố cao cấp" },
+      { href: "/giai-phap/khach-san-resort", label: "Khách sạn & Resort" },
       { href: "/nang-luc-xuong", label: "Năng lực & Xưởng" },
-      { href: "/trai-nghiem", label: "Trải nghiệm" },
       { href: "/danh-cho-kts", label: "Dành cho KTS" },
     ],
   },

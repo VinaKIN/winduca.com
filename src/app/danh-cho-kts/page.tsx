@@ -27,6 +27,17 @@ function moTaKyThuat(ten: string, cachMo: string): string {
   ].join("\n");
 }
 
+const PORTAL: { t: string; m: string; href?: string; nut?: string }[] = [
+  { t: "Thư viện catalog", m: "Catalog các hệ cửa của WINDUCA." },
+  { t: "Mặt cắt DWG", m: "Bản vẽ mặt cắt cho hồ sơ thiết kế." },
+  { t: "Mô hình BIM", m: "Mô hình BIM dùng trong phần mềm thiết kế." },
+  { t: "Hồ sơ kỹ thuật PDF", m: "Mô tả kỹ thuật và hồ sơ năng lực." },
+  { t: "Bảng màu vật liệu", m: "Màu hoàn thiện cho khung cửa.", href: "/he-cua/cua-truot-nang", nut: "Xem màu" },
+  { t: "Hướng dẫn lắp đặt", m: "Tài liệu hướng dẫn cho nhà thầu." },
+  { t: "Gửi bản vẽ để tư vấn", m: "Gửi bản vẽ, nhận đề xuất giải pháp và chi tiết.", href: "#tu-van", nut: "Gửi bản vẽ" },
+  { t: "Đăng ký nhận tài liệu", m: "Để lại thông tin để được báo khi có tài liệu mới.", href: "#thu-vien", nut: "Đăng ký" },
+];
+
 const FAQ_KTS = [
   {
     q: "Tôi có thể tải tệp DWG ngay không?",
@@ -61,6 +72,25 @@ export default function DanhChoKts() {
           Gửi bản vẽ để tư vấn
         </a>
       </PageHero>
+
+      <Section tone="sang" nhan="Technical Portal" tieuDe="Cổng tài liệu kỹ thuật" moTa="Tệp chỉ hiện nút tải khi đã được kiểm duyệt và có quyền phân phối.">
+        <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          {PORTAL.map((x, i) => (
+            <li key={x.t} className="flex flex-col rounded-[20px] border border-than-chi/10 bg-white p-6">
+              <span className="text-3xl font-light text-than-chi/30">{String(i + 1).padStart(2, "0")}</span>
+              <h3 className="mt-3 text-lg font-bold">{x.t}</h3>
+              <p className="mt-2 flex-1 text-sm text-than-chi/70">{x.m}</p>
+              {x.href ? (
+                <a href={x.href} className="mt-4 text-sm font-bold uppercase tracking-[0.06em] text-accent">
+                  {x.nut}
+                </a>
+              ) : (
+                <span className="mt-4 text-sm font-medium text-than-chi/50">Sắp có</span>
+              )}
+            </li>
+          ))}
+        </ul>
+      </Section>
 
       <Section id="thu-vien" tone="nga" nhan="Thư viện kỹ thuật" tieuDe="DWG · PDF · BIM" moTa="Các tệp đang được hoàn thiện. Đăng ký để được báo khi có tệp.">
         <ThuVienKts />

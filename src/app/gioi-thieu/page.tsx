@@ -1,30 +1,92 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { CrossSection } from "@/components/CrossSection";
 import { GiaiPhapDongBo } from "@/components/GiaiPhapDongBo";
-import { DaiChuChay, DichVuKhoi, DoiTacKhoi, GioiThieuKhoi, ViSaoKhoi } from "@/components/TrangChuKhoi";
-import { PageHero } from "@/components/ui";
+import { DoiTacKhoi } from "@/components/TrangChuKhoi";
+import { PageHero, Section } from "@/components/ui";
 
 export const metadata: Metadata = {
   title: "Giới thiệu | WINDUCA",
-  description: "WINDUCA: giải pháp cửa nhôm kính cao cấp châu Âu đồng bộ, từ hệ nhôm, phụ kiện đến thi công.",
+  description: "WINDUCA: giải pháp cửa nhôm kính kiến trúc cao cấp, đồng bộ từ hệ nhôm, kính, phụ kiện đến thi công hoàn thiện.",
 };
 
-/** Trang Giới thiệu theo bố cục Winboss: hero ảnh → giới thiệu → mặt cắt → dịch vụ → dải chữ → vì sao chọn. */
+/**
+ * Trang Giới thiệu theo đề xuất 10/11/2026 (mục 5.1): Brand Hero → Brand Story → Vision & Values → Engineering →
+ * Integrated Solutions → Quality Process → Partner Network → CTA. "Team & Expertise" chưa có tư liệu nên chưa dựng.
+ * Nội dung Brand Story, Vision & Values, Quality Process là BẢN NHÁP triết lý/quy trình chung, chờ anh Huy duyệt.
+ */
+const GIA_TRI = [
+  { t: "Tầm nhìn", m: "Trở thành đối tác giải pháp cửa nhôm kính kiến trúc đáng tin cậy của chủ nhà, kiến trúc sư và nhà thầu." },
+  { t: "Sứ mệnh", m: "Mang đến giải pháp cửa đồng bộ, đúng bản vẽ, từ tư vấn đến thi công và hậu mãi." },
+  { t: "Giá trị", m: "Chính xác trong từng chi tiết. Đồng bộ từ hệ nhôm đến thi công. Minh bạch trong thông tin." },
+];
+
+const QUY_TRINH_CL = [
+  { t: "Kiểm tra bản vẽ", m: "Rà soát bản vẽ và yêu cầu kiến trúc trước khi bóc tách." },
+  { t: "Kiểm tra vật tư", m: "Đối chiếu hệ nhôm, kính và phụ kiện với đề xuất." },
+  { t: "Kiểm soát gia công", m: "Gia công theo bản vẽ và kiểm tra trước khi xuất xưởng." },
+  { t: "Nghiệm thu", m: "Kiểm tra vận hành và hoàn thiện tại công trình." },
+];
+
 export default function GioiThieu() {
   return (
     <>
       <PageHero
         nhan="Giới thiệu"
         tieuDe="WINDUCA – Premium Window & Door"
-        moTa="Thương hiệu mang đến giải pháp cửa nhôm kính cao cấp châu Âu đồng bộ — từ hệ nhôm, phụ kiện đến thi công."
+        moTa="Giải pháp cửa nhôm kính kiến trúc cao cấp, đồng bộ từ hệ nhôm, kính, phụ kiện đến thi công hoàn thiện."
       />
-      <GioiThieuKhoi />
+
+      <Section tone="sang" nhan="Câu chuyện thương hiệu" tieuDe="Cánh cửa là một phần của kiến trúc.">
+        <div className="grid gap-8 lg:grid-cols-2 lg:gap-14">
+          <p className="text-lg text-than-chi/80">
+            WINDUCA theo đuổi cửa nhôm kính như một thành phần của kiến trúc: đường nét mảnh, khẩu độ lớn, vận hành êm và đồng bộ từ hệ nhôm đến thi công.
+          </p>
+          <p className="text-base text-than-chi/70">
+            Chúng tôi làm việc cùng chủ nhà, kiến trúc sư và nhà thầu để mỗi bộ cửa đúng với bản vẽ và đúng với không gian sống mà nó thuộc về.
+          </p>
+        </div>
+      </Section>
+
+      <Section tone="nga" nhan="Tầm nhìn & giá trị" tieuDe="Điều chúng tôi theo đuổi">
+        <ul className="grid gap-5 md:grid-cols-3">
+          {GIA_TRI.map((g, i) => (
+            <li key={g.t} className="rounded-[24px] bg-white p-7 md:p-8">
+              <span className="text-4xl font-bold text-accent">{String(i + 1).padStart(2, "0")}</span>
+              <h3 className="mt-4 text-xl font-bold">{g.t}</h3>
+              <p className="mt-2 text-sm text-than-chi/75">{g.m}</p>
+            </li>
+          ))}
+        </ul>
+      </Section>
+
       <CrossSection />
       <GiaiPhapDongBo />
-      <DichVuKhoi />
-      <DaiChuChay />
-      <ViSaoKhoi />
+
+      <Section tone="sang" nhan="Quy trình kiểm soát chất lượng" tieuDe="Bốn bước từ bản vẽ đến nghiệm thu" moTa="Quy trình tham khảo, sẽ được đội kỹ thuật xác nhận chi tiết.">
+        <ol className="grid gap-6 md:grid-cols-4">
+          {QUY_TRINH_CL.map((x, i) => (
+            <li key={x.t} className="border-t-2 border-accent pt-4">
+              <span className="text-3xl font-light text-than-chi/35">{String(i + 1).padStart(2, "0")}</span>
+              <h3 className="mt-2 text-lg font-bold">{x.t}</h3>
+              <p className="mt-2 text-sm text-than-chi/70">{x.m}</p>
+            </li>
+          ))}
+        </ol>
+      </Section>
+
       <DoiTacKhoi />
+
+      <Section tone="toi" nhan="Kết nối với WINDUCA" tieuDe="Cùng trao đổi về công trình của bạn.">
+        <div className="flex flex-wrap gap-3">
+          <Link href="/lien-he" className="nut nut-chinh">
+            Liên hệ tư vấn
+          </Link>
+          <Link href="/giai-phap" className="nut nut-vien">
+            Xem giải pháp theo công trình
+          </Link>
+        </div>
+      </Section>
     </>
   );
 }

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { LeadForm } from "@/components/LeadForm";
 import { PageHero, Section } from "@/components/ui";
 import { DIA_CHI, EMAIL, HOTLINE, HOTLINE_TEL, MAPS_URL } from "@/lib/site";
@@ -38,8 +39,38 @@ export default function LienHe() {
                 <dd className="text-than-chi/70"><a href={MAPS_URL} target="_blank" rel="noopener noreferrer" className="hover:underline">{DIA_CHI}</a></dd>
               </div>
             </dl>
+            <dl className="mt-6 space-y-6 text-sm">
+              <div>
+                <dt className="font-semibold">Thời gian làm việc</dt>
+                <dd className="text-than-chi/70">[CHỜ XÁC NHẬN]</dd>
+              </div>
+            </dl>
+            <div className="mt-8 flex flex-wrap gap-3">
+              <a href={MAPS_URL} target="_blank" rel="noopener noreferrer" className="nut nut-vien-sang">
+                Chỉ đường
+              </a>
+              <Link href="/trai-nghiem#showroom" className="nut nut-dac">
+                Đặt lịch tư vấn
+              </Link>
+            </div>
           </div>
           <div>
+            <p className="nhan-muc text-than-chi/70">Chọn nhu cầu của bạn</p>
+            <ul className="mb-8 mt-4 flex flex-wrap gap-2 text-sm">
+              {[
+                ["Tư vấn sản phẩm", "/he-cua"],
+                ["Nhận hộp mẫu", "/trai-nghiem#sample-box"],
+                ["Gửi bản vẽ kỹ thuật", "/danh-cho-kts#tu-van"],
+                ["Đăng ký đại lý, nhà thầu", "/hop-tac#dang-ky-hop-tac"],
+                ["Hợp tác kiến trúc sư", "/hop-tac#architect"],
+              ].map(([t, h]) => (
+                <li key={t}>
+                  <Link href={h} className="inline-block rounded-full border border-than-chi/25 px-4 py-2 transition-colors hover:border-accent hover:text-accent">
+                    {t}
+                  </Link>
+                </li>
+              ))}
+            </ul>
             <LeadForm loai="lien-he" tone="sang" />
           </div>
         </div>

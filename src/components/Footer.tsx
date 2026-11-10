@@ -88,6 +88,11 @@ export function Footer() {
                   </Link>
                 </li>
                 <li>
+                  <Link href="/giai-phap" className="text-white/80 hover:text-accent">
+                    Giải pháp
+                  </Link>
+                </li>
+                <li>
                   <Link href="/hop-tac" className="text-white/80 hover:text-accent">
                     Hợp tác
                   </Link>

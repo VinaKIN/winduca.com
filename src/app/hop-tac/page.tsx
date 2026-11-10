@@ -8,9 +8,33 @@ export const metadata: Metadata = {
 };
 
 const DOI_TAC = [
-  { so: "01", t: "Đại lý và nhà phân phối", m: "Đồng hành cùng đội ngũ WINDUCA để đưa hệ cửa nhôm cầu cách nhiệt đến công trình trong khu vực của bạn." },
-  { so: "02", t: "Nhà thầu và đơn vị thi công", m: "Gửi bản vẽ, nhận bóc tách và hỗ trợ kỹ thuật từ đội ngũ WINDUCA." },
-  { so: "03", t: "Kiến trúc sư và công ty thiết kế", m: "Tài liệu kỹ thuật, mặt cắt và tư vấn theo bản vẽ cho từng công trình." },
+  {
+    id: "dealer",
+    en: "Dealer Partnership",
+    t: "Đại lý và nhà phân phối",
+    m: "Đồng hành cùng đội ngũ WINDUCA để đưa giải pháp cửa nhôm kính đến công trình trong khu vực của bạn.",
+    quyenLoi: ["Trao đổi chương trình hợp tác phân phối theo khu vực", "Đào tạo sản phẩm và kỹ năng tư vấn", "Hỗ trợ trưng bày mẫu vật"],
+    kyThuat: ["Tư vấn kỹ thuật theo từng công trình", "Phối hợp xử lý yêu cầu của khách hàng"],
+    taiLieu: ["Catalog sản phẩm (đang hoàn thiện)", "Tài liệu bán hàng (đang hoàn thiện)"],
+  },
+  {
+    id: "contractor",
+    en: "Contractor Partnership",
+    t: "Nhà thầu và đơn vị thi công",
+    m: "Gửi bản vẽ, nhận bóc tách và hỗ trợ kỹ thuật từ đội ngũ WINDUCA trong suốt quá trình thi công.",
+    quyenLoi: ["Bóc tách khối lượng theo bản vẽ", "Phối hợp tiến độ thi công", "Một đầu mối làm việc xuyên suốt"],
+    kyThuat: ["Hỗ trợ kỹ thuật tại công trình", "Hướng dẫn lắp đặt (đang hoàn thiện)"],
+    taiLieu: ["Hồ sơ kỹ thuật PDF (đang hoàn thiện)", "Mặt cắt DWG (đang hoàn thiện)"],
+  },
+  {
+    id: "architect",
+    en: "Architect Partnership",
+    t: "Kiến trúc sư và công ty thiết kế",
+    m: "Tài liệu kỹ thuật, mặt cắt và tư vấn chi tiết theo bản vẽ cho từng công trình.",
+    quyenLoi: ["Tư vấn chi tiết theo bản vẽ", "Mẫu vật để chạm thử vật liệu", "Trao đổi trực tiếp với đội kỹ thuật"],
+    kyThuat: ["Đề xuất chi tiết tham khảo cho hồ sơ thiết kế", "Gợi ý hệ cửa theo loại công trình"],
+    taiLieu: ["Thư viện BIM, DWG (đang hoàn thiện)", "Bảng màu vật liệu"],
+  },
 ];
 
 const VUNG = ["Miền Bắc", "Miền Trung", "Miền Nam"];
@@ -24,16 +48,41 @@ export default function HopTac() {
         moTa="Chúng tôi làm việc cùng đại lý, nhà thầu, kiến trúc sư và công ty thiết kế. Để lại thông tin, đội ngũ sẽ liên hệ trao đổi hình thức hợp tác phù hợp."
       />
 
-      <Section tone="sang" nhan="Dành cho ai" tieuDe="Ba nhóm đối tác của WINDUCA">
-        <ul className="grid gap-px overflow-hidden rounded-[24px] bg-inox/70 md:grid-cols-3 md:rounded-[32px]">
-          {DOI_TAC.map((d) => (
-            <li key={d.so} className="bg-white p-8 md:p-10">
-              <span className="text-5xl font-bold text-accent md:text-6xl">{d.so}</span>
-              <h3 className="mt-6 text-xl font-bold">{d.t}</h3>
-              <p className="mt-2 text-sm text-than-chi/75">{d.m}</p>
-            </li>
+      <Section tone="sang" nhan="Hệ sinh thái đối tác" tieuDe="Ba nhóm đối tác của WINDUCA">
+        <div className="space-y-6">
+          {DOI_TAC.map((d, i) => (
+            <article key={d.id} id={d.id} className="grid gap-8 rounded-[24px] border border-than-chi/10 bg-white p-7 md:grid-cols-[0.9fr_1.1fr] md:p-10">
+              <div>
+                <span className="text-5xl font-bold text-accent md:text-6xl">{String(i + 1).padStart(2, "0")}</span>
+                <p className="nhan-muc mt-4 text-than-chi/55">{d.en}</p>
+                <h3 className="mt-2 text-2xl font-bold">{d.t}</h3>
+                <p className="mt-3 text-sm text-than-chi/75">{d.m}</p>
+                <a href="#dang-ky-hop-tac" className="nut nut-chinh mt-6">
+                  Đăng ký hợp tác
+                </a>
+              </div>
+              <div className="grid gap-6 sm:grid-cols-3">
+                {[
+                  ["Quyền lợi", d.quyenLoi],
+                  ["Hỗ trợ kỹ thuật", d.kyThuat],
+                  ["Tài liệu", d.taiLieu],
+                ].map(([tt, ds]) => (
+                  <div key={tt as string}>
+                    <p className="nhan-muc text-accent">{tt as string}</p>
+                    <ul className="mt-3 space-y-2 text-sm text-than-chi/80">
+                      {(ds as string[]).map((x) => (
+                        <li key={x} className="flex items-start gap-2">
+                          <span className="mt-[7px] h-1.5 w-1.5 shrink-0 rotate-45 bg-accent" aria-hidden="true" />
+                          <span>{x}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                ))}
+              </div>
+            </article>
           ))}
-        </ul>
+        </div>
       </Section>
 
       <Section tone="nga" nhan="Văn phòng khu vực" tieuDe="Gần công trình của bạn">
