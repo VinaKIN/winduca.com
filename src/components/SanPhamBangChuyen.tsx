@@ -115,7 +115,7 @@ export function SanPhamBangChuyen() {
           }
         }}
         aria-label="Danh sách hệ cửa"
-        className={`flex gap-4 overflow-x-auto px-5 pb-2 [scrollbar-width:none] md:gap-6 md:px-10 [&::-webkit-scrollbar]:hidden md:select-none ${
+        className={`flex gap-4 overflow-x-auto px-5 pb-2 [scrollbar-width:none] md:gap-6 md:px-10 [&::-webkit-scrollbar]:hidden [&_img]:pointer-events-none [&_a]:[-webkit-user-drag:none] md:select-none ${
           dangKeo ? "cursor-grabbing [scroll-snap-type:none]" : "cursor-grab snap-x snap-mandatory"
         }`}
       >
@@ -161,7 +161,7 @@ export function SanPhamBangChuyen() {
                   </li>
                 ))}
               </ul>
-              <Link href={`/he-cua/${k.slug}`} className="nut nut-chinh mt-6 self-start">
+              <Link href={`/he-cua/${k.slug}`} draggable={false} className="nut nut-chinh mt-6 self-start">
                 Xem chi tiết
               </Link>
             </div>
