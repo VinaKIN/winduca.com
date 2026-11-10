@@ -21,7 +21,8 @@ function MuiTen({ lop = "" }: { lop?: string }) {
 export function HeroDoors() {
   return (
     <section id="hero" aria-label="Giới thiệu WINDUCA" className="bg-white px-3 pb-3 pt-3 md:px-6 md:pb-6 md:pt-5">
-      <div className="relative mx-auto h-[calc(100svh-1.5rem)] min-h-[620px] max-w-[1440px] overflow-hidden rounded-[28px] bg-than-chi md:h-[calc(100svh-2.75rem)] md:rounded-[40px]">
+      <div className="mx-auto h-[calc(100svh-1.5rem)] min-h-[620px] max-w-[1440px] rounded-[28px] bg-nga p-2 md:h-[calc(100svh-2.75rem)] md:rounded-[40px] md:p-2.5">
+      <div className="relative h-full overflow-hidden rounded-[22px] bg-than-chi md:rounded-[32px]">
         {/* ẢNH / VIDEO NỀN */}
         <div className="absolute inset-0" aria-hidden="true">
           {HERO_ANH && <Image src={HERO_ANH} alt="" fill priority quality={60} sizes="(min-width: 1440px) 1392px, 100vw" className="object-cover" />}
@@ -54,7 +55,7 @@ export function HeroDoors() {
 
         {/* CHỮ — góc dưới trái */}
         <div className="hero-hien absolute inset-x-0 bottom-0">
-          <div className="px-6 pb-8 md:px-14 md:pb-14">
+          <div className="px-6 pb-8 md:px-12 md:pb-12">
             <div className="flex items-center gap-4">
               <span className="block h-px w-10 bg-champagne md:w-14" aria-hidden="true" />
               <p className="nhan-muc text-champagne">Premium Window &amp; Door</p>
@@ -101,6 +102,7 @@ export function HeroDoors() {
             </svg>
           </span>
         </a>
+      </div>
       </div>
     </section>
   );
