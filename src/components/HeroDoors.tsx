@@ -225,12 +225,9 @@ export function HeroDoors() {
           </div>
         </div>
 
-        {/* Nhãn minh họa + chỉ số kiểu tạp chí */}
+        {/* Chỉ số kiểu tạp chí */}
         <p className="absolute right-8 top-24 text-[11px] font-light text-nga/70 md:right-14">
           01 / 09
-        </p>
-        <p className="absolute bottom-3 right-8 text-[11px] font-light text-nga/70 md:right-14 md:bottom-5">
-          Hình ảnh mang tính minh họa
         </p>
 
         {/* Vạch cuộn */}

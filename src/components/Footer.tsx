@@ -61,7 +61,7 @@ export function Footer() {
         </div>
 
         <div className="mt-16 h-px bg-champagne" />
-        <p className="mt-6 text-xs text-inox">© 2026 WINDUCA. Hình ảnh trên trang mang tính minh họa.</p>
+        <p className="mt-6 text-xs text-inox">© 2026 WINDUCA.</p>
       </div>
     </footer>
   );

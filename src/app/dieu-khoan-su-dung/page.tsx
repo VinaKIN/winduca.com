@@ -16,7 +16,7 @@ export default function DieuKhoan() {
 
       <h2>2. Hình ảnh minh họa</h2>
       <p>
-        Hình ảnh và nội dung có nhãn “Minh họa” hoặc “Hình ảnh mang tính minh họa” chỉ nhằm gợi ý, không phải công trình hay sản
+        Hình ảnh và nội dung có nhãn “Minh họa” chỉ nhằm gợi ý, không phải công trình hay sản
         phẩm thực tế. Màu sắc thực tế có thể khác tùy màn hình và lô hoàn thiện.
       </p>
 
