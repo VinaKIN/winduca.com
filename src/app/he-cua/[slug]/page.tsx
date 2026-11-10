@@ -89,7 +89,7 @@ export default async function KieuCuaPage({ params }: PageProps<"/he-cua/[slug]"
       </Section>
 
       {lienQuan.length > 0 && (
-        <Section tone="sang" nhan="Cảm hứng" tieuDe={`Không gian dùng ${k.ten.toLowerCase()}`} moTa="Hình minh họa; công trình thực tế đang được cập nhật.">
+        <Section tone="sang" nhan="Cảm hứng" tieuDe={`Không gian dùng ${k.ten.toLowerCase()}`}>
           <ul className="grid gap-4 md:grid-cols-3">
             {lienQuan.map((c, i) => (
               <li key={c.slug}>

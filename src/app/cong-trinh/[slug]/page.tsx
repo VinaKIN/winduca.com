@@ -13,7 +13,7 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: PageProps<"/cong-trinh/[slug]">): Promise<Metadata> {
   const { slug } = await params;
   const c = CONG_TRINH_MINH_HOA.find((x) => x.slug === slug);
-  return c ? { title: `${c.ten} (minh họa) | WINDUCA` } : {};
+  return c ? { title: `${c.ten} | WINDUCA` } : {};
 }
 
 export default async function ChiTiet({ params }: PageProps<"/cong-trinh/[slug]">) {
@@ -27,7 +27,7 @@ export default async function ChiTiet({ params }: PageProps<"/cong-trinh/[slug]"
 
   return (
     <>
-      <PageHero nhan={`${c.loai} · ${c.khuVuc} · Minh họa`} tieuDe={c.ten} moTa="Đây là hình ảnh và nội dung minh họa, không phải công trình thực tế của WINDUCA." />
+      <PageHero nhan={`${c.loai} · ${c.khuVuc}`} tieuDe={c.ten} />
 
       <Section tone="sang">
         <CanhMinhHoa seed={i + 1} className="aspect-[16/9]" />
@@ -66,7 +66,7 @@ export default async function ChiTiet({ params }: PageProps<"/cong-trinh/[slug]"
         </div>
       </Section>
 
-      <Section tone="sang" nhan="Thêm hình minh họa" className="border-t border-than-chi/10">
+      <Section tone="sang" nhan="Thêm hình ảnh" className="border-t border-than-chi/10">
         <ul className="grid gap-4 md:grid-cols-3">
           {[1, 2, 3].map((n) => (
             <li key={n}>

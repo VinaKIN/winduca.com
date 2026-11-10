@@ -75,15 +75,10 @@ export function PageHero({
   );
 }
 
-/** Huy hiệu cố định trên ảnh/mục minh họa — không bao giờ ẩn */
-export function NhanMinhHoa({ className = "" }: { className?: string }) {
-  return (
-    <span
-      className={`pointer-events-none absolute z-10 rounded-full bg-than-chi/80 px-3 py-1 text-[11px] font-medium text-white backdrop-blur-sm ${className}`}
-    >
-      Minh họa
-    </span>
-  );
+/** Huy hiệu "Minh họa" trên ảnh: anh Huy yêu cầu bỏ hiển thị (10/11/2026). Giữ hàm để các nơi gọi không phải sửa. */
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+export function NhanMinhHoa(_props: { className?: string }) {
+  return null;
 }
 
 /** Nhãn trạng thái chờ xác nhận */

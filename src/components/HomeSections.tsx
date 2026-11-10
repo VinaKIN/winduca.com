@@ -134,7 +134,7 @@ export function KhoiChuNha() {
         <div className="relative aspect-[4/3] overflow-hidden bg-than-chi">
           <Image
             src={asset("/images/chu-nha.jpg")}
-            alt="Phòng khách mở ra hồ bơi qua cửa kính lớn (hình minh họa)"
+            alt="Phòng khách mở ra hồ bơi qua cửa kính lớn"
             fill
             sizes="(min-width: 1024px) 50vw, 100vw"
             className="object-cover"
@@ -231,7 +231,6 @@ export function CongTrinhMinhHoa() {
       tone="sang"
       nhan="08 / 09 · Cảm hứng & tham chiếu"
       tieuDe="Cảm hứng từ những không gian sống."
-      moTa="Các hình dưới đây là hình minh họa. Công trình thực tế của WINDUCA đang được cập nhật."
     >
       {/* Ba hình tiêu biểu, đều nhau, thay vì lưới sáu ô lệch (gọn hơn) */}
       <ul className="grid gap-6 md:grid-cols-3">
@@ -249,7 +248,7 @@ export function CongTrinhMinhHoa() {
       </ul>
       <p className="mt-10">
         <Link href="/cong-trinh" className="nut nut-vien-sang">
-          Xem tất cả 12 hình minh họa
+          Xem tất cả công trình
         </Link>
       </p>
     </Section>

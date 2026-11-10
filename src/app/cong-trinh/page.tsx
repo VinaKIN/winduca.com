@@ -4,7 +4,7 @@ import { PageHero, Section } from "@/components/ui";
 
 export const metadata: Metadata = {
   title: "Cảm hứng & tham chiếu | WINDUCA",
-  description: "Cảm hứng từ những không gian sống. Các hình ảnh là minh họa; công trình thực tế của WINDUCA đang được cập nhật.",
+  description: "Cảm hứng từ những không gian sống.",
 };
 
 /**
@@ -17,7 +17,6 @@ export default function CongTrinh() {
       <PageHero
         nhan="Cảm hứng & tham chiếu"
         tieuDe="Cảm hứng từ những không gian sống."
-        moTa="Các hình dưới đây là hình minh họa. Công trình thực tế của WINDUCA đang được cập nhật."
       />
       <Section tone="sang">
         <CongTrinhLuoi />
