@@ -92,13 +92,16 @@ export function Header() {
     };
   }, [moMenu]);
 
+  // Chỉ trong suốt ở đầu trang chủ (hero ảnh tối); các trang khác có thể mở đầu bằng nền sáng nên luôn dùng kính mờ tối.
+  const trongSuot = !daCuon && duongDan === "/";
+
   const dangO = (href: string) => (href === "/" ? duongDan === "/" : duongDan.startsWith(href));
 
   return (
     <>
       <header
         className={`fixed inset-x-0 top-0 z-50 transition-[background-color,backdrop-filter,border-color] duration-300 ${
-          daCuon ? "border-b border-white/10 bg-than-chi/70 backdrop-blur-xl backdrop-saturate-150" : "border-b border-transparent bg-transparent"
+          trongSuot ? "border-b border-transparent bg-transparent" : "border-b border-white/10 bg-than-chi/70 backdrop-blur-xl backdrop-saturate-150"
         }`}
       >
         <div className="mx-auto flex h-16 max-w-[1440px] items-center justify-between gap-6 px-5 md:px-10">
