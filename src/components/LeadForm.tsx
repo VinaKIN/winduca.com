@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useRef, useState, type FormEvent } from "react";
 import { BAN_XEM_THU_TINH } from "@/lib/asset";
@@ -299,13 +300,18 @@ export function LeadForm({ loai, tone = "sang", kieuCuaMacDinh = "", khiXong, go
         </div>
       )}
 
-      <div className={span}>
-        <label className={`flex items-start gap-3 text-sm ${toi ? "text-nga/90" : "text-than-chi/85"}`}>
-          <input type="checkbox" name="dongY" className="mt-1 h-4 w-4 accent-[#e31937]" />
-          <span>{CAU_DONG_Y[loai]}</span>
-        </label>
-        {loiTruong.dongY && <p className={loiCss}>{loiTruong.dongY}</p>}
-      </div>
+      {gon ? (
+        /* Biểu mẫu gọn (chân trang): không có ô tích; việc bấm gửi kèm câu thông báo bên dưới là sự đồng ý. */
+        <input type="hidden" name="dongY" value="1" />
+      ) : (
+        <div className={span}>
+          <label className={`flex items-start gap-3 text-sm ${toi ? "text-nga/90" : "text-than-chi/85"}`}>
+            <input type="checkbox" name="dongY" className="mt-1 h-4 w-4 accent-[#e31937]" />
+            <span>{CAU_DONG_Y[loai]}</span>
+          </label>
+          {loiTruong.dongY && <p className={loiCss}>{loiTruong.dongY}</p>}
+        </div>
+      )}
 
       <div className={span}>
         {loi && (
@@ -316,14 +322,26 @@ export function LeadForm({ loai, tone = "sang", kieuCuaMacDinh = "", khiXong, go
             </a>
           </p>
         )}
-        <button
-          type="submit"
-          disabled={dangGui}
-          className={`nut nut-chinh w-full sm:w-auto ${gon ? "mt-2" : ""} ${dangGui ? "opacity-60" : ""}`}
-        >
-          {dangGui ? "Đang gửi…" : NUT[loai]}
-        </button>
-        <p className={`${phu} max-w-xl`}>Chúng tôi không hỏi ngân sách và không đăng giá. Chuyên viên sẽ liên hệ trong giờ làm việc.</p>
+        <div className={gon ? "mt-1 flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-5" : ""}>
+          <button
+            type="submit"
+            disabled={dangGui}
+            className={`nut nut-chinh w-full shrink-0 sm:w-auto ${dangGui ? "opacity-60" : ""}`}
+          >
+            {dangGui ? "Đang gửi…" : NUT[loai]}
+          </button>
+          {gon ? (
+            <p className={`${phu} !mt-0 max-w-sm leading-snug`}>
+              Bấm gửi nghĩa là anh chị đồng ý để WINDUCA liên hệ lại theo thông tin cung cấp, xử lý dữ liệu theo{" "}
+              <Link href="/chinh-sach-bao-mat" className="underline hover:text-accent">
+                Chính sách bảo mật
+              </Link>
+              . Chúng tôi không hỏi ngân sách và không đăng giá.
+            </p>
+          ) : (
+            <p className={`${phu} max-w-xl`}>Chúng tôi không hỏi ngân sách và không đăng giá. Chuyên viên sẽ liên hệ trong giờ làm việc.</p>
+          )}
+        </div>
       </div>
     </form>
   );
