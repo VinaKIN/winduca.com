@@ -33,7 +33,7 @@ export function CamOn() {
   const ma = sp.get("ma") ?? "";
   const nd = NOI_DUNG[loai] ?? NOI_DUNG["lien-he"];
   return (
-    <section className="bg-than-chi px-5 pb-24 pt-40 text-nga md:px-10 md:pt-52">
+    <section className="nen-toi px-5 pb-24 pt-40 text-nga md:px-10 md:pt-52">
       <div className="mx-auto max-w-[1440px]">
         <p className="nhan-muc text-accent">Đã nhận</p>
         <h1 className="tieu-de mt-4 max-w-3xl text-[clamp(2rem,4.5vw,3.75rem)] leading-[1.1]">{nd.tieuDe}</h1>

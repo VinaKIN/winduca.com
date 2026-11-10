@@ -146,7 +146,7 @@ export function TrinhDienHeCua({ slug, ten, chon, setChon }: { slug: string; ten
   const g = kg[Math.min(kgChon, Math.max(0, kg.length - 1))];
 
   return (
-    <section className="bg-nga py-10 md:py-14" aria-label="Trải nghiệm hệ cửa">
+    <section className="nen-nga py-10 md:py-14" aria-label="Trải nghiệm hệ cửa">
       <Wrap>
         <p className="nhan-muc text-accent-chu">Trải nghiệm {ten.toLowerCase()}</p>
         <div role="tablist" aria-label="Chế độ xem" className="mt-3 flex flex-wrap gap-2">

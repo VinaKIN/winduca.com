@@ -210,7 +210,19 @@ body {
 
 /* Chi tiết "công nghệ": lưới bản vẽ mờ + dấu góc khung (10/11/2026). Không gradient. */
 .luoi-ban-ve {
+  position: relative;
+}
+.luoi-ban-ve::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
   background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='64' height='64'><path d='M64 0H0V64' fill='none' stroke='%23231f20' stroke-opacity='0.05'/></svg>");
+  -webkit-mask-image: linear-gradient(180deg, transparent, #000 18%, #000 82%, transparent);
+  mask-image: linear-gradient(180deg, transparent, #000 18%, #000 82%, transparent);
+}
+.luoi-ban-ve > * {
+  position: relative;
 }
 .luoi-ban-ve-toi {
   background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='64' height='64'><path d='M64 0H0V64' fill='none' stroke='%23ffffff' stroke-opacity='0.07'/></svg>");
@@ -274,4 +286,86 @@ main {
   letter-spacing: 0;
   color: transparent;
   -webkit-text-stroke: 1px rgba(227, 25, 55, 0.55);
+}
+
+/* ===== Nền gradient + cảm giác công nghệ, cao cấp (10/11/2026) ===== */
+.nen-sang {
+  background:
+    radial-gradient(900px 420px at 100% 0%, rgba(227, 25, 55, 0.07), transparent 62%),
+    radial-gradient(700px 380px at 0% 100%, rgba(35, 31, 32, 0.05), transparent 60%),
+    linear-gradient(180deg, #ffffff 0%, #f7f5f2 100%);
+}
+.nen-nga {
+  background:
+    radial-gradient(800px 420px at 0% 0%, rgba(227, 25, 55, 0.08), transparent 60%),
+    radial-gradient(700px 380px at 100% 100%, rgba(207, 208, 205, 0.55), transparent 62%),
+    linear-gradient(160deg, #f1eee8 0%, #faf8f4 55%, #efece6 100%);
+}
+.nen-toi {
+  background:
+    radial-gradient(900px 520px at 88% -10%, rgba(227, 25, 55, 0.3), transparent 62%),
+    radial-gradient(700px 420px at 0% 110%, rgba(255, 255, 255, 0.06), transparent 60%),
+    linear-gradient(135deg, #151213 0%, #2a2627 52%, #141112 100%);
+}
+.nen-sang::after,
+.nen-nga::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 1px;
+  pointer-events: none;
+  background: linear-gradient(90deg, transparent, rgba(227, 25, 55, 0.45), transparent);
+}
+section.nen-sang,
+section.nen-nga {
+  position: relative;
+}
+
+/* Hero trang con */
+.hero-gradient {
+  background:
+    radial-gradient(1000px 560px at 90% -20%, rgba(227, 25, 55, 0.42), transparent 62%),
+    linear-gradient(120deg, #0f0d0e 0%, #231f20 55%, #171415 100%);
+}
+.hero-phu {
+  background:
+    radial-gradient(700px 420px at 88% 10%, rgba(227, 25, 55, 0.38), transparent 65%),
+    linear-gradient(100deg, rgba(12, 10, 11, 0.97) 0%, rgba(22, 19, 20, 0.9) 45%, rgba(30, 26, 27, 0.72) 75%, rgba(35, 31, 32, 0.6) 100%),
+    linear-gradient(0deg, rgba(0, 0, 0, 0.55) 0%, transparent 45%);
+}
+.hero-anh-sang {
+  background: radial-gradient(520px 320px at 82% 18%, rgba(227, 25, 55, 0.35), transparent 65%),
+    linear-gradient(115deg, transparent 55%, rgba(255, 255, 255, 0.07) 55.2%, transparent 62%);
+  mix-blend-mode: screen;
+  animation: hero-tho 7s ease-in-out infinite;
+}
+.hero-duong-sang {
+  background: linear-gradient(90deg, transparent, rgba(227, 25, 55, 0.9), rgba(255, 255, 255, 0.6), transparent);
+  background-size: 40% 100%;
+  background-repeat: no-repeat;
+  animation: hero-quet 6s ease-in-out infinite;
+}
+@keyframes hero-tho {
+  0%, 100% { opacity: 0.55; }
+  50% { opacity: 1; }
+}
+@keyframes hero-quet {
+  0% { background-position: -40% 0; }
+  100% { background-position: 140% 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-anh-sang,
+  .hero-duong-sang { animation: none; }
+}
+
+/* Thẻ: viền gradient mảnh kiểu kính, nổi nhẹ khi rê chuột */
+.dau-goc {
+  transition: box-shadow 0.35s ease, transform 0.35s ease;
+}
+@media (hover: hover) {
+  .dau-goc:hover {
+    box-shadow: 0 18px 40px -18px rgba(35, 31, 32, 0.35), 0 0 0 1px rgba(227, 25, 55, 0.25);
+  }
 }

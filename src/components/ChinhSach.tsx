@@ -7,7 +7,7 @@ export function ChinhSach({ tieuDe, capNhat, children }: { tieuDe: string; capNh
   return (
     <>
       <PageHero nhan="Pháp lý" tieuDe={tieuDe} moTa={`Cập nhật: ${capNhat}`} />
-      <section className="luoi-ban-ve bg-white">
+      <section className="luoi-ban-ve nen-sang">
         <Wrap className="grid gap-8 py-10 md:py-14 lg:grid-cols-[0.7fr_2fr] lg:gap-14">
           <MucLucChinhSach />
           <div className="min-w-0">

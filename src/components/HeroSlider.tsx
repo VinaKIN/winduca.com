@@ -74,7 +74,7 @@ export function HeroSlider() {
       id="hero"
       aria-roledescription="băng chuyền"
       aria-label="Giới thiệu WINDUCA"
-      className="relative h-svh min-h-[640px] overflow-hidden bg-than-chi"
+      className="relative h-svh min-h-[640px] overflow-hidden nen-toi"
       onMouseEnter={() => setTamDung(true)}
       onMouseLeave={() => setTamDung(false)}
       onFocusCapture={() => setTamDung(true)}

@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export default function NotFound() {
   return (
-    <section className="relative flex min-h-[80svh] items-center overflow-hidden bg-than-chi px-5 pb-20 pt-32 text-nga md:px-10">
+    <section className="relative flex min-h-[80svh] items-center overflow-hidden nen-toi px-5 pb-20 pt-32 text-nga md:px-10">
       {/* Cửa trượt hé mở: chi tiết trang trí */}
       <div aria-hidden="true" className="pointer-events-none absolute inset-y-0 right-0 flex w-1/2 justify-end">
         <div className="h-full w-1/3 border-l border-inox/30 bg-kinh-suong/10" />

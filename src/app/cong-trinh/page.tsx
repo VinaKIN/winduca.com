@@ -33,7 +33,7 @@ export default function CongTrinh() {
     <>
       <PageHero congNghe nhan="Công trình" tieuDe="Dấu ấn kiến trúc qua những không gian sống." anh="/images/architecture/cong-trinh-01.webp" />
 
-      <section className="luoi-ban-ve bg-white py-10 md:py-14">
+      <section className="luoi-ban-ve nen-sang py-10 md:py-14">
         <Wrap>
           <Hien>
             <Dau so="01" nhan="WINDUCA Projects" />
@@ -76,7 +76,7 @@ export default function CongTrinh() {
         </Wrap>
       </section>
 
-      <section id="cam-hung" className="bg-nga py-10 md:py-14">
+      <section id="cam-hung" className="nen-nga py-10 md:py-14">
         <Wrap>
           <Hien>
             <Dau so="02" nhan="Architectural Inspiration" />

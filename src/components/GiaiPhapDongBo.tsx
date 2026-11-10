@@ -21,7 +21,7 @@ const TP = [
 export function GiaiPhapDongBo() {
   const [i, setI] = useState(0);
   return (
-    <section className="bg-than-chi py-8 text-white md:py-10">
+    <section className="nen-toi py-8 text-white md:py-10">
       <Wrap>
         <div className="grid items-center gap-8 lg:grid-cols-[1fr_1.1fr] lg:gap-14">
           <div className="min-w-0">

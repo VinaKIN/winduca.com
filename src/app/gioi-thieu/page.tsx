@@ -53,7 +53,7 @@ export default function GioiThieu() {
       />
 
       {/* 01 · Câu chuyện thương hiệu */}
-      <section className="luoi-ban-ve bg-white py-10 md:py-14">
+      <section className="luoi-ban-ve nen-sang py-10 md:py-14">
         <Wrap>
           <Hien>
             <NhanSo so="01" nhan="Câu chuyện thương hiệu" />
@@ -82,7 +82,7 @@ export default function GioiThieu() {
       </section>
 
       {/* 02 · Tầm nhìn & giá trị */}
-      <section className="bg-nga py-10 md:py-14">
+      <section className="nen-nga py-10 md:py-14">
         <Wrap>
           <Hien>
             <NhanSo so="02" nhan="Tầm nhìn & giá trị" />
@@ -108,7 +108,7 @@ export default function GioiThieu() {
       <GiaiPhapDongBo />
 
       {/* 04 · Quy trình kiểm soát chất lượng */}
-      <section className="luoi-ban-ve bg-white py-10 md:py-14">
+      <section className="luoi-ban-ve nen-sang py-10 md:py-14">
         <Wrap>
           <Hien>
             <NhanSo so="05" nhan="Quy trình kiểm soát chất lượng" />
@@ -144,7 +144,7 @@ export default function GioiThieu() {
       <DoiTacKhoi />
 
       {/* CTA */}
-      <section className="relative overflow-hidden bg-than-chi py-10 text-white md:py-14">
+      <section className="relative overflow-hidden nen-toi py-10 text-white md:py-14">
         <div className="luoi-ban-ve-toi pointer-events-none absolute inset-0" aria-hidden="true" />
         <Wrap className="relative">
           <Hien>

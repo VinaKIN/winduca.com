@@ -32,7 +32,7 @@ export function Section({
   gon?: boolean;
 }) {
   const toi = tone === "toi";
-  const nen = toi ? "bg-than-chi text-white" : tone === "nga" ? "bg-nga text-than-chi" : "bg-white text-than-chi";
+  const nen = toi ? "nen-toi text-white" : tone === "nga" ? "nen-nga text-than-chi" : "nen-sang text-than-chi";
   const nhanChu = nhan?.replace(/^\d{2}\s*\/\s*\d{2}\s*·\s*/, "").replace(/^\d{2}\s*·\s*/, "");
   const co = Boolean(nhanChu || tieuDe || moTa);
   return (
@@ -73,7 +73,7 @@ export function PageHero({
   congNghe?: boolean;
 }) {
   return (
-    <section className="relative overflow-hidden bg-than-chi text-white">
+    <section className="hero-gradient relative overflow-hidden text-white">
       {anh &&
         (congNghe ? (
           <NenParallax>
@@ -82,7 +82,8 @@ export function PageHero({
         ) : (
           <Image src={asset(anh)} alt="" fill quality={60} sizes="100vw" className="object-cover" aria-hidden="true" priority />
         ))}
-      <div className="absolute inset-0 bg-than-chi/70" aria-hidden="true" />
+      <div className="hero-phu absolute inset-0" aria-hidden="true" />
+      <div className="hero-anh-sang pointer-events-none absolute inset-0" aria-hidden="true" />
       {congNghe && (
         <>
           <div className="luoi-ban-ve-toi pointer-events-none absolute inset-0" aria-hidden="true" />
@@ -91,7 +92,12 @@ export function PageHero({
           ))}
         </>
       )}
-      <Wrap className="relative pb-8 pt-28 md:pb-10 md:pt-36">
+      <div className="hero-duong-sang pointer-events-none absolute inset-x-0 bottom-0 h-px" aria-hidden="true" />
+      <p className="pointer-events-none absolute bottom-4 right-10 hidden items-center gap-3 text-[11px] font-medium uppercase tracking-[0.3em] text-white/45 md:flex" aria-hidden="true">
+        <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-accent" />
+        Premium Window &amp; Door
+      </p>
+      <Wrap className="relative pb-10 pt-28 md:min-h-[400px] md:pb-14 md:pt-40">
         <p className="nhan-muc text-accent">{nhan}</p>
         <h1 className="mt-3 max-w-4xl text-[clamp(1.875rem,3.6vw,3.25rem)] font-medium uppercase leading-[1.12] tracking-[0.01em] [text-wrap:balance]">{tieuDe}</h1>
         {moTa && <p className="mt-4 max-w-2xl text-base font-light leading-relaxed text-white/85 md:text-lg">{moTa}</p>}
