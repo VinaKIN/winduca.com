@@ -43,13 +43,13 @@ export function CongTrinhLuoi() {
         {nhom("Khu vực", ["Miền Bắc", "Miền Trung", "Miền Nam"], khuVuc, setKhuVuc)}
       </div>
 
-      <ul className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      <ul className="mt-5 grid grid-cols-2 gap-3 md:grid-cols-4 lg:grid-cols-6 lg:gap-4">
         {ds.slice(0, soHien).map((c, i) => (
-          <li key={c.slug} className={i === 0 && ds.length > 2 ? "sm:col-span-2" : ""}>
+          <li key={c.slug} className="">
             <Link href={`/cong-trinh/${c.slug}`} className="group block">
               <CanhMinhHoa
                 seed={CONG_TRINH_MINH_HOA.findIndex((x) => x.slug === c.slug) + 1}
-                className={`${i % 3 === 1 ? "aspect-[4/5]" : "aspect-[3/2]"} transition-transform duration-500 group-hover:scale-[1.01]`}
+                className={`aspect-[3/2] transition-transform duration-500 group-hover:scale-[1.01]`}
               />
               <p className="mt-3 text-sm font-semibold">{c.ten}</p>
               <p className="text-xs text-than-chi/70">

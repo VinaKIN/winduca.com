@@ -15,7 +15,7 @@ export function HopMau() {
   return (
     <div className="grid items-center gap-10 lg:grid-cols-[1.2fr_1fr]">
       <div className="relative border border-inox/25 bg-[#232325] p-4">
-        <svg viewBox="0 0 440 280" className="h-full w-full" role="img" aria-label="Hộp mẫu góc nhôm mở nắp, minh họa">
+        <svg viewBox="0 0 440 280" className="h-[clamp(200px,34svh,300px)] w-full" role="img" aria-label="Hộp mẫu góc nhôm mở nắp, minh họa">
           {/* nắp hộp mở */}
           <polygon points="30,40 410,40 392,96 48,96" fill="#2b2b2d" stroke="#c8c9c6" strokeOpacity="0.45" />
           <rect x="196" y="58" width="48" height="22" fill="none" stroke="#bfa678" strokeWidth="1" />
@@ -71,7 +71,7 @@ export function HopMau() {
               type="button"
               onClick={() => setChon(i)}
               aria-pressed={chon === i}
-              className="flex w-full items-start gap-4 py-4 text-left"
+              className="flex w-full items-start gap-4 py-2.5 text-left"
             >
               <span className="mt-1.5 inline-block h-2.5 w-2.5 shrink-0 rotate-45 bg-accent" aria-hidden="true" />
               <span>

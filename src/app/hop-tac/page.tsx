@@ -49,19 +49,19 @@ export default function HopTac() {
       />
 
       <Section tone="sang" nhan="Hệ sinh thái đối tác" tieuDe="Ba nhóm đối tác của WINDUCA">
-        <div className="space-y-6">
+        <div className="flex snap-x snap-mandatory gap-3 overflow-x-auto pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden lg:grid lg:grid-cols-3 lg:gap-4 lg:overflow-visible">
           {DOI_TAC.map((d, i) => (
-            <article key={d.id} id={d.id} className="grid gap-8 rounded-[24px] border border-than-chi/10 bg-white p-7 md:grid-cols-[0.9fr_1.1fr] md:p-10">
+            <article key={d.id} id={d.id} className="flex w-[85%] shrink-0 snap-center flex-col gap-4 rounded-[24px] border border-than-chi/10 bg-white p-6 lg:w-auto">
               <div>
-                <span className="text-5xl font-bold text-accent md:text-6xl">{String(i + 1).padStart(2, "0")}</span>
+                <span className="text-4xl font-light text-accent">{String(i + 1).padStart(2, "0")}</span>
                 <p className="nhan-muc mt-4 text-than-chi/55">{d.en}</p>
-                <h3 className="mt-2 text-2xl font-bold">{d.t}</h3>
+                <h3 className="mt-1 text-xl font-bold">{d.t}</h3>
                 <p className="mt-3 text-sm text-than-chi/75">{d.m}</p>
-                <a href="#dang-ky-hop-tac" className="nut nut-chinh mt-6">
+                <a href="#dang-ky-hop-tac" className="nut nut-chinh mt-4">
                   Đăng ký hợp tác
                 </a>
               </div>
-              <div className="grid gap-6 sm:grid-cols-3">
+              <div className="grid gap-4">
                 {[
                   ["Quyền lợi", d.quyenLoi],
                   ["Hỗ trợ kỹ thuật", d.kyThuat],
@@ -69,7 +69,7 @@ export default function HopTac() {
                 ].map(([tt, ds]) => (
                   <div key={tt as string}>
                     <p className="nhan-muc text-accent">{tt as string}</p>
-                    <ul className="mt-3 space-y-2 text-sm text-than-chi/80">
+                    <ul className="mt-2 space-y-1.5 text-sm text-than-chi/80">
                       {(ds as string[]).map((x) => (
                         <li key={x} className="flex items-start gap-2">
                           <span className="mt-[7px] h-1.5 w-1.5 shrink-0 rotate-45 bg-accent" aria-hidden="true" />

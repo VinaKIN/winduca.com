@@ -73,7 +73,7 @@ export function SanPhamBangChuyen() {
             key={k.slug}
             className="group relative grid w-[88%] shrink-0 snap-center overflow-hidden rounded-[28px] bg-than-chi text-white md:w-[78%] md:grid-cols-[1.15fr_1fr] md:rounded-[36px]"
           >
-            <div className="relative min-h-[240px] md:h-[clamp(300px,50svh,460px)] md:min-h-0">
+            <div className="relative min-h-[160px] md:h-[clamp(300px,50svh,460px)] md:min-h-0">
               <Image
                 src={asset(ANH[n % ANH.length].src)}
                 alt={`${k.ten} trong không gian kiến trúc`}

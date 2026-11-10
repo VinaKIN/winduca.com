@@ -92,7 +92,7 @@ export function CrossSection({
           {nhan.slice(0, 2)}
         </span>
       )}
-      <div className="relative mx-auto max-w-[1440px] px-5 py-24 md:px-10 md:py-36">
+      <div className="relative mx-auto max-w-[1440px] px-5 py-8 md:px-10 md:py-10">
         <div className="grid gap-5 md:grid-cols-[14rem_1fr] md:gap-12">
           <div>
             <p className="nhan-muc text-than-chi/70">{nhan.replace(/^\d{2}\s*\/\s*\d{2}\s*·\s*/, "")}</p>
@@ -102,15 +102,15 @@ export function CrossSection({
             <h2 id="tieu-de-mat-cat" className="tieu-de max-w-2xl text-[clamp(1.75rem,3.4vw,3rem)]">
               {tieuDe}
             </h2>
-            <p className="mt-5 max-w-xl text-base font-light text-than-chi/75 md:text-lg">
+            <p className="mt-3 max-w-xl text-base font-light text-than-chi/75">
               Tiêu chuẩn kỹ thuật châu Âu, trong từng lớp cấu tạo.
             </p>
           </div>
         </div>
 
-        <div className="mt-14 grid gap-8 md:mt-16 lg:grid-cols-[1.35fr_1fr]">
+        <div className="mt-6 grid gap-6 lg:grid-cols-[1.35fr_1fr]">
           {/* KHUNG 3D */}
-          <div ref={khung} className="relative aspect-[4/3] overflow-hidden border border-inox/25 bg-[#232325]">
+          <div ref={khung} className="relative h-[clamp(220px,38svh,360px)] overflow-hidden border border-inox/25 bg-[#232325]">
             {/* dấu góc khung kiểu bản vẽ */}
             {["left-3 top-3 border-l border-t", "right-3 top-3 border-r border-t", "left-3 bottom-3 border-b border-l", "right-3 bottom-3 border-b border-r"].map((c) => (
               <span key={c} className={`pointer-events-none absolute h-4 w-4 border-accent ${c}`} />
@@ -158,7 +158,7 @@ export function CrossSection({
               <span>Tách rời</span>
             </div>
 
-            <ul className="mt-8 divide-y divide-than-chi/15 border-y border-than-chi/15">
+            <ul className="mt-4 divide-y divide-than-chi/15 border-y border-than-chi/15">
               {LOP.map((l, i) => {
                 const dangChon = chon === l.id;
                 return (
@@ -170,7 +170,7 @@ export function CrossSection({
                         setNguoiDungDungXoay(true);
                       }}
                       aria-pressed={dangChon}
-                      className="flex w-full items-start gap-4 py-4 text-left"
+                      className="flex w-full items-start gap-4 py-2.5 text-left"
                     >
                       <span
                         className="mt-1 inline-block h-2.5 w-2.5 shrink-0 rotate-45"
@@ -198,7 +198,7 @@ export function CrossSection({
         </div>
 
         {/* BẢNG THÔNG SỐ — 6 hàng, mỗi ô nhãn "Đang chờ xác nhận" (chưa có phiếu kiểm định) */}
-        <div className="mt-14 rounded-sm border border-than-chi/15 bg-nga">
+        <div className="mt-5 rounded-sm border border-than-chi/15 bg-nga">
           <div className="grid divide-y divide-than-chi/15 sm:grid-cols-2 sm:divide-y-0 lg:grid-cols-3">
             {THONG_SO.map((ten) => (
               <div key={ten} className="border-than-chi/15 p-5 sm:border-b lg:[&:nth-last-child(-n+3)]:border-b-0">

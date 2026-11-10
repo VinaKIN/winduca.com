@@ -28,7 +28,7 @@ export default function TraiNghiem() {
       {/* Sample Box */}
       <Section id="sample-box" tone="sang" nhan="01 · Hộp mẫu" tieuDe="Hộp mẫu góc nhôm tận nơi" moTa="Bốn món trong hộp mẫu, để anh chị chạm và so với không gian nhà mình.">
         <HopMau />
-        <ol className="mt-16 grid gap-6 md:grid-cols-3">
+        <ol className="mt-6 grid gap-4 md:grid-cols-3">
           {[
             ["Chuyên viên liên hệ xác nhận", "Chúng tôi gọi hoặc nhắn Zalo để xác nhận đăng ký."],
             ["Hỏi địa chỉ nhận hộp", "Địa chỉ được hỏi qua điện thoại, không thu trên website."],

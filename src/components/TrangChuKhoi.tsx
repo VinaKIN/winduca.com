@@ -43,7 +43,7 @@ export function GioiThieuKhoi() {
       <Wrap>
         <div className="grid items-center gap-8 lg:grid-cols-[1.05fr_1fr] lg:gap-14">
           <div className="relative overflow-hidden rounded-[28px] md:rounded-[36px]">
-            <div className="relative h-[clamp(340px,64svh,560px)]">
+            <div className="relative h-[30svh] min-h-[220px] md:h-[clamp(340px,64svh,560px)]">
               <Image src={asset("/images/intro-chi-tiet.jpg")} alt="Cửa trượt kính khổ lớn mở ra khu vườn trong biệt thự hiện đại" fill quality={70} sizes="(min-width: 1024px) 50vw, 100vw" className="object-cover" style={{ objectPosition: "50% 45%" }} />
             </div>
             <div className="absolute inset-x-4 bottom-4 rounded-[28px] border border-white/30 bg-than-chi/45 p-5 text-white backdrop-blur-md md:inset-x-6 md:bottom-6 md:max-w-md md:p-6">
@@ -73,7 +73,7 @@ export function GioiThieuKhoi() {
 
           <div>
             <NhanDo>Giới thiệu</NhanDo>
-            <h2 className="mt-3 text-[clamp(1.75rem,3.6vw,3rem)] font-light leading-[1.1]">
+            <h2 className="mt-3 text-[clamp(1.5rem,2.8vw,2.25rem)] font-light tracking-[-0.01em] leading-[1.1]">
               Không chỉ là một hệ cửa.
               <span className="block font-bold">Đó là giải pháp kiến trúc đồng bộ.</span>
             </h2>
@@ -86,7 +86,7 @@ export function GioiThieuKhoi() {
                   <span className="text-sm font-bold text-accent">{d.so}</span>
                   <div>
                     <p className="font-bold">{d.t}</p>
-                    <p className="mt-1 text-sm text-than-chi/70">{d.m}</p>
+                    <p className="mt-1 hidden text-sm text-than-chi/70 sm:block">{d.m}</p>
                   </div>
                 </li>
               ))}
@@ -107,7 +107,7 @@ export function SanPhamKhoi() {
     <section className="overflow-hidden bg-nga py-8 md:py-10">
       <div className="text-center">
         <NhanDo>Sản phẩm</NhanDo>
-        <h2 className="mt-3 text-[clamp(1.75rem,3.4vw,2.75rem)] font-light">Hệ cửa nổi bật</h2>
+        <h2 className="mt-3 text-[clamp(1.5rem,2.6vw,2.25rem)] font-light tracking-[-0.01em]">Hệ cửa nổi bật</h2>
       </div>
       <div className="mt-6">
         <SanPhamBangChuyen />
@@ -135,7 +135,7 @@ export function DichVuKhoi() {
         <div className="grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:gap-14">
           <div className="lg:sticky lg:top-32 lg:self-start">
             <NhanDo>Dịch vụ</NhanDo>
-            <h2 className="mt-3 text-[clamp(1.75rem,3.4vw,2.75rem)] font-light">Danh sách các dịch vụ</h2>
+            <h2 className="mt-3 text-[clamp(1.5rem,2.6vw,2.25rem)] font-light tracking-[-0.01em]">Danh sách các dịch vụ</h2>
             <p className="mt-5 max-w-xl text-base text-than-chi/75">
               Cửa đi, cửa sổ, vách kính và phụ kiện đồng bộ, đi cùng dịch vụ tư vấn, thi công và hậu mãi. WINDUCA là đối tác cho chủ nhà, kiến trúc
               sư, công ty thiết kế và nhà thầu.
@@ -157,10 +157,10 @@ export function DichVuKhoi() {
           <ul className="flex snap-x snap-mandatory gap-4 overflow-x-auto pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
             {dv.map((d) => (
               <li key={d.so} className="w-full shrink-0 snap-center">
-                <Link href="/lien-he" className="group relative block min-h-[340px] overflow-hidden rounded-[24px] bg-than-chi text-white md:h-[clamp(300px,52svh,440px)] md:min-h-0 md:rounded-[32px]">
+                <Link href="/lien-he" className="group relative block min-h-[220px] overflow-hidden rounded-[24px] bg-than-chi text-white md:h-[clamp(300px,52svh,440px)] md:min-h-0 md:rounded-[32px]">
                   <Image src={asset(d.anh)} alt={d.t} fill quality={60} sizes="(min-width: 1024px) 45vw, 100vw" className="object-cover transition-transform duration-700 group-hover:scale-[1.04]" style={{ objectPosition: d.pos }} />
                   <div className="absolute inset-0 bg-than-chi/55" aria-hidden="true" />
-                  <div className="relative flex h-full min-h-[340px] flex-col justify-between p-6 md:min-h-0 md:p-8">
+                  <div className="relative flex h-full min-h-[220px] flex-col justify-between p-6 md:min-h-0 md:p-8">
                     <span className="text-sm font-bold text-white/80">{d.so}</span>
                     <div className="flex items-end justify-between gap-6">
                       <div>
@@ -195,16 +195,16 @@ export function CongTrinhKhoi() {
         <div className="flex flex-wrap items-end justify-between gap-6">
           <div>
             <NhanDo>Công trình</NhanDo>
-            <h2 className="mt-3 text-[clamp(1.75rem,3.4vw,2.75rem)] font-light">Không gian sống tiêu biểu</h2>
+            <h2 className="mt-3 text-[clamp(1.5rem,2.6vw,2.25rem)] font-light tracking-[-0.01em]">Không gian sống tiêu biểu</h2>
           </div>
           <Link href="/cong-trinh" className="nut nut-dac">
             Xem thêm
           </Link>
         </div>
-        <ul className="mt-6 grid gap-5 md:grid-cols-3">
+        <ul className="mt-6 flex snap-x snap-mandatory gap-3 overflow-x-auto pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden md:grid md:grid-cols-3 md:gap-5 md:overflow-visible">
           {LOAI_DU_AN.map((l, i) => (
-            <li key={l}>
-              <Link href="/cong-trinh" className="group relative block aspect-[4/5] overflow-hidden md:aspect-auto md:h-[clamp(260px,52svh,480px)] rounded-[24px] bg-than-chi md:rounded-[32px]">
+            <li key={l} className="w-[78%] shrink-0 snap-center md:w-auto">
+              <Link href="/cong-trinh" className="group relative block aspect-[4/3] overflow-hidden md:aspect-auto md:h-[clamp(260px,52svh,480px)] rounded-[24px] bg-than-chi md:rounded-[32px]">
                 <Image src={asset(anh[i].src)} alt={l} fill quality={60} sizes="(min-width: 768px) 30vw, 100vw" className="object-cover transition-transform duration-700 group-hover:scale-[1.05]" style={{ objectPosition: anh[i].pos }} />
                 <div className="absolute inset-0 bg-than-chi/35" aria-hidden="true" />
                 <NhanMinhHoa className="left-4 top-4" />
@@ -256,12 +256,12 @@ export function ViSaoKhoi() {
     <section className="bg-than-chi pb-20 text-white md:pb-28">
       <Wrap>
         <NhanDo>Vì sao chọn WINDUCA</NhanDo>
-        <h2 className="mt-3 max-w-3xl text-[clamp(1.75rem,3.4vw,2.75rem)] font-light">Sự thật về WINDUCA</h2>
-        <ul className="mt-12 grid gap-px overflow-hidden rounded-[24px] bg-white/15 md:grid-cols-3 md:rounded-[32px]">
+        <h2 className="mt-3 max-w-3xl text-[clamp(1.5rem,2.6vw,2.25rem)] font-light tracking-[-0.01em]">Sự thật về WINDUCA</h2>
+        <ul className="mt-6 grid gap-px overflow-hidden rounded-[24px] bg-white/15 md:mt-12 md:grid-cols-3 md:rounded-[32px]">
           {y.map((i) => (
-            <li key={i.so} className="bg-than-chi p-8 md:p-10">
-              <span className="text-5xl font-bold text-accent md:text-6xl">{i.so}</span>
-              <h3 className="mt-6 text-xl font-bold">{i.t}</h3>
+            <li key={i.so} className="bg-than-chi p-5 md:p-10">
+              <span className="text-3xl font-bold text-accent md:text-6xl">{i.so}</span>
+              <h3 className="mt-3 text-lg font-bold md:mt-6 md:text-xl">{i.t}</h3>
               <p className="mt-2 text-sm font-light text-white/75">{i.m}</p>
             </li>
           ))}
@@ -292,7 +292,7 @@ export function DoiTacKhoi() {
         <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:gap-14">
           <div>
             <NhanDo>Hệ sinh thái đối tác</NhanDo>
-            <h2 className="mt-3 text-[clamp(1.75rem,3.4vw,2.75rem)] font-light leading-[1.12]">
+            <h2 className="mt-3 text-[clamp(1.5rem,2.6vw,2.25rem)] font-light tracking-[-0.01em] leading-[1.12]">
               Kết nối năng lực.
               <span className="block font-bold">Kiến tạo giá trị dài hạn.</span>
             </h2>
@@ -335,15 +335,15 @@ export function TinTucKhoi() {
         <div className="flex flex-wrap items-end justify-between gap-6">
           <div>
             <NhanDo>Tin tức</NhanDo>
-            <h2 className="mt-3 text-[clamp(1.75rem,3.4vw,2.75rem)] font-light">Kiến thức và câu chuyện công trình</h2>
+            <h2 className="mt-3 text-[clamp(1.5rem,2.6vw,2.25rem)] font-light tracking-[-0.01em]">Kiến thức và câu chuyện công trình</h2>
           </div>
           <Link href="/tin-tuc" className="nut nut-dac">
             Xem thêm
           </Link>
         </div>
-        <ul className="mt-12 grid gap-6 md:grid-cols-3">
+        <ul className="mt-6 flex snap-x snap-mandatory gap-3 overflow-x-auto pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden md:mt-8 md:grid md:grid-cols-3 md:gap-6 md:overflow-visible">
           {BAI_SAP_CO.map((b) => (
-            <li key={b.t}>
+            <li key={b.t} className="w-[78%] shrink-0 snap-center md:w-auto">
               <Link href="/tin-tuc" className="group block">
                 <div className="relative aspect-[16/10] overflow-hidden rounded-[20px] bg-than-chi md:rounded-[28px]">
                   <Image src={asset(b.anh)} alt={b.t} fill quality={60} sizes="(min-width: 768px) 30vw, 100vw" className="object-cover transition-transform duration-700 group-hover:scale-[1.05]" style={{ objectPosition: b.pos }} />

@@ -93,12 +93,14 @@ export default function DanhChoKts() {
       </Section>
 
       <Section id="thu-vien" tone="nga" nhan="Thư viện kỹ thuật" tieuDe="DWG · PDF · BIM" moTa="Các tệp đang được hoàn thiện. Đăng ký để được báo khi có tệp.">
+        <div className="grid gap-8 lg:grid-cols-[1.3fr_1fr]">
         <ThuVienKts />
-        <div className="mt-14 max-w-3xl border-t border-than-chi/15 pt-10">
+        <div className="border-than-chi/15 lg:border-l lg:pl-8">
           <h3 className="tieu-de text-xl">Đăng ký nhận tài liệu</h3>
           <div className="mt-6">
             <LeadForm loai="tai-lieu" tone="sang" />
           </div>
+        </div>
         </div>
       </Section>
 
@@ -107,7 +109,7 @@ export default function DanhChoKts() {
       </Section>
 
       <Section tone="nga" nhan="Mô tả kỹ thuật mẫu" tieuDe="Mô tả để dán vào thuyết minh hoặc hồ sơ mời thầu." moTa="Văn bản định tính, chưa có số liệu kỹ thuật. Số liệu sẽ được bổ sung cùng nguồn kiểm định.">
-        <div className="grid gap-6 lg:grid-cols-2">
+        <div className="grid gap-4 lg:grid-cols-4">
           {KIEU_CUA.map((k) => {
             const nd = moTaKyThuat(k.ten, k.cachMo);
             return (
@@ -143,7 +145,7 @@ export default function DanhChoKts() {
       </Section>
 
       <Section tone="nga" tieuDe="Gửi bản vẽ để tư vấn" moTa="Chúng tôi không hỏi ngân sách.">
-        <LeadForm loai="ban-ve" tone="sang" />
+        <LeadForm loai="ban-ve" tone="sang" cot={3} />
       </Section>
 
       <Section tone="sang" nhan="Trao đổi trực tiếp" tieuDe="Đặt lịch trao đổi 1-1 hoặc đưa khách đến showroom.">

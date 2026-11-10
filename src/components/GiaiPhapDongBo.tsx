@@ -24,7 +24,7 @@ export function GiaiPhapDongBo() {
         <div className="grid items-center gap-8 lg:grid-cols-[1fr_1.1fr] lg:gap-14">
           <div>
             <p className="nhan-muc text-accent">Giải pháp đồng bộ</p>
-            <h2 className="mt-3 text-[clamp(1.6rem,3vw,2.6rem)] font-bold uppercase leading-[1.12]">
+            <h2 className="mt-3 text-[clamp(1.4rem,2.6vw,2.25rem)] font-medium uppercase leading-[1.15] tracking-[0.01em]">
               Một giải pháp.
               <span className="block font-light">Đồng bộ từng thành phần.</span>
             </h2>
@@ -50,7 +50,7 @@ export function GiaiPhapDongBo() {
           </div>
 
           <div className="rounded-[24px] border border-white/15 p-5 md:p-6">
-            <svg viewBox="0 0 400 230" className="h-[clamp(180px,32svh,260px)] w-full" role="img" aria-label="Sơ đồ tách lớp năm thành phần của bộ cửa (minh họa phẳng)">
+            <svg viewBox="0 0 400 230" className="h-[clamp(130px,24svh,260px)] w-full" role="img" aria-label="Sơ đồ tách lớp năm thành phần của bộ cửa (minh họa phẳng)">
               {TP.map((_, k) => {
                 const y = 24 + k * 38;
                 const x = 40 + k * 22;

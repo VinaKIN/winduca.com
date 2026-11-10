@@ -63,11 +63,11 @@ export function HeCuaDanhSach() {
         </div>
       </div>
 
-      <ul className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+      <ul className="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
         {ds.map(({ k, n }) => (
           <li key={k.slug}>
             <Link href={`/he-cua/${k.slug}`} className="group block overflow-hidden rounded-[22px] border border-than-chi/10 bg-white transition-shadow hover:shadow-[0_12px_36px_rgba(35,31,32,0.12)]">
-              <div className="relative aspect-[4/3] bg-than-chi">
+              <div className="relative aspect-[2/1] bg-than-chi">
                 <Image
                   src={asset(ANH[n % ANH.length].src)}
                   alt={`${k.ten} trong không gian kiến trúc`}

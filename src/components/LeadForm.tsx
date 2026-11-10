@@ -41,9 +41,12 @@ type Props = {
   khiXong?: (ma: string) => void;
   /** Dạng gọn: chỉ họ tên, SĐT, email, đồng ý (dùng ở chân trang). */
   gon?: boolean;
+  /** Số cột ở màn hình rộng (mặc định 2). */
+  cot?: 2 | 3;
 };
 
-export function LeadForm({ loai, tone = "sang", kieuCuaMacDinh = "", khiXong, gon = false }: Props) {
+export function LeadForm({ loai, tone = "sang", kieuCuaMacDinh = "", khiXong, gon = false, cot = 2 }: Props) {
+  const span = cot === 3 ? "md:col-span-2 lg:col-span-3" : "md:col-span-2";
   const router = useRouter();
   const formRef = useRef<HTMLFormElement>(null);
   const [dangGui, setDangGui] = useState(false);
@@ -110,7 +113,7 @@ export function LeadForm({ loai, tone = "sang", kieuCuaMacDinh = "", khiXong, go
   const coLoaiCT = loai === "sample-box" || loai === "showroom" || loai === "ban-ve";
 
   return (
-    <form ref={formRef} onSubmit={guiDi} noValidate className="grid gap-5 md:grid-cols-2" aria-label="Biểu mẫu liên hệ">
+    <form ref={formRef} onSubmit={guiDi} noValidate className={`grid gap-x-5 gap-y-4 md:grid-cols-2 ${cot === 3 ? "lg:grid-cols-3" : ""}`} aria-label="Biểu mẫu liên hệ">
       {/* bẫy spam: người thật không thấy */}
       <div className="absolute -left-[9999px]" aria-hidden="true">
         <label>
@@ -255,7 +258,7 @@ export function LeadForm({ loai, tone = "sang", kieuCuaMacDinh = "", khiXong, go
             </label>
             <input id="khoiluong" name="khoiLuong" inputMode="numeric" className={o} />
           </div>
-          <div className="md:col-span-2">
+          <div className={span}>
             <label className={nhan} htmlFor="tep-ban-ve">
               Bản vẽ (PDF, DWG, JPG, PNG)
             </label>
@@ -270,7 +273,7 @@ export function LeadForm({ loai, tone = "sang", kieuCuaMacDinh = "", khiXong, go
       )}
 
       {!gon && (loai === "lien-he" || loai === "ban-ve") && (
-        <div className="md:col-span-2">
+        <div className={span}>
           <label className={nhan} htmlFor={`ghichu-${loai}`}>
             Nội dung
           </label>
@@ -278,7 +281,7 @@ export function LeadForm({ loai, tone = "sang", kieuCuaMacDinh = "", khiXong, go
         </div>
       )}
 
-      <div className="md:col-span-2">
+      <div className={span}>
         <label className={`flex items-start gap-3 text-sm ${toi ? "text-nga/90" : "text-than-chi/85"}`}>
           <input type="checkbox" name="dongY" className="mt-1 h-4 w-4 accent-[#e31937]" />
           <span>{CAU_DONG_Y[loai]}</span>
@@ -286,7 +289,7 @@ export function LeadForm({ loai, tone = "sang", kieuCuaMacDinh = "", khiXong, go
         {loiTruong.dongY && <p className={loiCss}>{loiTruong.dongY}</p>}
       </div>
 
-      <div className="md:col-span-2">
+      <div className={span}>
         {loi && (
           <p role="alert" className={`mb-4 text-sm ${toi ? "text-[#e0a0a8]" : "text-do-do"}`}>
             {loi}{" "}

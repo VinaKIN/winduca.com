@@ -33,15 +33,15 @@ export function Section({
   const nhanChu = nhan?.replace(/^\d{2}\s*\/\s*\d{2}\s*·\s*/, "").replace(/^\d{2}\s*·\s*/, "");
   return (
     <section id={id} className={`relative overflow-hidden ${nen} ${className}`}>
-      <Wrap className="relative py-16 md:py-24">
+      <Wrap className="relative py-8 md:py-10">
         {(nhanChu || tieuDe || moTa) && (
           <div>
             {nhanChu && <p className="nhan-muc text-accent">{nhanChu}</p>}
-            {tieuDe && <h2 className="mt-3 max-w-3xl text-[clamp(1.75rem,3.4vw,2.75rem)] font-light leading-[1.15]">{tieuDe}</h2>}
-            {moTa && <p className={`mt-5 max-w-2xl text-base font-light md:text-lg ${toi ? "text-white/80" : "text-than-chi/75"}`}>{moTa}</p>}
+            {tieuDe && <h2 className="mt-3 max-w-3xl text-[clamp(1.5rem,2.6vw,2.25rem)] font-light leading-[1.15] tracking-[-0.01em]">{tieuDe}</h2>}
+            {moTa && <p className={`mt-3 max-w-2xl text-base font-light ${toi ? "text-white/80" : "text-than-chi/75"}`}>{moTa}</p>}
           </div>
         )}
-        {children && <div className={nhanChu || tieuDe || moTa ? "mt-12 md:mt-14" : ""}>{children}</div>}
+        {children && <div className={nhanChu || tieuDe || moTa ? "mt-6 md:mt-8" : ""}>{children}</div>}
       </Wrap>
     </section>
   );
@@ -65,11 +65,11 @@ export function PageHero({
     <section className="relative overflow-hidden bg-than-chi text-white">
       {anh && <Image src={asset(anh)} alt="" fill quality={60} sizes="100vw" className="object-cover" aria-hidden="true" priority />}
       <div className="absolute inset-0 bg-than-chi/70" aria-hidden="true" />
-      <Wrap className="relative pb-16 pt-40 md:pb-24 md:pt-56">
+      <Wrap className="relative pb-8 pt-28 md:pb-10 md:pt-36">
         <p className="nhan-muc text-accent">{nhan}</p>
-        <h1 className="mt-4 max-w-4xl text-[clamp(1.9rem,4.4vw,3.5rem)] font-bold uppercase leading-[1.12] [text-wrap:balance]">{tieuDe}</h1>
-        {moTa && <p className="mt-6 max-w-2xl text-base font-light text-white/85 md:text-lg">{moTa}</p>}
-        {children && <div className="mt-8 flex flex-col gap-3 sm:flex-row">{children}</div>}
+        <h1 className="mt-3 max-w-4xl text-[clamp(1.5rem,3.2vw,2.75rem)] font-medium uppercase leading-[1.15] tracking-[0.01em] [text-wrap:balance]">{tieuDe}</h1>
+        {moTa && <p className="mt-4 max-w-2xl text-base font-light text-white/85">{moTa}</p>}
+        {children && <div className="mt-6 flex flex-col gap-3 sm:flex-row">{children}</div>}
       </Wrap>
     </section>
   );
