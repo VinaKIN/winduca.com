@@ -3,9 +3,9 @@ import Link from "next/link";
 import { HERO_ANH, HERO_VIDEO } from "@/lib/site";
 
 /**
- * Hero ảnh tràn màn hình (10/11/2026, anh Huy chốt: xoá hết viền, ảnh tràn 4 mép; hướng C: dải kính tối ngang đáy).
+ * Hero ảnh tràn màn hình (10/11/2026, anh Huy chốt: xoá hết viền, ảnh tràn 4 mép; kiểu căn giữa).
  * - Ảnh phủ kín 100% khung nhìn, không còn vùng trắng/Ngà bao quanh.
- * - Chữ, 3 ý định tính và 2 nút nằm trong dải kính Than chì bo góc ở đáy, KHÔNG đặt trực tiếp lên ảnh.
+ * - Chữ căn giữa kiểu Winboss (11/11/2026): tiêu đề hoa, dòng phụ 3 ý định tính, 2 nút viên thuốc; lớp phủ phẳng 35%.
  * - Lớp phủ Than chì phẳng rất nhẹ (không gradient) chỉ để ảnh trầm hơn, sang hơn.
  * - Không có hiệu ứng đóng/mở cửa (đã bỏ theo yêu cầu 10/11/2026).
  */
@@ -37,51 +37,36 @@ export function HeroDoors() {
           />
         )}
       </div>
-      <div className="absolute inset-0 bg-than-chi/20" aria-hidden="true" />
+      <div className="absolute inset-0 bg-than-chi/35" aria-hidden="true" />
 
-      {/* DẢI KÍNH TỐI ngang đáy màn hình — chữ không đè lên ảnh */}
-      <div className="absolute inset-x-3 bottom-3 md:inset-x-8 md:bottom-8 xl:inset-x-12 xl:bottom-10">
-        <div className="relative overflow-hidden rounded-[24px] border border-nga/15 bg-than-chi/85 px-6 py-6 text-nga backdrop-blur-xl md:rounded-[32px] md:px-10 md:py-8 lg:grid lg:grid-cols-[minmax(0,1.5fr)_auto_auto] lg:items-center lg:gap-12 xl:gap-16 xl:px-14">
-          {/* Cột 1: nhãn + tiêu đề + mô tả */}
-          <div>
-            <div className="flex items-center gap-4">
-              <span className="block h-px w-10 bg-champagne" aria-hidden="true" />
-              <p className="nhan-muc text-champagne">Premium Window &amp; Door</p>
-            </div>
-            <h1 className="tieu-de mt-3 text-[clamp(1.6rem,2.7vw,2.7rem)]">
-              Kiến tạo không gian sống
-              <span className="block text-champagne">xứng tầm đẳng cấp</span>
-            </h1>
-          </div>
-
-          {/* Cột 2: 3 ý ngắn định tính (không có số liệu chưa xác nhận) */}
-          <ul className="mt-5 hidden space-y-3 border-l border-nga/20 pl-8 text-sm text-nga/90 lg:mt-0 lg:block">
-            {["Nhôm cầu cách nhiệt", "Tiêu chuẩn châu Âu", "Kính hộp"].map((y, i) => (
-              <li key={y} className="flex items-center gap-4">
-                <span className="w-6 text-[11px] font-semibold tracking-[0.12em] text-champagne">{String(i + 1).padStart(2, "0")}</span>
-                {y}
-              </li>
-            ))}
-          </ul>
-
-          {/* Cột 3: hai nút */}
-          <div className="mt-6 flex flex-wrap items-center gap-3 lg:mt-0 lg:flex-col lg:items-stretch">
-            <Link
-              href="/he-cua"
-              className="group inline-flex items-center justify-between gap-4 rounded-full bg-champagne py-1.5 pl-6 pr-1.5 text-sm font-semibold text-than-chi transition-colors hover:bg-nga"
-            >
-              Khám phá ngay
-              <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-than-chi text-nga transition-transform duration-300 group-hover:rotate-45">
-                <MuiTen />
-              </span>
-            </Link>
-            <Link
-              href="/lien-he"
-              className="inline-flex h-[52px] items-center justify-center rounded-full border border-nga/40 px-6 text-sm font-semibold text-nga transition-colors hover:bg-nga hover:text-than-chi"
-            >
-              Liên hệ nhận thông tin
-            </Link>
-          </div>
+      {/* CHỮ CĂN GIỮA — kiểu Winboss: gọn, sáng, ảnh lộ rõ */}
+      <div className="absolute inset-0 flex flex-col items-center justify-end px-6 pb-[11svh] text-center text-white md:pb-[13svh]">
+        <h1 className="tieu-de max-w-5xl text-[clamp(1.6rem,3.5vw,3.5rem)] uppercase [text-shadow:0_2px_24px_rgba(43,43,45,0.45)] [text-wrap:balance]">
+          Kiến tạo không gian sống
+          <span className="block">xứng tầm đẳng cấp</span>
+        </h1>
+        <p className="mt-4 text-[0.8125rem] font-light uppercase tracking-[0.12em] text-white/95 [text-shadow:0_1px_14px_rgba(43,43,45,0.5)] md:mt-5 md:text-base">
+          Nhôm cầu cách nhiệt · Tiêu chuẩn châu Âu · Kính hộp
+        </p>
+        <div className="mt-8 flex flex-wrap items-center justify-center gap-3 md:mt-10 md:gap-4">
+          <Link
+            href="/he-cua"
+            className="group inline-flex items-center gap-4 rounded-full bg-white py-1.5 pl-7 pr-1.5 text-[0.8125rem] font-bold uppercase tracking-[0.06em] text-than-chi transition-colors hover:bg-nga"
+          >
+            Khám phá ngay
+            <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-champagne text-than-chi transition-transform duration-300 group-hover:translate-x-0.5">
+              <MuiTen />
+            </span>
+          </Link>
+          <Link
+            href="/lien-he"
+            className="group inline-flex items-center gap-4 rounded-full border border-white/80 py-1.5 pl-7 pr-1.5 text-[0.8125rem] font-bold uppercase tracking-[0.06em] text-white transition-colors hover:bg-white hover:text-than-chi"
+          >
+            Liên hệ nhận thông tin
+            <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-current transition-transform duration-300 group-hover:translate-x-0.5">
+              <MuiTen />
+            </span>
+          </Link>
         </div>
       </div>
     </section>
