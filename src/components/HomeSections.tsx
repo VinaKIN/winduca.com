@@ -15,17 +15,17 @@ export function TuyenNgonVaBaThe() {
     { id: "khoi-nha-thau", nhan: "Nhà thầu", mota: "Gửi bản vẽ, nhận bóc tách từ đội kỹ thuật.", cta: "Gửi bản vẽ" },
   ];
   return (
-    <section id="tuyen-ngon" className="relative overflow-hidden bg-than-chi text-nga nen-luoi-toi">
+    <section id="tuyen-ngon" className="relative overflow-hidden bg-white text-than-chi nen-luoi">
       <span
         aria-hidden="true"
-        className="so-lon so-lon-toi pointer-events-none absolute -top-4 right-4 hidden select-none md:right-10 md:block"
+        className="so-lon pointer-events-none absolute -top-4 right-4 hidden select-none md:right-10 md:block"
       >
         02
       </span>
       <Wrap className="relative py-24 md:py-40">
         <div className="grid gap-5 md:grid-cols-[14rem_1fr] md:gap-12">
           <div>
-            <p className="nhan-muc text-champagne">Dành cho ai</p>
+            <p className="nhan-muc text-than-chi/60">Dành cho ai</p>
             <div className="mt-4 h-px w-14 bg-champagne" />
           </div>
           <p className="tieu-de max-w-4xl text-[clamp(1.9rem,4.6vw,4rem)] [text-wrap:balance]">
@@ -34,19 +34,19 @@ export function TuyenNgonVaBaThe() {
         </div>
 
         {/* ba lối vào: lưới đường kẻ mảnh, hover có vạch Champagne chạy */}
-        <ul className="mt-16 grid gap-px border border-inox/20 bg-inox/20 md:mt-24 md:grid-cols-3">
+        <ul className="mt-16 grid gap-px border border-inox/70 bg-inox/70 md:mt-24 md:grid-cols-3">
           {the.map((t, i) => (
-            <li key={t.id} className="bg-than-chi">
+            <li key={t.id} className="bg-white">
               <a
                 href={`#${t.id}`}
-                className="group relative flex h-full min-h-[17rem] flex-col justify-between p-8 transition-colors duration-500 hover:bg-[#353537] md:p-10"
+                className="group relative flex h-full min-h-[17rem] flex-col justify-between p-8 transition-colors duration-500 hover:bg-nga md:p-10"
               >
                 <span className="absolute left-0 top-0 h-px w-0 bg-champagne transition-all duration-500 group-hover:w-full" aria-hidden="true" />
-                <span className="so-lon so-lon-toi !text-[3.5rem] leading-none">{String(i + 1).padStart(2, "0")}</span>
+                <span className="so-lon !text-[3.5rem] leading-none">{String(i + 1).padStart(2, "0")}</span>
                 <span>
                   <span className="tieu-de block text-2xl">{t.nhan}</span>
-                  <span className="mt-3 block text-sm font-light text-nga/75">{t.mota}</span>
-                  <span className="mt-8 flex items-center gap-3 text-sm font-semibold text-nga">
+                  <span className="mt-3 block text-sm font-light text-than-chi/75">{t.mota}</span>
+                  <span className="mt-8 flex items-center gap-3 text-sm font-semibold text-than-chi">
                     {t.cta}
                     <span className="h-px w-8 bg-champagne transition-all duration-500 group-hover:w-14" aria-hidden="true" />
                     <span className="h-2 w-2 rotate-45 bg-champagne" aria-hidden="true" />

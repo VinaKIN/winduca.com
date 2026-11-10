@@ -82,7 +82,7 @@ function DieuHuongGiua({ tren, dangO }: { tren: boolean; dangO: (href: string) =
                 aria-current={hien ? "page" : undefined}
                 className={`inline-flex items-center gap-1 rounded-full px-3 py-2 text-[0.8125rem] font-medium transition-colors ${
                   tren
-                    ? `text-white [text-shadow:0_1px_12px_rgba(43,43,45,0.55)] hover:bg-white/15 ${hien ? "bg-white/15" : ""}`
+                    ? `text-nga hover:bg-white/10 ${hien ? "bg-white/15" : ""}`
                     : `hover:bg-than-chi/[0.06] ${hien ? "bg-than-chi/[0.06] text-than-chi" : "text-than-chi/80"}`
                 }`}
               >
@@ -166,29 +166,21 @@ export function Header() {
   return (
     <>
       {/* ===== TỪ xl: header dạng "tai" nằm ở đầu trang, đè lên ảnh hero ===== */}
-      <header className="absolute inset-x-0 top-3 z-40 hidden px-3 md:top-5 md:px-6 xl:block">
-        <div className="relative mx-auto h-[84px] max-w-[1440px]">
-          {/* Dải Ngà mảnh phía trên ô khuyết (chính là viền khung) */}
-          <div className="absolute inset-x-0 top-0 h-2.5 rounded-t-[40px] bg-nga" aria-hidden="true" />
-
-          {/* Tai trái: logo */}
-          <div className="absolute left-0 top-0 flex h-full w-[264px] items-center rounded-br-[32px] rounded-tl-[40px] bg-nga pl-9">
+      <header className="absolute inset-x-0 top-0 z-40 hidden xl:block">
+        <div className="relative h-[84px] w-full">
+          {/* Tai trái: logo, dính sát góc màn hình */}
+          <div className="absolute left-0 top-0 flex h-full w-[280px] items-center rounded-br-[32px] bg-nga pl-12">
             <Logo lop="h-7 w-auto" />
-            <span className="absolute left-full top-0 h-[38px] w-7 overflow-hidden" aria-hidden="true">
-              <span className="absolute left-0 top-2.5 block h-7 w-7 rounded-tl-[28px] shadow-[-14px_-14px_0_14px_var(--nga)]" />
-            </span>
           </div>
 
-          {/* Điều hướng giữa, nằm trên ảnh */}
-          <div className="absolute inset-y-0 left-[264px] right-[336px] flex items-center justify-center pt-2.5">
+          {/* Điều hướng giữa, trên nền đặc của hero */}
+          <div className="absolute inset-y-0 left-[280px] right-[352px] flex items-center justify-center">
             <DieuHuongGiua tren dangO={dangO} />
           </div>
 
-          {/* Tai phải: nút hành động */}
-          <div className="absolute right-0 top-0 flex h-full w-[336px] items-center justify-end gap-2 rounded-bl-[32px] rounded-tr-[40px] bg-nga pr-4">
-            <span className="absolute right-full top-0 h-[38px] w-7 overflow-hidden" aria-hidden="true">
-              <span className="absolute right-0 top-2.5 block h-7 w-7 rounded-tr-[28px] shadow-[14px_-14px_0_14px_var(--nga)]" />
-            </span>
+          {/* Tai phải: nút hành động, dính sát góc màn hình */}
+          <div className="absolute right-0 top-0 flex h-full w-[352px] items-center justify-end gap-2 rounded-bl-[32px] bg-nga pr-5">
+
             <Link
               href="/trai-nghiem"
               className="inline-flex items-center rounded-full bg-than-chi px-6 py-3 text-[0.8125rem] font-semibold text-nga transition-colors hover:bg-champagne hover:text-than-chi"
