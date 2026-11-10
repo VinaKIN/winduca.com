@@ -71,7 +71,7 @@ export function Footer() {
       <div className="footer-sau text-white">
         <Wrap className="pb-6 pt-10 md:pt-12">
           <div className="grid gap-8 lg:grid-cols-[0.8fr_1.2fr] lg:gap-14">
-            <div className="flex flex-col gap-4">
+            <div className="flex flex-col justify-between gap-6">
               <div className="w-fit">
                 <Image
                   src={asset("/brand/WINDUCA-ngang-am-ban-trong.svg")}
@@ -100,7 +100,12 @@ export function Footer() {
                   ))}
                 </ul>
               </nav>
-            <ul className="space-y-2.5 text-[16px] font-light">
+              <MangXaHoi kieu="dac" />
+            </div>
+
+            <div>
+              <BanDoChanTrang diaChi={DIA_CHI} mapsUrl={MAPS_URL} lop="mb-6 h-[260px] md:h-[290px]" />
+            <ul className="grid gap-4 text-[16px] font-light sm:grid-cols-[auto_auto_1fr] sm:gap-x-6">
               <li className="flex items-start gap-3">
                 <BieuTuong lop="mt-0.5 h-5 w-5 shrink-0 text-white/90">
                   <path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z" />
@@ -128,11 +133,6 @@ export function Footer() {
                 </a>
               </li>
             </ul>
-              <MangXaHoi kieu="dac" />
-            </div>
-
-            <div>
-              <BanDoChanTrang diaChi={DIA_CHI} mapsUrl={MAPS_URL} lop="h-[300px] lg:h-full lg:min-h-[340px]" />
 
             </div>
           </div>
