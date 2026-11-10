@@ -30,10 +30,10 @@ function moTaKyThuat(ten: string, cachMo: string): string {
 }
 
 const PORTAL: { t: string; m: string; href?: string; nut?: string; anh?: string }[] = [
-  { t: "Thư viện catalog", m: "Catalog các hệ cửa của WINDUCA." },
+  { t: "Thư viện catalog", m: "Catalog các hệ cửa của WINDUCA.", anh: "/images/materials/showroom-display.webp" },
   { t: "Mặt cắt DWG", m: "Bản vẽ mặt cắt cho hồ sơ thiết kế.", anh: "/images/mat-cat-khung-cua.jpg" },
-  { t: "Mô hình BIM", m: "Mô hình BIM dùng trong phần mềm thiết kế." },
-  { t: "Hồ sơ kỹ thuật PDF", m: "Mô tả kỹ thuật và hồ sơ năng lực." },
+  { t: "Mô hình BIM", m: "Mô hình BIM dùng trong phần mềm thiết kế.", anh: "/images/engineering/exploded-windows.webp" },
+  { t: "Hồ sơ kỹ thuật PDF", m: "Mô tả kỹ thuật và hồ sơ năng lực.", anh: "/images/engineering/section-drawing-2.webp" },
   { t: "Bảng màu vật liệu", m: "Màu hoàn thiện cho khung cửa.", anh: "/images/bang-mau-vat-lieu-1.jpg", href: "/he-cua/cua-truot-nang", nut: "Xem màu" },
   { t: "Hướng dẫn lắp đặt", m: "Tài liệu hướng dẫn cho nhà thầu.", anh: "/images/khoan-rap-chi-tiet.jpg" },
   { t: "Gửi bản vẽ để tư vấn", m: "Gửi bản vẽ, nhận đề xuất giải pháp và chi tiết.", href: "#tu-van", nut: "Gửi bản vẽ" },
@@ -95,6 +95,16 @@ export default function DanhChoKts() {
               ) : (
                 <span className="mt-4 text-sm font-medium text-than-chi/50">Sắp có</span>
               )}
+            </li>
+          ))}
+        </ul>
+      </Section>
+
+      <Section tone="nga" nhan="Cấu tạo & mặt cắt" tieuDe="Hình minh họa cấu tạo nhôm kính" moTa="Hình tham khảo về cấu tạo profile, kính và gioăng. Bản vẽ và mặt cắt chính thức của WINDUCA sẽ thay thế khi được xác nhận.">
+        <ul className="grid grid-cols-2 gap-3 md:grid-cols-5">
+          {["profile-1", "profile-2", "profile-3", "profile-4", "section-drawing-1"].map((n) => (
+            <li key={n} className="relative h-[24svh] min-h-[140px] overflow-hidden rounded-[16px] bg-white">
+              <Image src={asset(`/images/engineering/${n}.webp`)} alt="Hình minh họa cấu tạo profile nhôm" fill quality={65} sizes="(min-width: 768px) 20vw, 50vw" className="object-cover" />
             </li>
           ))}
         </ul>

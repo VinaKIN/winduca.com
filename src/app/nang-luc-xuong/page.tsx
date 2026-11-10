@@ -29,6 +29,7 @@ export default function NangLucXuong() {
   return (
     <>
       <PageHero
+        anh="/images/people/workshop.webp"
         nhan="Xưởng gia công WINDUCA · Trung tâm sản xuất chính xác"
         tieuDe="Mỗi bộ cửa bắt đầu từ một bản vẽ."
         moTa="Gia công chính xác theo bản vẽ kiến trúc sư, rồi lắp đặt tại công trình."

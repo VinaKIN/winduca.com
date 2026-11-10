@@ -8,10 +8,10 @@ import { KIEU_CUA, TEN_EN_HE_CUA } from "@/lib/site";
 import { NhanMinhHoa } from "./ui";
 
 const ANH = [
-  { src: "/images/chu-nha.jpg", pos: "70% 50%" },
-  { src: "/images/hero.jpg", pos: "20% 50%" },
-  { src: "/images/biet-thu-go-kinh.jpg", pos: "50% 50%" },
-  { src: "/images/villa-ban-cong.jpg", pos: "50% 62%" },
+  { src: "/images/products/lift-slide.webp", pos: "50% 50%" },
+  { src: "/images/products/casement.webp", pos: "50% 50%" },
+  { src: "/images/products/bi-fold.webp", pos: "50% 50%" },
+  { src: "/images/products/window.webp", pos: "50% 50%" },
 ];
 
 /** Danh sách hệ cửa kiểu Winboss: thẻ trắng bo góc, tab lọc, ô tìm kiếm, lưới thẻ 3 cột. */

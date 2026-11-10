@@ -9,10 +9,10 @@ import { KIEU_CUA } from "@/lib/site";
 /** Băng chuyền "Hệ cửa nổi bật" (kiểu Winboss): thẻ tối, ảnh trái + thông số phải, mũi tên và chấm bên dưới. */
 
 const ANH = [
-  { src: "/images/chu-nha.jpg", pos: "70% 50%" },
-  { src: "/images/hero.jpg", pos: "20% 50%" },
-  { src: "/images/biet-thu-go-kinh.jpg", pos: "50% 50%" },
-  { src: "/images/villa-ban-cong.jpg", pos: "50% 62%" },
+  { src: "/images/products/lift-slide.webp", pos: "50% 50%" },
+  { src: "/images/products/casement.webp", pos: "50% 50%" },
+  { src: "/images/products/bi-fold.webp", pos: "50% 50%" },
+  { src: "/images/products/window.webp", pos: "50% 50%" },
 ];
 
 const TEN_EN: Record<string, string> = {
@@ -24,10 +24,10 @@ const TEN_EN: Record<string, string> = {
 
 /** Ảnh thứ hai hiện khi rê chuột (góc nhìn khác của cùng hệ cửa). */
 const ANH_HOVER = [
-  { src: "/images/nha-o-kinh.jpg", pos: "50% 50%" },
-  { src: "/images/resort-ven-bien.jpg", pos: "50% 50%" },
-  { src: "/images/resort-ho-boi.jpg", pos: "50% 50%" },
-  { src: "/images/nha-pho-dem.jpg", pos: "50% 40%" },
+  { src: "/images/products/lift-slide-hover.webp", pos: "50% 50%" },
+  { src: "/images/products/casement-hover.webp", pos: "50% 50%" },
+  { src: "/images/products/bi-fold-hover.webp", pos: "50% 50%" },
+  { src: "/images/products/window-hover.webp", pos: "50% 50%" },
 ];
 
 export function SanPhamBangChuyen() {

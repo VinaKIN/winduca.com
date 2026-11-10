@@ -1,10 +1,18 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { LeadForm } from "@/components/LeadForm";
 import { PageHero, Section } from "@/components/ui";
+import { asset } from "@/lib/asset";
 
 export const metadata: Metadata = {
   title: "Hợp tác đối tác | WINDUCA",
   description: "Trở thành đối tác của WINDUCA: đại lý, nhà thầu, kiến trúc sư và công ty thiết kế.",
+};
+
+const ANH_DT: Record<string, string> = {
+  dealer: "/images/people/partner-dealer.webp",
+  contractor: "/images/people/partner-contractor.webp",
+  architect: "/images/people/partner-architect.webp",
 };
 
 const DOI_TAC = [
@@ -53,6 +61,9 @@ export default function HopTac() {
         <div className="flex snap-x snap-mandatory gap-3 overflow-x-auto pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden lg:grid lg:grid-cols-3 lg:gap-4 lg:overflow-visible">
           {DOI_TAC.map((d, i) => (
             <article key={d.id} id={d.id} className="flex w-[85%] shrink-0 snap-center flex-col gap-4 rounded-[24px] border border-than-chi/10 bg-white p-6 lg:w-auto">
+              <div className="relative -mx-6 -mt-6 h-[18svh] min-h-[120px] overflow-hidden rounded-t-[24px] bg-than-chi lg:h-[20svh]">
+                <Image src={asset(ANH_DT[d.id])} alt={d.t} fill quality={60} sizes="(min-width: 1024px) 30vw, 85vw" className="object-cover" />
+              </div>
               <div>
                 <span className="text-4xl font-light text-accent">{String(i + 1).padStart(2, "0")}</span>
                 <p className="nhan-muc mt-4 text-than-chi/55">{d.en}</p>

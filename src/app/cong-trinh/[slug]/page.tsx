@@ -1,10 +1,13 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { CanhMinhHoa } from "@/components/Illustration";
+import Image from "next/image";
+import { asset } from "@/lib/asset";
 import { LeadForm } from "@/components/LeadForm";
 import { PageHero, Section } from "@/components/ui";
 import { CONG_TRINH_MINH_HOA, KIEU_CUA } from "@/lib/site";
+
+const anhCT = (k: number) => `/images/architecture/cong-trinh-${String((k % 12) + 1).padStart(2, "0")}.webp`;
 
 export function generateStaticParams() {
   return CONG_TRINH_MINH_HOA.map((c) => ({ slug: c.slug }));
@@ -30,7 +33,9 @@ export default async function ChiTiet({ params }: PageProps<"/cong-trinh/[slug]"
       <PageHero nhan={`${c.loai} · ${c.khuVuc}`} tieuDe={c.ten} />
 
       <Section tone="sang">
-        <CanhMinhHoa seed={i + 1} className="aspect-[16/9]" />
+        <div className="relative aspect-[16/9] overflow-hidden rounded-[20px] bg-than-chi md:max-h-[52svh] md:w-full">
+          <Image src={asset(anhCT(i))} alt={c.ten} fill quality={70} sizes="100vw" className="object-cover" priority />
+        </div>
         <div className="mt-12 grid gap-10 md:grid-cols-3">
           <div>
             <p className="nhan-muc text-than-chi/70">Tóm tắt</p>
@@ -70,7 +75,9 @@ export default async function ChiTiet({ params }: PageProps<"/cong-trinh/[slug]"
         <ul className="grid gap-4 md:grid-cols-3">
           {[1, 2, 3].map((n) => (
             <li key={n}>
-              <CanhMinhHoa seed={i + n * 3} className="aspect-[4/3]" />
+              <div className="relative aspect-[4/3] overflow-hidden rounded-[16px] bg-than-chi">
+                <Image src={asset(anhCT((i + n * 3) % 12))} alt={`${c.ten} · ảnh ${n}`} fill quality={60} sizes="(min-width: 768px) 30vw, 100vw" className="object-cover" />
+              </div>
             </li>
           ))}
         </ul>

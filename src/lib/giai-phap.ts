@@ -20,7 +20,7 @@ export const GIAI_PHAP: GiaiPhap[] = [
     slug: "biet-thu",
     ten: "Giải pháp cửa cho biệt thự",
     tomTat: "Mặt kính lớn nhìn ra sân vườn và hồ bơi, đường nét mảnh, vận hành êm.",
-    anh: "/images/biet-thu-go-kinh.jpg",
+    anh: "/images/architecture/cong-trinh-05.webp",
     pos: "50% 55%",
     khongGian: [
       "Phòng khách và sảnh liên thông với sân vườn, hồ bơi.",
@@ -35,7 +35,7 @@ export const GIAI_PHAP: GiaiPhap[] = [
     slug: "penthouse",
     ten: "Giải pháp cửa cho penthouse",
     tomTat: "Ban công và sân thượng nhìn toàn cảnh, đường nét tối giản để giữ tầm nhìn.",
-    anh: "/images/nha-o-kinh.jpg",
+    anh: "/images/architecture/giai-phap-penthouse.webp",
     pos: "50% 50%",
     khongGian: [
       "Ban công, sân thượng nhìn toàn cảnh thành phố hoặc biển.",
@@ -50,7 +50,7 @@ export const GIAI_PHAP: GiaiPhap[] = [
     slug: "nha-pho-cao-cap",
     ten: "Giải pháp cho nhà phố cao cấp",
     tomTat: "Mặt tiền hẹp cần lấy sáng, thông gió và đồng bộ từ cửa chính đến cửa sổ.",
-    anh: "/images/nha-pho-dem.jpg",
+    anh: "/images/architecture/cong-trinh-04.webp",
     pos: "50% 60%",
     khongGian: [
       "Mặt tiền hẹp, cần lấy sáng và thông gió tự nhiên.",
@@ -65,7 +65,7 @@ export const GIAI_PHAP: GiaiPhap[] = [
     slug: "khach-san-resort",
     ten: "Giải pháp cho khách sạn và resort",
     tomTat: "Sảnh, nhà hàng và khu hồ bơi mở ra thiên nhiên; cần bền và dễ bảo trì.",
-    anh: "/images/resort-ho-boi.jpg",
+    anh: "/images/architecture/cong-trinh-06.webp",
     pos: "50% 50%",
     khongGian: [
       "Sảnh, nhà hàng và khu hồ bơi mở ra thiên nhiên.",
@@ -80,7 +80,7 @@ export const GIAI_PHAP: GiaiPhap[] = [
     slug: "cong-trinh-dac-thu",
     ten: "Giải pháp cho công trình kiến trúc đặc thù",
     tomTat: "Hình khối, góc cắt hoặc kích thước ngoài tiêu chuẩn, cần chi tiết riêng theo bản vẽ.",
-    anh: "/images/villa-ban-cong.jpg",
+    anh: "/images/architecture/giai-phap-dac-thu.webp",
     pos: "50% 55%",
     khongGian: [
       "Hình khối, góc cắt hoặc kích thước ngoài tiêu chuẩn.",

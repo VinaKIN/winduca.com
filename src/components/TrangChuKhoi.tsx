@@ -12,10 +12,10 @@ import { LOAI_DU_AN } from "@/lib/site";
 
 const HERO = "/images/hero.jpg";
 const NHA = "/images/chu-nha.jpg";
-const BTHU = "/images/biet-thu-go-kinh.jpg";
-const RESORT = "/images/resort-ho-boi.jpg";
+const BTHU = "/images/architecture/cong-trinh-05.webp";
+const RESORT = "/images/architecture/cong-trinh-06.webp";
 const RESORT2 = "/images/resort-ven-bien.jpg";
-const NHAPHO = "/images/nha-pho-dem.jpg";
+const NHAPHO = "/images/architecture/cong-trinh-04.webp";
 const NHAO = "/images/nha-o-kinh.jpg";
 const VILLA = "/images/villa-ban-cong.jpg";
 

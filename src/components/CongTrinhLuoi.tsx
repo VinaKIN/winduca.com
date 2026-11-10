@@ -2,7 +2,8 @@
 
 import Link from "next/link";
 import { useState } from "react";
-import { CanhMinhHoa } from "./Illustration";
+import Image from "next/image";
+import { asset } from "@/lib/asset";
 import { CONG_TRINH_MINH_HOA, KIEU_CUA, LOAI_DU_AN } from "@/lib/site";
 
 export function CongTrinhLuoi() {
@@ -44,13 +45,19 @@ export function CongTrinhLuoi() {
       </div>
 
       <ul className="mt-5 grid grid-cols-2 gap-3 md:grid-cols-4 lg:grid-cols-6 lg:gap-4">
-        {ds.slice(0, soHien).map((c, i) => (
+        {ds.slice(0, soHien).map((c) => (
           <li key={c.slug} className="">
             <Link href={`/cong-trinh/${c.slug}`} className="group block">
-              <CanhMinhHoa
-                seed={CONG_TRINH_MINH_HOA.findIndex((x) => x.slug === c.slug) + 1}
-                className={`aspect-[3/2] transition-transform duration-500 group-hover:scale-[1.01]`}
-              />
+              <div className="relative aspect-[3/2] overflow-hidden rounded-[16px] bg-than-chi">
+                <Image
+                  src={asset(`/images/architecture/cong-trinh-${String(CONG_TRINH_MINH_HOA.findIndex((x) => x.slug === c.slug) + 1).padStart(2, "0")}.webp`)}
+                  alt={c.ten}
+                  fill
+                  quality={65}
+                  sizes="(min-width: 1024px) 16vw, (min-width: 768px) 25vw, 50vw"
+                  className="object-cover transition-transform duration-500 group-hover:scale-[1.04]"
+                />
+              </div>
               <p className="mt-3 text-sm font-semibold">{c.ten}</p>
               <p className="text-xs text-than-chi/70">
                 {c.loai} · {c.khuVuc} · {c.kieuCua}

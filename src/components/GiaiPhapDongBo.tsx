@@ -1,7 +1,9 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
+import { asset } from "@/lib/asset";
 import { Wrap } from "./ui";
 
 /**
@@ -50,20 +52,9 @@ export function GiaiPhapDongBo() {
           </div>
 
           <div className="rounded-[24px] border border-white/15 p-5 md:p-6">
-            <svg viewBox="0 0 400 230" className="h-[clamp(130px,24svh,260px)] w-full" role="img" aria-label="Sơ đồ tách lớp năm thành phần của bộ cửa (minh họa phẳng)">
-              {TP.map((_, k) => {
-                const y = 24 + k * 38;
-                const x = 40 + k * 22;
-                const on = i === k;
-                return (
-                  <g key={k} className="transition-all duration-300" opacity={on ? 1 : 0.55}>
-                    <path d={`M${x} ${y + 22} l30 -22 h250 l-30 22 z`} fill="none" stroke={on ? "#e31937" : "#ffffff"} strokeWidth={on ? 2 : 1} />
-                    <path d={`M${x} ${y + 22} h250 v10 h-250 z`} fill={on ? "#e31937" : "none"} stroke={on ? "#e31937" : "#ffffff"} strokeWidth="1" />
-                    <text x={x + 262} y={y + 18} fill={on ? "#e31937" : "#ffffff"} fontSize="11" fontWeight="600">{String(k + 1).padStart(2, "0")}</text>
-                  </g>
-                );
-              })}
-            </svg>
+            <div className="relative h-[clamp(150px,28svh,280px)] overflow-hidden rounded-[12px] bg-white">
+              <Image src={asset("/images/engineering/exploded-profiles.webp")} alt="Hình tách lớp các thành phần profile, kính và gioăng (hình minh họa)" fill quality={70} sizes="(min-width: 1024px) 45vw, 100vw" className="object-contain" />
+            </div>
             <div className="mt-3 border-t border-white/15 pt-4">
               <h3 className="text-lg font-semibold">{TP[i].t}</h3>
               <p className="mt-2 max-w-md text-sm font-light text-white/75">{TP[i].m}</p>
