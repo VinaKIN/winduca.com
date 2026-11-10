@@ -122,7 +122,7 @@ export function KhoiChuNha() {
           <div key={n.t} className="bg-white p-8">
             <span className="nhan-muc text-than-chi/60">{String(i + 1).padStart(2, "0")}</span>
             <h3 className="tieu-de mt-6 text-xl">{n.t}</h3>
-            <p className="mt-3 text-sm text-than-chi/80">{n.m}</p>
+            <p className="mt-3 text-[15px] leading-relaxed text-than-chi/80">{n.m}</p>
             <p className="mt-5">
               <ChoXacNhan tone="sang">Số liệu kiểm định: đang chờ xác nhận</ChoXacNhan>
             </p>
@@ -183,7 +183,7 @@ export function KhoiNhaThau() {
                 <span className="so-lon !text-[2.5rem] leading-none">{String(i + 1).padStart(2, "0")}</span>
                 <span>
                   <span className="tieu-de block text-lg">{t}</span>
-                  <span className="mt-1 block text-sm text-than-chi/75">{m}</span>
+                  <span className="mt-1 block text-[15px] leading-relaxed text-than-chi/75">{m}</span>
                 </span>
               </li>
             ))}
@@ -216,7 +216,7 @@ export function QuyTrinh() {
             <span className="absolute -top-[5px] left-0 h-2.5 w-2.5 rotate-45 bg-accent" aria-hidden="true" />
             <span className="nhan-muc text-than-chi/60">{String(i + 1).padStart(2, "0")}</span>
             <h3 className="tieu-de mt-3 text-lg">{b.t}</h3>
-            <p className="mt-2 text-sm text-than-chi/80">{b.m}</p>
+            <p className="mt-2 text-[15px] leading-relaxed text-than-chi/80">{b.m}</p>
           </li>
         ))}
       </ol>
@@ -274,7 +274,7 @@ export function FaqVaForm() {
             <a href="tel:0947686668" className="tieu-de mt-4 block text-3xl hover:text-accent md:text-4xl">
               0947 686 668
             </a>
-            <ul className="mt-8 space-y-4 border-t border-than-chi/15 pt-6 text-sm text-than-chi/80">
+            <ul className="mt-8 space-y-4 border-t border-than-chi/15 pt-6 text-[15px] leading-relaxed text-than-chi/80">
               <li className="flex gap-3">
                 <span className="mt-2 h-1.5 w-1.5 shrink-0 rotate-45 bg-accent" aria-hidden="true" />
                 Chúng tôi không hỏi ngân sách và không đăng giá.

@@ -33,11 +33,11 @@ export default function CongTrinh() {
     <>
       <PageHero congNghe nhan="Công trình" tieuDe="Dấu ấn kiến trúc qua những không gian sống." anh="/images/architecture/cong-trinh-01.webp" />
 
-      <section className="luoi-ban-ve bg-white py-8 md:py-10">
+      <section className="luoi-ban-ve bg-white py-10 md:py-14">
         <Wrap>
           <Hien>
             <Dau so="01" nhan="WINDUCA Projects" />
-            <h2 className="mt-4 text-[clamp(1.5rem,2.8vw,2.4rem)] font-light leading-[1.15] tracking-[-0.01em]">
+            <h2 className="mt-4 text-[clamp(1.625rem,2.6vw,2.5rem)] font-light leading-[1.15] tracking-[-0.01em]">
               Công trình <span className="font-bold">WINDUCA đã thực hiện</span>
             </h2>
           </Hien>
@@ -76,14 +76,14 @@ export default function CongTrinh() {
         </Wrap>
       </section>
 
-      <section id="cam-hung" className="bg-nga py-8 md:py-10">
+      <section id="cam-hung" className="bg-nga py-10 md:py-14">
         <Wrap>
           <Hien>
             <Dau so="02" nhan="Architectural Inspiration" />
-            <h2 className="mt-4 text-[clamp(1.5rem,2.8vw,2.4rem)] font-light leading-[1.15] tracking-[-0.01em]">
+            <h2 className="mt-4 text-[clamp(1.625rem,2.6vw,2.5rem)] font-light leading-[1.15] tracking-[-0.01em]">
               Cảm hứng <span className="font-bold">kiến trúc</span>
             </h2>
-            <p className="mt-2 max-w-2xl text-sm text-than-chi/65">Bộ sưu tập cảm hứng về không gian có mặt kính lớn. Đây không phải là công trình do WINDUCA thực hiện.</p>
+            <p className="mt-2 max-w-2xl text-[15px] leading-relaxed text-than-chi/65">Bộ sưu tập cảm hứng về không gian có mặt kính lớn. Đây không phải là công trình do WINDUCA thực hiện.</p>
           </Hien>
           <div className="mt-5">
             <CongTrinhLuoi />

@@ -57,7 +57,7 @@ export function ThuVienKts() {
           </li>
         ))}
         {ds.length === 0 && (
-          <li className="border border-dashed border-than-chi/20 p-6 text-sm text-than-chi/70 md:col-span-3">
+          <li className="border border-dashed border-than-chi/20 p-6 text-[15px] leading-relaxed text-than-chi/70 md:col-span-3">
             Chưa có tệp cho lựa chọn này. Anh chị đăng ký bên dưới để được báo khi có.
           </li>
         )}

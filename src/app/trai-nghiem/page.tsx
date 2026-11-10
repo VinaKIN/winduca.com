@@ -26,7 +26,7 @@ export default function TraiNghiem() {
       </PageHero>
 
       {/* Sample Box */}
-      <Section id="sample-box" tone="sang" nhan="01 · Hộp mẫu" tieuDe="Hộp mẫu góc nhôm tận nơi" moTa="Bốn món trong hộp mẫu, để anh chị chạm và so với không gian nhà mình.">
+      <Section gon id="sample-box" tone="sang" nhan="01 · Hộp mẫu" tieuDe="Hộp mẫu góc nhôm tận nơi" moTa="Bốn món trong hộp mẫu, để anh chị chạm và so với không gian nhà mình.">
         <HopMau />
         <ol className="mt-6 grid gap-4 md:grid-cols-3">
           {[
@@ -37,18 +37,18 @@ export default function TraiNghiem() {
             <li key={t} className="border-t border-accent pt-6">
               <span className="nhan-muc text-than-chi/60">{String(i + 1).padStart(2, "0")}</span>
               <h3 className="tieu-de mt-3 text-lg">{t}</h3>
-              <p className="mt-2 text-sm text-than-chi/80">{m}</p>
+              <p className="mt-2 text-[15px] leading-relaxed text-than-chi/80">{m}</p>
             </li>
           ))}
         </ol>
       </Section>
 
-      <Section tone="nga" tieuDe="Đăng ký nhận hộp mẫu" moTa="Chúng tôi không hỏi ngân sách và không đăng giá.">
+      <Section gon tone="nga" tieuDe="Đăng ký nhận hộp mẫu" moTa="Chúng tôi không hỏi ngân sách và không đăng giá.">
         <LeadForm loai="sample-box" tone="sang" />
       </Section>
 
       {/* Showroom */}
-      <Section id="showroom" tone="sang" nhan="02 · Showroom" tieuDe="Showroom WINDUCA" moTa="Xem cửa mẫu, chạm vật liệu và trao đổi bản vẽ cùng chuyên viên tư vấn.">
+      <Section gon id="showroom" tone="sang" nhan="02 · Showroom" tieuDe="Showroom WINDUCA" moTa="Xem cửa mẫu, chạm vật liệu và trao đổi bản vẽ cùng chuyên viên tư vấn.">
         <div className="grid gap-10 lg:grid-cols-[1fr_1fr]">
           <div>
             <ol className="space-y-6">
@@ -62,7 +62,7 @@ export default function TraiNghiem() {
                   <span className="nhan-muc mt-1 text-than-chi/60">{String(i + 1).padStart(2, "0")}</span>
                   <span>
                     <span className="tieu-de block text-lg">{t}</span>
-                    <span className="mt-1 block text-sm text-than-chi/80">{m}</span>
+                    <span className="mt-1 block text-[15px] leading-relaxed text-than-chi/80">{m}</span>
                   </span>
                 </li>
               ))}
@@ -96,7 +96,7 @@ export default function TraiNghiem() {
         </div>
       </Section>
 
-      <Section tone="nga" tieuDe="Đặt lịch trải nghiệm showroom" moTa="Chuyên viên sẽ xác nhận giờ cụ thể qua điện thoại.">
+      <Section gon tone="nga" tieuDe="Đặt lịch trải nghiệm showroom" moTa="Chuyên viên sẽ xác nhận giờ cụ thể qua điện thoại.">
         <LeadForm loai="showroom" tone="sang" />
       </Section>
 

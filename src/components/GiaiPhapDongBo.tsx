@@ -57,7 +57,7 @@ export function GiaiPhapDongBo() {
             </div>
             <div className="mt-3 border-t border-white/15 pt-4">
               <h3 className="text-lg font-semibold">{TP[i].t}</h3>
-              <p className="mt-2 max-w-md text-sm font-light text-white/75">{TP[i].m}</p>
+              <p className="mt-2 max-w-md text-[15px] font-light leading-relaxed text-white/75">{TP[i].m}</p>
             </div>
           </div>
         </div>

@@ -45,8 +45,8 @@ export function SoSanhHeCua() {
               <th className="w-40 p-4" />
               {ds.map((k) => (
                 <th key={k.slug} className="p-4 align-bottom">
-                  <p className="text-[11px] font-medium uppercase tracking-[0.16em] text-than-chi/50">{TEN_EN_HE_CUA[k.slug]}</p>
-                  <Link href={`/he-cua/${k.slug}`} className="text-lg font-bold hover:text-accent">
+                  <p className="text-xs font-medium uppercase tracking-[0.16em] text-than-chi/50">{TEN_EN_HE_CUA[k.slug]}</p>
+                  <Link href={`/he-cua/${k.slug}`} className="text-xl font-bold hover:text-accent">
                     {k.ten}
                   </Link>
                 </th>
@@ -56,7 +56,7 @@ export function SoSanhHeCua() {
           <tbody>
             {hang.map(([t, f]) => (
               <tr key={t} className="border-b border-than-chi/10 align-top last:border-b-0">
-                <th className="p-4 text-[11px] font-medium uppercase tracking-[0.14em] text-than-chi/55">{t}</th>
+                <th className="p-4 text-xs font-medium uppercase tracking-[0.14em] text-than-chi/55">{t}</th>
                 {ds.map((k) => {
                   const v = f(k);
                   return (

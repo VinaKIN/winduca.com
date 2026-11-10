@@ -10,8 +10,8 @@ export default function NotFound() {
       </div>
       <div className="relative mx-auto w-full max-w-[1440px]">
         <p className="nhan-muc text-accent">404</p>
-        <h1 className="tieu-de mt-4 max-w-2xl text-4xl md:text-6xl">Cánh cửa này chưa mở.</h1>
-        <p className="mt-5 max-w-xl text-nga/85">Trang anh chị tìm không tồn tại hoặc đã được chuyển đi.</p>
+        <h1 className="tieu-de mt-4 max-w-2xl text-[clamp(2rem,4.5vw,3.75rem)] leading-[1.1]">Cánh cửa này chưa mở.</h1>
+        <p className="mt-5 max-w-xl text-lg text-nga/85">Trang anh chị tìm không tồn tại hoặc đã được chuyển đi.</p>
         <ul className="mt-10 flex flex-col gap-3 sm:flex-row">
           <li>
             <Link href="/" className="nut nut-chinh">

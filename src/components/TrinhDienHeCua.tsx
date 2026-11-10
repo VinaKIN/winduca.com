@@ -146,7 +146,7 @@ export function TrinhDienHeCua({ slug, ten, chon, setChon }: { slug: string; ten
   const g = kg[Math.min(kgChon, Math.max(0, kg.length - 1))];
 
   return (
-    <section className="bg-nga py-8 md:py-10" aria-label="Trải nghiệm hệ cửa">
+    <section className="bg-nga py-10 md:py-14" aria-label="Trải nghiệm hệ cửa">
       <Wrap>
         <p className="nhan-muc text-accent-chu">Trải nghiệm {ten.toLowerCase()}</p>
         <div role="tablist" aria-label="Chế độ xem" className="mt-3 flex flex-wrap gap-2">
@@ -177,7 +177,7 @@ export function TrinhDienHeCua({ slug, ten, chon, setChon }: { slug: string; ten
             {tab === "mau" && (
               <>
                 <h3 className="text-xl font-bold">Chọn màu khung nhôm</h3>
-                <p className="mt-2 text-sm text-than-chi/70">
+                <p className="mt-2 text-[15px] leading-relaxed text-than-chi/70">
                   Chọn một màu để xem khung cửa đổi theo, cả trong mặt cắt 3D bên dưới. Đây là màu minh họa; mã màu chính thức đang chờ xác nhận.
                 </p>
                 <ul className="mt-5 grid grid-cols-2 gap-3" role="radiogroup" aria-label="Màu khung nhôm">
@@ -202,7 +202,7 @@ export function TrinhDienHeCua({ slug, ten, chon, setChon }: { slug: string; ten
             {tab === "mo" && (
               <>
                 <h3 className="text-xl font-bold">Cách {ten.toLowerCase()} vận hành</h3>
-                <p className="mt-2 text-sm text-than-chi/70">{MO_TA[slug]}</p>
+                <p className="mt-2 text-[15px] leading-relaxed text-than-chi/70">{MO_TA[slug]}</p>
                 <div className="mt-5 flex flex-wrap gap-3">
                   <button type="button" onClick={() => chay(1)} className="nut nut-chinh">
                     Mở cửa
@@ -233,7 +233,7 @@ export function TrinhDienHeCua({ slug, ten, chon, setChon }: { slug: string; ten
             {tab === "khong-gian" && (
               <>
                 <h3 className="text-xl font-bold">Ứng dụng trong kiến trúc</h3>
-                <p className="mt-2 text-sm text-than-chi/70">Chọn loại công trình để xem không gian phù hợp với {ten.toLowerCase()}.</p>
+                <p className="mt-2 text-[15px] leading-relaxed text-than-chi/70">Chọn loại công trình để xem không gian phù hợp với {ten.toLowerCase()}.</p>
                 <ul className="mt-5 flex flex-wrap gap-2">
                   {kg.map((x, i) => (
                     <li key={x.slug}>
@@ -250,7 +250,7 @@ export function TrinhDienHeCua({ slug, ten, chon, setChon }: { slug: string; ten
                 </ul>
                 {g && (
                   <>
-                    <p className="mt-4 text-sm text-than-chi/75">{g.tomTat}</p>
+                    <p className="mt-4 text-[15px] leading-relaxed text-than-chi/75">{g.tomTat}</p>
                     <Link href={`/giai-phap/${g.slug}`} className="nut nut-dac mt-5">
                       Xem giải pháp
                     </Link>

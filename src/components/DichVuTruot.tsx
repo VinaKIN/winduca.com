@@ -67,7 +67,7 @@ export function DichVuTruot({ muc }: { muc: DichVu[] }) {
                 <div className="flex items-end justify-between gap-6">
                   <div>
                     <h3 className="text-xl font-bold md:text-2xl">{d.t}</h3>
-                    <p className="mt-2 max-w-md text-sm font-light text-white/85">{d.m}</p>
+                    <p className="mt-2 max-w-md text-[15px] font-light leading-relaxed text-white/85">{d.m}</p>
                   </div>
                   <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-accent text-white transition-transform duration-300 group-hover:translate-x-1">
                     <MuiTen huong="phai" />

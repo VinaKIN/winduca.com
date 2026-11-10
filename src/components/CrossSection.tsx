@@ -136,7 +136,7 @@ export function CrossSection({
               )}
             </div>
             <div className="absolute bottom-4 right-4 flex items-center gap-1.5 text-nga">
-              <span className="mr-2 hidden text-[11px] text-nga/60 sm:inline">Kéo để xoay</span>
+              <span className="mr-2 hidden text-xs text-nga/60 sm:inline">Kéo để xoay</span>
               <button type="button" aria-label="Thu nhỏ" onClick={() => setZoom((z) => Math.max(0.6, +(z - 0.25).toFixed(2)))} className="flex h-8 w-8 items-center justify-center rounded-[6px] bg-white/10 text-lg hover:bg-white/20">
                 −
               </button>

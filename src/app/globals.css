@@ -37,7 +37,7 @@ html {
 body {
   font-family: var(--font-roboto), system-ui, sans-serif;
   font-size: 1rem;
-  line-height: 1.6;
+  line-height: 1.65;
   font-variant-numeric: tabular-nums;
   background: #ffffff;
   color: var(--than-chi);
@@ -51,8 +51,8 @@ body {
 /* Nhãn mục: chữ hoa nhỏ, giãn chữ — thường tô đỏ ở trên tiêu đề */
 .nhan-muc {
   font-weight: 500;
-  font-size: 0.6875rem;
-  letter-spacing: 0.22em;
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
   text-transform: uppercase;
 }
 /* Vạch kẻ mảnh trước nhãn: nét "bản vẽ kỹ thuật" */
@@ -239,4 +239,39 @@ body {
   bottom: 8px;
   border-right: 1px solid;
   border-bottom: 1px solid;
+}
+
+/*
+  Thang cỡ chữ (10/11/2026) — người xem không thấy quá nhỏ hoặc quá to, có phân cấp chính/phụ:
+  H1 30–52px · H2 26–40px · H3 20px · thân 16px · phụ 15px · chú thích/nhãn ≥ 12px. Độ rộng dòng ≤ ~70 ký tự.
+*/
+p { max-width: 72ch; }
+.text-center p, [class*="max-w-"] p { max-width: none; }
+
+/* Số mục tự động: mỗi <Section nhan="..."> trên một trang được đánh số 01, 02, ... (10/11/2026) */
+main {
+  counter-reset: muc;
+}
+.muc-so {
+  counter-increment: muc;
+}
+.nhan-so {
+  display: flex;
+  align-items: flex-end;
+  gap: 1rem;
+  padding-bottom: 0.4rem;
+}
+.nhan-so::before {
+  content: counter(muc, decimal-leading-zero);
+  width: auto;
+  height: auto;
+  margin: 0;
+  background: none;
+  opacity: 1;
+  font-size: clamp(3rem, 6vw, 5rem);
+  font-weight: 600;
+  line-height: 0.85;
+  letter-spacing: 0;
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(227, 25, 55, 0.55);
 }

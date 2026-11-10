@@ -52,7 +52,7 @@ export function CauHinhCua() {
       </div>
 
       <div className="mt-6 flex flex-wrap items-center justify-between gap-4 border-t border-than-chi/15 pt-5">
-        <p className="max-w-2xl text-sm text-than-chi/80">{tomTat}</p>
+        <p className="max-w-2xl text-[15px] leading-relaxed text-than-chi/80">{tomTat}</p>
         <button type="button" onClick={() => setGui((v) => !v)} aria-expanded={gui} className="nut nut-chinh">
           {gui ? "Thu gọn" : "Gửi cấu hình để được tư vấn"}
         </button>

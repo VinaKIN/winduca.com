@@ -54,8 +54,8 @@ export default async function BaiVietPage({ params }: PageProps<"/tin-tuc/[slug]
             <li key={x.slug}>
               <Link href={`/tin-tuc/${x.slug}`} className="group block rounded-[20px] bg-white p-6">
                 <p className="nhan-muc text-accent">{x.chuyenMuc}</p>
-                <h3 className="mt-2 text-lg font-bold group-hover:text-accent">{x.tieuDe}</h3>
-                <p className="mt-2 text-sm text-than-chi/70">{x.tomTat}</p>
+                <h3 className="mt-2 text-xl font-bold group-hover:text-accent">{x.tieuDe}</h3>
+                <p className="mt-2 text-[15px] leading-relaxed text-than-chi/70">{x.tomTat}</p>
               </Link>
             </li>
           ))}

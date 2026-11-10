@@ -99,7 +99,7 @@ export function SanPhamBangChuyen() {
               </p>
               <h3 className="mt-3 text-2xl font-bold md:text-3xl">{k.ten}</h3>
               <p className="mt-1 text-sm font-medium uppercase tracking-[0.12em] text-white/60">{TEN_EN[k.slug]}</p>
-              <p className="mt-3 text-sm font-light text-white/80">{k.tagline}</p>
+              <p className="mt-3 text-[15px] font-light leading-relaxed text-white/80">{k.tagline}</p>
               <ul className="mt-5 space-y-2 border-t border-white/15 pt-5 text-sm">
                 {k.dacDiem.map((d) => (
                   <li key={d} className="flex items-start gap-3">

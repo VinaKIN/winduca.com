@@ -34,7 +34,7 @@ export default async function ChiTiet({ params }: PageProps<"/cong-trinh/[slug]"
     <>
       <PageHero congNghe nhan={`Cảm hứng · ${c.loai} · ${c.khuVuc}`} tieuDe={c.ten} anh={anhCT(i)} />
 
-      <section className="luoi-ban-ve bg-white py-8 md:py-10">
+      <section className="luoi-ban-ve bg-white py-10 md:py-14">
         <Wrap>
           <div className="grid gap-6 lg:grid-cols-[1.5fr_1fr] lg:gap-10">
             <Hien className="dau-goc relative h-[clamp(240px,46svh,420px)] overflow-hidden rounded-[6px] bg-than-chi">
@@ -54,12 +54,12 @@ export default async function ChiTiet({ params }: PageProps<"/cong-trinh/[slug]"
                   ["Kiểu cửa", c.kieuCua],
                 ].map(([t, v]) => (
                   <div key={t}>
-                    <dt className="text-[11px] font-medium uppercase tracking-[0.14em] text-than-chi/55">{t}</dt>
+                    <dt className="text-xs font-medium uppercase tracking-[0.14em] text-than-chi/55">{t}</dt>
                     <dd className="mt-1 font-semibold">{v}</dd>
                   </div>
                 ))}
               </dl>
-              <p className="mt-4 text-sm text-than-chi/75">
+              <p className="mt-4 text-[15px] leading-relaxed text-than-chi/75">
                 Một không gian mở ra khoảng sân và tầm nhìn, nơi khung cửa mảnh nhường chỗ cho ánh sáng. Nội dung này chỉ mang tính gợi ý bố cục và vật liệu; đây không phải
                 công trình do WINDUCA thực hiện.
               </p>
@@ -73,7 +73,7 @@ export default async function ChiTiet({ params }: PageProps<"/cong-trinh/[slug]"
         </Wrap>
       </section>
 
-      <section className="bg-nga py-8 md:py-10">
+      <section className="bg-nga py-10 md:py-14">
         <Wrap>
           <Hien>
             <p className="nhan-muc text-accent">Thêm hình ảnh</p>
@@ -94,7 +94,7 @@ export default async function ChiTiet({ params }: PageProps<"/cong-trinh/[slug]"
           <div className="grid gap-6 lg:grid-cols-[0.8fr_1.4fr] lg:gap-12">
             <Hien>
               <p className="nhan-muc text-accent">Tham chiếu của bạn</p>
-              <h2 className="mt-3 text-[clamp(1.5rem,2.8vw,2.3rem)] font-light leading-[1.15] tracking-[-0.01em]">
+              <h2 className="mt-3 text-[clamp(1.625rem,2.6vw,2.4rem)] font-light leading-[1.15] tracking-[-0.01em]">
                 Tôi muốn không gian <span className="font-bold">như thế này</span>
               </h2>
               <p className="mt-3 text-sm text-white/70">Chúng tôi ghi nhận tham chiếu để chuyên viên tư vấn đúng nhu cầu. Không hỏi ngân sách.</p>

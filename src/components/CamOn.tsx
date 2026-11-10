@@ -36,8 +36,8 @@ export function CamOn() {
     <section className="bg-than-chi px-5 pb-24 pt-40 text-nga md:px-10 md:pt-52">
       <div className="mx-auto max-w-[1440px]">
         <p className="nhan-muc text-accent">Đã nhận</p>
-        <h1 className="tieu-de mt-4 max-w-3xl text-4xl md:text-6xl">{nd.tieuDe}</h1>
-        <p className="mt-6 max-w-2xl text-nga/85">{nd.mota}</p>
+        <h1 className="tieu-de mt-4 max-w-3xl text-[clamp(2rem,4.5vw,3.75rem)] leading-[1.1]">{nd.tieuDe}</h1>
+        <p className="mt-6 max-w-2xl text-lg text-nga/85">{nd.mota}</p>
         {ma && <p className="mt-6 text-sm text-nga/60">Mã tiếp nhận: {ma}</p>}
         <div className="mt-10 flex flex-col gap-3 sm:flex-row">
           <a href={HOTLINE_TEL} className="nut nut-chinh">

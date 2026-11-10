@@ -57,11 +57,11 @@ export default async function GiaiPhapChiTiet({ params }: PageProps<"/giai-phap/
         </NutHut>
       </PageHero>
 
-      <section className="luoi-ban-ve bg-white py-8 md:py-10">
+      <section className="luoi-ban-ve bg-white py-10 md:py-14">
         <Wrap>
           <Hien>
             <Dau so="01" nhan="Câu hỏi 1" />
-            <h2 className="mt-4 max-w-3xl text-[clamp(1.5rem,2.8vw,2.4rem)] font-light leading-[1.15] tracking-[-0.01em]">
+            <h2 className="mt-4 max-w-3xl text-[clamp(1.625rem,2.6vw,2.5rem)] font-light leading-[1.15] tracking-[-0.01em]">
               Không gian này cần giải pháp cửa <span className="font-bold">như thế nào?</span>
             </h2>
           </Hien>
@@ -76,11 +76,11 @@ export default async function GiaiPhapChiTiet({ params }: PageProps<"/giai-phap/
         </Wrap>
       </section>
 
-      <section className="bg-nga py-8 md:py-10">
+      <section className="bg-nga py-10 md:py-14">
         <Wrap>
           <Hien>
             <Dau so="02" nhan="Câu hỏi 2" />
-            <h2 className="mt-4 max-w-3xl text-[clamp(1.5rem,2.8vw,2.4rem)] font-light leading-[1.15] tracking-[-0.01em]">
+            <h2 className="mt-4 max-w-3xl text-[clamp(1.625rem,2.6vw,2.5rem)] font-light leading-[1.15] tracking-[-0.01em]">
               Hệ cửa nào <span className="font-bold">phù hợp?</span>
             </h2>
             <p className="mt-3 max-w-2xl text-base text-than-chi/70">{g.ghiChuHeCua}</p>
@@ -93,9 +93,9 @@ export default async function GiaiPhapChiTiet({ params }: PageProps<"/giai-phap/
                     <Image src={asset(ANH_HE_CUA[k.slug])} alt={k.ten} fill quality={60} sizes="(min-width: 1024px) 22vw, 70vw" className="object-cover transition-transform duration-700 group-hover:scale-[1.05]" />
                   </div>
                   <div className="p-5">
-                    <p className="text-[11px] font-medium uppercase tracking-[0.16em] text-than-chi/50">{TEN_EN_HE_CUA[k.slug]}</p>
-                    <h3 className="mt-1 text-lg font-bold group-hover:text-accent">{k.ten}</h3>
-                    <p className="mt-1 text-sm text-than-chi/70">{k.tagline}</p>
+                    <p className="text-xs font-medium uppercase tracking-[0.16em] text-than-chi/50">{TEN_EN_HE_CUA[k.slug]}</p>
+                    <h3 className="mt-1 text-xl font-bold group-hover:text-accent">{k.ten}</h3>
+                    <p className="mt-1 text-[15px] leading-relaxed text-than-chi/70">{k.tagline}</p>
                   </div>
                 </Link>
               </Hien>
@@ -104,11 +104,11 @@ export default async function GiaiPhapChiTiet({ params }: PageProps<"/giai-phap/
         </Wrap>
       </section>
 
-      <section className="luoi-ban-ve bg-white py-8 md:py-10">
+      <section className="luoi-ban-ve bg-white py-10 md:py-14">
         <Wrap>
           <Hien>
             <Dau so="03" nhan="Câu hỏi 3" />
-            <h2 className="mt-4 max-w-3xl text-[clamp(1.5rem,2.8vw,2.4rem)] font-light leading-[1.15] tracking-[-0.01em]">
+            <h2 className="mt-4 max-w-3xl text-[clamp(1.625rem,2.6vw,2.5rem)] font-light leading-[1.15] tracking-[-0.01em]">
               WINDUCA tư vấn và <span className="font-bold">triển khai những gì?</span>
             </h2>
           </Hien>

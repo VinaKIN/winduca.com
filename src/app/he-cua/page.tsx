@@ -32,7 +32,7 @@ function Dau({ so, nhan, tieuDe }: { so: string; nhan: string; tieuDe: React.Rea
         </span>
         <p className="nhan-muc pb-2 text-accent">{nhan}</p>
       </div>
-      <h2 className="mt-4 max-w-3xl text-[clamp(1.5rem,2.8vw,2.4rem)] font-light leading-[1.15] tracking-[-0.01em]">{tieuDe}</h2>
+      <h2 className="mt-4 max-w-3xl text-[clamp(1.625rem,2.6vw,2.5rem)] font-light leading-[1.15] tracking-[-0.01em]">{tieuDe}</h2>
     </Hien>
   );
 }
@@ -56,7 +56,7 @@ export default function HeCua() {
       </PageHero>
 
       {/* 01 · Bốn kiểu cửa */}
-      <section className="luoi-ban-ve bg-white py-8 md:py-10">
+      <section className="luoi-ban-ve bg-white py-10 md:py-14">
         <Wrap>
           <Dau so="01" nhan="Bốn kiểu cửa" tieuDe={<>Chọn kiểu cửa phù hợp <span className="font-bold">với không gian</span></>} />
           <ul className="mt-6 flex snap-x snap-mandatory gap-3 overflow-x-auto pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden sm:grid sm:grid-cols-2 sm:gap-4 sm:overflow-visible lg:grid-cols-4">
@@ -68,11 +68,11 @@ export default function HeCua() {
                     <Image src={asset(ANH[k.slug][1])} alt="" fill quality={65} sizes="(min-width: 1024px) 24vw, 50vw" className="object-cover opacity-0 transition-opacity duration-700 group-hover:opacity-100" />
                   </div>
                   <div className="p-5">
-                    <p className="text-[11px] font-medium uppercase tracking-[0.16em] text-than-chi/50">
+                    <p className="text-xs font-medium uppercase tracking-[0.16em] text-than-chi/50">
                       {String(i + 1).padStart(2, "0")} · {TEN_EN_HE_CUA[k.slug]}
                     </p>
-                    <h3 className="mt-1 text-lg font-bold group-hover:text-accent">{k.ten}</h3>
-                    <p className="mt-1 hidden text-sm text-than-chi/70 sm:block">{k.tagline}</p>
+                    <h3 className="mt-1 text-xl font-bold group-hover:text-accent">{k.ten}</h3>
+                    <p className="mt-1 hidden text-[15px] leading-relaxed text-than-chi/70 sm:block">{k.tagline}</p>
                   </div>
                 </Link>
               </Hien>
@@ -82,7 +82,7 @@ export default function HeCua() {
       </section>
 
       {/* 02 · So sánh */}
-      <section id="so-sanh" className="bg-nga py-8 md:py-10">
+      <section id="so-sanh" className="bg-nga py-10 md:py-14">
         <Wrap>
           <Dau so="02" nhan="So sánh hệ cửa" tieuDe={<>Đặt hai đến ba kiểu cửa <span className="font-bold">cạnh nhau</span></>} />
           <Hien tre={100} className="mt-5">
@@ -92,7 +92,7 @@ export default function HeCua() {
       </section>
 
       {/* 03 · Mẫu cửa theo hãng */}
-      <section id="mau-cua" className="luoi-ban-ve bg-white py-8 md:py-10">
+      <section id="mau-cua" className="luoi-ban-ve bg-white py-10 md:py-14">
         <Wrap>
           <Dau so="03" nhan="Mẫu cửa" tieuDe={<>Mẫu cửa <span className="font-bold">Romadio, Civro, Ponzio</span></>} />
           <Hien tre={100} className="mt-5">
@@ -102,7 +102,7 @@ export default function HeCua() {
       </section>
 
       {/* 04 · Cấu hình cửa */}
-      <section id="cau-hinh" className="relative overflow-hidden bg-nga py-8 md:py-10">
+      <section id="cau-hinh" className="relative overflow-hidden bg-nga py-10 md:py-14">
         <Wrap>
           <Dau so="04" nhan="Cấu hình cửa" tieuDe={<>Chọn cấu hình, <span className="font-bold">nhận tư vấn</span></>} />
           <Hien tre={100} className="mt-5">

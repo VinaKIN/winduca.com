@@ -41,7 +41,7 @@ export default function KienThuc() {
                 <div className="p-5 md:p-6">
                   <p className="nhan-muc text-accent">{c.en}</p>
                   <h2 className="mt-2 text-2xl font-bold">{c.t}</h2>
-                  <p className="mt-2 text-sm text-than-chi/70">{c.m}</p>
+                  <p className="mt-2 text-[15px] leading-relaxed text-than-chi/70">{c.m}</p>
                   <ul className="mt-4 space-y-2 border-t border-than-chi/10 pt-4">
                     {bai.length === 0 && <li className="text-sm text-than-chi/50">Đang chuẩn bị bài viết.</li>}
                     {bai.map((b) => (

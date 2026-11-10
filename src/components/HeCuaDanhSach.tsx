@@ -83,7 +83,7 @@ export function HeCuaDanhSach() {
                 <p className="nhan-muc text-accent">Hệ cửa {String(n + 1).padStart(2, "0")}</p>
                 <h3 className="mt-2 text-xl font-bold">{k.ten}</h3>
                 <p className="mt-0.5 text-xs font-medium uppercase tracking-[0.12em] text-than-chi/50">{TEN_EN_HE_CUA[k.slug]}</p>
-                <p className="mt-1 text-sm text-than-chi/70">{k.tagline}</p>
+                <p className="mt-1 text-[15px] leading-relaxed text-than-chi/70">{k.tagline}</p>
                 <ul className="mt-4 space-y-1.5 border-t border-than-chi/10 pt-4 text-xs">
                   {k.dacDiem.map((d) => (
                     <li key={d} className="flex items-start gap-2">

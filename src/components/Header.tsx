@@ -178,7 +178,7 @@ export function Header() {
                         }}
                       >
                         <div className="flex items-center gap-5 text-than-chi">
-                          <span className="w-6 text-[11px] font-bold tracking-[0.12em] text-accent">{String(i + 1).padStart(2, "0")}</span>
+                          <span className="w-6 text-xs font-bold tracking-[0.12em] text-accent">{String(i + 1).padStart(2, "0")}</span>
                           <Link href={m.href} className="tieu-de text-[1.15rem] font-bold uppercase tracking-[0.02em] transition-colors hover:text-accent md:text-[1.45rem]">
                             {m.label}
                           </Link>

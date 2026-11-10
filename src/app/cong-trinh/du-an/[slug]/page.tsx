@@ -56,8 +56,8 @@ export default async function CaseStudy({ params }: PageProps<"/cong-trinh/du-an
             ["Kết quả thực tế", d.ketQua],
           ].map(([t, m]) => (
             <div key={t}>
-              <h3 className="text-lg font-bold">{t}</h3>
-              <p className="mt-2 text-sm text-than-chi/75">{m}</p>
+              <h3 className="text-xl font-bold">{t}</h3>
+              <p className="mt-2 text-[15px] leading-relaxed text-than-chi/75">{m}</p>
             </div>
           ))}
         </div>

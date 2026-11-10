@@ -78,7 +78,7 @@ export function HopMau() {
                 <span className="block text-sm font-semibold">
                   {String(i + 1).padStart(2, "0")} · {m.ten}
                 </span>
-                {chon === i && <span className="mt-1 block text-sm text-than-chi/80">{m.mota}</span>}
+                {chon === i && <span className="mt-1 block text-[15px] leading-relaxed text-than-chi/80">{m.mota}</span>}
               </span>
             </button>
           </li>

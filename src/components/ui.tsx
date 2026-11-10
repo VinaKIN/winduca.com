@@ -1,7 +1,7 @@
 import Image from "next/image";
 import type { ReactNode } from "react";
 import { asset } from "@/lib/asset";
-import { NenParallax } from "./HieuUng";
+import { Hien, NenParallax } from "./HieuUng";
 
 export function Wrap({ children, className = "" }: { children: ReactNode; className?: string }) {
   return <div className={`mx-auto max-w-[1440px] px-5 md:px-10 ${className}`}>{children}</div>;
@@ -20,6 +20,7 @@ export function Section({
   moTa,
   children,
   className = "",
+  gon = false,
 }: {
   id?: string;
   tone?: "sang" | "nga" | "toi";
@@ -28,21 +29,27 @@ export function Section({
   moTa?: string;
   children?: ReactNode;
   className?: string;
+  gon?: boolean;
 }) {
   const toi = tone === "toi";
   const nen = toi ? "bg-than-chi text-white" : tone === "nga" ? "bg-nga text-than-chi" : "bg-white text-than-chi";
   const nhanChu = nhan?.replace(/^\d{2}\s*\/\s*\d{2}\s*·\s*/, "").replace(/^\d{2}\s*·\s*/, "");
+  const co = Boolean(nhanChu || tieuDe || moTa);
   return (
-    <section id={id} className={`relative overflow-hidden ${nen} ${className}`}>
-      <Wrap className="relative py-8 md:py-10">
-        {(nhanChu || tieuDe || moTa) && (
-          <div>
-            {nhanChu && <p className="nhan-muc text-accent">{nhanChu}</p>}
-            {tieuDe && <h2 className="mt-3 max-w-3xl text-[clamp(1.5rem,2.6vw,2.25rem)] font-light leading-[1.15] tracking-[-0.01em]">{tieuDe}</h2>}
-            {moTa && <p className={`mt-3 max-w-2xl text-base font-light ${toi ? "text-white/80" : "text-than-chi/75"}`}>{moTa}</p>}
-          </div>
+    <section id={id} className={`relative overflow-hidden ${nen} ${tone === "sang" ? "luoi-ban-ve" : ""} ${nhanChu ? "muc-so" : ""} ${className}`}>
+      <Wrap className={`relative ${gon ? "py-8 md:py-9" : "py-10 md:py-14"}`}>
+        {co && (
+          <Hien>
+            {nhanChu && <p className={`nhan-muc nhan-so ${toi ? "text-accent" : "text-accent"}`}>{nhanChu}</p>}
+            {tieuDe && <h2 className="mt-4 max-w-3xl text-[clamp(1.625rem,2.6vw,2.5rem)] font-light leading-[1.15] tracking-[-0.01em]">{tieuDe}</h2>}
+            {moTa && <p className={`mt-3 max-w-2xl text-base font-light leading-relaxed ${toi ? "text-white/80" : "text-than-chi/75"}`}>{moTa}</p>}
+          </Hien>
         )}
-        {children && <div className={nhanChu || tieuDe || moTa ? "mt-6 md:mt-8" : ""}>{children}</div>}
+        {children && (
+          <Hien tre={80} className={co ? (gon ? "mt-5" : "mt-6 md:mt-8") : ""}>
+            {children}
+          </Hien>
+        )}
       </Wrap>
     </section>
   );
@@ -55,7 +62,7 @@ export function PageHero({
   moTa,
   children,
   anh = "/images/hero.jpg",
-  congNghe = false,
+  congNghe = true,
 }: {
   nhan: string;
   tieuDe: string;
@@ -86,8 +93,8 @@ export function PageHero({
       )}
       <Wrap className="relative pb-8 pt-28 md:pb-10 md:pt-36">
         <p className="nhan-muc text-accent">{nhan}</p>
-        <h1 className="mt-3 max-w-4xl text-[clamp(1.5rem,3.2vw,2.75rem)] font-medium uppercase leading-[1.15] tracking-[0.01em] [text-wrap:balance]">{tieuDe}</h1>
-        {moTa && <p className="mt-4 max-w-2xl text-base font-light text-white/85">{moTa}</p>}
+        <h1 className="mt-3 max-w-4xl text-[clamp(1.875rem,3.6vw,3.25rem)] font-medium uppercase leading-[1.12] tracking-[0.01em] [text-wrap:balance]">{tieuDe}</h1>
+        {moTa && <p className="mt-4 max-w-2xl text-base font-light leading-relaxed text-white/85 md:text-lg">{moTa}</p>}
         {children && <div className="mt-6 flex flex-col gap-3 sm:flex-row">{children}</div>}
       </Wrap>
     </section>

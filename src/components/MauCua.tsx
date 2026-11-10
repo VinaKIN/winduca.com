@@ -78,7 +78,7 @@ function CuaSo({ mau, dong }: { mau: Mau; dong: () => void }) {
             <dl className="grid gap-px overflow-hidden rounded-[6px] border border-than-chi/15 bg-than-chi/15 sm:grid-cols-2">
               {THONG_SO_BANG.map((ten) => (
                 <div key={ten} className="bg-white p-4">
-                  <dt className="text-[11px] font-medium uppercase tracking-[0.14em] text-than-chi/55">{ten}</dt>
+                  <dt className="text-xs font-medium uppercase tracking-[0.14em] text-than-chi/55">{ten}</dt>
                   <dd className="mt-1 text-sm font-semibold">{mau.thongSo[ten] ?? <span className="font-normal text-than-chi/55">Đang chờ xác nhận</span>}</dd>
                 </div>
               ))}
@@ -126,7 +126,7 @@ export function MauCua() {
               </span>
               <p className="nhan-muc mt-3 text-accent">{m.hang}</p>
               <h3 className="mt-1 text-xl font-bold group-hover:text-accent">{m.ten}</h3>
-              <p className="mt-2 text-sm text-than-chi/70">{m.moTa}</p>
+              <p className="mt-2 text-[15px] leading-relaxed text-than-chi/70">{m.moTa}</p>
               <span className="mt-4 inline-block text-xs font-bold uppercase tracking-[0.08em] text-accent">Xem bản vẽ · mẫu gốc · thông số</span>
             </button>
           </li>

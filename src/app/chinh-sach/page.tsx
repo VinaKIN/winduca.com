@@ -23,7 +23,7 @@ export default function ChinhSachHub() {
               <Link href={d.href} className="group block h-full rounded-[22px] border border-than-chi/10 bg-white p-6 transition-shadow hover:shadow-lg">
                 <span className="text-3xl font-light text-than-chi/30">{String(i + 1).padStart(2, "0")}</span>
                 <h2 className="mt-2 text-xl font-bold group-hover:text-accent">{d.t}</h2>
-                <p className="mt-2 text-sm text-than-chi/70">{d.m}</p>
+                <p className="mt-2 text-[15px] leading-relaxed text-than-chi/70">{d.m}</p>
               </Link>
             </li>
           ))}

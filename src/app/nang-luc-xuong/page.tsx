@@ -46,7 +46,7 @@ export default function NangLucXuong() {
               <span className="absolute -top-[5px] left-0 h-2.5 w-2.5 rotate-45 bg-accent" aria-hidden="true" />
               <span className="nhan-muc text-than-chi/60">{String(i + 1).padStart(2, "0")}</span>
               <h3 className="tieu-de mt-3 text-lg">{t}</h3>
-              <p className="mt-2 text-sm text-than-chi/80">{m}</p>
+              <p className="mt-2 text-[15px] leading-relaxed text-than-chi/80">{m}</p>
             </li>
           ))}
         </ol>
@@ -61,7 +61,7 @@ export default function NangLucXuong() {
             </li>
           ))}
         </ul>
-        <p className="mt-8 max-w-2xl text-sm text-than-chi/70">
+        <p className="mt-8 max-w-2xl text-[15px] leading-relaxed text-than-chi/70">
           Thanh nhôm định hình là vật tư đầu vào; xưởng thực hiện các công đoạn gia công, lắp ráp và hoàn thiện nêu trên.
         </p>
       </Section>
@@ -76,7 +76,7 @@ export default function NangLucXuong() {
             <li key={t} className="border-t border-accent pt-6">
               <span className="nhan-muc text-than-chi/60">{String(i + 1).padStart(2, "0")}</span>
               <h3 className="tieu-de mt-3 text-lg">{t}</h3>
-              <p className="mt-2 text-sm text-than-chi/80">{m}</p>
+              <p className="mt-2 text-[15px] leading-relaxed text-than-chi/80">{m}</p>
             </li>
           ))}
         </ol>
@@ -94,7 +94,7 @@ export default function NangLucXuong() {
           ].map(([t, m]) => (
             <li key={t} className="border border-than-chi/20 p-6">
               <h3 className="tieu-de text-lg">{t}</h3>
-              <p className="mt-2 text-sm text-than-chi/80">{m}</p>
+              <p className="mt-2 text-[15px] leading-relaxed text-than-chi/80">{m}</p>
             </li>
           ))}
         </ul>

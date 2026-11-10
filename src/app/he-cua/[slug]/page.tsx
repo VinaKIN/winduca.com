@@ -60,11 +60,11 @@ export default async function KieuCuaPage({ params }: PageProps<"/he-cua/[slug]"
       </PageHero>
 
       {/* 01 · Tổng quan */}
-      <section className="luoi-ban-ve bg-white py-8 md:py-10">
+      <section className="luoi-ban-ve bg-white py-10 md:py-14">
         <Wrap>
           <Hien>
             <Dau so="01" nhan="Tổng quan" />
-            <h2 className="mt-4 max-w-3xl text-[clamp(1.5rem,2.8vw,2.4rem)] font-light leading-[1.15] tracking-[-0.01em]">{k.tagline}</h2>
+            <h2 className="mt-4 max-w-3xl text-[clamp(1.625rem,2.6vw,2.5rem)] font-light leading-[1.15] tracking-[-0.01em]">{k.tagline}</h2>
             <p className="mt-3 max-w-3xl text-base text-than-chi/75">{k.tongQuan}</p>
           </Hien>
           <dl className="mt-6 grid gap-4 md:grid-cols-3">
@@ -74,7 +74,7 @@ export default async function KieuCuaPage({ params }: PageProps<"/he-cua/[slug]"
               ["Không gian phù hợp", k.khongGian.join(" · ")],
             ].map(([t, v], i) => (
               <Hien key={t} tre={i * 100} className="dau-goc rounded-[6px] border border-than-chi/10 bg-white p-5">
-                <dt className="text-[11px] font-medium uppercase tracking-[0.16em] text-than-chi/55">{t}</dt>
+                <dt className="text-xs font-medium uppercase tracking-[0.16em] text-than-chi/55">{t}</dt>
                 <dd className="mt-2 text-base font-semibold">{v}</dd>
               </Hien>
             ))}
@@ -86,16 +86,16 @@ export default async function KieuCuaPage({ params }: PageProps<"/he-cua/[slug]"
       <DoorExplorer tenKieuCua={k.ten} slug={k.slug} />
 
       {/* 04 · Thông số */}
-      <section className="bg-nga py-8 md:py-10">
+      <section className="bg-nga py-10 md:py-14">
         <Wrap>
           <Hien>
             <Dau so="04" nhan="Thông số kỹ thuật" />
-            <p className="mt-3 max-w-2xl text-sm text-than-chi/65">Các giá trị sẽ được công bố cùng nguồn kiểm định khi có kết quả xác nhận.</p>
+            <p className="mt-3 max-w-2xl text-[15px] leading-relaxed text-than-chi/65">Các giá trị sẽ được công bố cùng nguồn kiểm định khi có kết quả xác nhận.</p>
           </Hien>
           <dl className="mt-5 grid gap-px overflow-hidden rounded-[6px] border border-than-chi/15 bg-than-chi/15 sm:grid-cols-2 lg:grid-cols-3">
             {THONG_SO_BANG.map((ten) => (
               <div key={ten} className="bg-white p-4">
-                <dt className="text-[11px] font-medium uppercase tracking-[0.14em] text-than-chi/55">{ten}</dt>
+                <dt className="text-xs font-medium uppercase tracking-[0.14em] text-than-chi/55">{ten}</dt>
                 <dd className="mt-1 text-sm text-than-chi/50">Đang chờ xác nhận</dd>
               </div>
             ))}
@@ -104,12 +104,12 @@ export default async function KieuCuaPage({ params }: PageProps<"/he-cua/[slug]"
       </section>
 
       {/* 05 · Phụ kiện + tài liệu */}
-      <section className="luoi-ban-ve bg-white py-8 md:py-10">
+      <section className="luoi-ban-ve bg-white py-10 md:py-14">
         <Wrap>
           <div className="grid gap-8 lg:grid-cols-2 lg:gap-12">
             <Hien>
               <Dau so="05" nhan="Phụ kiện WINDUCA" />
-              <h2 className="mt-4 text-[clamp(1.4rem,2.4vw,2rem)] font-light leading-[1.15]">Tay nắm, bản lề, khóa, <span className="font-bold">đồng bộ với khung cửa.</span></h2>
+              <h2 className="mt-4 text-[clamp(1.5rem,2.3vw,2.125rem)] font-light leading-[1.15]">Tay nắm, bản lề, khóa, <span className="font-bold">đồng bộ với khung cửa.</span></h2>
               <p className="mt-3 max-w-xl text-base text-than-chi/75">
                 Phụ kiện được chọn đồng bộ về màu và đường nét với khung nhôm. Tay nắm chỉ khắc duy nhất chữ WINDUCA. Anh chị có thể chạm thử mẫu phụ kiện ngay trong hộp mẫu.
               </p>
@@ -131,11 +131,11 @@ export default async function KieuCuaPage({ params }: PageProps<"/he-cua/[slug]"
 
       {/* 06 · Không gian cảm hứng */}
       {lienQuan.length > 0 && (
-        <section className="bg-nga py-8 md:py-10">
+        <section className="bg-nga py-10 md:py-14">
           <Wrap>
             <Hien>
               <Dau so="06" nhan="Cảm hứng" />
-              <h2 className="mt-4 text-[clamp(1.4rem,2.4vw,2rem)] font-light leading-[1.15]">Không gian dùng <span className="font-bold">{k.ten.toLowerCase()}</span></h2>
+              <h2 className="mt-4 text-[clamp(1.5rem,2.3vw,2.125rem)] font-light leading-[1.15]">Không gian dùng <span className="font-bold">{k.ten.toLowerCase()}</span></h2>
             </Hien>
             <KeoNgang className="mt-5">
               {lienQuan.map((c, i) => {
@@ -158,7 +158,7 @@ export default async function KieuCuaPage({ params }: PageProps<"/he-cua/[slug]"
       )}
 
       {/* 07 · Câu hỏi thường gặp */}
-      <section className="bg-white py-8 md:py-10">
+      <section className="bg-white py-10 md:py-14">
         <Wrap>
           <Hien>
             <Dau so="07" nhan="Câu hỏi thường gặp" />
@@ -176,7 +176,7 @@ export default async function KieuCuaPage({ params }: PageProps<"/he-cua/[slug]"
           <div className="grid gap-6 lg:grid-cols-[0.8fr_1.4fr] lg:gap-12">
             <Hien>
               <p className="nhan-muc text-accent">Hộp mẫu góc nhôm</p>
-              <h2 className="mt-3 text-[clamp(1.5rem,2.8vw,2.3rem)] font-light leading-[1.15] tracking-[-0.01em]">
+              <h2 className="mt-3 text-[clamp(1.625rem,2.6vw,2.4rem)] font-light leading-[1.15] tracking-[-0.01em]">
                 Quan tâm <span className="font-bold">{k.ten.toLowerCase()}?</span>
               </h2>
               <p className="mt-3 text-sm text-white/70">Nhận hộp mẫu góc nhôm tại nhà. Chúng tôi không hỏi ngân sách và không đăng giá.</p>

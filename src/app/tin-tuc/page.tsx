@@ -32,7 +32,7 @@ export default function TinTuc() {
                 </div>
                 <div className="p-5">
                   <h2 className="text-xl font-bold">{m.t}</h2>
-                  <p className="mt-2 text-sm text-than-chi/70">{m.m}</p>
+                  <p className="mt-2 text-[15px] leading-relaxed text-than-chi/70">{m.m}</p>
                   <span className="mt-3 inline-block text-sm font-bold uppercase tracking-[0.06em] text-accent">Xem mục</span>
                 </div>
               </Link>
@@ -46,8 +46,8 @@ export default function TinTuc() {
             <li key={b.slug}>
               <Link href={`/tin-tuc/${b.slug}`} className="group block rounded-[20px] bg-white p-6">
                 <p className="nhan-muc text-accent">{b.chuyenMuc}</p>
-                <h3 className="mt-2 text-lg font-bold group-hover:text-accent">{b.tieuDe}</h3>
-                <p className="mt-2 text-sm text-than-chi/70">{b.tomTat}</p>
+                <h3 className="mt-2 text-xl font-bold group-hover:text-accent">{b.tieuDe}</h3>
+                <p className="mt-2 text-[15px] leading-relaxed text-than-chi/70">{b.tomTat}</p>
               </Link>
             </li>
           ))}

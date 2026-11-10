@@ -53,11 +53,11 @@ export default function GioiThieu() {
       />
 
       {/* 01 · Câu chuyện thương hiệu */}
-      <section className="luoi-ban-ve bg-white py-8 md:py-10">
+      <section className="luoi-ban-ve bg-white py-10 md:py-14">
         <Wrap>
           <Hien>
             <NhanSo so="01" nhan="Câu chuyện thương hiệu" />
-            <h2 className="mt-4 max-w-3xl text-[clamp(1.5rem,2.8vw,2.4rem)] font-light leading-[1.15] tracking-[-0.01em]">
+            <h2 className="mt-4 max-w-3xl text-[clamp(1.625rem,2.6vw,2.5rem)] font-light leading-[1.15] tracking-[-0.01em]">
               Cánh cửa là một phần của <span className="font-bold">kiến trúc.</span>
             </h2>
           </Hien>
@@ -82,11 +82,11 @@ export default function GioiThieu() {
       </section>
 
       {/* 02 · Tầm nhìn & giá trị */}
-      <section className="bg-nga py-8 md:py-10">
+      <section className="bg-nga py-10 md:py-14">
         <Wrap>
           <Hien>
             <NhanSo so="02" nhan="Tầm nhìn & giá trị" />
-            <h2 className="mt-4 text-[clamp(1.5rem,2.8vw,2.4rem)] font-light leading-[1.15] tracking-[-0.01em]">Điều chúng tôi theo đuổi</h2>
+            <h2 className="mt-4 text-[clamp(1.625rem,2.6vw,2.5rem)] font-light leading-[1.15] tracking-[-0.01em]">Điều chúng tôi theo đuổi</h2>
           </Hien>
           <KeoNgang className="mt-6">
             {GIA_TRI.map((g, i) => (
@@ -95,7 +95,7 @@ export default function GioiThieu() {
                   {String(i + 1).padStart(2, "0")}
                 </span>
                 <h3 className="mt-3 text-xl font-bold">{g.t}</h3>
-                <p className="mt-2 text-sm text-than-chi/75">{g.m}</p>
+                <p className="mt-2 text-[15px] leading-relaxed text-than-chi/75">{g.m}</p>
               </Hien>
             ))}
           </KeoNgang>
@@ -108,11 +108,11 @@ export default function GioiThieu() {
       <GiaiPhapDongBo />
 
       {/* 04 · Quy trình kiểm soát chất lượng */}
-      <section className="luoi-ban-ve bg-white py-8 md:py-10">
+      <section className="luoi-ban-ve bg-white py-10 md:py-14">
         <Wrap>
           <Hien>
             <NhanSo so="05" nhan="Quy trình kiểm soát chất lượng" />
-            <h2 className="mt-4 text-[clamp(1.5rem,2.8vw,2.4rem)] font-light leading-[1.15] tracking-[-0.01em]">Bốn bước từ bản vẽ đến nghiệm thu</h2>
+            <h2 className="mt-4 text-[clamp(1.625rem,2.6vw,2.5rem)] font-light leading-[1.15] tracking-[-0.01em]">Bốn bước từ bản vẽ đến nghiệm thu</h2>
           </Hien>
           <div className="mt-6 grid gap-6 lg:grid-cols-[0.9fr_1.4fr] lg:gap-10">
             <Hien tre={80} className="grid grid-cols-2 gap-3">
@@ -130,8 +130,8 @@ export default function GioiThieu() {
                     <span className="relative z-10 flex h-[3.2rem] w-[3.2rem] items-center justify-center rounded-full border border-accent bg-white text-sm font-bold text-accent">
                       {String(i + 1).padStart(2, "0")}
                     </span>
-                    <h3 className="mt-4 text-lg font-bold">{x.t}</h3>
-                    <p className="mt-2 text-sm text-than-chi/70">{x.m}</p>
+                    <h3 className="mt-4 text-xl font-bold">{x.t}</h3>
+                    <p className="mt-2 text-[15px] leading-relaxed text-than-chi/70">{x.m}</p>
                   </Hien>
                 ))}
               </KeoNgang>
@@ -149,7 +149,7 @@ export default function GioiThieu() {
         <Wrap className="relative">
           <Hien>
             <p className="nhan-muc text-accent">Kết nối với WINDUCA</p>
-            <h2 className="mt-3 max-w-3xl text-[clamp(1.6rem,3.4vw,2.8rem)] font-light leading-[1.12] tracking-[-0.01em]">
+            <h2 className="mt-3 max-w-3xl text-[clamp(1.75rem,3vw,2.75rem)] font-light leading-[1.12] tracking-[-0.01em]">
               Cùng trao đổi về <span className="font-bold">công trình của bạn.</span>
             </h2>
             <div className="mt-6 flex flex-wrap gap-3">

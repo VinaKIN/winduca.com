@@ -53,7 +53,7 @@ export function ChonKhongGian() {
           <div className="absolute inset-x-0 bottom-0 p-5 text-white md:p-8">
             <p className="nhan-muc text-accent">Giải pháp {String(i + 1).padStart(2, "0")} / {String(GIAI_PHAP.length).padStart(2, "0")}</p>
             <h3 className="mt-2 max-w-xl text-2xl font-bold md:text-3xl">{g.ten}</h3>
-            <p className="mt-2 hidden max-w-xl text-sm font-light text-white/85 md:block">{g.tomTat}</p>
+            <p className="mt-2 hidden max-w-xl text-[15px] font-light leading-relaxed text-white/85 md:block">{g.tomTat}</p>
             <ul className="mt-3 hidden gap-x-6 gap-y-1 text-sm text-white/80 md:grid md:grid-cols-2">
               {g.khongGian.slice(0, 2).map((x) => (
                 <li key={x} className="flex items-start gap-2">

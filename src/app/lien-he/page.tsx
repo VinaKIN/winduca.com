@@ -13,11 +13,11 @@ export default function LienHe() {
   return (
     <>
       <PageHero nhan="Liên hệ" tieuDe="Trao đổi với chuyên viên WINDUCA." moTa="Chọn chủ đề để chúng tôi chuyển đến đúng người." />
-      <Section tone="sang">
+      <Section gon tone="sang">
         <div className="grid gap-14 lg:grid-cols-[1fr_1.4fr]">
           <div>
             <p className="nhan-muc text-than-chi/70">Kênh trực tiếp</p>
-            <dl className="mt-6 space-y-6 text-sm">
+            <dl className="mt-5 space-y-4 text-base">
               <div>
                 <dt className="font-semibold">Hotline</dt>
                 <dd>
@@ -39,13 +39,13 @@ export default function LienHe() {
                 <dd className="text-than-chi/70"><a href={MAPS_URL} target="_blank" rel="noopener noreferrer" className="hover:underline">{DIA_CHI}</a></dd>
               </div>
             </dl>
-            <dl className="mt-6 space-y-6 text-sm">
+            <dl className="mt-4 space-y-4 text-base">
               <div>
                 <dt className="font-semibold">Thời gian làm việc</dt>
                 <dd className="text-than-chi/70">[CHỜ XÁC NHẬN]</dd>
               </div>
             </dl>
-            <div className="mt-8 flex flex-wrap gap-3">
+            <div className="mt-6 flex flex-wrap gap-3">
               <a href={MAPS_URL} target="_blank" rel="noopener noreferrer" className="nut nut-vien-sang">
                 Chỉ đường
               </a>
@@ -56,7 +56,7 @@ export default function LienHe() {
           </div>
           <div>
             <p className="nhan-muc text-than-chi/70">Chọn nhu cầu của bạn</p>
-            <ul className="mb-8 mt-4 flex flex-wrap gap-2 text-sm">
+            <ul className="mb-5 mt-4 flex flex-wrap gap-2 text-[15px]">
               {[
                 ["Tư vấn sản phẩm", "/he-cua"],
                 ["Nhận hộp mẫu", "/trai-nghiem#sample-box"],

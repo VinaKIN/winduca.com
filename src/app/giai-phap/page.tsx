@@ -26,7 +26,7 @@ export default function GiaiPhap() {
         anh="/images/architecture/giai-phap-penthouse.webp"
       />
 
-      <section className="luoi-ban-ve bg-white py-8 md:py-10">
+      <section className="luoi-ban-ve bg-white py-10 md:py-14">
         <Wrap>
           <Hien>
             <div className="flex items-end gap-4">
@@ -42,7 +42,7 @@ export default function GiaiPhap() {
         </Wrap>
       </section>
 
-      <section className="bg-nga py-8 md:py-10">
+      <section className="bg-nga py-10 md:py-14">
         <Wrap>
           <Hien>
             <div className="flex items-end gap-4">
@@ -59,7 +59,7 @@ export default function GiaiPhap() {
                   {String(i + 1).padStart(2, "0")}
                 </span>
                 <h3 className="mt-3 text-xl font-bold">{c.t}</h3>
-                <p className="mt-2 text-sm text-than-chi/75">{c.m}</p>
+                <p className="mt-2 text-[15px] leading-relaxed text-than-chi/75">{c.m}</p>
               </Hien>
             ))}
           </KeoNgang>
@@ -72,7 +72,7 @@ export default function GiaiPhap() {
         <Wrap className="relative">
           <Hien>
             <p className="nhan-muc text-accent">Bắt đầu từ bản vẽ</p>
-            <h2 className="mt-3 max-w-3xl text-[clamp(1.6rem,3.2vw,2.6rem)] font-light leading-[1.12] tracking-[-0.01em]">
+            <h2 className="mt-3 max-w-3xl text-[clamp(1.75rem,3vw,2.75rem)] font-light leading-[1.12] tracking-[-0.01em]">
               Gửi bản vẽ, nhận <span className="font-bold">đề xuất giải pháp phù hợp.</span>
             </h2>
             <div className="mt-6 flex flex-wrap gap-3">

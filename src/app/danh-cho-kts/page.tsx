@@ -76,18 +76,17 @@ export default function DanhChoKts() {
         </a>
       </PageHero>
 
-      <Section tone="sang" nhan="Technical Portal" tieuDe="Cổng tài liệu kỹ thuật" moTa="Tệp chỉ hiện nút tải khi đã được kiểm duyệt và có quyền phân phối.">
-        <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          {PORTAL.map((x, i) => (
-            <li key={x.t} className="flex flex-col rounded-[20px] border border-than-chi/10 bg-white p-6">
+      <Section gon tone="sang" nhan="Technical Portal" tieuDe="Cổng tài liệu kỹ thuật" moTa="Tệp chỉ hiện nút tải khi đã được kiểm duyệt và có quyền phân phối.">
+        <ul className="-mx-5 flex snap-x gap-3 overflow-x-auto px-5 pb-2 [scrollbar-width:none] md:mx-0 md:grid md:grid-cols-2 md:overflow-visible md:px-0 lg:grid-cols-4 [&::-webkit-scrollbar]:hidden">
+          {PORTAL.map((x) => (
+            <li key={x.t} className="flex min-w-[72%] snap-start flex-col rounded-[20px] border border-than-chi/10 bg-white p-5 md:min-w-0">
               {x.anh && (
-                <div className="relative -mx-6 -mt-6 mb-4 h-24 overflow-hidden rounded-t-[20px] bg-than-chi">
+                <div className="relative -mx-5 -mt-5 mb-3 h-20 overflow-hidden rounded-t-[20px] bg-than-chi">
                   <Image src={asset(x.anh)} alt={x.t} fill quality={60} sizes="25vw" className="object-cover" />
                 </div>
               )}
-              <span className="text-3xl font-light text-than-chi/30">{String(i + 1).padStart(2, "0")}</span>
-              <h3 className="mt-3 text-lg font-bold">{x.t}</h3>
-              <p className="mt-2 flex-1 text-sm text-than-chi/70">{x.m}</p>
+              <h3 className="text-lg font-bold">{x.t}</h3>
+              <p className="mt-1.5 flex-1 text-[15px] leading-relaxed text-than-chi/70">{x.m}</p>
               {x.href ? (
                 <a href={x.href} className="mt-4 text-sm font-bold uppercase tracking-[0.06em] text-accent">
                   {x.nut}
@@ -100,7 +99,7 @@ export default function DanhChoKts() {
         </ul>
       </Section>
 
-      <Section tone="nga" nhan="Cấu tạo & mặt cắt" tieuDe="Hình minh họa cấu tạo nhôm kính" moTa="Hình tham khảo về cấu tạo profile, kính và gioăng. Bản vẽ và mặt cắt chính thức của WINDUCA sẽ thay thế khi được xác nhận.">
+      <Section gon tone="nga" nhan="Cấu tạo & mặt cắt" tieuDe="Hình minh họa cấu tạo nhôm kính" moTa="Hình tham khảo về cấu tạo profile, kính và gioăng. Bản vẽ và mặt cắt chính thức của WINDUCA sẽ thay thế khi được xác nhận.">
         <ul className="grid grid-cols-2 gap-3 md:grid-cols-5">
           {["profile-1", "profile-2", "profile-3", "profile-4", "section-drawing-1"].map((n) => (
             <li key={n} className="relative h-[24svh] min-h-[140px] overflow-hidden rounded-[16px] bg-white">
@@ -110,7 +109,7 @@ export default function DanhChoKts() {
         </ul>
       </Section>
 
-      <Section id="thu-vien" tone="nga" nhan="Thư viện kỹ thuật" tieuDe="DWG · PDF · BIM" moTa="Các tệp đang được hoàn thiện. Đăng ký để được báo khi có tệp.">
+      <Section gon id="thu-vien" tone="nga" nhan="Thư viện kỹ thuật" tieuDe="DWG · PDF · BIM" moTa="Các tệp đang được hoàn thiện. Đăng ký để được báo khi có tệp.">
         <div className="grid gap-8 lg:grid-cols-[1.3fr_1fr]">
         <ThuVienKts />
         <div className="border-than-chi/15 lg:border-l lg:pl-8">
@@ -122,16 +121,16 @@ export default function DanhChoKts() {
         </div>
       </Section>
 
-      <Section tone="sang" nhan="Xem trước mặt cắt 2D" tieuDe="Mặt cắt nét mảnh, có đường kích thước." moTa="Đây là hình minh họa. Giá trị kích thước sẽ hiển thị khi có bản vẽ kỹ thuật được xác nhận.">
-        <MatCat2D className="mx-auto aspect-[4/3] max-w-3xl" />
+      <Section gon tone="sang" nhan="Xem trước mặt cắt 2D" tieuDe="Mặt cắt nét mảnh, có đường kích thước." moTa="Đây là hình minh họa. Giá trị kích thước sẽ hiển thị khi có bản vẽ kỹ thuật được xác nhận.">
+        <MatCat2D className="mx-auto aspect-[4/3] max-h-[46svh] max-w-xl" />
       </Section>
 
-      <Section tone="nga" nhan="Mô tả kỹ thuật mẫu" tieuDe="Mô tả để dán vào thuyết minh hoặc hồ sơ mời thầu." moTa="Văn bản định tính, chưa có số liệu kỹ thuật. Số liệu sẽ được bổ sung cùng nguồn kiểm định.">
-        <div className="grid gap-4 lg:grid-cols-4">
+      <Section gon tone="nga" nhan="Mô tả kỹ thuật mẫu" tieuDe="Mô tả để dán vào thuyết minh hoặc hồ sơ mời thầu." moTa="Văn bản định tính, chưa có số liệu kỹ thuật. Số liệu sẽ được bổ sung cùng nguồn kiểm định.">
+        <div className="-mx-5 flex snap-x gap-4 overflow-x-auto px-5 pb-2 [scrollbar-width:none] lg:mx-0 lg:grid lg:grid-cols-4 lg:overflow-visible lg:px-0 [&::-webkit-scrollbar]:hidden">
           {KIEU_CUA.map((k) => {
             const nd = moTaKyThuat(k.ten, k.cachMo);
             return (
-              <article key={k.slug} className="border border-than-chi/20 p-6">
+              <article key={k.slug} className="min-w-[82%] snap-start border border-than-chi/20 p-6 lg:min-w-0">
                 <div className="flex items-center justify-between gap-4">
                   <h3 className="tieu-de text-lg">{k.ten}</h3>
                   <SaoChep noiDung={nd} />
@@ -143,7 +142,7 @@ export default function DanhChoKts() {
         </div>
       </Section>
 
-      <Section id="tu-van" tone="sang" nhan="Tư vấn chi tiết theo bản vẽ" tieuDe="Gửi bản vẽ, nhận đề xuất giải pháp và chi tiết.">
+      <Section gon id="tu-van" tone="sang" nhan="Tư vấn chi tiết theo bản vẽ" tieuDe="Gửi bản vẽ, nhận đề xuất giải pháp và chi tiết.">
         <ol className="grid gap-6 md:grid-cols-3">
           {[
             ["Gửi bản vẽ", "PDF, DWG, JPG hoặc PNG, tối đa 30MB."],
@@ -153,16 +152,16 @@ export default function DanhChoKts() {
             <li key={t} className="border-t border-accent pt-6">
               <span className="nhan-muc text-than-chi/60">{String(i + 1).padStart(2, "0")}</span>
               <h3 className="tieu-de mt-3 text-lg">{t}</h3>
-              <p className="mt-2 text-sm text-than-chi/80">{m}</p>
+              <p className="mt-2 text-[15px] leading-relaxed text-than-chi/80">{m}</p>
             </li>
           ))}
         </ol>
-        <p className="mt-8 max-w-2xl text-sm text-than-chi/70">
+        <p className="mt-8 max-w-2xl text-[15px] leading-relaxed text-than-chi/70">
           Chi tiết WINDUCA đề xuất mang tính tham khảo; kiến trúc sư chịu trách nhiệm thiết kế cuối cùng.
         </p>
       </Section>
 
-      <Section tone="nga" tieuDe="Gửi bản vẽ để tư vấn" moTa="Chúng tôi không hỏi ngân sách.">
+      <Section gon tone="nga" tieuDe="Gửi bản vẽ để tư vấn" moTa="Chúng tôi không hỏi ngân sách.">
         <LeadForm loai="ban-ve" tone="sang" cot={3} />
       </Section>
 
