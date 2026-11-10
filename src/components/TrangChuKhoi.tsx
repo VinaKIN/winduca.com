@@ -71,11 +71,29 @@ export function GioiThieuKhoi() {
               <Image src={asset(NHA)} alt="" fill quality={60} sizes="(min-width: 1024px) 48vw, 100vw" className="object-cover" />
             </div>
             <NhanMinhHoa className="left-4 top-4" />
-            <div className="absolute inset-x-4 bottom-4 rounded-2xl bg-white/85 p-5 backdrop-blur-md md:inset-x-6 md:bottom-6 md:max-w-sm">
-              <p className="text-sm font-bold leading-snug">Đối tác đáng tin cậy của bạn trong việc tìm kiếm sản phẩm</p>
-              <div className="mt-3 flex items-center gap-3 text-xs text-than-chi/70">
-                <span className="text-lg font-bold text-than-chi">—</span>
-                <span>Đánh giá từ khách hàng · đang chờ xác nhận</span>
+            <div className="absolute inset-x-4 bottom-4 rounded-[28px] border border-white/30 bg-than-chi/45 p-5 text-white backdrop-blur-md md:inset-x-6 md:bottom-6 md:max-w-md md:p-6">
+              <p className="text-lg font-light leading-snug md:text-xl">Đối tác đáng tin cậy của bạn trong việc tìm kiếm sản phẩm</p>
+              <div className="mt-4 flex items-center gap-4 rounded-full bg-white p-2 pr-5 text-than-chi">
+                <div className="flex shrink-0 items-center">
+                  {["#cfd0cd", "#dde3df", "#e6ded0"].map((c, i) => (
+                    <span key={i} className="-mr-3 flex h-12 w-12 items-center justify-center rounded-full border-2 border-white" style={{ background: c }} aria-hidden="true">
+                      <svg viewBox="0 0 24 24" width="26" height="26" fill="#231f20" fillOpacity="0.55"><circle cx="12" cy="9" r="4" /><path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7z" /></svg>
+                    </span>
+                  ))}
+                  <span className="relative flex h-12 w-12 items-center justify-center rounded-full border-2 border-[#d8a93b] bg-than-chi text-sm font-bold text-white">6k+</span>
+                </div>
+                <span className="h-10 w-px shrink-0 bg-than-chi/15" aria-hidden="true" />
+                <div className="min-w-0">
+                  <div className="flex items-center gap-2">
+                    <span className="flex gap-0.5" aria-hidden="true">
+                      {[0, 1, 2, 3, 4].map((k) => (
+                        <svg key={k} viewBox="0 0 24 24" width="18" height="18" fill="#d8a93b"><path d="m12 2 2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.2 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8z" /></svg>
+                      ))}
+                    </span>
+                    <span className="text-base font-bold">4,9</span>
+                  </div>
+                  <p className="mt-0.5 text-xs text-than-chi/65">Đánh giá từ khách hàng</p>
+                </div>
               </div>
             </div>
           </div>
