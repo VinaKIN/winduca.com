@@ -5,7 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState, type ReactNode } from "react";
 import { asset } from "@/lib/asset";
-import { HERO_ANH, HOTLINE, HOTLINE_TEL, MENU_CHINH } from "@/lib/site";
+import { HERO_ANH, HOTLINE, HOTLINE_TEL, MENU, MENU_CHINH } from "@/lib/site";
 
 /**
  * Header kiểu Winboss (11/11/2026): hai nút tròn trắng (gọi, thư) bên trái · logo giữa · nút ba gạch bên phải.
@@ -42,21 +42,6 @@ function MuiTen({ lop = "" }: { lop?: string }) {
     <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" className={lop} aria-hidden="true">
       <path d="M7 17 17 7M8 7h9v9" />
     </svg>
-  );
-}
-
-function NutTron({ href, nhan, children }: { href: string; nhan: string; children: ReactNode }) {
-  const ngoai = href.startsWith("tel:") || href.startsWith("mailto:");
-  const lop =
-    "flex h-10 w-10 items-center justify-center rounded-[2px] bg-white text-accent-chu transition-colors hover:bg-accent hover:text-than-chi md:h-14 md:w-14";
-  return ngoai ? (
-    <a href={href} aria-label={nhan} className={lop}>
-      {children}
-    </a>
-  ) : (
-    <Link href={href} aria-label={nhan} className={lop}>
-      {children}
-    </Link>
   );
 }
 
@@ -111,33 +96,44 @@ export function Header() {
 
   return (
     <>
-      <header className={`fixed inset-x-0 top-0 z-50 transition-colors duration-300 ${daCuon ? "bg-than-chi/95 backdrop-blur-md" : "bg-transparent"}`}>
-        <div className="relative mx-auto flex h-20 max-w-[1440px] items-center justify-between px-5 md:h-28 md:px-10">
+      <header
+        className={`fixed inset-x-0 top-0 z-50 transition-[background-color,backdrop-filter,border-color] duration-300 ${
+          daCuon ? "border-b border-white/10 bg-than-chi/70 backdrop-blur-xl backdrop-saturate-150" : "border-b border-transparent bg-transparent"
+        }`}
+      >
+        <div className="mx-auto flex h-16 max-w-[1440px] items-center justify-between gap-6 px-5 md:px-10">
+          <Logo lop="h-5 w-auto md:h-7" tren />
+
+          <nav aria-label="Điều hướng nhanh" className="hidden items-center gap-6 xl:flex xl:gap-7">
+            {MENU.map((m) => (
+              <Link
+                key={m.href}
+                href={m.href}
+                aria-current={dangO(m.href) ? "page" : undefined}
+                className={`whitespace-nowrap text-[0.8125rem] font-medium uppercase tracking-[0.08em] transition-colors hover:text-accent ${dangO(m.href) ? "text-accent" : "text-white/90"}`}
+              >
+                {m.label}
+              </Link>
+            ))}
+          </nav>
+
           <div className="flex items-center gap-2 md:gap-4">
-            <NutTron href={HOTLINE_TEL} nhan={`Gọi hotline ${HOTLINE}`}>
-              <IconDienThoai />
-            </NutTron>
-            <NutTron href="/lien-he" nhan="Gửi liên hệ">
-              <IconThu />
-            </NutTron>
+            <Link href="/lien-he" className="nut nut-chinh whitespace-nowrap !min-h-10 !px-5 !py-2 !text-xs">
+              Tư vấn
+            </Link>
+            <button
+              type="button"
+              className="flex h-10 w-10 flex-col items-center justify-center gap-[6px]"
+              aria-expanded={moMenu}
+              aria-controls="menu-toan-man-hinh"
+              aria-label="Mở menu"
+              onClick={() => setMoMenu(true)}
+            >
+              <span className="block h-[2px] w-7 bg-white" />
+              <span className="block h-[2px] w-7 bg-white" />
+              <span className="block h-[2px] w-7 bg-white" />
+            </button>
           </div>
-
-          <div className="absolute left-1/2 -translate-x-1/2">
-            <Logo lop="h-5 w-auto md:h-9" tren />
-          </div>
-
-          <button
-            type="button"
-            className="flex h-12 w-12 flex-col items-center justify-center gap-[7px]"
-            aria-expanded={moMenu}
-            aria-controls="menu-toan-man-hinh"
-            aria-label="Mở menu"
-            onClick={() => setMoMenu(true)}
-          >
-            <span className="block h-[2px] w-8 bg-white" />
-            <span className="block h-[2px] w-8 bg-white" />
-            <span className="block h-[2px] w-8 bg-white" />
-          </button>
         </div>
       </header>
 
