@@ -26,3 +26,11 @@ Giấy phép: [Pexels License](https://www.pexels.com/license/) — dùng miễn
 
 ## Bộ ảnh kiến trúc (10/11/2026)
 Các ảnh hero, giới thiệu, hệ cửa, công trình, tin tức nay lấy từ bộ 18 ảnh do chủ website cung cấp (thư mục "Hình anh", tệp winduca (1..19).jpg). Ánh xạ: hero=16, chu-nha=12, biet-thu-go-kinh=13, nha-o-kinh=11, nha-pho-dem=9, resort-ho-boi=14, resort-ven-bien=8, villa-ban-cong=7, intro-chi-tiet=1. Cần xác nhận nguồn/bản quyền (ảnh trông như ảnh dựng) trước go-live.
+
+## Ảnh Pexels (10/11/2026, anh Huy đã duyệt danh sách)
+Giấy phép Pexels (dùng thương mại, không bắt buộc ghi nguồn). Tải bản 1600px, ảnh dọc cắt ngang 3:2.
+- khung-cua-nhom-xem.jpg = pexels.com/photo/9729583 · mau-khung-nhom-den.jpg = 9729601 · mat-cat-khung-cua.jpg = 9729590
+- do-nhom-xuong.jpg = 9729566 · khoan-rap-chi-tiet.jpg = 9729573
+- ban-ve-kts.jpg = 5584052 · thao-luan-mat-bang.jpg = 9052547
+- bang-mau-vat-lieu-1.jpg = 6583358 · bang-mau-vat-lieu-2.jpg = 6583351 · cua-so-lat.jpg = 2077343
+Lưu ý: đây là ảnh minh họa của bên thứ ba, KHÔNG phải sản phẩm/xưởng/mặt cắt thật của WINDUCA.

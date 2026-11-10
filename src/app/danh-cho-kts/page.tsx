@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { LeadForm } from "@/components/LeadForm";
 import { MatCat2D } from "@/components/Illustration";
@@ -6,6 +7,7 @@ import { SaoChep } from "@/components/SaoChep";
 import { ThuVienKts } from "@/components/ThuVienKts";
 import { Faq } from "@/components/Faq";
 import { PageHero, Section } from "@/components/ui";
+import { asset } from "@/lib/asset";
 import { KIEU_CUA } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -27,13 +29,13 @@ function moTaKyThuat(ten: string, cachMo: string): string {
   ].join("\n");
 }
 
-const PORTAL: { t: string; m: string; href?: string; nut?: string }[] = [
+const PORTAL: { t: string; m: string; href?: string; nut?: string; anh?: string }[] = [
   { t: "Thư viện catalog", m: "Catalog các hệ cửa của WINDUCA." },
-  { t: "Mặt cắt DWG", m: "Bản vẽ mặt cắt cho hồ sơ thiết kế." },
+  { t: "Mặt cắt DWG", m: "Bản vẽ mặt cắt cho hồ sơ thiết kế.", anh: "/images/mat-cat-khung-cua.jpg" },
   { t: "Mô hình BIM", m: "Mô hình BIM dùng trong phần mềm thiết kế." },
   { t: "Hồ sơ kỹ thuật PDF", m: "Mô tả kỹ thuật và hồ sơ năng lực." },
-  { t: "Bảng màu vật liệu", m: "Màu hoàn thiện cho khung cửa.", href: "/he-cua/cua-truot-nang", nut: "Xem màu" },
-  { t: "Hướng dẫn lắp đặt", m: "Tài liệu hướng dẫn cho nhà thầu." },
+  { t: "Bảng màu vật liệu", m: "Màu hoàn thiện cho khung cửa.", anh: "/images/bang-mau-vat-lieu-1.jpg", href: "/he-cua/cua-truot-nang", nut: "Xem màu" },
+  { t: "Hướng dẫn lắp đặt", m: "Tài liệu hướng dẫn cho nhà thầu.", anh: "/images/khoan-rap-chi-tiet.jpg" },
   { t: "Gửi bản vẽ để tư vấn", m: "Gửi bản vẽ, nhận đề xuất giải pháp và chi tiết.", href: "#tu-van", nut: "Gửi bản vẽ" },
   { t: "Đăng ký nhận tài liệu", m: "Để lại thông tin để được báo khi có tài liệu mới.", href: "#thu-vien", nut: "Đăng ký" },
 ];
@@ -61,6 +63,7 @@ export default function DanhChoKts() {
   return (
     <>
       <PageHero
+        anh="/images/ban-ve-kts.jpg"
         nhan="Kiến trúc sư & nhà thiết kế"
         tieuDe="Tài liệu kỹ thuật, sẵn sàng cho bản vẽ của bạn."
         moTa="Thư viện mặt cắt, mô hình BIM, hồ sơ kỹ thuật và tư vấn chi tiết theo bản vẽ cho từng kiểu cửa."
@@ -77,6 +80,11 @@ export default function DanhChoKts() {
         <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {PORTAL.map((x, i) => (
             <li key={x.t} className="flex flex-col rounded-[20px] border border-than-chi/10 bg-white p-6">
+              {x.anh && (
+                <div className="relative -mx-6 -mt-6 mb-4 h-24 overflow-hidden rounded-t-[20px] bg-than-chi">
+                  <Image src={asset(x.anh)} alt={x.t} fill quality={60} sizes="25vw" className="object-cover" />
+                </div>
+              )}
               <span className="text-3xl font-light text-than-chi/30">{String(i + 1).padStart(2, "0")}</span>
               <h3 className="mt-3 text-lg font-bold">{x.t}</h3>
               <p className="mt-2 flex-1 text-sm text-than-chi/70">{x.m}</p>

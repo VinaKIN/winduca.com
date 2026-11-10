@@ -43,6 +43,7 @@ export default function HopTac() {
   return (
     <>
       <PageHero
+        anh="/images/thao-luan-mat-bang.jpg"
         nhan="Hợp tác"
         tieuDe="Trở thành đối tác của WINDUCA"
         moTa="Chúng tôi làm việc cùng đại lý, nhà thầu, kiến trúc sư và công ty thiết kế. Để lại thông tin, đội ngũ sẽ liên hệ trao đổi hình thức hợp tác phù hợp."

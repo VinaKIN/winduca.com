@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { PageHero, Section } from "@/components/ui";
+import { asset } from "@/lib/asset";
 
 export const metadata: Metadata = {
   title: "Kiến thức & tin tức | WINDUCA",
@@ -12,10 +14,10 @@ export const metadata: Metadata = {
  * đang để trạng thái "Sắp có"; cần tối thiểu 6 bài nền tảng trước khi quảng bá chuyên mục.
  */
 const CHUYEN_MUC = [
-  { en: "Architecture & Design", t: "Kiến trúc & thiết kế", m: "Xu hướng không gian mở, mặt kính lớn và cách cửa tham gia vào ngôn ngữ kiến trúc.", bai: [] as string[] },
-  { en: "Window Technology", t: "Công nghệ cửa", m: "Cách vận hành, cấu tạo và lựa chọn kiểu cửa.", bai: ["Cửa trượt nâng khác gì cửa trượt thường?"] },
-  { en: "Material & Engineering", t: "Vật liệu & kỹ thuật", m: "Nhôm, kính, phụ kiện và bề mặt hoàn thiện.", bai: ["Cách đọc chỉ số Uw của cửa cách nhiệt", "Anode hóa hay sơn tĩnh điện: chọn thế nào?"] },
-  { en: "Project Stories", t: "Câu chuyện công trình", m: "Công trình và giải pháp triển khai khi có hình ảnh và sự đồng ý của chủ đầu tư.", bai: [] as string[] },
+  { en: "Architecture & Design", t: "Kiến trúc & thiết kế", m: "Xu hướng không gian mở, mặt kính lớn và cách cửa tham gia vào ngôn ngữ kiến trúc.", bai: [] as string[], anh: "/images/khung-cua-nhom-xem.jpg" },
+  { en: "Window Technology", t: "Công nghệ cửa", m: "Cách vận hành, cấu tạo và lựa chọn kiểu cửa.", bai: ["Cửa trượt nâng khác gì cửa trượt thường?"], anh: "/images/cua-so-lat.jpg" },
+  { en: "Material & Engineering", t: "Vật liệu & kỹ thuật", m: "Nhôm, kính, phụ kiện và bề mặt hoàn thiện.", bai: ["Cách đọc chỉ số Uw của cửa cách nhiệt", "Anode hóa hay sơn tĩnh điện: chọn thế nào?"], anh: "/images/bang-mau-vat-lieu-2.jpg" },
+  { en: "Project Stories", t: "Câu chuyện công trình", m: "Công trình và giải pháp triển khai khi có hình ảnh và sự đồng ý của chủ đầu tư.", bai: [] as string[], anh: "/images/thao-luan-mat-bang.jpg" },
 ];
 
 export default function TinTuc() {
@@ -29,11 +31,15 @@ export default function TinTuc() {
       <Section tone="sang" nhan="Knowledge Center" tieuDe="Bốn chuyên mục">
         <ul className="grid gap-5 md:grid-cols-2">
           {CHUYEN_MUC.map((c) => (
-            <li key={c.en} className="rounded-[24px] border border-than-chi/10 bg-white p-7 md:p-8">
+            <li key={c.en} className="overflow-hidden rounded-[24px] border border-than-chi/10 bg-white">
+              <div className="relative h-24 bg-than-chi md:h-28">
+                <Image src={asset(c.anh)} alt={c.t} fill quality={60} sizes="(min-width: 768px) 45vw, 100vw" className="object-cover" />
+              </div>
+              <div className="p-5 md:p-6">
               <p className="nhan-muc text-accent">{c.en}</p>
               <h2 className="mt-2 text-2xl font-bold">{c.t}</h2>
               <p className="mt-2 text-sm text-than-chi/70">{c.m}</p>
-              <ul className="mt-5 space-y-3 border-t border-than-chi/10 pt-5">
+              <ul className="mt-4 space-y-2 border-t border-than-chi/10 pt-4">
                 {c.bai.length === 0 && <li className="text-sm text-than-chi/50">Đang chuẩn bị bài viết.</li>}
                 {c.bai.map((b) => (
                   <li key={b} className="flex items-baseline justify-between gap-4">
@@ -42,6 +48,7 @@ export default function TinTuc() {
                   </li>
                 ))}
               </ul>
+              </div>
             </li>
           ))}
         </ul>

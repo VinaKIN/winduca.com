@@ -1,9 +1,11 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { CrossSection } from "@/components/CrossSection";
 import { GiaiPhapDongBo } from "@/components/GiaiPhapDongBo";
 import { DoiTacKhoi } from "@/components/TrangChuKhoi";
 import { PageHero, Section } from "@/components/ui";
+import { asset } from "@/lib/asset";
 
 export const metadata: Metadata = {
   title: "Giới thiệu | WINDUCA",
@@ -35,16 +37,26 @@ export default function GioiThieu() {
         nhan="Giới thiệu"
         tieuDe="WINDUCA – Premium Window & Door"
         moTa="Giải pháp cửa nhôm kính kiến trúc cao cấp, đồng bộ từ hệ nhôm, kính, phụ kiện đến thi công hoàn thiện."
+        anh="/images/khung-cua-nhom-xem.jpg"
       />
 
       <Section tone="sang" nhan="Câu chuyện thương hiệu" tieuDe="Cánh cửa là một phần của kiến trúc.">
-        <div className="grid gap-8 lg:grid-cols-2 lg:gap-14">
+        <div className="grid items-center gap-6 lg:grid-cols-[1.1fr_1fr] lg:gap-12">
+          <div className="grid grid-cols-2 gap-3">
+            {["/images/mau-khung-nhom-den.jpg", "/images/mat-cat-khung-cua.jpg"].map((s) => (
+              <div key={s} className="relative h-[28svh] min-h-[160px] overflow-hidden rounded-[20px] bg-than-chi md:h-[clamp(220px,40svh,340px)]">
+                <Image src={asset(s)} alt="Chi tiết khung cửa nhôm" fill quality={65} sizes="(min-width: 1024px) 30vw, 45vw" className="object-cover" />
+              </div>
+            ))}
+          </div>
+          <div className="space-y-4">
           <p className="text-lg text-than-chi/80">
             WINDUCA theo đuổi cửa nhôm kính như một thành phần của kiến trúc: đường nét mảnh, khẩu độ lớn, vận hành êm và đồng bộ từ hệ nhôm đến thi công.
           </p>
           <p className="text-base text-than-chi/70">
             Chúng tôi làm việc cùng chủ nhà, kiến trúc sư và nhà thầu để mỗi bộ cửa đúng với bản vẽ và đúng với không gian sống mà nó thuộc về.
           </p>
+          </div>
         </div>
       </Section>
 
@@ -64,6 +76,13 @@ export default function GioiThieu() {
       <GiaiPhapDongBo />
 
       <Section tone="sang" nhan="Quy trình kiểm soát chất lượng" tieuDe="Bốn bước từ bản vẽ đến nghiệm thu" moTa="Quy trình tham khảo, sẽ được đội kỹ thuật xác nhận chi tiết.">
+        <div className="mb-6 grid grid-cols-2 gap-3">
+          {["/images/do-nhom-xuong.jpg", "/images/khoan-rap-chi-tiet.jpg"].map((s) => (
+            <div key={s} className="relative h-[22svh] min-h-[140px] overflow-hidden rounded-[20px] bg-than-chi md:h-[clamp(160px,26svh,240px)]">
+              <Image src={asset(s)} alt="Gia công chi tiết nhôm tại xưởng" fill quality={65} sizes="(min-width: 768px) 45vw, 50vw" className="object-cover" />
+            </div>
+          ))}
+        </div>
         <ol className="grid gap-6 md:grid-cols-4">
           {QUY_TRINH_CL.map((x, i) => (
             <li key={x.t} className="border-t-2 border-accent pt-4">
