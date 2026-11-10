@@ -63,7 +63,8 @@ export default function DanhChoKts() {
   return (
     <>
       <PageHero
-        anh="/images/ban-ve-kts.jpg"
+        anh="/images/xuong/ban-ve-chuyen-gia.webp"
+        viTriAnh="center 30%"
         nhan="Kiến trúc sư & nhà thiết kế"
         tieuDe="Tài liệu kỹ thuật, sẵn sàng cho bản vẽ của bạn."
         moTa="Thư viện mặt cắt, mô hình BIM, hồ sơ kỹ thuật và tư vấn chi tiết theo bản vẽ cho từng kiểu cửa."

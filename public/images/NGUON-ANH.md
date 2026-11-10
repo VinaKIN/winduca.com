@@ -79,3 +79,10 @@ Nguồn: thư mục "Hình anh" (winduca (1..127).jpg). Trạng thái bản quy�
 | people/partner-contractor.webp | winduca (123).jpg | 1200x800 | 78KB | Hợp tác: nhà thầu |
 | people/partner-architect.webp | winduca (102).jpg | 1200x800 | 127KB | Hợp tác: kiến trúc sư |
 | people/workshop.webp | winduca (83).jpg | 1200x675 | 175KB | Năng lực & Xưởng: hero |
+
+| xuong/ban-ve-chuyen-gia.webp | 72.jpg (người dùng gửi 10/11/2026) | 1376x768 | 72KB | KTS: hero (chuyên gia giải thích mặt cắt) |
+| xuong/xuong-chan-dung.webp | 73.jpg (người dùng gửi 10/11/2026) | 1404x768 | 47KB | Năng lực & Xưởng: hero |
+| xuong/may-khoan-nhom.webp | 74.jpg (người dùng gửi 10/11/2026) | 1264x843 | 53KB | Xưởng + Giới thiệu: gia công nhôm |
+| xuong/tay-nghe-phu-kien.webp | 75.jpg (người dùng gửi 10/11/2026) | 1377x768 | 46KB | Xưởng + Giới thiệu: kiểm tra phụ kiện |
+| xuong/kiem-tra-gia-cong.webp | 76.jpg (người dùng gửi 10/11/2026) | 1404x768 | 68KB | Xưởng: công đoạn gia công |
+| xuong/thanh-nhom-tay-nam.webp | 77.jpg (người dùng gửi 10/11/2026) | 1414x2000 | 72KB | Trải nghiệm: hero (mẫu góc nhôm và tay nắm) |

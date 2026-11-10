@@ -63,6 +63,7 @@ export function PageHero({
   children,
   anh = "/images/hero.jpg",
   congNghe = true,
+  viTriAnh = "center",
 }: {
   nhan: string;
   tieuDe: string;
@@ -71,16 +72,18 @@ export function PageHero({
   anh?: string | null;
   /** Hero kiểu công nghệ: parallax, lưới bản vẽ, dấu góc khung. */
   congNghe?: boolean;
+  /** Vị trí cắt ảnh nền (object-position), để giữ khuôn mặt trong khung. */
+  viTriAnh?: string;
 }) {
   return (
     <section className="hero-gradient relative overflow-hidden text-white">
       {anh &&
         (congNghe ? (
           <NenParallax>
-            <Image src={asset(anh)} alt="" fill quality={60} sizes="100vw" className="object-cover" aria-hidden="true" priority />
+            <Image src={asset(anh)} alt="" fill quality={60} sizes="100vw" className="object-cover" style={{ objectPosition: viTriAnh }} aria-hidden="true" priority />
           </NenParallax>
         ) : (
-          <Image src={asset(anh)} alt="" fill quality={60} sizes="100vw" className="object-cover" aria-hidden="true" priority />
+          <Image src={asset(anh)} alt="" fill quality={60} sizes="100vw" className="object-cover" style={{ objectPosition: viTriAnh }} aria-hidden="true" priority />
         ))}
       <div className="hero-phu absolute inset-0" aria-hidden="true" />
       <div className="hero-anh-sang pointer-events-none absolute inset-0" aria-hidden="true" />

@@ -116,7 +116,7 @@ export default function GioiThieu() {
           </Hien>
           <div className="mt-6 grid gap-6 lg:grid-cols-[0.9fr_1.4fr] lg:gap-10">
             <Hien tre={80} className="grid grid-cols-2 gap-3">
-              {["/images/do-nhom-xuong.jpg", "/images/khoan-rap-chi-tiet.jpg"].map((s) => (
+              {["/images/xuong/may-khoan-nhom.webp", "/images/xuong/tay-nghe-phu-kien.webp"].map((s) => (
                 <div key={s} className="dau-goc relative h-[22svh] min-h-[130px] overflow-hidden rounded-[6px] bg-than-chi lg:h-[clamp(200px,34svh,300px)]">
                   <Image src={asset(s)} alt="Gia công chi tiết nhôm tại xưởng" fill quality={65} sizes="(min-width: 1024px) 20vw, 45vw" className="object-cover" />
                 </div>

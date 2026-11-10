@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
+import { Hien } from "@/components/HieuUng";
 import { PageHero, Section } from "@/components/ui";
+import { asset } from "@/lib/asset";
 
 export const metadata: Metadata = {
   title: "Năng lực & Xưởng gia công | WINDUCA",
@@ -29,7 +32,8 @@ export default function NangLucXuong() {
   return (
     <>
       <PageHero
-        anh="/images/people/workshop.webp"
+        anh="/images/xuong/xuong-chan-dung.webp"
+        viTriAnh="center 14%"
         nhan="Xưởng gia công WINDUCA · Trung tâm sản xuất chính xác"
         tieuDe="Mỗi bộ cửa bắt đầu từ một bản vẽ."
         moTa="Gia công chính xác theo bản vẽ kiến trúc sư, rồi lắp đặt tại công trình."
@@ -53,15 +57,24 @@ export default function NangLucXuong() {
       </Section>
 
       <Section tone="nga" nhan="Công đoạn tại xưởng" tieuDe="Những gì được làm tại xưởng.">
-        <ul className="grid gap-4 md:grid-cols-2">
-          {CONG_DOAN.map((c) => (
-            <li key={c} className="flex items-center gap-4 border border-than-chi/20 p-6">
-              <span className="h-2.5 w-2.5 shrink-0 rotate-45 bg-accent" aria-hidden="true" />
-              {c}
-            </li>
-          ))}
-        </ul>
-        <p className="mt-8 max-w-2xl text-[15px] leading-relaxed text-than-chi/70">
+        <div className="grid items-center gap-6 lg:grid-cols-[1.25fr_1fr] lg:gap-10">
+          <div className="grid grid-cols-2 gap-3">
+            {["may-khoan-nhom", "kiem-tra-gia-cong"].map((n) => (
+              <div key={n} className="dau-goc relative h-[26svh] min-h-[160px] overflow-hidden rounded-[6px] bg-than-chi lg:h-[clamp(240px,40svh,340px)]">
+                <Image src={asset(`/images/xuong/${n}.webp`)} alt="Gia công nhôm tại xưởng WINDUCA" fill quality={70} sizes="(min-width: 1024px) 28vw, 45vw" className="object-cover" />
+              </div>
+            ))}
+          </div>
+          <ul className="space-y-3">
+            {CONG_DOAN.map((c) => (
+              <li key={c} className="flex items-center gap-4 rounded-[6px] border border-than-chi/15 bg-white/70 p-4 backdrop-blur-sm">
+                <span className="h-2.5 w-2.5 shrink-0 rotate-45 bg-accent" aria-hidden="true" />
+                {c}
+              </li>
+            ))}
+          </ul>
+        </div>
+        <p className="mt-5 max-w-2xl text-[15px] leading-relaxed text-than-chi/70">
           Thanh nhôm định hình là vật tư đầu vào; xưởng thực hiện các công đoạn gia công, lắp ráp và hoàn thiện nêu trên.
         </p>
       </Section>
@@ -101,17 +114,24 @@ export default function NangLucXuong() {
       </Section>
 
       <Section tone="sang" nhan="Tay nghề" tieuDe="Chính xác đến từng chi tiết.">
-        <p className="max-w-2xl text-than-chi/80">
-          Chúng tôi chọn sự bền bỉ thay vì phô trương. Từng bộ cửa được gia công theo bản vẽ, kiểm tra và hoàn thiện cẩn thận
-          trước khi đến công trình.
-        </p>
-        <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-          <Link href="/danh-cho-kts#tu-van" className="nut border border-than-chi bg-than-chi text-nga hover:bg-nga hover:text-than-chi">
-            Gửi bản vẽ, nhận bóc tách
-          </Link>
-          <Link href="/trai-nghiem#sample-box" className="nut border border-than-chi text-than-chi hover:bg-than-chi hover:text-nga">
-            Nhận hộp mẫu góc nhôm
-          </Link>
+        <div className="grid items-center gap-6 lg:grid-cols-[1fr_1fr] lg:gap-10">
+          <div>
+            <p className="max-w-xl text-than-chi/80">
+              Chúng tôi chọn sự bền bỉ thay vì phô trương. Từng bộ cửa được gia công theo bản vẽ, kiểm tra và hoàn thiện cẩn thận
+              trước khi đến công trình.
+            </p>
+            <div className="mt-6 flex flex-col gap-3 sm:flex-row">
+              <Link href="/danh-cho-kts#tu-van" className="nut nut-chinh">
+                Gửi bản vẽ, nhận bóc tách
+              </Link>
+              <Link href="/trai-nghiem#sample-box" className="nut nut-vien-sang">
+                Nhận hộp mẫu góc nhôm
+              </Link>
+            </div>
+          </div>
+          <Hien className="dau-goc relative h-[30svh] min-h-[200px] overflow-hidden rounded-[6px] bg-than-chi lg:h-[clamp(240px,38svh,330px)]">
+            <Image src={asset("/images/xuong/tay-nghe-phu-kien.webp")} alt="Kiểm tra phụ kiện tại xưởng WINDUCA" fill quality={70} sizes="(min-width: 1024px) 40vw, 100vw" className="object-cover" />
+          </Hien>
         </div>
       </Section>
     </>

@@ -331,8 +331,8 @@ section.nen-nga {
 }
 .hero-phu {
   background:
-    radial-gradient(700px 420px at 88% 10%, rgba(227, 25, 55, 0.38), transparent 65%),
-    linear-gradient(100deg, rgba(12, 10, 11, 0.97) 0%, rgba(22, 19, 20, 0.9) 45%, rgba(30, 26, 27, 0.72) 75%, rgba(35, 31, 32, 0.6) 100%),
+    radial-gradient(700px 420px at 92% 0%, rgba(227, 25, 55, 0.3), transparent 65%),
+    linear-gradient(100deg, rgba(12, 10, 11, 0.94) 0%, rgba(22, 19, 20, 0.8) 38%, rgba(30, 26, 27, 0.4) 70%, rgba(35, 31, 32, 0.18) 100%),
     linear-gradient(0deg, rgba(0, 0, 0, 0.55) 0%, transparent 45%);
 }
 .hero-anh-sang {
