@@ -310,20 +310,52 @@ export function TinTucKhoi() {
             Xem thêm
           </Link>
         </div>
-        <ul className="mt-6 flex snap-x snap-mandatory gap-3 overflow-x-auto pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden md:mt-8 md:grid md:grid-cols-3 md:gap-6 md:overflow-visible">
-          {BAI_SAP_CO.map((b) => (
-            <li key={b.t} className="w-[78%] shrink-0 snap-center md:w-auto">
-              <Link href={`/tin-tuc/${BAI_VIET.find((x) => x.tieuDe === b.t)?.slug ?? ""}`} className="group block">
-                <div className="relative aspect-[16/10] overflow-hidden rounded-[20px] bg-than-chi md:rounded-[28px]">
-                  <Image src={asset(b.anh)} alt={b.t} fill quality={60} sizes="(min-width: 768px) 30vw, 100vw" className="object-cover transition-transform duration-700 group-hover:scale-[1.05]" style={{ objectPosition: b.pos }} />
-                  <NhanMinhHoa className="left-3 top-3" />
-                </div>
-                <p className="nhan-muc mt-4 text-accent">{b.loai}</p>
-                <h3 className="mt-2 text-xl font-bold leading-snug group-hover:text-accent">{b.t}</h3>
-                <p className="mt-1 text-sm font-bold uppercase tracking-[0.06em] text-accent">Đọc bài</p>
-              </Link>
-            </li>
-          ))}
+        {/* Bố cục bento: một thẻ lớn bên trái, hai thẻ ngang xếp chồng bên phải; chữ đặt trên ảnh */}
+        <ul className="mt-5 grid gap-3 md:gap-4 lg:h-[470px] lg:grid-cols-[1.2fr_1fr] lg:grid-rows-2">
+          {BAI_SAP_CO.map((b, i) => {
+            const bai = BAI_VIET.find((x) => x.tieuDe === b.t);
+            const lon = i === 0;
+            return (
+              <li key={b.t} className={lon ? "lg:row-span-2" : ""}>
+                <Link
+                  href={`/tin-tuc/${bai?.slug ?? ""}`}
+                  className={`group relative flex h-full w-full flex-col justify-between overflow-hidden rounded-[18px] bg-than-chi p-4 text-white md:rounded-[22px] md:p-6 ${
+                    lon ? "aspect-[4/3] lg:aspect-auto" : "aspect-[16/9] lg:aspect-auto"
+                  }`}
+                >
+                  <Image
+                    src={asset(b.anh)}
+                    alt=""
+                    fill
+                    quality={65}
+                    sizes={lon ? "(min-width: 1024px) 55vw, 100vw" : "(min-width: 1024px) 45vw, 100vw"}
+                    className="object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-[1.05]"
+                    style={{ objectPosition: b.pos }}
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#0c0a0b]/90 via-[#0c0a0b]/25 to-[#0c0a0b]/10" aria-hidden="true" />
+                  <span className="relative z-10 inline-flex w-fit items-center gap-2 rounded-full border border-white/25 bg-white/10 px-3.5 py-1.5 text-[11px] font-medium uppercase tracking-[0.16em] backdrop-blur-md">
+                    <span className="h-1.5 w-1.5 rounded-full bg-accent" aria-hidden="true" />
+                    {b.loai}
+                  </span>
+                  <div className="relative z-10 flex items-end justify-between gap-4">
+                    <div className="min-w-0">
+                      <h3 className={`font-medium leading-snug ${lon ? "text-[clamp(1.35rem,2.1vw,2rem)]" : "text-[clamp(1.1rem,1.5vw,1.375rem)]"}`}>{b.t}</h3>
+                      {lon && bai && <p className="mt-2 hidden max-w-md text-[15px] font-light leading-relaxed text-white/75 md:block">{bai.tomTat}</p>}
+                    </div>
+                    <span
+                      className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-white/30 bg-white/15 backdrop-blur-md transition-colors duration-300 group-hover:border-accent group-hover:bg-accent"
+                      aria-hidden="true"
+                    >
+                      <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                        <path d="M7 17 17 7M8 7h9v9" />
+                      </svg>
+                    </span>
+                  </div>
+                  <span className="sr-only">Đọc bài</span>
+                </Link>
+              </li>
+            );
+          })}
         </ul>
       </Wrap>
     </section>
