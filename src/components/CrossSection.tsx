@@ -134,10 +134,6 @@ export function CrossSection({
                 </div>
               )}
             </div>
-
-            <p className="absolute left-5 top-5 rounded-sm bg-than-chi/80 px-2 py-1 text-[11px] text-nga/85">
-              Minh họa — không phải bản vẽ kỹ thuật
-            </p>
             <p className="absolute bottom-5 right-5 text-[11px] text-nga/60">Kéo để xoay</p>
           </div>
 

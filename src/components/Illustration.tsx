@@ -88,9 +88,6 @@ export function MatCat2D({ className = "" }: { className?: string }) {
           <text x="34" y="115" textAnchor="middle" transform="rotate(-90 34 115)" stroke="none">Chiều cao — chờ xác nhận</text>
         </g>
       </svg>
-      <p className="absolute left-4 top-4 rounded-sm bg-than-chi/85 px-2 py-1 text-[11px] text-nga/90">
-        Minh họa — không phải bản vẽ kỹ thuật
-      </p>
     </div>
   );
 }

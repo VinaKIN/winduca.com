@@ -14,9 +14,9 @@ export default function DieuKhoan() {
         phụ thuộc vào bản vẽ và yêu cầu cụ thể, được xác nhận trực tiếp với anh chị.
       </p>
 
-      <h2>2. Hình ảnh minh họa</h2>
+      <h2>2. Hình ảnh trên website</h2>
       <p>
-        Hình ảnh và nội dung có nhãn “Minh họa” chỉ nhằm gợi ý, không phải công trình hay sản
+        Hình ảnh trên website chỉ nhằm gợi ý, có thể không phải công trình hay sản
         phẩm thực tế. Màu sắc thực tế có thể khác tùy màn hình và lô hoàn thiện.
       </p>
 

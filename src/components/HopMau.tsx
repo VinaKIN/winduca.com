@@ -62,9 +62,6 @@ export function HopMau() {
             </g>
           ))}
         </svg>
-        <p className="absolute left-4 top-4 rounded-sm bg-than-chi/85 px-2 py-1 text-[11px] text-nga/90">
-          Minh họa — hộp mẫu thực tế có thể khác
-        </p>
       </div>
 
       <ul className="divide-y divide-than-chi/15 border-y border-than-chi/15">
