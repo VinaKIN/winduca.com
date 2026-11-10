@@ -535,3 +535,34 @@ section.nen-nga {
     opacity: 0.09;
   }
 }
+
+/* ===== Chân trang luxury tinh gọn (10/11/2026) ===== */
+.footer-sau {
+  position: relative;
+  background:
+    radial-gradient(700px 360px at 8% 110%, rgba(227, 25, 55, 0.1), transparent 65%),
+    radial-gradient(900px 420px at 100% -10%, rgba(255, 255, 255, 0.05), transparent 60%),
+    linear-gradient(180deg, #1d1a1b 0%, #131011 100%);
+}
+.footer-sau::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(227, 25, 55, 0.8) 25%, rgba(207, 208, 205, 0.7) 60%, transparent);
+}
+.link-gach {
+  background-image: linear-gradient(var(--accent), var(--accent));
+  background-repeat: no-repeat;
+  background-position: 0 100%;
+  background-size: 0 1px;
+  padding-bottom: 5px;
+  transition: background-size 0.4s ease, color 0.3s ease;
+}
+.link-gach:hover,
+.link-gach:focus-visible {
+  background-size: 100% 1px;
+  color: #ffffff;
+}

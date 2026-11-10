@@ -23,22 +23,22 @@ const ICON: Record<string, ReactNode> = {
 /** Hàng icon mạng xã hội. Mạng chưa có đường dẫn hiển thị mờ (chưa bấm được) cho tới khi anh Huy cung cấp link. */
 export function MangXaHoi({ lop = "", kieu = "vien" }: { lop?: string; kieu?: "vien" | "dac" }) {
   return (
-    <ul className={`flex items-center ${kieu === "dac" ? "gap-7" : "gap-3"} ${lop}`} aria-label="Mạng xã hội">
+    <ul className={`flex items-center ${kieu === "dac" ? "gap-5" : "gap-3"} ${lop}`} aria-label="Mạng xã hội">
       {MANG_XA_HOI.map((m) => {
         const bieuTuong = (
           <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">
             {ICON[m.id]}
           </svg>
         );
-        const chung = `flex items-center justify-center rounded-full transition-colors ${kieu === "dac" ? "h-12 w-12 bg-[#a7a8a6]" : "h-10 w-10 border border-white/25"}`;
+        const chung = `flex items-center justify-center rounded-full transition-colors ${kieu === "dac" ? "h-11 w-11 border border-[#cfd0cd]/45" : "h-10 w-10 border border-white/25"}`;
         return (
           <li key={m.id}>
             {m.url ? (
-              <a href={m.url} target="_blank" rel="noopener noreferrer" aria-label={m.ten} className={`${chung} ${kieu === "dac" ? "text-than-chi hover:bg-accent hover:text-white" : "text-white hover:border-accent hover:bg-accent"}`}>
+              <a href={m.url} target="_blank" rel="noopener noreferrer" aria-label={m.ten} className={`${chung} ${kieu === "dac" ? "text-white/90 hover:border-accent hover:bg-accent hover:text-white" : "text-white hover:border-accent hover:bg-accent"}`}>
                 {bieuTuong}
               </a>
             ) : (
-              <span title={`${m.ten}: đang cập nhật liên kết`} aria-label={`${m.ten} (đang cập nhật liên kết)`} role="img" className={`${chung} cursor-not-allowed ${kieu === "dac" ? "!bg-white/15 text-white/40" : "text-white/35"}`}>
+              <span title={`${m.ten}: đang cập nhật liên kết`} aria-label={`${m.ten} (đang cập nhật liên kết)`} role="img" className={`${chung} cursor-not-allowed ${kieu === "dac" ? "!border-white/15 text-white/30" : "text-white/35"}`}>
                 {bieuTuong}
               </span>
             )}

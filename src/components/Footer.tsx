@@ -68,7 +68,7 @@ export function Footer() {
       </section>
 
       {/* Chân trang (bố cục kiểu Winboss): trái logo, liên kết, mạng xã hội; phải bản đồ và liên hệ */}
-      <div className="bg-than-chi text-white">
+      <div className="footer-sau text-white">
         <Wrap className="pb-8 pt-12 md:pt-16">
           <div className="grid gap-12 lg:grid-cols-[1fr_1.15fr] lg:gap-16">
             <div>
@@ -80,10 +80,10 @@ export function Footer() {
                   height={102}
                   className="h-auto w-[300px] md:w-[400px]"
                 />
-                <p className="mt-3 text-center text-[clamp(1.05rem,1.7vw,1.6rem)] font-light tracking-[0.04em] text-white/80">Premium Window &amp; Door</p>
+                <p className="mt-4 text-center text-[11px] font-medium uppercase tracking-[0.5em] text-white/70 md:text-[13px]">Premium Window &amp; Door</p>
               </div>
               <nav aria-label="Liên kết chân trang" className="mt-12">
-                <ul className="grid max-w-md grid-flow-col grid-cols-2 grid-rows-3 gap-x-6 gap-y-[18px] text-[17px]">
+                <ul className="grid max-w-md grid-flow-col grid-cols-2 grid-rows-3 gap-x-6 gap-y-5 text-[14px] uppercase tracking-[0.18em]">
                   {[
                     ["/", "Trang chủ"],
                     ["/gioi-thieu", "Giới thiệu"],
@@ -93,7 +93,7 @@ export function Footer() {
                     ["/hop-tac", "Hợp tác"],
                   ].map(([h, t], i) => (
                     <li key={h}>
-                      <Link href={h} className={`transition-colors hover:text-accent ${i === 0 ? "font-bold text-white" : "font-light text-white/90"}`}>
+                      <Link href={h} className={`link-gach ${i === 0 ? "font-bold text-white" : "font-medium text-white/75"}`}>
                         {t}
                       </Link>
                     </li>
@@ -137,7 +137,7 @@ export function Footer() {
             </div>
           </div>
 
-          <div className="mt-12 flex flex-wrap items-center justify-between gap-4 border-t border-white/15 pt-6 text-[15px] font-light text-white/75">
+          <div className="mt-12 flex flex-wrap items-center justify-between gap-4 pt-6 text-[15px] font-light text-white/70 before:mb-0 before:block before:h-px before:w-full before:bg-gradient-to-r before:from-white/30 before:via-white/10 before:to-transparent">
             <p>Copyright © 2026 WINDUCA. All rights reserved.</p>
             <ul className="flex flex-wrap gap-x-6 gap-y-2 pr-16 text-sm">
               <li>
