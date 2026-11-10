@@ -3,9 +3,9 @@ import Link from "next/link";
 import { HERO_ANH, HERO_VIDEO } from "@/lib/site";
 
 /**
- * Hero ảnh tràn màn hình (10/11/2026, anh Huy chốt: xoá hết viền, ảnh tràn 4 mép, chữ trong thẻ Ngà).
+ * Hero ảnh tràn màn hình (10/11/2026, anh Huy chốt: xoá hết viền, ảnh tràn 4 mép; hướng C: dải kính tối ngang đáy).
  * - Ảnh phủ kín 100% khung nhìn, không còn vùng trắng/Ngà bao quanh.
- * - Chữ và nút nằm trong thẻ Ngà bo góc ở góc dưới trái, KHÔNG đặt trực tiếp lên ảnh.
+ * - Chữ, 3 ý định tính và 2 nút nằm trong dải kính Than chì bo góc ở đáy, KHÔNG đặt trực tiếp lên ảnh.
  * - Lớp phủ Than chì phẳng rất nhẹ (không gradient) chỉ để ảnh trầm hơn, sang hơn.
  * - Không có hiệu ứng đóng/mở cửa (đã bỏ theo yêu cầu 10/11/2026).
  */
@@ -39,50 +39,51 @@ export function HeroDoors() {
       </div>
       <div className="absolute inset-0 bg-than-chi/20" aria-hidden="true" />
 
-      {/* THẺ NGÀ chứa chữ — góc dưới trái */}
-      <div className="absolute inset-x-3 bottom-3 rounded-[28px] bg-nga p-6 text-than-chi md:inset-x-auto md:bottom-10 md:left-10 md:w-[600px] md:rounded-[36px] md:p-10 xl:bottom-12 xl:left-14">
-        <div className="flex items-center gap-4">
-          <span className="block h-px w-10 bg-champagne" aria-hidden="true" />
-          <p className="nhan-muc text-than-chi/65">Premium Window &amp; Door</p>
-        </div>
-        <h1 className="tieu-de mt-4 text-[clamp(1.75rem,2.9vw,2.85rem)] [text-wrap:balance]">
-          Kiến tạo không gian sống
-          <span className="block text-than-chi/60">xứng tầm đẳng cấp</span>
-        </h1>
-        <p className="mt-4 max-w-md text-[0.9375rem] font-light leading-relaxed text-than-chi/80">
-          Hệ thống nhôm cầu cách nhiệt tiêu chuẩn châu Âu. Tận hưởng sự tĩnh lặng và tầm nhìn tràn viền cho biệt thự và penthouse.
-        </p>
-        <div className="mt-6 flex flex-wrap items-center gap-3">
-          <Link
-            href="/he-cua"
-            className="group inline-flex items-center justify-between gap-4 rounded-full bg-than-chi py-1.5 pl-6 pr-1.5 text-sm font-semibold text-nga transition-colors hover:bg-champagne hover:text-than-chi"
-          >
-            Khám phá ngay
-            <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-nga text-than-chi transition-transform duration-300 group-hover:rotate-45">
-              <MuiTen />
-            </span>
-          </Link>
-          <Link
-            href="/lien-he"
-            className="inline-flex h-[52px] items-center rounded-full border border-than-chi/40 px-6 text-sm font-semibold text-than-chi transition-colors hover:bg-than-chi hover:text-nga"
-          >
-            Liên hệ nhận thông tin
-          </Link>
+      {/* DẢI KÍNH TỐI ngang đáy màn hình — chữ không đè lên ảnh */}
+      <div className="absolute inset-x-3 bottom-3 md:inset-x-8 md:bottom-8 xl:inset-x-12 xl:bottom-10">
+        <div className="relative overflow-hidden rounded-[24px] border border-nga/15 bg-than-chi/85 px-6 py-6 text-nga backdrop-blur-xl md:rounded-[32px] md:px-10 md:py-8 lg:grid lg:grid-cols-[minmax(0,1.5fr)_auto_auto] lg:items-center lg:gap-12 xl:gap-16 xl:px-14">
+          {/* Cột 1: nhãn + tiêu đề + mô tả */}
+          <div>
+            <div className="flex items-center gap-4">
+              <span className="block h-px w-10 bg-champagne" aria-hidden="true" />
+              <p className="nhan-muc text-champagne">Premium Window &amp; Door</p>
+            </div>
+            <h1 className="tieu-de mt-3 text-[clamp(1.6rem,2.7vw,2.7rem)]">
+              Kiến tạo không gian sống
+              <span className="block text-champagne">xứng tầm đẳng cấp</span>
+            </h1>
+          </div>
+
+          {/* Cột 2: 3 ý ngắn định tính (không có số liệu chưa xác nhận) */}
+          <ul className="mt-5 hidden space-y-3 border-l border-nga/20 pl-8 text-sm text-nga/90 lg:mt-0 lg:block">
+            {["Nhôm cầu cách nhiệt", "Tiêu chuẩn châu Âu", "Kính hộp"].map((y, i) => (
+              <li key={y} className="flex items-center gap-4">
+                <span className="w-6 text-[11px] font-semibold tracking-[0.12em] text-champagne">{String(i + 1).padStart(2, "0")}</span>
+                {y}
+              </li>
+            ))}
+          </ul>
+
+          {/* Cột 3: hai nút */}
+          <div className="mt-6 flex flex-wrap items-center gap-3 lg:mt-0 lg:flex-col lg:items-stretch">
+            <Link
+              href="/he-cua"
+              className="group inline-flex items-center justify-between gap-4 rounded-full bg-champagne py-1.5 pl-6 pr-1.5 text-sm font-semibold text-than-chi transition-colors hover:bg-nga"
+            >
+              Khám phá ngay
+              <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-than-chi text-nga transition-transform duration-300 group-hover:rotate-45">
+                <MuiTen />
+              </span>
+            </Link>
+            <Link
+              href="/lien-he"
+              className="inline-flex h-[52px] items-center justify-center rounded-full border border-nga/40 px-6 text-sm font-semibold text-nga transition-colors hover:bg-nga hover:text-than-chi"
+            >
+              Liên hệ nhận thông tin
+            </Link>
+          </div>
         </div>
       </div>
-
-      {/* Gợi ý cuộn — viên Ngà nhỏ, góc dưới phải */}
-      <a
-        href="#tuyen-ngon"
-        className="absolute bottom-10 right-10 hidden items-center gap-3 rounded-full bg-nga py-1.5 pl-5 pr-1.5 text-[11px] font-semibold uppercase tracking-[0.12em] text-than-chi transition-colors hover:bg-champagne md:flex xl:bottom-12 xl:right-14"
-      >
-        Cuộn xuống
-        <span className="flex h-9 w-9 items-center justify-center rounded-full bg-than-chi text-nga">
-          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-            <path d="M12 5v14M6 13l6 6 6-6" />
-          </svg>
-        </span>
-      </a>
     </section>
   );
 }
