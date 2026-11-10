@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { SanPhamBangChuyen } from "./SanPhamBangChuyen";
+import { MatCat2D } from "./Illustration";
 import { NhanMinhHoa, Wrap } from "./ui";
 import { asset } from "@/lib/asset";
 import { LOAI_DU_AN } from "@/lib/site";
@@ -10,8 +11,6 @@ import { LOAI_DU_AN } from "@/lib/site";
  * Ảnh là ảnh stock tạm, có nhãn "Minh họa".
  */
 
-const HERO = "/images/hero.jpg";
-const NHA = "/images/chu-nha.jpg";
 const BTHU = "/images/biet-thu-go-kinh.jpg";
 const RESORT = "/images/resort-ho-boi.jpg";
 const RESORT2 = "/images/resort-ven-bien.jpg";
@@ -116,81 +115,64 @@ export function SanPhamKhoi() {
   );
 }
 
-/* ---------- Dịch vụ + số liệu ---------- */
+/* ---------- Quy trình dịch vụ ---------- */
 export function DichVuKhoi() {
-  const dv = [
-    { so: "01", t: "Tư vấn giải pháp kiến trúc, thiết kế", m: "Đội kỹ thuật cùng kiến trúc sư chọn kiểu cửa phù hợp từng công trình.", anh: HERO, pos: "30% 50%" },
-    { so: "02", t: "Cung cấp và lắp đặt", m: "Cung cấp hệ nhôm, phụ kiện và thi công, kiểm soát chất lượng đến khi nghiệm thu.", anh: NHA, pos: "70% 50%" },
-    { so: "03", t: "Dịch vụ hậu mãi", m: "Bảo trì, hiệu chỉnh và hỗ trợ sau bàn giao.", anh: RESORT2, pos: "50% 50%" },
-    { so: "04", t: "Hỗ trợ đối tác", m: "Đào tạo kỹ thuật và bán hàng cho đại lý, nhà thầu.", anh: NHAO, pos: "50% 78%" },
-  ];
-  const so = [
-    { n: "Số dự án" },
-    { n: "Số nhà máy" },
-    { n: "Số quốc gia" },
+  const buoc = [
+    { so: "01", t: "Tư vấn & bóc tách", m: "Kiến trúc sư và đội kỹ thuật cùng chọn kiểu cửa, bóc tách theo bản vẽ công trình." },
+    { so: "02", t: "Chọn hệ & vật liệu", m: "Hệ nhôm, kính và phụ kiện được chọn đồng bộ cho từng không gian." },
+    { so: "03", t: "Gia công & lắp đặt", m: "Gia công chính xác theo bản vẽ, rồi lắp đặt tại công trình." },
+    { so: "04", t: "Nghiệm thu & hậu mãi", m: "Bàn giao, hiệu chỉnh và bảo trì sau bàn giao." },
   ];
   return (
-    <section className="bg-nga py-8 md:py-10">
+    <section className="bg-kinh-suong/35 py-8 md:py-10">
       <Wrap>
-        <div className="grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:gap-14">
-          <div className="lg:sticky lg:top-32 lg:self-start">
+        <div className="grid gap-8 lg:grid-cols-[0.8fr_1.2fr] lg:gap-14">
+          <div>
             <NhanDo>Dịch vụ</NhanDo>
-            <h2 className="mt-3 text-[clamp(1.75rem,3.4vw,2.75rem)] font-light">Danh sách các dịch vụ</h2>
-            <p className="mt-5 max-w-xl text-base text-than-chi/75">
-              Cửa đi, cửa sổ, vách kính và phụ kiện đồng bộ, đi cùng dịch vụ tư vấn, thi công và hậu mãi. WINDUCA là đối tác cho chủ nhà, kiến trúc
-              sư, công ty thiết kế và nhà thầu.
+            <h2 className="mt-3 text-[clamp(1.75rem,3.4vw,2.75rem)] font-light">Quy trình dịch vụ</h2>
+            <p className="mt-4 max-w-md text-base text-than-chi/75">
+              Từ bản vẽ đến bàn giao, một đầu mối đồng hành cùng chủ nhà, kiến trúc sư và nhà thầu qua bốn bước rõ ràng.
             </p>
-            <Link href="/he-cua" className="nut nut-chinh mt-7">
-              Khám phá ngay
+            <Link href="/lien-he" className="nut nut-chinh mt-7">
+              Liên hệ tư vấn
             </Link>
-            <dl className="mt-12 grid max-w-xl grid-cols-3 gap-6 border-t border-inox pt-8">
-              {so.map((s) => (
-                <div key={s.n}>
-                  <dt className="text-[11px] font-semibold uppercase tracking-[0.12em] text-than-chi/55">{s.n}</dt>
-                  <dd className="mt-2 text-4xl font-semibold text-than-chi md:text-5xl">—</dd>
-                  <dd className="mt-1 text-xs text-than-chi/60">Đang chờ xác nhận</dd>
-                </div>
-              ))}
-            </dl>
           </div>
-
-          <ul className="flex snap-x snap-mandatory gap-4 overflow-x-auto pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
-            {dv.map((d) => (
-              <li key={d.so} className="w-full shrink-0 snap-center">
-                <Link href="/lien-he" className="group relative block min-h-[340px] overflow-hidden rounded-[2px] bg-than-chi text-white md:h-[clamp(300px,52svh,440px)] md:min-h-0 md:rounded-[2px]">
-                  <Image src={asset(d.anh)} alt="" fill quality={60} sizes="(min-width: 1024px) 45vw, 100vw" className="object-cover transition-transform duration-700 group-hover:scale-[1.04]" style={{ objectPosition: d.pos }} />
-                  <div className="absolute inset-0 bg-than-chi/55" aria-hidden="true" />
-                  <div className="relative flex h-full min-h-[340px] flex-col justify-between p-6 md:min-h-0 md:p-8">
-                    <span className="text-sm font-semibold text-white/80">{d.so}</span>
-                    <div className="flex items-end justify-between gap-6">
-                      <div>
-                        <h3 className="text-xl font-semibold md:text-2xl">{d.t}</h3>
-                        <p className="mt-2 max-w-md text-sm font-light text-white/85">{d.m}</p>
-                      </div>
-                      <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-[2px] bg-accent text-than-chi transition-transform duration-300 group-hover:translate-x-1">
-                        <MuiTenDo />
-                      </span>
-                    </div>
-                  </div>
-                </Link>
+          <ol className="grid gap-x-8 gap-y-6 sm:grid-cols-2">
+            {buoc.map((x) => (
+              <li key={x.so} className="border-t-2 border-accent pt-4">
+                <span className="text-3xl font-light text-than-chi/35">{x.so}</span>
+                <h3 className="mt-2 text-lg font-semibold">{x.t}</h3>
+                <p className="mt-2 text-sm text-than-chi/70">{x.m}</p>
               </li>
             ))}
-          </ul>
+          </ol>
         </div>
       </Wrap>
     </section>
   );
 }
 
-/* ---------- Công trình theo loại ---------- */
+/* ---------- Công trình: bộ ảnh dạng lưới lệch ---------- */
 export function CongTrinhKhoi() {
   const anh = [
-    { src: BTHU, pos: "50% 50%" },
-    { src: NHAPHO, pos: "50% 50%" },
+    { src: BTHU, pos: "50% 55%" },
+    { src: NHAPHO, pos: "50% 60%" },
     { src: RESORT, pos: "50% 50%" },
   ];
+  const the = (i: number, lop: string) => (
+    <Link href="/cong-trinh" className={`group relative block overflow-hidden rounded-[2px] bg-than-chi ${lop}`}>
+      <Image src={asset(anh[i].src)} alt={LOAI_DU_AN[i]} fill quality={65} sizes="(min-width: 768px) 45vw, 100vw" className="object-cover transition-transform duration-700 group-hover:scale-[1.04]" style={{ objectPosition: anh[i].pos }} />
+      <div className="absolute inset-0 bg-than-chi/25" aria-hidden="true" />
+      <div className="absolute inset-x-0 bottom-0 flex items-center justify-between gap-4 p-5 text-white md:p-6">
+        <h3 className="text-lg font-semibold md:text-xl">{LOAI_DU_AN[i]}</h3>
+        <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-[2px] bg-accent text-than-chi transition-transform duration-300 group-hover:translate-x-1">
+          <MuiTenDo />
+        </span>
+      </div>
+    </Link>
+  );
   return (
-    <section className="bg-kinh-suong/35 py-8 md:py-10">
+    <section className="bg-nga py-8 md:py-10">
       <Wrap>
         <div className="flex flex-wrap items-end justify-between gap-6">
           <div>
@@ -201,23 +183,11 @@ export function CongTrinhKhoi() {
             Xem thêm
           </Link>
         </div>
-        <ul className="mt-6 grid gap-5 md:grid-cols-3">
-          {LOAI_DU_AN.map((l, i) => (
-            <li key={l}>
-              <Link href="/cong-trinh" className="group relative block aspect-[4/5] overflow-hidden md:aspect-auto md:h-[clamp(260px,52svh,480px)] rounded-[2px] bg-than-chi md:rounded-[2px]">
-                <Image src={asset(anh[i].src)} alt="" fill quality={60} sizes="(min-width: 768px) 30vw, 100vw" className="object-cover transition-transform duration-700 group-hover:scale-[1.05]" style={{ objectPosition: anh[i].pos }} />
-                <div className="absolute inset-0 bg-than-chi/35" aria-hidden="true" />
-                <NhanMinhHoa className="left-4 top-4" />
-                <div className="absolute inset-x-0 bottom-0 flex items-center justify-between gap-4 p-6 text-white md:p-8">
-                  <h3 className="text-xl font-semibold md:text-2xl">{l}</h3>
-                  <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-[2px] bg-accent transition-transform duration-300 group-hover:translate-x-1">
-                    <MuiTenDo />
-                  </span>
-                </div>
-              </Link>
-            </li>
-          ))}
-        </ul>
+        <div className="mt-6 grid gap-4 md:h-[clamp(340px,56svh,520px)] md:grid-cols-[1.35fr_1fr] md:grid-rows-2">
+          {the(0, "aspect-[4/3] md:row-span-2 md:aspect-auto")}
+          {the(1, "aspect-[16/10] md:aspect-auto")}
+          {the(2, "aspect-[16/10] md:aspect-auto")}
+        </div>
       </Wrap>
     </section>
   );
@@ -253,26 +223,36 @@ export function ViSaoKhoi() {
     { so: "03", t: "Đồng bộ đến thi công", m: "Một đầu mối từ hệ nhôm, phụ kiện đến lắp đặt và nghiệm thu." },
   ];
   return (
-    <section className="bg-than-chi pb-20 text-white md:pb-28">
+    <section className="bg-than-chi py-8 text-white md:py-10">
       <Wrap>
-        <NhanDo>Vì sao chọn WINDUCA</NhanDo>
-        <h2 className="mt-3 max-w-3xl text-[clamp(1.75rem,3.4vw,2.75rem)] font-light">Sự thật về WINDUCA</h2>
-        <ul className="mt-12 grid gap-px overflow-hidden rounded-[2px] bg-white/15 md:grid-cols-3 md:rounded-[2px]">
-          {y.map((i) => (
-            <li key={i.so} className="bg-than-chi p-8 md:p-10">
-              <span className="text-5xl font-semibold text-accent md:text-6xl">{i.so}</span>
-              <h3 className="mt-6 text-xl font-semibold">{i.t}</h3>
-              <p className="mt-2 text-sm font-light text-white/75">{i.m}</p>
-            </li>
-          ))}
-        </ul>
-        <div className="mt-10 flex flex-wrap gap-3">
-          <Link href="/gioi-thieu" className="nut nut-chinh">
-            Tìm hiểu thêm về WINDUCA
-          </Link>
-          <Link href="/hop-tac" className="nut nut-vien">
-            Trở thành đối tác
-          </Link>
+        <div className="grid items-center gap-8 lg:grid-cols-[1fr_1.1fr] lg:gap-14">
+          <div>
+            <NhanDo>Vì sao chọn WINDUCA</NhanDo>
+            <h2 className="mt-3 max-w-3xl text-[clamp(1.75rem,3.4vw,2.75rem)] font-light">Sự thật về WINDUCA</h2>
+            <ul className="mt-6 divide-y divide-white/15 border-y border-white/15">
+              {y.map((i) => (
+                <li key={i.so} className="flex gap-5 py-4">
+                  <span className="text-2xl font-light text-accent">{i.so}</span>
+                  <div>
+                    <h3 className="text-lg font-semibold">{i.t}</h3>
+                    <p className="mt-1 text-sm font-light text-white/75">{i.m}</p>
+                  </div>
+                </li>
+              ))}
+            </ul>
+            <div className="mt-7 flex flex-wrap gap-3">
+              <Link href="/gioi-thieu" className="nut nut-chinh">
+                Tìm hiểu thêm về WINDUCA
+              </Link>
+              <Link href="/hop-tac" className="nut nut-vien">
+                Trở thành đối tác
+              </Link>
+            </div>
+          </div>
+          <div className="rounded-[2px] border border-white/15 bg-than-chi p-3">
+            <MatCat2D className="mx-auto aspect-[4/3] max-h-[clamp(280px,50svh,420px)] w-full" />
+            <p className="mt-3 text-center text-xs text-white/55">Mặt cắt hệ nhôm · giá trị kích thước hiển thị khi có bản vẽ kỹ thuật xác nhận</p>
+          </div>
         </div>
       </Wrap>
     </section>

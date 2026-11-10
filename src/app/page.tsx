@@ -1,7 +1,6 @@
 import { HeroSlider } from "@/components/HeroSlider";
 import {
   CongTrinhKhoi,
-  DaiChuChay,
   DichVuKhoi,
   GioiThieuKhoi,
   SanPhamKhoi,
@@ -22,7 +21,6 @@ export default function Home() {
       <SanPhamKhoi />
       <DichVuKhoi />
       <CongTrinhKhoi />
-      <DaiChuChay />
       <ViSaoKhoi />
       <TinTucKhoi />
     </>
