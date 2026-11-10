@@ -195,12 +195,19 @@ export function CongTrinhKhoi() {
 /* ---------- Dải chữ chạy + Vì sao chọn ---------- */
 export function DaiChuChay() {
   const chu = "PREMIUM ALUMINUM WINDOW";
+  /* Dấu sao vẽ bằng SVG để luôn căn giữa theo chiều dọc với chữ in hoa (ký tự "*" nằm lệch lên cao).
+     Chữ rỗng dùng paint-order: nét vẽ trước, nền tô sau, nên các nét giao nhau bên trong chữ (W, A) không hiện ra. */
+  const sao = (
+    <svg viewBox="0 0 24 24" className="h-[0.6em] w-[0.6em] shrink-0 text-accent" aria-hidden="true">
+      <path d="M12 2v20M3.3 7l17.4 10M3.3 17 20.7 7" stroke="currentColor" strokeWidth="3.4" strokeLinecap="round" fill="none" />
+    </svg>
+  );
   const mot = (
     <span className="flex shrink-0 items-center gap-10 pr-10">
       <span>{chu}</span>
-      <span className="text-accent">*</span>
-      <span className="text-transparent [-webkit-text-stroke:1.5px_rgba(255,255,255,0.75)]">WINDUCA</span>
-      <span className="text-accent">*</span>
+      {sao}
+      <span className="text-[#231f20] [-webkit-text-stroke:3px_rgba(255,255,255,0.8)] [paint-order:stroke_fill]">WINDUCA</span>
+      {sao}
     </span>
   );
   return (
