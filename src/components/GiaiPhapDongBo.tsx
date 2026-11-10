@@ -125,9 +125,9 @@ const CANH = [
 export function GiaiPhapDongBo() {
   const [i, setI] = useState(0);
   return (
-    <section className="nen-toi py-6 text-white">
+    <section className="nen-toi khong-cat py-6 text-white">
       <Wrap>
-        <div className="grid items-center gap-8 lg:grid-cols-[1fr_1.1fr] lg:gap-14">
+        <div className="grid items-center gap-8 lg:grid-cols-[0.85fr_1.25fr] lg:gap-12">
           <div className="min-w-0">
             <p className="nhan-muc text-accent">Giải pháp đồng bộ</p>
             <h2 className="mt-3 text-[clamp(1.4rem,2.6vw,2.25rem)] font-medium uppercase leading-[1.15] tracking-[0.01em]">
@@ -155,8 +155,8 @@ export function GiaiPhapDongBo() {
             </Link>
           </div>
 
-          <div className="rounded-[24px] border border-white/15 p-5 md:p-6">
-            <svg viewBox="30 14 340 208" className="h-[clamp(150px,28svh,280px)] w-full" role="img" aria-label={`Hình 2D minh họa: ${TP[i].t}`}>
+          <div className="rounded-[20px] border border-white/15 bg-white/[0.03] p-4 md:p-5">
+            <svg viewBox="30 14 340 208" className="h-[clamp(230px,44svh,400px)] w-full" role="img" aria-label={`Hình 2D minh họa: ${TP[i].t}`}>
               <g key={i} className="canh-2d">
                 {CANH[i]()}
               </g>
