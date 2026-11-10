@@ -111,7 +111,7 @@ export function CrossSection({
 
         <div className="mt-6 grid gap-6 lg:grid-cols-[1.35fr_1fr]">
           {/* KHUNG 3D */}
-          <div ref={khung} className="relative h-[clamp(220px,38svh,360px)] overflow-hidden border border-inox/25 bg-[#232325]">
+          <div ref={khung} className="relative h-[clamp(200px,32svh,360px)] overflow-hidden border border-inox/25 bg-[#232325]">
             {/* dấu góc khung kiểu bản vẽ */}
             {["left-3 top-3 border-l border-t", "right-3 top-3 border-r border-t", "left-3 bottom-3 border-b border-l", "right-3 bottom-3 border-b border-r"].map((c) => (
               <span key={c} className={`pointer-events-none absolute h-4 w-4 border-accent ${c}`} />
@@ -210,7 +210,7 @@ export function CrossSection({
         </div>
 
         {/* BẢNG THÔNG SỐ — 6 hàng, mỗi ô nhãn "Đang chờ xác nhận" (chưa có phiếu kiểm định) */}
-        <div className="mt-5 rounded-sm border border-than-chi/15 bg-nga">
+        <div className="mt-5 hidden rounded-sm border border-than-chi/15 bg-nga md:block">
           <div className="grid divide-y divide-than-chi/15 sm:grid-cols-2 sm:divide-y-0 lg:grid-cols-3">
             {THONG_SO.map((ten) => (
               <div key={ten} className="border-than-chi/15 p-5 sm:border-b lg:[&:nth-last-child(-n+3)]:border-b-0">

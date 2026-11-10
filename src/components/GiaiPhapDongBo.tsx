@@ -24,13 +24,13 @@ export function GiaiPhapDongBo() {
     <section className="bg-than-chi py-8 text-white md:py-10">
       <Wrap>
         <div className="grid items-center gap-8 lg:grid-cols-[1fr_1.1fr] lg:gap-14">
-          <div>
+          <div className="min-w-0">
             <p className="nhan-muc text-accent">Giải pháp đồng bộ</p>
             <h2 className="mt-3 text-[clamp(1.4rem,2.6vw,2.25rem)] font-medium uppercase leading-[1.15] tracking-[0.01em]">
               Một giải pháp.
               <span className="block font-light">Đồng bộ từng thành phần.</span>
             </h2>
-            <ol className="mt-6 divide-y divide-white/15 border-y border-white/15">
+            <ol className="mt-4 flex gap-2 overflow-x-auto pb-1 [scrollbar-width:none] md:mt-6 md:block md:divide-y md:divide-white/15 md:overflow-visible md:border-y md:border-white/15 md:pb-0 [&::-webkit-scrollbar]:hidden">
               {TP.map((x, k) => (
                 <li key={x.t}>
                   <button
@@ -38,7 +38,7 @@ export function GiaiPhapDongBo() {
                     onClick={() => setI(k)}
                     onMouseEnter={() => setI(k)}
                     aria-pressed={i === k}
-                    className={`flex w-full items-center gap-4 py-3 text-left transition-colors ${i === k ? "text-accent" : "text-white/80 hover:text-white"}`}
+                    className={`flex shrink-0 items-center gap-2 whitespace-nowrap rounded-full border px-3 py-1.5 text-left transition-colors md:w-full md:gap-4 md:rounded-none md:border-0 md:px-0 md:py-3 ${i === k ? "border-accent text-accent" : "border-white/25 text-white/80 hover:text-white"}`}
                   >
                     <span className="w-6 text-sm font-semibold">{String(k + 1).padStart(2, "0")}</span>
                     <span className="text-base font-medium">{x.t}</span>
@@ -46,7 +46,7 @@ export function GiaiPhapDongBo() {
                 </li>
               ))}
             </ol>
-            <Link href="/nang-luc-xuong" className="nut nut-chinh mt-7">
+            <Link href="/nang-luc-xuong" className="nut nut-chinh mt-5 md:mt-7">
               Xem năng lực và xưởng
             </Link>
           </div>

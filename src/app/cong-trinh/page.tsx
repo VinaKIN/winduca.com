@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { CongTrinhLuoi } from "@/components/CongTrinhLuoi";
 import { PageHero, Section } from "@/components/ui";
+import { DU_AN } from "@/lib/du-an";
 
 export const metadata: Metadata = {
   title: "Công trình & cảm hứng kiến trúc | WINDUCA",
@@ -19,6 +20,18 @@ export default function CongTrinh() {
       <PageHero nhan="Công trình" tieuDe="Dấu ấn kiến trúc qua những không gian sống." />
 
       <Section tone="sang" nhan="WINDUCA Projects" tieuDe="Công trình WINDUCA đã thực hiện">
+        {DU_AN.length > 0 ? (
+          <ul className="grid gap-4 md:grid-cols-3">
+            {DU_AN.map((d) => (
+              <li key={d.slug}>
+                <Link href={`/cong-trinh/du-an/${d.slug}`} className="block rounded-[20px] border border-than-chi/10 bg-white p-6 hover:border-accent">
+                  <p className="nhan-muc text-accent">{d.loai} · {d.khuVuc}</p>
+                  <h3 className="mt-2 text-xl font-bold">{d.ten}</h3>
+                </Link>
+              </li>
+            ))}
+          </ul>
+        ) : (
         <div className="rounded-[24px] border border-dashed border-than-chi/25 p-8 md:p-12">
           <p className="max-w-2xl text-base text-than-chi/80">
             Công trình thực tế đang được cập nhật. Mỗi công trình sẽ có ảnh tổng thể, ảnh chi tiết cửa, loại công trình, hệ cửa sử dụng, yêu cầu
@@ -33,6 +46,7 @@ export default function CongTrinh() {
             </Link>
           </div>
         </div>
+        )}
       </Section>
 
       <Section

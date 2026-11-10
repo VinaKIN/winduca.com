@@ -1,4 +1,5 @@
 import type { MetadataRoute } from "next";
+import { BAI_VIET } from "@/lib/bai-viet";
 import { GIAI_PHAP } from "@/lib/giai-phap";
 import { CONG_TRINH_MINH_HOA, KIEU_CUA } from "@/lib/site";
 
@@ -11,6 +12,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const trang = [
     ...tinh,
     ...KIEU_CUA.map((k) => `/he-cua/${k.slug}`),
+    ...BAI_VIET.map((b) => `/tin-tuc/${b.slug}`),
     ...GIAI_PHAP.map((g) => `/giai-phap/${g.slug}`),
     ...CONG_TRINH_MINH_HOA.map((c) => `/cong-trinh/${c.slug}`),
   ];

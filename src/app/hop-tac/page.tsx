@@ -68,18 +68,18 @@ export default function HopTac() {
                 <span className="text-4xl font-light text-accent">{String(i + 1).padStart(2, "0")}</span>
                 <p className="nhan-muc mt-4 text-than-chi/55">{d.en}</p>
                 <h3 className="mt-1 text-xl font-bold">{d.t}</h3>
-                <p className="mt-3 text-sm text-than-chi/75">{d.m}</p>
+                <p className="mt-3 hidden text-sm text-than-chi/75 sm:block">{d.m}</p>
                 <a href="#dang-ky-hop-tac" className="nut nut-chinh mt-4">
                   Đăng ký hợp tác
                 </a>
               </div>
               <div className="grid gap-4">
                 {[
-                  ["Quyền lợi", d.quyenLoi],
+                  ["Quyền lợi", d.quyenLoi.slice(0, 2)],
                   ["Hỗ trợ kỹ thuật", d.kyThuat],
-                  ["Tài liệu", d.taiLieu],
-                ].map(([tt, ds]) => (
-                  <div key={tt as string}>
+                  ["Tài liệu", d.taiLieu.slice(0, 1)],
+                ].map(([tt, ds], ci) => (
+                  <div key={tt as string} className={ci === 1 ? "hidden sm:block" : ""}>
                     <p className="nhan-muc text-accent">{tt as string}</p>
                     <ul className="mt-2 space-y-1.5 text-sm text-than-chi/80">
                       {(ds as string[]).map((x) => (

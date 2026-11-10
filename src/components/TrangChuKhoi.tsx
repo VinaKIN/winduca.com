@@ -3,6 +3,7 @@ import Link from "next/link";
 import { SanPhamBangChuyen } from "./SanPhamBangChuyen";
 import { NhanMinhHoa, Wrap } from "./ui";
 import { asset } from "@/lib/asset";
+import { BAI_VIET } from "@/lib/bai-viet";
 import { LOAI_DU_AN } from "@/lib/site";
 
 /**
@@ -43,7 +44,7 @@ export function GioiThieuKhoi() {
       <Wrap>
         <div className="grid items-center gap-8 lg:grid-cols-[1.05fr_1fr] lg:gap-14">
           <div className="relative overflow-hidden rounded-[28px] md:rounded-[36px]">
-            <div className="relative h-[30svh] min-h-[220px] md:h-[clamp(340px,64svh,560px)]">
+            <div className="relative h-[26svh] min-h-[190px] md:h-[clamp(340px,64svh,560px)]">
               <Image src={asset("/images/intro-chi-tiet.jpg")} alt="Cửa trượt kính khổ lớn mở ra khu vườn trong biệt thự hiện đại" fill quality={70} sizes="(min-width: 1024px) 50vw, 100vw" className="object-cover" style={{ objectPosition: "50% 45%" }} />
             </div>
             <div className="absolute inset-x-4 bottom-4 rounded-[28px] border border-white/30 bg-than-chi/45 p-5 text-white backdrop-blur-md md:inset-x-6 md:bottom-6 md:max-w-md md:p-6">
@@ -77,7 +78,7 @@ export function GioiThieuKhoi() {
               Không chỉ là một hệ cửa.
               <span className="block font-bold">Đó là giải pháp kiến trúc đồng bộ.</span>
             </h2>
-            <p className="mt-4 max-w-xl text-base text-than-chi/75">
+            <p className="mt-4 hidden max-w-xl text-base text-than-chi/75 sm:block">
               WINDUCA mang đến giải pháp cửa nhôm kính cao cấp cho biệt thự, penthouse và các công trình cao cấp, từ tư vấn bản vẽ đến thi công hoàn thiện.
             </p>
             <ul className="mt-6 space-y-4">
@@ -344,14 +345,14 @@ export function TinTucKhoi() {
         <ul className="mt-6 flex snap-x snap-mandatory gap-3 overflow-x-auto pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden md:mt-8 md:grid md:grid-cols-3 md:gap-6 md:overflow-visible">
           {BAI_SAP_CO.map((b) => (
             <li key={b.t} className="w-[78%] shrink-0 snap-center md:w-auto">
-              <Link href="/tin-tuc" className="group block">
+              <Link href={`/tin-tuc/${BAI_VIET.find((x) => x.tieuDe === b.t)?.slug ?? ""}`} className="group block">
                 <div className="relative aspect-[16/10] overflow-hidden rounded-[20px] bg-than-chi md:rounded-[28px]">
                   <Image src={asset(b.anh)} alt={b.t} fill quality={60} sizes="(min-width: 768px) 30vw, 100vw" className="object-cover transition-transform duration-700 group-hover:scale-[1.05]" style={{ objectPosition: b.pos }} />
                   <NhanMinhHoa className="left-3 top-3" />
                 </div>
                 <p className="nhan-muc mt-4 text-accent">{b.loai}</p>
                 <h3 className="mt-2 text-lg font-bold leading-snug group-hover:text-accent">{b.t}</h3>
-                <p className="mt-1 text-sm text-than-chi/60">Sắp có</p>
+                <p className="mt-1 text-sm font-bold uppercase tracking-[0.06em] text-accent">Đọc bài</p>
               </Link>
             </li>
           ))}

@@ -3,7 +3,8 @@
 import { useRouter } from "next/navigation";
 import { useRef, useState, type FormEvent } from "react";
 import { BAN_XEM_THU_TINH } from "@/lib/asset";
-import { HOTLINE, HOTLINE_TEL, KIEU_CUA, LOAI_CONG_TRINH } from "@/lib/site";
+import { suKien } from "@/lib/analytics";
+import { EMAIL, HOTLINE, HOTLINE_TEL, KIEU_CUA, LOAI_CONG_TRINH } from "@/lib/site";
 
 /** Bản tĩnh (GitHub Pages) gửi tới Cloudflare Worker; bản Vercel dùng /api/lead. */
 const ENDPOINT = process.env.NEXT_PUBLIC_LEAD_ENDPOINT || "/api/lead";
@@ -81,7 +82,19 @@ export function LeadForm({ loai, tone = "sang", kieuCuaMacDinh = "", khiXong, go
     if (Object.keys(l).length) return;
 
     if (CHUA_CO_NOI_NHAN) {
-      setLoi("Bản xem thử tĩnh chưa nhận được biểu mẫu.");
+      // Chưa có Worker: mở thư gửi tới email chung để yêu cầu vẫn đến được WINDUCA.
+      const tien = { "sample-box": "SB", showroom: "SR", "ban-ve": "BV", "tai-lieu": "TL", "lien-he": "LH" } as const;
+      const ten_loai = { "sample-box": "Hộp mẫu", showroom: "Đặt lịch showroom", "ban-ve": "Gửi bản vẽ", "tai-lieu": "Tải tài liệu", "lien-he": "Liên hệ" } as const;
+      const ma = `${tien[loai]}-${Math.floor(1000 + Math.random() * 9000)}`;
+      const dong: string[] = [`Mã: ${ma}`, `Loại: ${ten_loai[loai]}`];
+      fd.forEach((v, k) => {
+        if (typeof v === "string" && v.trim() && !["website", "dongY", "loai"].includes(k)) dong.push(`${k}: ${v.trim()}`);
+      });
+      if (tep instanceof File && tep.size > 0) dong.push("(Vui lòng đính kèm tệp bản vẽ vào thư này.)");
+      const href = `mailto:${EMAIL}?subject=${encodeURIComponent(`WINDUCA ${ma} · ${ten_loai[loai]}`)}&body=${encodeURIComponent(dong.join("\n"))}`;
+      suKien("generate_lead", { loai, che_do: "mailto" });
+      window.location.href = href;
+      setLoi(`Trình thư của anh chị sẽ mở để gửi yêu cầu tới ${EMAIL}. Nếu không thấy, vui lòng gọi hotline ${HOTLINE}.`);
       return;
     }
 
@@ -101,6 +114,7 @@ export function LeadForm({ loai, tone = "sang", kieuCuaMacDinh = "", khiXong, go
         return;
       }
       const ma = j.ma ?? "";
+      suKien("generate_lead", { loai });
       if (khiXong) khiXong(ma);
       else router.push(`/cam-on?loai=${loai}&ma=${encodeURIComponent(ma)}`);
     } catch {

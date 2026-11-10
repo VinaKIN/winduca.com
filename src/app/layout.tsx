@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Roboto } from "next/font/google";
 import "./globals.css";
 import { Header } from "@/components/Header";
+import { Analytics } from "@/components/Analytics";
 import { Footer } from "@/components/Footer";
 import { NutLienHeNhanh } from "@/components/NutLienHeNhanh";
 import { asset } from "@/lib/asset";
@@ -47,6 +48,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <main className="flex-1">{children}</main>
         <Footer />
         <NutLienHeNhanh />
+        <Analytics />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{

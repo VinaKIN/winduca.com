@@ -61,9 +61,9 @@ export default function GioiThieu() {
       </Section>
 
       <Section tone="nga" nhan="Tầm nhìn & giá trị" tieuDe="Điều chúng tôi theo đuổi">
-        <ul className="grid gap-5 md:grid-cols-3">
+        <ul className="flex snap-x snap-mandatory gap-3 overflow-x-auto pb-2 [scrollbar-width:none] md:grid md:grid-cols-3 md:gap-5 md:overflow-visible [&::-webkit-scrollbar]:hidden">
           {GIA_TRI.map((g, i) => (
-            <li key={g.t} className="rounded-[24px] bg-white p-7 md:p-8">
+            <li key={g.t} className="w-[78%] shrink-0 snap-center rounded-[24px] bg-white p-5 md:w-auto md:p-8">
               <span className="text-4xl font-bold text-accent">{String(i + 1).padStart(2, "0")}</span>
               <h3 className="mt-4 text-xl font-bold">{g.t}</h3>
               <p className="mt-2 text-sm text-than-chi/75">{g.m}</p>
@@ -83,7 +83,7 @@ export default function GioiThieu() {
             </div>
           ))}
         </div>
-        <ol className="grid gap-6 md:grid-cols-4">
+        <ol className="grid grid-cols-2 gap-4 md:grid-cols-4 md:gap-6">
           {QUY_TRINH_CL.map((x, i) => (
             <li key={x.t} className="border-t-2 border-accent pt-4">
               <span className="text-3xl font-light text-than-chi/35">{String(i + 1).padStart(2, "0")}</span>
