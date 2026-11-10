@@ -5,11 +5,12 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState, type ReactNode } from "react";
 import { asset } from "@/lib/asset";
-import { HOTLINE, HOTLINE_TEL, KIEU_CUA } from "@/lib/site";
+import { HOTLINE, HOTLINE_TEL, KIEU_CUA, MENU } from "@/lib/site";
 
 /**
- * Header kiểu Winboss: hai nút tròn (gọi, thư) bên trái · logo ở giữa · nút menu bên phải.
- * Bấm menu mở lớp phủ toàn màn hình: danh sách trang bên trái, thông tin liên hệ bên phải.
+ * Header dạng thanh Ngà bo tròn nổi phía trên ảnh (theo mẫu tham chiếu 10/11/2026):
+ * logo trái · điều hướng giữa (xl trở lên) · nút "Đăng ký trải nghiệm" + nút tròn mũi tên bên phải.
+ * Dưới xl: nút menu mở lớp phủ toàn màn hình (danh sách trang + thông tin liên hệ).
  */
 
 const MUC = [
@@ -46,6 +47,14 @@ const IconViTri = () => (
     <circle cx="12" cy="10" r="2.5" />
   </BieuTuong>
 );
+
+function MuiTen() {
+  return (
+    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <path d="M7 17 17 7M8 7h9v9" />
+    </svg>
+  );
+}
 
 function NutTron({ href, nhan, children }: { href: string; nhan: string; children: ReactNode }) {
   const lienKetNgoai = href.startsWith("tel:") || href.startsWith("mailto:");
@@ -108,33 +117,85 @@ export function Header() {
 
   return (
     <>
-      <header className={`fixed inset-x-0 top-0 z-50 transition-colors duration-300 ${daCuon ? "bg-than-chi/95" : "bg-transparent"}`}>
-        <div className="relative mx-auto flex h-20 max-w-[1440px] items-center justify-between px-5 md:h-28 md:px-10">
-          <div className="flex items-center gap-3 md:gap-4">
-            <NutTron href={HOTLINE_TEL} nhan={`Gọi hotline ${HOTLINE}`}>
-              <IconDienThoai />
-            </NutTron>
-            <NutTron href="/lien-he" nhan="Gửi liên hệ">
-              <IconThu />
-            </NutTron>
-          </div>
+      <header className="fixed inset-x-0 top-0 z-50 px-3 pt-3 md:px-6 md:pt-5">
+        <div
+          className={`mx-auto flex h-16 max-w-[1360px] items-center justify-between gap-4 rounded-full bg-nga/95 pl-6 pr-2 backdrop-blur-md transition-shadow duration-300 md:h-[72px] md:pl-8 ${
+            daCuon ? "shadow-[0_8px_30px_rgba(43,43,45,0.14)]" : "shadow-none"
+          }`}
+        >
+          {/* Logo (bản màu, nền trong suốt) */}
+          <Link href="/" aria-label="WINDUCA — trang chủ" className="block shrink-0">
+            <Image src={asset("/brand/WINDUCA-ngang-mau-trong.svg")} alt="WINDUCA" width={677} height={102} priority className="h-6 w-auto md:h-7" />
+          </Link>
 
-          <div className="absolute left-1/2 -translate-x-1/2">
-            <Logo lop="h-7 w-auto md:h-10" />
-          </div>
+          {/* Điều hướng giữa (desktop rộng) */}
+          <nav aria-label="Điều hướng chính" className="hidden xl:block">
+            <ul className="flex items-center gap-1">
+              {MENU.map((m) => {
+                const coCon = m.href === "/he-cua";
+                return (
+                  <li key={m.href} className="group relative">
+                    <Link
+                      href={m.href}
+                      aria-current={dangO(m.href) ? "page" : undefined}
+                      className={`inline-flex items-center gap-1 rounded-full px-4 py-2 text-[0.8125rem] font-medium transition-colors hover:bg-than-chi/[0.06] ${
+                        dangO(m.href) ? "bg-than-chi/[0.06] text-than-chi" : "text-than-chi/80"
+                      }`}
+                    >
+                      {m.label}
+                      {coCon && (
+                        <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                          <path d="m6 9 6 6 6-6" />
+                        </svg>
+                      )}
+                    </Link>
+                    {coCon && (
+                      <ul className="invisible absolute left-0 top-full z-10 mt-2 w-64 rounded-2xl border border-inox/60 bg-white p-2 opacity-0 shadow-[0_16px_40px_rgba(43,43,45,0.16)] transition-opacity group-focus-within:visible group-focus-within:opacity-100 group-hover:visible group-hover:opacity-100">
+                        {KIEU_CUA.map((k) => (
+                          <li key={k.slug}>
+                            <Link href={`/he-cua/${k.slug}`} className="block rounded-xl px-4 py-2.5 text-sm text-than-chi/85 hover:bg-than-chi/[0.06] hover:text-than-chi">
+                              {k.ten}
+                            </Link>
+                          </li>
+                        ))}
+                      </ul>
+                    )}
+                  </li>
+                );
+              })}
+            </ul>
+          </nav>
 
-          <button
-            type="button"
-            className="flex h-12 w-12 flex-col items-center justify-center gap-[7px]"
-            aria-expanded={moMenu}
-            aria-controls="menu-toan-man-hinh"
-            aria-label="Mở menu"
-            onClick={() => setMoMenu(true)}
-          >
-            <span className="block h-[2px] w-8 bg-white" />
-            <span className="block h-[2px] w-8 bg-white" />
-            <span className="block h-[2px] w-8 bg-white" />
-          </button>
+          {/* Bên phải: nút hành động + nút tròn mũi tên; dưới xl là nút menu */}
+          <div className="flex items-center gap-2">
+            <Link
+              href="/trai-nghiem"
+              className="hidden items-center rounded-full bg-than-chi px-6 py-3 text-[0.8125rem] font-semibold text-nga transition-colors hover:bg-champagne hover:text-than-chi sm:inline-flex"
+            >
+              Đăng ký trải nghiệm
+            </Link>
+            <Link
+              href="/trai-nghiem"
+              aria-label="Đăng ký trải nghiệm"
+              className="hidden h-12 w-12 items-center justify-center rounded-full bg-than-chi text-nga transition-colors hover:bg-champagne hover:text-than-chi xl:flex"
+            >
+              <MuiTen />
+            </Link>
+            <button
+              type="button"
+              className="flex h-12 w-12 items-center justify-center rounded-full bg-than-chi/[0.06] text-than-chi transition-colors hover:bg-than-chi/10 xl:hidden"
+              aria-expanded={moMenu}
+              aria-controls="menu-toan-man-hinh"
+              aria-label="Mở menu"
+              onClick={() => setMoMenu(true)}
+            >
+              <span className="flex flex-col gap-[5px]">
+                <span className="block h-[2px] w-5 bg-than-chi" />
+                <span className="block h-[2px] w-5 bg-than-chi" />
+                <span className="block h-[2px] w-3.5 bg-than-chi" />
+              </span>
+            </button>
+          </div>
         </div>
       </header>
 

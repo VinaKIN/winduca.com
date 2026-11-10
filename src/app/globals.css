@@ -152,6 +152,29 @@ body {
 }
 }
 
+/* Hero: hai tấm cửa Ngà trượt mở một lần khi tải; chữ hiện sau đó */
+@keyframes cua-trai {
+  to { transform: translateX(-101%); }
+}
+@keyframes cua-phai {
+  to { transform: translateX(101%); }
+}
+@keyframes hien-len {
+  from { opacity: 0; transform: translateY(18px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.hero-cua {
+  animation-duration: 1.4s;
+  animation-delay: 0.45s;
+  animation-timing-function: cubic-bezier(0.7, 0, 0.2, 1);
+  animation-fill-mode: forwards;
+}
+.hero-cua-trai { animation-name: cua-trai; }
+.hero-cua-phai { animation-name: cua-phai; }
+.hero-hien {
+  animation: hien-len 0.9s ease-out 1.1s both;
+}
+
 :focus-visible {
   outline: 2px solid var(--champagne);
   outline-offset: 3px;

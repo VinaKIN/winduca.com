@@ -15,7 +15,7 @@ export function TuyenNgonVaBaThe() {
     { id: "khoi-nha-thau", nhan: "Nhà thầu", mota: "Gửi bản vẽ, nhận bóc tách từ đội kỹ thuật.", cta: "Gửi bản vẽ" },
   ];
   return (
-    <section className="relative overflow-hidden bg-than-chi text-nga nen-luoi-toi">
+    <section id="tuyen-ngon" className="relative overflow-hidden bg-than-chi text-nga nen-luoi-toi">
       <span
         aria-hidden="true"
         className="so-lon so-lon-toi pointer-events-none absolute -top-4 right-4 hidden select-none md:right-10 md:block"
