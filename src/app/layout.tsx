@@ -1,15 +1,22 @@
 import type { Metadata, Viewport } from "next";
-import { Roboto } from "next/font/google";
+import { Montserrat, Be_Vietnam_Pro } from "next/font/google";
 import "./globals.css";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { NutLienHeNhanh } from "@/components/NutLienHeNhanh";
 import { asset } from "@/lib/asset";
 
-const roboto = Roboto({
-  variable: "--font-roboto",
+const montserrat = Montserrat({
+  variable: "--font-montserrat",
   subsets: ["latin", "vietnamese"],
-  weight: ["300", "400", "500", "700", "900"],
+  weight: ["500", "600", "700"],
+  display: "swap",
+});
+
+const beVietnam = Be_Vietnam_Pro({
+  variable: "--font-be-vietnam",
+  subsets: ["latin", "vietnamese"],
+  weight: ["300", "400", "500", "600"],
   display: "swap",
 });
 
@@ -23,12 +30,12 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#231f20",
+  themeColor: "#2b2b2d",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="vi" className={roboto.variable}>
+    <html lang="vi" className={`${montserrat.variable} ${beVietnam.variable}`}>
       <body className="min-h-screen flex flex-col">
         <Header />
         <main className="flex-1">{children}</main>

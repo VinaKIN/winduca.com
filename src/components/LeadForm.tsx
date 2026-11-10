@@ -5,6 +5,10 @@ import { useRef, useState, type FormEvent } from "react";
 import { BAN_XEM_THU_TINH } from "@/lib/asset";
 import { HOTLINE, HOTLINE_TEL, KIEU_CUA, LOAI_CONG_TRINH } from "@/lib/site";
 
+/** Bản tĩnh (GitHub Pages) gửi tới Cloudflare Worker; bản Vercel dùng /api/lead. */
+const ENDPOINT = process.env.NEXT_PUBLIC_LEAD_ENDPOINT || "/api/lead";
+const CHUA_CO_NOI_NHAN = BAN_XEM_THU_TINH && !process.env.NEXT_PUBLIC_LEAD_ENDPOINT;
+
 export type LoaiForm = "sample-box" | "showroom" | "ban-ve" | "tai-lieu" | "lien-he";
 
 const CHU_DE = ["Hộp mẫu góc nhôm", "Đặt lịch showroom", "Bóc tách theo bản vẽ", "Tài liệu kỹ thuật", "Khác"];
@@ -48,7 +52,7 @@ export function LeadForm({ loai, tone = "sang", kieuCuaMacDinh = "", khiXong, go
   const toi = tone === "toi";
 
   const nhan = `block text-sm font-medium ${toi ? "text-nga" : "text-than-chi"}`;
-  const o = `mt-2 w-full rounded-md border px-3 py-3 text-base outline-none transition-colors focus:border-accent ${
+  const o = `mt-2 w-full rounded-[2px] border px-3 py-3 text-base outline-none transition-colors focus:border-accent ${
     toi
       ? "border-inox/40 bg-than-chi/40 text-nga placeholder:text-nga/50"
       : "border-than-chi/25 bg-white text-than-chi placeholder:text-than-chi/50"
@@ -73,7 +77,7 @@ export function LeadForm({ loai, tone = "sang", kieuCuaMacDinh = "", khiXong, go
     setLoiTruong(l);
     if (Object.keys(l).length) return;
 
-    if (BAN_XEM_THU_TINH) {
+    if (CHUA_CO_NOI_NHAN) {
       setLoi("Bản xem thử tĩnh chưa nhận được biểu mẫu.");
       return;
     }
@@ -81,7 +85,7 @@ export function LeadForm({ loai, tone = "sang", kieuCuaMacDinh = "", khiXong, go
     fd.set("loai", loai);
     setDangGui(true);
     try {
-      const r = await fetch("/api/lead", { method: "POST", body: fd });
+      const r = await fetch(ENDPOINT, { method: "POST", body: fd });
       const j = (await r.json().catch(() => ({}))) as { ok?: boolean; ma?: string; error?: string };
       if (!r.ok || !j.ok) {
         setLoi(
@@ -107,7 +111,7 @@ export function LeadForm({ loai, tone = "sang", kieuCuaMacDinh = "", khiXong, go
 
   return (
     <form ref={formRef} onSubmit={guiDi} noValidate className="grid gap-5 md:grid-cols-2" aria-label="Biểu mẫu liên hệ">
-      {BAN_XEM_THU_TINH && (
+      {CHUA_CO_NOI_NHAN && (
         <p className="rounded-sm border border-dashed border-accent p-3 text-sm md:col-span-2">
           Đây là bản xem thử tĩnh: biểu mẫu chưa gửi được. Anh chị vui lòng gọi hotline {HOTLINE}.
         </p>
@@ -281,7 +285,7 @@ export function LeadForm({ loai, tone = "sang", kieuCuaMacDinh = "", khiXong, go
 
       <div className="md:col-span-2">
         <label className={`flex items-start gap-3 text-sm ${toi ? "text-nga/90" : "text-than-chi/85"}`}>
-          <input type="checkbox" name="dongY" className="mt-1 h-4 w-4 accent-[#e31937]" />
+          <input type="checkbox" name="dongY" className="mt-1 h-4 w-4 accent-[#BFA678]" />
           <span>{CAU_DONG_Y[loai]}</span>
         </label>
         {loiTruong.dongY && <p className={loiCss}>{loiTruong.dongY}</p>}

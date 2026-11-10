@@ -23,7 +23,7 @@ export default function HeCua() {
         </Link>
       </PageHero>
 
-      <section className="bg-nga py-12 md:py-20">
+      <section className="bg-kinh-suong/35 py-12 md:py-20">
         <Wrap>
           <HeCuaDanhSach />
         </Wrap>
@@ -34,17 +34,17 @@ export default function HeCua() {
           <table className="w-full min-w-[720px] border-collapse text-left text-sm">
             <thead>
               <tr className="border-b border-than-chi/20 text-than-chi/70">
-                <th className="py-3 pr-4 font-bold">Kiểu cửa</th>
-                <th className="py-3 pr-4 font-bold">Không gian phù hợp</th>
-                <th className="py-3 pr-4 font-bold">Khẩu độ</th>
-                <th className="py-3 font-bold">Cách mở</th>
+                <th className="py-3 pr-4 font-semibold">Kiểu cửa</th>
+                <th className="py-3 pr-4 font-semibold">Không gian phù hợp</th>
+                <th className="py-3 pr-4 font-semibold">Khẩu độ</th>
+                <th className="py-3 font-semibold">Cách mở</th>
               </tr>
             </thead>
             <tbody>
               {KIEU_CUA.map((k) => (
                 <tr key={k.slug} className="border-b border-than-chi/10 align-top">
-                  <td className="py-4 pr-4 font-bold">
-                    <Link href={`/he-cua/${k.slug}`} className="underline hover:text-accent">
+                  <td className="py-4 pr-4 font-semibold">
+                    <Link href={`/he-cua/${k.slug}`} className="underline hover:text-accent-chu">
                       {k.ten}
                     </Link>
                   </td>
@@ -58,7 +58,7 @@ export default function HeCua() {
         </div>
         <p className="mt-6 text-sm text-than-chi/70">
           Bảng chỉ mang tính tham khảo theo nhu cầu sử dụng.{" "}
-          <Link href="/lien-he" className="underline hover:text-accent">
+          <Link href="/lien-he" className="underline hover:text-accent-chu">
             Nhờ chuyên gia tư vấn kiểu cửa phù hợp
           </Link>
           .
@@ -73,8 +73,8 @@ export default function HeCua() {
             ["Kính hộp và gioăng", "Kính hộp cùng gioăng ôm sát giúp bộ cửa kín và êm dịu hơn."],
           ].map(([t, m], i) => (
             <li key={t} className="border-t-2 border-accent pt-6">
-              <span className="nhan-muc text-accent">{String(i + 1).padStart(2, "0")}</span>
-              <h3 className="mt-3 text-xl font-bold">{t}</h3>
+              <span className="nhan-muc text-accent-chu">{String(i + 1).padStart(2, "0")}</span>
+              <h3 className="mt-3 text-xl font-semibold">{t}</h3>
               <p className="mt-2 text-than-chi/80">{m}</p>
             </li>
           ))}

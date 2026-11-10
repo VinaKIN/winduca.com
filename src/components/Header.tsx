@@ -48,7 +48,7 @@ function MuiTen({ lop = "" }: { lop?: string }) {
 function NutTron({ href, nhan, children }: { href: string; nhan: string; children: ReactNode }) {
   const ngoai = href.startsWith("tel:") || href.startsWith("mailto:");
   const lop =
-    "flex h-10 w-10 items-center justify-center rounded-full bg-white text-accent transition-colors hover:bg-accent hover:text-white md:h-14 md:w-14";
+    "flex h-10 w-10 items-center justify-center rounded-[2px] bg-white text-accent-chu transition-colors hover:bg-accent hover:text-than-chi md:h-14 md:w-14";
   return ngoai ? (
     <a href={href} aria-label={nhan} className={lop}>
       {children}
@@ -150,7 +150,7 @@ export function Header() {
           aria-label="Menu"
           className="fixed inset-0 z-[60] overflow-y-auto bg-white px-3 py-3 md:px-6 md:py-5"
         >
-          <div className="mx-auto flex min-h-full max-w-[1440px] flex-col rounded-[28px] bg-nga p-2 md:rounded-[40px] md:p-2.5">
+          <div className="mx-auto flex min-h-full max-w-[1440px] flex-col rounded-[2px] bg-nga p-2 md:rounded-[2px] md:p-2.5">
             {/* Thanh trên: logo · nút Đóng */}
             <div className="flex h-16 items-center justify-between pl-5 pr-1 md:h-[72px] md:pl-8 md:pr-2">
               <Logo lop="h-6 w-auto md:h-7" tren={false} />
@@ -158,10 +158,10 @@ export function Header() {
                 type="button"
                 aria-label="Đóng menu"
                 onClick={() => setMoMenu(false)}
-                className="group flex items-center gap-2 rounded-full bg-than-chi py-1 pl-6 pr-1 text-[0.8125rem] font-bold uppercase tracking-[0.04em] text-white transition-colors hover:bg-accent"
+                className="group flex items-center gap-2 rounded-[2px] bg-than-chi py-1 pl-6 pr-1 text-[0.8125rem] font-semibold uppercase tracking-[0.04em] text-white transition-colors hover:bg-accent hover:text-than-chi"
               >
                 Đóng
-                <span className="flex h-10 w-10 items-center justify-center rounded-full bg-accent text-white">
+                <span className="flex h-10 w-10 items-center justify-center rounded-[2px] bg-accent text-than-chi">
                   <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" aria-hidden="true">
                     <path d="M6 6l12 12M18 6 6 18" />
                   </svg>
@@ -171,14 +171,14 @@ export function Header() {
 
             <div className="grid flex-1 gap-2 md:gap-2.5 lg:grid-cols-[1.15fr_1fr]">
               {/* Bảng trắng: danh sách trang */}
-              <nav aria-label="Điều hướng chính" className="flex flex-col justify-center rounded-[22px] bg-white px-6 py-6 md:rounded-[32px] md:px-14 md:py-10">
+              <nav aria-label="Điều hướng chính" className="flex flex-col justify-center rounded-[2px] bg-white px-6 py-6 md:rounded-[2px] md:px-14 md:py-10">
                 <ul>
                   {MENU_CHINH.map((m, i) => (
                     <li key={m.label} className={`py-4 md:py-5 ${i > 0 ? "border-t border-inox/60" : ""}`}>
                       <Link href={m.href} className="group flex items-center gap-5 text-than-chi">
-                        <span className="w-6 text-[11px] font-bold tracking-[0.12em] text-accent">{String(i + 1).padStart(2, "0")}</span>
-                        <span className="tieu-de text-[1.25rem] font-bold uppercase tracking-[0.02em] md:text-[1.6rem]">{m.label}</span>
-                        <span className="ml-auto text-accent opacity-0 transition-all duration-300 group-hover:translate-x-1 group-hover:opacity-100">
+                        <span className="w-6 text-[11px] font-semibold tracking-[0.12em] text-accent-chu">{String(i + 1).padStart(2, "0")}</span>
+                        <span className="tieu-de text-[1.25rem] font-semibold uppercase tracking-[0.02em] md:text-[1.6rem]">{m.label}</span>
+                        <span className="ml-auto text-accent-chu opacity-0 transition-all duration-300 group-hover:translate-x-1 group-hover:opacity-100">
                           <MuiTen />
                         </span>
                       </Link>
@@ -189,7 +189,7 @@ export function Header() {
                               <Link
                                 href={c.href}
                                 aria-current={dangO(c.href) ? "page" : undefined}
-                                className={`text-sm transition-colors hover:text-accent ${dangO(c.href) ? "font-bold text-accent" : "text-than-chi/65"}`}
+                                className={`text-sm transition-colors hover:text-accent-chu ${dangO(c.href) ? "font-semibold text-accent-chu" : "text-than-chi/65"}`}
                               >
                                 {c.label}
                               </Link>
@@ -203,20 +203,20 @@ export function Header() {
               </nav>
 
               {/* Thẻ ảnh + liên hệ */}
-              <div className="relative min-h-[420px] overflow-hidden rounded-[22px] bg-than-chi md:rounded-[32px]">
+              <div className="relative min-h-[420px] overflow-hidden rounded-[2px] bg-than-chi md:rounded-[2px]">
                 {HERO_ANH && <Image src={HERO_ANH} alt="" fill quality={60} sizes="(min-width: 1024px) 40vw, 100vw" className="object-cover" aria-hidden="true" />}
                 <div className="absolute inset-0 bg-than-chi/20" aria-hidden="true" />
-                <div className="absolute inset-x-3 bottom-3 rounded-[22px] bg-nga p-5 md:inset-x-4 md:bottom-4 md:rounded-[26px] md:p-6">
-                  <p className="tieu-de text-xl font-bold text-than-chi">Liên hệ</p>
+                <div className="absolute inset-x-3 bottom-3 rounded-[2px] bg-nga p-5 md:inset-x-4 md:bottom-4 md:rounded-[2px] md:p-6">
+                  <p className="tieu-de text-xl font-semibold text-than-chi">Liên hệ</p>
                   <ul className="mt-4 space-y-3 text-[0.9rem] text-than-chi/85">
                     <li className="flex items-start gap-3">
-                      <span className="mt-0.5 text-accent">
+                      <span className="mt-0.5 text-accent-chu">
                         <IconViTri />
                       </span>
                       <span>Địa chỉ showroom: [CHỜ XÁC NHẬN]</span>
                     </li>
                     <li className="flex items-start gap-3">
-                      <span className="mt-0.5 text-accent">
+                      <span className="mt-0.5 text-accent-chu">
                         <IconDienThoai />
                       </span>
                       <a href={HOTLINE_TEL} className="font-medium hover:underline">
@@ -224,7 +224,7 @@ export function Header() {
                       </a>
                     </li>
                     <li className="flex items-start gap-3">
-                      <span className="mt-0.5 text-accent">
+                      <span className="mt-0.5 text-accent-chu">
                         <IconThu />
                       </span>
                       <span>Email: [CHỖ TRỐNG]</span>
@@ -232,10 +232,10 @@ export function Header() {
                   </ul>
                   <Link
                     href="/trai-nghiem"
-                    className="group mt-5 inline-flex w-full items-center justify-between gap-4 rounded-full bg-than-chi py-1.5 pl-6 pr-1.5 text-[0.8125rem] font-bold uppercase tracking-[0.04em] text-white transition-colors hover:bg-accent sm:w-auto"
+                    className="group mt-5 inline-flex w-full items-center justify-between gap-4 rounded-[2px] bg-than-chi py-1.5 pl-6 pr-1.5 text-[0.8125rem] font-semibold uppercase tracking-[0.04em] text-white transition-colors hover:bg-accent sm:w-auto"
                   >
                     Đăng ký trải nghiệm
-                    <span className="flex h-10 w-10 items-center justify-center rounded-full bg-accent text-white transition-transform duration-300 group-hover:rotate-45">
+                    <span className="flex h-10 w-10 items-center justify-center rounded-[2px] bg-accent text-than-chi transition-transform duration-300 group-hover:rotate-45">
                       <MuiTen />
                     </span>
                   </Link>

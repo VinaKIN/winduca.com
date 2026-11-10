@@ -1,0 +1,13 @@
+name = "winduca-lead"
+main = "src/index.js"
+compatibility_date = "2026-01-01"
+
+# Khoá bí mật KHÔNG ghi vào file này. Đặt bằng: npx wrangler secret put <TÊN>
+#   LEAD_WEBHOOK_URL, LEAD_WEBHOOK_SECRET   (kho mã hóa / CRM VinaKIN nhận dữ liệu khách)
+#   TELEGRAM_BOT_TOKEN, TELEGRAM_CHAT_ID    (thông báo chỉ có MÃ và LOẠI)
+#   TURNSTILE_SECRET_KEY                    (chống spam)
+#   RESEND_API_KEY                          (tuỳ chọn: email thông báo chỉ có MÃ và LOẠI)
+[vars]
+ALLOWED_ORIGINS = "https://vinakin.github.io"
+NOTIFY_EMAIL_TO = ""   # email chung nhận thông báo (chờ anh Huy cung cấp)
+NOTIFY_EMAIL_FROM = "" # địa chỉ gửi đã xác minh trong Resend

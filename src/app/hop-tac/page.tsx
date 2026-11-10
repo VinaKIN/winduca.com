@@ -25,11 +25,11 @@ export default function HopTac() {
       />
 
       <Section tone="sang" nhan="Dành cho ai" tieuDe="Ba nhóm đối tác của WINDUCA">
-        <ul className="grid gap-px overflow-hidden rounded-[24px] bg-inox/70 md:grid-cols-3 md:rounded-[32px]">
+        <ul className="grid gap-px overflow-hidden rounded-[2px] bg-inox/70 md:grid-cols-3 md:rounded-[2px]">
           {DOI_TAC.map((d) => (
             <li key={d.so} className="bg-white p-8 md:p-10">
-              <span className="text-5xl font-bold text-accent md:text-6xl">{d.so}</span>
-              <h3 className="mt-6 text-xl font-bold">{d.t}</h3>
+              <span className="text-5xl font-semibold text-accent-chu md:text-6xl">{d.so}</span>
+              <h3 className="mt-6 text-xl font-semibold">{d.t}</h3>
               <p className="mt-2 text-sm text-than-chi/75">{d.m}</p>
             </li>
           ))}
@@ -39,8 +39,8 @@ export default function HopTac() {
       <Section tone="nga" nhan="Văn phòng khu vực" tieuDe="Gần công trình của bạn">
         <ul className="grid gap-5 md:grid-cols-3">
           {VUNG.map((v) => (
-            <li key={v} className="rounded-[24px] bg-white p-7 md:rounded-[32px]">
-              <p className="nhan-muc text-accent">{v}</p>
+            <li key={v} className="rounded-[2px] bg-white p-7 md:rounded-[2px]">
+              <p className="nhan-muc text-accent-chu">{v}</p>
               <p className="mt-4 text-sm text-than-chi/75">Địa chỉ: [CHỜ XÁC NHẬN]</p>
               <p className="mt-1 text-sm text-than-chi/75">Điện thoại: [CHỜ XÁC NHẬN]</p>
             </li>

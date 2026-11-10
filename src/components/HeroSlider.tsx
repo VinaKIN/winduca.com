@@ -47,8 +47,8 @@ const SLIDES: Slide[] = [
 function MuiTenTron({ kieu }: { kieu: "do" | "vien" }) {
   return (
     <span
-      className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-full transition-transform duration-300 group-hover:translate-x-0.5 ${
-        kieu === "do" ? "bg-accent text-white" : "bg-accent text-white"
+      className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-[2px] transition-transform duration-300 group-hover:translate-x-0.5 ${
+        kieu === "do" ? "bg-accent text-than-chi" : "bg-accent text-than-chi"
       }`}
     >
       <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
@@ -94,11 +94,11 @@ export function HeroSlider() {
 
           <div className="absolute inset-0 flex flex-col items-center justify-end px-6 pb-[14svh] text-center text-white md:pb-[16svh]">
             {k === 0 ? (
-              <h1 className="max-w-5xl text-[clamp(1.6rem,3.6vw,3.6rem)] font-bold uppercase leading-[1.15] [text-wrap:balance]">
+              <h1 className="max-w-5xl text-[clamp(1.6rem,3.6vw,3.6rem)] font-semibold uppercase leading-[1.15] [text-wrap:balance]">
                 {s.dong[0]} <span className="block">{s.dong[1]}</span>
               </h1>
             ) : (
-              <p className="max-w-5xl text-[clamp(1.6rem,3.6vw,3.6rem)] font-bold uppercase leading-[1.15] [text-wrap:balance]">
+              <p className="max-w-5xl text-[clamp(1.6rem,3.6vw,3.6rem)] font-semibold uppercase leading-[1.15] [text-wrap:balance]">
                 {s.dong[0]} <span className="block">{s.dong[1]}</span>
               </p>
             )}
@@ -107,7 +107,7 @@ export function HeroSlider() {
               <Link
                 href={s.nut1.href}
                 tabIndex={k === i ? 0 : -1}
-                className="group inline-flex items-center gap-4 rounded-full bg-white py-1.5 pl-7 pr-1.5 text-[0.8125rem] font-bold uppercase tracking-[0.04em] text-than-chi transition-colors hover:bg-nga"
+                className="group inline-flex items-center gap-4 rounded-[2px] bg-nga py-1.5 pl-7 pr-1.5 text-[0.8125rem] font-semibold uppercase tracking-[0.04em] text-than-chi transition-colors hover:bg-nga"
               >
                 {s.nut1.nhan}
                 <MuiTenTron kieu="do" />
@@ -115,7 +115,7 @@ export function HeroSlider() {
               <Link
                 href={s.nut2.href}
                 tabIndex={k === i ? 0 : -1}
-                className="group inline-flex items-center gap-4 rounded-full border border-white/85 py-1.5 pl-7 pr-1.5 text-[0.8125rem] font-bold uppercase tracking-[0.04em] text-white transition-colors hover:bg-white hover:text-than-chi"
+                className="group inline-flex items-center gap-4 rounded-[2px] border border-white/85 py-1.5 pl-7 pr-1.5 text-[0.8125rem] font-semibold uppercase tracking-[0.04em] text-white transition-colors hover:bg-white hover:text-than-chi"
               >
                 {s.nut2.nhan}
                 <MuiTenTron kieu="vien" />
@@ -135,7 +135,7 @@ export function HeroSlider() {
             aria-selected={k === i}
             aria-label={`Slide ${k + 1}`}
             onClick={() => setI(k)}
-            className={`h-2.5 rounded-full transition-all duration-300 ${k === i ? "w-6 bg-white" : "w-2.5 bg-white/50 hover:bg-white/80"}`}
+            className={`h-2.5 rounded-[2px] transition-all duration-300 ${k === i ? "w-6 bg-white" : "w-2.5 bg-white/50 hover:bg-white/80"}`}
           />
         ))}
       </div>

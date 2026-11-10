@@ -38,6 +38,7 @@ jobs:
         run: npm run build
         env:
           GITHUB_PAGES: "true"
+          NEXT_PUBLIC_LEAD_ENDPOINT: ${{ vars.LEAD_ENDPOINT }}
 
       - name: Tao 404.html cho Pages
         run: test -f out/404.html || cp out/_not-found/index.html out/404.html || true

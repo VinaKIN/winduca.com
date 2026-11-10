@@ -28,16 +28,16 @@ export function NutLienHeNhanh() {
       {mo && (
         <ul
           id="lien-he-nhanh"
-          className="absolute bottom-16 right-0 w-64 overflow-hidden rounded-2xl bg-white p-2 shadow-[0_16px_48px_rgba(35,31,32,0.22)]"
+          className="absolute bottom-16 right-0 w-64 overflow-hidden rounded-[2px] bg-white p-2 shadow-[0_16px_48px_rgba(35,31,32,0.22)]"
         >
           {muc.map((m) => (
             <li key={m.nhan}>
               {m.ngoai ? (
-                <a href={m.href} className="block rounded-xl px-4 py-3 text-sm font-medium text-than-chi hover:bg-nga">
+                <a href={m.href} className="block rounded-[2px] px-4 py-3 text-sm font-medium text-than-chi hover:bg-nga">
                   {m.nhan}
                 </a>
               ) : (
-                <Link href={m.href} onClick={() => setMo(false)} className="block rounded-xl px-4 py-3 text-sm font-medium text-than-chi hover:bg-nga">
+                <Link href={m.href} onClick={() => setMo(false)} className="block rounded-[2px] px-4 py-3 text-sm font-medium text-than-chi hover:bg-nga">
                   {m.nhan}
                 </Link>
               )}
@@ -51,7 +51,7 @@ export function NutLienHeNhanh() {
         aria-controls="lien-he-nhanh"
         aria-label={mo ? "Đóng liên hệ nhanh" : "Mở liên hệ nhanh"}
         onClick={() => setMo((v) => !v)}
-        className="flex h-12 w-12 items-center justify-center rounded-full bg-accent text-white shadow-[0_8px_24px_rgba(227,25,55,0.4)] transition-colors hover:bg-accent-dam md:h-14 md:w-14"
+        className="flex h-12 w-12 items-center justify-center rounded-[2px] bg-accent text-than-chi shadow-none transition-colors hover:bg-accent-dam md:h-14 md:w-14"
       >
         {mo ? (
           <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" aria-hidden="true">
