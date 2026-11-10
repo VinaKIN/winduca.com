@@ -34,7 +34,7 @@ export default function DieuKhoan() {
       </ul>
 
       <h2>5. Sở hữu trí tuệ</h2>
-      <p>Tên WINDUCA, biểu tượng và nội dung trên website thuộc quyền của WINDUCA/VinaKIN Group. Vui lòng không sao chép khi chưa được phép.</p>
+      <p>Tên WINDUCA, biểu tượng và nội dung trên website thuộc quyền của WINDUCA. Vui lòng không sao chép khi chưa được phép.</p>
 
       <h2>6. Giới hạn trách nhiệm</h2>
       <p>

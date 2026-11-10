@@ -8,7 +8,7 @@ export default function ChinhSachBaoMat() {
   return (
     <ChinhSach tieuDe="Chính sách bảo mật" capNhat="09/11/2026 (bản nháp)">
       <p>
-        WINDUCA là thương hiệu thuộc VinaKIN Group. Chính sách này giải thích chúng tôi thu thập, sử dụng và bảo vệ thông tin
+        Chính sách này giải thích chúng tôi thu thập, sử dụng và bảo vệ thông tin
         cá nhân của anh chị khi sử dụng website winduca.com, theo quy định về bảo vệ dữ liệu cá nhân của Việt Nam (Nghị định
         13/2023/NĐ-CP).
       </p>
@@ -33,7 +33,7 @@ export default function ChinhSachBaoMat() {
       <h2>3. Nơi lưu trữ và thời hạn</h2>
       <p>
         Website không lưu thông tin liên hệ của anh chị trên máy chủ web. Thông tin được chuyển tiếp và lưu trong hệ thống nội
-        bộ của VinaKIN Group có mã hóa, chỉ nhân sự được phân quyền mới truy cập. Thời hạn lưu: 12 tháng kể từ lần liên hệ cuối.
+        bộ của WINDUCA có mã hóa, chỉ nhân sự được phân quyền mới truy cập. Thời hạn lưu: 12 tháng kể từ lần liên hệ cuối.
         Bản vẽ gửi để tư vấn được lưu 30 ngày rồi xóa; anh chị có thể yêu cầu xóa sớm.
       </p>
 
@@ -54,7 +54,7 @@ export default function ChinhSachBaoMat() {
 
       <h2>6. Thông tin liên hệ</h2>
       <p>
-        VinaKIN Group — [CHỖ TRỐNG] tên pháp nhân, mã số thuế, địa chỉ. Hotline: 0947 686 668. Email: [CHỖ TRỐNG].
+        WINDUCA — [CHỖ TRỐNG] tên pháp nhân, mã số thuế, địa chỉ. Hotline: 0947 686 668. Email: [CHỖ TRỐNG].
       </p>
     </ChinhSach>
   );

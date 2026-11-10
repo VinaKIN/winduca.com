@@ -1,9 +1,9 @@
 /**
  * Tiếp nhận biểu mẫu (Sample Box, Showroom, Gửi bản vẽ, Tải tài liệu, Liên hệ).
  *
- * NGUYÊN TẮC DỮ LIỆU KHÁCH (quy tắc VinaKIN):
+ * NGUYÊN TẮC DỮ LIỆU KHÁCH (quy tắc dữ liệu khách):
  * - Máy chủ web KHÔNG lưu và KHÔNG ghi log tên, SĐT, email, bản vẽ.
- * - Dữ liệu chỉ được chuyển tiếp tới kho mã hóa/CRM của VinaKIN qua LEAD_WEBHOOK_URL.
+ * - Dữ liệu chỉ được chuyển tiếp tới kho mã hóa/CRM nội bộ qua LEAD_WEBHOOK_URL.
  * - Thông báo Telegram chỉ ghi MÃ và LOẠI, không có SĐT.
  * - Chưa cấu hình kho nhận => trả 503 (không nuốt dữ liệu một cách âm thầm).
  */

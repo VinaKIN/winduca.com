@@ -68,7 +68,6 @@ export function Footer() {
                 height={190}
                 className="h-auto w-48 md:w-56"
               />
-              <p className="mt-6 max-w-sm text-sm font-light text-white/70">WINDUCA là thương hiệu thuộc VinaKIN Group.</p>
             </div>
 
             <div className="grid grid-cols-2 gap-8 text-sm">

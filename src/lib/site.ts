@@ -187,7 +187,7 @@ export const FAQ_CHUNG = [
   },
   {
     q: "Cửa của WINDUCA được gia công ở đâu?",
-    a: "Bộ cửa được gia công chính xác theo bản vẽ tại xưởng WINDUCA, thuộc VinaKIN Group, rồi lắp đặt tại công trình.",
+    a: "Bộ cửa được gia công chính xác theo bản vẽ tại xưởng WINDUCA, rồi lắp đặt tại công trình.",
   },
   {
     q: "Bảo hành và bảo trì thế nào?",

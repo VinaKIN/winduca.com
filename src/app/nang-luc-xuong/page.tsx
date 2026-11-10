@@ -31,7 +31,7 @@ export default function NangLucXuong() {
       <PageHero
         nhan="Xưởng gia công WINDUCA · Trung tâm sản xuất chính xác"
         tieuDe="Mỗi bộ cửa bắt đầu từ một bản vẽ."
-        moTa="Gia công chính xác theo bản vẽ kiến trúc sư, rồi lắp đặt tại công trình. Xưởng WINDUCA thuộc VinaKIN Group."
+        moTa="Gia công chính xác theo bản vẽ kiến trúc sư, rồi lắp đặt tại công trình."
       >
         <Link href="/danh-cho-kts#tu-van" className="nut nut-chinh">
           Gửi bản vẽ, nhận bóc tách

@@ -1,6 +1,6 @@
 # winduca.com
 
-Website **WINDUCA — Premium Window & Door** (thuộc VinaKIN Group): cửa nhôm cầu cách nhiệt cao cấp tiêu chuẩn châu Âu, dành cho kiến trúc sư, nhà thầu và chủ nhà.
+Website **WINDUCA — Premium Window & Door**: cửa nhôm cầu cách nhiệt cao cấp tiêu chuẩn châu Âu, dành cho kiến trúc sư, nhà thầu và chủ nhà.
 
 > Trạng thái: **mốc 1 — bản xem thử nội bộ** (khung trang, hero cửa trượt, mặt cắt nhôm 3D tách lớp). Chưa phải bản công khai: `robots` đang chặn công cụ tìm kiếm.
 

@@ -1,9 +1,9 @@
 /**
  * Cloudflare Worker nhận biểu mẫu WINDUCA (thay /api/lead khi web chạy tĩnh trên GitHub Pages).
  *
- * NGUYÊN TẮC DỮ LIỆU KHÁCH (ranh đỏ VinaKIN):
+ * NGUYÊN TẮC DỮ LIỆU KHÁCH (quy tắc dữ liệu khách):
  * - Worker KHÔNG lưu và KHÔNG ghi log tên, SĐT, email, bản vẽ.
- * - Dữ liệu chỉ được chuyển tiếp tới kho mã hóa/CRM VinaKIN qua LEAD_WEBHOOK_URL.
+ * - Dữ liệu chỉ được chuyển tiếp tới kho mã hóa/CRM nội bộ qua LEAD_WEBHOOK_URL.
  * - Telegram và email thông báo chỉ ghi MÃ và LOẠI, không có SĐT.
  * - Chưa cấu hình kho nhận => trả 503 (không nuốt dữ liệu âm thầm).
  */

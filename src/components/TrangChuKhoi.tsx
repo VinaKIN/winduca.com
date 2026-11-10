@@ -47,7 +47,7 @@ export function GioiThieuKhoi() {
               WINDUCA – <span className="block font-bold">Premium Window &amp; Door</span>
             </h2>
             <p className="mt-6 max-w-xl text-base text-than-chi/75 md:text-lg">
-              WINDUCA thuộc VinaKIN Group, mang đến giải pháp cửa nhôm kính cao cấp châu Âu đồng bộ — từ hệ nhôm, phụ kiện đến thi công — cho
+              WINDUCA mang đến giải pháp cửa nhôm kính cao cấp châu Âu đồng bộ — từ hệ nhôm, phụ kiện đến thi công — cho
               biệt thự, penthouse và các công trình cao cấp.
             </p>
             <ul className="mt-8 space-y-5">
