@@ -10,7 +10,7 @@ export default function ChinhSachCookie() {
 
       <h2>1. Cookie cần thiết</h2>
       <p>
-        Giúp website hoạt động đúng, ví dụ ghi nhớ lựa chọn cookie của anh chị và bảo vệ biểu mẫu khỏi spam. Loại này luôn bật.
+        Giúp website hoạt động đúng, ví dụ bảo vệ biểu mẫu khỏi spam. Loại này luôn bật.
       </p>
 
       <h2>2. Cookie không thiết yếu (chỉ khi anh chị đồng ý)</h2>
@@ -18,10 +18,13 @@ export default function ChinhSachCookie() {
         <li>Đo lường lượt truy cập (Google Analytics) và quảng cáo (Meta Pixel).</li>
         <li>Bản đồ nhúng (Google Maps).</li>
       </ul>
-      <p>Mặc định chúng tôi từ chối nhóm này. Hiện website chưa bật các công cụ trên.</p>
+      <p>
+        Hiện website chưa bật các công cụ trên nên không đặt cookie loại này. Khi bật, chúng tôi sẽ hiển thị thông báo cookie
+        và chỉ chạy sau khi anh chị đồng ý.
+      </p>
 
       <h2>3. Thay đổi lựa chọn</h2>
-      <p>Anh chị có thể xóa dữ liệu trang trong trình duyệt để hiển thị lại thông báo cookie và chọn lại.</p>
+      <p>Khi có thông báo cookie, anh chị có thể đổi lựa chọn bất cứ lúc nào bằng cách xóa dữ liệu trang trong trình duyệt.</p>
     </ChinhSach>
   );
 }
