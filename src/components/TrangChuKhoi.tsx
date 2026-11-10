@@ -222,20 +222,20 @@ export function ViSaoKhoi() {
     { so: "03", t: "Đồng bộ đến thi công", m: "Một đầu mối từ hệ nhôm, phụ kiện đến lắp đặt và nghiệm thu." },
   ];
   return (
-    <section className="nen-toi pb-20 text-white md:pb-28">
+    <section className="nen-toi py-7 text-white">
       <Wrap>
         <NhanDo>Vì sao chọn WINDUCA</NhanDo>
         <h2 className="mt-0.5 max-w-3xl text-[clamp(1.625rem,2.6vw,2.5rem)] font-light tracking-[-0.01em] leading-[1.05]">Sự thật về WINDUCA</h2>
-        <ul className="mt-6 grid gap-px overflow-hidden rounded-[24px] bg-white/15 md:mt-12 md:grid-cols-3 md:rounded-[32px]">
+        <ul className="mt-5 grid gap-px overflow-hidden rounded-[20px] bg-white/15 md:grid-cols-3 md:rounded-[24px]">
           {y.map((i) => (
-            <li key={i.so} className="bg-than-chi p-5 md:p-10">
-              <span className="text-3xl font-bold text-accent md:text-6xl">{i.so}</span>
-              <h3 className="mt-3 text-xl font-bold md:mt-6 md:text-xl">{i.t}</h3>
+            <li key={i.so} className="bg-than-chi p-5 md:p-7">
+              <span className="text-3xl font-bold leading-none text-accent md:text-5xl">{i.so}</span>
+              <h3 className="mt-3 text-xl font-bold md:mt-4">{i.t}</h3>
               <p className="mt-2 text-[15px] font-light leading-relaxed text-white/75">{i.m}</p>
             </li>
           ))}
         </ul>
-        <div className="mt-10 flex flex-wrap gap-3">
+        <div className="mt-6 flex flex-wrap gap-3">
           <Link href="/gioi-thieu" className="nut nut-chinh">
             Tìm hiểu thêm về WINDUCA
           </Link>
