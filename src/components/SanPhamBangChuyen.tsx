@@ -57,7 +57,7 @@ export function SanPhamBangChuyen() {
         {KIEU_CUA.map((k, n) => (
           <li
             key={k.slug}
-            className="relative grid w-[88%] shrink-0 snap-center overflow-hidden rounded-[2px] bg-than-chi text-white md:w-[78%] md:grid-cols-[1.15fr_1fr] md:rounded-[2px]"
+            className="relative grid w-[88%] shrink-0 snap-center overflow-hidden rounded-[28px] bg-than-chi text-white md:w-[78%] md:grid-cols-[1.15fr_1fr] md:rounded-[36px]"
           >
             <div className="relative min-h-[240px] md:min-h-[420px]">
               <Image
@@ -72,26 +72,26 @@ export function SanPhamBangChuyen() {
               <NhanMinhHoa className="left-4 top-4" />
             </div>
             <div className="flex flex-col justify-center p-6 md:p-10">
-              <p className="nhan-muc text-accent-chu">
+              <p className="nhan-muc text-accent">
                 Hệ cửa · {String(n + 1).padStart(2, "0")} / {String(KIEU_CUA.length).padStart(2, "0")}
               </p>
-              <h3 className="mt-3 text-2xl font-semibold md:text-3xl">{k.ten}</h3>
+              <h3 className="mt-3 text-2xl font-bold md:text-3xl">{k.ten}</h3>
               <p className="mt-2 text-sm font-light text-white/80">{k.tagline}</p>
               <dl className="mt-6 grid grid-cols-2 gap-x-6 gap-y-5 border-t border-white/15 pt-6 text-sm">
                 <div>
-                  <dt className="text-[11px] font-semibold uppercase tracking-[0.12em] text-white/55">Cách mở</dt>
+                  <dt className="text-[11px] font-bold uppercase tracking-[0.12em] text-white/55">Cách mở</dt>
                   <dd className="mt-1 font-medium leading-snug">{k.cachMo}</dd>
                 </div>
                 <div>
-                  <dt className="text-[11px] font-semibold uppercase tracking-[0.12em] text-white/55">Khẩu độ</dt>
+                  <dt className="text-[11px] font-bold uppercase tracking-[0.12em] text-white/55">Khẩu độ</dt>
                   <dd className="mt-1 font-medium leading-snug">{k.khauDo}</dd>
                 </div>
                 <div>
-                  <dt className="text-[11px] font-semibold uppercase tracking-[0.12em] text-white/55">Cách nhiệt</dt>
+                  <dt className="text-[11px] font-bold uppercase tracking-[0.12em] text-white/55">Cách nhiệt</dt>
                   <dd className="mt-1 text-white/70">Đang chờ xác nhận</dd>
                 </div>
                 <div>
-                  <dt className="text-[11px] font-semibold uppercase tracking-[0.12em] text-white/55">Cách âm</dt>
+                  <dt className="text-[11px] font-bold uppercase tracking-[0.12em] text-white/55">Cách âm</dt>
                   <dd className="mt-1 text-white/70">Đang chờ xác nhận</dd>
                 </div>
               </dl>
@@ -108,7 +108,7 @@ export function SanPhamBangChuyen() {
           type="button"
           aria-label="Hệ cửa trước"
           onClick={() => toi(chiSo - 1)}
-          className="flex h-11 w-11 items-center justify-center rounded-[2px] bg-than-chi text-white transition-colors hover:bg-accent hover:text-than-chi"
+          className="flex h-11 w-11 items-center justify-center rounded-full bg-than-chi text-white transition-colors hover:bg-accent"
         >
           <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
             <path d="m15 6-6 6 6 6" />
@@ -122,7 +122,7 @@ export function SanPhamBangChuyen() {
               aria-label={`Đến ${k.ten}`}
               aria-current={n === chiSo}
               onClick={() => toi(n)}
-              className={`h-2 rounded-[2px] transition-all ${n === chiSo ? "w-6 bg-accent" : "w-2 bg-than-chi/25 hover:bg-than-chi/50"}`}
+              className={`h-2 rounded-full transition-all ${n === chiSo ? "w-6 bg-accent" : "w-2 bg-than-chi/25 hover:bg-than-chi/50"}`}
             />
           ))}
         </div>
@@ -130,7 +130,7 @@ export function SanPhamBangChuyen() {
           type="button"
           aria-label="Hệ cửa sau"
           onClick={() => toi(chiSo + 1)}
-          className="flex h-11 w-11 items-center justify-center rounded-[2px] bg-than-chi text-white transition-colors hover:bg-accent hover:text-than-chi"
+          className="flex h-11 w-11 items-center justify-center rounded-full bg-than-chi text-white transition-colors hover:bg-accent"
         >
           <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
             <path d="m9 6 6 6-6 6" />

@@ -24,12 +24,12 @@ export default function TinTuc() {
           {BAI_SAP_CO.map((b) => (
             <li key={b.t}>
               <div className="group block">
-                <div className="relative aspect-[16/10] overflow-hidden rounded-[2px] bg-than-chi md:rounded-[2px]">
+                <div className="relative aspect-[16/10] overflow-hidden rounded-[20px] bg-than-chi md:rounded-[28px]">
                   <Image src={asset(b.anh)} alt="" fill quality={60} sizes="(min-width: 768px) 30vw, 100vw" className="object-cover" style={{ objectPosition: b.pos }} />
                   <NhanMinhHoa className="left-3 top-3" />
                 </div>
-                <p className="nhan-muc mt-4 text-accent-chu">{b.loai}</p>
-                <h2 className="mt-2 text-lg font-semibold leading-snug">{b.t}</h2>
+                <p className="nhan-muc mt-4 text-accent">{b.loai}</p>
+                <h2 className="mt-2 text-lg font-bold leading-snug">{b.t}</h2>
                 <p className="mt-1 text-sm text-than-chi/60">Sắp có</p>
               </div>
             </li>

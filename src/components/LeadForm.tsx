@@ -52,7 +52,7 @@ export function LeadForm({ loai, tone = "sang", kieuCuaMacDinh = "", khiXong, go
   const toi = tone === "toi";
 
   const nhan = `block text-sm font-medium ${toi ? "text-nga" : "text-than-chi"}`;
-  const o = `mt-2 w-full rounded-[2px] border px-3 py-3 text-base outline-none transition-colors focus:border-accent ${
+  const o = `mt-2 w-full rounded-md border px-3 py-3 text-base outline-none transition-colors focus:border-accent ${
     toi
       ? "border-inox/40 bg-than-chi/40 text-nga placeholder:text-nga/50"
       : "border-than-chi/25 bg-white text-than-chi placeholder:text-than-chi/50"
@@ -285,7 +285,7 @@ export function LeadForm({ loai, tone = "sang", kieuCuaMacDinh = "", khiXong, go
 
       <div className="md:col-span-2">
         <label className={`flex items-start gap-3 text-sm ${toi ? "text-nga/90" : "text-than-chi/85"}`}>
-          <input type="checkbox" name="dongY" className="mt-1 h-4 w-4 accent-[#BFA678]" />
+          <input type="checkbox" name="dongY" className="mt-1 h-4 w-4 accent-[#e31937]" />
           <span>{CAU_DONG_Y[loai]}</span>
         </label>
         {loiTruong.dongY && <p className={loiCss}>{loiTruong.dongY}</p>}

@@ -36,7 +36,7 @@ export function Section({
       <Wrap className="relative py-16 md:py-24">
         {(nhanChu || tieuDe || moTa) && (
           <div>
-            {nhanChu && <p className="nhan-muc text-accent-chu">{nhanChu}</p>}
+            {nhanChu && <p className="nhan-muc text-accent">{nhanChu}</p>}
             {tieuDe && <h2 className="mt-3 max-w-3xl text-[clamp(1.75rem,3.4vw,2.75rem)] font-light leading-[1.15]">{tieuDe}</h2>}
             {moTa && <p className={`mt-5 max-w-2xl text-base font-light md:text-lg ${toi ? "text-white/80" : "text-than-chi/75"}`}>{moTa}</p>}
           </div>
@@ -66,8 +66,8 @@ export function PageHero({
       {anh && <Image src={asset(anh)} alt="" fill quality={60} sizes="100vw" className="object-cover" aria-hidden="true" priority />}
       <div className="absolute inset-0 bg-than-chi/70" aria-hidden="true" />
       <Wrap className="relative pb-16 pt-40 md:pb-24 md:pt-56">
-        <p className="nhan-muc text-accent-chu">{nhan}</p>
-        <h1 className="mt-4 max-w-4xl text-[clamp(1.9rem,4.4vw,3.5rem)] font-semibold uppercase leading-[1.12] [text-wrap:balance]">{tieuDe}</h1>
+        <p className="nhan-muc text-accent">{nhan}</p>
+        <h1 className="mt-4 max-w-4xl text-[clamp(1.9rem,4.4vw,3.5rem)] font-bold uppercase leading-[1.12] [text-wrap:balance]">{tieuDe}</h1>
         {moTa && <p className="mt-6 max-w-2xl text-base font-light text-white/85 md:text-lg">{moTa}</p>}
         {children && <div className="mt-8 flex flex-col gap-3 sm:flex-row">{children}</div>}
       </Wrap>
@@ -79,7 +79,7 @@ export function PageHero({
 export function NhanMinhHoa({ className = "" }: { className?: string }) {
   return (
     <span
-      className={`pointer-events-none absolute z-10 rounded-[2px] bg-than-chi/80 px-3 py-1 text-[11px] font-medium text-white backdrop-blur-sm ${className}`}
+      className={`pointer-events-none absolute z-10 rounded-full bg-than-chi/80 px-3 py-1 text-[11px] font-medium text-white backdrop-blur-sm ${className}`}
     >
       Minh họa
     </span>
@@ -98,7 +98,7 @@ export function ChoXacNhan({
     <span className="text-sm font-medium text-white/70">{children}</span>
   ) : (
     <span className="inline-flex items-center gap-2 text-sm font-medium text-than-chi/80">
-      <span className="h-1.5 w-1.5 rounded-[2px] bg-accent" aria-hidden="true" />
+      <span className="h-1.5 w-1.5 rounded-full bg-accent" aria-hidden="true" />
       {children}
     </span>
   );
