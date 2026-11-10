@@ -17,26 +17,26 @@ export function Footer() {
         <Image src={asset("/images/hero.jpg")} alt="" fill quality={60} sizes="100vw" className="object-cover" aria-hidden="true" />
         <div className="absolute inset-0 bg-than-chi/70" aria-hidden="true" />
         <Wrap className="relative py-10 md:py-12">
-          <div className="mx-auto max-w-5xl overflow-hidden rounded-[2px] bg-white md:rounded-[2px]">
+          <div className="mx-auto max-w-5xl overflow-hidden rounded-[28px] bg-white md:rounded-[36px]">
             <div className="bg-than-chi px-6 py-8 text-white md:px-12 md:py-10">
               <div className="grid gap-8 md:grid-cols-[1fr_1.2fr] md:items-center">
-                <h2 className="text-[clamp(1.6rem,3vw,2.4rem)] font-semibold leading-tight">
+                <h2 className="text-[clamp(1.6rem,3vw,2.4rem)] font-bold leading-tight">
                   Trải nghiệm
                   <span className="block">không gian WINDUCA</span>
                 </h2>
                 <ul className="grid gap-3 text-sm sm:grid-cols-2">
                   <li className="flex items-center gap-3">
-                    <span className="h-2 w-2 shrink-0 rounded-[2px] bg-accent" aria-hidden="true" />
+                    <span className="h-2 w-2 shrink-0 rounded-full bg-accent" aria-hidden="true" />
                     <a href={HOTLINE_TEL} className="hover:underline">
                       Hotline: {HOTLINE}
                     </a>
                   </li>
                   <li className="flex items-center gap-3">
-                    <span className="h-2 w-2 shrink-0 rounded-[2px] bg-accent" aria-hidden="true" />
+                    <span className="h-2 w-2 shrink-0 rounded-full bg-accent" aria-hidden="true" />
                     <span className="text-white/80">Email: [CHỖ TRỐNG]</span>
                   </li>
                   <li className="flex items-center gap-3 sm:col-span-2">
-                    <span className="h-2 w-2 shrink-0 rounded-[2px] bg-accent" aria-hidden="true" />
+                    <span className="h-2 w-2 shrink-0 rounded-full bg-accent" aria-hidden="true" />
                     <span className="text-white/80">Showroom: [CHỜ XÁC NHẬN] địa chỉ và giờ làm việc</span>
                   </li>
                 </ul>
@@ -47,7 +47,7 @@ export function Footer() {
             </div>
             <div className="grid gap-8 px-6 py-8 md:grid-cols-[0.8fr_1.2fr] md:px-12 md:py-10">
               <div>
-                <h3 className="text-xl font-semibold">Đăng ký tham quan</h3>
+                <h3 className="text-xl font-bold">Đăng ký tham quan</h3>
                 <p className="mt-2 text-sm text-than-chi/70">Chúng tôi liên hệ lại để xác nhận lịch trải nghiệm và giải đáp thắc mắc của anh chị.</p>
               </div>
               <LeadForm loai="lien-he" tone="sang" gon />
@@ -73,7 +73,7 @@ export function Footer() {
             <div className="grid grid-cols-2 gap-8 text-sm">
               <ul className="space-y-3">
                 <li>
-                  <Link href="/" className="font-semibold hover:text-accent">
+                  <Link href="/" className="font-bold hover:text-accent">
                     Trang chủ
                   </Link>
                 </li>
@@ -118,7 +118,7 @@ export function Footer() {
             </div>
 
             <div>
-              <div className="flex aspect-[16/8] items-center justify-center rounded-[2px] border border-white/20 bg-white/5 text-sm text-white/60">
+              <div className="flex aspect-[16/8] items-center justify-center rounded-2xl border border-white/20 bg-white/5 text-sm text-white/60">
                 Bản đồ showroom: [CHỜ XÁC NHẬN]
               </div>
               <ul className="mt-6 space-y-2 text-sm text-white/80">

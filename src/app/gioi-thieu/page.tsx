@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { CrossSection } from "@/components/CrossSection";
-import { DaiChuChay, DichVuKhoi, GioiThieuKhoi, ViSaoKhoi } from "@/components/TrangChuKhoi";
+import { GiaiPhapDongBo } from "@/components/GiaiPhapDongBo";
+import { DaiChuChay, DichVuKhoi, DoiTacKhoi, GioiThieuKhoi, ViSaoKhoi } from "@/components/TrangChuKhoi";
 import { PageHero } from "@/components/ui";
 
 export const metadata: Metadata = {
@@ -19,9 +20,11 @@ export default function GioiThieu() {
       />
       <GioiThieuKhoi />
       <CrossSection />
+      <GiaiPhapDongBo />
       <DichVuKhoi />
       <DaiChuChay />
       <ViSaoKhoi />
+      <DoiTacKhoi />
     </>
   );
 }

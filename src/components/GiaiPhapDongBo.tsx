@@ -24,7 +24,7 @@ export function GiaiPhapDongBo() {
         <div className="grid items-center gap-8 lg:grid-cols-[1fr_1.1fr] lg:gap-14">
           <div>
             <p className="nhan-muc text-accent">Giải pháp đồng bộ</p>
-            <h2 className="mt-3 text-[clamp(1.6rem,3vw,2.6rem)] font-semibold uppercase leading-[1.12]">
+            <h2 className="mt-3 text-[clamp(1.6rem,3vw,2.6rem)] font-bold uppercase leading-[1.12]">
               Một giải pháp.
               <span className="block font-light">Đồng bộ từng thành phần.</span>
             </h2>
@@ -49,7 +49,7 @@ export function GiaiPhapDongBo() {
             </Link>
           </div>
 
-          <div className="rounded-[2px] border border-white/15 p-5 md:p-6">
+          <div className="rounded-[24px] border border-white/15 p-5 md:p-6">
             <svg viewBox="0 0 400 230" className="h-[clamp(180px,32svh,260px)] w-full" role="img" aria-label="Sơ đồ tách lớp năm thành phần của bộ cửa (minh họa phẳng)">
               {TP.map((_, k) => {
                 const y = 24 + k * 38;
@@ -57,9 +57,9 @@ export function GiaiPhapDongBo() {
                 const on = i === k;
                 return (
                   <g key={k} className="transition-all duration-300" opacity={on ? 1 : 0.55}>
-                    <path d={`M${x} ${y + 22} l30 -22 h250 l-30 22 z`} fill="none" stroke={on ? "#bfa678" : "#ffffff"} strokeWidth={on ? 2 : 1} />
-                    <path d={`M${x} ${y + 22} h250 v10 h-250 z`} fill={on ? "#bfa678" : "none"} stroke={on ? "#bfa678" : "#ffffff"} strokeWidth="1" />
-                    <text x={x + 262} y={y + 18} fill={on ? "#bfa678" : "#ffffff"} fontSize="11" fontWeight="600">{String(k + 1).padStart(2, "0")}</text>
+                    <path d={`M${x} ${y + 22} l30 -22 h250 l-30 22 z`} fill="none" stroke={on ? "#e31937" : "#ffffff"} strokeWidth={on ? 2 : 1} />
+                    <path d={`M${x} ${y + 22} h250 v10 h-250 z`} fill={on ? "#e31937" : "none"} stroke={on ? "#e31937" : "#ffffff"} strokeWidth="1" />
+                    <text x={x + 262} y={y + 18} fill={on ? "#e31937" : "#ffffff"} fontSize="11" fontWeight="600">{String(k + 1).padStart(2, "0")}</text>
                   </g>
                 );
               })}

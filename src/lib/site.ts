@@ -25,38 +25,29 @@ export const MENU = [
 /** Menu ba gạch (toàn màn hình): theo mẫu anh Huy gửi 10/11/2026 — Giới thiệu · Sản phẩm · Tin tức · Chính sách · Liên hệ */
 export type MucMenu = { href: string; label: string; con?: { href: string; label: string }[] };
 export const MENU_CHINH: MucMenu[] = [
-  {
-    href: "/gioi-thieu",
-    label: "Giới thiệu",
-    con: [
-      { href: "/nang-luc-xuong", label: "Năng lực & Xưởng" },
-      { href: "/cong-trinh", label: "Công trình" },
-      { href: "/trai-nghiem", label: "Trải nghiệm" },
-      { href: "/hop-tac", label: "Hợp tác đối tác" },
-    ],
-  },
+  { href: "/gioi-thieu", label: "Giới thiệu" },
   {
     href: "/he-cua",
-    label: "Sản phẩm",
+    label: "Hệ cửa",
     con: [
       { href: "/he-cua/cua-truot-nang", label: "Cửa trượt nâng" },
       { href: "/he-cua/cua-di-mo-quay", label: "Cửa đi mở quay" },
       { href: "/he-cua/cua-xep-truot", label: "Cửa xếp trượt" },
       { href: "/he-cua/cua-so", label: "Cửa sổ" },
+    ],
+  },
+  {
+    href: "/nang-luc-xuong",
+    label: "Giải pháp",
+    con: [
+      { href: "/nang-luc-xuong", label: "Năng lực & Xưởng" },
+      { href: "/trai-nghiem", label: "Trải nghiệm" },
       { href: "/danh-cho-kts", label: "Dành cho KTS" },
     ],
   },
-  { href: "/tin-tuc", label: "Tin tức" },
-  {
-    href: "/chinh-sach-bao-mat",
-    label: "Chính sách",
-    con: [
-      { href: "/chinh-sach-bao-mat", label: "Chính sách bảo mật" },
-      { href: "/dieu-khoan-su-dung", label: "Điều khoản sử dụng" },
-      { href: "/chinh-sach-cookie", label: "Chính sách cookie" },
-    ],
-  },
-  { href: "/lien-he", label: "Liên hệ" },
+  { href: "/cong-trinh", label: "Công trình" },
+  { href: "/hop-tac", label: "Đối tác" },
+  { href: "/tin-tuc", label: "Kiến thức" },
 ];
 
 export type KieuCua = {
@@ -117,6 +108,14 @@ export const KIEU_CUA: KieuCua[] = [
     dacDiem: ["Đồng bộ mặt tiền", "Thông gió chủ động", "Nhiều kích thước"],
   },
 ];
+
+/** Tên tiếng Anh hiển thị cạnh tên hệ cửa (theo đề xuất 10/11/2026). */
+export const TEN_EN_HE_CUA: Record<string, string> = {
+  "cua-truot-nang": "Lift & Slide",
+  "cua-di-mo-quay": "Casement",
+  "cua-xep-truot": "Bi-fold",
+  "cua-so": "Window",
+};
 
 export const THONG_SO_BANG = [
   "Bề rộng khung",

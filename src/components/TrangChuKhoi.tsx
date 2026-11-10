@@ -1,7 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
 import { SanPhamBangChuyen } from "./SanPhamBangChuyen";
-import { MatCat2D } from "./Illustration";
 import { NhanMinhHoa, Wrap } from "./ui";
 import { asset } from "@/lib/asset";
 import { LOAI_DU_AN } from "@/lib/site";
@@ -11,6 +10,8 @@ import { LOAI_DU_AN } from "@/lib/site";
  * Ảnh là ảnh stock tạm, có nhãn "Minh họa".
  */
 
+const HERO = "/images/hero.jpg";
+const NHA = "/images/chu-nha.jpg";
 const BTHU = "/images/biet-thu-go-kinh.jpg";
 const RESORT = "/images/resort-ho-boi.jpg";
 const RESORT2 = "/images/resort-ven-bien.jpg";
@@ -19,7 +20,7 @@ const NHAO = "/images/nha-o-kinh.jpg";
 const VILLA = "/images/villa-ban-cong.jpg";
 
 function NhanDo({ children }: { children: string }) {
-  return <p className="nhan-muc text-accent-chu">{children}</p>;
+  return <p className="nhan-muc text-accent">{children}</p>;
 }
 
 function MuiTenDo() {
@@ -30,7 +31,7 @@ function MuiTenDo() {
   );
 }
 
-/* ---------- Giới thiệu (2 cột: ảnh trái, nội dung phải) ---------- */
+/* ---------- Giới thiệu ---------- */
 export function GioiThieuKhoi() {
   const giaTri = [
     { so: "01", t: "European-inspired Engineering", m: "Kỹ thuật lấy cảm hứng từ tiêu chuẩn châu Âu, ưu tiên độ chính xác và độ bền." },
@@ -38,21 +39,21 @@ export function GioiThieuKhoi() {
     { so: "03", t: "Architectural Precision", m: "Cửa khổ lớn, đường nét mảnh, hoàn thiện theo bản vẽ kiến trúc sư." },
   ];
   return (
-    <section className="bg-nga py-8 md:py-10">
+    <section className="bg-white py-8 md:py-10">
       <Wrap>
         <div className="grid items-center gap-8 lg:grid-cols-[1.05fr_1fr] lg:gap-14">
-          <div className="relative overflow-hidden rounded-[2px]">
+          <div className="relative overflow-hidden rounded-[28px] md:rounded-[36px]">
             <div className="relative h-[clamp(340px,64svh,560px)]">
               <Image src={asset("/images/intro-chi-tiet.jpg")} alt="Cửa trượt kính khổ lớn mở ra khu vườn trong biệt thự hiện đại" fill quality={70} sizes="(min-width: 1024px) 50vw, 100vw" className="object-cover" style={{ objectPosition: "50% 45%" }} />
             </div>
-            <div className="absolute inset-x-4 bottom-4 rounded-[2px] border border-white/30 bg-than-chi/45 p-5 text-white backdrop-blur-md md:inset-x-6 md:bottom-6 md:max-w-md md:p-6">
+            <div className="absolute inset-x-4 bottom-4 rounded-[28px] border border-white/30 bg-than-chi/45 p-5 text-white backdrop-blur-md md:inset-x-6 md:bottom-6 md:max-w-md md:p-6">
               <p className="text-lg font-light leading-snug md:text-xl">Đối tác đáng tin cậy của bạn trong việc tìm kiếm sản phẩm</p>
-              <div className="mt-4 flex items-center gap-4 rounded-[2px] bg-white p-2 pr-5 text-than-chi">
+              <div className="mt-4 flex items-center gap-4 rounded-full bg-white p-2 pr-5 text-than-chi">
                 <div className="flex shrink-0 items-center">
                   {["/images/avatar-1.jpg", "/images/avatar-2.jpg", "/images/avatar-3.jpg"].map((src) => (
-                    <Image key={src} src={asset(src)} alt="" width={48} height={48} className="-mr-3 h-12 w-12 rounded-[2px] border-2 border-white object-cover" />
+                    <Image key={src} src={asset(src)} alt="" width={48} height={48} className="-mr-3 h-12 w-12 rounded-full border-2 border-white object-cover" />
                   ))}
-                  <span className="relative flex h-12 w-12 items-center justify-center rounded-[2px] border-2 border-[#d8a93b] bg-than-chi text-sm font-semibold text-white">6k+</span>
+                  <span className="relative flex h-12 w-12 items-center justify-center rounded-full border-2 border-[#d8a93b] bg-than-chi text-sm font-bold text-white">6k+</span>
                 </div>
                 <span className="h-10 w-px shrink-0 bg-than-chi/15" aria-hidden="true" />
                 <div className="min-w-0">
@@ -62,7 +63,7 @@ export function GioiThieuKhoi() {
                         <svg key={k} viewBox="0 0 24 24" width="18" height="18" fill="#d8a93b"><path d="m12 2 2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.2 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8z" /></svg>
                       ))}
                     </span>
-                    <span className="text-base font-semibold">4,9</span>
+                    <span className="text-base font-bold">4,9</span>
                   </div>
                   <p className="mt-0.5 text-xs text-than-chi/65">Đánh giá từ khách hàng</p>
                 </div>
@@ -72,9 +73,9 @@ export function GioiThieuKhoi() {
 
           <div>
             <NhanDo>Giới thiệu</NhanDo>
-            <h2 className="mt-3 text-[clamp(1.6rem,3vw,2.6rem)] font-semibold uppercase leading-[1.12]">
+            <h2 className="mt-3 text-[clamp(1.75rem,3.6vw,3rem)] font-light leading-[1.1]">
               Không chỉ là một hệ cửa.
-              <span className="block font-light">Đó là giải pháp kiến trúc đồng bộ.</span>
+              <span className="block font-bold">Đó là giải pháp kiến trúc đồng bộ.</span>
             </h2>
             <p className="mt-4 max-w-xl text-base text-than-chi/75">
               WINDUCA mang đến giải pháp cửa nhôm kính cao cấp cho biệt thự, penthouse và các công trình cao cấp, từ tư vấn bản vẽ đến thi công hoàn thiện.
@@ -82,9 +83,9 @@ export function GioiThieuKhoi() {
             <ul className="mt-6 space-y-4">
               {giaTri.map((d) => (
                 <li key={d.so} className="flex gap-5 border-t border-inox pt-4">
-                  <span className="text-sm font-semibold text-accent-chu">{d.so}</span>
+                  <span className="text-sm font-bold text-accent">{d.so}</span>
                   <div>
-                    <p className="font-semibold">{d.t}</p>
+                    <p className="font-bold">{d.t}</p>
                     <p className="mt-1 text-sm text-than-chi/70">{d.m}</p>
                   </div>
                 </li>
@@ -103,7 +104,7 @@ export function GioiThieuKhoi() {
 /* ---------- Sản phẩm nổi bật ---------- */
 export function SanPhamKhoi() {
   return (
-    <section className="overflow-hidden bg-kinh-suong/35 py-8 md:py-10">
+    <section className="overflow-hidden bg-nga py-8 md:py-10">
       <div className="text-center">
         <NhanDo>Sản phẩm</NhanDo>
         <h2 className="mt-3 text-[clamp(1.75rem,3.4vw,2.75rem)] font-light">Hệ cửa nổi bật</h2>
@@ -115,79 +116,108 @@ export function SanPhamKhoi() {
   );
 }
 
-/* ---------- Quy trình dịch vụ ---------- */
+/* ---------- Dịch vụ + số liệu ---------- */
 export function DichVuKhoi() {
-  const buoc = [
-    { so: "01", t: "Tư vấn & bóc tách", m: "Kiến trúc sư và đội kỹ thuật cùng chọn kiểu cửa, bóc tách theo bản vẽ công trình." },
-    { so: "02", t: "Chọn hệ & vật liệu", m: "Hệ nhôm, kính và phụ kiện được chọn đồng bộ cho từng không gian." },
-    { so: "03", t: "Gia công & lắp đặt", m: "Gia công chính xác theo bản vẽ, rồi lắp đặt tại công trình." },
-    { so: "04", t: "Nghiệm thu & hậu mãi", m: "Bàn giao, hiệu chỉnh và bảo trì sau bàn giao." },
+  const dv = [
+    { so: "01", t: "Tư vấn giải pháp kiến trúc, thiết kế", m: "Đội kỹ thuật cùng kiến trúc sư chọn kiểu cửa phù hợp từng công trình.", anh: HERO, pos: "30% 50%" },
+    { so: "02", t: "Cung cấp và lắp đặt", m: "Cung cấp hệ nhôm, phụ kiện và thi công, kiểm soát chất lượng đến khi nghiệm thu.", anh: NHA, pos: "70% 50%" },
+    { so: "03", t: "Dịch vụ hậu mãi", m: "Bảo trì, hiệu chỉnh và hỗ trợ sau bàn giao.", anh: RESORT2, pos: "50% 50%" },
+    { so: "04", t: "Hỗ trợ đối tác", m: "Đào tạo kỹ thuật và bán hàng cho đại lý, nhà thầu.", anh: NHAO, pos: "50% 78%" },
+  ];
+  const so = [
+    { n: "Số dự án" },
+    { n: "Số nhà máy" },
+    { n: "Số quốc gia" },
   ];
   return (
-    <section className="bg-kinh-suong/35 py-8 md:py-10">
+    <section className="bg-white py-8 md:py-10">
       <Wrap>
-        <div className="grid gap-8 lg:grid-cols-[0.8fr_1.2fr] lg:gap-14">
-          <div>
+        <div className="grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:gap-14">
+          <div className="lg:sticky lg:top-32 lg:self-start">
             <NhanDo>Dịch vụ</NhanDo>
-            <h2 className="mt-3 text-[clamp(1.75rem,3.4vw,2.75rem)] font-light">Quy trình dịch vụ</h2>
-            <p className="mt-4 max-w-md text-base text-than-chi/75">
-              Từ bản vẽ đến bàn giao, một đầu mối đồng hành cùng chủ nhà, kiến trúc sư và nhà thầu qua bốn bước rõ ràng.
+            <h2 className="mt-3 text-[clamp(1.75rem,3.4vw,2.75rem)] font-light">Danh sách các dịch vụ</h2>
+            <p className="mt-5 max-w-xl text-base text-than-chi/75">
+              Cửa đi, cửa sổ, vách kính và phụ kiện đồng bộ, đi cùng dịch vụ tư vấn, thi công và hậu mãi. WINDUCA là đối tác cho chủ nhà, kiến trúc
+              sư, công ty thiết kế và nhà thầu.
             </p>
-            <Link href="/lien-he" className="nut nut-chinh mt-7">
-              Liên hệ tư vấn
+            <Link href="/he-cua" className="nut nut-chinh mt-7">
+              Khám phá ngay
             </Link>
+            <dl className="mt-12 grid max-w-xl grid-cols-3 gap-6 border-t border-inox pt-8">
+              {so.map((s) => (
+                <div key={s.n}>
+                  <dt className="text-[11px] font-bold uppercase tracking-[0.12em] text-than-chi/55">{s.n}</dt>
+                  <dd className="mt-2 text-4xl font-bold text-than-chi md:text-5xl">—</dd>
+                  <dd className="mt-1 text-xs text-than-chi/60">Đang chờ xác nhận</dd>
+                </div>
+              ))}
+            </dl>
           </div>
-          <ol className="grid gap-x-8 gap-y-6 sm:grid-cols-2">
-            {buoc.map((x) => (
-              <li key={x.so} className="border-t-2 border-accent pt-4">
-                <span className="text-3xl font-light text-than-chi/35">{x.so}</span>
-                <h3 className="mt-2 text-lg font-semibold">{x.t}</h3>
-                <p className="mt-2 text-sm text-than-chi/70">{x.m}</p>
+
+          <ul className="flex snap-x snap-mandatory gap-4 overflow-x-auto pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+            {dv.map((d) => (
+              <li key={d.so} className="w-full shrink-0 snap-center">
+                <Link href="/lien-he" className="group relative block min-h-[340px] overflow-hidden rounded-[24px] bg-than-chi text-white md:h-[clamp(300px,52svh,440px)] md:min-h-0 md:rounded-[32px]">
+                  <Image src={asset(d.anh)} alt={d.t} fill quality={60} sizes="(min-width: 1024px) 45vw, 100vw" className="object-cover transition-transform duration-700 group-hover:scale-[1.04]" style={{ objectPosition: d.pos }} />
+                  <div className="absolute inset-0 bg-than-chi/55" aria-hidden="true" />
+                  <div className="relative flex h-full min-h-[340px] flex-col justify-between p-6 md:min-h-0 md:p-8">
+                    <span className="text-sm font-bold text-white/80">{d.so}</span>
+                    <div className="flex items-end justify-between gap-6">
+                      <div>
+                        <h3 className="text-xl font-bold md:text-2xl">{d.t}</h3>
+                        <p className="mt-2 max-w-md text-sm font-light text-white/85">{d.m}</p>
+                      </div>
+                      <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-accent text-white transition-transform duration-300 group-hover:translate-x-1">
+                        <MuiTenDo />
+                      </span>
+                    </div>
+                  </div>
+                </Link>
               </li>
             ))}
-          </ol>
+          </ul>
         </div>
       </Wrap>
     </section>
   );
 }
 
-/* ---------- Công trình: bộ ảnh dạng lưới lệch ---------- */
+/* ---------- Công trình theo loại ---------- */
 export function CongTrinhKhoi() {
   const anh = [
-    { src: BTHU, pos: "50% 55%" },
-    { src: NHAPHO, pos: "50% 60%" },
+    { src: BTHU, pos: "50% 50%" },
+    { src: NHAPHO, pos: "50% 50%" },
     { src: RESORT, pos: "50% 50%" },
   ];
-  const the = (i: number, lop: string) => (
-    <Link href="/cong-trinh" className={`group relative block overflow-hidden rounded-[2px] bg-than-chi ${lop}`}>
-      <Image src={asset(anh[i].src)} alt={LOAI_DU_AN[i]} fill quality={65} sizes="(min-width: 768px) 45vw, 100vw" className="object-cover transition-transform duration-700 group-hover:scale-[1.04]" style={{ objectPosition: anh[i].pos }} />
-      <div className="absolute inset-0 bg-than-chi/25" aria-hidden="true" />
-      <div className="absolute inset-x-0 bottom-0 flex items-center justify-between gap-4 p-5 text-white md:p-6">
-        <h3 className="text-lg font-semibold md:text-xl">{LOAI_DU_AN[i]}</h3>
-        <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-[2px] bg-accent text-than-chi transition-transform duration-300 group-hover:translate-x-1">
-          <MuiTenDo />
-        </span>
-      </div>
-    </Link>
-  );
   return (
     <section className="bg-nga py-8 md:py-10">
       <Wrap>
         <div className="flex flex-wrap items-end justify-between gap-6">
           <div>
             <NhanDo>Công trình</NhanDo>
-            <h2 className="mt-3 text-[clamp(1.75rem,3.4vw,2.75rem)] font-light">Cảm hứng từ những không gian sống</h2>
+            <h2 className="mt-3 text-[clamp(1.75rem,3.4vw,2.75rem)] font-light">Không gian sống tiêu biểu</h2>
           </div>
           <Link href="/cong-trinh" className="nut nut-dac">
             Xem thêm
           </Link>
         </div>
-        <div className="mt-6 grid gap-4 md:h-[clamp(340px,56svh,520px)] md:grid-cols-[1.35fr_1fr] md:grid-rows-2">
-          {the(0, "aspect-[4/3] md:row-span-2 md:aspect-auto")}
-          {the(1, "aspect-[16/10] md:aspect-auto")}
-          {the(2, "aspect-[16/10] md:aspect-auto")}
-        </div>
+        <ul className="mt-6 grid gap-5 md:grid-cols-3">
+          {LOAI_DU_AN.map((l, i) => (
+            <li key={l}>
+              <Link href="/cong-trinh" className="group relative block aspect-[4/5] overflow-hidden md:aspect-auto md:h-[clamp(260px,52svh,480px)] rounded-[24px] bg-than-chi md:rounded-[32px]">
+                <Image src={asset(anh[i].src)} alt={l} fill quality={60} sizes="(min-width: 768px) 30vw, 100vw" className="object-cover transition-transform duration-700 group-hover:scale-[1.05]" style={{ objectPosition: anh[i].pos }} />
+                <div className="absolute inset-0 bg-than-chi/35" aria-hidden="true" />
+                <NhanMinhHoa className="left-4 top-4" />
+                <div className="absolute inset-x-0 bottom-0 flex items-center justify-between gap-4 p-6 text-white md:p-8">
+                  <h3 className="text-xl font-bold md:text-2xl">{l}</h3>
+                  <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-accent transition-transform duration-300 group-hover:translate-x-1">
+                    <MuiTenDo />
+                  </span>
+                </div>
+              </Link>
+            </li>
+          ))}
+        </ul>
       </Wrap>
     </section>
   );
@@ -218,43 +248,31 @@ export function DaiChuChay() {
 
 export function ViSaoKhoi() {
   const y = [
-    { so: "01", t: "Giải pháp nhôm kiến trúc", m: "Hệ nhôm cầu cách nhiệt cho cửa khổ lớn, đường nét mảnh.", bc: "Tài liệu kỹ thuật" },
-    { so: "02", t: "Hệ thống sản phẩm đồng bộ", m: "Nhôm, kính và phụ kiện được chọn đồng bộ cho từng công trình.", bc: "Danh mục sản phẩm" },
-    { so: "03", t: "Tư vấn kỹ thuật theo bản vẽ", m: "Kiến trúc sư và đội kỹ thuật cùng bóc tách theo bản vẽ.", bc: "Quy trình tư vấn" },
-    { so: "04", t: "Thi công và hậu mãi", m: "Một đầu mối từ lắp đặt, nghiệm thu đến bảo trì sau bàn giao.", bc: "Hình ảnh công trình" },
+    { so: "01", t: "Hệ nhôm cầu cách nhiệt", m: "Khung nhôm cầu cách nhiệt cho không gian êm và bền." },
+    { so: "02", t: "Tiêu chuẩn châu Âu", m: "Hệ nhôm, phụ kiện và quy trình tham chiếu tiêu chuẩn châu Âu." },
+    { so: "03", t: "Đồng bộ đến thi công", m: "Một đầu mối từ hệ nhôm, phụ kiện đến lắp đặt và nghiệm thu." },
   ];
   return (
-    <section className="bg-than-chi py-8 text-white md:py-10">
+    <section className="bg-than-chi pb-20 text-white md:pb-28">
       <Wrap>
-        <div className="grid items-center gap-8 lg:grid-cols-[1fr_1.1fr] lg:gap-14">
-          <div>
-            <p className="nhan-muc text-accent">Vì sao chọn WINDUCA</p>
-            <h2 className="mt-3 max-w-3xl text-[clamp(1.75rem,3.4vw,2.75rem)] font-light">Sự thật về WINDUCA</h2>
-            <ul className="mt-6 divide-y divide-white/15 border-y border-white/15">
-              {y.map((i) => (
-                <li key={i.so} className="flex gap-5 py-3">
-                  <span className="text-2xl font-light text-accent">{i.so}</span>
-                  <div>
-                    <h3 className="text-lg font-semibold">{i.t}</h3>
-                    <p className="mt-1 text-sm font-light text-white/75">{i.m}</p>
-                    <p className="mt-1 text-xs text-accent">Bằng chứng: {i.bc} · đang cập nhật</p>
-                  </div>
-                </li>
-              ))}
-            </ul>
-            <div className="mt-7 flex flex-wrap gap-3">
-              <Link href="/gioi-thieu" className="nut nut-chinh">
-                Tìm hiểu thêm về WINDUCA
-              </Link>
-              <Link href="/hop-tac" className="nut nut-vien">
-                Trở thành đối tác
-              </Link>
-            </div>
-          </div>
-          <div className="rounded-[2px] border border-white/15 bg-than-chi p-3">
-            <MatCat2D className="mx-auto aspect-[4/3] max-h-[clamp(280px,50svh,420px)] w-full" />
-            <p className="mt-3 text-center text-xs text-white/55">Mặt cắt hệ nhôm · giá trị kích thước hiển thị khi có bản vẽ kỹ thuật xác nhận</p>
-          </div>
+        <NhanDo>Vì sao chọn WINDUCA</NhanDo>
+        <h2 className="mt-3 max-w-3xl text-[clamp(1.75rem,3.4vw,2.75rem)] font-light">Sự thật về WINDUCA</h2>
+        <ul className="mt-12 grid gap-px overflow-hidden rounded-[24px] bg-white/15 md:grid-cols-3 md:rounded-[32px]">
+          {y.map((i) => (
+            <li key={i.so} className="bg-than-chi p-8 md:p-10">
+              <span className="text-5xl font-bold text-accent md:text-6xl">{i.so}</span>
+              <h3 className="mt-6 text-xl font-bold">{i.t}</h3>
+              <p className="mt-2 text-sm font-light text-white/75">{i.m}</p>
+            </li>
+          ))}
+        </ul>
+        <div className="mt-10 flex flex-wrap gap-3">
+          <Link href="/gioi-thieu" className="nut nut-chinh">
+            Tìm hiểu thêm về WINDUCA
+          </Link>
+          <Link href="/hop-tac" className="nut nut-vien">
+            Trở thành đối tác
+          </Link>
         </div>
       </Wrap>
     </section>
@@ -269,14 +287,14 @@ export function DoiTacKhoi() {
     { t: "Dành cho đại lý", m: "Chương trình hợp tác phân phối, đào tạo sản phẩm và kỹ thuật.", href: "/hop-tac" },
   ];
   return (
-    <section className="bg-kinh-suong/35 py-8 md:py-10">
+    <section className="bg-white py-8 md:py-10">
       <Wrap>
         <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:gap-14">
           <div>
             <NhanDo>Hệ sinh thái đối tác</NhanDo>
-            <h2 className="mt-3 text-[clamp(1.6rem,3vw,2.6rem)] font-semibold uppercase leading-[1.12]">
+            <h2 className="mt-3 text-[clamp(1.75rem,3.4vw,2.75rem)] font-light leading-[1.12]">
               Kết nối năng lực.
-              <span className="block font-light">Kiến tạo giá trị dài hạn.</span>
+              <span className="block font-bold">Kiến tạo giá trị dài hạn.</span>
             </h2>
             <Link href="/hop-tac" className="nut nut-chinh mt-7">
               Khám phá chương trình hợp tác
@@ -287,10 +305,10 @@ export function DoiTacKhoi() {
               <li key={x.t}>
                 <Link href={x.href} className="group flex items-center justify-between gap-6 py-5">
                   <div>
-                    <h3 className="text-lg font-semibold group-hover:text-accent-chu">{x.t}</h3>
+                    <h3 className="text-lg font-bold group-hover:text-accent">{x.t}</h3>
                     <p className="mt-1 text-sm text-than-chi/70">{x.m}</p>
                   </div>
-                  <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-[2px] bg-accent text-than-chi transition-transform duration-300 group-hover:translate-x-1">
+                  <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-accent text-white transition-transform duration-300 group-hover:translate-x-1">
                     <MuiTenDo />
                   </span>
                 </Link>
@@ -312,7 +330,7 @@ export const BAI_SAP_CO = [
 
 export function TinTucKhoi() {
   return (
-    <section className="bg-nga py-8 md:py-10">
+    <section className="bg-white py-8 md:py-10">
       <Wrap>
         <div className="flex flex-wrap items-end justify-between gap-6">
           <div>
@@ -327,12 +345,12 @@ export function TinTucKhoi() {
           {BAI_SAP_CO.map((b) => (
             <li key={b.t}>
               <Link href="/tin-tuc" className="group block">
-                <div className="relative aspect-[16/10] overflow-hidden rounded-[2px] bg-than-chi md:rounded-[2px]">
-                  <Image src={asset(b.anh)} alt="" fill quality={60} sizes="(min-width: 768px) 30vw, 100vw" className="object-cover transition-transform duration-700 group-hover:scale-[1.05]" style={{ objectPosition: b.pos }} />
+                <div className="relative aspect-[16/10] overflow-hidden rounded-[20px] bg-than-chi md:rounded-[28px]">
+                  <Image src={asset(b.anh)} alt={b.t} fill quality={60} sizes="(min-width: 768px) 30vw, 100vw" className="object-cover transition-transform duration-700 group-hover:scale-[1.05]" style={{ objectPosition: b.pos }} />
                   <NhanMinhHoa className="left-3 top-3" />
                 </div>
-                <p className="nhan-muc mt-4 text-accent-chu">{b.loai}</p>
-                <h3 className="mt-2 text-lg font-semibold leading-snug group-hover:text-accent-chu">{b.t}</h3>
+                <p className="nhan-muc mt-4 text-accent">{b.loai}</p>
+                <h3 className="mt-2 text-lg font-bold leading-snug group-hover:text-accent">{b.t}</h3>
                 <p className="mt-1 text-sm text-than-chi/60">Sắp có</p>
               </Link>
             </li>

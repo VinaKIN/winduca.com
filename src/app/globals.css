@@ -1,19 +1,18 @@
 @import "tailwindcss";
 
 /*
-  WINDUCA — design tokens theo Bộ nhận diện v1.4 (quyết định anh Huy 10/11/2026: Editorial luxury,
-  Ngà chủ đạo + Than chì, Champagne làm nhấn, Đỏ đô ≤3% không làm nút).
-  accent-chu là tông Champagne đậm CHỈ dùng cho chữ nhỏ trên nền sáng (Champagne gốc chỉ 2,1:1 trên Ngà);
-  đây là tông dẫn xuất, cần anh Huy xác nhận. Không gradient, không ánh kim giả.
+  WINDUCA — design tokens.
+  11/11/2026: anh Huy chốt bám theo bố cục/hình thức Winboss: phông Roboto, nền trắng + Than đen,
+  điểm nhấn ĐỎ cho nút, nhãn, số thứ tự (thay Champagne trong brand kit v1.4). Logo giữ nguyên bản brand kit.
+  Vẫn giữ: không gradient trang trí, không ánh kim giả.
 */
 :root {
-  --nga: #f4f1ea;
-  --than-chi: #2b2b2d;
-  --inox: #c8c9c6;
-  --kinh-suong: #dde3df;
-  --accent: #bfa678;
-  --accent-dam: #a58e62;
-  --accent-chu: #6f5b38;
+  --nga: #f5f3ee;        /* Ngà — nền xen kẽ */
+  --than-chi: #231f20;   /* Than đen — chữ, nền tối */
+  --inox: #cfd0cd;       /* Viền mảnh */
+  --kinh-suong: #dde3df; /* Kính sương — nền nhẹ */
+  --accent: #e31937;     /* Đỏ nhấn — nút, nhãn, số */
+  --accent-dam: #b8122b; /* Đỏ khi rê chuột */
   --do-do: #7b1e2b;
 }
 
@@ -24,24 +23,23 @@
   --color-kinh-suong: var(--kinh-suong);
   --color-accent: var(--accent);
   --color-accent-dam: var(--accent-dam);
-  --color-accent-chu: var(--accent-chu);
   --color-do-do: var(--do-do);
-  --font-sans: var(--font-be-vietnam), system-ui, sans-serif;
-  --font-display: var(--font-montserrat), system-ui, sans-serif;
+  --font-sans: var(--font-roboto), system-ui, sans-serif;
+  --font-display: var(--font-roboto), system-ui, sans-serif;
 }
 
 html {
-  background: var(--nga);
+  background: #ffffff;
   color: var(--than-chi);
   scroll-behavior: smooth;
 }
 
 body {
-  font-family: var(--font-be-vietnam), system-ui, sans-serif;
+  font-family: var(--font-roboto), system-ui, sans-serif;
   font-size: 1rem;
   line-height: 1.6;
   font-variant-numeric: tabular-nums;
-  background: var(--nga);
+  background: #ffffff;
   color: var(--than-chi);
 }
 
@@ -54,22 +52,22 @@ body {
 .nhan-muc {
   font-weight: 700;
   font-size: 0.6875rem;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
 }
 
-/* Tiêu đề: Montserrat SemiBold */
+/* Tiêu đề: Roboto Medium, gọn */
 .tieu-de {
-  font-family: var(--font-montserrat), system-ui, sans-serif;
-  font-weight: 600;
+  font-family: var(--font-roboto), system-ui, sans-serif;
+  font-weight: 500;
   letter-spacing: 0;
   line-height: 1.15;
 }
 
 /* Số thứ tự lớn rỗng ruột (trang trí) */
 .so-lon {
-  font-family: var(--font-montserrat), system-ui, sans-serif;
-  font-weight: 600;
+  font-family: var(--font-roboto), system-ui, sans-serif;
+  font-weight: 700;
   font-size: clamp(6rem, 12vw, 11rem);
   line-height: 1;
   color: transparent;
@@ -106,8 +104,8 @@ body {
   gap: 0.5rem;
   min-height: 3rem;
   padding: 0.75rem 1.75rem;
-  border-radius: 2px;
-  font-weight: 600;
+  border-radius: 999px;
+  font-weight: 700;
   font-size: 0.8125rem;
   letter-spacing: 0.04em;
   text-transform: uppercase;
@@ -117,7 +115,7 @@ body {
 }
 .nut-chinh {
   background: var(--accent);
-  color: var(--than-chi);
+  color: #ffffff;
   border: 1px solid var(--accent);
 }
 .nut-chinh:hover {
@@ -141,7 +139,7 @@ body {
 .nut-dac:hover {
   background: var(--accent);
   border-color: var(--accent);
-  color: var(--than-chi);
+  color: #ffffff;
 }
 .nut-vien-sang {
   border: 1px solid var(--than-chi);
@@ -179,21 +177,4 @@ body {
     animation-duration: 0.01ms !important;
     transition-duration: 0.01ms !important;
   }
-}
-
-/* Tiêu đề dùng Montserrat (theo brand kit); văn bản dùng Be Vietnam Pro */
-h1, h2, h3 {
-  font-family: var(--font-montserrat), system-ui, sans-serif;
-}
-
-/* Hero: phóng ảnh rất chậm (chuyển động nhẹ, không lạm dụng) */
-@keyframes hero-zoom {
-  from { transform: scale(1); }
-  to { transform: scale(1.07); }
-}
-.hero-zoom {
-  animation: hero-zoom 9s ease-out forwards;
-}
-@media (prefers-reduced-motion: reduce) {
-  .hero-zoom { animation: none; }
 }
