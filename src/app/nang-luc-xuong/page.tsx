@@ -34,6 +34,7 @@ export default function NangLucXuong() {
         anhPhai="/images/xuong/xuong-chan-dung.webp"
         viTriAnh="center 22%"
         chuThichAnh="Xưởng gia công WINDUCA"
+        soAnh="FIG. 00"
         nhan="Xưởng gia công WINDUCA · Trung tâm sản xuất chính xác"
         tieuDe="Mỗi bộ cửa bắt đầu từ một bản vẽ."
         moTa="Gia công chính xác theo bản vẽ kiến trúc sư, rồi lắp đặt tại công trình."
@@ -56,24 +57,25 @@ export default function NangLucXuong() {
         </ol>
       </Section>
 
-      <Section tone="nga" nhan="Công đoạn tại xưởng" tieuDe="Những gì được làm tại xưởng.">
+      <Section tone="toi" nhan="Công đoạn tại xưởng" tieuDe="Những gì được làm tại xưởng.">
         <div className="grid items-center gap-6 lg:grid-cols-[1.1fr_1fr] lg:gap-14">
           <Hien>
             <KhungAnhChong
-              chinh={{ src: "/images/xuong/may-khoan-nhom.webp", alt: "Máy khoan gia công thanh nhôm", chuThich: "Khoan, phay thanh nhôm", viTri: "55% 50%" }}
+              vienToi
+              chinh={{ src: "/images/xuong/may-khoan-nhom.webp", alt: "Máy khoan gia công thanh nhôm", chuThich: "Khoan, phay thanh nhôm", viTri: "55% 50%", so: "FIG. 01", diem: { x: "46%", y: "34%", nhan: "Đầu khoan, phay" } }}
               phu={{ src: "/images/xuong/kiem-tra-gia-cong.webp", alt: "Thợ kiểm tra trong lúc gia công", viTri: "30% 40%" }}
             />
           </Hien>
           <ul className="space-y-3">
             {CONG_DOAN.map((c) => (
-              <li key={c} className="flex items-center gap-4 rounded-[6px] border border-than-chi/15 bg-white/70 p-4 backdrop-blur-sm">
+              <li key={c} className="flex items-center gap-4 rounded-[6px] border border-white/15 bg-white/5 p-4 text-white backdrop-blur-sm">
                 <span className="h-2.5 w-2.5 shrink-0 rotate-45 bg-accent" aria-hidden="true" />
                 {c}
               </li>
             ))}
           </ul>
         </div>
-        <p className="mt-5 max-w-2xl text-[15px] leading-relaxed text-than-chi/70">
+        <p className="mt-5 max-w-2xl text-[15px] leading-relaxed text-white/60">
           Thanh nhôm định hình là vật tư đầu vào; xưởng thực hiện các công đoạn gia công, lắp ráp và hoàn thiện nêu trên.
         </p>
       </Section>
@@ -129,7 +131,7 @@ export default function NangLucXuong() {
             </div>
           </div>
 <Hien>
-            <KhungAnh src="/images/xuong/tay-nghe-phu-kien.webp" alt="Kiểm tra tay nắm tại xưởng WINDUCA" chuThich="Kiểm tra bề mặt tay nắm" tyLe="aspect-[16/10]" viTri="center 35%" />
+            <KhungAnh src="/images/xuong/tay-nghe-phu-kien.webp" alt="Kiểm tra tay nắm tại xưởng WINDUCA" chuThich="Kiểm tra bề mặt tay nắm" tyLe="aspect-[16/10]" viTri="center 35%" so="FIG. 02" diem={{ x: "44%", y: "48%", nhan: "Bề mặt tay nắm" }} />
           </Hien>
         </div>
       </Section>

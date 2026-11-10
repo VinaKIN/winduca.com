@@ -52,7 +52,7 @@ export default function GioiThieu() {
       />
 
       {/* 01 · Câu chuyện thương hiệu */}
-      <section className="luoi-ban-ve nen-sang py-10 md:py-14">
+      <section className="luoi-ban-ve-toi nen-toi py-10 text-white md:py-14">
         <Wrap>
           <Hien>
             <NhanSo so="01" nhan="Câu chuyện thương hiệu" />
@@ -63,15 +63,16 @@ export default function GioiThieu() {
           <div className="mt-6 grid items-center gap-6 lg:grid-cols-[1.15fr_1fr] lg:gap-12">
             <Hien tre={100}>
               <KhungAnhChong
-                chinh={{ src: "/images/mau-khung-nhom-den.jpg", alt: "Chi tiết khung cửa nhôm", chuThich: "Khung nhôm cầu cách nhiệt" }}
+                vienToi
+                chinh={{ src: "/images/mau-khung-nhom-den.jpg", alt: "Chi tiết khung cửa nhôm", chuThich: "Khung nhôm cầu cách nhiệt", so: "FIG. 01", diem: { x: "58%", y: "42%", nhan: "Thanh cầu cách nhiệt" } }}
                 phu={{ src: "/images/mat-cat-khung-cua.jpg", alt: "Mặt cắt khung cửa nhôm" }}
               />
             </Hien>
             <Hien tre={200} className="space-y-4">
-              <p className="text-lg text-than-chi/85">
+              <p className="text-lg text-white/90">
                 WINDUCA theo đuổi cửa nhôm kính như một thành phần của kiến trúc: đường nét mảnh, khẩu độ lớn, vận hành êm và đồng bộ từ hệ nhôm đến thi công.
               </p>
-              <p className="text-base text-than-chi/70">
+              <p className="text-base text-white/70">
                 Chúng tôi làm việc cùng chủ nhà, kiến trúc sư và nhà thầu để mỗi bộ cửa đúng với bản vẽ và đúng với không gian sống mà nó thuộc về.
               </p>
             </Hien>
@@ -115,7 +116,7 @@ export default function GioiThieu() {
           <div className="mt-6 grid gap-6 lg:grid-cols-[0.9fr_1.4fr] lg:gap-10">
             <Hien tre={80}>
               <KhungAnhChong
-                chinh={{ src: "/images/xuong/may-khoan-nhom.webp", alt: "Gia công thanh nhôm tại xưởng", chuThich: "Gia công tại xưởng", viTri: "55% 50%" }}
+                chinh={{ src: "/images/xuong/may-khoan-nhom.webp", alt: "Gia công thanh nhôm tại xưởng", chuThich: "Gia công tại xưởng", viTri: "55% 50%", so: "FIG. 02", diem: { x: "46%", y: "34%", nhan: "Đầu khoan, phay" } }}
                 phu={{ src: "/images/xuong/tay-nghe-phu-kien.webp", alt: "Kiểm tra tay nắm", viTri: "center 35%" }}
               />
             </Hien>

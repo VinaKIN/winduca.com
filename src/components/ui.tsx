@@ -67,6 +67,7 @@ export function PageHero({
   viTriAnh = "center",
   anhPhai,
   chuThichAnh,
+  soAnh,
 }: {
   nhan: string;
   tieuDe: string;
@@ -80,6 +81,7 @@ export function PageHero({
   /** Ảnh đặt trong khung bên phải (hero chia đôi), thay cho ảnh nền toàn khung. */
   anhPhai?: string;
   chuThichAnh?: string;
+  soAnh?: string;
 }) {
   return (
     <section className="hero-gradient relative overflow-hidden text-white">
@@ -118,7 +120,7 @@ export function PageHero({
           {anhPhai && (
             <div className="relative w-full max-w-xl lg:max-w-none">
               <div className="absolute inset-x-3 -bottom-3 top-3 -right-3 hidden rounded-[8px] border border-accent/60 sm:block" aria-hidden="true" />
-              <KhungAnh src={anhPhai} alt="" chuThich={chuThichAnh} viTri={viTriAnh} tyLe="aspect-[16/11]" uuTien className="shadow-[0_30px_70px_-30px_rgba(0,0,0,0.8)]" />
+              <KhungAnh src={anhPhai} alt="" chuThich={chuThichAnh} so={soAnh} viTri={viTriAnh} tyLe="aspect-[16/11]" uuTien className="shadow-[0_30px_70px_-30px_rgba(0,0,0,0.8)]" />
             </div>
           )}
         </div>
