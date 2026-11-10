@@ -44,9 +44,11 @@ type Props = {
   gon?: boolean;
   /** Số cột ở màn hình rộng (mặc định 2). */
   cot?: 2 | 3;
+  /** Nội dung điền sẵn ở ô "Nội dung" (ví dụ cấu hình cửa đã chọn). */
+  ghiChuMacDinh?: string;
 };
 
-export function LeadForm({ loai, tone = "sang", kieuCuaMacDinh = "", khiXong, gon = false, cot = 2 }: Props) {
+export function LeadForm({ loai, tone = "sang", kieuCuaMacDinh = "", khiXong, gon = false, cot = 2, ghiChuMacDinh = "" }: Props) {
   const span = cot === 3 ? "md:col-span-2 lg:col-span-3" : "md:col-span-2";
   const router = useRouter();
   const formRef = useRef<HTMLFormElement>(null);
@@ -291,7 +293,7 @@ export function LeadForm({ loai, tone = "sang", kieuCuaMacDinh = "", khiXong, go
           <label className={nhan} htmlFor={`ghichu-${loai}`}>
             Nội dung
           </label>
-          <textarea id={`ghichu-${loai}`} name="ghiChu" rows={4} className={o} />
+          <textarea id={`ghichu-${loai}`} name="ghiChu" rows={4} defaultValue={ghiChuMacDinh} className={o} />
         </div>
       )}
 

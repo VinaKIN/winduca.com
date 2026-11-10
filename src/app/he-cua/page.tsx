@@ -1,85 +1,115 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
-import { HeCuaDanhSach } from "@/components/HeCuaDanhSach";
-import { PageHero, Section, Wrap } from "@/components/ui";
-import { KIEU_CUA } from "@/lib/site";
+import { CauHinhCua } from "@/components/CauHinhCua";
+import { Hien, NutHut } from "@/components/HieuUng";
+import { MauCua } from "@/components/MauCua";
+import { SoSanhHeCua } from "@/components/SoSanhHeCua";
+import { PageHero, Wrap } from "@/components/ui";
+import { asset } from "@/lib/asset";
+import { KIEU_CUA, TEN_EN_HE_CUA } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Hệ cửa | WINDUCA",
-  description: "Cửa trượt nâng, cửa đi mở quay, cửa xếp trượt và cửa sổ nhôm cầu cách nhiệt tiêu chuẩn châu Âu.",
+  description: "Cửa trượt nâng, cửa đi mở quay, cửa xếp trượt và cửa sổ nhôm cầu cách nhiệt: so sánh, xem mẫu cửa và gửi cấu hình để được tư vấn.",
 };
 
-/** Trang Hệ cửa theo bố cục Winboss: hero ảnh → thẻ trắng bo góc có bộ lọc + lưới thẻ → bảng chọn → giải thích. */
+/** Trang Hệ cửa thiết kế lại (10/11/2026): 4 kiểu cửa, So sánh, Mẫu cửa theo hãng, Cấu hình cửa → tư vấn. */
+const STROKE = "![-webkit-text-stroke:1px_rgba(227,25,55,0.55)]";
+const ANH: Record<string, [string, string]> = {
+  "cua-truot-nang": ["/images/products/lift-slide.webp", "/images/products/lift-slide-hover.webp"],
+  "cua-di-mo-quay": ["/images/products/casement.webp", "/images/products/casement-hover.webp"],
+  "cua-xep-truot": ["/images/products/bi-fold.webp", "/images/products/bi-fold-hover.webp"],
+  "cua-so": ["/images/products/window.webp", "/images/products/window-hover.webp"],
+};
+
+function Dau({ so, nhan, tieuDe }: { so: string; nhan: string; tieuDe: React.ReactNode }) {
+  return (
+    <Hien>
+      <div className="flex items-end gap-4">
+        <span className={`so-lon !text-[clamp(3.5rem,7vw,6rem)] leading-[0.85] ${STROKE}`} aria-hidden="true">
+          {so}
+        </span>
+        <p className="nhan-muc pb-2 text-accent">{nhan}</p>
+      </div>
+      <h2 className="mt-4 max-w-3xl text-[clamp(1.5rem,2.8vw,2.4rem)] font-light leading-[1.15] tracking-[-0.01em]">{tieuDe}</h2>
+    </Hien>
+  );
+}
+
 export default function HeCua() {
   return (
     <>
       <PageHero
+        congNghe
         nhan="Hệ cửa WINDUCA"
         tieuDe="Chọn kiểu cửa theo cách bạn muốn sống"
-        moTa="Bốn kiểu cửa, một ngôn ngữ thiết kế: khung nhôm cầu cách nhiệt tiêu chuẩn châu Âu, hoàn thiện anode hóa hoặc sơn tĩnh điện."
+        moTa="Bốn kiểu cửa, một ngôn ngữ thiết kế: khung nhôm cầu cách nhiệt, hoàn thiện anode hóa hoặc sơn tĩnh điện."
+        anh="/images/products/lift-slide.webp"
       >
-        <Link href="/trai-nghiem#sample-box" className="nut nut-chinh">
+        <NutHut href="#cau-hinh" className="nut nut-chinh">
+          Cấu hình cửa của bạn
+        </NutHut>
+        <NutHut href="/trai-nghiem#sample-box" className="nut nut-vien">
           Nhận hộp mẫu góc nhôm
-        </Link>
+        </NutHut>
       </PageHero>
 
-      <section className="bg-nga py-12 md:py-20">
+      {/* 01 · Bốn kiểu cửa */}
+      <section className="luoi-ban-ve bg-white py-8 md:py-10">
         <Wrap>
-          <HeCuaDanhSach />
+          <Dau so="01" nhan="Bốn kiểu cửa" tieuDe={<>Chọn kiểu cửa phù hợp <span className="font-bold">với không gian</span></>} />
+          <ul className="mt-6 flex snap-x snap-mandatory gap-3 overflow-x-auto pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden sm:grid sm:grid-cols-2 sm:gap-4 sm:overflow-visible lg:grid-cols-4">
+            {KIEU_CUA.map((k, i) => (
+              <Hien key={k.slug} as="li" tre={i * 90} className="w-[74%] shrink-0 snap-start sm:w-auto">
+                <Link href={`/he-cua/${k.slug}`} className="group block overflow-hidden rounded-[6px] border border-than-chi/10 bg-white transition-shadow hover:shadow-lg">
+                  <div className="dau-goc relative aspect-[4/3] bg-than-chi lg:aspect-[3/2]">
+                    <Image src={asset(ANH[k.slug][0])} alt={`${k.ten} trong không gian kiến trúc`} fill quality={65} sizes="(min-width: 1024px) 24vw, 50vw" className="object-cover transition-opacity duration-700 group-hover:opacity-0" />
+                    <Image src={asset(ANH[k.slug][1])} alt="" fill quality={65} sizes="(min-width: 1024px) 24vw, 50vw" className="object-cover opacity-0 transition-opacity duration-700 group-hover:opacity-100" />
+                  </div>
+                  <div className="p-5">
+                    <p className="text-[11px] font-medium uppercase tracking-[0.16em] text-than-chi/50">
+                      {String(i + 1).padStart(2, "0")} · {TEN_EN_HE_CUA[k.slug]}
+                    </p>
+                    <h3 className="mt-1 text-lg font-bold group-hover:text-accent">{k.ten}</h3>
+                    <p className="mt-1 hidden text-sm text-than-chi/70 sm:block">{k.tagline}</p>
+                  </div>
+                </Link>
+              </Hien>
+            ))}
+          </ul>
         </Wrap>
       </section>
 
-      <Section tone="sang" nhan="Chọn theo nhu cầu" tieuDe="Kiểu cửa nào phù hợp với không gian của bạn?">
-        <div className="overflow-x-auto">
-          <table className="w-full min-w-[720px] border-collapse text-left text-sm">
-            <thead>
-              <tr className="border-b border-than-chi/20 text-than-chi/70">
-                <th className="py-3 pr-4 font-bold">Kiểu cửa</th>
-                <th className="py-3 pr-4 font-bold">Không gian phù hợp</th>
-                <th className="py-3 pr-4 font-bold">Khẩu độ</th>
-                <th className="py-3 font-bold">Cách mở</th>
-              </tr>
-            </thead>
-            <tbody>
-              {KIEU_CUA.map((k) => (
-                <tr key={k.slug} className="border-b border-than-chi/10 align-top">
-                  <td className="py-4 pr-4 font-bold">
-                    <Link href={`/he-cua/${k.slug}`} className="underline hover:text-accent">
-                      {k.ten}
-                    </Link>
-                  </td>
-                  <td className="py-4 pr-4 text-than-chi/85">{k.khongGian.join(" · ")}</td>
-                  <td className="py-4 pr-4 text-than-chi/85">{k.khauDo}</td>
-                  <td className="py-4 text-than-chi/85">{k.cachMo}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-        <p className="mt-6 text-sm text-than-chi/70">
-          Bảng chỉ mang tính tham khảo theo nhu cầu sử dụng.{" "}
-          <Link href="/lien-he" className="underline hover:text-accent">
-            Nhờ chuyên gia tư vấn kiểu cửa phù hợp
-          </Link>
-          .
-        </p>
-      </Section>
+      {/* 02 · So sánh */}
+      <section id="so-sanh" className="bg-nga py-8 md:py-10">
+        <Wrap>
+          <Dau so="02" nhan="So sánh hệ cửa" tieuDe={<>Đặt hai đến ba kiểu cửa <span className="font-bold">cạnh nhau</span></>} />
+          <Hien tre={100} className="mt-5">
+            <SoSanhHeCua />
+          </Hien>
+        </Wrap>
+      </section>
 
-      <Section tone="nga" nhan="Nhôm cầu cách nhiệt là gì?" tieuDe="Ba bước để nhiệt không đi thẳng vào nhà.">
-        <ol className="grid gap-6 md:grid-cols-3">
-          {[
-            ["Hai nửa khung nhôm", "Khung được chia thành một nửa phía ngoài và một nửa phía trong."],
-            ["Thanh cầu cách nhiệt", "Một thanh polyamide nối hai nửa, ngăn nhiệt truyền thẳng qua kim loại."],
-            ["Kính hộp và gioăng", "Kính hộp cùng gioăng ôm sát giúp bộ cửa kín và êm dịu hơn."],
-          ].map(([t, m], i) => (
-            <li key={t} className="border-t-2 border-accent pt-6">
-              <span className="nhan-muc text-accent">{String(i + 1).padStart(2, "0")}</span>
-              <h3 className="mt-3 text-xl font-bold">{t}</h3>
-              <p className="mt-2 text-than-chi/80">{m}</p>
-            </li>
-          ))}
-        </ol>
-      </Section>
+      {/* 03 · Mẫu cửa theo hãng */}
+      <section id="mau-cua" className="luoi-ban-ve bg-white py-8 md:py-10">
+        <Wrap>
+          <Dau so="03" nhan="Mẫu cửa" tieuDe={<>Mẫu cửa <span className="font-bold">Romadio, Civro, Ponzio</span></>} />
+          <Hien tre={100} className="mt-5">
+            <MauCua />
+          </Hien>
+        </Wrap>
+      </section>
+
+      {/* 04 · Cấu hình cửa */}
+      <section id="cau-hinh" className="relative overflow-hidden bg-nga py-8 md:py-10">
+        <Wrap>
+          <Dau so="04" nhan="Cấu hình cửa" tieuDe={<>Chọn cấu hình, <span className="font-bold">nhận tư vấn</span></>} />
+          <Hien tre={100} className="mt-5">
+            <CauHinhCua />
+          </Hien>
+        </Wrap>
+      </section>
     </>
   );
 }
