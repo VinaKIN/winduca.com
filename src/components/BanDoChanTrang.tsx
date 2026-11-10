@@ -3,9 +3,9 @@
  * Khung đẩy bản đồ lên để thẻ thông tin mặc định của Google nằm ngoài vùng nhìn, tránh trùng nút của WINDUCA.
  * Bản đồ tải từ Google khi người xem cuộn tới (loading="lazy"); đã ghi trong Chính sách cookie.
  */
-export function BanDoChanTrang({ diaChi, mapsUrl }: { diaChi: string; mapsUrl: string }) {
+export function BanDoChanTrang({ diaChi, mapsUrl, lop = "h-[300px]" }: { diaChi: string; mapsUrl: string; lop?: string }) {
   return (
-    <div className="relative h-[280px] overflow-hidden rounded-[10px] bg-[#1d1a1b] md:h-[300px]">
+    <div className={`relative overflow-hidden rounded-[10px] bg-[#1d1a1b] ${lop}`}>
       <iframe
         title="Bản đồ văn phòng WINDUCA"
         src={`https://www.google.com/maps?q=${encodeURIComponent(diaChi)}&hl=vi&z=16&output=embed`}

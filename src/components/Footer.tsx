@@ -70,15 +70,15 @@ export function Footer() {
       {/* Chân trang (bố cục kiểu Winboss): trái logo, liên kết, mạng xã hội; phải bản đồ và liên hệ */}
       <div className="footer-sau text-white">
         <Wrap className="pb-6 pt-10 md:pt-12">
-          <div className="grid gap-8 lg:grid-cols-[1fr_1.15fr] lg:gap-16">
-            <div className="flex flex-col justify-between gap-8">
+          <div className="grid gap-8 lg:grid-cols-[0.8fr_1.2fr] lg:gap-14">
+            <div className="flex flex-col gap-5">
               <div className="w-fit">
                 <Image
                   src={asset("/brand/WINDUCA-ngang-am-ban-trong.svg")}
                   alt="WINDUCA"
                   width={677}
                   height={102}
-                  className="h-auto w-[300px] md:w-[400px]"
+                  className="h-auto w-[280px] md:w-[360px]"
                 />
                 <p className="mt-4 text-center text-[11px] font-medium uppercase tracking-[0.5em] text-white/70 md:text-[13px]">Premium Window &amp; Door</p>
               </div>
@@ -100,40 +100,40 @@ export function Footer() {
                   ))}
                 </ul>
               </nav>
+            <ul className="space-y-2.5 text-[16px] font-light">
+              <li className="flex items-start gap-3">
+                <BieuTuong lop="mt-0.5 h-5 w-5 shrink-0 text-white/90">
+                  <path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z" />
+                </BieuTuong>
+                <a href={HOTLINE_TEL} className="hover:text-accent">
+                  {HOTLINE}
+                </a>
+              </li>
+              <li className="flex items-start gap-3">
+                <BieuTuong lop="mt-0.5 h-5 w-5 shrink-0 text-white/90">
+                  <rect x="3" y="5" width="18" height="14" rx="2" />
+                  <path d="m3 7 9 6 9-6" />
+                </BieuTuong>
+                <a href={`mailto:${EMAIL}`} className="hover:text-accent">
+                  {EMAIL}
+                </a>
+              </li>
+              <li className="flex items-start gap-3">
+                <BieuTuong lop="mt-0.5 h-5 w-5 shrink-0 text-white/90">
+                  <path d="M12 21s7-5.6 7-11a7 7 0 1 0-14 0c0 5.4 7 11 7 11z" />
+                  <circle cx="12" cy="10" r="2.5" />
+                </BieuTuong>
+                <a href={MAPS_URL} target="_blank" rel="noopener noreferrer" className="leading-snug hover:text-accent">
+                  {DIA_CHI}
+                </a>
+              </li>
+            </ul>
               <MangXaHoi kieu="dac" />
             </div>
 
             <div>
-              <BanDoChanTrang diaChi={DIA_CHI} mapsUrl={MAPS_URL} />
+              <BanDoChanTrang diaChi={DIA_CHI} mapsUrl={MAPS_URL} lop="h-[300px] lg:h-full lg:min-h-[340px]" />
 
-              <ul className="mt-6 grid gap-5 text-[17px] font-light sm:grid-cols-[auto_auto_1fr] sm:gap-x-8">
-                <li className="flex items-start gap-3">
-                  <BieuTuong lop="mt-0.5 h-6 w-6 shrink-0 text-white">
-                    <path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z" />
-                  </BieuTuong>
-                  <a href={HOTLINE_TEL} className="hover:text-accent">
-                    {HOTLINE}
-                  </a>
-                </li>
-                <li className="flex items-start gap-3">
-                  <BieuTuong lop="mt-0.5 h-6 w-6 shrink-0 text-white">
-                    <rect x="3" y="5" width="18" height="14" rx="2" />
-                    <path d="m3 7 9 6 9-6" />
-                  </BieuTuong>
-                  <a href={`mailto:${EMAIL}`} className="hover:text-accent">
-                    {EMAIL}
-                  </a>
-                </li>
-                <li className="flex items-start gap-3">
-                  <BieuTuong lop="mt-0.5 h-6 w-6 shrink-0 text-white">
-                    <path d="M12 21s7-5.6 7-11a7 7 0 1 0-14 0c0 5.4 7 11 7 11z" />
-                    <circle cx="12" cy="10" r="2.5" />
-                  </BieuTuong>
-                  <a href={MAPS_URL} target="_blank" rel="noopener noreferrer" className="leading-snug hover:text-accent">
-                    {DIA_CHI}
-                  </a>
-                </li>
-              </ul>
             </div>
           </div>
 
