@@ -49,7 +49,7 @@ type Props = {
 };
 
 export function LeadForm({ loai, tone = "sang", kieuCuaMacDinh = "", khiXong, gon = false, cot = 2, ghiChuMacDinh = "" }: Props) {
-  const span = cot === 3 ? "md:col-span-2 lg:col-span-3" : "md:col-span-2";
+  const span = gon ? "" : cot === 3 ? "md:col-span-2 lg:col-span-3" : "md:col-span-2";
   const router = useRouter();
   const formRef = useRef<HTMLFormElement>(null);
   const [dangGui, setDangGui] = useState(false);
@@ -57,8 +57,10 @@ export function LeadForm({ loai, tone = "sang", kieuCuaMacDinh = "", khiXong, go
   const [loiTruong, setLoiTruong] = useState<Record<string, string>>({});
   const toi = tone === "toi";
 
-  const nhan = `block text-sm font-medium ${toi ? "text-nga" : "text-than-chi"}`;
-  const o = `mt-2 w-full rounded-md border px-3 py-3 text-base outline-none transition-colors focus:border-accent ${
+  const nhan = gon ? "sr-only" : `block text-sm font-medium ${toi ? "text-nga" : "text-than-chi"}`;
+  const o = gon
+    ? "w-full rounded-[2px] border border-than-chi/80 bg-white px-4 py-3.5 text-base font-light text-than-chi outline-none transition-colors placeholder:text-than-chi/60 focus:border-accent"
+    : `mt-2 w-full rounded-md border px-3 py-3 text-base outline-none transition-colors focus:border-accent ${
     toi
       ? "border-inox/40 bg-than-chi/40 text-nga placeholder:text-nga/50"
       : "border-than-chi/25 bg-white text-than-chi placeholder:text-than-chi/50"
@@ -129,7 +131,7 @@ export function LeadForm({ loai, tone = "sang", kieuCuaMacDinh = "", khiXong, go
   const coLoaiCT = loai === "sample-box" || loai === "showroom" || loai === "ban-ve";
 
   return (
-    <form ref={formRef} onSubmit={guiDi} noValidate className={`grid gap-x-5 gap-y-4 md:grid-cols-2 ${cot === 3 ? "lg:grid-cols-3" : ""}`} aria-label="Biểu mẫu liên hệ">
+    <form ref={formRef} onSubmit={guiDi} noValidate className={gon ? "grid gap-3" : `grid gap-x-5 gap-y-4 md:grid-cols-2 ${cot === 3 ? "lg:grid-cols-3" : ""}`} aria-label="Biểu mẫu liên hệ">
       {/* bẫy spam: người thật không thấy */}
       <div className="absolute -left-[9999px]" aria-hidden="true">
         <label>
@@ -142,14 +144,14 @@ export function LeadForm({ loai, tone = "sang", kieuCuaMacDinh = "", khiXong, go
         <label className={nhan} htmlFor={`ten-${loai}`}>
           Họ và tên
         </label>
-        <input id={`ten-${loai}`} name="ten" autoComplete="name" className={o} required />
+        <input id={`ten-${loai}`} name="ten" autoComplete="name" placeholder={gon ? "Họ và tên" : undefined} className={o} required />
         {loiTruong.ten && <p className={loiCss}>{loiTruong.ten}</p>}
       </div>
       <div>
         <label className={nhan} htmlFor={`sdt-${loai}`}>
           Số điện thoại / Zalo
         </label>
-        <input id={`sdt-${loai}`} name="sdt" type="tel" inputMode="tel" autoComplete="tel" className={o} required />
+        <input id={`sdt-${loai}`} name="sdt" type="tel" inputMode="tel" autoComplete="tel" placeholder={gon ? "Số điện thoại / Zalo" : undefined} className={o} required />
         {loiTruong.sdt && <p className={loiCss}>{loiTruong.sdt}</p>}
       </div>
 
@@ -157,7 +159,7 @@ export function LeadForm({ loai, tone = "sang", kieuCuaMacDinh = "", khiXong, go
         <label className={nhan} htmlFor={`email-${loai}`}>
           Email <span className="font-normal opacity-70">(không bắt buộc)</span>
         </label>
-        <input id={`email-${loai}`} name="email" type="email" autoComplete="email" className={o} />
+        <input id={`email-${loai}`} name="email" type="email" autoComplete="email" placeholder={gon ? "Email (không bắt buộc)" : undefined} className={o} />
         {loiTruong.email && <p className={loiCss}>{loiTruong.email}</p>}
       </div>
 
@@ -317,7 +319,7 @@ export function LeadForm({ loai, tone = "sang", kieuCuaMacDinh = "", khiXong, go
         <button
           type="submit"
           disabled={dangGui}
-          className={`nut nut-chinh w-full sm:w-auto ${dangGui ? "opacity-60" : ""}`}
+          className={`nut nut-chinh w-full sm:w-auto ${gon ? "mt-2" : ""} ${dangGui ? "opacity-60" : ""}`}
         >
           {dangGui ? "Đang gửi…" : NUT[loai]}
         </button>

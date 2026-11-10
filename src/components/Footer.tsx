@@ -28,29 +28,30 @@ export function Footer() {
         <Wrap className="relative py-12 md:py-16">
           <div className="mx-auto max-w-5xl overflow-hidden rounded-[28px] bg-white md:rounded-[36px]">
             <div className="bg-than-chi px-6 py-8 text-white md:px-12 md:py-10">
-              <div className="grid gap-8 md:grid-cols-[1fr_1.2fr] md:items-center">
-                <h2 className="text-[clamp(1.6rem,3vw,2.4rem)] font-bold leading-tight">
+              <div className="grid gap-8 md:grid-cols-[0.9fr_1.3fr] md:items-center">
+                <h2 className="text-[clamp(1.75rem,3.2vw,2.75rem)] font-light leading-[1.12]">
                   Trải nghiệm
                   <span className="block">không gian WINDUCA</span>
                 </h2>
-                <ul className="grid gap-3 text-sm sm:grid-cols-2">
-                  <li className="flex items-center gap-3">
-                    <span className="h-2 w-2 shrink-0 rounded-full bg-accent" aria-hidden="true" />
-                    <a href={HOTLINE_TEL} className="hover:underline">
-                      Hotline: {HOTLINE}
-                    </a>
-                  </li>
-                  <li className="flex items-center gap-3">
-                    <span className="h-2 w-2 shrink-0 rounded-full bg-accent" aria-hidden="true" />
-                    <a href={`mailto:${EMAIL}`} className="text-white/80 hover:underline">Email: {EMAIL}</a>
-                  </li>
-                  <li className="flex items-center gap-3 sm:col-span-2">
-                    <span className="h-2 w-2 shrink-0 rounded-full bg-accent" aria-hidden="true" />
-                    <a href={MAPS_URL} target="_blank" rel="noopener noreferrer" className="text-white/80 hover:underline">Địa chỉ: {DIA_CHI}</a>
-                  </li>
+                <ul className="grid gap-x-6 gap-y-4 text-[15px] font-medium sm:grid-cols-2">
+                  {[
+                    { h: HOTLINE_TEL, t: `Hotline: ${HOTLINE}`, ext: false, ic: <path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z" /> },
+                    { h: `mailto:${EMAIL}`, t: `Email: ${EMAIL}`, ext: false, ic: (<><rect x="3" y="5" width="18" height="14" rx="2" /><path d="m3 7 9 6 9-6" /></>) },
+                    { h: MAPS_URL, t: DIA_CHI, ext: true, ic: (<><path d="M12 21s7-5.6 7-11a7 7 0 1 0-14 0c0 5.4 7 11 7 11z" /><circle cx="12" cy="10" r="2.5" /></>) },
+                    { h: MAPS_URL, t: "Xem bản đồ", ext: true, ic: <path d="m9 4-6 2v14l6-2 6 2 6-2V4l-6 2-6-2Zm0 0v14m6-12v14" /> },
+                  ].map((x) => (
+                    <li key={x.t}>
+                      <a href={x.h} {...(x.ext ? { target: "_blank", rel: "noopener noreferrer" } : {})} className="group flex items-center gap-3 hover:text-white">
+                        <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-accent text-white transition-transform group-hover:scale-110">
+                          <BieuTuong lop="h-[18px] w-[18px]">{x.ic}</BieuTuong>
+                        </span>
+                        <span className="leading-snug">{x.t}</span>
+                      </a>
+                    </li>
+                  ))}
                 </ul>
               </div>
-              <p className="mt-6 max-w-2xl text-sm font-light text-white/70">
+              <p className="mt-6 max-w-2xl text-base font-light text-white/80">
                 Tham gia cùng chúng tôi để trải nghiệm hộp mẫu góc nhôm, chạm vào chất liệu và trao đổi với chuyên viên tư vấn.
               </p>
             </div>
