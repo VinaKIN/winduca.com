@@ -12,6 +12,12 @@ import { LOAI_DU_AN } from "@/lib/site";
 
 const HERO = "/images/hero.jpg";
 const NHA = "/images/chu-nha.jpg";
+const BTHU = "/images/biet-thu-go-kinh.jpg";
+const RESORT = "/images/resort-ho-boi.jpg";
+const RESORT2 = "/images/resort-ven-bien.jpg";
+const NHAPHO = "/images/nha-pho-dem.jpg";
+const NHAO = "/images/nha-o-kinh.jpg";
+const VILLA = "/images/villa-ban-cong.jpg";
 
 function NhanDo({ children }: { children: string }) {
   return <p className="nhan-muc text-accent">{children}</p>;
@@ -99,8 +105,8 @@ export function DichVuKhoi() {
   const dv = [
     { so: "01", t: "Tư vấn giải pháp kiến trúc, thiết kế", m: "Đội kỹ thuật cùng kiến trúc sư chọn kiểu cửa phù hợp từng công trình.", anh: HERO, pos: "30% 50%" },
     { so: "02", t: "Cung cấp và lắp đặt", m: "Cung cấp hệ nhôm, phụ kiện và thi công, kiểm soát chất lượng đến khi nghiệm thu.", anh: NHA, pos: "70% 50%" },
-    { so: "03", t: "Dịch vụ hậu mãi", m: "Bảo trì, hiệu chỉnh và hỗ trợ sau bàn giao.", anh: HERO, pos: "80% 40%" },
-    { so: "04", t: "Hỗ trợ đối tác", m: "Đào tạo kỹ thuật và bán hàng cho đại lý, nhà thầu.", anh: NHA, pos: "20% 60%" },
+    { so: "03", t: "Dịch vụ hậu mãi", m: "Bảo trì, hiệu chỉnh và hỗ trợ sau bàn giao.", anh: RESORT2, pos: "50% 50%" },
+    { so: "04", t: "Hỗ trợ đối tác", m: "Đào tạo kỹ thuật và bán hàng cho đại lý, nhà thầu.", anh: NHAO, pos: "50% 78%" },
   ];
   const so = [
     { n: "Số dự án" },
@@ -163,9 +169,9 @@ export function DichVuKhoi() {
 /* ---------- Công trình theo loại ---------- */
 export function CongTrinhKhoi() {
   const anh = [
-    { src: HERO, pos: "40% 50%" },
-    { src: NHA, pos: "60% 50%" },
-    { src: HERO, pos: "85% 40%" },
+    { src: BTHU, pos: "50% 50%" },
+    { src: NHAPHO, pos: "50% 50%" },
+    { src: RESORT, pos: "50% 50%" },
   ];
   return (
     <section className="bg-nga py-20 md:py-28">
@@ -259,9 +265,9 @@ export function ViSaoKhoi() {
 
 /* ---------- Tin tức ---------- */
 export const BAI_SAP_CO = [
-  { loai: "Kiến thức", t: "Cửa trượt nâng khác gì cửa trượt thường?", anh: NHA, pos: "70% 50%" },
-  { loai: "Kỹ thuật", t: "Cách đọc chỉ số Uw của cửa cách nhiệt", anh: HERO, pos: "30% 50%" },
-  { loai: "Hoàn thiện", t: "Anode hóa hay sơn tĩnh điện: chọn thế nào?", anh: NHA, pos: "20% 60%" },
+  { loai: "Kiến thức", t: "Cửa trượt nâng khác gì cửa trượt thường?", anh: VILLA, pos: "50% 72%" },
+  { loai: "Kỹ thuật", t: "Cách đọc chỉ số Uw của cửa cách nhiệt", anh: RESORT2, pos: "50% 50%" },
+  { loai: "Hoàn thiện", t: "Anode hóa hay sơn tĩnh điện: chọn thế nào?", anh: NHAO, pos: "50% 80%" },
 ];
 
 export function TinTucKhoi() {

@@ -10,8 +10,8 @@ import { NhanMinhHoa } from "./ui";
 const ANH = [
   { src: "/images/chu-nha.jpg", pos: "70% 50%" },
   { src: "/images/hero.jpg", pos: "20% 50%" },
-  { src: "/images/chu-nha.jpg", pos: "10% 60%" },
-  { src: "/images/hero.jpg", pos: "80% 40%" },
+  { src: "/images/biet-thu-go-kinh.jpg", pos: "50% 50%" },
+  { src: "/images/villa-ban-cong.jpg", pos: "50% 62%" },
 ];
 
 /** Danh sách hệ cửa kiểu Winboss: thẻ trắng bo góc, tab lọc, ô tìm kiếm, lưới thẻ 3 cột. */

@@ -8,6 +8,12 @@ Giấy phép: [Pexels License](https://www.pexels.com/license/) — dùng miễn
 |---|---|---|---|---|---|---|
 | `hero.jpg` | [A view of the pool and the ocean at dusk](https://www.pexels.com/photo/a-view-of-the-pool-and-the-ocean-at-dusk-28054848/) (Pexels 28054848) | Ahmet ÇÖTÜR | Pexels License | 09/11/2026 | 2400×1601, 721 KB | Hero trang chủ |
 | `chu-nha.jpg` | [A Cozy Living Room with a Pool View](https://www.pexels.com/photo/a-cozy-living-room-with-a-pool-view-8134753/) (Pexels 8134753) | Max Vakhtbovych | Pexels License | 09/11/2026 | 2400×1602, 406 KB | Khối Chủ nhà, trang chủ |
+| `biet-thu-go-kinh.jpg` | [Modern luxury house with glass windows and wooden finish](https://www.pexels.com/photo/modern-luxury-house-with-glass-windows-and-wooden-finish-35361412/) (Pexels 35361412) | Alef Morais | Pexels License | 11/11/2026 | 2000×1125, 338 KB | Hero slide 3, Công trình (Biệt thự), băng chuyền Hệ cửa |
+| `resort-ho-boi.jpg` | [Elegant resort with luxurious infinity pool](https://www.pexels.com/photo/elegant-resort-with-luxurious-infinity-pool-38406370/) (Pexels 38406370) | Сокіл Sokil | Pexels License | 11/11/2026 | 2000×1333, 347 KB | Công trình (Khách sạn & Resort) |
+| `resort-ven-bien.jpg` | [Modern waterfront resort architecture view](https://www.pexels.com/photo/modern-waterfront-resort-architecture-view-36318208/) (Pexels 36318208) | Willians Huerta | Pexels License | 11/11/2026 | 2000×1125, 614 KB | Dịch vụ hậu mãi, Tin tức |
+| `nha-pho-dem.jpg` | [Illuminated house at night](https://www.pexels.com/photo/illuminated-house-at-night-16648066/) (Pexels 16648066) | LỬNG Studio | Pexels License | 11/11/2026 | 1066×1600, 167 KB (đổi từ PNG sang JPEG) | Công trình (Nhà phố cao cấp) |
+| `nha-o-kinh.jpg` | [Facade of cozy residential house on sunny day](https://www.pexels.com/photo/facade-of-cozy-residential-house-on-sunny-day-4394214/) (Pexels 4394214) | Mathias Reding | Pexels License | 11/11/2026 | 1067×1600, 291 KB | Dịch vụ, Tin tức |
+| `villa-ban-cong.jpg` | [Villa with sliding glass doors and a balcony](https://www.pexels.com/photo/villa-with-sliding-glass-doors-and-a-balcony-6010278/) (Pexels 6010278) | Tima Miroshnichenko | Pexels License | 11/11/2026 | 1067×1600, 216 KB | Băng chuyền Hệ cửa, Tin tức |
 
 ## Quy tắc
 

@@ -35,6 +35,13 @@ const SLIDES: Slide[] = [
     nut1: { nhan: "Xem các hệ cửa", href: "/he-cua" },
     nut2: { nhan: "Nhận hộp mẫu góc nhôm", href: "/trai-nghiem#sample-box" },
   },
+  {
+    anh: asset("/images/biet-thu-go-kinh.jpg"),
+    dong: ["Từ bản vẽ đến công trình", "một đầu mối đồng bộ"],
+    phu: "Tư vấn · Cung cấp · Thi công",
+    nut1: { nhan: "Xem công trình", href: "/cong-trinh" },
+    nut2: { nhan: "Trở thành đối tác", href: "/hop-tac" },
+  },
 ];
 
 function MuiTenTron({ kieu }: { kieu: "do" | "vien" }) {
