@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { BanDoChanTrang } from "./BanDoChanTrang";
 import { FormHaiNhom } from "./FormHaiNhom";
 import { MangXaHoi } from "./MangXaHoi";
 import { Wrap } from "./ui";
@@ -103,49 +104,7 @@ export function Footer() {
             </div>
 
             <div>
-              <a
-                href={MAPS_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Mở bản đồ chỉ đường tới văn phòng WINDUCA"
-                className="group relative block h-[240px] overflow-hidden rounded-[10px] border border-white/10 md:h-[320px]"
-              >
-                <svg viewBox="0 0 600 320" preserveAspectRatio="xMidYMid slice" className="absolute inset-0 h-full w-full" fill="none" aria-hidden="true">
-                  <rect width="600" height="320" fill="#1d1a1b" />
-                  <g stroke="#ffffff" strokeOpacity="0.07" strokeWidth="1">
-                    {Array.from({ length: 11 }, (_, k) => (
-                      <path key={`v${k}`} d={`M${k * 60} 0V320`} />
-                    ))}
-                    {Array.from({ length: 6 }, (_, k) => (
-                      <path key={`h${k}`} d={`M0 ${k * 64}H600`} />
-                    ))}
-                  </g>
-                  <g stroke="#ffffff" strokeOpacity="0.2" strokeWidth="6" strokeLinecap="round">
-                    <path d="M-10 230C120 210 180 150 300 140S480 110 620 60" />
-                    <path d="M120 -10C140 90 210 150 250 330" />
-                    <path d="M420 -10C400 80 380 140 400 330" />
-                  </g>
-                  <g stroke="#ffffff" strokeOpacity="0.1" strokeWidth="3" strokeLinecap="round">
-                    <path d="M-10 120C80 120 160 90 240 60S400 20 620 30" />
-                    <path d="M-10 290C100 280 220 300 330 270S520 250 620 280" />
-                    <path d="M520 -10C500 90 540 200 560 330" />
-                  </g>
-                  <path d="M-10 190C100 190 210 175 300 140" stroke="#e31937" strokeOpacity="0.7" strokeWidth="2" strokeDasharray="6 6" />
-                </svg>
-                <span className="absolute left-4 top-4 z-10 inline-flex items-center gap-2 rounded-[4px] bg-than-chi/90 px-4 py-2.5 text-[15px] transition-colors group-hover:bg-accent">
-                  Mở trong Maps
-                  <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                    <path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5" />
-                  </svg>
-                </span>
-                <span className="absolute left-[50%] top-[43%] z-10 -translate-x-1/2 -translate-y-full" aria-hidden="true">
-                  <svg viewBox="0 0 24 32" width="34" height="44" className="drop-shadow-[0_8px_14px_rgba(227,25,55,0.55)]">
-                    <path d="M12 0C5.4 0 0 5.2 0 11.6 0 20 12 32 12 32s12-12 12-20.4C24 5.2 18.6 0 12 0Z" fill="#e31937" />
-                    <circle cx="12" cy="11.5" r="4.5" fill="#fff" />
-                  </svg>
-                </span>
-                <span className="absolute bottom-3 right-4 z-10 text-xs text-white/50">Văn phòng WINDUCA</span>
-              </a>
+              <BanDoChanTrang diaChi={DIA_CHI} mapsUrl={MAPS_URL} />
 
               <ul className="mt-8 grid gap-6 text-[17px] font-light sm:grid-cols-[auto_auto_1fr] sm:gap-x-8">
                 <li className="flex items-start gap-3">
