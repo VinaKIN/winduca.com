@@ -77,7 +77,6 @@ function Logo({ lop, tren }: { lop: string; tren: boolean }) {
 
 export function Header() {
   const duongDan = usePathname();
-  const [daCuon, setDaCuon] = useState(false);
   const [moMenu, setMoMenu] = useState(false);
   const [duongDanMo, setDuongDanMo] = useState(duongDan);
 
@@ -86,13 +85,6 @@ export function Header() {
     setDuongDanMo(duongDan);
     setMoMenu(false);
   }
-
-  useEffect(() => {
-    const onScroll = () => setDaCuon(window.scrollY > 40);
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
 
   // Khóa cuộn nền và đóng bằng phím Esc khi menu mở
   useEffect(() => {
@@ -111,7 +103,7 @@ export function Header() {
 
   return (
     <>
-      <header className={`fixed inset-x-0 top-0 z-50 transition-colors duration-300 ${daCuon ? "bg-than-chi/95 backdrop-blur-md" : "bg-transparent"}`}>
+      <header className="absolute inset-x-0 top-0 z-50 bg-transparent">
         <div className="relative mx-auto flex h-20 max-w-[1440px] items-center justify-between px-5 md:h-[90px] md:px-10">
           <div className="flex items-center gap-2 md:gap-4">
             <NutTron href={HOTLINE_TEL} nhan={`Gọi hotline ${HOTLINE}`}>
