@@ -5,7 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState, type ReactNode } from "react";
 import { asset } from "@/lib/asset";
-import { HERO_ANH, HOTLINE, HOTLINE_TEL, KIEU_CUA, MENU } from "@/lib/site";
+import { HERO_ANH, HOTLINE, HOTLINE_TEL, KIEU_CUA, MENU_CHINH } from "@/lib/site";
 
 /**
  * Header theo mẫu tham chiếu NexaHome (10/11/2026):
@@ -15,16 +15,6 @@ import { HERO_ANH, HOTLINE, HOTLINE_TEL, KIEU_CUA, MENU } from "@/lib/site";
  * - Dưới xl: một thanh Ngà bo tròn cố định (logo · nút đăng ký · nút menu).
  * - Menu toàn màn hình: khung Ngà bo góc, bảng trắng chứa danh sách trang + thẻ ảnh kèm liên hệ.
  */
-
-const MUC = [
-  { href: "/", label: "Trang chủ" },
-  { href: "/he-cua", label: "Hệ cửa", con: true },
-  { href: "/cong-trinh", label: "Công trình" },
-  { href: "/nang-luc-xuong", label: "Năng lực & Xưởng" },
-  { href: "/danh-cho-kts", label: "Dành cho KTS" },
-  { href: "/trai-nghiem", label: "Trải nghiệm" },
-  { href: "/lien-he", label: "Liên hệ" },
-];
 
 function BieuTuong({ children }: { children: ReactNode }) {
   return (
@@ -72,38 +62,22 @@ function DieuHuongGiua({ tren, dangO }: { tren: boolean; dangO: (href: string) =
   return (
     <nav aria-label="Điều hướng chính">
       <ul className="flex items-center">
-        {MENU.map((m) => {
-          const coCon = m.href === "/he-cua";
-          const hien = dangO(m.href);
+        {KIEU_CUA.map((k) => {
+          const href = `/he-cua/${k.slug}`;
+          const hien = dangO(href);
           return (
-            <li key={m.href} className="group relative">
+            <li key={k.slug}>
               <Link
-                href={m.href}
+                href={href}
                 aria-current={hien ? "page" : undefined}
-                className={`inline-flex items-center gap-1 rounded-full px-3 py-2 text-[0.8125rem] font-medium transition-colors ${
+                className={`inline-flex items-center rounded-full px-4 py-2 text-[0.8125rem] font-medium transition-colors ${
                   tren
                     ? `text-nga hover:bg-white/10 ${hien ? "bg-white/15" : ""}`
                     : `hover:bg-than-chi/[0.06] ${hien ? "bg-than-chi/[0.06] text-than-chi" : "text-than-chi/80"}`
                 }`}
               >
-                {m.label}
-                {coCon && (
-                  <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                    <path d="m6 9 6 6 6-6" />
-                  </svg>
-                )}
+                {k.ten}
               </Link>
-              {coCon && (
-                <ul className="invisible absolute left-0 top-full z-10 mt-2 w-64 rounded-2xl border border-inox/60 bg-white p-2 opacity-0 shadow-[0_16px_40px_rgba(43,43,45,0.16)] transition-opacity group-focus-within:visible group-focus-within:opacity-100 group-hover:visible group-hover:opacity-100">
-                  {KIEU_CUA.map((k) => (
-                    <li key={k.slug}>
-                      <Link href={`/he-cua/${k.slug}`} className="block rounded-xl px-4 py-2.5 text-sm text-than-chi/85 hover:bg-than-chi/[0.06] hover:text-than-chi">
-                        {k.ten}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              )}
             </li>
           );
         })}
@@ -264,33 +238,30 @@ export function Header() {
 
             <div className="grid flex-1 gap-2 md:gap-2.5 lg:grid-cols-[1.15fr_1fr]">
               {/* Bảng trắng: danh sách trang */}
-              <nav aria-label="Điều hướng chính" className="rounded-[22px] bg-white px-6 py-6 md:rounded-[32px] md:px-12 md:py-10">
-                <p className="nhan-muc text-than-chi/60">Điều hướng</p>
-                <ul className="mt-4">
-                  {MUC.map((m, i) => (
-                    <li key={m.href} className="border-b border-inox/60">
+              <nav aria-label="Điều hướng chính" className="flex flex-col justify-center rounded-[22px] bg-white px-6 py-6 md:rounded-[32px] md:px-14 md:py-10">
+                <ul>
+                  {MENU_CHINH.map((m, i) => (
+                    <li key={m.label} className={`py-4 md:py-5 ${i > 0 ? "border-t border-inox/60" : ""}`}>
                       <Link
                         href={m.href}
-                        aria-current={dangO(m.href) ? "page" : undefined}
-                        className={`group flex items-baseline gap-4 py-4 transition-colors md:py-5 ${
-                          dangO(m.href) ? "text-than-chi" : "text-than-chi/70 hover:text-than-chi"
-                        }`}
+                        className="group flex items-center gap-5 text-than-chi"
                       >
-                        <span className="w-6 text-xs font-semibold text-than-chi/45">{String(i + 1).padStart(2, "0")}</span>
-                        <span className="tieu-de text-[1.6rem] md:text-[2.25rem]">{m.label}</span>
-                        <span className="ml-auto self-center text-than-chi opacity-0 transition-all duration-300 group-hover:translate-x-1 group-hover:opacity-100">
+                        <span className="w-6 text-[11px] font-semibold tracking-[0.12em] text-than-chi/40">{String(i + 1).padStart(2, "0")}</span>
+                        <span className="tieu-de text-[1.25rem] uppercase tracking-[0.04em] md:text-[1.6rem]">{m.label}</span>
+                        <span className="ml-auto text-than-chi opacity-0 transition-all duration-300 group-hover:translate-x-1 group-hover:opacity-100">
                           <MuiTen />
                         </span>
                       </Link>
                       {m.con && (
-                        <ul className="mb-5 ml-10 flex flex-wrap gap-2">
-                          {KIEU_CUA.map((k) => (
-                            <li key={k.slug}>
+                        <ul className="mt-3 flex flex-wrap gap-x-6 gap-y-2 pl-11">
+                          {m.con.map((c) => (
+                            <li key={c.href}>
                               <Link
-                                href={`/he-cua/${k.slug}`}
-                                className="inline-flex rounded-full border border-inox px-4 py-2 text-sm text-than-chi/85 transition-colors hover:border-than-chi hover:bg-than-chi hover:text-nga"
+                                href={c.href}
+                                aria-current={dangO(c.href) ? "page" : undefined}
+                                className={`text-sm transition-colors hover:text-than-chi ${dangO(c.href) ? "font-semibold text-than-chi" : "text-than-chi/65"}`}
                               >
-                                {k.ten}
+                                {c.label}
                               </Link>
                             </li>
                           ))}

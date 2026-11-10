@@ -52,24 +52,21 @@ export function HeroDoors() {
         <p className="mt-4 max-w-md text-[0.9375rem] font-light leading-relaxed text-than-chi/80">
           Hệ thống nhôm cầu cách nhiệt tiêu chuẩn châu Âu. Tận hưởng sự tĩnh lặng và tầm nhìn tràn viền cho biệt thự và penthouse.
         </p>
-        <div className="mt-6 flex flex-col items-start gap-3">
+        <div className="mt-6 flex flex-wrap items-center gap-3">
           <Link
-            href="/trai-nghiem#sample-box"
-            className="group inline-flex max-w-full items-center justify-between gap-5 rounded-full bg-than-chi py-2 pl-6 pr-2 text-sm font-semibold text-nga transition-colors hover:bg-champagne hover:text-than-chi"
+            href="/he-cua"
+            className="group inline-flex items-center justify-between gap-4 rounded-full bg-than-chi py-1.5 pl-6 pr-1.5 text-sm font-semibold text-nga transition-colors hover:bg-champagne hover:text-than-chi"
           >
-            Đăng ký trải nghiệm Hộp Mẫu Góc Nhôm tận nơi
+            Khám phá ngay
             <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-nga text-than-chi transition-transform duration-300 group-hover:rotate-45">
               <MuiTen />
             </span>
           </Link>
           <Link
-            href="/trai-nghiem#showroom"
-            className="group inline-flex max-w-full items-center justify-between gap-5 rounded-full border border-than-chi/40 py-2 pl-6 pr-2 text-sm font-semibold text-than-chi transition-colors hover:bg-than-chi hover:text-nga"
+            href="/lien-he"
+            className="inline-flex h-[52px] items-center rounded-full border border-than-chi/40 px-6 text-sm font-semibold text-than-chi transition-colors hover:bg-than-chi hover:text-nga"
           >
-            Đặt lịch trải nghiệm Showroom thực tế
-            <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-current transition-transform duration-300 group-hover:rotate-45">
-              <MuiTen />
-            </span>
+            Liên hệ nhận thông tin
           </Link>
         </div>
       </div>
