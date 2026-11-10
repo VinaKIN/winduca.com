@@ -271,7 +271,7 @@ export function FaqVaForm() {
         <div className="grid gap-12 lg:grid-cols-[1fr_1.5fr] lg:gap-16">
           <aside className="lg:sticky lg:top-32 lg:self-start">
             <p className="nhan-muc text-than-chi/70">Liên hệ trực tiếp</p>
-            <a href="tel:0947686668" className="tieu-de mt-4 block text-3xl hover:text-accent md:text-4xl">
+            <a href="tel:0947686668" className="tieu-de mt-4 block text-3xl hover:text-accent-chu md:text-4xl">
               0947 686 668
             </a>
             <ul className="mt-8 space-y-4 border-t border-than-chi/15 pt-6 text-sm text-than-chi/80">

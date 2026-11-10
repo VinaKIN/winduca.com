@@ -3,238 +3,191 @@
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useState, type ReactNode } from "react";
+import { useEffect, useState } from "react";
 import { asset } from "@/lib/asset";
-import { HERO_ANH, HOTLINE, HOTLINE_TEL, MENU_CHINH } from "@/lib/site";
+import { HOTLINE, HOTLINE_TEL, KIEU_CUA } from "@/lib/site";
 
 /**
- * Header kiểu Winboss (11/11/2026): hai nút tròn trắng (gọi, thư) bên trái · logo giữa · nút ba gạch bên phải.
- * Nằm trên ảnh/đầu trang, hóa nền Than đen khi cuộn. Bấm ba gạch mở menu toàn màn hình (5 mục theo mẫu).
+ * Header theo đề xuất 10/11/2026: logo trái · menu chính · CTA "Liên hệ tư vấn" phải.
+ * Trong suốt trên hero trang chủ (chữ trắng), chuyển nền Ngà khi cuộn (chữ Than chì).
+ * Menu "Hệ cửa" có mega menu kèm ảnh đại diện từng hệ cửa. Dưới 1024px dùng nút ba gạch.
  */
 
-function BieuTuong({ children }: { children: ReactNode }) {
-  return (
-    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-      {children}
-    </svg>
-  );
-}
-const IconDienThoai = () => (
-  <BieuTuong>
-    <path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z" />
-  </BieuTuong>
-);
-const IconThu = () => (
-  <BieuTuong>
-    <rect x="3" y="5" width="18" height="14" rx="2" />
-    <path d="m3 7 9 6 9-6" />
-  </BieuTuong>
-);
-const IconViTri = () => (
-  <BieuTuong>
-    <path d="M12 21s7-5.6 7-11a7 7 0 1 0-14 0c0 5.4 7 11 7 11z" />
-    <circle cx="12" cy="10" r="2.5" />
-  </BieuTuong>
-);
+const MENU = [
+  { href: "/gioi-thieu", label: "Giới thiệu", mega: false },
+  { href: "/he-cua", label: "Hệ cửa", mega: true },
+  { href: "/nang-luc-xuong", label: "Giải pháp", mega: false },
+  { href: "/cong-trinh", label: "Công trình", mega: false },
+  { href: "/hop-tac", label: "Đối tác", mega: false },
+  { href: "/tin-tuc", label: "Kiến thức", mega: false },
+];
 
-function MuiTen({ lop = "" }: { lop?: string }) {
-  return (
-    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" className={lop} aria-hidden="true">
-      <path d="M7 17 17 7M8 7h9v9" />
-    </svg>
-  );
-}
-
-function NutTron({ href, nhan, children }: { href: string; nhan: string; children: ReactNode }) {
-  const ngoai = href.startsWith("tel:") || href.startsWith("mailto:");
-  const lop =
-    "flex h-10 w-10 items-center justify-center rounded-full bg-white text-accent transition-colors hover:bg-accent hover:text-white md:h-14 md:w-14";
-  return ngoai ? (
-    <a href={href} aria-label={nhan} className={lop}>
-      {children}
-    </a>
-  ) : (
-    <Link href={href} aria-label={nhan} className={lop}>
-      {children}
-    </Link>
-  );
-}
-
-function Logo({ lop, tren }: { lop: string; tren: boolean }) {
-  return (
-    <Link href="/" aria-label="WINDUCA — trang chủ" className="block shrink-0">
-      <Image
-        src={asset(tren ? "/brand/WINDUCA-ngang-am-ban-trong.svg" : "/brand/WINDUCA-ngang-mau-trong.svg")}
-        alt="WINDUCA"
-        width={677}
-        height={102}
-        priority
-        className={lop}
-      />
-    </Link>
-  );
-}
+const ANH_HE_CUA = ["/images/chu-nha.jpg", "/images/biet-thu-go-kinh.jpg", "/images/resort-ven-bien.jpg", "/images/nha-o-kinh.jpg"];
 
 export function Header() {
   const duongDan = usePathname();
+  const [daCuon, setDaCuon] = useState(false);
   const [moMenu, setMoMenu] = useState(false);
+  const [moMega, setMoMega] = useState(false);
   const [duongDanMo, setDuongDanMo] = useState(duongDan);
 
   // Đóng menu khi chuyển trang (so sánh khi render, không setState trong effect)
   if (duongDanMo !== duongDan) {
     setDuongDanMo(duongDan);
     setMoMenu(false);
+    setMoMega(false);
   }
 
-  // Khóa cuộn nền và đóng bằng phím Esc khi menu mở
+  useEffect(() => {
+    const onScroll = () => setDaCuon(window.scrollY > 40);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  useEffect(() => {
+    if (!moMenu && !moMega) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        setMoMenu(false);
+        setMoMega(false);
+      }
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [moMenu, moMega]);
+
   useEffect(() => {
     if (!moMenu) return;
     const cu = document.body.style.overflow;
     document.body.style.overflow = "hidden";
-    const onKey = (e: KeyboardEvent) => e.key === "Escape" && setMoMenu(false);
-    window.addEventListener("keydown", onKey);
     return () => {
       document.body.style.overflow = cu;
-      window.removeEventListener("keydown", onKey);
     };
   }, [moMenu]);
 
-  const dangO = (href: string) => (href === "/" ? duongDan === "/" : duongDan.startsWith(href));
+  const dangO = (href: string) => duongDan.startsWith(href);
+  const trongSuot = duongDan === "/" && !daCuon && !moMega && !moMenu;
+
+  const chu = trongSuot ? "text-white" : "text-than-chi";
+  const logo = trongSuot ? "/brand/WINDUCA-ngang-am-ban-trong.svg" : "/brand/WINDUCA-ngang-mau-trong.svg";
+  const thanh = trongSuot ? "bg-white" : "bg-than-chi";
 
   return (
     <>
-      <header className="absolute inset-x-0 top-0 z-50 bg-transparent">
-        <div className="relative mx-auto flex h-20 max-w-[1440px] items-center justify-between px-5 md:h-[90px] md:px-10">
-          <div className="flex items-center gap-2 md:gap-4">
-            <NutTron href={HOTLINE_TEL} nhan={`Gọi hotline ${HOTLINE}`}>
-              <IconDienThoai />
-            </NutTron>
-            <NutTron href="/lien-he" nhan="Gửi liên hệ">
-              <IconThu />
-            </NutTron>
-          </div>
+      <header
+        className={`fixed inset-x-0 top-0 z-50 transition-[background-color,border-color] duration-300 ${
+          trongSuot ? "border-b border-transparent bg-transparent" : "border-b border-than-chi/10 bg-nga/95 backdrop-blur-md"
+        }`}
+        onMouseLeave={() => setMoMega(false)}
+      >
+        <div className="mx-auto flex h-16 max-w-[1440px] items-center justify-between gap-6 px-5 md:h-20 md:px-10">
+          <Link href="/" aria-label="WINDUCA — trang chủ" className="block shrink-0">
+            <Image src={asset(logo)} alt="WINDUCA" width={677} height={102} priority className="h-5 w-auto md:h-7" />
+          </Link>
 
-          <div className="absolute left-1/2 -translate-x-1/2">
-            <Logo lop="h-5 w-auto md:h-9" tren />
-          </div>
+          <nav aria-label="Điều hướng chính" className="hidden items-center gap-8 lg:flex">
+            {MENU.map((m) => (
+              <Link
+                key={m.href}
+                href={m.href}
+                aria-haspopup={m.mega ? "true" : undefined}
+                aria-expanded={m.mega ? moMega : undefined}
+                aria-current={dangO(m.href) ? "page" : undefined}
+                onMouseEnter={() => setMoMega(m.mega)}
+                onFocus={() => setMoMega(m.mega)}
+                className={`whitespace-nowrap text-[0.8125rem] font-medium uppercase tracking-[0.08em] transition-colors hover:text-accent ${
+                  dangO(m.href) && !trongSuot ? "text-accent-chu" : chu
+                }`}
+              >
+                {m.label}
+              </Link>
+            ))}
+          </nav>
 
-          <button
-            type="button"
-            className="flex h-12 w-12 flex-col items-center justify-center gap-[7px]"
-            aria-expanded={moMenu}
-            aria-controls="menu-toan-man-hinh"
-            aria-label="Mở menu"
-            onClick={() => setMoMenu(true)}
-          >
-            <span className="block h-[2px] w-8 bg-white" />
-            <span className="block h-[2px] w-8 bg-white" />
-            <span className="block h-[2px] w-8 bg-white" />
-          </button>
+          <div className="flex items-center gap-3 md:gap-4">
+            <Link href="/lien-he" className="nut nut-chinh whitespace-nowrap !min-h-10 !px-4 !py-2 !text-xs md:!px-5">
+              Liên hệ tư vấn
+            </Link>
+            <button
+              type="button"
+              className="flex h-10 w-10 flex-col items-center justify-center gap-[6px] lg:hidden"
+              aria-expanded={moMenu}
+              aria-controls="menu-di-dong"
+              aria-label="Mở menu"
+              onClick={() => setMoMenu(true)}
+            >
+              <span className={`block h-[2px] w-7 ${thanh}`} />
+              <span className={`block h-[2px] w-7 ${thanh}`} />
+              <span className={`block h-[2px] w-7 ${thanh}`} />
+            </button>
+          </div>
         </div>
+
+        {/* ===== MEGA MENU HỆ CỬA ===== */}
+        {moMega && (
+          <div className="hidden border-t border-than-chi/10 bg-nga lg:block">
+            <div className="mx-auto grid max-w-[1440px] grid-cols-4 gap-6 px-10 py-8">
+              {KIEU_CUA.map((k, n) => (
+                <Link key={k.slug} href={`/he-cua/${k.slug}`} className="group block text-than-chi">
+                  <div className="relative aspect-[4/3] overflow-hidden rounded-[2px] bg-than-chi">
+                    <Image
+                      src={asset(ANH_HE_CUA[n % ANH_HE_CUA.length])}
+                      alt=""
+                      fill
+                      quality={60}
+                      sizes="22vw"
+                      className="object-cover transition-transform duration-700 group-hover:scale-[1.04]"
+                    />
+                  </div>
+                  <p className="mt-3 text-sm font-semibold uppercase tracking-[0.06em] group-hover:text-accent-chu">{k.ten}</p>
+                  <p className="mt-1 text-xs text-than-chi/65">{k.tagline}</p>
+                </Link>
+              ))}
+            </div>
+          </div>
+        )}
       </header>
 
-      {/* ===== MENU TOÀN MÀN HÌNH ===== */}
+      {/* ===== MENU DI ĐỘNG ===== */}
       {moMenu && (
-        <div
-          id="menu-toan-man-hinh"
-          role="dialog"
-          aria-modal="true"
-          aria-label="Menu"
-          className="fixed inset-0 z-[60] overflow-y-auto bg-white px-3 py-3 md:px-6 md:py-5"
-        >
-          <div className="mx-auto flex min-h-full max-w-[1440px] flex-col rounded-[28px] bg-nga p-2 md:rounded-[40px] md:p-2.5">
-            {/* Thanh trên: logo · nút Đóng */}
-            <div className="flex h-16 items-center justify-between pl-5 pr-1 md:h-[72px] md:pl-8 md:pr-2">
-              <Logo lop="h-6 w-auto md:h-7" tren={false} />
-              <button
-                type="button"
-                aria-label="Đóng menu"
-                onClick={() => setMoMenu(false)}
-                className="group flex items-center gap-2 rounded-full bg-than-chi py-1 pl-6 pr-1 text-[0.8125rem] font-bold uppercase tracking-[0.04em] text-white transition-colors hover:bg-accent"
-              >
-                Đóng
-                <span className="flex h-10 w-10 items-center justify-center rounded-full bg-accent text-white">
-                  <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" aria-hidden="true">
-                    <path d="M6 6l12 12M18 6 6 18" />
-                  </svg>
-                </span>
-              </button>
-            </div>
-
-            <div className="grid flex-1 gap-2 md:gap-2.5 lg:grid-cols-[1.15fr_1fr]">
-              {/* Bảng trắng: danh sách trang */}
-              <nav aria-label="Điều hướng chính" className="flex flex-col justify-center rounded-[22px] bg-white px-6 py-6 md:rounded-[32px] md:px-14 md:py-10">
-                <ul>
-                  {MENU_CHINH.map((m, i) => (
-                    <li key={m.label} className={`py-4 md:py-5 ${i > 0 ? "border-t border-inox/60" : ""}`}>
-                      <Link href={m.href} className="group flex items-center gap-5 text-than-chi">
-                        <span className="w-6 text-[11px] font-bold tracking-[0.12em] text-accent">{String(i + 1).padStart(2, "0")}</span>
-                        <span className="tieu-de text-[1.25rem] font-bold uppercase tracking-[0.02em] md:text-[1.6rem]">{m.label}</span>
-                        <span className="ml-auto text-accent opacity-0 transition-all duration-300 group-hover:translate-x-1 group-hover:opacity-100">
-                          <MuiTen />
-                        </span>
-                      </Link>
-                      {m.con && (
-                        <ul className="mt-3 flex flex-wrap gap-x-6 gap-y-2 pl-11">
-                          {m.con.map((c) => (
-                            <li key={c.href}>
-                              <Link
-                                href={c.href}
-                                aria-current={dangO(c.href) ? "page" : undefined}
-                                className={`text-sm transition-colors hover:text-accent ${dangO(c.href) ? "font-bold text-accent" : "text-than-chi/65"}`}
-                              >
-                                {c.label}
-                              </Link>
-                            </li>
-                          ))}
-                        </ul>
-                      )}
-                    </li>
-                  ))}
-                </ul>
-              </nav>
-
-              {/* Thẻ ảnh + liên hệ */}
-              <div className="relative min-h-[420px] overflow-hidden rounded-[22px] bg-than-chi md:rounded-[32px]">
-                {HERO_ANH && <Image src={HERO_ANH} alt="" fill quality={60} sizes="(min-width: 1024px) 40vw, 100vw" className="object-cover" aria-hidden="true" />}
-                <div className="absolute inset-0 bg-than-chi/20" aria-hidden="true" />
-                <div className="absolute inset-x-3 bottom-3 rounded-[22px] bg-nga p-5 md:inset-x-4 md:bottom-4 md:rounded-[26px] md:p-6">
-                  <p className="tieu-de text-xl font-bold text-than-chi">Liên hệ</p>
-                  <ul className="mt-4 space-y-3 text-[0.9rem] text-than-chi/85">
-                    <li className="flex items-start gap-3">
-                      <span className="mt-0.5 text-accent">
-                        <IconViTri />
-                      </span>
-                      <span>Địa chỉ showroom: [CHỜ XÁC NHẬN]</span>
-                    </li>
-                    <li className="flex items-start gap-3">
-                      <span className="mt-0.5 text-accent">
-                        <IconDienThoai />
-                      </span>
-                      <a href={HOTLINE_TEL} className="font-medium hover:underline">
-                        Hotline: {HOTLINE}
-                      </a>
-                    </li>
-                    <li className="flex items-start gap-3">
-                      <span className="mt-0.5 text-accent">
-                        <IconThu />
-                      </span>
-                      <span>Email: [CHỖ TRỐNG]</span>
-                    </li>
-                  </ul>
-                  <Link
-                    href="/trai-nghiem"
-                    className="group mt-5 inline-flex w-full items-center justify-between gap-4 rounded-full bg-than-chi py-1.5 pl-6 pr-1.5 text-[0.8125rem] font-bold uppercase tracking-[0.04em] text-white transition-colors hover:bg-accent sm:w-auto"
-                  >
-                    Đăng ký trải nghiệm
-                    <span className="flex h-10 w-10 items-center justify-center rounded-full bg-accent text-white transition-transform duration-300 group-hover:rotate-45">
-                      <MuiTen />
-                    </span>
-                  </Link>
-                </div>
-              </div>
-            </div>
+        <div id="menu-di-dong" role="dialog" aria-modal="true" aria-label="Menu" className="fixed inset-0 z-[60] overflow-y-auto bg-nga px-5 py-5 lg:hidden">
+          <div className="flex items-center justify-between">
+            <Image src={asset("/brand/WINDUCA-ngang-mau-trong.svg")} alt="WINDUCA" width={677} height={102} className="h-5 w-auto" />
+            <button type="button" aria-label="Đóng menu" onClick={() => setMoMenu(false)} className="flex h-10 w-10 items-center justify-center text-than-chi">
+              <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" aria-hidden="true">
+                <path d="M6 6l12 12M18 6 6 18" />
+              </svg>
+            </button>
           </div>
+          <nav aria-label="Menu di động" className="mt-8">
+            <ul>
+              {MENU.map((m) => (
+                <li key={m.href} className="border-b border-than-chi/10">
+                  <Link href={m.href} className={`block py-4 text-lg font-medium ${dangO(m.href) ? "text-accent-chu" : "text-than-chi"}`}>
+                    {m.label}
+                  </Link>
+                  {m.mega && (
+                    <ul className="pb-3 pl-4">
+                      {KIEU_CUA.map((k) => (
+                        <li key={k.slug}>
+                          <Link href={`/he-cua/${k.slug}`} className="block py-2 text-sm text-than-chi/70">
+                            {k.ten}
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                </li>
+              ))}
+            </ul>
+          </nav>
+          <Link href="/lien-he" className="nut nut-chinh mt-8 w-full">
+            Liên hệ tư vấn
+          </Link>
+          <a href={HOTLINE_TEL} className="mt-4 block text-center text-sm text-than-chi/70">
+            Hotline {HOTLINE}
+          </a>
         </div>
       )}
     </>

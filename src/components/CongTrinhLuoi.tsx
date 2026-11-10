@@ -19,8 +19,8 @@ export function CongTrinhLuoi() {
   );
 
   const chip = (b: boolean) =>
-    `rounded-full border px-4 py-2 text-xs font-bold transition-colors ${
-      b ? "border-accent bg-accent text-white" : "border-than-chi/25 hover:border-accent hover:text-accent"
+    `rounded-[2px] border px-4 py-2 text-xs font-semibold transition-colors ${
+      b ? "border-accent bg-accent text-than-chi" : "border-than-chi/25 hover:border-accent hover:text-accent-chu"
     }`;
   const nhom = (nhan: string, ds2: string[], cur: string, set: (v: string) => void) => (
     <div>

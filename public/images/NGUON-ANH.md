@@ -23,3 +23,6 @@ Giấy phép: [Pexels License](https://www.pexels.com/license/) — dùng miễn
 
 ## Avatar khối đánh giá (trang chủ)
 `avatar-1.jpg`, `avatar-2.jpg`, `avatar-3.jpg`: ảnh chân dung nhân sự do chủ website cung cấp (10/11/2026), cắt vuông 192px quanh khuôn mặt. Cần văn bản đồng ý của từng người trước go-live.
+
+## Bộ ảnh kiến trúc (10/11/2026)
+Các ảnh hero, giới thiệu, hệ cửa, công trình, tin tức nay lấy từ bộ 18 ảnh do chủ website cung cấp (thư mục "Hình anh", tệp winduca (1..19).jpg). Ánh xạ: hero=16, chu-nha=12, biet-thu-go-kinh=13, nha-o-kinh=11, nha-pho-dem=9, resort-ho-boi=14, resort-ven-bien=8, villa-ban-cong=7, intro-chi-tiet=1. Cần xác nhận nguồn/bản quyền (ảnh trông như ảnh dựng) trước go-live.

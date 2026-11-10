@@ -29,14 +29,14 @@ export function Section({
   className?: string;
 }) {
   const toi = tone === "toi";
-  const nen = toi ? "bg-than-chi text-white" : tone === "nga" ? "bg-nga text-than-chi" : "bg-white text-than-chi";
+  const nen = toi ? "bg-than-chi text-white" : tone === "nga" ? "bg-nga text-than-chi" : "bg-nga text-than-chi";
   const nhanChu = nhan?.replace(/^\d{2}\s*\/\s*\d{2}\s*·\s*/, "").replace(/^\d{2}\s*·\s*/, "");
   return (
     <section id={id} className={`relative overflow-hidden ${nen} ${className}`}>
       <Wrap className="relative py-16 md:py-24">
         {(nhanChu || tieuDe || moTa) && (
           <div>
-            {nhanChu && <p className="nhan-muc text-accent">{nhanChu}</p>}
+            {nhanChu && <p className={`nhan-muc ${toi ? "text-accent" : "text-accent-chu"}`}>{nhanChu}</p>}
             {tieuDe && <h2 className="mt-3 max-w-3xl text-[clamp(1.75rem,3.4vw,2.75rem)] font-light leading-[1.15]">{tieuDe}</h2>}
             {moTa && <p className={`mt-5 max-w-2xl text-base font-light md:text-lg ${toi ? "text-white/80" : "text-than-chi/75"}`}>{moTa}</p>}
           </div>
@@ -67,7 +67,7 @@ export function PageHero({
       <div className="absolute inset-0 bg-than-chi/70" aria-hidden="true" />
       <Wrap className="relative pb-16 pt-40 md:pb-24 md:pt-56">
         <p className="nhan-muc text-accent">{nhan}</p>
-        <h1 className="mt-4 max-w-4xl text-[clamp(1.9rem,4.4vw,3.5rem)] font-bold uppercase leading-[1.12] [text-wrap:balance]">{tieuDe}</h1>
+        <h1 className="mt-4 max-w-4xl text-[clamp(1.9rem,4.4vw,3.5rem)] font-semibold uppercase leading-[1.12] [text-wrap:balance]">{tieuDe}</h1>
         {moTa && <p className="mt-6 max-w-2xl text-base font-light text-white/85 md:text-lg">{moTa}</p>}
         {children && <div className="mt-8 flex flex-col gap-3 sm:flex-row">{children}</div>}
       </Wrap>
@@ -93,7 +93,7 @@ export function ChoXacNhan({
     <span className="text-sm font-medium text-white/70">{children}</span>
   ) : (
     <span className="inline-flex items-center gap-2 text-sm font-medium text-than-chi/80">
-      <span className="h-1.5 w-1.5 rounded-full bg-accent" aria-hidden="true" />
+      <span className="h-1.5 w-1.5 rounded-[2px] bg-accent" aria-hidden="true" />
       {children}
     </span>
   );
