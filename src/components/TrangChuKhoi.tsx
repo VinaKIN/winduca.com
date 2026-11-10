@@ -177,7 +177,7 @@ export function CongTrinhKhoi() {
         <div className="flex flex-wrap items-end justify-between gap-6">
           <div>
             <NhanDo>Công trình</NhanDo>
-            <h2 className="mt-3 text-[clamp(1.75rem,3.4vw,2.75rem)] font-light">Không gian sống tiêu biểu</h2>
+            <h2 className="mt-3 text-[clamp(1.75rem,3.4vw,2.75rem)] font-light">Cảm hứng từ những không gian sống</h2>
           </div>
           <Link href="/cong-trinh" className="nut nut-dac">
             Xem thêm
@@ -218,24 +218,26 @@ export function DaiChuChay() {
 
 export function ViSaoKhoi() {
   const y = [
-    { so: "01", t: "Hệ nhôm cầu cách nhiệt", m: "Khung nhôm cầu cách nhiệt cho không gian êm và bền." },
-    { so: "02", t: "Tiêu chuẩn châu Âu", m: "Hệ nhôm, phụ kiện và quy trình tham chiếu tiêu chuẩn châu Âu." },
-    { so: "03", t: "Đồng bộ đến thi công", m: "Một đầu mối từ hệ nhôm, phụ kiện đến lắp đặt và nghiệm thu." },
+    { so: "01", t: "Giải pháp nhôm kiến trúc", m: "Hệ nhôm cầu cách nhiệt cho cửa khổ lớn, đường nét mảnh.", bc: "Tài liệu kỹ thuật" },
+    { so: "02", t: "Hệ thống sản phẩm đồng bộ", m: "Nhôm, kính và phụ kiện được chọn đồng bộ cho từng công trình.", bc: "Danh mục sản phẩm" },
+    { so: "03", t: "Tư vấn kỹ thuật theo bản vẽ", m: "Kiến trúc sư và đội kỹ thuật cùng bóc tách theo bản vẽ.", bc: "Quy trình tư vấn" },
+    { so: "04", t: "Thi công và hậu mãi", m: "Một đầu mối từ lắp đặt, nghiệm thu đến bảo trì sau bàn giao.", bc: "Hình ảnh công trình" },
   ];
   return (
     <section className="bg-than-chi py-8 text-white md:py-10">
       <Wrap>
         <div className="grid items-center gap-8 lg:grid-cols-[1fr_1.1fr] lg:gap-14">
           <div>
-            <NhanDo>Vì sao chọn WINDUCA</NhanDo>
+            <p className="nhan-muc text-accent">Vì sao chọn WINDUCA</p>
             <h2 className="mt-3 max-w-3xl text-[clamp(1.75rem,3.4vw,2.75rem)] font-light">Sự thật về WINDUCA</h2>
             <ul className="mt-6 divide-y divide-white/15 border-y border-white/15">
               {y.map((i) => (
-                <li key={i.so} className="flex gap-5 py-4">
+                <li key={i.so} className="flex gap-5 py-3">
                   <span className="text-2xl font-light text-accent">{i.so}</span>
                   <div>
                     <h3 className="text-lg font-semibold">{i.t}</h3>
                     <p className="mt-1 text-sm font-light text-white/75">{i.m}</p>
+                    <p className="mt-1 text-xs text-accent">Bằng chứng: {i.bc} · đang cập nhật</p>
                   </div>
                 </li>
               ))}
@@ -253,6 +255,48 @@ export function ViSaoKhoi() {
             <MatCat2D className="mx-auto aspect-[4/3] max-h-[clamp(280px,50svh,420px)] w-full" />
             <p className="mt-3 text-center text-xs text-white/55">Mặt cắt hệ nhôm · giá trị kích thước hiển thị khi có bản vẽ kỹ thuật xác nhận</p>
           </div>
+        </div>
+      </Wrap>
+    </section>
+  );
+}
+
+/* ---------- Hệ sinh thái đối tác ---------- */
+export function DoiTacKhoi() {
+  const nhom = [
+    { t: "Dành cho kiến trúc sư", m: "Thư viện kỹ thuật, bản vẽ mặt cắt và tư vấn theo bản vẽ.", href: "/danh-cho-kts" },
+    { t: "Dành cho nhà thầu", m: "Bóc tách khối lượng, phối hợp thi công và hỗ trợ kỹ thuật.", href: "/hop-tac" },
+    { t: "Dành cho đại lý", m: "Chương trình hợp tác phân phối, đào tạo sản phẩm và kỹ thuật.", href: "/hop-tac" },
+  ];
+  return (
+    <section className="bg-kinh-suong/35 py-8 md:py-10">
+      <Wrap>
+        <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:gap-14">
+          <div>
+            <NhanDo>Hệ sinh thái đối tác</NhanDo>
+            <h2 className="mt-3 text-[clamp(1.6rem,3vw,2.6rem)] font-semibold uppercase leading-[1.12]">
+              Kết nối năng lực.
+              <span className="block font-light">Kiến tạo giá trị dài hạn.</span>
+            </h2>
+            <Link href="/hop-tac" className="nut nut-chinh mt-7">
+              Khám phá chương trình hợp tác
+            </Link>
+          </div>
+          <ul className="divide-y divide-than-chi/15 border-y border-than-chi/15">
+            {nhom.map((x) => (
+              <li key={x.t}>
+                <Link href={x.href} className="group flex items-center justify-between gap-6 py-5">
+                  <div>
+                    <h3 className="text-lg font-semibold group-hover:text-accent-chu">{x.t}</h3>
+                    <p className="mt-1 text-sm text-than-chi/70">{x.m}</p>
+                  </div>
+                  <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-[2px] bg-accent text-than-chi transition-transform duration-300 group-hover:translate-x-1">
+                    <MuiTenDo />
+                  </span>
+                </Link>
+              </li>
+            ))}
+          </ul>
         </div>
       </Wrap>
     </section>

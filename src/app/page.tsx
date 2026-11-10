@@ -1,7 +1,9 @@
+import { GiaiPhapDongBo } from "@/components/GiaiPhapDongBo";
 import { HeroSlider } from "@/components/HeroSlider";
 import {
   CongTrinhKhoi,
   DichVuKhoi,
+  DoiTacKhoi,
   GioiThieuKhoi,
   SanPhamKhoi,
   TinTucKhoi,
@@ -19,9 +21,11 @@ export default function Home() {
       <HeroSlider />
       <GioiThieuKhoi />
       <SanPhamKhoi />
+      <GiaiPhapDongBo />
       <DichVuKhoi />
-      <CongTrinhKhoi />
       <ViSaoKhoi />
+      <CongTrinhKhoi />
+      <DoiTacKhoi />
       <TinTucKhoi />
     </>
   );
