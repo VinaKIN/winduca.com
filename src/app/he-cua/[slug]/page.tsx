@@ -55,7 +55,7 @@ export default async function KieuCuaPage({ params }: PageProps<"/he-cua/[slug]"
         </div>
       </Section>
 
-      <DoorExplorer tenKieuCua={k.ten} />
+      <DoorExplorer tenKieuCua={k.ten} slug={k.slug} />
 
       <Section tone="nga" nhan="Thông số" tieuDe="Thông số kỹ thuật" moTa="Các giá trị sẽ được công bố cùng nguồn kiểm định khi có kết quả xác nhận.">
         <dl className="border border-than-chi/15 bg-white grid divide-y divide-than-chi/15 rounded-sm sm:grid-cols-2 sm:divide-y-0 lg:grid-cols-3">

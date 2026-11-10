@@ -133,6 +133,14 @@ export const THONG_SO_BANG = [
   "Hệ số truyền nhiệt khung (Uf)",
 ];
 
+/** 4 màu cho Color Selector (đề xuất 10/11/2026). Màu MINH HỌA, mã màu chính thức đang chờ xác nhận. */
+export const MAU_NHOM = [
+  { ten: "Champagne", hex: "#bfa678" },
+  { ten: "Anthracite", hex: "#383e42" },
+  { ten: "Ivory", hex: "#e8e2d4" },
+  { ten: "Bronze", hex: "#7a5a3a" },
+];
+
 /** 8 màu mẫu theo tông brand. Mã màu nhà cung cấp: [CHỖ TRỐNG]. */
 export const MAU_HOAN_THIEN = [
   { ten: "Champagne anode", hex: "#bfa678" },

@@ -63,6 +63,7 @@ export function CrossSection({
   const giamChuyenDong = useMediaQuery("(prefers-reduced-motion: reduce)");
   const [daBam, setDaBam] = useState(false);
   const [tach, setTach] = useState(0.45);
+  const [zoom, setZoom] = useState(1);
   const [chon, setChon] = useState<LopId | null>(null);
   const [nguoiDungDungXoay, setNguoiDungDungXoay] = useState(false);
   const tuXoay = !giamChuyenDong && !nguoiDungDungXoay;
@@ -118,7 +119,7 @@ export function CrossSection({
 
             <div className="absolute inset-0">
               {hien3D ? (
-                <Canvas3D tach={tach} chon={chon} tuXoay={tuXoay} mauNhom={mauNhom} />
+                <Canvas3D tach={tach} chon={chon} tuXoay={tuXoay} mauNhom={mauNhom} zoom={zoom} />
               ) : (
                 <div className="relative h-full w-full">
                   <MatCatTinh />
@@ -134,7 +135,18 @@ export function CrossSection({
                 </div>
               )}
             </div>
-            <p className="absolute bottom-5 right-5 text-[11px] text-nga/60">Kéo để xoay</p>
+            <div className="absolute bottom-4 right-4 flex items-center gap-1.5 text-nga">
+              <span className="mr-2 hidden text-[11px] text-nga/60 sm:inline">Kéo để xoay</span>
+              <button type="button" aria-label="Thu nhỏ" onClick={() => setZoom((z) => Math.max(0.6, +(z - 0.25).toFixed(2)))} className="flex h-8 w-8 items-center justify-center rounded-[6px] bg-white/10 text-lg hover:bg-white/20">
+                −
+              </button>
+              <button type="button" aria-label="Phóng to" onClick={() => setZoom((z) => Math.min(2.2, +(z + 0.25).toFixed(2)))} className="flex h-8 w-8 items-center justify-center rounded-[6px] bg-white/10 text-lg hover:bg-white/20">
+                +
+              </button>
+              <button type="button" onClick={() => setZoom(1)} className="h-8 rounded-[6px] bg-white/10 px-3 text-xs hover:bg-white/20">
+                Đặt lại
+              </button>
+            </div>
           </div>
 
           {/* ĐIỀU KHIỂN + LỚP */}

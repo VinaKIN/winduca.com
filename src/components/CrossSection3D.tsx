@@ -1,8 +1,8 @@
 "use client";
 
-import { Canvas } from "@react-three/fiber";
+import { Canvas, useThree } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
-import { useMemo } from "react";
+import { useEffect, useMemo } from "react";
 import * as THREE from "three";
 
 /**
@@ -128,16 +128,29 @@ function MatCat({ tach, chon, mauNhom }: { tach: number; chon: LopId | null; mau
   );
 }
 
+/** Phóng to/thu nhỏ bằng thuộc tính zoom của camera (không chiếm cuộn trang). */
+function Zoom({ zoom }: { zoom: number }) {
+  const camera = useThree((s) => s.camera);
+  useEffect(() => {
+    // eslint-disable-next-line react-hooks/immutability -- camera của three.js là đối tượng ngoài React
+    camera.zoom = zoom;
+    camera.updateProjectionMatrix();
+  }, [zoom, camera]);
+  return null;
+}
+
 export default function CrossSection3D({
   tach,
   chon,
   tuXoay,
   mauNhom = "#bfa678",
+  zoom = 1,
 }: {
   tach: number;
   chon: LopId | null;
   tuXoay: boolean;
   mauNhom?: string;
+  zoom?: number;
 }) {
   return (
     <Canvas
@@ -149,6 +162,7 @@ export default function CrossSection3D({
       <ambientLight intensity={0.9} />
       <directionalLight position={[6, 8, 8]} intensity={2.2} color="#fff1dc" />
       <directionalLight position={[-6, -3, 4]} intensity={0.8} color="#dde3df" />
+      <Zoom zoom={zoom} />
       <MatCat tach={tach} chon={chon} mauNhom={mauNhom} />
       <OrbitControls
         enableZoom={false}

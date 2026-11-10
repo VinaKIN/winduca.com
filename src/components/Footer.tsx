@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { LeadForm } from "./LeadForm";
+import { FormHaiNhom } from "./FormHaiNhom";
 import { Wrap } from "./ui";
 import { asset } from "@/lib/asset";
 import { DIA_CHI, EMAIL, HOTLINE, HOTLINE_TEL, MAPS_URL } from "@/lib/site";
@@ -50,7 +50,7 @@ export function Footer() {
                 <h3 className="text-xl font-bold">Đăng ký tham quan</h3>
                 <p className="mt-2 text-sm text-than-chi/70">Chúng tôi liên hệ lại để xác nhận lịch trải nghiệm và giải đáp thắc mắc của anh chị.</p>
               </div>
-              <LeadForm loai="lien-he" tone="sang" gon />
+              <FormHaiNhom />
             </div>
           </div>
         </Wrap>
