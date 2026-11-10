@@ -17,7 +17,7 @@ export function FormHaiNhom() {
   const n = NHOM[i];
   return (
     <div>
-      <div role="tablist" aria-label="Nhóm khách hàng" className="mb-4 flex border-b border-than-chi/20">
+      <div role="tablist" aria-label="Nhóm khách hàng" className="mb-2 flex border-b border-than-chi/20">
         {NHOM.map((x, k) => (
           <button
             key={x.id}
@@ -31,7 +31,7 @@ export function FormHaiNhom() {
           </button>
         ))}
       </div>
-      <p className="mb-4 text-xs text-than-chi/60">{n.cta}</p>
+      <p className="mb-3 text-xs text-than-chi/60">{n.cta}</p>
       <LeadForm key={n.id} loai={n.loai} tone="sang" gon />
     </div>
   );

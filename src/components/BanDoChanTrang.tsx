@@ -5,7 +5,7 @@
  */
 export function BanDoChanTrang({ diaChi, mapsUrl }: { diaChi: string; mapsUrl: string }) {
   return (
-    <div className="relative h-[300px] overflow-hidden rounded-[10px] bg-[#1d1a1b] md:h-[360px]">
+    <div className="relative h-[280px] overflow-hidden rounded-[10px] bg-[#1d1a1b] md:h-[300px]">
       <iframe
         title="Bản đồ văn phòng WINDUCA"
         src={`https://www.google.com/maps?q=${encodeURIComponent(diaChi)}&hl=vi&z=16&output=embed`}

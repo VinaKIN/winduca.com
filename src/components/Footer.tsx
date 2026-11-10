@@ -26,9 +26,9 @@ export function Footer() {
       <section className="nen-ky-thuat relative overflow-hidden bg-[#121011]">
         <Image src={asset("/images/hero.jpg")} alt="" fill quality={60} sizes="100vw" className="scale-105 object-cover opacity-30 blur-[4px]" aria-hidden="true" />
         <div className="absolute inset-0 bg-gradient-to-br from-[#0e0c0d]/90 via-[#1a1617]/80 to-[#2a1014]/70" aria-hidden="true" />
-        <Wrap className="relative py-12 md:py-16">
+        <Wrap className="relative py-8 md:py-10">
           <div className="mx-auto max-w-5xl overflow-hidden rounded-[28px] bg-white md:rounded-[36px]">
-            <div className="bg-than-chi px-6 py-8 text-white md:px-12 md:py-10">
+            <div className="bg-than-chi px-6 py-6 text-white md:px-12 md:py-8">
               <div className="grid gap-8 md:grid-cols-[0.9fr_1.3fr] md:items-center">
                 <h2 className="text-[clamp(1.75rem,3.2vw,2.75rem)] font-light leading-[1.12]">
                   Trải nghiệm
@@ -52,11 +52,11 @@ export function Footer() {
                   ))}
                 </ul>
               </div>
-              <p className="mt-6 max-w-2xl text-base font-light text-white/80">
+              <p className="mt-4 max-w-2xl text-base font-light text-white/80">
                 Tham gia cùng chúng tôi để trải nghiệm hộp mẫu góc nhôm, chạm vào chất liệu và trao đổi với chuyên viên tư vấn.
               </p>
             </div>
-            <div className="grid gap-8 px-6 py-8 md:grid-cols-[0.8fr_1.2fr] md:px-12 md:py-10">
+            <div className="grid gap-6 px-6 py-6 md:grid-cols-[0.8fr_1.2fr] md:gap-10 md:px-12 md:py-7">
               <div>
                 <h3 className="text-xl font-bold">Đăng ký tham quan</h3>
                 <p className="mt-2 text-[15px] leading-relaxed text-than-chi/70">Chúng tôi liên hệ lại để xác nhận lịch trải nghiệm và giải đáp thắc mắc của anh chị.</p>
@@ -69,9 +69,9 @@ export function Footer() {
 
       {/* Chân trang (bố cục kiểu Winboss): trái logo, liên kết, mạng xã hội; phải bản đồ và liên hệ */}
       <div className="footer-sau text-white">
-        <Wrap className="pb-8 pt-12 md:pt-16">
-          <div className="grid gap-12 lg:grid-cols-[1fr_1.15fr] lg:gap-16">
-            <div>
+        <Wrap className="pb-6 pt-10 md:pt-12">
+          <div className="grid gap-8 lg:grid-cols-[1fr_1.15fr] lg:gap-16">
+            <div className="flex flex-col justify-between gap-8">
               <div className="w-fit">
                 <Image
                   src={asset("/brand/WINDUCA-ngang-am-ban-trong.svg")}
@@ -82,7 +82,7 @@ export function Footer() {
                 />
                 <p className="mt-4 text-center text-[11px] font-medium uppercase tracking-[0.5em] text-white/70 md:text-[13px]">Premium Window &amp; Door</p>
               </div>
-              <nav aria-label="Liên kết chân trang" className="mt-12">
+              <nav aria-label="Liên kết chân trang">
                 <ul className="grid max-w-md grid-flow-col grid-cols-2 grid-rows-3 gap-x-6 gap-y-5 text-[14px] uppercase tracking-[0.18em]">
                   {[
                     ["/", "Trang chủ"],
@@ -100,13 +100,13 @@ export function Footer() {
                   ))}
                 </ul>
               </nav>
-              <MangXaHoi lop="mt-12" kieu="dac" />
+              <MangXaHoi kieu="dac" />
             </div>
 
             <div>
               <BanDoChanTrang diaChi={DIA_CHI} mapsUrl={MAPS_URL} />
 
-              <ul className="mt-8 grid gap-6 text-[17px] font-light sm:grid-cols-[auto_auto_1fr] sm:gap-x-8">
+              <ul className="mt-6 grid gap-5 text-[17px] font-light sm:grid-cols-[auto_auto_1fr] sm:gap-x-8">
                 <li className="flex items-start gap-3">
                   <BieuTuong lop="mt-0.5 h-6 w-6 shrink-0 text-white">
                     <path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z" />
@@ -137,7 +137,7 @@ export function Footer() {
             </div>
           </div>
 
-          <div className="mt-12 flex flex-wrap items-center justify-between gap-4 pt-6 text-[15px] font-light text-white/70 before:mb-0 before:block before:h-px before:w-full before:bg-gradient-to-r before:from-white/30 before:via-white/10 before:to-transparent">
+          <div className="mt-8 flex flex-wrap items-center justify-between gap-4 pt-5 text-[15px] font-light text-white/70 before:mb-0 before:block before:h-px before:w-full before:bg-gradient-to-r before:from-white/30 before:via-white/10 before:to-transparent">
             <p>Copyright © 2026 WINDUCA. All rights reserved.</p>
             <ul className="flex flex-wrap gap-x-6 gap-y-2 pr-16 text-sm">
               <li>

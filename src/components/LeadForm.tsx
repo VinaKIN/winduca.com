@@ -59,7 +59,7 @@ export function LeadForm({ loai, tone = "sang", kieuCuaMacDinh = "", khiXong, go
 
   const nhan = gon ? "sr-only" : `block text-sm font-medium ${toi ? "text-nga" : "text-than-chi"}`;
   const o = gon
-    ? "w-full rounded-[2px] border border-than-chi/80 bg-white px-4 py-3.5 text-base font-light text-than-chi outline-none transition-colors placeholder:text-than-chi/60 focus:border-accent"
+    ? "w-full rounded-[2px] border border-than-chi/80 bg-white px-4 py-3 text-base font-light text-than-chi outline-none transition-colors placeholder:text-than-chi/60 focus:border-accent"
     : `mt-2 w-full rounded-md border px-3 py-3 text-base outline-none transition-colors focus:border-accent ${
     toi
       ? "border-inox/40 bg-than-chi/40 text-nga placeholder:text-nga/50"
@@ -131,7 +131,7 @@ export function LeadForm({ loai, tone = "sang", kieuCuaMacDinh = "", khiXong, go
   const coLoaiCT = loai === "sample-box" || loai === "showroom" || loai === "ban-ve";
 
   return (
-    <form ref={formRef} onSubmit={guiDi} noValidate className={gon ? "grid gap-3" : `grid gap-x-5 gap-y-4 md:grid-cols-2 ${cot === 3 ? "lg:grid-cols-3" : ""}`} aria-label="Biểu mẫu liên hệ">
+    <form ref={formRef} onSubmit={guiDi} noValidate className={gon ? "grid gap-2.5" : `grid gap-x-5 gap-y-4 md:grid-cols-2 ${cot === 3 ? "lg:grid-cols-3" : ""}`} aria-label="Biểu mẫu liên hệ">
       {/* bẫy spam: người thật không thấy */}
       <div className="absolute -left-[9999px]" aria-hidden="true">
         <label>
