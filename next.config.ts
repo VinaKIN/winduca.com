@@ -22,6 +22,8 @@ const nextConfig: NextConfig = {
       },
     },
   },
+  // Ảnh hero dùng chất lượng 60 để nhẹ hơn; cần khai báo thì Next.js mới tối ưu đúng.
+  images: { qualities: [60, 75], ...(pages ? { unoptimized: true } : {}) },
   env: {
     NEXT_PUBLIC_BASE_PATH: basePath,
     NEXT_PUBLIC_STATIC_PREVIEW: pages ? "true" : "",
@@ -31,7 +33,6 @@ const nextConfig: NextConfig = {
         output: "export" as const,
         basePath,
         trailingSlash: true,
-        images: { unoptimized: true },
       }
     : {}),
 };

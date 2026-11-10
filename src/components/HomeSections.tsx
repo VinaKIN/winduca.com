@@ -15,24 +15,42 @@ export function TuyenNgonVaBaThe() {
     { id: "khoi-nha-thau", nhan: "Nhà thầu", mota: "Gửi bản vẽ, nhận bóc tách từ đội kỹ thuật.", cta: "Gửi bản vẽ" },
   ];
   return (
-    <section className="bg-white">
-      <Wrap className="py-24 md:py-40">
-        <p className="nhan-muc text-than-chi/70">02 / 09 · Dành cho ai</p>
-        <p className="tieu-de mt-6 max-w-4xl text-3xl md:text-6xl">Chúng tôi chọn sự bền bỉ thay vì phô trương.</p>
-        <div className="vach-champagne mt-12 max-w-xs" />
-        <ul className="mt-16 grid gap-4 md:grid-cols-3">
+    <section className="relative overflow-hidden bg-than-chi text-nga nen-luoi-toi">
+      <span
+        aria-hidden="true"
+        className="so-lon so-lon-toi pointer-events-none absolute -top-4 right-4 hidden select-none md:right-10 md:block"
+      >
+        02
+      </span>
+      <Wrap className="relative py-24 md:py-40">
+        <div className="grid gap-5 md:grid-cols-[14rem_1fr] md:gap-12">
+          <div>
+            <p className="nhan-muc text-champagne">Dành cho ai</p>
+            <div className="mt-4 h-px w-14 bg-champagne" />
+          </div>
+          <p className="tieu-de max-w-4xl text-[clamp(1.9rem,4.6vw,4rem)] [text-wrap:balance]">
+            Chúng tôi chọn sự bền bỉ thay vì phô trương.
+          </p>
+        </div>
+
+        {/* ba lối vào: lưới đường kẻ mảnh, hover có vạch Champagne chạy */}
+        <ul className="mt-16 grid gap-px border border-inox/20 bg-inox/20 md:mt-24 md:grid-cols-3">
           {the.map((t, i) => (
-            <li key={t.id}>
+            <li key={t.id} className="bg-than-chi">
               <a
                 href={`#${t.id}`}
-                className="group relative block h-full border border-than-chi/20 bg-white p-7 transition-colors duration-300 hover:bg-than-chi hover:text-nga"
+                className="group relative flex h-full min-h-[17rem] flex-col justify-between p-8 transition-colors duration-500 hover:bg-[#353537] md:p-10"
               >
-                <span className="nhan-muc text-than-chi/60 group-hover:text-champagne">{String(i + 1).padStart(2, "0")}</span>
-                <span className="tieu-de mt-6 block text-2xl">{t.nhan}</span>
-                <span className="mt-3 block text-sm text-than-chi/75 group-hover:text-nga/85">{t.mota}</span>
-                <span className="mt-8 flex items-center gap-3 text-sm font-semibold">
-                  {t.cta}
-                  <span className="h-2 w-2 rotate-45 bg-champagne" aria-hidden="true" />
+                <span className="absolute left-0 top-0 h-px w-0 bg-champagne transition-all duration-500 group-hover:w-full" aria-hidden="true" />
+                <span className="so-lon so-lon-toi !text-[3.5rem] leading-none">{String(i + 1).padStart(2, "0")}</span>
+                <span>
+                  <span className="tieu-de block text-2xl">{t.nhan}</span>
+                  <span className="mt-3 block text-sm font-light text-nga/75">{t.mota}</span>
+                  <span className="mt-8 flex items-center gap-3 text-sm font-semibold text-nga">
+                    {t.cta}
+                    <span className="h-px w-8 bg-champagne transition-all duration-500 group-hover:w-14" aria-hidden="true" />
+                    <span className="h-2 w-2 rotate-45 bg-champagne" aria-hidden="true" />
+                  </span>
                 </span>
               </a>
             </li>
@@ -153,7 +171,31 @@ export function KhoiNhaThau() {
       tieuDe="Gửi bản vẽ, nhận bóc tách."
       moTa="Đội kỹ thuật WINDUCA đề xuất giải pháp và bóc tách theo bản vẽ của công trình. Chúng tôi không hỏi ngân sách."
     >
-      <LeadForm loai="ban-ve" tone="sang" />
+      <div className="grid gap-12 lg:grid-cols-[1fr_1.5fr] lg:gap-16">
+        <aside className="lg:sticky lg:top-32 lg:self-start">
+          <ol className="space-y-8">
+            {[
+              ["Gửi bản vẽ", "PDF, DWG, JPG hoặc PNG, tối đa 30MB."],
+              ["Đội kỹ thuật bóc tách", "Đề xuất giải pháp và chi tiết theo bản vẽ."],
+              ["Trao đổi, hoàn thiện", "Qua điện thoại, Zalo, email hoặc họp online."],
+            ].map(([t, m], i) => (
+              <li key={t} className="flex gap-5">
+                <span className="so-lon !text-[2.5rem] leading-none">{String(i + 1).padStart(2, "0")}</span>
+                <span>
+                  <span className="tieu-de block text-lg">{t}</span>
+                  <span className="mt-1 block text-sm text-than-chi/75">{m}</span>
+                </span>
+              </li>
+            ))}
+          </ol>
+          <p className="mt-10 border-t border-than-chi/15 pt-6 text-xs text-than-chi/65">
+            Bản vẽ chỉ dùng để tư vấn cho đúng công trình này, không chia sẻ cho bên thứ ba và được xóa sau 30 ngày.
+          </p>
+        </aside>
+        <div className="border border-than-chi/15 bg-white p-6 shadow-[0_1px_0_0_rgba(43,43,45,0.04)] md:p-10">
+          <LeadForm loai="ban-ve" tone="sang" />
+        </div>
+      </div>
     </Section>
   );
 }
@@ -191,20 +233,23 @@ export function CongTrinhMinhHoa() {
       tieuDe="Cảm hứng từ những không gian sống."
       moTa="Các hình dưới đây là hình minh họa. Công trình thực tế của WINDUCA đang được cập nhật."
     >
-      <ul className="grid grid-cols-2 gap-3 md:grid-cols-3">
-        {CONG_TRINH_MINH_HOA.slice(0, 6).map((c, i) => (
-          <li key={c.slug} className={i === 0 ? "col-span-2 md:col-span-2 md:row-span-1" : ""}>
-            <CanhMinhHoa seed={i + 1} className={i === 0 ? "aspect-[16/9]" : "aspect-[4/3]"} />
-            <p className="mt-3 text-sm font-semibold">{c.ten}</p>
-            <p className="text-xs text-than-chi/70">
-              {c.loai} · {c.khuVuc}
-            </p>
+      {/* Ba hình tiêu biểu, đều nhau, thay vì lưới sáu ô lệch (gọn hơn) */}
+      <ul className="grid gap-6 md:grid-cols-3">
+        {CONG_TRINH_MINH_HOA.slice(0, 3).map((c, i) => (
+          <li key={c.slug}>
+            <Link href={`/cong-trinh/${c.slug}`} className="group block">
+              <CanhMinhHoa seed={i + 1} className="aspect-[4/5] transition-transform duration-700 group-hover:scale-[1.015]" />
+              <div className="mt-4 flex items-baseline justify-between gap-4 border-b border-than-chi/15 pb-3">
+                <p className="text-sm font-semibold">{c.ten}</p>
+                <p className="shrink-0 text-xs text-than-chi/65">{c.khuVuc}</p>
+              </div>
+            </Link>
           </li>
         ))}
       </ul>
-      <p className="mt-8">
-        <Link href="/cong-trinh" className="text-sm font-semibold underline">
-          Xem tất cả
+      <p className="mt-10">
+        <Link href="/cong-trinh" className="nut nut-vien-sang">
+          Xem tất cả 12 hình minh họa
         </Link>
       </p>
     </Section>
@@ -220,10 +265,35 @@ export function FaqVaForm() {
       <Section
         id="dang-ky"
         tone="sang"
+        nhan="Đăng ký"
         tieuDe="Bắt đầu cho ngôi nhà của bạn"
         moTa="Nhận hộp mẫu góc nhôm, hoặc đăng ký lịch tư vấn trực tiếp từ chuyên viên WINDUCA."
       >
-        <HomeFormTabs kieuCuaMacDinh={KIEU_CUA[0].ten} />
+        <div className="grid gap-12 lg:grid-cols-[1fr_1.5fr] lg:gap-16">
+          <aside className="lg:sticky lg:top-32 lg:self-start">
+            <p className="nhan-muc text-than-chi/70">Liên hệ trực tiếp</p>
+            <a href="tel:0947686668" className="tieu-de mt-4 block text-3xl hover:text-champagne md:text-4xl">
+              0947 686 668
+            </a>
+            <ul className="mt-8 space-y-4 border-t border-than-chi/15 pt-6 text-sm text-than-chi/80">
+              <li className="flex gap-3">
+                <span className="mt-2 h-1.5 w-1.5 shrink-0 rotate-45 bg-champagne" aria-hidden="true" />
+                Chúng tôi không hỏi ngân sách và không đăng giá.
+              </li>
+              <li className="flex gap-3">
+                <span className="mt-2 h-1.5 w-1.5 shrink-0 rotate-45 bg-champagne" aria-hidden="true" />
+                Chuyên viên liên hệ trong giờ làm việc.
+              </li>
+              <li className="flex gap-3">
+                <span className="mt-2 h-1.5 w-1.5 shrink-0 rotate-45 bg-champagne" aria-hidden="true" />
+                Địa chỉ nhận hộp mẫu được hỏi qua điện thoại, không thu trên website.
+              </li>
+            </ul>
+          </aside>
+          <div className="border border-than-chi/15 bg-white p-6 md:p-10">
+            <HomeFormTabs kieuCuaMacDinh={KIEU_CUA[0].ten} />
+          </div>
+        </div>
       </Section>
     </>
   );

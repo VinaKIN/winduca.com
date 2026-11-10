@@ -206,7 +206,7 @@ export function HeroDoors() {
         >
           <div className="mx-auto max-w-[1440px] px-8 pb-10 md:px-14 md:pb-16">
             <p className="nhan-muc text-champagne">Premium Window &amp; Door</p>
-            <h1 className="tieu-de mt-4 max-w-3xl text-[1.75rem] text-nga sm:text-4xl md:text-5xl lg:max-w-5xl lg:text-[3.75rem] lg:uppercase">
+            <h1 className="tieu-de mt-4 max-w-3xl text-[clamp(1.75rem,4.4vw,3.75rem)] text-nga lg:max-w-5xl lg:uppercase [text-wrap:balance]">
               <span className="block">Kiến tạo không gian sống</span>
               <span className="block">xứng tầm đẳng cấp</span>
             </h1>

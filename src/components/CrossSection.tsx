@@ -86,17 +86,29 @@ export function CrossSection({
   const hien3D = webgl && thayDuoc && (!manHinhNho || daBam);
 
   return (
-    <section id="mat-cat" className="bg-white text-than-chi" aria-labelledby="tieu-de-mat-cat">
-      <div className="mx-auto max-w-[1440px] px-5 py-24 md:px-10 md:py-36">
-        <p className="nhan-muc text-than-chi/70">{nhan}</p>
-        <h2 id="tieu-de-mat-cat" className="tieu-de mt-4 max-w-2xl text-3xl md:text-5xl">
-          {tieuDe}
-        </h2>
-        <p className="mt-5 max-w-xl text-base font-light text-than-chi/80 md:text-lg">
-          Tiêu chuẩn kỹ thuật châu Âu, trong từng lớp cấu tạo.
-        </p>
+    <section id="mat-cat" className="relative overflow-hidden bg-white text-than-chi nen-luoi" aria-labelledby="tieu-de-mat-cat">
+      {nhan.match(/^\d{2}/) && (
+        <span aria-hidden="true" className="so-lon pointer-events-none absolute -top-4 right-4 hidden select-none md:right-10 md:block">
+          {nhan.slice(0, 2)}
+        </span>
+      )}
+      <div className="relative mx-auto max-w-[1440px] px-5 py-24 md:px-10 md:py-36">
+        <div className="grid gap-5 md:grid-cols-[14rem_1fr] md:gap-12">
+          <div>
+            <p className="nhan-muc text-than-chi/70">{nhan.replace(/^\d{2}\s*\/\s*\d{2}\s*·\s*/, "")}</p>
+            <div className="mt-4 h-px w-14 bg-champagne" />
+          </div>
+          <div>
+            <h2 id="tieu-de-mat-cat" className="tieu-de max-w-2xl text-[clamp(1.75rem,3.4vw,3rem)]">
+              {tieuDe}
+            </h2>
+            <p className="mt-5 max-w-xl text-base font-light text-than-chi/75 md:text-lg">
+              Tiêu chuẩn kỹ thuật châu Âu, trong từng lớp cấu tạo.
+            </p>
+          </div>
+        </div>
 
-        <div className="mt-12 grid gap-8 lg:grid-cols-[1.35fr_1fr]">
+        <div className="mt-14 grid gap-8 md:mt-16 lg:grid-cols-[1.35fr_1fr]">
           {/* KHUNG 3D */}
           <div ref={khung} className="relative aspect-[4/3] overflow-hidden border border-inox/25 bg-[#232325]">
             {/* dấu góc khung kiểu bản vẽ */}

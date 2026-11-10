@@ -61,6 +61,29 @@ body {
   line-height: 1.12;
 }
 
+/* Lưới kỹ thuật 96px rất mờ — chữ ký "bản vẽ sống". Là họa tiết đường kẻ, không phải gradient. */
+.nen-luoi {
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='96' height='96'><path d='M96 0H0v96' fill='none' stroke='%232b2b2d' stroke-opacity='0.045' stroke-width='1'/></svg>");
+  background-size: 96px 96px;
+}
+.nen-luoi-toi {
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='96' height='96'><path d='M96 0H0v96' fill='none' stroke='%23c8c9c6' stroke-opacity='0.08' stroke-width='1'/></svg>");
+  background-size: 96px 96px;
+}
+
+/* Số thứ tự lớn rỗng ruột kiểu tạp chí (trang trí, không mang nội dung) */
+.so-lon {
+  font-family: var(--font-montserrat), system-ui, sans-serif;
+  font-weight: 600;
+  font-size: clamp(6rem, 12vw, 11rem);
+  line-height: 1;
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(43, 43, 45, 0.12);
+}
+.so-lon-toi {
+  -webkit-text-stroke: 1px rgba(191, 166, 120, 0.35);
+}
+
 /* Vạch Champagne mảnh — chữ ký thiết kế */
 .vach-champagne {
   height: 1px;
