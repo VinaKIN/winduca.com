@@ -596,13 +596,8 @@ section.nen-nga {
   .canh-2d text { animation: none; }
 }
 
-/* Khối cần nền sạch (có hình 2D ở giữa): bỏ bản vẽ mặt cắt nền, giữ lưới tọa độ mờ */
+/* Khối cần nền sạch (có hình 2D ở giữa): bỏ hết đường nền (bản vẽ mặt cắt và lưới), chỉ giữ nền gradient */
+.khong-cat::before,
 .khong-cat::after {
   display: none;
-}
-.khong-cat::before {
-  background-image: var(--luoi-toi);
-  background-size: 64px 64px;
-  background-position: 0 0;
-  background-repeat: repeat;
 }
