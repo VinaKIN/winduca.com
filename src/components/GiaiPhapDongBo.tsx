@@ -16,6 +16,112 @@ const TP = [
   { t: "Giải pháp lắp đặt", m: "Đội kỹ thuật bóc tách theo bản vẽ và lắp đặt tại công trình, đến khi nghiệm thu." },
 ];
 
+/**
+ * Năm cảnh 2D nét mảnh, mỗi cảnh ứng với một thành phần. Chọn thành phần thì hình đổi theo và các nét vẽ lại dần.
+ * Hình chỉ mang tính minh họa chung về vai trò của từng thành phần, không phải bản vẽ hay thông số sản phẩm.
+ */
+const NET = { fill: "none", stroke: "#ffffff", strokeOpacity: 0.85, strokeWidth: 1.2 } as const;
+const DO = { fill: "none", stroke: "#e31937", strokeWidth: 2 } as const;
+const CHU = { fill: "#ffffff", fillOpacity: 0.7, fontSize: 9, letterSpacing: 1.4, fontWeight: 600 } as const;
+
+function Nhan({ x, y, t, d = false, small = false }: { x: number; y: number; t: string; d?: boolean; small?: boolean }) {
+  return (
+    <text x={x} y={y} {...CHU} fontSize={small ? 7.5 : 9} letterSpacing={small ? 0.6 : 1.4} fill={d ? "#e31937" : "#ffffff"} fillOpacity={d ? 1 : 0.7}>
+      {t}
+    </text>
+  );
+}
+function Diem({ x, y }: { x: number; y: number }) {
+  return <circle cx={x} cy={y} r="4" fill="#e31937" stroke="none" />;
+}
+
+const CANH = [
+  // 1 · Hệ profile nhôm: hai khoang nhôm nối bằng thanh cầu
+  () => (
+    <g>
+      <rect x="60" y="64" width="110" height="92" {...NET} />
+      <rect x="74" y="78" width="82" height="64" {...NET} />
+      <path d="M74 110H156M115 78V142" {...NET} />
+      <rect x="170" y="86" width="34" height="48" {...DO} />
+      <path d="M170 98l34-12M170 112l34-12M170 126l34-12M170 134l34-10" {...DO} strokeWidth="1" />
+      <rect x="204" y="64" width="110" height="92" {...NET} />
+      <rect x="218" y="78" width="82" height="64" {...NET} />
+      <path d="M218 110H300M259 78V142" {...NET} />
+      <rect x="330" y="36" width="8" height="150" {...NET} />
+      <path d="M314 96q10 8 0 16t0 16" {...NET} />
+      <path d="M187 86L226 40H300" {...DO} strokeWidth="1" />
+      <Diem x={187} y={86} />
+      <Nhan x={232} y={34} t="THANH CẦU" d />
+      <Nhan x={60} y={54} t="KHOANG NHÔM" />
+      <Nhan x={300} y={206} t="RÃNH KÍNH" />
+    </g>
+  ),
+  // 2 · Hệ kính: hai lớp kính ngăn bằng thanh giữ
+  () => (
+    <g>
+      <rect x="140" y="30" width="12" height="170" {...NET} />
+      <rect x="248" y="30" width="12" height="170" {...NET} />
+      <rect x="152" y="30" width="96" height="14" {...NET} />
+      <rect x="152" y="186" width="96" height="14" {...NET} />
+      <path d="M152 44l14-14M152 58l28-28M152 72l42-42M152 86l56-56M152 100l70-70" {...NET} strokeOpacity="0.35" strokeWidth="1" />
+      <path d="M160 115H240M160 108v14M240 108v14" {...DO} />
+      <path d="M160 115l8-4v8zM240 115l-8-4v8z" fill="#e31937" stroke="none" />
+      <Nhan x={162} y={142} t="KHOẢNG TRỐNG" d small />
+      <Nhan x={60} y={112} t="KÍNH NGOÀI" />
+      <Nhan x={272} y={112} t="KÍNH TRONG" />
+    </g>
+  ),
+  // 3 · Phụ kiện đồng bộ: tay nắm và bản lề
+  () => (
+    <g>
+      <circle cx="120" cy="115" r="26" {...NET} />
+      <circle cx="120" cy="115" r="12" {...NET} />
+      <path d="M132 107h120q12 0 12 8t-12 8H132z" {...DO} />
+      <rect x="320" y="46" width="12" height="52" {...NET} />
+      <rect x="320" y="132" width="12" height="52" {...NET} />
+      <circle cx="326" cy="115" r="9" {...NET} />
+      <path d="M326 98v8M326 124v8" {...NET} />
+      <path d="M320 70h-10M320 160h-10" {...NET} strokeDasharray="3 3" />
+      <Diem x={220} y={115} />
+      <Nhan x={190} y={96} t="TAY NẮM" d />
+      <Nhan x={296} y={206} t="BẢN LỀ" />
+      <Nhan x={86} y={166} t="ĐẾ TAY NẮM" />
+    </g>
+  ),
+  // 4 · Gioăng và vật liệu kết nối: gioăng ôm kính, góc liên kết
+  () => (
+    <g>
+      <path d="M70 60h140v110" {...NET} />
+      <path d="M70 76h124v94" {...NET} />
+      <rect x="248" y="34" width="10" height="150" {...NET} />
+      <path d="M214 56q14 12 0 24t0 24 0 24 0 24 0 24" {...DO} />
+      <path d="M70 170h54v-54" {...NET} strokeDasharray="4 3" />
+      <circle cx="84" cy="156" r="3" {...NET} />
+      <circle cx="108" cy="156" r="3" {...NET} />
+      <path d="M232 70l16 0M232 150l16 0" {...NET} />
+      <Diem x={214} y={92} />
+      <Nhan x={270} y={96} t="GIOĂNG" d />
+      <Nhan x={70} y={196} t="GÓC LIÊN KẾT" />
+    </g>
+  ),
+  // 5 · Giải pháp lắp đặt: khung cố định vào tường bằng neo
+  () => (
+    <g>
+      <rect x="50" y="34" width="100" height="150" {...NET} />
+      <path d="M50 64l30-30M50 94l60-60M50 124l90-90M50 154l100-100M62 184l88-88M92 184l58-58M122 184l28-28" {...NET} strokeOpacity="0.35" strokeWidth="1" />
+      <rect x="150" y="54" width="54" height="110" {...NET} />
+      <path d="M204 76h34M204 142h34" {...NET} />
+      <path d="M110 82h64M110 136h64" {...DO} />
+      <circle cx="110" cy="82" r="3.5" fill="#e31937" stroke="none" />
+      <circle cx="110" cy="136" r="3.5" fill="#e31937" stroke="none" />
+      <path d="M150 206H204M150 198v16M204 198v16" {...NET} />
+      <Nhan x={64} y={26} t="TƯỜNG" />
+      <Nhan x={218} y={112} t="KHUNG CỬA" />
+      <Nhan x={216} y={150} t="NEO CỐ ĐỊNH" d />
+    </g>
+  ),
+];
+
 export function GiaiPhapDongBo() {
   const [i, setI] = useState(0);
   return (
@@ -50,19 +156,10 @@ export function GiaiPhapDongBo() {
           </div>
 
           <div className="rounded-[24px] border border-white/15 p-5 md:p-6">
-            <svg viewBox="0 0 400 230" className="h-[clamp(150px,28svh,280px)] w-full" role="img" aria-label="Sơ đồ tách lớp năm thành phần của bộ cửa (minh họa phẳng)">
-              {TP.map((_, k) => {
-                const y = 24 + k * 38;
-                const x = 40 + k * 22;
-                const on = i === k;
-                return (
-                  <g key={k} className="transition-all duration-300" opacity={on ? 1 : 0.55}>
-                    <path d={`M${x} ${y + 22} l30 -22 h250 l-30 22 z`} fill="none" stroke={on ? "#e31937" : "#ffffff"} strokeWidth={on ? 2 : 1} />
-                    <path d={`M${x} ${y + 22} h250 v10 h-250 z`} fill={on ? "#e31937" : "none"} stroke={on ? "#e31937" : "#ffffff"} strokeWidth="1" />
-                    <text x={x + 262} y={y + 18} fill={on ? "#e31937" : "#ffffff"} fontSize="11" fontWeight="600">{String(k + 1).padStart(2, "0")}</text>
-                  </g>
-                );
-              })}
+            <svg viewBox="30 14 340 208" className="h-[clamp(150px,28svh,280px)] w-full" role="img" aria-label={`Hình 2D minh họa: ${TP[i].t}`}>
+              <g key={i} className="canh-2d">
+                {CANH[i]()}
+              </g>
             </svg>
             <div className="mt-3 border-t border-white/15 pt-4">
               <h3 className="text-lg font-semibold">{TP[i].t}</h3>

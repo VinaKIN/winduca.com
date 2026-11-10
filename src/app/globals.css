@@ -566,3 +566,32 @@ section.nen-nga {
   background-size: 100% 1px;
   color: #ffffff;
 }
+
+/* Hình 2D đổi theo thành phần: các nét vẽ lại dần, chữ hiện sau (10/11/2026) */
+.canh-2d path,
+.canh-2d rect,
+.canh-2d circle {
+  stroke-dasharray: 900;
+  animation: canh-ve 1.1s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+.canh-2d path[stroke-dasharray="3 3"],
+.canh-2d path[stroke-dasharray="4 3"] {
+  animation: none;
+}
+.canh-2d text {
+  animation: canh-chu 0.8s ease 0.5s both;
+}
+@keyframes canh-ve {
+  from { stroke-dashoffset: 900; }
+  to { stroke-dashoffset: 0; }
+}
+@keyframes canh-chu {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .canh-2d path,
+  .canh-2d rect,
+  .canh-2d circle,
+  .canh-2d text { animation: none; }
+}
