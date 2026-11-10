@@ -75,10 +75,8 @@ export function GioiThieuKhoi() {
               <p className="text-lg font-light leading-snug md:text-xl">Đối tác đáng tin cậy của bạn trong việc tìm kiếm sản phẩm</p>
               <div className="mt-4 flex items-center gap-4 rounded-full bg-white p-2 pr-5 text-than-chi">
                 <div className="flex shrink-0 items-center">
-                  {["#cfd0cd", "#dde3df", "#e6ded0"].map((c, i) => (
-                    <span key={i} className="-mr-3 flex h-12 w-12 items-center justify-center rounded-full border-2 border-white" style={{ background: c }} aria-hidden="true">
-                      <svg viewBox="0 0 24 24" width="26" height="26" fill="#231f20" fillOpacity="0.55"><circle cx="12" cy="9" r="4" /><path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7z" /></svg>
-                    </span>
+                  {["/images/avatar-1.jpg", "/images/avatar-2.jpg", "/images/avatar-3.jpg"].map((src) => (
+                    <Image key={src} src={asset(src)} alt="" width={48} height={48} className="-mr-3 h-12 w-12 rounded-full border-2 border-white object-cover" />
                   ))}
                   <span className="relative flex h-12 w-12 items-center justify-center rounded-full border-2 border-[#d8a93b] bg-than-chi text-sm font-bold text-white">6k+</span>
                 </div>

@@ -20,3 +20,6 @@ Giấy phép: [Pexels License](https://www.pexels.com/license/) — dùng miễn
 - Ảnh mới phải có giấy phép cho dùng thương mại, được chủ dự án duyệt trước khi tải, và ghi vào bảng trên.
 - Không dùng ảnh có logo, tên hãng, người nhận diện được, hoặc ảnh thuộc các hãng khác.
 - Khi có ảnh/video thật của WINDUCA: đổi `HERO_ANH`/`HERO_VIDEO` trong `src/lib/site.ts`, thay ảnh khối Chủ nhà, rồi xóa dòng tương ứng trong bảng.
+
+## Avatar khối đánh giá (trang chủ)
+`avatar-1.jpg`, `avatar-2.jpg`, `avatar-3.jpg`: ảnh chân dung nhân sự do chủ website cung cấp (10/11/2026), cắt vuông 192px quanh khuôn mặt. Cần văn bản đồng ý của từng người trước go-live.
