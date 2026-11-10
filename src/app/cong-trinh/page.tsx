@@ -50,6 +50,7 @@ export default function CongTrinh() {
       </Section>
 
       <Section
+        id="cam-hung"
         tone="nga"
         nhan="Architectural Inspiration"
         tieuDe="Cảm hứng kiến trúc"

@@ -44,7 +44,15 @@ export const MENU = [
 /** Menu ba gạch (toàn màn hình): theo mẫu anh Huy gửi 10/11/2026 — Giới thiệu · Sản phẩm · Tin tức · Chính sách · Liên hệ */
 export type MucMenu = { href: string; label: string; con?: { href: string; label: string }[] };
 export const MENU_CHINH: MucMenu[] = [
-  { href: "/gioi-thieu", label: "Giới thiệu" },
+  {
+    href: "/gioi-thieu",
+    label: "Giới thiệu",
+    con: [
+      { href: "/gioi-thieu", label: "Câu chuyện thương hiệu" },
+      { href: "/nang-luc-xuong", label: "Năng lực & Xưởng" },
+      { href: "/trai-nghiem", label: "Trải nghiệm" },
+    ],
+  },
   {
     href: "/he-cua",
     label: "Hệ cửa",
@@ -63,13 +71,49 @@ export const MENU_CHINH: MucMenu[] = [
       { href: "/giai-phap/penthouse", label: "Penthouse" },
       { href: "/giai-phap/nha-pho-cao-cap", label: "Nhà phố cao cấp" },
       { href: "/giai-phap/khach-san-resort", label: "Khách sạn & Resort" },
-      { href: "/nang-luc-xuong", label: "Năng lực & Xưởng" },
-      { href: "/danh-cho-kts", label: "Dành cho KTS" },
+      { href: "/giai-phap/cong-trinh-dac-thu", label: "Công trình đặc thù" },
     ],
   },
-  { href: "/cong-trinh", label: "Công trình" },
-  { href: "/hop-tac", label: "Đối tác" },
-  { href: "/tin-tuc", label: "Kiến thức" },
+  {
+    href: "/cong-trinh",
+    label: "Công trình",
+    con: [
+      { href: "/cong-trinh", label: "WINDUCA Projects" },
+      { href: "/cong-trinh#cam-hung", label: "Cảm hứng kiến trúc" },
+    ],
+  },
+  {
+    href: "/hop-tac",
+    label: "Đối tác",
+    con: [
+      { href: "/hop-tac#dealer", label: "Đại lý" },
+      { href: "/hop-tac#contractor", label: "Nhà thầu" },
+      { href: "/hop-tac#architect", label: "Kiến trúc sư" },
+      { href: "/danh-cho-kts", label: "Thư viện KTS" },
+    ],
+  },
+  {
+    href: "/tin-tuc",
+    label: "Tin tức",
+    con: [
+      { href: "/tin-tuc/kien-thuc", label: "Kiến thức" },
+      { href: "/tin-tuc/hoat-dong", label: "Tin hoạt động" },
+      { href: "/tin-tuc/cong-trinh", label: "Câu chuyện công trình" },
+      { href: "/tin-tuc/tai-lieu", label: "Tài liệu & tải về" },
+    ],
+  },
+  {
+    href: "/chinh-sach",
+    label: "Chính sách",
+    con: [
+      { href: "/chinh-sach-bao-mat", label: "Bảo mật" },
+      { href: "/dieu-khoan-su-dung", label: "Điều khoản sử dụng" },
+      { href: "/chinh-sach-cookie", label: "Cookie" },
+      { href: "/chinh-sach-bao-hanh", label: "Bảo hành & hậu mãi" },
+      { href: "/chinh-sach-doi-tac", label: "Đối tác & đại lý" },
+    ],
+  },
+  { href: "/lien-he", label: "Liên hệ" },
 ];
 
 export type KieuCua = {

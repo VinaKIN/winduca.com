@@ -8,7 +8,7 @@ export const dynamic = "force-static";
 const GOC = process.env.NEXT_PUBLIC_SITE_URL ?? "https://vinakin.github.io/winduca.com";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const tinh = ["", "/gioi-thieu", "/he-cua", "/giai-phap", "/nang-luc-xuong", "/cong-trinh", "/hop-tac", "/tin-tuc", "/trai-nghiem", "/danh-cho-kts", "/lien-he"];
+  const tinh = ["", "/gioi-thieu", "/he-cua", "/giai-phap", "/tin-tuc/kien-thuc", "/tin-tuc/hoat-dong", "/tin-tuc/cong-trinh", "/tin-tuc/tai-lieu", "/chinh-sach", "/chinh-sach-bao-mat", "/dieu-khoan-su-dung", "/chinh-sach-cookie", "/chinh-sach-bao-hanh", "/chinh-sach-doi-tac", "/nang-luc-xuong", "/cong-trinh", "/hop-tac", "/tin-tuc", "/trai-nghiem", "/danh-cho-kts", "/lien-he"];
   const trang = [
     ...tinh,
     ...KIEU_CUA.map((k) => `/he-cua/${k.slug}`),

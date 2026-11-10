@@ -78,6 +78,8 @@ function Logo({ lop, tren }: { lop: string; tren: boolean }) {
 export function Header() {
   const duongDan = usePathname();
   const [moMenu, setMoMenu] = useState(false);
+  const [mucMo, setMucMo] = useState<number | null>(null);
+  const coHover = () => typeof window !== "undefined" && window.matchMedia("(hover: hover) and (pointer: fine)").matches;
   const [duongDanMo, setDuongDanMo] = useState(duongDan);
 
   // Đóng menu khi chuyển trang (so sánh khi render, không setState trong effect)
@@ -165,32 +167,58 @@ export function Header() {
               {/* Bảng trắng: danh sách trang */}
               <nav aria-label="Điều hướng chính" className="flex flex-col justify-center rounded-[22px] bg-white px-6 py-6 md:rounded-[32px] md:px-14 md:py-10">
                 <ul>
-                  {MENU_CHINH.map((m, i) => (
-                    <li key={m.label} className={`py-4 md:py-5 ${i > 0 ? "border-t border-inox/60" : ""}`}>
-                      <Link href={m.href} className="group flex items-center gap-5 text-than-chi">
-                        <span className="w-6 text-[11px] font-bold tracking-[0.12em] text-accent">{String(i + 1).padStart(2, "0")}</span>
-                        <span className="tieu-de text-[1.25rem] font-bold uppercase tracking-[0.02em] md:text-[1.6rem]">{m.label}</span>
-                        <span className="ml-auto text-accent opacity-0 transition-all duration-300 group-hover:translate-x-1 group-hover:opacity-100">
-                          <MuiTen />
-                        </span>
-                      </Link>
-                      {m.con && (
-                        <ul className="mt-3 flex flex-wrap gap-x-6 gap-y-2 pl-11">
-                          {m.con.map((c) => (
-                            <li key={c.href}>
-                              <Link
-                                href={c.href}
-                                aria-current={dangO(c.href) ? "page" : undefined}
-                                className={`text-sm transition-colors hover:text-accent ${dangO(c.href) ? "font-bold text-accent" : "text-than-chi/65"}`}
-                              >
-                                {c.label}
-                              </Link>
-                            </li>
-                          ))}
-                        </ul>
-                      )}
-                    </li>
-                  ))}
+                  {MENU_CHINH.map((m, i) => {
+                    const mo = mucMo === i;
+                    return (
+                      <li
+                        key={m.label}
+                        className={`py-3 md:py-4 ${i > 0 ? "border-t border-inox/60" : ""}`}
+                        onMouseEnter={() => {
+                          if (coHover()) setMucMo(m.con ? i : null);
+                        }}
+                      >
+                        <div className="flex items-center gap-5 text-than-chi">
+                          <span className="w-6 text-[11px] font-bold tracking-[0.12em] text-accent">{String(i + 1).padStart(2, "0")}</span>
+                          <Link href={m.href} className="tieu-de text-[1.15rem] font-bold uppercase tracking-[0.02em] transition-colors hover:text-accent md:text-[1.45rem]">
+                            {m.label}
+                          </Link>
+                          {m.con && (
+                            <button
+                              type="button"
+                              aria-expanded={mo}
+                              aria-controls={`muc-con-${i}`}
+                              aria-label={`${mo ? "Thu gọn" : "Mở"} mục ${m.label}`}
+                              onClick={() => setMucMo(mo ? null : i)}
+                              className="ml-auto flex h-9 w-9 items-center justify-center rounded-full text-accent transition-colors hover:bg-accent/10"
+                            >
+                              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" aria-hidden="true">
+                                <path d="M5 12h14" />
+                                <path d="M12 5v14" className={`origin-center transition-transform duration-300 ${mo ? "scale-y-0" : "scale-y-100"}`} />
+                              </svg>
+                            </button>
+                          )}
+                        </div>
+                        {m.con && (
+                          <div id={`muc-con-${i}`} className={`grid transition-[grid-template-rows] duration-300 ${mo ? "grid-rows-[1fr]" : "grid-rows-[0fr]"}`}>
+                            <ul className="flex flex-wrap gap-x-6 gap-y-2 overflow-hidden pl-11 pt-0 aria-hidden:invisible" aria-hidden={!mo}>
+                              {m.con.map((c) => (
+                                <li key={c.label} className={mo ? "pt-3" : ""}>
+                                  <Link
+                                    href={c.href}
+                                    tabIndex={mo ? 0 : -1}
+                                    aria-current={dangO(c.href) ? "page" : undefined}
+                                    className={`text-sm transition-colors hover:text-accent ${dangO(c.href) ? "font-bold text-accent" : "text-than-chi/65"}`}
+                                  >
+                                    {c.label}
+                                  </Link>
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
+                        )}
+                      </li>
+                    );
+                  })}
                 </ul>
               </nav>
 
