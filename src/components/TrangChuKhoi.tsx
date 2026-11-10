@@ -222,10 +222,10 @@ export function ViSaoKhoi() {
     { so: "03", t: "Đồng bộ đến thi công", m: "Một đầu mối từ hệ nhôm, phụ kiện đến lắp đặt và nghiệm thu." },
   ];
   return (
-    <section className="nen-toi py-7 text-white">
+    <section className="nen-toi pb-7 pt-9 text-white">
       <Wrap>
         <NhanDo>Vì sao chọn WINDUCA</NhanDo>
-        <h2 className="mt-0.5 max-w-3xl text-[clamp(1.625rem,2.6vw,2.5rem)] font-light tracking-[-0.01em] leading-[1.05]">Sự thật về WINDUCA</h2>
+        <h2 className="mt-3 max-w-3xl text-[clamp(1.625rem,2.6vw,2.5rem)] font-light tracking-[-0.01em] leading-[1.15]">Sự thật về WINDUCA</h2>
         <ul className="mt-5 grid gap-px overflow-hidden rounded-[20px] bg-white/15 md:grid-cols-3 md:rounded-[24px]">
           {y.map((i) => (
             <li key={i.so} className="bg-than-chi p-5 md:p-7">
