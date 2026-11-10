@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { FormHaiNhom } from "./FormHaiNhom";
+import { MangXaHoi } from "./MangXaHoi";
 import { Wrap } from "./ui";
 import { asset } from "@/lib/asset";
 import { DIA_CHI, EMAIL, HOTLINE, HOTLINE_TEL, MAPS_URL } from "@/lib/site";
@@ -9,6 +10,14 @@ import { DIA_CHI, EMAIL, HOTLINE, HOTLINE_TEL, MAPS_URL } from "@/lib/site";
  * Chân trang kiểu Winboss (11/11/2026): khối "Trải nghiệm không gian" + form đăng ký tham quan trên ảnh tối,
  * rồi chân trang Than đen: logo lớn, liên kết, liên hệ, khung bản đồ.
  */
+function BieuTuong({ children, lop = "mt-0.5 h-5 w-5 shrink-0 text-accent" }: { children: React.ReactNode; lop?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" className={lop} aria-hidden="true">
+      {children}
+    </svg>
+  );
+}
+
 export function Footer() {
   return (
     <footer>
@@ -59,98 +68,92 @@ export function Footer() {
       {/* Chân trang */}
       <div className="bg-than-chi text-white">
         <Wrap className="py-8 md:py-10">
-          <div className="grid gap-12 lg:grid-cols-[1.1fr_0.9fr_1.2fr]">
+          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-[1.2fr_1.1fr_1.4fr_1.2fr] lg:gap-10">
             <div>
               <Image
                 src={asset("/brand/WINDUCA-chinh-slogan-am-ban-trong.svg")}
                 alt="WINDUCA — Premium Window & Door"
                 width={220}
                 height={190}
-                className="h-auto w-48 md:w-56"
+                className="h-auto w-36 md:w-40"
               />
+              <p className="mt-4 max-w-xs text-sm font-light text-white/70">Giải pháp cửa nhôm kính kiến trúc cao cấp, đồng bộ từ hệ nhôm đến thi công.</p>
+              <MangXaHoi lop="mt-5" />
             </div>
 
-            <div className="grid grid-cols-2 gap-8 text-sm">
-              <ul className="space-y-3">
-                <li>
-                  <Link href="/" className="font-bold hover:text-accent">
-                    Trang chủ
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/gioi-thieu" className="text-white/80 hover:text-accent">
-                    Giới thiệu
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/he-cua" className="text-white/80 hover:text-accent">
-                    Sản phẩm
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/giai-phap" className="text-white/80 hover:text-accent">
-                    Giải pháp
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/hop-tac" className="text-white/80 hover:text-accent">
-                    Hợp tác
-                  </Link>
-                </li>
+            <nav aria-label="Liên kết chân trang">
+              <p className="nhan-muc text-accent">Khám phá</p>
+              <ul className="mt-4 grid grid-cols-2 gap-x-6 gap-y-2.5 text-sm">
+                {[
+                  ["/", "Trang chủ"],
+                  ["/gioi-thieu", "Giới thiệu"],
+                  ["/he-cua", "Hệ cửa"],
+                  ["/giai-phap", "Giải pháp"],
+                  ["/cong-trinh", "Công trình"],
+                  ["/hop-tac", "Hợp tác"],
+                  ["/tin-tuc", "Kiến thức"],
+                  ["/danh-cho-kts", "Dành cho KTS"],
+                  ["/lien-he", "Liên hệ"],
+                ].map(([h, t]) => (
+                  <li key={h}>
+                    <Link href={h} className="text-white/80 transition-colors hover:text-accent">
+                      {t}
+                    </Link>
+                  </li>
+                ))}
               </ul>
-              <ul className="space-y-3">
-                <li>
-                  <Link href="/cong-trinh" className="text-white/80 hover:text-accent">
-                    Công trình
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/tin-tuc" className="text-white/80 hover:text-accent">
-                    Tin tức
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/danh-cho-kts" className="text-white/80 hover:text-accent">
-                    Dành cho KTS
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/lien-he" className="text-white/80 hover:text-accent">
-                    Liên hệ
-                  </Link>
-                </li>
-              </ul>
-            </div>
+            </nav>
 
             <div>
-              <a
-                href={MAPS_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex aspect-[16/8] flex-col items-center justify-center gap-2 rounded-2xl border border-white/20 bg-white/5 px-6 text-center text-sm text-white/80 transition-colors hover:border-accent hover:text-white"
-              >
-                <span>{DIA_CHI}</span>
-                <span className="font-bold uppercase tracking-[0.08em] text-accent">Xem bản đồ</span>
-              </a>
-              <ul className="mt-6 space-y-2 text-sm text-white/80">
-                <li>
+              <p className="nhan-muc text-accent">Liên hệ</p>
+              <ul className="mt-4 space-y-3 text-sm text-white/85">
+                <li className="flex items-start gap-3">
+                  <BieuTuong>
+                    <path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z" />
+                  </BieuTuong>
                   <a href={HOTLINE_TEL} className="hover:text-accent">
                     {HOTLINE}
                   </a>
                 </li>
-                <li>
+                <li className="flex items-start gap-3">
+                  <BieuTuong>
+                    <rect x="3" y="5" width="18" height="14" rx="2" />
+                    <path d="m3 7 9 6 9-6" />
+                  </BieuTuong>
                   <a href={`mailto:${EMAIL}`} className="hover:text-accent">
                     {EMAIL}
                   </a>
                 </li>
-                <li>{DIA_CHI}</li>
+                <li className="flex items-start gap-3">
+                  <BieuTuong>
+                    <path d="M12 21s7-5.6 7-11a7 7 0 1 0-14 0c0 5.4 7 11 7 11z" />
+                    <circle cx="12" cy="10" r="2.5" />
+                  </BieuTuong>
+                  <a href={MAPS_URL} target="_blank" rel="noopener noreferrer" className="hover:text-accent">
+                    {DIA_CHI}
+                  </a>
+                </li>
               </ul>
             </div>
+
+            <a
+              href={MAPS_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex min-h-[9rem] flex-col items-center justify-center gap-2 rounded-2xl border border-white/20 bg-white/5 px-5 text-center text-sm text-white/80 transition-colors hover:border-accent hover:text-white"
+            >
+              <BieuTuong lop="h-7 w-7 text-accent">
+                <path d="M12 21s7-5.6 7-11a7 7 0 1 0-14 0c0 5.4 7 11 7 11z" />
+                <circle cx="12" cy="10" r="2.5" />
+              </BieuTuong>
+              <span className="font-bold uppercase tracking-[0.08em] text-accent">Xem bản đồ</span>
+              <span className="text-xs text-white/60">Chỉ đường tới văn phòng</span>
+            </a>
           </div>
 
-          <div className="mt-14 flex flex-wrap items-center justify-between gap-4 border-t border-white/15 pt-6 text-xs text-white/60">
+          <div className="mt-8 flex flex-wrap items-center justify-between gap-4 border-t border-white/15 pt-5 text-xs text-white/60">
             <p>© 2026 WINDUCA.</p>
-            <ul className="flex flex-wrap gap-x-6 gap-y-2">
+            <ul className="flex flex-wrap gap-x-6 gap-y-2 pr-16">
               <li>
                 <Link href="/chinh-sach-bao-mat" className="hover:text-white">
                   Chính sách bảo mật

@@ -1,10 +1,12 @@
 import Image from "next/image";
 import Link from "next/link";
+import { DichVuTruot } from "./DichVuTruot";
 import { SanPhamBangChuyen } from "./SanPhamBangChuyen";
+import { SoLieuChay } from "./SoLieuChay";
 import { NhanMinhHoa, Wrap } from "./ui";
 import { asset } from "@/lib/asset";
 import { BAI_VIET } from "@/lib/bai-viet";
-import { LOAI_DU_AN } from "@/lib/site";
+import { LOAI_DU_AN, SO_LIEU_GIA_DINH } from "@/lib/site";
 
 /**
  * Các khối trang chủ theo bố cục Winboss (11/11/2026). Nội dung là của WINDUCA; số liệu chưa xác nhận để "—".
@@ -125,11 +127,6 @@ export function DichVuKhoi() {
     { so: "03", t: "Dịch vụ hậu mãi", m: "Bảo trì, hiệu chỉnh và hỗ trợ sau bàn giao.", anh: RESORT2, pos: "50% 50%" },
     { so: "04", t: "Hỗ trợ đối tác", m: "Đào tạo kỹ thuật và bán hàng cho đại lý, nhà thầu.", anh: NHAO, pos: "50% 78%" },
   ];
-  const so = [
-    { n: "Số dự án" },
-    { n: "Số nhà máy" },
-    { n: "Số quốc gia" },
-  ];
   return (
     <section className="bg-white py-8 md:py-10">
       <Wrap>
@@ -144,39 +141,10 @@ export function DichVuKhoi() {
             <Link href="/he-cua" className="nut nut-chinh mt-7">
               Khám phá ngay
             </Link>
-            <dl className="mt-12 grid max-w-xl grid-cols-3 gap-6 border-t border-inox pt-8">
-              {so.map((s) => (
-                <div key={s.n}>
-                  <dt className="text-[11px] font-bold uppercase tracking-[0.12em] text-than-chi/55">{s.n}</dt>
-                  <dd className="mt-2 text-4xl font-bold text-than-chi md:text-5xl">—</dd>
-                  <dd className="mt-1 text-xs text-than-chi/60">Đang chờ xác nhận</dd>
-                </div>
-              ))}
-            </dl>
+            <SoLieuChay muc={SO_LIEU_GIA_DINH} />
           </div>
 
-          <ul className="flex snap-x snap-mandatory gap-4 overflow-x-auto pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
-            {dv.map((d) => (
-              <li key={d.so} className="w-full shrink-0 snap-center">
-                <Link href="/lien-he" className="group relative block min-h-[220px] overflow-hidden rounded-[24px] bg-than-chi text-white md:h-[clamp(300px,52svh,440px)] md:min-h-0 md:rounded-[32px]">
-                  <Image src={asset(d.anh)} alt={d.t} fill quality={60} sizes="(min-width: 1024px) 45vw, 100vw" className="object-cover transition-transform duration-700 group-hover:scale-[1.04]" style={{ objectPosition: d.pos }} />
-                  <div className="absolute inset-0 bg-than-chi/55" aria-hidden="true" />
-                  <div className="relative flex h-full min-h-[220px] flex-col justify-between p-6 md:min-h-0 md:p-8">
-                    <span className="text-sm font-bold text-white/80">{d.so}</span>
-                    <div className="flex items-end justify-between gap-6">
-                      <div>
-                        <h3 className="text-xl font-bold md:text-2xl">{d.t}</h3>
-                        <p className="mt-2 max-w-md text-sm font-light text-white/85">{d.m}</p>
-                      </div>
-                      <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-accent text-white transition-transform duration-300 group-hover:translate-x-1">
-                        <MuiTenDo />
-                      </span>
-                    </div>
-                  </div>
-                </Link>
-              </li>
-            ))}
-          </ul>
+          <DichVuTruot muc={dv} />
         </div>
       </Wrap>
     </section>

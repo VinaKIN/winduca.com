@@ -14,6 +14,21 @@ export const HOTLINE = "0947 686 668";
 export const HOTLINE_TEL = "tel:0947686668";
 
 export const EMAIL = "info@winduca.com";
+
+/** Số liệu chạy GIẢ ĐỊNH theo yêu cầu của anh Huy (10/11/2026). Thay bằng số thật khi có xác nhận. */
+export const SO_LIEU_GIA_DINH = [
+  { nhan: "Số dự án", gia_tri: 120, hau_to: "+" },
+  { nhan: "Số nhà máy", gia_tri: 1, do_dai: 2 },
+  { nhan: "Số quốc gia", gia_tri: 3, do_dai: 2 },
+];
+
+/** Mạng xã hội. Zalo lấy từ số hotline; các mạng còn lại chờ anh Huy cung cấp link (để "" thì icon hiển thị mờ). */
+export const MANG_XA_HOI = [
+  { id: "facebook", ten: "Facebook", url: "" },
+  { id: "youtube", ten: "YouTube", url: "" },
+  { id: "tiktok", ten: "TikTok", url: "" },
+  { id: "zalo", ten: "Zalo", url: "https://zalo.me/0947686668" },
+];
 export const DIA_CHI = "Tòa nhà VinaKIN Building, 280A5 Lương Định Của, Bình Trưng, Hồ Chí Minh";
 export const MAPS_URL = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(DIA_CHI)}`;
 
