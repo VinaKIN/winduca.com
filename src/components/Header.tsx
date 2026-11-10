@@ -112,7 +112,7 @@ export function Header() {
   return (
     <>
       <header className={`fixed inset-x-0 top-0 z-50 transition-colors duration-300 ${daCuon ? "bg-than-chi/95 backdrop-blur-md" : "bg-transparent"}`}>
-        <div className="relative mx-auto flex h-20 max-w-[1440px] items-center justify-between px-5 md:h-28 md:px-10">
+        <div className="relative mx-auto flex h-20 max-w-[1440px] items-center justify-between px-5 md:h-[90px] md:px-10">
           <div className="flex items-center gap-2 md:gap-4">
             <NutTron href={HOTLINE_TEL} nhan={`Gọi hotline ${HOTLINE}`}>
               <IconDienThoai />

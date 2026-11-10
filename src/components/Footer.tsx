@@ -16,7 +16,7 @@ export function Footer() {
       <section className="relative overflow-hidden bg-than-chi">
         <Image src={asset("/images/hero.jpg")} alt="" fill quality={60} sizes="100vw" className="object-cover" aria-hidden="true" />
         <div className="absolute inset-0 bg-than-chi/70" aria-hidden="true" />
-        <Wrap className="relative py-16 md:py-24">
+        <Wrap className="relative py-10 md:py-12">
           <div className="mx-auto max-w-5xl overflow-hidden rounded-[28px] bg-white md:rounded-[36px]">
             <div className="bg-than-chi px-6 py-8 text-white md:px-12 md:py-10">
               <div className="grid gap-8 md:grid-cols-[1fr_1.2fr] md:items-center">
@@ -58,7 +58,7 @@ export function Footer() {
 
       {/* Chân trang */}
       <div className="bg-than-chi text-white">
-        <Wrap className="py-14 md:py-20">
+        <Wrap className="py-8 md:py-10">
           <div className="grid gap-12 lg:grid-cols-[1.1fr_0.9fr_1.2fr]">
             <div>
               <Image

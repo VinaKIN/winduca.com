@@ -38,9 +38,9 @@ export function GioiThieuKhoi() {
     { so: "02", t: "Danh mục đa dạng", m: "Bốn kiểu cửa: trượt nâng, đi mở quay, xếp trượt và cửa sổ, cùng hệ phụ kiện đồng bộ." },
   ];
   return (
-    <section className="bg-white py-20 md:py-28">
+    <section className="bg-white py-10 md:py-12">
       <Wrap>
-        <div className="grid items-center gap-12 lg:grid-cols-[1fr_1.05fr] lg:gap-20">
+        <div className="grid items-center gap-12 lg:grid-cols-[1fr_1.05fr] lg:gap-14">
           <div>
             <NhanDo>Giới thiệu</NhanDo>
             <h2 className="mt-4 text-[clamp(2rem,4.2vw,3.5rem)] font-light leading-[1.1]">
@@ -88,7 +88,7 @@ export function GioiThieuKhoi() {
 /* ---------- Sản phẩm nổi bật ---------- */
 export function SanPhamKhoi() {
   return (
-    <section className="overflow-hidden bg-nga py-20 md:py-28">
+    <section className="overflow-hidden bg-nga py-10 md:py-[6.5rem]">
       <div className="text-center">
         <NhanDo>Sản phẩm</NhanDo>
         <h2 className="mt-3 text-[clamp(1.75rem,3.4vw,2.75rem)] font-light">Hệ cửa nổi bật</h2>
@@ -114,9 +114,9 @@ export function DichVuKhoi() {
     { n: "Số quốc gia" },
   ];
   return (
-    <section className="bg-white py-20 md:py-28">
+    <section className="bg-white py-10 md:py-12">
       <Wrap>
-        <div className="grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:gap-20">
+        <div className="grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:gap-14">
           <div className="lg:sticky lg:top-32 lg:self-start">
             <NhanDo>Dịch vụ</NhanDo>
             <h2 className="mt-3 text-[clamp(1.75rem,3.4vw,2.75rem)] font-light">Danh sách các dịch vụ</h2>
@@ -138,13 +138,13 @@ export function DichVuKhoi() {
             </dl>
           </div>
 
-          <ul className="space-y-5">
+          <ul className="flex snap-x snap-mandatory gap-4 overflow-x-auto pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
             {dv.map((d) => (
-              <li key={d.so}>
-                <Link href="/lien-he" className="group relative block min-h-[220px] overflow-hidden rounded-[24px] bg-than-chi text-white md:min-h-[260px] md:rounded-[32px]">
+              <li key={d.so} className="w-full shrink-0 snap-center">
+                <Link href="/lien-he" className="group relative block min-h-[340px] overflow-hidden rounded-[24px] bg-than-chi text-white md:min-h-[400px] md:rounded-[32px]">
                   <Image src={asset(d.anh)} alt="" fill quality={60} sizes="(min-width: 1024px) 45vw, 100vw" className="object-cover transition-transform duration-700 group-hover:scale-[1.04]" style={{ objectPosition: d.pos }} />
                   <div className="absolute inset-0 bg-than-chi/55" aria-hidden="true" />
-                  <div className="relative flex h-full min-h-[220px] flex-col justify-between p-6 md:min-h-[260px] md:p-8">
+                  <div className="relative flex h-full min-h-[340px] flex-col justify-between p-6 md:min-h-[400px] md:p-8">
                     <span className="text-sm font-bold text-white/80">{d.so}</span>
                     <div className="flex items-end justify-between gap-6">
                       <div>
@@ -174,7 +174,7 @@ export function CongTrinhKhoi() {
     { src: RESORT, pos: "50% 50%" },
   ];
   return (
-    <section className="bg-nga py-20 md:py-28">
+    <section className="bg-nga py-10 md:py-12">
       <Wrap>
         <div className="flex flex-wrap items-end justify-between gap-6">
           <div>
@@ -272,7 +272,7 @@ export const BAI_SAP_CO = [
 
 export function TinTucKhoi() {
   return (
-    <section className="bg-white py-20 md:py-28">
+    <section className="bg-white py-10 md:py-12">
       <Wrap>
         <div className="flex flex-wrap items-end justify-between gap-6">
           <div>
