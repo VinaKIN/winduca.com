@@ -1,6 +1,7 @@
 import Image from "next/image";
 import type { ReactNode } from "react";
 import { asset } from "@/lib/asset";
+import { NenParallax } from "./HieuUng";
 
 export function Wrap({ children, className = "" }: { children: ReactNode; className?: string }) {
   return <div className={`mx-auto max-w-[1440px] px-5 md:px-10 ${className}`}>{children}</div>;
@@ -54,17 +55,35 @@ export function PageHero({
   moTa,
   children,
   anh = "/images/hero.jpg",
+  congNghe = false,
 }: {
   nhan: string;
   tieuDe: string;
   moTa?: string;
   children?: ReactNode;
   anh?: string | null;
+  /** Hero kiểu công nghệ: parallax, lưới bản vẽ, dấu góc khung. */
+  congNghe?: boolean;
 }) {
   return (
     <section className="relative overflow-hidden bg-than-chi text-white">
-      {anh && <Image src={asset(anh)} alt="" fill quality={60} sizes="100vw" className="object-cover" aria-hidden="true" priority />}
+      {anh &&
+        (congNghe ? (
+          <NenParallax>
+            <Image src={asset(anh)} alt="" fill quality={60} sizes="100vw" className="object-cover" aria-hidden="true" priority />
+          </NenParallax>
+        ) : (
+          <Image src={asset(anh)} alt="" fill quality={60} sizes="100vw" className="object-cover" aria-hidden="true" priority />
+        ))}
       <div className="absolute inset-0 bg-than-chi/70" aria-hidden="true" />
+      {congNghe && (
+        <>
+          <div className="luoi-ban-ve-toi pointer-events-none absolute inset-0" aria-hidden="true" />
+          {["left-5 top-24 border-l border-t", "right-5 top-24 border-r border-t", "bottom-5 left-5 border-b border-l", "bottom-5 right-5 border-b border-r"].map((c) => (
+            <span key={c} className={`pointer-events-none absolute hidden h-5 w-5 border-accent md:block ${c}`} aria-hidden="true" />
+          ))}
+        </>
+      )}
       <Wrap className="relative pb-8 pt-28 md:pb-10 md:pt-36">
         <p className="nhan-muc text-accent">{nhan}</p>
         <h1 className="mt-3 max-w-4xl text-[clamp(1.5rem,3.2vw,2.75rem)] font-medium uppercase leading-[1.15] tracking-[0.01em] [text-wrap:balance]">{tieuDe}</h1>
