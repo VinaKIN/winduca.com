@@ -72,15 +72,18 @@ export function Footer() {
         <Wrap className="pb-8 pt-12 md:pt-16">
           <div className="grid gap-12 lg:grid-cols-[1fr_1.15fr] lg:gap-16">
             <div>
-              <Image
-                src={asset("/brand/WINDUCA-chinh-slogan-am-ban-trong.svg")}
-                alt="WINDUCA — Premium Window & Door"
-                width={220}
-                height={190}
-                className="h-auto w-56 md:w-64"
-              />
-              <nav aria-label="Liên kết chân trang" className="mt-10">
-                <ul className="grid grid-flow-col grid-cols-2 grid-rows-5 gap-x-6 gap-y-4 text-[17px]">
+              <div className="w-fit">
+                <Image
+                  src={asset("/brand/WINDUCA-ngang-am-ban-trong.svg")}
+                  alt="WINDUCA"
+                  width={677}
+                  height={102}
+                  className="h-auto w-[300px] md:w-[400px]"
+                />
+                <p className="mt-3 text-center text-[clamp(1.05rem,1.7vw,1.6rem)] font-light tracking-[0.04em] text-white/80">Premium Window &amp; Door</p>
+              </div>
+              <nav aria-label="Liên kết chân trang" className="mt-12">
+                <ul className="grid max-w-md grid-flow-col grid-cols-2 grid-rows-3 gap-x-6 gap-y-[18px] text-[17px]">
                   {[
                     ["/", "Trang chủ"],
                     ["/gioi-thieu", "Giới thiệu"],
@@ -88,9 +91,6 @@ export function Footer() {
                     ["/giai-phap", "Giải pháp"],
                     ["/cong-trinh", "Công trình"],
                     ["/hop-tac", "Hợp tác"],
-                    ["/tin-tuc", "Kiến thức"],
-                    ["/danh-cho-kts", "Dành cho KTS"],
-                    ["/lien-he", "Liên hệ"],
                   ].map(([h, t], i) => (
                     <li key={h}>
                       <Link href={h} className={`transition-colors hover:text-accent ${i === 0 ? "font-bold text-white" : "font-light text-white/90"}`}>
@@ -100,7 +100,7 @@ export function Footer() {
                   ))}
                 </ul>
               </nav>
-              <MangXaHoi lop="mt-10" kieu="dac" />
+              <MangXaHoi lop="mt-12" kieu="dac" />
             </div>
 
             <div>

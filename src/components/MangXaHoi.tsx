@@ -23,7 +23,7 @@ const ICON: Record<string, ReactNode> = {
 /** Hàng icon mạng xã hội. Mạng chưa có đường dẫn hiển thị mờ (chưa bấm được) cho tới khi anh Huy cung cấp link. */
 export function MangXaHoi({ lop = "", kieu = "vien" }: { lop?: string; kieu?: "vien" | "dac" }) {
   return (
-    <ul className={`flex items-center gap-3 ${lop}`} aria-label="Mạng xã hội">
+    <ul className={`flex items-center ${kieu === "dac" ? "gap-7" : "gap-3"} ${lop}`} aria-label="Mạng xã hội">
       {MANG_XA_HOI.map((m) => {
         const bieuTuong = (
           <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">

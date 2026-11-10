@@ -24,8 +24,8 @@ function doc(): string {
 
 /**
  * Cookie banner: từ chối mặc định cho cookie không thiết yếu.
- * Chưa có công cụ đo lường nào được bật ở mốc này; GA4, Meta Pixel và Google Maps
- * chỉ được nạp khi giá trị là "dong-y".
+ * Chưa có công cụ đo lường nào được bật ở mốc này; GA4 và Meta Pixel
+ * chỉ được nạp khi giá trị là "dong-y". Bản đồ chân trang (Google Maps) tải khi cuộn tới, đã ghi ở Chính sách cookie.
  */
 export function CookieBanner() {
   const luaChon = useSyncExternalStore(dangKy, doc, () => "dong-bo");

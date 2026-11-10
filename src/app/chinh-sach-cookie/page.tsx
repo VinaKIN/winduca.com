@@ -16,11 +16,16 @@ export default function ChinhSachCookie() {
       <h2>2. Cookie không thiết yếu (chỉ khi anh chị đồng ý)</h2>
       <ul>
         <li>Đo lường lượt truy cập (Google Analytics) và quảng cáo (Meta Pixel).</li>
-        <li>Bản đồ nhúng (Google Maps).</li>
       </ul>
       <p>
         Hiện website chưa bật các công cụ trên nên không đặt cookie loại này. Khi bật, chúng tôi sẽ hiển thị thông báo cookie
         và chỉ chạy sau khi anh chị đồng ý.
+      </p>
+
+      <h2>2a. Bản đồ nhúng (Google Maps)</h2>
+      <p>
+        Bản đồ ở chân trang được tải từ Google khi anh chị cuộn tới phần đó. Khi tải, Google có thể ghi nhận địa chỉ IP và đặt cookie
+        theo chính sách của Google. Anh chị có thể bấm &ldquo;Mở trong Maps&rdquo; nếu muốn xem bản đồ trên ứng dụng của mình.
       </p>
 
       <h2>3. Thay đổi lựa chọn</h2>
