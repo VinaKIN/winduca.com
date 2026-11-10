@@ -1,11 +1,10 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import { CrossSection } from "@/components/CrossSection";
 import { GiaiPhapDongBo } from "@/components/GiaiPhapDongBo";
 import { Hien, KeoNgang, NutHut } from "@/components/HieuUng";
+import { KhungAnhChong } from "@/components/KhungAnh";
 import { DoiTacKhoi } from "@/components/TrangChuKhoi";
 import { PageHero, Wrap } from "@/components/ui";
-import { asset } from "@/lib/asset";
 
 export const metadata: Metadata = {
   title: "Giới thiệu | WINDUCA",
@@ -62,12 +61,11 @@ export default function GioiThieu() {
             </h2>
           </Hien>
           <div className="mt-6 grid items-center gap-6 lg:grid-cols-[1.15fr_1fr] lg:gap-12">
-            <Hien tre={100} className="grid grid-cols-2 gap-3">
-              {["/images/mau-khung-nhom-den.jpg", "/images/mat-cat-khung-cua.jpg"].map((s) => (
-                <div key={s} className="dau-goc relative h-[26svh] min-h-[150px] overflow-hidden rounded-[6px] bg-than-chi md:h-[clamp(220px,38svh,330px)]">
-                  <Image src={asset(s)} alt="Chi tiết khung cửa nhôm" fill quality={65} sizes="(min-width: 1024px) 30vw, 45vw" className="object-cover" />
-                </div>
-              ))}
+            <Hien tre={100}>
+              <KhungAnhChong
+                chinh={{ src: "/images/mau-khung-nhom-den.jpg", alt: "Chi tiết khung cửa nhôm", chuThich: "Khung nhôm cầu cách nhiệt" }}
+                phu={{ src: "/images/mat-cat-khung-cua.jpg", alt: "Mặt cắt khung cửa nhôm" }}
+              />
             </Hien>
             <Hien tre={200} className="space-y-4">
               <p className="text-lg text-than-chi/85">
@@ -115,12 +113,11 @@ export default function GioiThieu() {
             <h2 className="mt-4 text-[clamp(1.625rem,2.6vw,2.5rem)] font-light leading-[1.15] tracking-[-0.01em]">Bốn bước từ bản vẽ đến nghiệm thu</h2>
           </Hien>
           <div className="mt-6 grid gap-6 lg:grid-cols-[0.9fr_1.4fr] lg:gap-10">
-            <Hien tre={80} className="grid grid-cols-2 gap-3">
-              {["/images/xuong/may-khoan-nhom.webp", "/images/xuong/tay-nghe-phu-kien.webp"].map((s) => (
-                <div key={s} className="dau-goc relative h-[22svh] min-h-[130px] overflow-hidden rounded-[6px] bg-than-chi lg:h-[clamp(200px,34svh,300px)]">
-                  <Image src={asset(s)} alt="Gia công chi tiết nhôm tại xưởng" fill quality={65} sizes="(min-width: 1024px) 20vw, 45vw" className="object-cover" />
-                </div>
-              ))}
+            <Hien tre={80}>
+              <KhungAnhChong
+                chinh={{ src: "/images/xuong/may-khoan-nhom.webp", alt: "Gia công thanh nhôm tại xưởng", chuThich: "Gia công tại xưởng", viTri: "55% 50%" }}
+                phu={{ src: "/images/xuong/tay-nghe-phu-kien.webp", alt: "Kiểm tra tay nắm", viTri: "center 35%" }}
+              />
             </Hien>
             <div className="relative min-w-0">
               <div className="absolute left-0 right-0 top-[1.6rem] hidden h-px bg-than-chi/20 lg:block" aria-hidden="true" />

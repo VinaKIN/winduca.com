@@ -1,9 +1,8 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import { Hien } from "@/components/HieuUng";
+import { KhungAnh, KhungAnhChong } from "@/components/KhungAnh";
 import { PageHero, Section } from "@/components/ui";
-import { asset } from "@/lib/asset";
 
 export const metadata: Metadata = {
   title: "Năng lực & Xưởng gia công | WINDUCA",
@@ -32,8 +31,9 @@ export default function NangLucXuong() {
   return (
     <>
       <PageHero
-        anh="/images/xuong/xuong-chan-dung.webp"
-        viTriAnh="center 14%"
+        anhPhai="/images/xuong/xuong-chan-dung.webp"
+        viTriAnh="center 22%"
+        chuThichAnh="Xưởng gia công WINDUCA"
         nhan="Xưởng gia công WINDUCA · Trung tâm sản xuất chính xác"
         tieuDe="Mỗi bộ cửa bắt đầu từ một bản vẽ."
         moTa="Gia công chính xác theo bản vẽ kiến trúc sư, rồi lắp đặt tại công trình."
@@ -57,14 +57,13 @@ export default function NangLucXuong() {
       </Section>
 
       <Section tone="nga" nhan="Công đoạn tại xưởng" tieuDe="Những gì được làm tại xưởng.">
-        <div className="grid items-center gap-6 lg:grid-cols-[1.25fr_1fr] lg:gap-10">
-          <div className="grid grid-cols-2 gap-3">
-            {["may-khoan-nhom", "kiem-tra-gia-cong"].map((n) => (
-              <div key={n} className="dau-goc relative h-[26svh] min-h-[160px] overflow-hidden rounded-[6px] bg-than-chi lg:h-[clamp(240px,40svh,340px)]">
-                <Image src={asset(`/images/xuong/${n}.webp`)} alt="Gia công nhôm tại xưởng WINDUCA" fill quality={70} sizes="(min-width: 1024px) 28vw, 45vw" className="object-cover" />
-              </div>
-            ))}
-          </div>
+        <div className="grid items-center gap-6 lg:grid-cols-[1.1fr_1fr] lg:gap-14">
+          <Hien>
+            <KhungAnhChong
+              chinh={{ src: "/images/xuong/may-khoan-nhom.webp", alt: "Máy khoan gia công thanh nhôm", chuThich: "Khoan, phay thanh nhôm", viTri: "55% 50%" }}
+              phu={{ src: "/images/xuong/kiem-tra-gia-cong.webp", alt: "Thợ kiểm tra trong lúc gia công", viTri: "30% 40%" }}
+            />
+          </Hien>
           <ul className="space-y-3">
             {CONG_DOAN.map((c) => (
               <li key={c} className="flex items-center gap-4 rounded-[6px] border border-than-chi/15 bg-white/70 p-4 backdrop-blur-sm">
@@ -129,8 +128,8 @@ export default function NangLucXuong() {
               </Link>
             </div>
           </div>
-          <Hien className="dau-goc relative h-[30svh] min-h-[200px] overflow-hidden rounded-[6px] bg-than-chi lg:h-[clamp(240px,38svh,330px)]">
-            <Image src={asset("/images/xuong/tay-nghe-phu-kien.webp")} alt="Kiểm tra phụ kiện tại xưởng WINDUCA" fill quality={70} sizes="(min-width: 1024px) 40vw, 100vw" className="object-cover" />
+<Hien>
+            <KhungAnh src="/images/xuong/tay-nghe-phu-kien.webp" alt="Kiểm tra tay nắm tại xưởng WINDUCA" chuThich="Kiểm tra bề mặt tay nắm" tyLe="aspect-[16/10]" viTri="center 35%" />
           </Hien>
         </div>
       </Section>

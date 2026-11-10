@@ -13,8 +13,9 @@ export default function TraiNghiem() {
   return (
     <>
       <PageHero
-        anh="/images/xuong/thanh-nhom-tay-nam.webp"
+        anhPhai="/images/xuong/thanh-nhom-tay-nam.webp"
         viTriAnh="center 58%"
+        chuThichAnh="Mẫu góc nhôm và tay nắm"
         nhan="Trải nghiệm"
         tieuDe="Chạm vào chất liệu, trước khi quyết định."
         moTa="Nhận hộp mẫu góc nhôm tại nhà, hoặc đặt lịch trải nghiệm tại showroom WINDUCA."

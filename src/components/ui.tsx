@@ -2,6 +2,7 @@ import Image from "next/image";
 import type { ReactNode } from "react";
 import { asset } from "@/lib/asset";
 import { Hien, NenParallax } from "./HieuUng";
+import { KhungAnh } from "./KhungAnh";
 
 export function Wrap({ children, className = "" }: { children: ReactNode; className?: string }) {
   return <div className={`mx-auto max-w-[1440px] px-5 md:px-10 ${className}`}>{children}</div>;
@@ -64,6 +65,8 @@ export function PageHero({
   anh = "/images/hero.jpg",
   congNghe = true,
   viTriAnh = "center",
+  anhPhai,
+  chuThichAnh,
 }: {
   nhan: string;
   tieuDe: string;
@@ -74,10 +77,14 @@ export function PageHero({
   congNghe?: boolean;
   /** Vị trí cắt ảnh nền (object-position), để giữ khuôn mặt trong khung. */
   viTriAnh?: string;
+  /** Ảnh đặt trong khung bên phải (hero chia đôi), thay cho ảnh nền toàn khung. */
+  anhPhai?: string;
+  chuThichAnh?: string;
 }) {
   return (
     <section className="hero-gradient relative overflow-hidden text-white">
       {anh &&
+        !anhPhai &&
         (congNghe ? (
           <NenParallax>
             <Image src={asset(anh)} alt="" fill quality={60} sizes="100vw" className="object-cover" style={{ objectPosition: viTriAnh }} aria-hidden="true" priority />
@@ -101,10 +108,20 @@ export function PageHero({
         Premium Window &amp; Door
       </p>
       <Wrap className="relative pb-10 pt-28 md:min-h-[400px] md:pb-14 md:pt-40">
-        <p className="nhan-muc text-accent">{nhan}</p>
-        <h1 className="mt-3 max-w-4xl text-[clamp(1.875rem,3.6vw,3.25rem)] font-medium uppercase leading-[1.12] tracking-[0.01em] [text-wrap:balance]">{tieuDe}</h1>
-        {moTa && <p className="mt-4 max-w-2xl text-base font-light leading-relaxed text-white/85 md:text-lg">{moTa}</p>}
-        {children && <div className="mt-6 flex flex-col gap-3 sm:flex-row">{children}</div>}
+        <div className={anhPhai ? "grid items-center gap-8 lg:grid-cols-[1.05fr_0.95fr] lg:gap-14" : ""}>
+          <div>
+            <p className="nhan-muc text-accent">{nhan}</p>
+            <h1 className="mt-3 max-w-4xl text-[clamp(1.875rem,3.6vw,3.25rem)] font-medium uppercase leading-[1.12] tracking-[0.01em] [text-wrap:balance]">{tieuDe}</h1>
+            {moTa && <p className="mt-4 max-w-2xl text-base font-light leading-relaxed text-white/85 md:text-lg">{moTa}</p>}
+            {children && <div className="mt-6 flex flex-col gap-3 sm:flex-row">{children}</div>}
+          </div>
+          {anhPhai && (
+            <div className="relative w-full max-w-xl lg:max-w-none">
+              <div className="absolute inset-x-3 -bottom-3 top-3 -right-3 hidden rounded-[8px] border border-accent/60 sm:block" aria-hidden="true" />
+              <KhungAnh src={anhPhai} alt="" chuThich={chuThichAnh} viTri={viTriAnh} tyLe="aspect-[16/11]" uuTien className="shadow-[0_30px_70px_-30px_rgba(0,0,0,0.8)]" />
+            </div>
+          )}
+        </div>
       </Wrap>
     </section>
   );
