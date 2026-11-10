@@ -21,7 +21,7 @@ const ICON: Record<string, ReactNode> = {
 };
 
 /** Hàng icon mạng xã hội. Mạng chưa có đường dẫn hiển thị mờ (chưa bấm được) cho tới khi anh Huy cung cấp link. */
-export function MangXaHoi({ lop = "" }: { lop?: string }) {
+export function MangXaHoi({ lop = "", kieu = "vien" }: { lop?: string; kieu?: "vien" | "dac" }) {
   return (
     <ul className={`flex items-center gap-3 ${lop}`} aria-label="Mạng xã hội">
       {MANG_XA_HOI.map((m) => {
@@ -30,15 +30,15 @@ export function MangXaHoi({ lop = "" }: { lop?: string }) {
             {ICON[m.id]}
           </svg>
         );
-        const chung = "flex h-10 w-10 items-center justify-center rounded-full border border-white/25 transition-colors";
+        const chung = `flex items-center justify-center rounded-full transition-colors ${kieu === "dac" ? "h-12 w-12 bg-[#a7a8a6]" : "h-10 w-10 border border-white/25"}`;
         return (
           <li key={m.id}>
             {m.url ? (
-              <a href={m.url} target="_blank" rel="noopener noreferrer" aria-label={m.ten} className={`${chung} text-white hover:border-accent hover:bg-accent`}>
+              <a href={m.url} target="_blank" rel="noopener noreferrer" aria-label={m.ten} className={`${chung} ${kieu === "dac" ? "text-than-chi hover:bg-accent hover:text-white" : "text-white hover:border-accent hover:bg-accent"}`}>
                 {bieuTuong}
               </a>
             ) : (
-              <span title={`${m.ten}: đang cập nhật liên kết`} aria-label={`${m.ten} (đang cập nhật liên kết)`} role="img" className={`${chung} cursor-not-allowed text-white/35`}>
+              <span title={`${m.ten}: đang cập nhật liên kết`} aria-label={`${m.ten} (đang cập nhật liên kết)`} role="img" className={`${chung} cursor-not-allowed ${kieu === "dac" ? "!bg-white/15 text-white/40" : "text-white/35"}`}>
                 {bieuTuong}
               </span>
             )}
