@@ -27,14 +27,15 @@ export function Footer() {
         <Image src={asset("/images/hero.jpg")} alt="" fill quality={60} sizes="100vw" className="scale-105 object-cover opacity-30 blur-[4px]" aria-hidden="true" />
         <div className="absolute inset-0 bg-gradient-to-br from-[#0e0c0d]/90 via-[#1a1617]/80 to-[#2a1014]/70" aria-hidden="true" />
         <Wrap className="relative py-8 md:py-10">
-          <div className="mx-auto max-w-5xl overflow-hidden rounded-[28px] bg-white md:rounded-[36px]">
-            <div className="bg-than-chi px-6 py-6 text-white md:px-12 md:py-8">
-              <div className="grid gap-8 md:grid-cols-[0.9fr_1.3fr] md:items-center">
+          <div className="mx-auto max-w-6xl rounded-[10px] bg-white p-4 shadow-[0_40px_80px_-40px_rgba(0,0,0,0.8)] md:p-6">
+            <div className="rounded-[4px] bg-than-chi px-6 py-6 text-white md:px-10 md:py-7">
+              <div className="grid gap-6 md:grid-cols-[0.9fr_1.3fr] md:items-center">
                 <h2 className="text-[clamp(1.75rem,3.2vw,2.75rem)] font-light leading-[1.12]">
                   Trải nghiệm
                   <span className="block">không gian WINDUCA</span>
                 </h2>
-                <ul className="grid gap-x-6 gap-y-4 text-[15px] font-medium sm:grid-cols-2">
+                <div>
+                <ul className="grid gap-x-6 gap-y-3.5 text-[15px] font-medium sm:grid-cols-2">
                   {[
                     { h: HOTLINE_TEL, t: `Hotline: ${HOTLINE}`, ext: false, ic: <path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z" /> },
                     { h: `mailto:${EMAIL}`, t: `Email: ${EMAIL}`, ext: false, ic: (<><rect x="3" y="5" width="18" height="14" rx="2" /><path d="m3 7 9 6 9-6" /></>) },
@@ -51,18 +52,13 @@ export function Footer() {
                     </li>
                   ))}
                 </ul>
+                <p className="mt-4 max-w-xl text-[15px] font-light text-white/80">
+                  Tham gia cùng chúng tôi để trải nghiệm hộp mẫu góc nhôm, chạm vào chất liệu và trao đổi với chuyên viên tư vấn.
+                </p>
+                </div>
               </div>
-              <p className="mt-4 max-w-2xl text-base font-light text-white/80">
-                Tham gia cùng chúng tôi để trải nghiệm hộp mẫu góc nhôm, chạm vào chất liệu và trao đổi với chuyên viên tư vấn.
-              </p>
             </div>
-            <div className="grid gap-6 px-6 py-6 md:grid-cols-[0.8fr_1.2fr] md:gap-10 md:px-12 md:py-7">
-              <div>
-                <h3 className="text-xl font-bold">Đăng ký tham quan</h3>
-                <p className="mt-2 text-[15px] leading-relaxed text-than-chi/70">Chúng tôi liên hệ lại để xác nhận lịch trải nghiệm và giải đáp thắc mắc của anh chị.</p>
-              </div>
-              <FormHaiNhom />
-            </div>
+            <FormHaiNhom />
           </div>
         </Wrap>
       </section>
