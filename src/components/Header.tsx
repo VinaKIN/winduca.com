@@ -175,7 +175,9 @@ export function Header() {
 
           {/* Điều hướng giữa, trên nền đặc của hero */}
           <div className="absolute inset-y-0 left-[280px] right-[352px] flex items-center justify-center">
-            <DieuHuongGiua tren dangO={dangO} />
+            <div className="rounded-full bg-than-chi/45 px-2 py-1 backdrop-blur-sm">
+              <DieuHuongGiua tren dangO={dangO} />
+            </div>
           </div>
 
           {/* Tai phải: nút hành động, dính sát góc màn hình */}
