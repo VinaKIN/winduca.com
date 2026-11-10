@@ -73,7 +73,7 @@ export function SanPhamBangChuyen() {
             key={k.slug}
             className="group relative grid w-[88%] shrink-0 snap-center overflow-hidden rounded-[28px] bg-than-chi text-white md:w-[78%] md:grid-cols-[1.15fr_1fr] md:rounded-[36px]"
           >
-            <div className="relative min-h-[160px] md:h-[clamp(300px,50svh,460px)] md:min-h-0">
+            <div className="relative min-h-[160px] md:min-h-[300px]">
               <Image
                 src={asset(ANH[n % ANH.length].src)}
                 alt={`${k.ten} trong không gian kiến trúc`}
@@ -93,14 +93,14 @@ export function SanPhamBangChuyen() {
                 style={{ objectPosition: ANH_HOVER[n % ANH_HOVER.length].pos }}
               />
             </div>
-            <div className="flex flex-col justify-center p-6 md:p-10">
+            <div className="flex flex-col justify-center p-6 md:p-8">
               <p className="nhan-muc text-accent">
                 Hệ cửa · {String(n + 1).padStart(2, "0")} / {String(KIEU_CUA.length).padStart(2, "0")}
               </p>
               <h3 className="mt-3 text-2xl font-bold md:text-3xl">{k.ten}</h3>
               <p className="mt-1 text-sm font-medium uppercase tracking-[0.12em] text-white/60">{TEN_EN[k.slug]}</p>
               <p className="mt-3 text-[15px] font-light leading-relaxed text-white/80">{k.tagline}</p>
-              <ul className="mt-5 space-y-2 border-t border-white/15 pt-5 text-sm">
+              <ul className="mt-4 space-y-1.5 border-t border-white/15 pt-4 text-sm">
                 {k.dacDiem.map((d) => (
                   <li key={d} className="flex items-start gap-3">
                     <span className="mt-[7px] h-1.5 w-1.5 shrink-0 rotate-45 bg-accent" aria-hidden="true" />
@@ -108,7 +108,7 @@ export function SanPhamBangChuyen() {
                   </li>
                 ))}
               </ul>
-              <Link href={`/he-cua/${k.slug}`} className="nut nut-chinh mt-8 self-start">
+              <Link href={`/he-cua/${k.slug}`} className="nut nut-chinh mt-6 self-start">
                 Xem chi tiết
               </Link>
             </div>
@@ -116,7 +116,7 @@ export function SanPhamBangChuyen() {
         ))}
       </ul>
 
-      <div className="mt-8 flex items-center justify-center gap-4">
+      <div className="mt-5 flex items-center justify-center gap-4">
         <button
           type="button"
           aria-label="Hệ cửa trước"

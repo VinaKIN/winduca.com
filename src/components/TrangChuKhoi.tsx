@@ -110,9 +110,9 @@ export function SanPhamKhoi() {
     <section className="overflow-hidden nen-nga py-7">
       <div className="text-center">
         <NhanDo>Sản phẩm</NhanDo>
-        <h2 className="mt-3 text-[clamp(1.625rem,2.6vw,2.5rem)] font-light tracking-[-0.01em]">Hệ cửa nổi bật</h2>
+        <h2 className="mt-2 text-[clamp(1.625rem,2.6vw,2.5rem)] font-light tracking-[-0.01em] leading-[1.15]">Hệ cửa nổi bật</h2>
       </div>
-      <div className="mt-6">
+      <div className="mt-5">
         <SanPhamBangChuyen />
       </div>
     </section>
@@ -133,7 +133,7 @@ export function DichVuKhoi() {
         <div className="grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:gap-14">
           <div className="lg:sticky lg:top-32 lg:self-start">
             <NhanDo>Dịch vụ</NhanDo>
-            <h2 className="mt-3 text-[clamp(1.625rem,2.6vw,2.5rem)] font-light tracking-[-0.01em]">Danh sách các dịch vụ</h2>
+            <h2 className="mt-2 text-[clamp(1.625rem,2.6vw,2.5rem)] font-light tracking-[-0.01em] leading-[1.15]">Danh sách các dịch vụ</h2>
             <p className="mt-5 max-w-xl text-base text-than-chi/75">
               Cửa đi, cửa sổ, vách kính và phụ kiện đồng bộ, đi cùng dịch vụ tư vấn, thi công và hậu mãi. WINDUCA là đối tác cho chủ nhà, kiến trúc
               sư, công ty thiết kế và nhà thầu.
@@ -164,7 +164,7 @@ export function CongTrinhKhoi() {
         <div className="flex flex-wrap items-end justify-between gap-6">
           <div>
             <NhanDo>Công trình</NhanDo>
-            <h2 className="mt-3 text-[clamp(1.625rem,2.6vw,2.5rem)] font-light tracking-[-0.01em]">Không gian sống tiêu biểu</h2>
+            <h2 className="mt-2 text-[clamp(1.625rem,2.6vw,2.5rem)] font-light tracking-[-0.01em] leading-[1.15]">Không gian sống tiêu biểu</h2>
           </div>
           <Link href="/cong-trinh" className="nut nut-dac">
             Xem thêm
@@ -225,7 +225,7 @@ export function ViSaoKhoi() {
     <section className="nen-toi pb-20 text-white md:pb-28">
       <Wrap>
         <NhanDo>Vì sao chọn WINDUCA</NhanDo>
-        <h2 className="mt-3 max-w-3xl text-[clamp(1.625rem,2.6vw,2.5rem)] font-light tracking-[-0.01em]">Sự thật về WINDUCA</h2>
+        <h2 className="mt-3 max-w-3xl text-[clamp(1.625rem,2.6vw,2.5rem)] font-light tracking-[-0.01em] leading-[1.15]">Sự thật về WINDUCA</h2>
         <ul className="mt-6 grid gap-px overflow-hidden rounded-[24px] bg-white/15 md:mt-12 md:grid-cols-3 md:rounded-[32px]">
           {y.map((i) => (
             <li key={i.so} className="bg-than-chi p-5 md:p-10">
@@ -304,7 +304,7 @@ export function TinTucKhoi() {
         <div className="flex flex-wrap items-end justify-between gap-6">
           <div>
             <NhanDo>Tin tức</NhanDo>
-            <h2 className="mt-3 text-[clamp(1.625rem,2.6vw,2.5rem)] font-light tracking-[-0.01em]">Kiến thức và câu chuyện công trình</h2>
+            <h2 className="mt-2 text-[clamp(1.625rem,2.6vw,2.5rem)] font-light tracking-[-0.01em] leading-[1.15]">Kiến thức và câu chuyện công trình</h2>
           </div>
           <Link href="/tin-tuc" className="nut nut-dac">
             Xem thêm
