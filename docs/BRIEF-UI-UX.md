@@ -49,7 +49,7 @@
 
 ## 4. Trang chủ — 9 khối (bản chờ xác nhận)
 
-1. **Hero cửa trượt** — cảnh toàn màn hình, chữ góc dưới trái; hai tấm cửa mở giữa, tự mở ~1,5s rồi theo cuộn, nhích ±2% theo chuột. *(đã dựng)*
+1. **Hero tràn màn hình** — nền Than chì đặc, cột chữ bên trái, bảng ảnh bên phải sát mép; chữ không đè lên ảnh; không có hiệu ứng đóng/mở cửa (bỏ 10/11/2026). *(đã dựng)*
 2. **Ba thẻ lối tắt** KTS · Chủ nhà · Nhà thầu (cuộn tới khối tương ứng).
 3. **Khối KTS** — thư viện kỹ thuật, mặt cắt 2D có đường kích thước.
 4. **Mặt cắt 3D tách lớp** — điểm "wow" thứ hai. *(đã dựng)*
@@ -59,7 +59,7 @@
 8. **Công trình & testimonial** (ảnh minh họa có nhãn "Minh họa").
 9. **FAQ + form chung + footer.**
 
-Nhãn số "01 / 09" kiểu tạp chí ở đầu mỗi khối. Hai điểm "wow" duy nhất: cửa trượt mở, mặt cắt tách lớp. Chuyển động "phong phú" nhưng giữ ngân sách hiệu năng.
+Nhãn số "01 / 09" kiểu tạp chí ở đầu mỗi khối. Điểm "wow" duy nhất: mặt cắt tách lớp 3D (hiệu ứng cửa trượt mở ở hero đã bỏ). Chuyển động "phong phú" nhưng giữ ngân sách hiệu năng.
 
 ## 5. Quy tắc nội dung (ranh đỏ)
 

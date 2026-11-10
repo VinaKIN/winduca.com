@@ -7,7 +7,7 @@ import { HERO_ANH, HERO_VIDEO } from "@/lib/site";
  * - Nền Than chì đặc + lưới kỹ thuật rất mờ; KHÔNG có chữ nằm trên ảnh.
  * - Từ lg: cột chữ bên trái trên nền đặc, bảng ảnh bên phải tràn sát mép phải và mép dưới, bo góc trên trái.
  * - Dưới lg: chữ ở trên, bảng ảnh bên dưới, tràn hai bên.
- * - Hai tấm cửa Ngà trượt mở trong bảng ảnh khi tải (CSS, 1 lần). Giảm chuyển động: cửa mở sẵn.
+ * - Không có hiệu ứng đóng/mở cửa (đã bỏ theo yêu cầu 10/11/2026).
  */
 
 function MuiTen({ lop = "" }: { lop?: string }) {
@@ -24,7 +24,7 @@ export function HeroDoors() {
       <div className="flex min-h-svh flex-col lg:block lg:h-full lg:min-h-0">
         {/* CỘT CHỮ — trên nền đặc */}
         <div className="relative z-10 px-6 pb-10 pt-28 md:px-12 lg:absolute lg:inset-y-0 lg:left-0 lg:flex lg:w-[52%] lg:flex-col lg:justify-center lg:px-12 lg:pb-0 lg:pt-[100px] xl:px-16">
-          <div className="hero-hien">
+          <div>
             <div className="flex items-center gap-4">
               <span className="block h-px w-10 bg-champagne md:w-14" aria-hidden="true" />
               <p className="nhan-muc text-champagne">Premium Window &amp; Door</p>
@@ -60,7 +60,7 @@ export function HeroDoors() {
 
           <a
             href="#tuyen-ngon"
-            className="hero-hien absolute bottom-8 left-14 hidden items-center gap-3 text-[11px] font-semibold uppercase tracking-[0.12em] text-nga/80 transition-colors hover:text-champagne lg:flex xl:left-20"
+            className="absolute bottom-8 left-14 hidden items-center gap-3 text-[11px] font-semibold uppercase tracking-[0.12em] text-nga/80 transition-colors hover:text-champagne lg:flex xl:left-20"
           >
             <span className="flex h-10 w-10 items-center justify-center rounded-full border border-nga/40">
               <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
@@ -87,16 +87,6 @@ export function HeroDoors() {
                 preload="metadata"
               />
             )}
-          </div>
-
-          {/* Hai tấm cửa mở khi tải */}
-          <div className="pointer-events-none absolute inset-0 flex" aria-hidden="true">
-            <div className="hero-cua hero-cua-trai relative h-full w-1/2 border-r border-inox bg-nga">
-              <span className="absolute right-5 top-1/2 h-20 w-[3px] -translate-y-1/2 bg-champagne" />
-            </div>
-            <div className="hero-cua hero-cua-phai relative h-full w-1/2 border-l border-inox bg-nga">
-              <span className="absolute left-5 top-1/2 h-20 w-[3px] -translate-y-1/2 bg-champagne" />
-            </div>
           </div>
         </div>
       </div>
