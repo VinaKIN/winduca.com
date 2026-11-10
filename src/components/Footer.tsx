@@ -71,7 +71,7 @@ export function Footer() {
       <div className="footer-sau text-white">
         <Wrap className="pb-6 pt-10 md:pt-12">
           <div className="grid gap-8 lg:grid-cols-[0.8fr_1.2fr] lg:gap-14">
-            <div className="flex flex-col gap-5">
+            <div className="flex flex-col gap-4">
               <div className="w-fit">
                 <Image
                   src={asset("/brand/WINDUCA-ngang-am-ban-trong.svg")}
@@ -80,7 +80,7 @@ export function Footer() {
                   height={102}
                   className="h-auto w-[280px] md:w-[360px]"
                 />
-                <p className="mt-4 text-center text-[11px] font-medium uppercase tracking-[0.5em] text-white/70 md:text-[13px]">Premium Window &amp; Door</p>
+                <p className="mt-3 text-center text-[11px] font-medium uppercase tracking-[0.5em] text-white/70 md:text-[13px]">Premium Window &amp; Door</p>
               </div>
               <nav aria-label="Liên kết chân trang">
                 <ul className="grid max-w-md grid-flow-col grid-cols-2 grid-rows-3 gap-x-6 gap-y-5 text-[14px] uppercase tracking-[0.18em]">
