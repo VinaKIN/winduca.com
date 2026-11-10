@@ -3,6 +3,7 @@ import { CrossSection } from "@/components/CrossSection";
 import { GiaiPhapDongBo } from "@/components/GiaiPhapDongBo";
 import { Hien, KeoNgang, NutHut } from "@/components/HieuUng";
 import { KhungAnhChong } from "@/components/KhungAnh";
+import { NenAnh } from "@/components/NenAnh";
 import { DoiTacKhoi } from "@/components/TrangChuKhoi";
 import { PageHero, Wrap } from "@/components/ui";
 
@@ -81,26 +82,35 @@ export default function GioiThieu() {
       </section>
 
       {/* 02 · Tầm nhìn & giá trị */}
-      <section className="nen-nga py-10 md:py-14">
-        <Wrap>
+      <NenAnh anh="/images/products/lift-slide.webp" viTri="center 40%">
+        <div className="grid items-center gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:gap-14">
           <Hien>
             <NhanSo so="02" nhan="Tầm nhìn & giá trị" />
             <h2 className="mt-4 text-[clamp(1.625rem,2.6vw,2.5rem)] font-light leading-[1.15] tracking-[-0.01em]">Điều chúng tôi theo đuổi</h2>
+            <span className="gach-do mt-5" aria-hidden="true" />
+            <p className="mt-5 max-w-md text-base font-light leading-relaxed text-white/75">
+              Ba điều dẫn dắt cách WINDUCA làm việc với chủ nhà, kiến trúc sư và nhà thầu, từ bản vẽ đầu tiên đến ngày bàn giao.
+            </p>
           </Hien>
-          <KeoNgang className="mt-6">
+          <ul className="space-y-4">
             {GIA_TRI.map((g, i) => (
-              <Hien key={g.t} tre={i * 120} className="dau-goc w-[82%] shrink-0 snap-start rounded-[6px] border border-than-chi/10 bg-white p-6 sm:w-[46%] md:p-8 lg:w-[calc((100%-2rem)/3)]">
-                <span className="so-lon !text-[3.5rem] ![-webkit-text-stroke:1px_rgba(227,25,55,0.55)]" aria-hidden="true">
-                  {String(i + 1).padStart(2, "0")}
+              <Hien as="li" key={g.t} tre={i * 120} className="the-kinh flex items-start gap-5 p-5 md:p-6">
+                <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full border border-accent/60 text-accent" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                    {i === 0 && <path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12Zm10-3a3 3 0 1 0 0 6 3 3 0 0 0 0-6Z" />}
+                    {i === 1 && <path d="m12 3 2.4 6.6L21 12l-6.6 2.4L12 21l-2.4-6.6L3 12l6.6-2.4L12 3Z" />}
+                    {i === 2 && <path d="m12 3 8 5v8l-8 5-8-5V8l8-5Zm0 0v18M4 8l8 5 8-5" />}
+                  </svg>
                 </span>
-                <h3 className="mt-3 text-xl font-bold">{g.t}</h3>
-                <p className="mt-2 text-[15px] leading-relaxed text-than-chi/75">{g.m}</p>
+                <span>
+                  <span className="text-xl font-light tracking-[-0.005em]">{g.t}</span>
+                  <span className="mt-1.5 block text-[15px] leading-relaxed text-white/70">{g.m}</span>
+                </span>
               </Hien>
             ))}
-          </KeoNgang>
-          <p className="mt-3 text-xs text-than-chi/50 lg:hidden">Vuốt ngang để xem tiếp</p>
-        </Wrap>
-      </section>
+          </ul>
+        </div>
+      </NenAnh>
 
       {/* 03 · Cấu tạo và giải pháp đồng bộ */}
       <CrossSection nhan="03 · Cấu tạo" />

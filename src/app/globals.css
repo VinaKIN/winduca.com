@@ -430,3 +430,42 @@ section.nen-nga {
 @media (prefers-reduced-motion: reduce) {
   .diem-do::after { animation: none; }
 }
+
+/* ===== Nền ảnh tối + thẻ kính mờ (10/11/2026) ===== */
+.nen-anh-phu {
+  background:
+    radial-gradient(900px 520px at 100% 0%, rgba(227, 25, 55, 0.16), transparent 62%),
+    linear-gradient(95deg, rgba(10, 8, 9, 0.94) 0%, rgba(14, 12, 13, 0.82) 42%, rgba(18, 15, 16, 0.66) 100%),
+    linear-gradient(0deg, rgba(10, 8, 9, 0.8) 0%, transparent 35%, rgba(10, 8, 9, 0.5) 100%);
+}
+.the-kinh {
+  position: relative;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: linear-gradient(150deg, rgba(255, 255, 255, 0.09) 0%, rgba(255, 255, 255, 0.025) 60%, rgba(255, 255, 255, 0.05) 100%);
+  -webkit-backdrop-filter: blur(16px) saturate(1.15);
+  backdrop-filter: blur(16px) saturate(1.15);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.16), 0 28px 60px -34px rgba(0, 0, 0, 0.85);
+  transition: border-color 0.35s ease, transform 0.35s ease;
+}
+.the-kinh::before {
+  content: "";
+  position: absolute;
+  left: 24px;
+  top: -1px;
+  width: 56px;
+  height: 2px;
+  background: linear-gradient(90deg, var(--accent), transparent);
+}
+@media (hover: hover) {
+  .the-kinh:hover {
+    border-color: rgba(227, 25, 55, 0.45);
+    transform: translateY(-2px);
+  }
+}
+.gach-do {
+  display: block;
+  width: 56px;
+  height: 2px;
+  background: linear-gradient(90deg, var(--accent), rgba(227, 25, 55, 0.2));
+}

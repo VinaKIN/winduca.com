@@ -68,7 +68,7 @@ export default function NangLucXuong() {
           </Hien>
           <ul className="space-y-3">
             {CONG_DOAN.map((c) => (
-              <li key={c} className="flex items-center gap-4 rounded-[6px] border border-white/15 bg-white/5 p-4 text-white backdrop-blur-sm">
+              <li key={c} className="flex items-center gap-4 the-kinh p-4 text-white md:p-5">
                 <span className="h-2.5 w-2.5 shrink-0 rotate-45 bg-accent" aria-hidden="true" />
                 {c}
               </li>
