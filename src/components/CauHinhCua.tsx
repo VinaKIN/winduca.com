@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { LeadForm } from "./LeadForm";
+import { phimNhomChon } from "@/lib/phim";
 import { KIEU_CUA, LOAI_CONG_TRINH, MAU_NHOM } from "@/lib/site";
 
 /**
@@ -22,18 +23,19 @@ export function CauHinhCua() {
   const nhom = (nhan: string, ds: string[], cur: string, set: (v: string) => void) => (
     <div>
       <p className="nhan-muc mb-2 text-than-chi/65">{nhan}</p>
-      <div className="flex flex-wrap gap-2" role="radiogroup" aria-label={nhan}>
+      <div className="flex flex-wrap gap-2" role="radiogroup" aria-label={nhan} onKeyDown={phimNhomChon}>
         {ds.map((t) => (
           <button
             key={t}
             type="button"
             role="radio"
             aria-checked={cur === t}
+            tabIndex={cur === t ? 0 : -1}
             onClick={() => {
               set(t);
               setGui(false);
             }}
-            className={`rounded-full border px-4 py-1.5 text-xs font-bold transition-colors ${cur === t ? "border-accent bg-accent text-white" : "border-than-chi/25 hover:border-accent hover:text-accent"}`}
+            className={`rounded-full border px-4 py-2.5 text-xs font-bold transition-colors ${cur === t ? "border-accent bg-accent text-white" : "border-than-chi/25 hover:border-accent hover:text-accent"}`}
           >
             {t}
           </button>
@@ -52,15 +54,15 @@ export function CauHinhCua() {
       </div>
 
       <div className="mt-6 flex flex-wrap items-center justify-between gap-4 border-t border-than-chi/15 pt-5">
-        <p className="max-w-2xl text-[15px] leading-relaxed text-than-chi/80">{tomTat}</p>
-        <button type="button" onClick={() => setGui((v) => !v)} aria-expanded={gui} className="nut nut-chinh">
+        <p role="status" aria-live="polite" className="max-w-2xl text-[15px] leading-relaxed text-than-chi/80">{tomTat}</p>
+        <button type="button" onClick={() => setGui((v) => !v)} aria-expanded={gui} aria-controls={gui ? "cau-hinh-form" : undefined} className="nut nut-chinh">
           {gui ? "Thu gọn" : "Gửi cấu hình để được tư vấn"}
         </button>
       </div>
       <p className="mt-2 text-xs text-than-chi/65">Chúng tôi không hỏi ngân sách và không đăng giá. Màu là màu minh họa, mã màu chính thức đang chờ xác nhận.</p>
 
       {gui && (
-        <div className="mt-6 border-t border-than-chi/15 pt-6">
+        <div id="cau-hinh-form" className="mt-6 border-t border-than-chi/15 pt-6">
           <LeadForm key={tomTat} loai="lien-he" tone="sang" cot={3} ghiChuMacDinh={tomTat} kieuCuaMacDinh={kieu} />
         </div>
       )}

@@ -199,6 +199,53 @@ Kích thước vùng chạm: mục tiêu con trỏ **must** ≥ 24×24px (WCAG 2
 - **Điểm đánh dấu và chú thích:** **must** là thông tin bổ sung, không phải nguồn duy nhất của nội dung.
 - **Ảnh minh họa:** ảnh stock hoặc ảnh tạm **must** ghi nguồn trong `public/images/NGUON-ANH.md`; nội dung cạnh ảnh **must** nói rõ khi không phải công trình hay sản phẩm của WINDUCA.
 
+### 3.11 Linh kiện riêng của trang hệ cửa (bổ sung 11/11/2026)
+
+Các linh kiện dưới đây dùng ma trận 7 trạng thái ở mục 3.0; mỗi mục chỉ ghi phần khác biệt. Mọi trạng thái **must** có đủ; ô "không áp dụng" nêu lý do.
+
+#### 3.11.1 Hero kiểu cửa (`HeroKieuCua`)
+- **Giải phẫu:** ảnh toàn màn hình (parallax chậm), nhãn dạng viên thuốc, tên kiểu cửa chữ light lớn (`h1` duy nhất của trang), câu mô tả, dải kính 3 thông tin (Cách mở · Khẩu độ · Không gian phù hợp), 2 nút.
+- **Tương phản trên ảnh:** vì nền ảnh thay đổi, nhãn **must** đặt trong viên thuốc nền Than đen ≥ 80% với chữ trắng (đo ≥ 8:1 ở trường hợp ảnh sáng nhất); lớp phủ phẳng **must** ≥ 55%. Chữ lớn (tên kiểu cửa) đạt 3:1; câu mô tả **should** kiểm tra lại bằng mắt mỗi khi đổi ảnh.
+- **Trạng thái:** mặc định; hover/active/focus-visible chỉ ở 2 nút (theo 3.1); disabled không áp dụng; loading: ảnh `priority`, nền Than đen giữ chỗ nên chữ vẫn đọc được trước khi ảnh tải; error: ảnh lỗi thì còn nền đặc, nội dung không mất.
+- **Phản hồi:** dưới 768px dải kính xếp dọc, hero **must** cao tối thiểu 100svh và cho cuộn khi nội dung dài hơn.
+- **Chuyển động:** parallax **must** tắt khi giảm chuyển động.
+
+#### 3.11.2 Bộ chọn màu khung (`TrinhDienHeCua`, tab "Màu hoàn thiện")
+- **Giải phẫu:** ảnh cửa lớn tràn khung, lớp phủ màu mềm đổi tông theo màu chọn, nhãn màu, nhóm chip màu tròn.
+- **Mẫu `radiogroup`:** nhóm `role="radiogroup"` có tên; mỗi chip `role="radio"` với `aria-checked`; chỉ chip đang chọn nhận `Tab` (`tabIndex` 0, còn lại -1); `←` `→` `↑` `↓` chuyển và chọn, `Home`/`End` về đầu/cuối (dùng `phimNhomChon`).
+- **Thông tin màu:** tên màu **must** hiện bằng chữ cạnh mẫu màu, không chỉ bằng ô màu. Mã màu chính thức chưa có nên **must** ghi "màu minh họa".
+- **Trạng thái:** hover viền đậm; active/chọn nền trắng viền Than đen; disabled, loading, error không áp dụng (dữ liệu tĩnh).
+
+#### 3.11.3 Mặt cắt 3D (`CrossSection`)
+- **Giải phẫu:** khung 3D xoay được, thanh trượt "Tách lớp", danh sách 4 lớp, nút phóng/thu.
+- **Thanh trượt:** **must** có nhãn và `aria-valuetext` đọc ra giá trị bằng lời ("45% tách lớp").
+- **Danh sách lớp:** nút `aria-pressed`, mở mô tả khi chọn.
+- **Phương án thay thế bàn phím:** việc xoay bằng kéo chuột **must** có phương án không cần chuột: thanh trượt, nút lớp và nút phóng/thu đều dùng được bằng bàn phím.
+- **Chuyển động:** tự xoay **must** dừng khi giảm chuyển động hoặc khi người dùng đã tương tác.
+- **Trạng thái 3D lỗi:** khi trình duyệt không có WebGL hoặc màn hình nhỏ, **must** hiện hình SVG thay thế có `role="img"` và nhãn.
+
+#### 3.11.4 So sánh hệ cửa (`SoSanhHeCua`)
+- **Giải phẫu:** nhóm nút chọn 2–3 kiểu cửa, vùng thông báo, bảng so sánh.
+- **Nút chọn:** `aria-pressed`; khi chỉ còn 2 kiểu cửa được chọn thì nút đang bật có `aria-disabled="true"` (vẫn focus được).
+- **Thông báo:** mỗi thay đổi **must** được nói ra trong vùng `role="status"` ("Đã thêm …", "Cần giữ tối thiểu 2 kiểu cửa", "Tối đa 3 kiểu cửa: đã thay … bằng …").
+- **Bảng:** **must** có `caption` (có thể ẩn bằng `sr-only`), `scope="col"` cho đầu cột, `scope="row"` cho đầu hàng; vùng cuộn ngang **must** là `role="region"` có tên và `tabIndex=0` để cuộn bằng bàn phím.
+- **Ô chưa có số liệu:** ghi "Đang chờ xác nhận", không để trống.
+
+#### 3.11.5 Cấu hình cửa (`CauHinhCua`)
+- **Giải phẫu:** 4 nhóm chọn một (Loại công trình, Kiểu cửa, Màu khung, Khẩu độ gần đúng), dòng tóm tắt, nút gửi, biểu mẫu mở ra.
+- **Nhóm chọn:** `radiogroup` theo mẫu 3.11.2; chip cao ≥ 38px.
+- **Dòng tóm tắt:** **must** nằm trong vùng `role="status"` để người dùng nghe được cấu hình sau mỗi lựa chọn.
+- **Nút gửi cấu hình:** `aria-expanded`, và `aria-controls` chỉ gắn khi biểu mẫu đã hiện (phần tử đích phải tồn tại).
+- **Quy tắc nội dung:** khẩu độ chỉ chọn mức gần đúng, **must not** nhập số đo; không hỏi ngân sách.
+
+#### 3.11.6 Băng chuyền sản phẩm (bổ sung cho 3.4)
+- Nút mũi tên trước/sau ở đầu hoặc cuối danh sách **must** dùng `aria-disabled="true"` (không dùng `disabled`, để focus không bị mất), giảm độ mờ và không phản hồi khi bấm.
+
+#### 3.11.7 Liên kết bỏ qua và khung nội dung
+- **Liên kết "Bỏ qua tới nội dung chính"** **must** là phần tử focus được đầu tiên của trang, ẩn bằng `sr-only` và hiện rõ khi nhận focus; đích là `main#noi-dung` (`tabIndex=-1`).
+- **Thứ bậc đề mục:** mỗi trang **must** có đúng một `h1`; mỗi khối có `h2` trước khi dùng `h3`. Khối "Trải nghiệm" dùng `h2` (nhãn khối).
+- **`aria-controls`:** **must** chỉ trỏ tới phần tử đang tồn tại; với nút mở menu hay liên hệ nhanh, thuộc tính chỉ gắn khi vùng đích đã mở.
+
 ---
 
 ## 4. Yêu cầu truy cập và tiêu chí nghiệm thu kiểm tra được
@@ -221,6 +268,11 @@ Mức mục tiêu: **WCAG 2.2 AA**. Mỗi tiêu chí có cách kiểm tra đạt
 | A12 | Phóng to 200% và rộng 320px không mất nội dung, không cuộn ngang | Thử ở 320px và 200% | Không tràn ngang |
 | A13 | Ảnh có ý nghĩa có `alt`; ảnh trang trí `alt=""` | Duyệt ảnh | Không `alt` thừa/thiếu |
 | A14 | Ngôn ngữ trang `lang="vi"` | Kiểm tra `<html>` | Có `lang="vi"` |
+| A15 | Có liên kết bỏ qua tới nội dung, là điểm focus đầu tiên | Nhấn `Tab` một lần khi vừa tải trang | Liên kết hiện rõ, `Enter` chuyển focus vào `main` |
+| A16 | Một `h1`, không nhảy cấp đề mục | Liệt kê `h1–h3` của trang | Không có `h3` trước `h2` của cùng khối |
+| A17 | `aria-controls`, `aria-labelledby`, `aria-describedby` đều trỏ tới phần tử tồn tại | Chạy script kiểm tra id | Không còn tham chiếu thiếu |
+| A18 | Nhóm chọn một dùng được bằng phím mũi tên | Thử `←` `→` `Home` `End` trên bộ chọn màu và cấu hình cửa | Chọn và focus đi theo; chỉ một điểm dừng `Tab` |
+| A19 | Thay đổi so sánh/cấu hình được thông báo | Bật trình đọc màn hình, đổi lựa chọn | Mỗi thay đổi có câu thông báo ngắn |
 
 ---
 
@@ -262,7 +314,9 @@ Bảy khoảng trống do đối chiếu mã đã được sửa. Ghi lại đ�
 6. **Nhãn mơ hồ:** "Xem thêm" đổi thành "Xem thêm công trình" (khối Công trình trang chủ và nút tải thêm ở trang Công trình) và "Xem thêm bài viết" (Tin tức).
 7. **Số kết quả lọc:** số sản phẩm (trang Hệ cửa) và số không gian (trang Công trình) nằm trong vùng `role="status"` `aria-live="polite"`.
 
-Việc còn lại **should** làm: thông báo trạng thái khi bấm các nút mũi tên băng chuyền ở đầu/cuối danh sách (chuyển sang disabled), và đo lại tương phản trên các khối có nền ảnh.
+**Phủ riêng cho hệ cửa (11/11/2026, lượt 2):** (8) thêm liên kết bỏ qua tới nội dung và `main#noi-dung`; (9) `aria-controls` của nút menu và liên hệ nhanh chỉ gắn khi vùng đích đã mở; (10) khối Trải nghiệm có `h2`; (11) thanh trượt Tách lớp có `aria-valuetext`; (12) So sánh hệ cửa: thông báo thay đổi, `caption`, `scope`, vùng cuộn focus được; (13) Cấu hình cửa và bộ chọn màu: `radiogroup` phím mũi tên + tabindex một điểm dừng, tóm tắt trong `role="status"`; (14) nút mũi tên băng chuyền `aria-disabled` ở đầu/cuối; (15) logo và liên kết chân trang đạt vùng chạm ≥ 24px; (16) nhãn hero trên ảnh đặt trong viên thuốc nền tối, lớp phủ hero tăng lên 55%.
+
+Việc còn lại **should** làm: đo lại tương phản chữ trên các khối nền ảnh bằng lấy mẫu điểm ảnh (công cụ tự động không đo được), và thử với trình đọc màn hình thật (NVDA, VoiceOver).
 
 ---
 
@@ -277,6 +331,12 @@ Việc còn lại **should** làm: thông báo trạng thái khi bấm các nút
 - [ ] A1–A14 đều đạt trên trang mới.
 - [ ] Đã duyệt toàn trang chỉ bằng bàn phím.
 - [ ] Đã thử `prefers-reduced-motion`, rộng 320px và phóng to 200%.
+
+**Trang hệ cửa**
+- [ ] Liên kết bỏ qua hiện khi nhấn `Tab` lần đầu; một `h1`; không nhảy cấp đề mục.
+- [ ] Bộ chọn màu, Cấu hình cửa chọn được bằng phím mũi tên; So sánh hệ cửa có thông báo.
+- [ ] Thanh trượt Tách lớp đọc ra giá trị; nút mũi tên băng chuyền tắt ở đầu/cuối.
+- [ ] Nhãn và tên kiểu cửa trên hero đọc được với ảnh sáng nhất và tối nhất.
 
 **Trạng thái linh kiện**
 - [ ] Mỗi linh kiện mới có đủ 7 trạng thái (hoặc ghi "không áp dụng" kèm lý do).

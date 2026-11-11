@@ -62,7 +62,7 @@ function NutTron({ href, nhan, children }: { href: string; nhan: string; childre
 
 function Logo({ lop, tren }: { lop: string; tren: boolean }) {
   return (
-    <Link href="/" aria-label="WINDUCA — trang chủ" className="block shrink-0">
+    <Link href="/" aria-label="WINDUCA — trang chủ" className="block shrink-0 py-2">
       <Image
         src={asset(tren ? "/brand/WINDUCA-ngang-am-ban-trong.svg" : "/brand/WINDUCA-ngang-mau-trong.svg")}
         alt="WINDUCA"
@@ -147,7 +147,7 @@ export function Header() {
             type="button"
             className="flex h-12 w-12 flex-col items-center justify-center gap-[7px]"
             aria-expanded={moMenu}
-            aria-controls="menu-toan-man-hinh"
+            aria-controls={moMenu ? "menu-toan-man-hinh" : undefined}
             aria-label="Mở menu"
             ref={nutMo}
             onClick={() => setMoMenu(true)}

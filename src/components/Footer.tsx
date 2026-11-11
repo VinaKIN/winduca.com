@@ -89,7 +89,7 @@ export function Footer() {
                     ["/hop-tac", "Hợp tác"],
                   ].map(([h, t], i) => (
                     <li key={h}>
-                      <Link href={h} className={`link-gach ${i === 0 ? "font-bold text-white" : "font-medium text-white/75"}`}>
+                      <Link href={h} className={`link-gach inline-block py-1 ${i === 0 ? "font-bold text-white" : "font-medium text-white/75"}`}>
                         {t}
                       </Link>
                     </li>
@@ -137,17 +137,17 @@ export function Footer() {
             <p>Copyright © 2026 WINDUCA. All rights reserved.</p>
             <ul className="flex flex-wrap gap-x-6 gap-y-2 pr-16 text-sm">
               <li>
-                <Link href="/chinh-sach-bao-mat" className="hover:text-white">
+                <Link href="/chinh-sach-bao-mat" className="inline-block py-1.5 hover:text-white">
                   Chính sách bảo mật
                 </Link>
               </li>
               <li>
-                <Link href="/dieu-khoan-su-dung" className="hover:text-white">
+                <Link href="/dieu-khoan-su-dung" className="inline-block py-1.5 hover:text-white">
                   Điều khoản sử dụng
                 </Link>
               </li>
               <li>
-                <Link href="/chinh-sach-cookie" className="hover:text-white">
+                <Link href="/chinh-sach-cookie" className="inline-block py-1.5 hover:text-white">
                   Chính sách cookie
                 </Link>
               </li>

@@ -25,10 +25,11 @@ export function HeroKieuCua({
       <NenParallax>
         <Image src={asset(anh)} alt={`${ten} trong không gian kiến trúc`} fill priority quality={75} sizes="100vw" className="object-cover" />
       </NenParallax>
-      <div className="absolute inset-0 bg-than-chi/45" aria-hidden="true" />
+      <div className="absolute inset-0 bg-than-chi/55" aria-hidden="true" />
       <Wrap className="relative pb-6 pt-40 md:pb-10">
-        <p className="nhan-tinh text-white/80">
-          <b>Hệ cửa</b>
+        <p className="nhan-tinh inline-flex w-fit rounded-full bg-than-chi/80 px-4 py-2 text-white backdrop-blur-sm">
+          <span className="h-1.5 w-1.5 rounded-full bg-accent" aria-hidden="true" />
+          Hệ cửa
           <i aria-hidden="true" />
           {tenEn}
         </p>

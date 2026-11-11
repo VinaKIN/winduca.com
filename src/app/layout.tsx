@@ -45,8 +45,14 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="vi" className={roboto.variable}>
       <body className="min-h-screen flex flex-col">
+        <a
+          href="#noi-dung"
+          className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-full focus:bg-white focus:px-5 focus:py-3 focus:text-sm focus:font-bold focus:text-than-chi focus:shadow-lg"
+        >
+          Bỏ qua tới nội dung chính
+        </a>
         <Header />
-        <main className="flex-1">{children}</main>
+        <main id="noi-dung" tabIndex={-1} className="flex-1 outline-none">{children}</main>
         <Footer />
         <NutLienHeNhanh />
         <Analytics />

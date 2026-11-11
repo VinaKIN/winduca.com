@@ -6,6 +6,7 @@ import { useEffect, useRef, useState } from "react";
 import { asset } from "@/lib/asset";
 import { GIAI_PHAP } from "@/lib/giai-phap";
 import { ANH_THEO_KIEU } from "@/lib/san-pham";
+import { phimNhomChon } from "@/lib/phim";
 import { MAU_NHOM } from "@/lib/site";
 import { Wrap } from "./ui";
 
@@ -163,11 +164,11 @@ export function TrinhDienHeCua({ slug, ten, chon, setChon }: { slug: string; ten
   return (
     <section className="mat-nga khoi-doc" aria-label="Trải nghiệm hệ cửa">
       <Wrap>
-        <p className="nhan-tinh text-than-chi/70">
+        <h2 className="nhan-tinh text-than-chi/70">
           <b>03</b>
           <i aria-hidden="true" />
           Trải nghiệm {ten.toLowerCase()}
-        </p>
+        </h2>
         <div role="tablist" aria-label="Chế độ xem" onKeyDown={phimTab} className="mt-6 flex flex-wrap gap-2">
           {TABS.map(([id, nhan]) => (
             <button
@@ -212,13 +213,14 @@ export function TrinhDienHeCua({ slug, ten, chon, setChon }: { slug: string; ten
                 <p className="mt-3 text-[15px] leading-relaxed text-than-chi/70">
                   Chọn một màu để cảm nhận tông của ảnh và mặt cắt 3D bên dưới đổi theo. Đây là màu minh họa; mã màu chính thức đang chờ xác nhận.
                 </p>
-                <ul className="mt-7 flex flex-wrap gap-3" role="radiogroup" aria-label="Màu khung nhôm">
+                <ul className="mt-7 flex flex-wrap gap-3" role="radiogroup" aria-label="Màu khung nhôm" onKeyDown={phimNhomChon}>
                   {MAU_NHOM.map((m, i) => (
                     <li key={m.ten}>
                       <button
                         type="button"
                         role="radio"
                         aria-checked={chon === i}
+                        tabIndex={chon === i ? 0 : -1}
                         onClick={() => setChon(i)}
                         className={`flex items-center gap-3 rounded-full border py-1.5 pl-1.5 pr-5 text-left transition-colors ${chon === i ? "border-than-chi bg-white" : "border-than-chi/15 hover:border-than-chi/50"}`}
                       >

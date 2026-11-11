@@ -48,7 +48,7 @@ export function NutLienHeNhanh() {
       <button
         type="button"
         aria-expanded={mo}
-        aria-controls="lien-he-nhanh"
+        aria-controls={mo ? "lien-he-nhanh" : undefined}
         aria-label={mo ? "Đóng liên hệ nhanh" : "Mở liên hệ nhanh"}
         onClick={() => setMo((v) => !v)}
         className="flex h-12 w-12 items-center justify-center rounded-full bg-accent text-white shadow-[0_8px_24px_rgba(227,25,55,0.4)] transition-colors hover:bg-accent-dam md:h-14 md:w-14"

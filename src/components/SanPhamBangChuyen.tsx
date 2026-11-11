@@ -132,8 +132,9 @@ export function SanPhamBangChuyen() {
         <button
           type="button"
           aria-label="Sản phẩm trước"
+          aria-disabled={chiSo === 0 ? true : undefined}
           onClick={() => toi(chiSo - 1)}
-          className="flex h-11 w-11 items-center justify-center rounded-full bg-than-chi text-white transition-colors hover:bg-accent"
+          className="flex h-11 w-11 items-center justify-center rounded-full bg-than-chi text-white transition-colors hover:bg-accent aria-disabled:cursor-not-allowed aria-disabled:opacity-40 aria-disabled:hover:bg-than-chi"
         >
           <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
             <path d="m15 6-6 6 6 6" />
@@ -154,8 +155,9 @@ export function SanPhamBangChuyen() {
         <button
           type="button"
           aria-label="Sản phẩm sau"
+          aria-disabled={chiSo >= tong - 1 ? true : undefined}
           onClick={() => toi(chiSo + 1)}
-          className="flex h-11 w-11 items-center justify-center rounded-full bg-than-chi text-white transition-colors hover:bg-accent"
+          className="flex h-11 w-11 items-center justify-center rounded-full bg-than-chi text-white transition-colors hover:bg-accent aria-disabled:cursor-not-allowed aria-disabled:opacity-40 aria-disabled:hover:bg-than-chi"
         >
           <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
             <path d="m9 6 6 6-6 6" />

@@ -162,8 +162,9 @@ export function CrossSection({
               step={0.01}
               value={tach}
               onChange={(e) => setTach(parseFloat(e.target.value))}
-              className="mt-3 w-full accent-[#bfa678]"
+              className="mt-3 w-full accent-[#e31937]"
               aria-label="Tách các lớp cấu tạo"
+              aria-valuetext={`${Math.round(tach * 100)}% tách lớp`}
             />
             <div className="mt-2 flex justify-between text-xs text-than-chi/65">
               <span>Liền khối</span>

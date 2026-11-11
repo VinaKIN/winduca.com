@@ -112,7 +112,10 @@ export function PageHero({
       <Wrap className="relative flex min-h-[46svh] flex-col justify-end pb-10 pt-28 md:min-h-[56svh] md:pb-14 md:pt-36">
         <div className={anhPhai ? "grid items-center gap-8 lg:grid-cols-[1.05fr_0.95fr] lg:gap-14" : "w-full"}>
           <div>
-            <p className="nhan-muc text-accent">{nhan}</p>
+            <p className="nhan-muc inline-flex items-center gap-2 rounded-full bg-than-chi/80 px-3 py-1.5 text-white backdrop-blur-sm">
+              <span className="h-1.5 w-1.5 rounded-full bg-accent" aria-hidden="true" />
+              {nhan}
+            </p>
             <h1 className="mt-3 max-w-4xl text-[clamp(1.875rem,3.6vw,3.25rem)] font-medium uppercase leading-[1.12] tracking-[0.01em] [text-wrap:balance]">{tieuDe}</h1>
             {moTa && <p className="mt-4 max-w-2xl text-base font-light leading-relaxed text-white/85 md:text-lg">{moTa}</p>}
             {children && <div className="mt-6 flex flex-col gap-3 sm:flex-row">{children}</div>}
