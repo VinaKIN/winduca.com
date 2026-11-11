@@ -2690,7 +2690,7 @@ export const HE_CUA_DS: HeCua[] = [
   "ghiChu": "",
   "anh": {
    "c": [
-    "/images/he-cua/mau-goc/romadio-ld16in-g1.webp"
+    "/images/he-cua/mau-goc/romadio-ld16in-p1.webp"
    ],
    "d": [
     "/images/he-cua/ban-ve/romadio-ld16in-1.webp",
@@ -2716,7 +2716,7 @@ export const HE_CUA_DS: HeCua[] = [
   "ghiChu": "",
   "anh": {
    "c": [
-    "/images/he-cua/mau-goc/romadio-ld16ou-g1.webp"
+    "/images/he-cua/mau-goc/romadio-ld16ou-p1.webp"
    ],
    "d": [
     "/images/he-cua/ban-ve/romadio-ld16ou-1.webp",
@@ -2742,7 +2742,7 @@ export const HE_CUA_DS: HeCua[] = [
   "ghiChu": "",
   "anh": {
    "c": [
-    "/images/he-cua/mau-goc/romadio-ld16sb-f-g1.webp"
+    "/images/he-cua/mau-goc/romadio-ld16sb-f-p1.webp"
    ],
    "d": [
     "/images/he-cua/ban-ve/romadio-ld16sb-f-1.webp",
@@ -2770,7 +2770,7 @@ export const HE_CUA_DS: HeCua[] = [
   "ghiChu": "",
   "anh": {
    "c": [
-    "/images/he-cua/mau-goc/romadio-ld16st-g1.webp"
+    "/images/he-cua/mau-goc/romadio-ld16st-p1.webp"
    ],
    "d": [
     "/images/he-cua/ban-ve/romadio-ld16st-1.webp",
@@ -2796,7 +2796,7 @@ export const HE_CUA_DS: HeCua[] = [
   "ghiChu": "",
   "anh": {
    "c": [
-    "/images/he-cua/mau-goc/romadio-ld16st-f-g1.webp"
+    "/images/he-cua/mau-goc/romadio-ld16st-f-p1.webp"
    ],
    "d": [
     "/images/he-cua/ban-ve/romadio-ld16st-f-1.webp",
@@ -2932,7 +2932,7 @@ export const HE_CUA_DS: HeCua[] = [
   "ketCau": "tn",
   "anh": {
    "c": [
-    "/images/he-cua/mau-goc/romadio-fineline-59wo-g1.webp"
+    "/images/he-cua/mau-goc/romadio-fineline-59wo-p1.webp"
    ],
    "d": []
   },
@@ -2955,7 +2955,7 @@ export const HE_CUA_DS: HeCua[] = [
   "ketCau": "tn",
   "anh": {
    "c": [
-    "/images/he-cua/mau-goc/romadio-fineline-62do-g1.webp"
+    "/images/he-cua/mau-goc/romadio-fineline-62do-p1.webp"
    ],
    "d": []
   },

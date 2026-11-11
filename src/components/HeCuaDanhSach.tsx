@@ -116,35 +116,25 @@ function HinhMinhHoa({ he, lop = "" }: { he: string; lop?: string }) {
 /** Nền "sân khấu" sáng cho ảnh mẫu góc: chiếu sáng giữa, tối dần ra mép, như ảnh chụp trong studio. */
 const SAN_KHAU = "bg-[radial-gradient(ellipse_at_50%_36%,#ffffff_0%,#f2f5f9_50%,#dfe5ee_100%)]";
 
+/** Ảnh chụp (tệp có hậu tố -p<số>) phủ kín khung; ảnh render tách nền đã chuẩn hóa vuông, hiện vừa khung và có bóng dưới chân. */
+const laAnhChup = (u: string) => /-p\d\.webp$/.test(u);
+
 function AnhThe({ r, lopMau = "" }: { r: HeCua; lopMau?: string }) {
   const ten = `${TEN_HANG[r.hang]} ${r.ma}`;
   const c = r.anh.c;
-  if (c[0])
+  const sizes = "(min-width: 1024px) 400px, (min-width: 640px) 46vw, 92vw";
+  if (c[0]) {
+    const chup = laAnhChup(c[0]);
+    const lop = chup ? "object-cover" : "object-contain p-1 md:p-2";
     return (
       <>
-        <span className="pointer-events-none absolute bottom-[9%] left-1/2 h-4 w-[46%] -translate-x-1/2 rounded-full bg-[#0f1115]/15 blur-md transition-all duration-500 group-hover:w-[52%] group-hover:bg-[#0f1115]/20" aria-hidden="true" />
-        <Image
-          src={asset(c[0])}
-          alt={`Mẫu góc ${ten}`}
-          fill
-          quality={75}
-          sizes="(min-width: 1024px) 400px, (min-width: 640px) 46vw, 92vw"
-          className={`object-contain p-3 transition-all duration-500 md:p-4 ${c[1] ? "group-hover:opacity-0" : ""} ${lopMau}`}
-        />
-        {c[1] && (
-          <Image
-            src={asset(c[1])}
-            alt=""
-            fill
-            quality={75}
-            sizes="(min-width: 1024px) 400px, (min-width: 640px) 46vw, 92vw"
-            className={`object-contain p-3 opacity-0 transition-all duration-500 group-hover:opacity-100 md:p-4 ${lopMau}`}
-            aria-hidden="true"
-          />
-        )}
+        {!chup && <span className="pointer-events-none absolute bottom-[9%] left-1/2 h-4 w-[46%] -translate-x-1/2 rounded-full bg-[#0f1115]/15 blur-md transition-all duration-500 group-hover:w-[52%] group-hover:bg-[#0f1115]/20" aria-hidden="true" />}
+        <Image src={asset(c[0])} alt={`Mẫu góc ${ten}`} fill quality={75} sizes={sizes} className={`${lop} transition-all duration-500 ${c[1] ? "group-hover:opacity-0" : ""} ${lopMau}`} />
+        {c[1] && <Image src={asset(c[1])} alt="" fill quality={75} sizes={sizes} className={`${lop} opacity-0 transition-all duration-500 group-hover:opacity-100 ${lopMau}`} aria-hidden="true" />}
       </>
     );
-  if (r.anh.d[0]) return <Image src={asset(r.anh.d[0])} alt={`Bản vẽ mặt cắt ${ten}`} fill quality={75} sizes="(min-width: 1024px) 400px, (min-width: 640px) 46vw, 92vw" className={`object-contain p-4 ${lopMau}`} />;
+  }
+  if (r.anh.d[0]) return <Image src={asset(r.anh.d[0])} alt={`Bản vẽ mặt cắt ${ten}`} fill quality={75} sizes={sizes} className={`object-contain p-4 ${lopMau}`} />;
   return <HinhMinhHoa he={r.he} lop="h-[78%] w-[56%]" />;
 }
 
@@ -657,7 +647,7 @@ export function HeCuaDanhSach() {
                   <i className="h-1.5 w-1.5 bg-accent" aria-hidden="true" />
                   {TEN_HANG[r.hang]}
                 </span>
-                <AnhThe r={r} lopMau="group-hover:scale-[1.05]" />
+                <AnhThe r={r} lopMau="group-hover:scale-[1.04]" />
                 <label className="absolute right-2 top-1.5 z-10 flex h-11 w-11 cursor-pointer items-center justify-center" title="So sánh">
                   <input type="checkbox" checked={chon} onChange={(e) => chonSoSanh(r, e.target.checked)} aria-label={`So sánh ${TEN_HANG[r.hang]} ${r.ma}`} className="peer sr-only" />
                   <span className="relative block h-7 w-7 rounded-[8px] border border-[#b6bec9] bg-white peer-checked:border-accent peer-checked:bg-accent peer-focus-visible:outline peer-focus-visible:outline-2 peer-focus-visible:outline-offset-2 peer-focus-visible:outline-than-chi">

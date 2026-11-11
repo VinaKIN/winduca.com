@@ -99,7 +99,7 @@ function tim(ten) {
       console.log("KHÔNG THẤY tệp:", m.tep);
       continue;
     }
-    const ten = `romadio-${slug(m.ma)}-g1.webp`;
+    const ten = `romadio-${slug(m.ma)}-${m.kieu === "anh" ? "p" : "g"}1.webp`; // -p<n>: ảnh chụp (hiển thị phủ kín); -g<n>: render tách nền
     const dich = "public/images/he-cua/mau-goc/" + ten;
     let ps = sharp(nguon);
     if (m.kieu === "render") ps = ps.resize({ width: 1400, withoutEnlargement: true }).webp({ quality: 82, alphaQuality: 90 });
