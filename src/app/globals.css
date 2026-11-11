@@ -605,3 +605,12 @@ section.nen-nga {
 /* Khoảng thở giữa các khối (11/11/2026, anh Huy: trang bị chật). Mobile ~48px, desktop ~88px. */
 .khoi-doc { padding-block: clamp(3rem, 7vw, 5.5rem); }
 .khoi-doc-gon { padding-block: clamp(2.25rem, 5vw, 3.75rem); }
+
+/* Mặt phẳng sang trọng cho trang kiểu cửa (11/11/2026): không gradient hồng, không lưới. */
+.mat-nga { background: #f6f3ee; color: var(--than-chi); }
+.mat-sang { background: #ffffff; color: var(--than-chi); }
+.mat-toi { background: #161314; color: #ffffff; }
+.tieu-lon { font-size: clamp(2rem, 3.8vw, 3.5rem); font-weight: 300; line-height: 1.08; letter-spacing: -0.015em; text-wrap: balance; }
+.nhan-tinh { display: flex; align-items: center; gap: 1rem; font-size: 11px; font-weight: 600; letter-spacing: 0.28em; text-transform: uppercase; }
+.nhan-tinh i { display: block; width: 2.5rem; height: 1px; background: currentColor; opacity: 0.35; }
+.nhan-tinh b { color: var(--accent); font-weight: 700; }

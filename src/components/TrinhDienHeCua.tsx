@@ -5,12 +5,14 @@ import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { asset } from "@/lib/asset";
 import { GIAI_PHAP } from "@/lib/giai-phap";
+import { ANH_THEO_KIEU } from "@/lib/san-pham";
 import { MAU_NHOM } from "@/lib/site";
 import { Wrap } from "./ui";
 
 /**
- * Trải nghiệm hệ cửa (đề xuất 10/11/2026): Color Selector · Opening Experience · Architecture Application.
- * Hình vẽ là SƠ ĐỒ PHẲNG minh họa cách vận hành, KHÔNG phải bản vẽ hay mô hình kỹ thuật của WINDUCA.
+ * Trải nghiệm hệ cửa (11/11/2026, ý tưởng 2): tab Màu hoàn thiện dùng ẢNH LỚN tràn khung, đổi màu bằng lớp phủ mịn,
+ * chip màu tròn + tên màu; tab Đóng/Mở và Không gian giữ nguyên.
+ * Hình vẽ đóng/mở là SƠ ĐỒ PHẲNG minh họa, KHÔNG phải bản vẽ hay mô hình kỹ thuật của WINDUCA.
  * Mã màu là màu minh họa, mã màu chính thức đang chờ xác nhận.
  */
 
@@ -35,7 +37,7 @@ function canhPoly(hx: number, fx: number, rHinge: number, rFree: number, top = T
 const pts = (p: Pt[]) => p.map((q) => q.join(",")).join(" ");
 
 /** Một cánh: khung màu + kính trong */
-function Canh({ p, mau, kinh = "#cfe2ec", t = 8 }: { p: Pt[]; mau: string; kinh?: string; t?: number }) {
+function Canh({ p, mau, kinh = "#a9bcc6", t = 8 }: { p: Pt[]; mau: string; kinh?: string; t?: number }) {
   const [a, b, c, d] = p;
   const rong = Math.abs(b[0] - a[0]);
   const trong: Pt[] = [
@@ -99,12 +101,12 @@ function CuaSvg({ slug, p, mau }: { slug: string; p: number; mau: string }) {
 
   return (
     <svg viewBox="0 0 400 260" className="h-full w-full" role="img" aria-label={`Sơ đồ ${slug} đang ${p < 0.05 ? "đóng" : p > 0.95 ? "mở hoàn toàn" : "mở một phần"} (minh họa)`}>
-      {/* khung cảnh phía sau: phẳng, không gradient */}
-      <rect x="0" y="0" width="400" height="260" fill="#f1ede4" />
-      <rect x={x0} y={t0} width={x1 - x0} height={hh} fill="#cfe2ec" />
-      <circle cx={x0 + (x1 - x0) * 0.78} cy={t0 + hh * 0.22} r="14" fill="#f4e6b8" />
-      <path d={`M${x0} ${t0 + hh * 0.72} L${x0 + (x1 - x0) * 0.3} ${t0 + hh * 0.5} L${x0 + (x1 - x0) * 0.6} ${t0 + hh * 0.68} L${x1} ${t0 + hh * 0.46} L${x1} ${t0 + hh} L${x0} ${t0 + hh} Z`} fill="#a7c1a0" />
-      <rect x={x0} y={t0 + hh * 0.84} width={x1 - x0} height={hh * 0.16} fill="#8aa57e" />
+      {/* khung cảnh phía sau: tông tối, phẳng, không gradient */}
+      <rect x="0" y="0" width="400" height="260" fill="#1d1a1b" />
+      <rect x={x0} y={t0} width={x1 - x0} height={hh} fill="#8fa3ad" />
+      <circle cx={x0 + (x1 - x0) * 0.78} cy={t0 + hh * 0.22} r="14" fill="#e8d9ae" />
+      <path d={`M${x0} ${t0 + hh * 0.72} L${x0 + (x1 - x0) * 0.3} ${t0 + hh * 0.5} L${x0 + (x1 - x0) * 0.6} ${t0 + hh * 0.68} L${x1} ${t0 + hh * 0.46} L${x1} ${t0 + hh} L${x0} ${t0 + hh} Z`} fill="#4f6556" />
+      <rect x={x0} y={t0 + hh * 0.84} width={x1 - x0} height={hh * 0.16} fill="#3f5246" />
       {/* khung cố định */}
       <rect x={x0 - 6} y={t0 - 6} width={x1 - x0 + 12} height={hh + 12} fill="none" stroke={mau} strokeWidth="12" />
       {canh}
@@ -119,6 +121,7 @@ export function TrinhDienHeCua({ slug, ten, chon, setChon }: { slug: string; ten
   const kg = GIAI_PHAP.filter((g) => g.heCua.includes(slug) && g.slug !== "cong-trinh-dac-thu");
   const [kgChon, setKgChon] = useState(0);
   const mau = MAU_NHOM[chon];
+  const anhCua = ANH_THEO_KIEU[slug]?.src;
 
   useEffect(() => () => {
     if (raf.current) cancelAnimationFrame(raf.current);
@@ -146,10 +149,14 @@ export function TrinhDienHeCua({ slug, ten, chon, setChon }: { slug: string; ten
   const g = kg[Math.min(kgChon, Math.max(0, kg.length - 1))];
 
   return (
-    <section className="nen-nga khoi-doc" aria-label="Trải nghiệm hệ cửa">
+    <section className="mat-nga khoi-doc" aria-label="Trải nghiệm hệ cửa">
       <Wrap>
-        <p className="nhan-muc text-accent-chu">Trải nghiệm {ten.toLowerCase()}</p>
-        <div role="tablist" aria-label="Chế độ xem" className="mt-3 flex flex-wrap gap-2">
+        <p className="nhan-tinh text-than-chi/70">
+          <b>03</b>
+          <i aria-hidden="true" />
+          Trải nghiệm {ten.toLowerCase()}
+        </p>
+        <div role="tablist" aria-label="Chế độ xem" className="mt-6 flex flex-wrap gap-2">
           {TABS.map(([id, nhan]) => (
             <button
               key={id}
@@ -157,30 +164,40 @@ export function TrinhDienHeCua({ slug, ten, chon, setChon }: { slug: string; ten
               role="tab"
               aria-selected={tab === id}
               onClick={() => setTab(id)}
-              className={`rounded-full border px-5 py-2 text-sm font-medium transition-colors ${tab === id ? "border-accent bg-accent text-white" : "border-than-chi/25 hover:border-accent hover:text-accent"}`}
+              className={`rounded-full border px-5 py-2 text-sm font-medium transition-colors ${tab === id ? "border-than-chi bg-than-chi text-white" : "border-than-chi/20 hover:border-than-chi"}`}
             >
               {nhan}
             </button>
           ))}
         </div>
 
-        <div className="mt-5 grid gap-6 lg:grid-cols-[1.3fr_1fr]">
-          <div className="relative h-[clamp(230px,40svh,400px)] overflow-hidden rounded-[20px] border border-than-chi/10 bg-white">
+        <div className="mt-8 grid gap-8 lg:grid-cols-[1.7fr_1fr] lg:gap-12">
+          <div className="relative h-[clamp(320px,58svh,600px)] overflow-hidden rounded-[16px] bg-than-chi">
             {tab === "khong-gian" && g ? (
-              <Image src={asset(g.anh)} alt={`${ten} trong ${g.ten.toLowerCase()}`} fill quality={70} sizes="(min-width: 1024px) 55vw, 100vw" className="object-cover" style={{ objectPosition: g.pos }} />
+              <Image src={asset(g.anh)} alt={`${ten} trong ${g.ten.toLowerCase()}`} fill quality={72} sizes="(min-width: 1024px) 60vw, 100vw" className="object-cover" style={{ objectPosition: g.pos }} />
+            ) : tab === "mau" && anhCua ? (
+              <>
+                <Image src={asset(anhCua)} alt={`${ten} trong không gian kiến trúc`} fill quality={72} sizes="(min-width: 1024px) 60vw, 100vw" className="object-cover" />
+                {/* lớp phủ màu mịn: đổi tông ảnh theo màu khung đang chọn (màu minh họa) */}
+                <div className="pointer-events-none absolute inset-0 mix-blend-soft-light transition-[background-color] duration-700" style={{ backgroundColor: mau.hex, opacity: 0.6 }} aria-hidden="true" />
+                <div className="absolute bottom-4 left-4 flex items-center gap-3 rounded-full bg-than-chi/75 py-1.5 pl-1.5 pr-5 text-sm text-white backdrop-blur-md">
+                  <span className="h-8 w-8 rounded-full border border-white/30" style={{ background: mau.hex }} aria-hidden="true" />
+                  {mau.ten}
+                </div>
+              </>
             ) : (
               <CuaSvg slug={slug} p={tab === "mo" ? p : 0} mau={mau.hex} />
             )}
           </div>
 
-          <div>
+          <div className="flex flex-col justify-center">
             {tab === "mau" && (
               <>
-                <h3 className="text-xl font-bold">Chọn màu khung nhôm</h3>
-                <p className="mt-2 text-[15px] leading-relaxed text-than-chi/70">
-                  Chọn một màu để xem khung cửa đổi theo, cả trong mặt cắt 3D bên dưới. Đây là màu minh họa; mã màu chính thức đang chờ xác nhận.
+                <h3 className="text-2xl font-light md:text-3xl">Chọn màu khung nhôm</h3>
+                <p className="mt-3 text-[15px] leading-relaxed text-than-chi/70">
+                  Chọn một màu để cảm nhận tông của ảnh và mặt cắt 3D bên dưới đổi theo. Đây là màu minh họa; mã màu chính thức đang chờ xác nhận.
                 </p>
-                <ul className="mt-5 grid grid-cols-2 gap-3" role="radiogroup" aria-label="Màu khung nhôm">
+                <ul className="mt-7 flex flex-wrap gap-3" role="radiogroup" aria-label="Màu khung nhôm">
                   {MAU_NHOM.map((m, i) => (
                     <li key={m.ten}>
                       <button
@@ -188,10 +205,10 @@ export function TrinhDienHeCua({ slug, ten, chon, setChon }: { slug: string; ten
                         role="radio"
                         aria-checked={chon === i}
                         onClick={() => setChon(i)}
-                        className={`flex w-full items-center gap-3 rounded-[14px] border p-3 text-left transition-colors ${chon === i ? "border-accent bg-white" : "border-than-chi/15 hover:border-than-chi/40"}`}
+                        className={`flex items-center gap-3 rounded-full border py-1.5 pl-1.5 pr-5 text-left transition-colors ${chon === i ? "border-than-chi bg-white" : "border-than-chi/15 hover:border-than-chi/50"}`}
                       >
                         <span className="h-9 w-9 shrink-0 rounded-full border border-than-chi/20" style={{ background: m.hex }} />
-                        <span className="text-sm font-semibold">{m.ten}</span>
+                        <span className="text-sm font-medium">{m.ten}</span>
                       </button>
                     </li>
                   ))}
@@ -201,9 +218,9 @@ export function TrinhDienHeCua({ slug, ten, chon, setChon }: { slug: string; ten
 
             {tab === "mo" && (
               <>
-                <h3 className="text-xl font-bold">Cách {ten.toLowerCase()} vận hành</h3>
-                <p className="mt-2 text-[15px] leading-relaxed text-than-chi/70">{MO_TA[slug]}</p>
-                <div className="mt-5 flex flex-wrap gap-3">
+                <h3 className="text-2xl font-light md:text-3xl">Cách {ten.toLowerCase()} vận hành</h3>
+                <p className="mt-3 text-[15px] leading-relaxed text-than-chi/70">{MO_TA[slug]}</p>
+                <div className="mt-6 flex flex-wrap gap-3">
                   <button type="button" onClick={() => chay(1)} className="nut nut-chinh">
                     Mở cửa
                   </button>
@@ -211,7 +228,7 @@ export function TrinhDienHeCua({ slug, ten, chon, setChon }: { slug: string; ten
                     Đóng cửa
                   </button>
                 </div>
-                <label className="mt-5 block text-sm font-medium" htmlFor="muc-mo">
+                <label className="mt-6 block text-sm font-medium" htmlFor="muc-mo">
                   Mức mở: {Math.round(p * 100)}%
                 </label>
                 <input
@@ -232,16 +249,16 @@ export function TrinhDienHeCua({ slug, ten, chon, setChon }: { slug: string; ten
 
             {tab === "khong-gian" && (
               <>
-                <h3 className="text-xl font-bold">Ứng dụng trong kiến trúc</h3>
-                <p className="mt-2 text-[15px] leading-relaxed text-than-chi/70">Chọn loại công trình để xem không gian phù hợp với {ten.toLowerCase()}.</p>
-                <ul className="mt-5 flex flex-wrap gap-2">
+                <h3 className="text-2xl font-light md:text-3xl">Ứng dụng trong kiến trúc</h3>
+                <p className="mt-3 text-[15px] leading-relaxed text-than-chi/70">Chọn loại công trình để xem không gian phù hợp với {ten.toLowerCase()}.</p>
+                <ul className="mt-6 flex flex-wrap gap-2">
                   {kg.map((x, i) => (
                     <li key={x.slug}>
                       <button
                         type="button"
                         onClick={() => setKgChon(i)}
                         aria-pressed={kgChon === i}
-                        className={`rounded-full border px-4 py-2 text-sm font-medium transition-colors ${kgChon === i ? "border-accent bg-accent text-white" : "border-than-chi/25 hover:border-accent hover:text-accent"}`}
+                        className={`rounded-full border px-4 py-2 text-sm font-medium transition-colors ${kgChon === i ? "border-than-chi bg-than-chi text-white" : "border-than-chi/20 hover:border-than-chi"}`}
                       >
                         {x.ten.replace(/^Giải pháp (cửa )?(cho )?/, "").replace(/^./, (c) => c.toUpperCase())}
                       </button>
@@ -250,8 +267,8 @@ export function TrinhDienHeCua({ slug, ten, chon, setChon }: { slug: string; ten
                 </ul>
                 {g && (
                   <>
-                    <p className="mt-4 text-[15px] leading-relaxed text-than-chi/75">{g.tomTat}</p>
-                    <Link href={`/giai-phap/${g.slug}`} className="nut nut-dac mt-5">
+                    <p className="mt-5 text-[15px] leading-relaxed text-than-chi/75">{g.tomTat}</p>
+                    <Link href={`/giai-phap/${g.slug}`} className="nut nut-dac mt-6 self-start">
                       Xem giải pháp
                     </Link>
                     <p className="mt-3 text-xs text-than-chi/60">Ảnh không gian tham khảo, không phải công trình của WINDUCA.</p>
