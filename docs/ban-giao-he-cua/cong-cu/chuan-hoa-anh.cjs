@@ -6,7 +6,7 @@
  * Với mỗi ảnh WebP trong public/images/he-cua/mau-goc/ có nền trong suốt:
  *   1) đo "khối lượng" sản phẩm M = số điểm ảnh đặc (alpha > 12; nền bán trong suốt thì > 200) và hộp bao sát sản phẩm,
  *   2) phóng/thu sao cho sqrt(M) bằng nhau ở mọi ảnh (cùng "diện tích nhìn thấy", nên mẫu mảnh nghiêng không bị nhỏ hơn mẫu vuông),
- *   3) nhưng không để hộp bao vượt 94% khung, đặt giữa trên khung W x H (tỉ lệ 1 : 0,9, khớp "sân khấu" của thẻ).
+ *   3) nhưng không để hộp bao vượt 97% khung, đặt giữa trên khung W x H (tỉ lệ 1 : 0,9, khớp "sân khấu" của thẻ).
  * Khung: Romadio 1200x1080; Civro, Ponzio 640x576 (ảnh gốc chỉ ~500 px).
  * Bỏ qua: ảnh hoàn toàn đục, và tệp có hậu tố -p<số> (ảnh chụp, hiển thị kiểu phủ kín).
  */
@@ -14,8 +14,8 @@ const fs = require("fs");
 const sharp = require("sharp");
 
 const THU_MUC = "public/images/he-cua/mau-goc/";
-const MUC_TIEU = 0.52; // sqrt(M) sau chuẩn hóa = 52% chiều cao khung
-const TRAN = 0.94;
+const MUC_TIEU = 0.62; // sqrt(M) sau chuẩn hóa = 62% chiều cao khung
+const TRAN = 0.97;
 
 async function doSanPham(buf, nguong) {
   const { data, info } = await sharp(buf).ensureAlpha().raw().toBuffer({ resolveWithObject: true });

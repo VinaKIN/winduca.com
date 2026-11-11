@@ -86,7 +86,7 @@ node docs/ban-giao-he-cua/cong-cu/gen3.cjs "$S"             # ghi src/lib/he-cua
 node docs/ban-giao-he-cua/cong-cu/them-anh-civro.cjs          # CHẠY SAU gen3 (cần mạng, tải từ civro.com)
 node docs/ban-giao-he-cua/cong-cu/them-anh-ponzio.cjs         # CHẠY SAU gen3 (cần mạng, tải từ ponzioaluminium.com)
 node docs/ban-giao-he-cua/cong-cu/them-anh-3d.cjs "<thư mục ROMADIO>"   # CHẠY SAU gen3: gen3 xóa public/images/he-cua nên mất các ảnh 3D thêm sau (36 hệ); script này làm lại
-node docs/ban-giao-he-cua/cong-cu/chuan-hoa-anh.cjs          # CUỐI CÙNG: cắt sát rồi phóng/thu theo "khối lượng" điểm ảnh đặc (sqrt(M) bằng nhau, hộp bao ≤ 94% khung 1:0,9) để thẻ có sản phẩm to bằng nhau; tệp -p<số> (ảnh chụp: FineLine, LD16) được bỏ qua và hiển thị kiểu phủ kín
+node docs/ban-giao-he-cua/cong-cu/chuan-hoa-anh.cjs          # CUỐI CÙNG: cắt sát rồi phóng/thu theo "khối lượng" điểm ảnh đặc (sqrt(M) bằng nhau, hộp bao ≤ 97%, mục tiêu 62% khung 1:0,9) để thẻ có sản phẩm to bằng nhau; tệp -p<số> (ảnh chụp: FineLine, LD16) được bỏ qua và hiển thị kiểu phủ kín
 ```
 `gen3.cjs` xóa và tạo lại `public/images/he-cua/`. 9 hệ bổ sung được khai báo ngay trong `gen3.cjs` (hàm `them(...)`). Lưu ý đường dẫn trong `sheet-local.cjs`/`gen3.cjs` đang trỏ thẳng vào thư mục `ROMADIO` trên máy người dùng.
 

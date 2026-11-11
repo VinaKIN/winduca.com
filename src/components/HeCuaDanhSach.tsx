@@ -116,6 +116,13 @@ function HinhMinhHoa({ he, lop = "" }: { he: string; lop?: string }) {
 /** Nền "sân khấu" sáng cho ảnh mẫu góc: chiếu sáng giữa, tối dần ra mép, như ảnh chụp trong studio. */
 const SAN_KHAU = "bg-[radial-gradient(ellipse_at_50%_36%,#ffffff_0%,#f2f5f9_50%,#dfe5ee_100%)]";
 
+/** Nhãn đặc điểm trên thẻ: kết cấu, độ dày kính hãng công bố, rồi các chức năng; thiếu dữ liệu thì không hiện nhãn nào. */
+const NHAN_KET_CAU: Record<string, string> = { t: "Có cầu cách nhiệt", n: "Không cầu nhiệt", tn: "Cả hai phiên bản" };
+function chipThe(r: HeCua): string[] {
+  const kinh = /^Kính áp dụng:\s*(.+)$/.exec(r.ghiChu.trim());
+  return [...(r.ketCau ? [NHAN_KET_CAU[r.ketCau]] : []), ...(kinh ? [`Kính ${kinh[1]}`] : []), ...r.tags.map((t) => TEN_TAG[t])];
+}
+
 /** Ảnh chụp (tệp có hậu tố -p<số>) phủ kín khung; ảnh render tách nền đã chuẩn hóa vuông, hiện vừa khung và có bóng dưới chân. */
 const laAnhChup = (u: string) => /-p\d\.webp$/.test(u);
 
@@ -125,7 +132,7 @@ function AnhThe({ r, lopMau = "" }: { r: HeCua; lopMau?: string }) {
   const sizes = "(min-width: 1024px) 400px, (min-width: 640px) 46vw, 92vw";
   if (c[0]) {
     const chup = laAnhChup(c[0]);
-    const lop = chup ? "object-cover" : "object-contain p-1 md:p-2";
+    const lop = chup ? "object-cover" : "object-contain p-0 md:p-1";
     return (
       <>
         {!chup && <span className="pointer-events-none absolute bottom-[9%] left-1/2 h-4 w-[46%] -translate-x-1/2 rounded-full bg-[#0f1115]/15 blur-md transition-all duration-500 group-hover:w-[52%] group-hover:bg-[#0f1115]/20" aria-hidden="true" />}
@@ -666,10 +673,10 @@ export function HeCuaDanhSach() {
               </div>
               <div className="flex flex-col gap-3.5 px-4 pb-4 pt-3.5 md:px-5 md:pb-5">
                 <ThongSoThe r={r} />
-                <ul className="flex min-h-[26px] flex-wrap gap-1.5" aria-label="Chức năng">
-                  {r.tags.map((t) => (
+                <ul className="flex flex-wrap content-start gap-1.5" aria-label="Đặc điểm">
+                  {chipThe(r).map((t) => (
                     <li key={t} className="rounded-[7px] border border-[#e3e7ec] bg-[#f3f5f8] px-2 py-0.5 text-[12px] leading-snug text-[#4b5563]">
-                      {TEN_TAG[t]}
+                      {t}
                     </li>
                   ))}
                 </ul>
