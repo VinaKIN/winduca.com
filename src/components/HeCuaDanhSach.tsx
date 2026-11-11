@@ -113,10 +113,38 @@ function HinhMinhHoa({ he, lop = "" }: { he: string; lop?: string }) {
   );
 }
 
+/** Nền "sân khấu" sáng cho ảnh mẫu góc: chiếu sáng giữa, tối dần ra mép, như ảnh chụp trong studio. */
+const SAN_KHAU = "bg-[radial-gradient(ellipse_at_50%_36%,#ffffff_0%,#f2f5f9_50%,#dfe5ee_100%)]";
+
 function AnhThe({ r, lopMau = "" }: { r: HeCua; lopMau?: string }) {
   const ten = `${TEN_HANG[r.hang]} ${r.ma}`;
-  if (r.anh.c[0]) return <Image src={asset(r.anh.c[0])} alt={`Mẫu góc ${ten}`} fill quality={75} sizes="(min-width: 1024px) 380px, (min-width: 640px) 45vw, 90vw" className={`object-contain p-6 ${lopMau}`} />;
-  if (r.anh.d[0]) return <Image src={asset(r.anh.d[0])} alt={`Bản vẽ mặt cắt ${ten}`} fill quality={75} sizes="(min-width: 1024px) 380px, (min-width: 640px) 45vw, 90vw" className={`object-contain p-3 ${lopMau}`} />;
+  const c = r.anh.c;
+  if (c[0])
+    return (
+      <>
+        <span className="pointer-events-none absolute bottom-[9%] left-1/2 h-4 w-[46%] -translate-x-1/2 rounded-full bg-[#0f1115]/15 blur-md transition-all duration-500 group-hover:w-[52%] group-hover:bg-[#0f1115]/20" aria-hidden="true" />
+        <Image
+          src={asset(c[0])}
+          alt={`Mẫu góc ${ten}`}
+          fill
+          quality={75}
+          sizes="(min-width: 1024px) 400px, (min-width: 640px) 46vw, 92vw"
+          className={`object-contain p-3 transition-all duration-500 md:p-4 ${c[1] ? "group-hover:opacity-0" : ""} ${lopMau}`}
+        />
+        {c[1] && (
+          <Image
+            src={asset(c[1])}
+            alt=""
+            fill
+            quality={75}
+            sizes="(min-width: 1024px) 400px, (min-width: 640px) 46vw, 92vw"
+            className={`object-contain p-3 opacity-0 transition-all duration-500 group-hover:opacity-100 md:p-4 ${lopMau}`}
+            aria-hidden="true"
+          />
+        )}
+      </>
+    );
+  if (r.anh.d[0]) return <Image src={asset(r.anh.d[0])} alt={`Bản vẽ mặt cắt ${ten}`} fill quality={75} sizes="(min-width: 1024px) 400px, (min-width: 640px) 46vw, 92vw" className={`object-contain p-4 ${lopMau}`} />;
   return <HinhMinhHoa he={r.he} lop="h-[78%] w-[56%]" />;
 }
 
@@ -169,7 +197,7 @@ function HopThoai({ dong, tieuDe, rong = true, duoi = false, children }: { dong:
         aria-modal="true"
         aria-label={tieuDe}
         onClick={(e) => e.stopPropagation()}
-        className={`relative w-full overflow-auto bg-white ${duoi ? "max-h-[85svh] rounded-b-none rounded-t-[22px]" : "max-h-[90svh] rounded-[22px]"} ${rong ? "max-w-[1000px] md:grid md:grid-cols-[5fr_6fr]" : "max-w-[860px]"}`}
+        className={`relative w-full overflow-auto bg-white ${duoi ? "max-h-[85svh] rounded-b-none rounded-t-[22px]" : "max-h-[90svh] rounded-[22px]"} ${rong ? "max-w-[1120px] md:grid md:grid-cols-[6fr_5fr]" : "max-w-[860px]"}`}
       >
         <button ref={nutDong} type="button" onClick={dong} aria-label="Đóng" className="absolute right-3 top-3 z-10 flex h-11 w-11 items-center justify-center rounded-full bg-white/90 text-3xl leading-none text-[#697280] hover:text-than-chi">
           <span aria-hidden="true">×</span>
@@ -218,15 +246,15 @@ function CuaSoChiTiet({ r, dong }: { r: HeCua; dong: () => void }) {
 
   return (
     <HopThoai dong={dong} tieuDe={`${ten}, ${r.loai}`}>
-      <div className="grid-giay relative flex min-h-[260px] flex-col items-center justify-center border-b border-[#e3e7ec] p-5 md:min-h-[400px] md:border-b-0 md:border-r">
+      <div className={`${SAN_KHAU} relative flex min-h-[300px] flex-col items-center justify-center border-b border-[#e3e7ec] p-5 md:min-h-[520px] md:border-b-0 md:border-r`}>
         <span className="absolute left-4 top-4 flex items-center gap-2 text-[12px] font-bold uppercase tracking-[0.2em] text-[#4b5563]">
           <i className="h-1.5 w-1.5 bg-accent" aria-hidden="true" />
           {TEN_HANG[r.hang]}
         </span>
         {anhDang ? (
           <>
-            <button type="button" onClick={() => setPhong(true)} aria-label="Phóng to ảnh" className="relative mt-6 h-[clamp(200px,34svh,330px)] w-full cursor-zoom-in">
-              <Image src={asset(anhDang)} alt={`${co[tab][0]} ${ten}`} fill quality={75} sizes="(min-width: 768px) 40vw, 90vw" className="object-contain" />
+            <button type="button" onClick={() => setPhong(true)} aria-label="Phóng to ảnh" className="relative mt-6 h-[clamp(260px,50svh,500px)] w-full cursor-zoom-in">
+              <Image src={asset(anhDang)} alt={`${co[tab][0]} ${ten}`} fill quality={75} sizes="(min-width: 768px) 50vw, 92vw" className="object-contain drop-shadow-[0_22px_26px_rgba(15,17,21,0.22)]" />
             </button>
             {co.length > 1 && (
               <div role="tablist" aria-label="Loại hình" className="mt-3 flex gap-2">
@@ -516,8 +544,9 @@ export function HeCuaDanhSach() {
 
   return (
     <div>
-      {/* Thanh tab hãng, ô tìm kiếm */}
-      <div ref={dau} className="flex scroll-mt-24 flex-wrap items-center justify-between gap-5 border-y border-[#e3e7ec] py-3.5">
+      {/* Khung công cụ: tab hãng, ô tìm kiếm, lọc */}
+      <div className="rounded-[18px] border border-[#e3e7ec] bg-white/95 px-4 shadow-[0_10px_34px_rgba(15,17,21,0.06)] md:px-6">
+      <div ref={dau} className="flex scroll-mt-24 flex-wrap items-center justify-between gap-5 border-b border-[#eef0f4] py-3.5">
         <div role="radiogroup" aria-label="Lọc theo hãng" onKeyDown={phimNhomChon} className="inline-flex w-full flex-wrap gap-0.5 rounded-[12px] bg-[#f3f5f8] p-1 md:w-auto">
           {TAB_HANG.map((t) => {
             const on = loc.b === t.id;
@@ -613,20 +642,22 @@ export function HeCuaDanhSach() {
         )}
       </div>
 
+      </div>
+
       <div className="h-3 md:hidden" aria-hidden="true" />
 
       {/* Lưới thẻ */}
-      <ul key={`${loc.b}-${loc.k}-${loc.f}-${loc.h}-${loc.q}-${trang}`} className="mt-4 grid gap-4 sm:grid-cols-2 sm:gap-5 lg:grid-cols-3 lg:gap-7">
+      <ul key={`${loc.b}-${loc.k}-${loc.f}-${loc.h}-${loc.q}-${trang}`} className="mt-6 grid gap-5 sm:grid-cols-2 lg:grid-cols-3 lg:gap-7">
         {hien.map((r, i) => {
           const chon = cmp.includes(r.id);
           return (
-            <li key={r.id} style={{ animationDelay: `${i * 35}ms` }} className="the-hien group relative flex flex-col overflow-hidden rounded-[20px] border border-[#e3e7ec] bg-white transition-[border-color,box-shadow,transform] duration-300 focus-within:border-than-chi hover:-translate-y-[3px] hover:border-than-chi hover:shadow-[0_18px_40px_rgba(15,17,21,0.09)]">
-              <div className="grid-giay relative flex aspect-[1/0.62] items-center justify-center border-b border-[#e3e7ec]">
+            <li key={r.id} style={{ animationDelay: `${i * 35}ms` }} className="the-hien group relative flex flex-col overflow-hidden rounded-[22px] border border-[#e3e7ec] bg-white shadow-[0_4px_18px_rgba(15,17,21,0.04)] transition-[border-color,box-shadow,transform] duration-300 focus-within:border-than-chi hover:-translate-y-1 hover:border-than-chi hover:shadow-[0_24px_50px_rgba(15,17,21,0.14)]">
+              <div className={`${SAN_KHAU} relative flex aspect-[1/0.9] items-center justify-center border-b border-[#e3e7ec]`}>
                 <span className="absolute left-[18px] top-4 z-[1] flex items-center gap-[7px] text-[12px] font-bold uppercase tracking-[0.2em] text-[#4b5563]">
                   <i className="h-1.5 w-1.5 bg-accent" aria-hidden="true" />
                   {TEN_HANG[r.hang]}
                 </span>
-                <AnhThe r={r} lopMau="transition-transform duration-500 group-hover:scale-[1.04]" />
+                <AnhThe r={r} lopMau="group-hover:scale-[1.05]" />
                 <label className="absolute right-2 top-1.5 z-10 flex h-11 w-11 cursor-pointer items-center justify-center" title="So sánh">
                   <input type="checkbox" checked={chon} onChange={(e) => chonSoSanh(r, e.target.checked)} aria-label={`So sánh ${TEN_HANG[r.hang]} ${r.ma}`} className="peer sr-only" />
                   <span className="relative block h-7 w-7 rounded-[8px] border border-[#b6bec9] bg-white peer-checked:border-accent peer-checked:bg-accent peer-focus-visible:outline peer-focus-visible:outline-2 peer-focus-visible:outline-offset-2 peer-focus-visible:outline-than-chi">
