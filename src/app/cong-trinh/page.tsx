@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
-import Link from "next/link";
-import { CongTrinhLuoi } from "@/components/CongTrinhLuoi";
 import { Hien, NutHut } from "@/components/HieuUng";
-import { PageHero, Wrap } from "@/components/ui";
+import { LuoiLoc, TieuDeTrang, type TheAnh } from "@/components/TrangMau";
+import { Wrap } from "@/components/ui";
 import { DU_AN } from "@/lib/du-an";
+import { CONG_TRINH_MINH_HOA, LOAI_DU_AN } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Công trình & cảm hứng kiến trúc | WINDUCA",
@@ -11,83 +11,52 @@ export const metadata: Metadata = {
 };
 
 /**
- * Hai nhóm nội dung (đề xuất 10/11/2026, mục 5.3), thiết kế lại kiểu công nghệ luxury:
- *  - WINDUCA Projects: công trình đã thực hiện, có dữ liệu và hình ảnh xác thực (chưa có → trạng thái đang cập nhật).
- *  - Architectural Inspiration: bộ sưu tập cảm hứng, KHÔNG nhận là công trình của WINDUCA.
+ * Trang Công trình theo mẫu Winboss (11/11/2026, lần 3): tiêu đề giữa trang, tab lọc theo loại hình, lưới thẻ ảnh ba cột.
+ *  - Công trình thực tế (DU_AN): hiện khi có dữ liệu xác thực. Hiện danh sách rỗng nên chỉ có phần cảm hứng.
+ *  - Cảm hứng kiến trúc: 12 mục MINH HỌA, KHÔNG nhận là công trình của WINDUCA.
  */
-const STROKE = "![-webkit-text-stroke:1px_rgba(227,25,55,0.55)]";
+const THE_THAT: TheAnh[] = DU_AN.map((d) => ({ id: d.slug, tab: [d.loai], ten: d.ten, mota: `${d.loai} · ${d.khuVuc}`, anh: d.anhTongThe, href: `/cong-trinh/du-an/${d.slug}` }));
 
-function Dau({ so, nhan }: { so: string; nhan: string }) {
-  return (
-    <div className="flex items-end gap-4">
-      <span className={`so-lon !text-[clamp(3.5rem,7vw,6rem)] leading-[0.85] ${STROKE}`} aria-hidden="true">
-        {so}
-      </span>
-      <p className="nhan-muc pb-2 text-accent">{nhan}</p>
-    </div>
-  );
-}
+const THE_CAM_HUNG: TheAnh[] = CONG_TRINH_MINH_HOA.map((c, i) => ({
+  id: c.slug,
+  tab: [c.loai],
+  ten: c.ten,
+  mota: `${c.khuVuc} · ${c.kieuCua}. Ảnh cảm hứng kiến trúc.`,
+  anh: `/images/architecture/cong-trinh-${String(i + 1).padStart(2, "0")}.webp`,
+  href: `/cong-trinh/${c.slug}`,
+}));
 
 export default function CongTrinh() {
+  const coThat = THE_THAT.length > 0;
   return (
     <>
-      <PageHero congNghe nhan="Công trình" tieuDe="Dấu ấn kiến trúc qua những không gian sống." anh="/images/architecture/cong-trinh-01.webp" />
+      <TieuDeTrang tieuDe="Công trình tiêu biểu" moTa="Công trình thực tế của WINDUCA và những không gian có mặt kính lớn làm cảm hứng kiến trúc." />
+      <LuoiLoc
+        tieuDe="Công trình"
+        tabs={[...LOAI_DU_AN]}
+        the={[...THE_THAT, ...THE_CAM_HUNG]}
+        ghiChu={coThat ? undefined : "Công trình thực tế của WINDUCA đang được cập nhật. Các ảnh dưới đây là cảm hứng kiến trúc, không phải công trình do WINDUCA thực hiện."}
+      />
 
-      <section className="luoi-ban-ve nen-sang khoi-doc">
-        <Wrap>
+      <section className="relative overflow-hidden nen-toi py-14 text-white md:py-20">
+        <div className="luoi-ban-ve-toi pointer-events-none absolute inset-0" aria-hidden="true" />
+        <Wrap className="relative">
           <Hien>
-            <Dau so="01" nhan="WINDUCA Projects" />
-            <h2 className="mt-4 text-[clamp(1.625rem,2.6vw,2.5rem)] font-light leading-[1.15] tracking-[-0.01em]">
-              Công trình <span className="font-bold">WINDUCA đã thực hiện</span>
-            </h2>
-          </Hien>
-          {DU_AN.length > 0 ? (
-            <ul className="mt-6 grid gap-4 md:grid-cols-3">
-              {DU_AN.map((d) => (
-                <li key={d.slug}>
-                  <Link href={`/cong-trinh/du-an/${d.slug}`} className="dau-goc block rounded-[6px] border border-than-chi/10 bg-white p-6 hover:border-accent">
-                    <p className="nhan-muc text-accent">
-                      {d.loai} · {d.khuVuc}
-                    </p>
-                    <h3 className="mt-2 text-xl font-bold">{d.ten}</h3>
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          ) : (
-            <Hien tre={100} className="dau-goc mt-6 grid gap-6 rounded-[6px] border border-dashed border-than-chi/25 p-6 md:grid-cols-[1.4fr_1fr] md:p-10">
+            <div className="flex flex-wrap items-end justify-between gap-8">
               <div>
-                <p className="max-w-2xl text-base text-than-chi/80">
-                  Công trình thực tế đang được cập nhật. Mỗi công trình sẽ có ảnh tổng thể, ảnh chi tiết cửa, loại công trình, hệ cửa sử dụng, yêu cầu kiến
-                  trúc, giải pháp triển khai và kết quả thực tế, khi có hình ảnh và sự đồng ý của chủ đầu tư.
-                </p>
-                <p className="mt-3 text-sm text-than-chi/65">Khi có ảnh trước và sau thi công cùng góc chụp, bạn sẽ kéo ngang để so sánh ngay trên trang Case Study.</p>
+                <h2 className="max-w-2xl text-[clamp(1.6rem,2.8vw,2.4rem)] font-bold leading-tight">Công trình của bạn là câu chuyện tiếp theo</h2>
+                <p className="mt-3 max-w-xl text-[15px] leading-relaxed text-white/80">Chọn giải pháp theo loại công trình hoặc gửi bản vẽ để được tư vấn.</p>
               </div>
-              <div className="flex flex-col items-start justify-center gap-3">
-                <NutHut href="/lien-he" className="nut nut-chinh">
-                  Liên hệ tư vấn
-                </NutHut>
-                <NutHut href="/giai-phap" className="nut nut-vien-sang">
+              <div className="flex flex-wrap gap-3">
+                <NutHut href="/giai-phap" className="nut nut-chinh">
                   Giải pháp theo công trình
                 </NutHut>
+                <NutHut href="/lien-he" className="nut nut-vien">
+                  Liên hệ tư vấn
+                </NutHut>
               </div>
-            </Hien>
-          )}
-        </Wrap>
-      </section>
-
-      <section id="cam-hung" className="nen-nga khoi-doc">
-        <Wrap>
-          <Hien>
-            <Dau so="02" nhan="Architectural Inspiration" />
-            <h2 className="mt-4 text-[clamp(1.625rem,2.6vw,2.5rem)] font-light leading-[1.15] tracking-[-0.01em]">
-              Cảm hứng <span className="font-bold">kiến trúc</span>
-            </h2>
-            <p className="mt-2 max-w-2xl text-[15px] leading-relaxed text-than-chi/65">Bộ sưu tập cảm hứng về không gian có mặt kính lớn. Đây không phải là công trình do WINDUCA thực hiện.</p>
+            </div>
           </Hien>
-          <div className="mt-5">
-            <CongTrinhLuoi />
-          </div>
         </Wrap>
       </section>
     </>

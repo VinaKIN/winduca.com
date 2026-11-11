@@ -116,7 +116,7 @@ export function PageHero({
               <span className="h-1.5 w-1.5 rounded-full bg-accent" aria-hidden="true" />
               {nhan}
             </p>
-            <h1 className="mt-3 max-w-4xl text-[clamp(1.875rem,3.6vw,3.25rem)] font-medium uppercase leading-[1.12] tracking-[0.01em] [text-wrap:balance]">{tieuDe}</h1>
+            <h1 className="mt-3 max-w-4xl text-[clamp(1.875rem,3.6vw,3.25rem)] font-bold leading-[1.15] [text-wrap:balance]">{tieuDe}</h1>
             {moTa && <p className="mt-4 max-w-2xl text-base font-light leading-relaxed text-white/85 md:text-lg">{moTa}</p>}
             {children && <div className="mt-6 flex flex-col gap-3 sm:flex-row">{children}</div>}
           </div>

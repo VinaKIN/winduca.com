@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { LeadForm } from "@/components/LeadForm";
-import { PageHero, Section } from "@/components/ui";
+import { TieuDeTrang } from "@/components/TrangMau";
+import { Wrap } from "@/components/ui";
 import { DIA_CHI, EMAIL, HOTLINE, HOTLINE_TEL, MAPS_URL } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -12,8 +13,9 @@ export const metadata: Metadata = {
 export default function LienHe() {
   return (
     <>
-      <PageHero nhan="Liên hệ" tieuDe="Trao đổi với chuyên viên WINDUCA." moTa="Chọn chủ đề để chúng tôi chuyển đến đúng người." />
-      <Section gon tone="sang">
+      <TieuDeTrang tieuDe="Trao đổi với chuyên viên WINDUCA" moTa="Chọn chủ đề để chúng tôi chuyển đến đúng người." />
+      <section className="bg-white pb-16 md:pb-24">
+        <Wrap>
         <div className="grid gap-14 lg:grid-cols-[1fr_1.4fr]">
           <div>
             <p className="nhan-muc text-than-chi/70">Kênh trực tiếp</p>
@@ -74,7 +76,8 @@ export default function LienHe() {
             <LeadForm loai="lien-he" tone="sang" />
           </div>
         </div>
-      </Section>
+        </Wrap>
+      </section>
     </>
   );
 }

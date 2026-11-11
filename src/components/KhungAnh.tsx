@@ -46,7 +46,7 @@ export function KhungAnh({
         <div className="anh-thuoc" aria-hidden="true" />
         <div className="anh-quet" aria-hidden="true" />
         {so && (
-          <span className="absolute left-3 top-4 z-[3] font-mono text-[10px] tracking-[0.22em] text-white/75" aria-hidden="true">
+          <span className="absolute left-3 top-4 z-[3] text-[10px] tracking-[0.22em] text-white/75" aria-hidden="true">
             {so}
           </span>
         )}
@@ -55,7 +55,7 @@ export function KhungAnh({
             <span className="diem-do" aria-hidden="true" />
             <span className="hidden items-center gap-2 sm:flex" aria-hidden="true">
               <span className="h-px w-8 bg-accent" />
-              <span className="rounded-[3px] bg-than-chi/75 px-2 py-1 font-mono text-[10px] uppercase tracking-[0.16em] text-white backdrop-blur-sm">{diem.nhan}</span>
+              <span className="rounded-[3px] bg-than-chi/75 px-2 py-1 text-[10px] uppercase tracking-[0.16em] text-white backdrop-blur-sm">{diem.nhan}</span>
             </span>
           </span>
         )}

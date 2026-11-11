@@ -94,7 +94,7 @@ export function HeroSlider() {
 
           <div className="absolute inset-0 flex flex-col items-center justify-end px-6 pb-[14svh] text-center text-white md:pb-[16svh]">
             {k === 0 ? (
-              <h1 className="max-w-5xl text-[clamp(1.875rem,3.8vw,3.5rem)] font-medium uppercase leading-[1.15] tracking-[0.01em] [text-wrap:balance]">
+              <h1 className="max-w-5xl text-[clamp(1.875rem,3.8vw,3.5rem)] font-bold leading-[1.18] [text-wrap:balance]">
                 {s.dong[0]} <span className="block">{s.dong[1]}</span>
               </h1>
             ) : (

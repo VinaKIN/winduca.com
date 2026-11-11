@@ -257,11 +257,11 @@ Các linh kiện dưới đây dùng ma trận 7 trạng thái ở mục 3.0; m�
 - **Dữ liệu:** `src/lib/he-cua-du-lieu.ts` (115 hệ: 106 từ bảng công bố của trang gốc, 9 hệ bổ sung từ tài liệu hãng trong thư mục ảnh, đánh dấu `them`). Hệ không có ảnh dùng hình minh họa theo loại cửa.
 - **Ảnh:** chỉ dùng bản vẽ 2D đã kiểm tra (bỏ bản vẽ có logo hoặc mã profile in trên hình, cắt dải mã sản phẩm ở đáy hình Civro) và 2 ảnh 3D đã kiểm tra không có logo. Ảnh 3D và ảnh thực tế còn lại có logo hãng nên chưa dùng, cần ảnh bản không logo từ hãng.
 - **Số liệu** luôn kèm ghi chú: tham khảo, thay đổi theo kích thước và cấu hình; chưa công bố chính thức khi chưa xác nhận quyền sử dụng.
-### 3.12 Trang Giải pháp: bản vẽ kỹ thuật kết hợp tạp chí tối giản (11/11/2026, lần 2)
-- Chỉ dùng Roboto (tiêu đề Light, nhấn Bold) và số dạng mono; không dùng chữ có chân. Đã bỏ phông Cormorant Garamond của lần 1.
-- Trang tổng khoảng 4 màn hình: hero (`HeroGiaiPhap`: lưới bản vẽ, vệt sáng đỏ theo chuột, 3 số đếm về nội dung trang), khối chọn loại công trình (`ChonCongTrinh`: danh sách + ảnh đổi tại chỗ, lớp bản vẽ gồm dấu góc, lưới chia ba, nhãn FIG.), quy trình 5 bước, kêu gọi.
-- Trang chi tiết `/giai-phap/<slug>`: bìa, câu dẫn, thân bài, câu trích, ảnh rộng, ba điều cần cân nhắc, hệ cửa, hỏi đáp (`<details>`), quy trình, bài tiếp theo.
-- Dữ liệu ở `src/lib/giai-phap.ts` (8 loại). Ảnh minh họa Pexels ở `public/images/giai-phap/`, ID ở `public/images/NGUON-ANH.md`, mỗi ảnh có chú thích "Ảnh minh họa, nguồn Pexels".
+### 3.12 Bố cục trang con theo mẫu Winboss (11/11/2026, lần 3)
+- Áp dụng cho Giải pháp, Công trình, Tin tức, Chính sách, Liên hệ, Đối tác: `TieuDeTrang` (tiêu đề giữa trang, một dòng mô tả) rồi `LuoiLoc` (tiêu đề mục bên trái, tab lọc ngăn bằng chấm tròn, đường kẻ, lưới thẻ ảnh ba cột) trong `src/components/TrangMau.tsx`.
+- Phông: chỉ Roboto. Tiêu đề thường, đậm, không viết hoa, không giãn chữ; không dùng chữ có chân, không dùng `font-mono`. Nhãn nhỏ viết hoa (`.nhan-muc`) chỉ còn dùng làm nhãn phụ.
+- Đã bỏ `uppercase` và `tracking` rộng ở các tiêu đề h1/h2 toàn site (PageHero, hero trang chủ, hero kiểu cửa, hệ cửa, giải pháp đồng bộ).
+- Dữ liệu Giải pháp ở `src/lib/giai-phap.ts` (8 loại); ảnh minh họa Pexels ở `public/images/giai-phap/` (ID ở `public/images/NGUON-ANH.md`).
 
 ---
 

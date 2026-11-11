@@ -130,7 +130,7 @@ export function GiaiPhapDongBo() {
         <div className="grid items-center gap-8 lg:grid-cols-[0.85fr_1.25fr] lg:gap-12">
           <div className="min-w-0">
             <p className="nhan-muc text-accent">Giải pháp đồng bộ</p>
-            <h2 className="mt-3 text-[clamp(1.4rem,2.6vw,2.25rem)] font-medium uppercase leading-[1.15] tracking-[0.01em]">
+            <h2 className="mt-3 text-[clamp(1.4rem,2.6vw,2.25rem)] font-bold leading-[1.15]">
               Một giải pháp.
               <span className="block font-light">Đồng bộ từng thành phần.</span>
             </h2>

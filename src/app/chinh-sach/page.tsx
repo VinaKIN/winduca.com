@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { PageHero, Section } from "@/components/ui";
+import { TieuDeTrang } from "@/components/TrangMau";
+import { Wrap } from "@/components/ui";
 
 export const metadata: Metadata = { title: "Chính sách | WINDUCA", description: "Các chính sách của WINDUCA: bảo mật, điều khoản, cookie, bảo hành và đối tác." };
 
@@ -12,23 +13,30 @@ const DS = [
   { href: "/chinh-sach-doi-tac", t: "Đối tác và đại lý", m: "Điều kiện và quyền lợi hợp tác." },
 ];
 
+/** Trang Chính sách theo mẫu Winboss (11/11/2026, lần 3): tiêu đề giữa trang, danh sách văn bản gọn. */
 export default function ChinhSachHub() {
   return (
     <>
-      <PageHero nhan="Pháp lý" tieuDe="Chính sách của WINDUCA" moTa="Các văn bản đang là bản nháp chờ bộ phận pháp chế duyệt." />
-      <Section tone="sang">
-        <ul className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-          {DS.map((d, i) => (
-            <li key={d.href}>
-              <Link href={d.href} className="group block h-full rounded-[22px] border border-than-chi/10 bg-white p-6 transition-shadow hover:shadow-lg">
-                <span className="text-3xl font-light text-than-chi/65">{String(i + 1).padStart(2, "0")}</span>
-                <h2 className="mt-2 text-xl font-bold group-hover:text-accent">{d.t}</h2>
-                <p className="mt-2 text-[15px] leading-relaxed text-than-chi/70">{d.m}</p>
-              </Link>
-            </li>
-          ))}
-        </ul>
-      </Section>
+      <TieuDeTrang tieuDe="Chính sách của WINDUCA" moTa="Các văn bản đang là bản nháp chờ bộ phận pháp chế duyệt." />
+      <section className="bg-white pb-16 md:pb-24">
+        <Wrap>
+          <h2 className="text-[1.6rem] font-bold leading-none md:text-[1.9rem]">Văn bản</h2>
+          <hr className="mt-4 border-0 border-t border-than-chi/70" />
+          <ul className="mt-2 divide-y divide-than-chi/15">
+            {DS.map((d) => (
+              <li key={d.href}>
+                <Link href={d.href} className="group grid gap-1 py-5 md:grid-cols-[1fr_1.4fr_auto] md:items-center md:gap-8">
+                  <h3 className="text-[17px] font-bold transition-colors group-hover:text-accent">{d.t}</h3>
+                  <p className="text-[14.5px] leading-relaxed text-than-chi/75">{d.m}</p>
+                  <span className="text-[13px] font-bold text-accent" aria-hidden="true">
+                    Xem →
+                  </span>
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </Wrap>
+      </section>
     </>
   );
 }

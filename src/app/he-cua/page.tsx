@@ -33,7 +33,7 @@ export default function HeCua() {
           <div className="grid items-center gap-8 lg:grid-cols-[1.05fr_0.95fr] lg:gap-10">
             <div>
               <p className="nhan-muc text-accent">Hệ cửa nhôm kính · Romadio · Civro · Ponzio</p>
-              <h1 className="mt-3 max-w-3xl text-[clamp(1.875rem,3.6vw,3.25rem)] font-medium uppercase leading-[1.12] tracking-[0.01em] [text-wrap:balance]">
+              <h1 className="mt-3 max-w-3xl text-[clamp(1.875rem,3.6vw,3.25rem)] font-bold leading-[1.15] [text-wrap:balance]">
                 Chọn hệ cửa theo thông số kỹ thuật
               </h1>
               <p className="mt-4 max-w-xl text-base font-light leading-relaxed text-white/80 md:text-lg">

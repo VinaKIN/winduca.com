@@ -120,7 +120,7 @@ export default async function GiaiPhapChiTiet({ params }: PageProps<"/giai-phap/
                   <ul className="mt-5 grid gap-px overflow-hidden border border-than-chi/15 bg-than-chi/15 sm:grid-cols-2">
                     {g.khongGian.map((x, i) => (
                       <li key={x} className="bg-white p-5 md:p-6">
-                        <span className="font-mono font-light text-[1.8rem] leading-none text-accent">{String(i + 1).padStart(2, "0")}</span>
+                        <span className="font-light text-[1.8rem] leading-none text-accent">{String(i + 1).padStart(2, "0")}</span>
                         <p className="mt-3 text-[15.5px] leading-relaxed text-than-chi/85">{x}</p>
                       </li>
                     ))}
@@ -154,7 +154,7 @@ export default async function GiaiPhapChiTiet({ params }: PageProps<"/giai-phap/
           <ol className="mt-12 grid gap-10 md:grid-cols-3 md:gap-8">
             {g.canNhac.map((c, i) => (
               <Hien key={c.t} as="li" tre={i * 110} className="border-t border-than-chi/30 pt-6">
-                <span className="font-mono font-light text-[3.4rem] leading-none text-accent">{String(i + 1).padStart(2, "0")}</span>
+                <span className="font-light text-[3.4rem] leading-none text-accent">{String(i + 1).padStart(2, "0")}</span>
                 <h3 className="mt-5 text-[1.7rem] font-light leading-tight">{c.t}</h3>
                 <p className="mt-3 text-[15.5px] leading-relaxed text-than-chi/80">{c.m}</p>
               </Hien>
@@ -239,7 +239,7 @@ export default async function GiaiPhapChiTiet({ params }: PageProps<"/giai-phap/
           <ol className="mt-10 grid gap-px overflow-hidden border border-than-chi/15 bg-than-chi/15 md:grid-cols-5">
             {QUY_TRINH_5_BUOC.map((b, i) => (
               <Hien key={b.t} as="li" tre={i * 80} className="bg-white p-6">
-                <span className="font-mono font-light text-[2.6rem] leading-none text-accent">{String(i + 1).padStart(2, "0")}</span>
+                <span className="font-light text-[2.6rem] leading-none text-accent">{String(i + 1).padStart(2, "0")}</span>
                 <h3 className="mt-4 text-[16.5px] font-bold">{b.t}</h3>
                 <p className="mt-2 text-[14.5px] leading-relaxed text-than-chi/75">{b.m}</p>
               </Hien>

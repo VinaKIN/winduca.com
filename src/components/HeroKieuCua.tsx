@@ -33,7 +33,7 @@ export function HeroKieuCua({
           <i aria-hidden="true" />
           {tenEn}
         </p>
-        <h1 className="mt-6 max-w-5xl text-[clamp(2.75rem,7.2vw,6.5rem)] font-light uppercase leading-[0.98] tracking-[-0.02em] [text-wrap:balance]">{ten}</h1>
+        <h1 className="mt-6 max-w-5xl text-[clamp(2.75rem,7.2vw,6.5rem)] font-bold leading-[1.02] tracking-[-0.01em] [text-wrap:balance]">{ten}</h1>
         <p className="mt-6 max-w-xl text-lg font-light leading-relaxed text-white/85 md:text-xl">{tagline}</p>
 
         <div className="mt-10 grid overflow-hidden rounded-[10px] border border-white/15 bg-than-chi/70 backdrop-blur-xl md:mt-14 md:grid-cols-[1fr_1fr_1.4fr_auto]">
