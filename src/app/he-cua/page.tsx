@@ -1,115 +1,42 @@
 import type { Metadata } from "next";
-import Image from "next/image";
-import Link from "next/link";
-import { CauHinhCua } from "@/components/CauHinhCua";
-import { Hien, NutHut } from "@/components/HieuUng";
 import { HeCuaDanhSach } from "@/components/HeCuaDanhSach";
-import { SoSanhHeCua } from "@/components/SoSanhHeCua";
-import { PageHero, Wrap } from "@/components/ui";
-import { asset } from "@/lib/asset";
-import { KIEU_CUA, TEN_EN_HE_CUA } from "@/lib/site";
+import { Hien } from "@/components/HieuUng";
+import { HE_CUA_DS } from "@/lib/he-cua-du-lieu";
 
 export const metadata: Metadata = {
   title: "Hệ cửa | WINDUCA",
-  description: "Cửa trượt nâng, cửa đi mở quay, cửa xếp trượt và cửa sổ nhôm cầu cách nhiệt: so sánh, xem mẫu cửa và gửi cấu hình để được tư vấn.",
+  description: "Chọn hệ cửa nhôm kính theo thông số kỹ thuật: lọc theo hãng, hệ thống, kết cấu và chức năng, so sánh tối đa 3 hệ để so nhanh.",
 };
 
-/** Trang Hệ cửa thiết kế lại (10/11/2026): 4 kiểu cửa, So sánh, Mẫu cửa theo hãng, Cấu hình cửa → tư vấn. */
-const STROKE = "![-webkit-text-stroke:1px_rgba(227,25,55,0.55)]";
-const ANH: Record<string, [string, string]> = {
-  "cua-truot-nang": ["/images/products/lift-slide.webp", "/images/products/lift-slide-hover.webp"],
-  "cua-di-mo-quay": ["/images/products/casement.webp", "/images/products/casement-hover.webp"],
-  "cua-xep-truot": ["/images/products/bi-fold.webp", "/images/products/bi-fold-hover.webp"],
-  "cua-so": ["/images/products/window.webp", "/images/products/window-hover.webp"],
-};
-
-function Dau({ so, nhan, tieuDe }: { so: string; nhan: string; tieuDe: React.ReactNode }) {
-  return (
-    <Hien>
-      <div className="flex items-end gap-4">
-        <span className={`so-lon !text-[clamp(3.5rem,7vw,6rem)] leading-[0.85] ${STROKE}`} aria-hidden="true">
-          {so}
-        </span>
-        <p className="nhan-muc pb-2 text-accent">{nhan}</p>
-      </div>
-      <h2 className="mt-4 max-w-3xl text-[clamp(1.625rem,2.6vw,2.5rem)] font-light leading-[1.15] tracking-[-0.01em]">{tieuDe}</h2>
-    </Hien>
-  );
-}
-
+/**
+ * Trang Hệ cửa dựng lại theo trang hệ cửa của Winboss (11/11/2026): một khung duy nhất gồm tiêu đề, tab hãng,
+ * tìm kiếm, lọc thả xuống, lưới thẻ, phân trang, so sánh và hộp chi tiết. Các khối cũ của trang đã được gỡ.
+ */
 export default function HeCua() {
   return (
-    <>
-      <PageHero
-        congNghe
-        nhan="Hệ cửa WINDUCA"
-        tieuDe="Chọn kiểu cửa theo cách bạn muốn sống"
-        moTa="Bốn kiểu cửa, một ngôn ngữ thiết kế: khung nhôm cầu cách nhiệt, hoàn thiện anode hóa hoặc sơn tĩnh điện."
-        anh="/images/products/lift-slide.webp"
-      >
-        <NutHut href="#cau-hinh" className="nut nut-chinh">
-          Cấu hình cửa của bạn
-        </NutHut>
-        <NutHut href="/trai-nghiem#sample-box" className="nut nut-vien">
-          Nhận hộp mẫu góc nhôm
-        </NutHut>
-      </PageHero>
-
-      {/* 01 · Bốn kiểu cửa */}
-      <section className="luoi-ban-ve nen-sang khoi-doc">
-        <Wrap>
-          <Dau so="01" nhan="Bốn kiểu cửa" tieuDe={<>Chọn kiểu cửa phù hợp <span className="font-bold">với không gian</span></>} />
-          <ul className="mt-6 flex snap-x snap-mandatory gap-3 overflow-x-auto pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden sm:grid sm:grid-cols-2 sm:gap-4 sm:overflow-visible lg:grid-cols-4">
-            {KIEU_CUA.map((k, i) => (
-              <Hien key={k.slug} as="li" tre={i * 90} className="w-[74%] shrink-0 snap-start sm:w-auto">
-                <Link href={`/he-cua/${k.slug}`} className="group block overflow-hidden rounded-[6px] border border-than-chi/10 bg-white transition-shadow hover:shadow-lg">
-                  <div className="dau-goc relative aspect-[4/3] bg-than-chi lg:aspect-[3/2]">
-                    <Image src={asset(ANH[k.slug][0])} alt={`${k.ten} trong không gian kiến trúc`} fill quality={65} sizes="(min-width: 1024px) 24vw, 50vw" className="object-cover transition-opacity duration-700 group-hover:opacity-0" />
-                    <Image src={asset(ANH[k.slug][1])} alt="" fill quality={65} sizes="(min-width: 1024px) 24vw, 50vw" className="object-cover opacity-0 transition-opacity duration-700 group-hover:opacity-100" />
-                  </div>
-                  <div className="p-5">
-                    <p className="text-xs font-medium uppercase tracking-[0.16em] text-than-chi/65">
-                      {String(i + 1).padStart(2, "0")} · {TEN_EN_HE_CUA[k.slug]}
-                    </p>
-                    <h3 className="mt-1 text-xl font-bold group-hover:text-accent">{k.ten}</h3>
-                    <p className="mt-1 hidden text-[15px] leading-relaxed text-than-chi/70 sm:block">{k.tagline}</p>
-                  </div>
-                </Link>
-              </Hien>
-            ))}
-          </ul>
-        </Wrap>
-      </section>
-
-      {/* 02 · So sánh */}
-      <section id="so-sanh" className="nen-nga khoi-doc">
-        <Wrap>
-          <Dau so="02" nhan="So sánh hệ cửa" tieuDe={<>Đặt hai đến ba kiểu cửa <span className="font-bold">cạnh nhau</span></>} />
-          <Hien tre={100} className="mt-5">
-            <SoSanhHeCua />
-          </Hien>
-        </Wrap>
-      </section>
-
-      {/* 03 · Sản phẩm theo chức năng (11/11/2026: thay mục Mẫu cửa theo hãng; không dùng tên hãng) */}
-      <section id="san-pham" className="luoi-ban-ve nen-sang khoi-doc">
-        <Wrap>
-          <Dau so="03" nhan="Sản phẩm" tieuDe={<>Chọn sản phẩm theo <span className="font-bold">thông số kỹ thuật</span></>} />
-          <div className="mt-5">
+    <div className="relative overflow-hidden bg-[#f3f5f8]">
+      <div className="pointer-events-none absolute -right-24 top-24 h-[420px] w-[520px] rounded-full bg-accent/10 blur-[110px]" aria-hidden="true" />
+      <div className="relative mx-auto max-w-[1250px] px-3 pb-24 pt-28 md:px-[15px] md:pb-32 md:pt-36">
+        <Hien>
+          <div className="rounded-[28px] border border-white bg-white/90 p-5 shadow-[0_24px_70px_rgba(15,17,21,0.07)] backdrop-blur md:p-9">
+            <header className="pb-6 pt-3 md:pb-9">
+              <p className="flex items-center gap-2.5 text-[12px] font-bold uppercase tracking-[0.2em] text-[#4b5563]">
+                <i className="h-0.5 w-7 bg-accent" aria-hidden="true" />
+                Hệ cửa nhôm kính · Romadio · Civro · Ponzio
+              </p>
+              <h1 className="mt-4 max-w-[900px] text-[clamp(2rem,4.2vw,3.5rem)] font-light leading-[1.18] tracking-[-0.01em]">
+                Chọn hệ cửa theo <b className="font-bold">thông số kỹ thuật</b>
+              </h1>
+              <p className="mt-5 max-w-[720px] text-base font-light leading-[1.7] text-[#4b5563] [text-wrap:balance] md:text-lg">
+                Lọc theo kết cấu, chức năng và hệ thống.
+                <br />
+                Mỗi hệ hiển thị chỉ số do hãng công bố để so sánh nhanh. Hiện có {HE_CUA_DS.length} hệ.
+              </p>
+            </header>
             <HeCuaDanhSach />
           </div>
-        </Wrap>
-      </section>
-
-      {/* 04 · Cấu hình cửa */}
-      <section id="cau-hinh" className="relative overflow-hidden nen-nga khoi-doc">
-        <Wrap>
-          <Dau so="04" nhan="Cấu hình cửa" tieuDe={<>Chọn cấu hình, <span className="font-bold">nhận tư vấn</span></>} />
-          <Hien tre={100} className="mt-5">
-            <CauHinhCua />
-          </Hien>
-        </Wrap>
-      </section>
-    </>
+        </Hien>
+      </div>
+    </div>
   );
 }

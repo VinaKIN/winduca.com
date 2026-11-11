@@ -246,14 +246,16 @@ Các linh kiện dưới đây dùng ma trận 7 trạng thái ở mục 3.0; m�
 - **Thứ bậc đề mục:** mỗi trang **must** có đúng một `h1`; mỗi khối có `h2` trước khi dùng `h3`. Khối "Trải nghiệm" dùng `h2` (nhãn khối).
 - **`aria-controls`:** **must** chỉ trỏ tới phần tử đang tồn tại; với nút mở menu hay liên hệ nhanh, thuộc tính chỉ gắn khi vùng đích đã mở.
 
-#### 3.11.8 Danh sách 106 hệ cửa (`HeCuaDanhSach`, bổ sung 11/11/2026)
-- **Ba bộ lọc kiểu Winboss:** Hệ thống · Kết cấu (có/không cầu nhiệt) · Chức năng, cộng ô tìm kiếm. Mỗi bộ lọc là một nhóm chọn một (`role="radiogroup"` + `role="radio"`, `aria-checked`, roving tabindex, `onKeyDown={phimNhomChon}`), nhãn nhóm nối bằng `aria-labelledby`. Có nút "Xóa bộ lọc" khi đang lọc.
-- **Dữ liệu:** `src/lib/he-cua-du-lieu.ts` (tạo từ bảng công bố của các nhà sản xuất: 43 + 30 + 33 hệ). Tên theo chức năng, **không** tên hãng hoặc mã sản phẩm; "Chức năng" lấy từ nhãn của trang gốc (cách nhiệt cao, an ninh cao, dễ tiếp cận, thông minh) và suy từ tên loại cửa, không thêm thông tin mới. Kết cấu có 3 giá trị (có cầu nhiệt, không, hoặc cả hai); hệ chưa rõ chỉ hiện khi chọn Tất cả.
-- **Ảnh:** chỉ dùng bản vẽ 2D đã kiểm tra: bỏ bản vẽ có logo hoặc mã profile in trên hình (vách kính và 4 bản vẽ chi tiết phụ kiện), cắt dải ghi mã sản phẩm ở đáy hình (52 bản vẽ); hệ không có bản vẽ hợp lệ hiện "Bản vẽ đang được cập nhật". Ảnh 3D và ảnh thực tế có logo nên không dùng.
-- **Thẻ** là `button` có `aria-haspopup="dialog"`; hộp chi tiết `role="dialog"` `aria-modal`, tiêu đề nối `aria-labelledby`, focus vào nút Đóng khi mở, giữ focus trong hộp bằng Tab, `Escape` đóng và trả focus về thẻ đã bấm.
-- **Tải dần:** hiện 12 thẻ, nút "Xem thêm" mỗi lần 12; đổi bộ lọc thì quay về 12. Không bọc cả danh sách trong hiệu ứng hiện dần (khối quá cao nên không bao giờ kích hoạt).
+#### 3.11.8 Trang Hệ cửa kiểu Winboss (`HeCuaDanhSach`, dựng lại 11/11/2026)
+- **Bố cục:** trang chỉ còn một khung bo góc 28px (nhãn nhỏ, tiêu đề light kèm chữ đậm, mô tả hai dòng), rồi tab hãng, ô tìm kiếm, hàng "Lọc theo", lưới thẻ, phân trang. Nền xám nhạt có quầng đỏ mờ góc phải. Các khối cũ (4 kiểu cửa, so sánh kiểu cửa, cấu hình cửa) đã gỡ khỏi trang này; 4 trang kiểu cửa riêng vẫn còn.
+- **Tab hãng (Tất cả · Romadio · Civro · Ponzio):** nhóm chọn một (`role="radiogroup"`, roving tabindex, `phimNhomChon`), kèm số đếm theo các bộ lọc khác. Trên trang này (theo yêu cầu 11/11/2026) hiện tên hãng và mã hệ như trang gốc; các trang khác của WINDUCA vẫn không nêu tên hãng.
+- **Lọc thả xuống chọn nhiều:** Hệ thống · Kết cấu · Chức năng; nút `aria-expanded` + `aria-controls`, danh sách là `role="group"` các chip `aria-pressed`, đóng bằng Esc hoặc bấm ra ngoài. Hệ "có cả hai" phiên bản khớp cả hai giá trị Kết cấu; Hệ thống khớp theo ký tự (cửa sổ trượt thuộc cả Cửa sổ và Trượt).
+- **Thẻ:** nền giấy kẻ ô có dấu góc, nhãn hãng, ô chọn so sánh (vùng bấm 44px), ảnh, mã hệ + loại, 3 chỉ số (U-value, Cách âm, Kín nước), nhãn chức năng. Cả thẻ bấm được qua nút ở tiêu đề (kỹ thuật "liên kết kéo giãn"), ô chọn so sánh nằm trên lớp đó. Hiệu ứng: rê chuột nâng thẻ 3px, viền đậm, ảnh phóng nhẹ; thẻ hiện dần khi đổi trang hoặc bộ lọc (tắt khi người dùng giảm chuyển động).
+- **Phân trang** 12 / 8 / 4 thẻ theo cỡ màn hình, nút số có `aria-current="page"`. **So sánh** tối đa 3 hệ (thanh nổi + bảng, thông báo `aria-live` khi quá 3). **Địa chỉ trang** ghi lại b, k, f, h, q, p để chia sẻ link; nạp bằng `useSyncExternalStore`, không `setState` trong effect.
+- **Hộp chi tiết** (`role="dialog"` `aria-modal`, giữ focus, Esc đóng, trả focus): trái là thư viện ảnh (tab Mẫu góc · Bản vẽ 2D, ảnh nhỏ, bấm để phóng to), phải là nhãn hệ thống, mã, loại, kết cấu, chức năng, 3 chỉ số lớn, bảng thông số, ghi chú, nguồn số liệu và nút Nhận tư vấn · Gọi hotline.
+- **Dữ liệu:** `src/lib/he-cua-du-lieu.ts` (115 hệ: 106 từ bảng công bố của trang gốc, 9 hệ bổ sung từ tài liệu hãng trong thư mục ảnh, đánh dấu `them`). Hệ không có ảnh dùng hình minh họa theo loại cửa.
+- **Ảnh:** chỉ dùng bản vẽ 2D đã kiểm tra (bỏ bản vẽ có logo hoặc mã profile in trên hình, cắt dải mã sản phẩm ở đáy hình Civro) và 2 ảnh 3D đã kiểm tra không có logo. Ảnh 3D và ảnh thực tế còn lại có logo hãng nên chưa dùng, cần ảnh bản không logo từ hãng.
 - **Số liệu** luôn kèm ghi chú: tham khảo, thay đổi theo kích thước và cấu hình; chưa công bố chính thức khi chưa xác nhận quyền sử dụng.
-
 ---
 
 ## 4. Yêu cầu truy cập và tiêu chí nghiệm thu kiểm tra được

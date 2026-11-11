@@ -2,77 +2,139 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useId, useMemo, useRef, useState } from "react";
+import { useCallback, useEffect, useId, useMemo, useRef, useState, useSyncExternalStore, type ReactNode } from "react";
 import { asset } from "@/lib/asset";
-import { CHUC_NANG, HE_CUA_DS, HE_THONG, THONG_SO_THU_TU, nhanKetCau, type HeCua } from "@/lib/he-cua-du-lieu";
+import { HE_CUA_DS, TEN_HANG, TEN_HE, TEN_KET_CAU, TEN_TAG, type HeCua, type Hang } from "@/lib/he-cua-du-lieu";
 import { phimNhomChon } from "@/lib/phim";
+import { HOTLINE, HOTLINE_TEL } from "@/lib/site";
 
 /**
- * Danh sách 106 hệ cửa kiểu Winboss (11/11/2026): 3 bộ lọc Hệ thống · Kết cấu · Chức năng, ô tìm kiếm,
- * thẻ có bản vẽ 2D, bấm thẻ mở cửa sổ chi tiết (bản vẽ + thông số). Không dùng tên hãng hoặc mã sản phẩm.
+ * Danh sách hệ cửa dựng lại theo trang hệ cửa của Winboss (11/11/2026):
+ * tab theo hãng có đếm, ô tìm kiếm, lọc thả xuống chọn nhiều (Hệ thống · Kết cấu · Chức năng), thẻ có ô chọn so sánh,
+ * phân trang 12/8/4, thanh so sánh tối đa 3 hệ, hộp chi tiết có thư viện ảnh, đồng bộ bộ lọc lên địa chỉ trang.
  */
-const TAT_CA = "Tất cả";
-const BUOC = 12;
-const KET_CAU = [
-  { id: "cn", ten: "Có cầu nhiệt" },
-  { id: "kcn", ten: "Không cầu nhiệt" },
+type Loc = { b: Hang | ""; k: string[]; f: string[]; h: string[]; q: string; p: number };
+const LOC_RONG: Loc = { b: "", k: [], f: [], h: [], q: "", p: 1 };
+
+const TAB_HANG: { id: Hang | ""; ten: string }[] = [
+  { id: "", ten: "Tất cả" },
+  { id: "romadio", ten: "Romadio" },
+  { id: "civro", ten: "Civro" },
+  { id: "ponzio", ten: "Ponzio" },
+];
+const NHOM_LOC = [
+  { k: "h", ten: "Hệ thống", o: [["w", "Cửa sổ"], ["d", "Cửa đi"], ["s", "Trượt"], ["l", "Nâng trượt"], ["f", "Xếp gấp"], ["v", "Vách kính"]] },
+  { k: "k", ten: "Kết cấu", o: [["t", "Có cầu nhiệt"], ["n", "Không cầu nhiệt"]] },
+  { k: "f", ten: "Chức năng", o: [["cn", "Cách nhiệt cao"], ["an", "An ninh cao"], ["de", "Dễ tiếp cận"], ["sm", "Thông minh / Động cơ"]] },
 ] as const;
 
-function NhomLoc({ nhan, gt, chon, doi }: { nhan: string; gt: { id: string; ten: string }[]; chon: string; doi: (v: string) => void }) {
-  const tatCa = [{ id: TAT_CA, ten: TAT_CA }, ...gt];
+/* ---------- Lọc và định dạng số liệu (theo logic của trang gốc) ---------- */
+function khop(r: HeCua, l: Loc, boQuaHang = false) {
+  if (!boQuaHang && l.b && r.hang !== l.b) return false;
+  if (l.k.length && !l.k.some((k) => r.ketCau === k || r.ketCau === "tn")) return false;
+  if (l.f.length && !l.f.some((f) => r.tags.includes(f))) return false;
+  if (l.h.length && !l.h.some((h) => r.he.includes(h))) return false;
+  if (l.q) {
+    const t = `${TEN_HANG[r.hang]} ${r.ma} ${r.loai}`.toLowerCase();
+    if (!t.includes(l.q.toLowerCase())) return false;
+  }
+  return true;
+}
+const so = (s: string) => (s.replace(/\([^)]*\)/g, "").match(/\d+[.,]\d+|\d+/g) ?? []) as string[];
+function uVal(r: HeCua) {
+  const s = r.u;
+  if (!s) return "";
+  if (s.startsWith("≥")) return s;
+  const m = so(s);
+  if (!m.length) return "";
+  if (m.length === 1) return m[0];
+  const a = [...m].sort((x, y) => parseFloat(x.replace(",", ".")) - parseFloat(y.replace(",", ".")));
+  return a[0] === a[a.length - 1] ? a[0] : `${a[0]}–${a[a.length - 1]}`;
+}
+function dbVal(r: HeCua) {
+  const n = r.cachAm.replace(/\s*dB/i, "").trim();
+  if (!n) return "";
+  return /^đến /i.test(n) ? `≤ ${n.replace(/^đến /i, "")}` : n;
+}
+const tenHe = (r: HeCua) => r.he.split("").map((c) => TEN_HE[c]).filter(Boolean);
+
+/* ---------- Hình minh họa khi chưa có ảnh ---------- */
+function HinhMinhHoa({ he, lop = "" }: { he: string; lop?: string }) {
+  const c = he.charAt(0);
+  const id = useId().replace(/:/g, "");
   return (
-    <div className="flex flex-wrap items-center gap-2">
-      <span className="w-24 shrink-0 text-[11px] font-semibold uppercase tracking-[0.18em] text-than-chi/70" id={`loc-${nhan}`}>
-        {nhan}
-      </span>
-      <div className="flex flex-wrap gap-2" role="radiogroup" aria-labelledby={`loc-${nhan}`} onKeyDown={phimNhomChon}>
-        {tatCa.map((g) => {
-          const b = chon === g.id;
-          return (
-            <button
-              key={g.id}
-              type="button"
-              role="radio"
-              aria-checked={b}
-              tabIndex={b ? 0 : -1}
-              onClick={() => doi(g.id)}
-              className={`rounded-full border px-4 py-2 text-xs font-bold transition-colors ${
-                b ? "border-than-chi bg-than-chi text-white" : "border-than-chi/25 text-than-chi/80 hover:border-accent hover:text-accent"
-              }`}
-            >
-              {g.ten}
-            </button>
-          );
-        })}
-      </div>
-    </div>
+    <svg viewBox="0 0 240 200" className={lop} aria-hidden="true">
+      <defs>
+        <linearGradient id={id} x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0" stopColor="#eef2f5" />
+          <stop offset="1" stopColor="#b4c2cb" />
+        </linearGradient>
+      </defs>
+      <ellipse cx="120" cy="188" rx="72" ry="5" fill="#000" opacity=".08" />
+      {c === "s" || c === "l" ? (
+        <>
+          <rect x="28" y="164" width="184" height="8" rx="2" fill="#20242a" />
+          <rect x="38" y="32" width="92" height="132" rx="3" fill="#20242a" />
+          <rect x="46" y="40" width="76" height="116" fill={`url(#${id})`} />
+          <rect x="110" y="42" width="92" height="122" rx="3" fill="#20242a" opacity=".94" />
+          <rect x="118" y="50" width="76" height="106" fill={`url(#${id})`} />
+          <path d={c === "l" ? "M120 22v12m-5-5 5-5 5 5M150 22v12m-5-5 5-5 5 5" : "M142 24h34m-8-6 8 6-8 6"} fill="none" stroke="#d6202f" strokeWidth="1.4" />
+        </>
+      ) : c === "f" ? (
+        <>
+          <polygon points="36,38 92,26 92,166 36,154" fill="#20242a" />
+          <polygon points="92,26 148,38 148,154 92,166" fill="#3a4048" />
+          <polygon points="148,38 204,26 204,166 148,154" fill="#20242a" />
+          <polygon points="46,48 82,40 82,152 46,144" fill={`url(#${id})`} />
+          <polygon points="158,48 194,40 194,152 158,144" fill={`url(#${id})`} />
+        </>
+      ) : c === "v" ? (
+        <>
+          <rect x="30" y="24" width="180" height="148" fill="#20242a" />
+          {[0, 1, 2].map((i) => [0, 1].map((j) => <rect key={`${i}${j}`} x={36 + i * 58} y={30 + j * 72} width={52} height={66} fill={`url(#${id})`} />))}
+        </>
+      ) : c === "d" ? (
+        <>
+          <rect x="74" y="16" width="92" height="162" rx="3" fill="#20242a" />
+          <rect x="86" y="28" width="68" height="138" fill={`url(#${id})`} />
+          <path d="M86 28H132L86 74Z" fill="#fff" opacity=".45" />
+          <rect x="146" y="98" width="5" height="30" rx="2.5" fill="#d6202f" />
+        </>
+      ) : (
+        <>
+          <rect x="50" y="26" width="140" height="146" rx="3" fill="#20242a" />
+          <rect x="62" y="38" width="116" height="122" fill={`url(#${id})`} />
+          <path d="M62 38H128L62 104Z" fill="#fff" opacity=".45" />
+          <rect x="58" y="34" width="124" height="130" fill="none" stroke="#d6202f" strokeWidth="1" />
+        </>
+      )}
+    </svg>
   );
 }
 
-function BanVe({ h, lop }: { h: HeCua; lop: string }) {
-  const a = h.banVe[0];
-  return a ? (
-    <Image src={asset(a)} alt={`Bản vẽ mặt cắt ${h.ten}`} fill quality={75} sizes="(min-width: 1024px) 30vw, (min-width: 640px) 45vw, 100vw" className={lop} />
-  ) : (
-    <p className="absolute inset-0 flex items-center justify-center px-6 text-center text-sm text-than-chi/65">Bản vẽ đang được cập nhật</p>
-  );
+function AnhThe({ r, lopMau = "" }: { r: HeCua; lopMau?: string }) {
+  const ten = `${TEN_HANG[r.hang]} ${r.ma}`;
+  if (r.anh.c[0]) return <Image src={asset(r.anh.c[0])} alt={`Mẫu góc ${ten}`} fill quality={75} sizes="(min-width: 1024px) 380px, (min-width: 640px) 45vw, 90vw" className={`object-contain p-6 ${lopMau}`} />;
+  if (r.anh.d[0]) return <Image src={asset(r.anh.d[0])} alt={`Bản vẽ mặt cắt ${ten}`} fill quality={75} sizes="(min-width: 1024px) 380px, (min-width: 640px) 45vw, 90vw" className={`object-contain p-3 ${lopMau}`} />;
+  return <HinhMinhHoa he={r.he} lop="h-[78%] w-[56%]" />;
 }
 
-function CuaSo({ h, dong }: { h: HeCua; dong: () => void }) {
-  const id = useId();
-  const [n, setN] = useState(0);
+/* ---------- Hộp thoại dùng chung: giữ focus, Esc đóng, trả focus ---------- */
+function HopThoai({ dong, tieuDe, rong = true, children }: { dong: () => void; tieuDe: string; rong?: boolean; children: ReactNode }) {
   const hop = useRef<HTMLDivElement>(null);
   const nutDong = useRef<HTMLButtonElement>(null);
-
   useEffect(() => {
     const truoc = document.activeElement as HTMLElement | null;
     const cu = document.body.style.overflow;
     document.body.style.overflow = "hidden";
     nutDong.current?.focus();
     const phim = (e: KeyboardEvent) => {
-      if (e.key === "Escape") return dong();
+      if (e.key === "Escape") {
+        if (document.getElementById("zoom-he-cua")) return;
+        return dong();
+      }
       if (e.key !== "Tab" || !hop.current) return;
-      const ds = Array.from(hop.current.querySelectorAll<HTMLElement>("button, a[href], [tabindex]:not([tabindex='-1'])")).filter((x) => !x.hasAttribute("disabled"));
+      const ds = Array.from(hop.current.querySelectorAll<HTMLElement>("button, a[href], [tabindex]:not([tabindex='-1'])")).filter((x) => !x.hasAttribute("disabled") && x.offsetParent !== null);
       if (!ds.length) return;
       const dau = ds[0];
       const cuoi = ds[ds.length - 1];
@@ -91,109 +153,276 @@ function CuaSo({ h, dong }: { h: HeCua; dong: () => void }) {
       truoc?.focus();
     };
   }, [dong]);
-
-  const ts = THONG_SO_THU_TU.filter((k) => h.thongSo[k]);
-  const anh = h.banVe[n];
-
   return (
-    <div className="fixed inset-0 z-[70] flex items-center justify-center bg-than-chi/70 p-4 backdrop-blur-sm" onClick={dong}>
+    <div className="fixed inset-0 z-[70] flex items-center justify-center bg-[#0a0c0f]/70 p-4 backdrop-blur-[2px]" onClick={dong}>
       <div
         ref={hop}
         role="dialog"
         aria-modal="true"
-        aria-labelledby={id}
+        aria-label={tieuDe}
         onClick={(e) => e.stopPropagation()}
-        className="max-h-[92svh] w-full max-w-5xl overflow-y-auto rounded-[12px] bg-white p-5 md:p-8"
+        className={`relative max-h-[90svh] w-full overflow-auto rounded-[22px] bg-white ${rong ? "max-w-[1000px] md:grid md:grid-cols-[5fr_6fr]" : "max-w-[860px]"}`}
       >
-        <div className="flex items-start justify-between gap-4">
-          <div>
-            <p className="nhan-muc text-accent">
-              {h.heTen}
-              {" · "}
-              {nhanKetCau(h.ketCau)}
-            </p>
-            <h3 id={id} className="mt-2 text-2xl font-bold md:text-3xl">
-              {h.ten}
-            </h3>
-            {h.chucNang.length > 0 && (
-              <ul className="mt-3 flex flex-wrap gap-2" aria-label="Chức năng">
-                {h.chucNang.map((c) => (
-                  <li key={c} className="rounded-full border border-than-chi/20 px-3 py-1 text-xs font-medium text-than-chi/80">
-                    {c}
-                  </li>
-                ))}
-              </ul>
-            )}
-          </div>
-          <button ref={nutDong} type="button" onClick={dong} aria-label="Đóng" className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-than-chi/20 hover:border-accent hover:text-accent">
-            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" aria-hidden="true">
-              <path d="M6 6l12 12M18 6 6 18" />
-            </svg>
-          </button>
-        </div>
-
-        <div className="mt-6 grid gap-6 lg:grid-cols-[1.3fr_1fr]">
-          <div>
-            <div className="dau-goc relative h-[clamp(260px,46svh,460px)] overflow-hidden rounded-[6px] border border-than-chi/10 bg-white">
-              {anh ? <Image src={asset(anh)} alt={`Bản vẽ mặt cắt ${h.ten}${h.banVe.length > 1 ? `, hình ${n + 1} trên ${h.banVe.length}` : ""}`} fill quality={75} sizes="(min-width: 1024px) 55vw, 100vw" className="object-contain" /> : <BanVe h={h} lop="" />}
-            </div>
-            {h.banVe.length > 1 && (
-              <ul className="mt-3 flex flex-wrap gap-2" aria-label="Chọn hình bản vẽ">
-                {h.banVe.map((_, k) => (
-                  <li key={k}>
-                    <button
-                      type="button"
-                      aria-label={`Bản vẽ ${k + 1}`}
-                      aria-current={k === n}
-                      onClick={() => setN(k)}
-                      className={`h-11 min-w-11 rounded-full border px-3 text-sm font-bold ${k === n ? "border-accent bg-accent text-white" : "border-than-chi/25 hover:border-accent hover:text-accent"}`}
-                    >
-                      {k + 1}
-                    </button>
-                  </li>
-                ))}
-              </ul>
-            )}
-          </div>
-
-          <div>
-            <h4 className="text-xs font-semibold uppercase tracking-[0.2em] text-than-chi/70">Thông số kỹ thuật</h4>
-            {ts.length > 0 ? (
-              <dl className="mt-3 grid grid-cols-2 gap-px overflow-hidden rounded-[6px] border border-than-chi/15 bg-than-chi/15">
-                {ts.map((k) => (
-                  <div key={k} className="bg-white p-4">
-                    <dt className="text-[11px] font-medium uppercase tracking-[0.12em] text-than-chi/70">{k}</dt>
-                    <dd className="mt-1 text-sm font-semibold">{h.thongSo[k]}</dd>
-                  </div>
-                ))}
-              </dl>
-            ) : (
-              <p className="mt-3 rounded-[6px] border border-dashed border-than-chi/30 p-4 text-sm text-than-chi/70">Thông số đang chờ xác nhận. Liên hệ để nhận hồ sơ kỹ thuật.</p>
-            )}
-            {h.ghiChu && <p className="mt-3 text-sm text-than-chi/75">{h.ghiChu}</p>}
-            <p className="mt-4 text-xs leading-relaxed text-than-chi/70">
-              Số liệu tham khảo do nhà sản xuất công bố, thay đổi theo kích thước và cấu hình. Liên hệ chuyên viên để xác nhận cho công trình của bạn.
-            </p>
-            <Link href="/#dang-ky" className="nut nut-chinh mt-5">
-              Nhận hộp mẫu góc nhôm
-            </Link>
-          </div>
-        </div>
+        <button ref={nutDong} type="button" onClick={dong} aria-label="Đóng" className="absolute right-3 top-3 z-10 flex h-11 w-11 items-center justify-center rounded-full bg-white/90 text-3xl leading-none text-[#697280] hover:text-than-chi">
+          <span aria-hidden="true">×</span>
+        </button>
+        {children}
       </div>
     </div>
   );
 }
 
-/** Thẻ hiện tối đa 4 thông số đang có (theo thứ tự ưu tiên); thiếu hết thì báo chờ xác nhận. */
-function ThongSoThe({ h }: { h: HeCua }) {
-  const co = THONG_SO_THU_TU.filter((k) => k !== "Kính áp dụng" && h.thongSo[k]).slice(0, 4);
-  if (co.length === 0) return <p className="mt-3 border-t border-than-chi/10 pt-3 text-sm text-than-chi/70">Thông số đang chờ xác nhận.</p>;
+const NHAN_NHO = "text-[12px] font-bold uppercase tracking-[0.14em] text-[#697280]";
+
+function ThongSoLon({ r }: { r: HeCua }) {
+  const ds: [string, string, string][] = [["U-value", uVal(r), "W/m²K"], ["Cách âm", dbVal(r), "dB"], ["Kín nước", r.kinNuoc, ""]];
   return (
-    <dl className="mt-3 grid grid-cols-2 gap-x-4 gap-y-1 border-t border-than-chi/10 pt-3 text-sm">
-      {co.map((k) => (
-        <div key={k}>
-          <dt className="text-[11px] uppercase tracking-[0.1em] text-than-chi/65">{k.replace(" (W/m²K)", "")}</dt>
-          <dd className="font-semibold">{h.thongSo[k]}</dd>
+    <dl className="mt-5 grid grid-cols-3 overflow-hidden rounded-[14px] border border-[#e3e7ec]">
+      {ds.map(([t, v, dv]) => (
+        <div key={t} className="border-r border-[#e3e7ec] p-3.5 last:border-r-0">
+          <dt className={NHAN_NHO}>{t}</dt>
+          <dd className="mt-1.5 text-[clamp(1.1rem,2vw,1.6rem)] font-light leading-tight tracking-[-0.02em]">
+            {v || "—"}
+            {v && dv && <small className="ml-1 text-xs text-[#697280]">{dv}</small>}
+          </dd>
+        </div>
+      ))}
+    </dl>
+  );
+}
+
+function CuaSoChiTiet({ r, dong }: { r: HeCua; dong: () => void }) {
+  const loai: [string, string[]][] = [["Mẫu góc", r.anh.c], ["Bản vẽ 2D", r.anh.d]];
+  const co = loai.filter(([, l]) => l.length > 0);
+  const [tab, setTab] = useState(0);
+  const [k, setK] = useState(0);
+  const [phong, setPhong] = useState(false);
+  const ten = `${TEN_HANG[r.hang]} ${r.ma}`;
+  const anhDang = co[tab]?.[1][k];
+  const dsSpec: [string, string][] = ([["U-value (W/m²K)", r.u], ["Kín khí", r.kinKhi], ["Cách âm", r.cachAm], ["Kín nước", r.kinNuoc], ["Chịu gió", r.chiuGio], ["Chống đột nhập", r.chongTrom]] as [string, string][]).filter(([, v]) => v);
+
+  useEffect(() => {
+    if (!phong) return;
+    const phim = (e: KeyboardEvent) => e.key === "Escape" && setPhong(false);
+    window.addEventListener("keydown", phim, true);
+    return () => window.removeEventListener("keydown", phim, true);
+  }, [phong]);
+
+  return (
+    <HopThoai dong={dong} tieuDe={`${ten}, ${r.loai}`}>
+      <div className="grid-giay relative flex min-h-[260px] flex-col items-center justify-center border-b border-[#e3e7ec] p-5 md:min-h-[400px] md:border-b-0 md:border-r">
+        <span className="absolute left-4 top-4 flex items-center gap-2 text-[12px] font-bold uppercase tracking-[0.2em] text-[#4b5563]">
+          <i className="h-1.5 w-1.5 bg-accent" aria-hidden="true" />
+          {TEN_HANG[r.hang]}
+        </span>
+        {anhDang ? (
+          <>
+            <button type="button" onClick={() => setPhong(true)} aria-label="Phóng to ảnh" className="relative mt-6 h-[clamp(200px,34svh,330px)] w-full cursor-zoom-in">
+              <Image src={asset(anhDang)} alt={`${co[tab][0]} ${ten}`} fill quality={75} sizes="(min-width: 768px) 40vw, 90vw" className="object-contain" />
+            </button>
+            {co.length > 1 && (
+              <div role="tablist" aria-label="Loại hình" className="mt-3 flex gap-2">
+                {co.map(([t], i) => (
+                  <button
+                    key={t}
+                    type="button"
+                    role="tab"
+                    aria-selected={tab === i}
+                    onClick={() => {
+                      setTab(i);
+                      setK(0);
+                    }}
+                    className={`min-h-11 rounded-full border px-4 py-2 text-[13px] ${tab === i ? "border-than-chi bg-than-chi font-bold text-white" : "border-[#c9d0d9] bg-white text-[#4b5563] hover:border-than-chi"}`}
+                  >
+                    {t}
+                  </button>
+                ))}
+              </div>
+            )}
+            {co[tab][1].length > 1 && (
+              <ul className="mt-3 flex flex-wrap justify-center gap-2" aria-label="Chọn hình">
+                {co[tab][1].map((u, i) => (
+                  <li key={u}>
+                    <button type="button" onClick={() => setK(i)} aria-label={`Hình ${i + 1}`} aria-current={i === k} className={`relative h-14 w-16 overflow-hidden rounded-[8px] border bg-white ${i === k ? "border-accent" : "border-[#c9d0d9]"}`}>
+                      <Image src={asset(u)} alt="" fill quality={60} sizes="64px" className="object-contain p-1" />
+                    </button>
+                  </li>
+                ))}
+              </ul>
+            )}
+          </>
+        ) : (
+          <HinhMinhHoa he={r.he} lop="mt-6 h-[78%] w-[70%] max-h-[300px]" />
+        )}
+        {phong && anhDang && (
+          <div id="zoom-he-cua" role="dialog" aria-modal="true" aria-label="Ảnh phóng to" className="fixed inset-0 z-[80] flex cursor-zoom-out items-center justify-center bg-white p-4" onClick={() => setPhong(false)}>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src={asset(anhDang)} alt={`${co[tab][0]} ${ten}`} className="max-h-full max-w-full object-contain" />
+            <button type="button" autoFocus aria-label="Đóng ảnh phóng to" className="absolute right-4 top-3 flex h-11 w-11 items-center justify-center text-4xl text-than-chi">
+              <span aria-hidden="true">×</span>
+            </button>
+          </div>
+        )}
+      </div>
+
+      <div className="p-6 md:p-9">
+        <p className="text-[12px] font-bold uppercase tracking-[0.2em] text-accent-text">{tenHe(r).join(" / ")}</p>
+        <h3 className="mt-2.5 text-[clamp(1.75rem,3vw,2.125rem)] font-light leading-[1.15] tracking-[-0.02em]">{r.ma}</h3>
+        <p className="mt-1.5 text-[15px] text-[#697280]">
+          {r.loai}
+          {r.ketCau && ` · ${TEN_KET_CAU[r.ketCau]}`}
+        </p>
+        {r.tags.length > 0 && (
+          <ul className="mt-3 flex flex-wrap gap-1.5" aria-label="Chức năng">
+            {r.tags.map((t) => (
+              <li key={t} className="rounded-[7px] border border-[#e3e7ec] bg-[#f3f5f8] px-2.5 py-1 text-[12px] leading-snug text-[#4b5563]">
+                {TEN_TAG[t]}
+              </li>
+            ))}
+          </ul>
+        )}
+        <ThongSoLon r={r} />
+        {dsSpec.length > 0 || r.ghiChu ? (
+          <dl className="mt-3 grid gap-x-8 sm:grid-cols-2">
+            {dsSpec.map(([t, v]) => (
+              <div key={t} className="border-b border-[#e3e7ec] py-3">
+                <dt className={NHAN_NHO}>{t}</dt>
+                <dd className="mt-1 text-[15px] leading-normal">{v}</dd>
+              </div>
+            ))}
+            {r.ghiChu && (
+              <div className="border-b border-[#e3e7ec] py-3 sm:col-span-2">
+                <dt className={NHAN_NHO}>Ghi chú</dt>
+                <dd className="mt-1 text-[15px] leading-normal">{r.ghiChu}</dd>
+              </div>
+            )}
+          </dl>
+        ) : (
+          <p className="mt-5 text-[15px] text-[#697280]">Hãng chưa công bố thông số của hệ này trên trang công khai.</p>
+        )}
+        <p className="mt-4 text-[13px] leading-[1.75] text-[#697280]">
+          {r.them ? "Thông tin lấy từ tài liệu hãng cung cấp" : "Số liệu do hãng công bố"}, mang tính tham khảo. Giá trị thực tế phụ thuộc kích thước, kính và cấu hình công trình; vui lòng liên hệ để được xác nhận.
+        </p>
+        <div className="mt-4 flex flex-wrap gap-3">
+          <Link href="/lien-he" className="nut nut-chinh">
+            Nhận tư vấn
+          </Link>
+          <a href={HOTLINE_TEL} className="nut nut-vien">
+            Gọi {HOTLINE}
+          </a>
+        </div>
+      </div>
+    </HopThoai>
+  );
+}
+
+function CuaSoSoSanh({ ds, dong }: { ds: HeCua[]; dong: () => void }) {
+  const dong6: [string, (r: HeCua) => string][] = [
+    ["U-value (W/m²K)", (r) => r.u],
+    ["Kín khí", (r) => r.kinKhi],
+    ["Cách âm", (r) => r.cachAm],
+    ["Kín nước", (r) => r.kinNuoc],
+    ["Chịu gió", (r) => r.chiuGio],
+    ["Chống đột nhập", (r) => r.chongTrom],
+  ];
+  return (
+    <HopThoai dong={dong} tieuDe="So sánh các hệ đã chọn" rong={false}>
+      <div className="p-6 md:p-9">
+        <p className="text-[12px] font-bold uppercase tracking-[0.2em] text-accent-text">So sánh</p>
+        <h3 className="mt-2.5 text-[clamp(1.75rem,3vw,2.125rem)] font-light leading-[1.15] tracking-[-0.02em]">Các hệ đã chọn</h3>
+        <div className="mt-5 overflow-x-auto">
+          <table className="w-full border-collapse text-sm">
+            <thead>
+              <tr>
+                <th scope="col" className="p-3 text-left font-light text-[#697280]">
+                  <span className="sr-only">Thông số</span>
+                </th>
+                {ds.map((r) => (
+                  <th key={r.id} scope="col" className="border-b border-[#e3e7ec] p-3 text-left font-bold">
+                    <span className="block text-[12px] font-bold uppercase tracking-[0.14em] text-[#697280]">{TEN_HANG[r.hang]}</span>
+                    {r.ma}
+                  </th>
+                ))}
+              </tr>
+            </thead>
+            <tbody>
+              {dong6
+                .filter(([, f]) => ds.some((r) => f(r)))
+                .map(([t, f]) => (
+                  <tr key={t}>
+                    <th scope="row" className="border-b border-[#e3e7ec] p-3 text-left font-light text-[#697280]">
+                      {t}
+                    </th>
+                    {ds.map((r) => (
+                      <td key={r.id} className="border-b border-[#e3e7ec] p-3 align-top font-light">
+                        {f(r) || "—"}
+                      </td>
+                    ))}
+                  </tr>
+                ))}
+              <tr>
+                <th scope="row" className="border-b border-[#e3e7ec] p-3 text-left font-light text-[#697280]">
+                  Nhãn
+                </th>
+                {ds.map((r) => (
+                  <td key={r.id} className="border-b border-[#e3e7ec] p-3 align-top font-light">
+                    {r.tags.length ? r.tags.map((t) => TEN_TAG[t]).join(" · ") : "—"}
+                  </td>
+                ))}
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p className="mt-4 text-[13px] leading-[1.75] text-[#697280]">Mọi số liệu do hãng công bố, điều kiện thử có thể khác nhau giữa các hệ. Liên hệ để được tư vấn theo công trình.</p>
+        <div className="mt-4 flex flex-wrap gap-3">
+          <Link href="/lien-he" className="nut nut-chinh">
+            Nhận tư vấn
+          </Link>
+          <a href={HOTLINE_TEL} className="nut nut-vien">
+            Gọi {HOTLINE}
+          </a>
+        </div>
+      </div>
+    </HopThoai>
+  );
+}
+
+/* ---------- Địa chỉ trang → bộ lọc ---------- */
+function docLoc(search: string): Loc {
+  const p = new URLSearchParams(search);
+  const ds = (k: string) => (p.get(k) ?? "").split(",").filter(Boolean);
+  const b = p.get("b") as Hang | null;
+  return { b: b && b in TEN_HANG ? b : "", k: ds("k"), f: ds("f"), h: ds("h"), q: p.get("q") ?? "", p: Math.max(1, Number(p.get("p")) || 1) };
+}
+function dangKyUrl(cb: () => void) {
+  window.addEventListener("popstate", cb);
+  return () => window.removeEventListener("popstate", cb);
+}
+
+/* ---------- Số thẻ mỗi trang theo cỡ màn hình: 12 / 8 / 4 ---------- */
+function dangKyCo(cb: () => void) {
+  window.addEventListener("resize", cb);
+  return () => window.removeEventListener("resize", cb);
+}
+const soThe = () => (window.innerWidth < 620 ? 4 : window.innerWidth < 850 ? 8 : 12);
+
+function Chip({ bat, chon, children }: { bat: boolean; chon: () => void; children: ReactNode }) {
+  return (
+    <button type="button" aria-pressed={bat} onClick={chon} className={`min-h-11 rounded-[8px] px-3 py-2 text-left text-[13px] ${bat ? "bg-accent font-bold text-white" : "text-[#e6e9ee] hover:bg-white/15"}`}>
+      {children}
+    </button>
+  );
+}
+
+function ThongSoThe({ r }: { r: HeCua }) {
+  const ds: [string, string][] = [["U-value", uVal(r)], ["Cách âm · dB", dbVal(r)], ["Kín nước", r.kinNuoc]];
+  if (!ds.some(([, v]) => v)) return <p className="rounded-[12px] border border-dashed border-[#d5dbe3] px-3 py-3 text-[13px] text-[#697280]">Hãng chưa công bố thông số</p>;
+  return (
+    <dl className="grid grid-cols-3 overflow-hidden rounded-[12px] border border-[#e3e7ec]">
+      {ds.map(([t, v]) => (
+        <div key={t} className="min-w-0 border-r border-[#e3e7ec] px-3 py-2.5 last:border-r-0">
+          <dt className="whitespace-nowrap text-[11px] font-bold uppercase tracking-[0.1em] text-[#697280]">{t}</dt>
+          <dd className={`mt-1 overflow-hidden text-ellipsis whitespace-nowrap text-[15px] leading-tight md:text-base ${v ? "font-bold" : "font-light text-[#b7bec8]"}`}>{v || "—"}</dd>
         </div>
       ))}
     </dl>
@@ -201,110 +430,286 @@ function ThongSoThe({ h }: { h: HeCua }) {
 }
 
 export function HeCuaDanhSach() {
-  const [he, setHe] = useState(TAT_CA);
-  const [kc, setKc] = useState(TAT_CA);
-  const [cn, setCn] = useState(TAT_CA);
-  const [tim, setTim] = useState("");
-  const [mo, setMo] = useState<HeCua | null>(null);
-  const [soLuong, setSoLuong] = useState(BUOC);
-  const doi = (f: (v: string) => void) => (v: string) => {
-    f(v);
-    setSoLuong(BUOC);
-  };
+  // Bộ lọc ban đầu đọc từ địa chỉ trang (link chia sẻ); sau khi người dùng chỉnh thì dùng bản chỉnh
+  const search = useSyncExternalStore(dangKyUrl, () => window.location.search, () => "");
+  const tuUrl = useMemo(() => docLoc(search), [search]);
+  const [sua, setSua] = useState<Loc | null>(null);
+  const loc = sua ?? tuUrl;
+  const setLoc = useCallback((f: Loc | ((c: Loc) => Loc)) => setSua((c) => (typeof f === "function" ? f(c ?? tuUrl) : f)), [tuUrl]);
+  const [cmp, setCmp] = useState<number[]>([]);
+  const [mo, setMo] = useState<string>("");
+  const [chiTiet, setChiTiet] = useState<HeCua | null>(null);
+  const [soSanh, setSoSanh] = useState(false);
+  const [thongBao, setThongBao] = useState("");
+  const dau = useRef<HTMLDivElement>(null);
+  const idLoc = useId();
+  const mot = useSyncExternalStore(dangKyCo, soThe, () => 12);
 
-  const ds = useMemo(() => {
-    const q = tim.trim().toLowerCase();
-    return HE_CUA_DS.filter(
-      (h) =>
-        (he === TAT_CA || h.he === he) &&
-        (kc === TAT_CA || h.ketCau === "tn" || (kc === "cn" ? h.ketCau === "t" : h.ketCau === "n")) &&
-        (cn === TAT_CA || h.chucNang.includes(cn)) &&
-        (q === "" || `${h.ten} ${h.heTen} ${h.chucNang.join(" ")}`.toLowerCase().includes(q)),
-    );
-  }, [he, kc, cn, tim]);
+  // Ghi bộ lọc lên địa chỉ trang
+  useEffect(() => {
+    if (sua === null) return;
+    const p = new URLSearchParams(window.location.search);
+    for (const k of ["b", "k", "f", "h", "q", "p"]) p.delete(k);
+    if (sua.b) p.set("b", sua.b);
+    if (sua.k.length) p.set("k", sua.k.join(","));
+    if (sua.f.length) p.set("f", sua.f.join(","));
+    if (sua.h.length) p.set("h", sua.h.join(","));
+    if (sua.q) p.set("q", sua.q);
+    if (sua.p > 1) p.set("p", String(sua.p));
+    const s = p.toString();
+    window.history.replaceState(null, "", `${window.location.pathname}${s ? `?${s}` : ""}${window.location.hash}`);
+  }, [sua]);
 
-  const dem = (id: string) => HE_CUA_DS.filter((h) => h.he === id).length;
-  const dangLoc = he !== TAT_CA || kc !== TAT_CA || cn !== TAT_CA || tim.trim() !== "";
+  // Đóng danh sách thả xuống khi bấm ra ngoài hoặc nhấn Esc
+  useEffect(() => {
+    if (!mo) return;
+    const ngoai = (e: MouseEvent) => {
+      if (!(e.target as HTMLElement).closest("[data-loc]")) setMo("");
+    };
+    const phim = (e: KeyboardEvent) => e.key === "Escape" && setMo("");
+    document.addEventListener("mousedown", ngoai);
+    document.addEventListener("keydown", phim);
+    return () => {
+      document.removeEventListener("mousedown", ngoai);
+      document.removeEventListener("keydown", phim);
+    };
+  }, [mo]);
+
+  const ketQua = useMemo(() => HE_CUA_DS.filter((r) => khop(r, loc)), [loc]);
+  const soTrang = Math.max(1, Math.ceil(ketQua.length / mot));
+  const trang = Math.min(loc.p, soTrang);
+  const batDau = (trang - 1) * mot;
+  const hien = ketQua.slice(batDau, batDau + mot);
+  const demHang = (h: Hang | "") => HE_CUA_DS.filter((r) => khop(r, loc, true) && (h === "" || r.hang === h)).length;
+  const soLoc = loc.k.length + loc.f.length + loc.h.length;
+  const dangLoc = soLoc > 0 || loc.b !== "" || loc.q !== "";
+
+  const doi = (p: Partial<Loc>) => setLoc((c) => ({ ...c, p: 1, ...p }));
+  const bat = (k: "k" | "f" | "h", v: string) => doi({ [k]: loc[k].includes(v) ? loc[k].filter((x) => x !== v) : [...loc[k], v] });
+  const chonSoSanh = useCallback((r: HeCua, co: boolean) => {
+    setCmp((c) => {
+      if (co) {
+        if (c.length >= 3) {
+          setThongBao("Chỉ so sánh tối đa 3 hệ.");
+          return c;
+        }
+        return c.includes(r.id) ? c : [...c, r.id];
+      }
+      return c.filter((x) => x !== r.id);
+    });
+  }, []);
+  const dsCmp = cmp.map((i) => HE_CUA_DS[i]);
+
+  function sangTrang(p: number) {
+    setLoc((c) => ({ ...c, p }));
+    dau.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+  }
 
   return (
     <div>
-      <div className="grid gap-4 rounded-2xl bg-nga p-4 md:p-5">
-        <NhomLoc nhan="Hệ thống" gt={HE_THONG.map((x) => ({ id: x.id, ten: `${x.ten} (${dem(x.id)})` }))} chon={he} doi={doi(setHe)} />
-        <NhomLoc nhan="Kết cấu" gt={KET_CAU.map((x) => ({ ...x }))} chon={kc} doi={doi(setKc)} />
-        <NhomLoc nhan="Chức năng" gt={CHUC_NANG.map((x) => ({ id: x, ten: x }))} chon={cn} doi={doi(setCn)} />
-        <div className="flex flex-wrap items-center justify-between gap-3 border-t border-than-chi/10 pt-4">
-          <span role="status" aria-live="polite" className="text-sm text-than-chi/75">
-            {ds.length} / {HE_CUA_DS.length} hệ cửa
-          </span>
-          <div className="flex items-center gap-3">
-            {dangLoc && (
+      {/* Thanh tab hãng, ô tìm kiếm */}
+      <div ref={dau} className="flex scroll-mt-24 flex-wrap items-center justify-between gap-5 border-y border-[#e3e7ec] py-3.5">
+        <div role="radiogroup" aria-label="Lọc theo hãng" onKeyDown={phimNhomChon} className="inline-flex w-full flex-wrap gap-0.5 rounded-[12px] bg-[#f3f5f8] p-1 md:w-auto">
+          {TAB_HANG.map((t) => {
+            const on = loc.b === t.id;
+            return (
               <button
+                key={t.id || "tat-ca"}
                 type="button"
-                onClick={() => {
-                  setHe(TAT_CA);
-                  setKc(TAT_CA);
-                  setCn(TAT_CA);
-                  setTim("");
-                  setSoLuong(BUOC);
-                }}
-                className="text-xs font-bold uppercase tracking-[0.08em] text-accent-text underline underline-offset-4"
+                role="radio"
+                aria-checked={on}
+                tabIndex={on ? 0 : -1}
+                onClick={() => doi({ b: t.id })}
+                className={`flex min-h-11 flex-1 items-center justify-center gap-2 whitespace-nowrap rounded-[9px] px-3 py-2 text-sm md:flex-none md:px-4 ${on ? "bg-white font-bold text-than-chi shadow-[0_1px_3px_rgba(15,17,21,0.12),0_0_0_1px_#e3e7ec]" : "text-[#4b5563] hover:text-than-chi"}`}
               >
-                Xóa bộ lọc
+                {t.ten}
+                <em className={`text-xs not-italic ${on ? "text-accent-text" : "text-[#697280]"}`}>{demHang(t.id)}</em>
               </button>
-            )}
-            <label className="sr-only" htmlFor="tim-he-cua">
+            );
+          })}
+        </div>
+        <div className="flex w-full flex-wrap items-center gap-x-5 gap-y-3 md:w-auto">
+          <span role="status" aria-live="polite" className="text-[13px] font-bold tracking-[0.04em] text-[#4b5563]">
+            {ketQua.length} / {HE_CUA_DS.length} hệ
+          </span>
+          <div className="relative min-w-0 flex-1 md:flex-none">
+            <label htmlFor={`${idLoc}-q`} className="sr-only">
               Tìm hệ cửa
             </label>
+            <svg viewBox="0 0 24 24" className="pointer-events-none absolute left-3.5 top-1/2 h-4 w-4 -translate-y-1/2 text-[#697280]" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" aria-hidden="true">
+              <circle cx="11" cy="11" r="6.5" />
+              <path d="m16 16 4.5 4.5" />
+            </svg>
             <input
-              id="tim-he-cua"
+              id={`${idLoc}-q`}
               type="search"
-              value={tim}
-              onChange={(e) => {
-                setTim(e.target.value);
-                setSoLuong(BUOC);
-              }}
-              placeholder="Tìm: lưới, ba lớp, xếp gấp…"
-              className="w-52 rounded-full border border-than-chi/25 bg-white px-4 py-2 text-sm outline-none focus:border-accent md:w-64"
+              value={loc.q}
+              onChange={(e) => doi({ q: e.target.value })}
+              placeholder="Tìm hệ: XW98, WS 75 THI…"
+              className="w-full rounded-[12px] border border-[#e3e7ec] bg-white py-3 pl-10 pr-3.5 text-[15px] outline-none focus:border-than-chi md:w-[280px]"
             />
           </div>
+          {dangLoc && (
+            <button type="button" onClick={() => setLoc(LOC_RONG)} className="min-h-11 text-[13px] text-[#697280] underline underline-offset-4 hover:text-than-chi">
+              × Xóa tất cả
+            </button>
+          )}
         </div>
       </div>
 
-      <ul className="mt-5 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-        {ds.slice(0, soLuong).map((h) => (
-          <li key={h.slug}>
-            <button
-              type="button"
-              onClick={() => setMo(h)}
-              aria-haspopup="dialog"
-              className="group dau-goc block h-full w-full overflow-hidden rounded-[6px] border border-than-chi/10 bg-white text-left transition-shadow hover:shadow-lg"
-            >
-              <div className="relative aspect-[3/2] border-b border-than-chi/10 bg-white">
-                <BanVe h={h} lop="object-contain p-2 transition-transform duration-500 group-hover:scale-[1.03]" />
+      {/* Lọc thả xuống, chọn nhiều */}
+      <div className="flex flex-wrap items-center gap-2.5 py-4" data-loc>
+        <span className="mr-1 flex items-center gap-2 text-[11px] font-bold uppercase tracking-[0.2em] text-[#4b5563]">
+          <i className="h-px w-4 bg-accent" aria-hidden="true" />
+          Lọc theo
+        </span>
+        {NHOM_LOC.map((g) => {
+          const n = loc[g.k].length;
+          const m = mo === g.k;
+          return (
+            <div key={g.k} className="relative">
+              <button
+                type="button"
+                aria-expanded={m}
+                aria-controls={`${idLoc}-${g.k}`}
+                onClick={() => setMo(m ? "" : g.k)}
+                className={`flex min-h-11 items-center gap-2 rounded-[10px] border px-4 py-2 text-[13px] ${n ? "border-than-chi bg-than-chi/5 font-bold" : "border-[#d5dbe3] bg-white hover:border-than-chi"}`}
+              >
+                {g.ten}
+                {n > 0 && <em className="rounded-full bg-accent px-1.5 text-[11px] not-italic text-white">{n}</em>}
+                <svg viewBox="0 0 12 8" className={`h-2 w-3 transition-transform ${m ? "rotate-180" : ""}`} fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" aria-hidden="true">
+                  <path d="m1 1.5 5 5 5-5" />
+                </svg>
+              </button>
+              <div
+                id={`${idLoc}-${g.k}`}
+                role="group"
+                aria-label={g.ten}
+                hidden={!m}
+                className="absolute left-0 top-[calc(100%+8px)] z-30 flex min-w-[220px] flex-col gap-0.5 rounded-[14px] bg-[#0f1115]/95 p-2 shadow-[0_20px_60px_rgba(0,0,0,0.32)] backdrop-blur"
+              >
+                {g.o.map(([v, t]) => (
+                  <Chip key={v} bat={loc[g.k].includes(v)} chon={() => bat(g.k, v)}>
+                    {t}
+                  </Chip>
+                ))}
               </div>
-              <div className="p-5">
-                <p className="nhan-muc text-accent">
-                  {h.heTen} · {nhanKetCau(h.ketCau)}
-                </p>
-                <h3 className="mt-1 text-lg font-bold leading-snug group-hover:text-accent">{h.ten}</h3>
-                <ThongSoThe h={h} />
-                <span className="mt-4 inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.08em] text-accent-text">
-                  Xem bản vẽ và thông số <span aria-hidden="true">→</span>
+            </div>
+          );
+        })}
+        {soLoc > 0 && (
+          <button type="button" onClick={() => doi({ k: [], f: [], h: [] })} className="min-h-11 px-2 text-[13px] text-[#697280] underline underline-offset-4 hover:text-than-chi">
+            Xóa lọc
+          </button>
+        )}
+      </div>
+
+      {/* Lưới thẻ */}
+      <ul key={`${loc.b}-${loc.k}-${loc.f}-${loc.h}-${loc.q}-${trang}`} className="mt-4 grid gap-4 sm:grid-cols-2 sm:gap-5 lg:grid-cols-3 lg:gap-7">
+        {hien.map((r, i) => {
+          const chon = cmp.includes(r.id);
+          return (
+            <li key={r.id} style={{ animationDelay: `${i * 35}ms` }} className="the-hien group relative flex flex-col overflow-hidden rounded-[20px] border border-[#e3e7ec] bg-white transition-[border-color,box-shadow,transform] duration-300 focus-within:border-than-chi hover:-translate-y-[3px] hover:border-than-chi hover:shadow-[0_18px_40px_rgba(15,17,21,0.09)]">
+              <div className="grid-giay relative flex aspect-[1/0.62] items-center justify-center border-b border-[#e3e7ec]">
+                <span className="absolute left-[18px] top-4 z-[1] flex items-center gap-[7px] text-[12px] font-bold uppercase tracking-[0.2em] text-[#4b5563]">
+                  <i className="h-1.5 w-1.5 bg-accent" aria-hidden="true" />
+                  {TEN_HANG[r.hang]}
                 </span>
+                <AnhThe r={r} lopMau="transition-transform duration-500 group-hover:scale-[1.04]" />
+                <label className="absolute right-2 top-1.5 z-10 flex h-11 w-11 cursor-pointer items-center justify-center" title="So sánh">
+                  <input type="checkbox" checked={chon} onChange={(e) => chonSoSanh(r, e.target.checked)} aria-label={`So sánh ${TEN_HANG[r.hang]} ${r.ma}`} className="peer sr-only" />
+                  <span className="relative block h-7 w-7 rounded-[8px] border border-[#b6bec9] bg-white peer-checked:border-accent peer-checked:bg-accent peer-focus-visible:outline peer-focus-visible:outline-2 peer-focus-visible:outline-offset-2 peer-focus-visible:outline-than-chi">
+                    <span className={`absolute left-[9px] top-[4px] h-3 w-1.5 rotate-45 border-b-2 border-r-2 border-white ${chon ? "" : "hidden"}`} aria-hidden="true" />
+                  </span>
+                </label>
               </div>
-            </button>
+              <div className="flex flex-1 flex-col gap-3.5 p-4 md:px-5 md:pb-5 md:pt-[18px]">
+                <div className="flex flex-col gap-0.5 sm:flex-row sm:items-baseline sm:justify-between sm:gap-3">
+                  <h3 className="text-[clamp(1.0625rem,1.5vw,1.25rem)] font-bold leading-tight tracking-[-0.01em]">
+                    <button type="button" onClick={() => setChiTiet(r)} aria-haspopup="dialog" className="text-left after:absolute after:inset-0 after:z-[1] after:content-[''] focus-visible:outline-none">
+                      <span className="sr-only">{TEN_HANG[r.hang]} </span>
+                      {r.ma}
+                    </button>
+                  </h3>
+                  <p className="text-[12px] text-[#697280] sm:text-right">{r.loai}</p>
+                </div>
+                <ThongSoThe r={r} />
+                <ul className="flex min-h-[26px] flex-wrap gap-1.5" aria-label="Chức năng">
+                  {r.tags.map((t) => (
+                    <li key={t} className="rounded-[7px] border border-[#e3e7ec] bg-[#f3f5f8] px-2 py-0.5 text-[12px] leading-snug text-[#4b5563]">
+                      {TEN_TAG[t]}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </li>
+          );
+        })}
+        {hien.length === 0 && (
+          <li className="py-16 text-center text-[#697280] sm:col-span-2 lg:col-span-3">
+            <p>Chưa có hệ phù hợp với bộ lọc này.</p>
+            <Link href="/lien-he" className="nut nut-chinh mt-5">
+              Liên hệ để được tư vấn
+            </Link>
           </li>
-        ))}
-        {ds.length === 0 && <li className="text-than-chi/75 sm:col-span-2 lg:col-span-3">Chưa có hệ cửa phù hợp với bộ lọc.</li>}
+        )}
       </ul>
-      {ds.length > soLuong && (
-        <div className="mt-8 text-center">
-          <button type="button" onClick={() => setSoLuong((n) => n + BUOC)} className="nut nut-vien">
-            Xem thêm {Math.min(BUOC, ds.length - soLuong)} hệ cửa ({ds.length - soLuong} còn lại)
+
+      {/* Phân trang */}
+      {ketQua.length > 0 && (
+        <nav aria-label="Phân trang hệ cửa" className="mt-14 text-center">
+          <p className="mb-4 text-[13px] tracking-[0.04em] text-[#697280]">
+            Hiển thị {batDau + 1}–{Math.min(batDau + mot, ketQua.length)} / {ketQua.length} hệ
+          </p>
+          {soTrang > 1 && (
+            <ul className="inline-flex flex-wrap items-center justify-center gap-2">
+              <li>
+                <button type="button" onClick={() => sangTrang(trang - 1)} disabled={trang < 2} aria-label="Trang trước" className="h-11 w-11 rounded-[10px] border border-[#e3e7ec] bg-white text-[15px] hover:border-than-chi disabled:opacity-35 disabled:hover:border-[#e3e7ec]">
+                  ‹
+                </button>
+              </li>
+              {Array.from({ length: soTrang }, (_, i) => i + 1).map((p) => (
+                <li key={p}>
+                  <button type="button" onClick={() => sangTrang(p)} aria-label={`Trang ${p}`} aria-current={p === trang ? "page" : undefined} className={`h-11 w-11 rounded-[10px] border text-[15px] ${p === trang ? "border-than-chi bg-than-chi text-white" : "border-[#e3e7ec] bg-white hover:border-than-chi"}`}>
+                    {p}
+                  </button>
+                </li>
+              ))}
+              <li>
+                <button type="button" onClick={() => sangTrang(trang + 1)} disabled={trang >= soTrang} aria-label="Trang sau" className="h-11 w-11 rounded-[10px] border border-[#e3e7ec] bg-white text-[15px] hover:border-than-chi disabled:opacity-35 disabled:hover:border-[#e3e7ec]">
+                  ›
+                </button>
+              </li>
+            </ul>
+          )}
+        </nav>
+      )}
+
+      {/* Thanh so sánh */}
+      <div role="status" aria-live="polite" className="sr-only">
+        {thongBao}
+      </div>
+      {cmp.length > 0 && (
+        <div className="fixed bottom-[88px] left-1/2 z-40 flex max-w-[calc(100vw-24px)] -translate-x-1/2 items-center gap-4 whitespace-nowrap rounded-[14px] bg-than-chi py-2 pl-5 pr-2.5 text-sm text-white shadow-[0_14px_36px_rgba(0,0,0,0.3)] md:bottom-[100px]">
+          <span>Đã chọn {cmp.length}/3 hệ</span>
+          <button type="button" onClick={() => setSoSanh(true)} disabled={cmp.length < 2} className="nut nut-chinh !min-h-0 !px-5 !py-2.5 disabled:opacity-50">
+            So sánh
+          </button>
+          <button
+            type="button"
+            onClick={() => {
+              setCmp([]);
+              setThongBao("");
+            }}
+            className="min-h-11 pr-2 text-[#cfd5de] underline underline-offset-4"
+          >
+            Bỏ chọn
           </button>
         </div>
       )}
-      {mo && <CuaSo h={mo} dong={() => setMo(null)} />}
+
+      {chiTiet && <CuaSoChiTiet r={chiTiet} dong={() => setChiTiet(null)} />}
+      {soSanh && dsCmp.length > 1 && <CuaSoSoSanh ds={dsCmp} dong={() => setSoSanh(false)} />}
     </div>
   );
 }

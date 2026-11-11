@@ -1,1994 +1,2746 @@
 /**
- * Dữ liệu 106 hệ cửa nhôm kính (11/11/2026), tạo tự động từ bảng công bố của nhà sản xuất.
- * - Tên theo chức năng, không dùng tên hãng hoặc mã sản phẩm.
- * - Chỉ dùng bản vẽ 2D đã kiểm tra: bỏ bản vẽ có logo hoặc mã profile in trên hình, cắt dải ghi mã sản phẩm ở đáy hình.
- *   Ảnh 3D và ảnh thực tế có logo nên không đưa vào.
- * - "Chức năng" lấy từ nhãn của trang gốc (cách nhiệt cao, an ninh cao, dễ tiếp cận, thông minh) và từ chính tên loại cửa.
+ * Dữ liệu 115 hệ cửa nhôm kính (11/11/2026), tạo tự động.
+ * - 106 hệ lấy từ bảng công bố trên trang hệ cửa của Winboss; 9 hệ còn thiếu bổ sung từ tài liệu hãng trong thư mục ảnh (them = true).
+ * - Ảnh: bản vẽ 2D đã kiểm tra (bỏ bản vẽ có logo, cắt dải mã sản phẩm ở đáy hình Civro) và 2 ảnh 3D đã kiểm tra không có logo.
+ *   Ảnh 3D và ảnh thực tế còn lại có logo hãng nên chưa dùng.
  * - Số liệu chỉ để tham khảo, thay đổi theo kích thước và cấu hình; cần xác nhận quyền sử dụng trước khi công bố chính thức.
  */
+export type Hang = "romadio" | "civro" | "ponzio";
 export type HeCua = {
-  slug: string;
-  ten: string;
-  /** Hệ thống: s trượt, l nâng trượt, d cửa đi, f xếp gấp, w cửa sổ, v vách kính */
-  he: "s" | "l" | "d" | "f" | "w" | "v";
-  heTen: string;
-  /** t có cầu nhiệt, n không cầu nhiệt, tn có cả hai phiên bản, rỗng là chưa xác định */
+  id: number;
+  hang: Hang;
+  ma: string;
+  loai: string;
+  /** Hệ thống, có thể ghép nhiều ký tự: w cửa sổ, d cửa đi, s trượt, l nâng trượt, f xếp gấp, v vách kính */
+  he: string;
+  /** t có cầu nhiệt, n không cầu nhiệt, tn có cả hai, rỗng là chưa rõ */
   ketCau: "t" | "n" | "tn" | "";
-  chucNang: string[];
-  thongSo: Record<string, string>;
+  /** cn cách nhiệt cao, an an ninh cao, de dễ tiếp cận, sm thông minh / động cơ */
+  tags: string[];
+  u: string;
+  kinKhi: string;
+  cachAm: string;
+  kinNuoc: string;
+  chiuGio: string;
+  chongTrom: string;
   ghiChu: string;
-  banVe: string[];
+  anh: { c: string[]; d: string[] };
+  them: boolean;
 };
 
-export const HE_THONG: { id: HeCua["he"]; ten: string }[] = [
-  { id: "w", ten: "Cửa sổ" },
-  { id: "d", ten: "Cửa đi" },
-  { id: "s", ten: "Cửa trượt" },
-  { id: "l", ten: "Cửa nâng trượt" },
-  { id: "f", ten: "Cửa xếp gấp" },
-  { id: "v", ten: "Vách kính" },
-];
-export const CHUC_NANG = ["Cách nhiệt cao","An ninh cao","Dễ tiếp cận","Thông minh / động cơ","Lưới chống côn trùng","Thông gió","Kính ba lớp","Tầm nhìn rộng","Khung mảnh","Lan can an toàn","Thoát hiểm","Kiểu cổ điển"] as const;
-export const THONG_SO_THU_TU = ["Hệ số truyền nhiệt U (W/m²K)", "Cách âm", "Độ kín nước", "Chịu gió", "Độ kín khí", "Chống đột nhập", "Kính áp dụng"] as const;
-
-export function nhanKetCau(k: HeCua["ketCau"]) {
-  return k === "t" ? "Có cầu nhiệt" : k === "n" ? "Không cầu nhiệt" : k === "tn" ? "Có và không cầu nhiệt" : "Kết cấu đang cập nhật";
-}
+export const TEN_HANG: Record<Hang, string> = { romadio: "Romadio", civro: "Civro", ponzio: "Ponzio" };
+export const TEN_TAG: Record<string, string> = { cn: "Cách nhiệt cao", an: "An ninh cao", de: "Dễ tiếp cận", sm: "Thông minh / Có động cơ" };
+export const TEN_KET_CAU: Record<string, string> = { t: "Có cầu cách nhiệt", n: "Không cầu nhiệt", tn: "Có cả hai phiên bản" };
+export const TEN_HE: Record<string, string> = { w: "Cửa sổ", d: "Cửa đi", s: "Cửa trượt", l: "Nâng trượt", f: "Xếp gấp", v: "Vách kính" };
 
 export const HE_CUA_DS: HeCua[] = [
-  {
-    "slug": "cua-truot-tam-nhin-mo-rong-cach-nhiet",
-    "ten": "Cửa trượt tầm nhìn mở rộng, cách nhiệt",
-    "he": "s",
-    "heTen": "Cửa trượt",
-    "ketCau": "t",
-    "chucNang": [
-      "Tầm nhìn rộng"
-    ],
-    "thongSo": {
-      "Hệ số truyền nhiệt U (W/m²K)": "≥ 2.3",
-      "Độ kín khí": "≤ Class 4",
-      "Cách âm": "28 dB",
-      "Độ kín nước": "≤ E1200",
-      "Chịu gió": "C5/B5",
-      "Kính áp dụng": "10–32 mm"
-    },
-    "ghiChu": "",
-    "banVe": [
-      "/images/he-cua/ban-ve/cua-truot-tam-nhin-mo-rong-cach-nhiet-1.webp"
-    ]
-  },
-  {
-    "slug": "vach-kinh-cach-nhiet",
-    "ten": "Vách kính, cách nhiệt",
-    "he": "v",
-    "heTen": "Vách kính",
-    "ketCau": "t",
-    "chucNang": [],
-    "thongSo": {
-      "Hệ số truyền nhiệt U (W/m²K)": "≥ 1.2",
-      "Độ kín khí": "Class 4",
-      "Cách âm": "39 dB",
-      "Độ kín nước": "E1200",
-      "Chịu gió": "C5/B5",
-      "Kính áp dụng": "5–28 mm"
-    },
-    "ghiChu": "",
-    "banVe": []
-  },
-  {
-    "slug": "cua-nang-truot-cach-nhiet-kinh-5-28-mm-phien-ban-1",
-    "ten": "Cửa nâng trượt, cách nhiệt, kính 5–28 mm, phiên bản 1",
-    "he": "l",
-    "heTen": "Cửa nâng trượt",
-    "ketCau": "t",
-    "chucNang": [],
-    "thongSo": {
-      "Hệ số truyền nhiệt U (W/m²K)": "≥ 2.5",
-      "Độ kín khí": "Class 2",
-      "Cách âm": "32 dB",
-      "Độ kín nước": "Class 7A",
-      "Chịu gió": "C5/B5",
-      "Kính áp dụng": "5–28 mm"
-    },
-    "ghiChu": "",
-    "banVe": [
-      "/images/he-cua/ban-ve/cua-nang-truot-cach-nhiet-kinh-5-28-mm-phien-ban-1-1.webp"
-    ]
-  },
-  {
-    "slug": "cua-nang-truot-kinh-ba-lop-cach-nhiet-uw-2-5",
-    "ten": "Cửa nâng trượt kính ba lớp, cách nhiệt, Uw 2.5",
-    "he": "l",
-    "heTen": "Cửa nâng trượt",
-    "ketCau": "t",
-    "chucNang": [
-      "Kính ba lớp"
-    ],
-    "thongSo": {
-      "Hệ số truyền nhiệt U (W/m²K)": "≥ 2.5",
-      "Độ kín khí": "Class 4",
-      "Cách âm": "36 dB",
-      "Độ kín nước": "Class 8A",
-      "Chịu gió": "C5/B5",
-      "Kính áp dụng": "24–52 mm"
-    },
-    "ghiChu": "",
-    "banVe": [
-      "/images/he-cua/ban-ve/cua-nang-truot-kinh-ba-lop-cach-nhiet-uw-2-5-1.webp"
-    ]
-  },
-  {
-    "slug": "cua-nang-truot-cach-nhiet-kinh-5-28-mm-phien-ban-2",
-    "ten": "Cửa nâng trượt, cách nhiệt, kính 5–28 mm, phiên bản 2",
-    "he": "l",
-    "heTen": "Cửa nâng trượt",
-    "ketCau": "t",
-    "chucNang": [],
-    "thongSo": {
-      "Hệ số truyền nhiệt U (W/m²K)": "≥ 2.5",
-      "Độ kín khí": "Class 2",
-      "Cách âm": "32 dB",
-      "Độ kín nước": "Class 7A",
-      "Chịu gió": "C5/B5",
-      "Kính áp dụng": "5–28 mm"
-    },
-    "ghiChu": "",
-    "banVe": [
-      "/images/he-cua/ban-ve/cua-nang-truot-cach-nhiet-kinh-5-28-mm-phien-ban-2-1.webp"
-    ]
-  },
-  {
-    "slug": "cua-nang-truot-kinh-ba-lop-cach-nhiet-uw-1-4",
-    "ten": "Cửa nâng trượt kính ba lớp, cách nhiệt, Uw 1.4",
-    "he": "l",
-    "heTen": "Cửa nâng trượt",
-    "ketCau": "t",
-    "chucNang": [
-      "Kính ba lớp"
-    ],
-    "thongSo": {
-      "Hệ số truyền nhiệt U (W/m²K)": "≥ 1.4",
-      "Độ kín khí": "Class 4",
-      "Cách âm": "36 dB",
-      "Độ kín nước": "Class 8A",
-      "Chịu gió": "C5/B5",
-      "Kính áp dụng": "24–52 mm"
-    },
-    "ghiChu": "",
-    "banVe": []
-  },
-  {
-    "slug": "cua-di-mo-quay-vao-cach-nhiet",
-    "ten": "Cửa đi mở quay vào, cách nhiệt",
-    "he": "d",
-    "heTen": "Cửa đi",
-    "ketCau": "t",
-    "chucNang": [],
-    "thongSo": {
-      "Hệ số truyền nhiệt U (W/m²K)": "≥ 2.2",
-      "Độ kín khí": "≤ Class 4",
-      "Cách âm": "34 dB",
-      "Độ kín nước": "≤ E700",
-      "Chịu gió": "C5/B5",
-      "Kính áp dụng": "5–42 mm"
-    },
-    "ghiChu": "",
-    "banVe": [
-      "/images/he-cua/ban-ve/cua-di-mo-quay-vao-cach-nhiet-1.webp"
-    ]
-  },
-  {
-    "slug": "cua-di-mo-quay-ra-cach-nhiet",
-    "ten": "Cửa đi mở quay ra, cách nhiệt",
-    "he": "d",
-    "heTen": "Cửa đi",
-    "ketCau": "t",
-    "chucNang": [],
-    "thongSo": {
-      "Hệ số truyền nhiệt U (W/m²K)": "≥ 1.2",
-      "Độ kín khí": "Class 4",
-      "Cách âm": "34 dB",
-      "Độ kín nước": "≤ E700",
-      "Chịu gió": "C5/B5",
-      "Kính áp dụng": "5–32 mm"
-    },
-    "ghiChu": "",
-    "banVe": [
-      "/images/he-cua/ban-ve/cua-di-mo-quay-ra-cach-nhiet-1.webp"
-    ]
-  },
-  {
-    "slug": "cua-xep-gap-cach-nhiet",
-    "ten": "Cửa xếp gấp, cách nhiệt",
-    "he": "f",
-    "heTen": "Cửa xếp gấp",
-    "ketCau": "t",
-    "chucNang": [],
-    "thongSo": {
-      "Hệ số truyền nhiệt U (W/m²K)": "≥ 1.2",
-      "Độ kín khí": "Class 4",
-      "Cách âm": "29 dB",
-      "Độ kín nước": "≥ E1000",
-      "Chịu gió": "C5/B5",
-      "Kính áp dụng": "5–36 mm"
-    },
-    "ghiChu": "",
-    "banVe": [
-      "/images/he-cua/ban-ve/cua-xep-gap-cach-nhiet-1.webp"
-    ]
-  },
-  {
-    "slug": "cua-so-song-song-co-lan-can-cach-nhiet",
-    "ten": "Cửa sổ song song có lan can, cách nhiệt",
-    "he": "w",
-    "heTen": "Cửa sổ",
-    "ketCau": "t",
-    "chucNang": [
-      "Lan can an toàn"
-    ],
-    "thongSo": {
-      "Hệ số truyền nhiệt U (W/m²K)": "≥ 2.5",
-      "Độ kín khí": "0.21 m³/(m·h)",
-      "Cách âm": "35 dB",
-      "Độ kín nước": "1000 Pa",
-      "Chịu gió": "≤ 5.0 kPa",
-      "Kính áp dụng": "24 mm"
-    },
-    "ghiChu": "",
-    "banVe": [
-      "/images/he-cua/ban-ve/cua-so-song-song-co-lan-can-cach-nhiet-1.webp"
-    ]
-  },
-  {
-    "slug": "cua-so-thong-gio-co-luoi-cach-nhiet",
-    "ten": "Cửa sổ thông gió có lưới, cách nhiệt",
-    "he": "w",
-    "heTen": "Cửa sổ",
-    "ketCau": "t",
-    "chucNang": [
-      "Lưới chống côn trùng",
-      "Thông gió"
-    ],
-    "thongSo": {
-      "Hệ số truyền nhiệt U (W/m²K)": "≥ 2.6",
-      "Độ kín khí": "Class 4",
-      "Cách âm": "39 dB",
-      "Độ kín nước": "E1200",
-      "Chịu gió": "C5/B5",
-      "Kính áp dụng": "13–52 mm"
-    },
-    "ghiChu": "",
-    "banVe": [
-      "/images/he-cua/ban-ve/cua-so-thong-gio-co-luoi-cach-nhiet-1.webp"
-    ]
-  },
-  {
-    "slug": "cua-so-thong-gio-cach-nhiet-kinh-5-42-mm",
-    "ten": "Cửa sổ thông gió, cách nhiệt, kính 5–42 mm",
-    "he": "w",
-    "heTen": "Cửa sổ",
-    "ketCau": "t",
-    "chucNang": [
-      "Thông gió"
-    ],
-    "thongSo": {
-      "Hệ số truyền nhiệt U (W/m²K)": "≥ 2.6",
-      "Độ kín khí": "Class 4",
-      "Cách âm": "39 dB",
-      "Độ kín nước": "E700",
-      "Chịu gió": "C5/B5",
-      "Kính áp dụng": "5–42 mm"
-    },
-    "ghiChu": "",
-    "banVe": [
-      "/images/he-cua/ban-ve/cua-so-thong-gio-cach-nhiet-kinh-5-42-mm-1.webp"
-    ]
-  },
-  {
-    "slug": "cua-so-mo-hat-quay-co-luoi-cach-nhiet-kinh-13-52-mm",
-    "ten": "Cửa sổ mở hất/quay có lưới, cách nhiệt, kính 13–52 mm",
-    "he": "w",
-    "heTen": "Cửa sổ",
-    "ketCau": "t",
-    "chucNang": [
-      "Lưới chống côn trùng"
-    ],
-    "thongSo": {
-      "Hệ số truyền nhiệt U (W/m²K)": "≥ 1.8",
-      "Độ kín khí": "Class 4",
-      "Cách âm": "38 dB",
-      "Độ kín nước": "E1200",
-      "Chịu gió": "C5/B5",
-      "Kính áp dụng": "13–52 mm"
-    },
-    "ghiChu": "",
-    "banVe": [
-      "/images/he-cua/ban-ve/cua-so-mo-hat-quay-co-luoi-cach-nhiet-kinh-13-52-mm-1.webp"
-    ]
-  },
-  {
-    "slug": "cua-so-truot-cach-nhiet-kinh-24-mm",
-    "ten": "Cửa sổ trượt, cách nhiệt, kính 24 mm",
-    "he": "w",
-    "heTen": "Cửa sổ trượt",
-    "ketCau": "t",
-    "chucNang": [],
-    "thongSo": {
-      "Hệ số truyền nhiệt U (W/m²K)": "≥ 3.2",
-      "Độ kín khí": "≤ Class 1",
-      "Cách âm": "29 dB",
-      "Độ kín nước": "≤ Class 5A",
-      "Chịu gió": "C5/B5",
-      "Kính áp dụng": "24 mm"
-    },
-    "ghiChu": "",
-    "banVe": []
-  },
-  {
-    "slug": "cua-so-mo-quay-ra-co-luoi-cach-nhiet",
-    "ten": "Cửa sổ mở quay ra có lưới, cách nhiệt",
-    "he": "w",
-    "heTen": "Cửa sổ",
-    "ketCau": "t",
-    "chucNang": [
-      "Lưới chống côn trùng"
-    ],
-    "thongSo": {
-      "Hệ số truyền nhiệt U (W/m²K)": "≥ 1.2",
-      "Độ kín khí": "Class 4",
-      "Cách âm": "34 dB",
-      "Độ kín nước": "≤ E1200",
-      "Chịu gió": "C5/B5",
-      "Kính áp dụng": "5–32 mm"
-    },
-    "ghiChu": "",
-    "banVe": [
-      "/images/he-cua/ban-ve/cua-so-mo-quay-ra-co-luoi-cach-nhiet-1.webp"
-    ]
-  },
-  {
-    "slug": "cua-so-mo-hat-quay-co-luoi-cach-nhiet-kinh-5-42-mm",
-    "ten": "Cửa sổ mở hất/quay có lưới, cách nhiệt, kính 5–42 mm",
-    "he": "w",
-    "heTen": "Cửa sổ",
-    "ketCau": "t",
-    "chucNang": [
-      "Lưới chống côn trùng"
-    ],
-    "thongSo": {
-      "Hệ số truyền nhiệt U (W/m²K)": "≥ 2.6",
-      "Độ kín khí": "Class 4",
-      "Cách âm": "33 dB",
-      "Độ kín nước": "≤ E1200",
-      "Chịu gió": "B5",
-      "Kính áp dụng": "5–42 mm"
-    },
-    "ghiChu": "",
-    "banVe": [
-      "/images/he-cua/ban-ve/cua-so-mo-hat-quay-co-luoi-cach-nhiet-kinh-5-42-mm-1.webp"
-    ]
-  },
-  {
-    "slug": "cua-so-mo-quay-ra-cach-nhiet",
-    "ten": "Cửa sổ mở quay ra, cách nhiệt",
-    "he": "w",
-    "heTen": "Cửa sổ",
-    "ketCau": "t",
-    "chucNang": [],
-    "thongSo": {
-      "Hệ số truyền nhiệt U (W/m²K)": "≥ 2.3",
-      "Độ kín khí": "≤ Class 4",
-      "Cách âm": "34 dB",
-      "Độ kín nước": "≤ E1200",
-      "Chịu gió": "C5/B5",
-      "Kính áp dụng": "5–32 mm"
-    },
-    "ghiChu": "",
-    "banVe": [
-      "/images/he-cua/ban-ve/cua-so-mo-quay-ra-cach-nhiet-1.webp"
-    ]
-  },
-  {
-    "slug": "cua-nang-truot-phien-ban-1",
-    "ten": "Cửa nâng trượt, phiên bản 1",
-    "he": "l",
-    "heTen": "Cửa nâng trượt",
-    "ketCau": "n",
-    "chucNang": [],
-    "thongSo": {
-      "Độ kín khí": "≤ Class 2",
-      "Cách âm": "30 dB",
-      "Độ kín nước": "≤ Class 8A",
-      "Chịu gió": "C5/B5",
-      "Kính áp dụng": "5–24 mm"
-    },
-    "ghiChu": "",
-    "banVe": [
-      "/images/he-cua/ban-ve/cua-nang-truot-phien-ban-1-1.webp"
-    ]
-  },
-  {
-    "slug": "cua-nang-truot-phien-ban-2",
-    "ten": "Cửa nâng trượt, phiên bản 2",
-    "he": "l",
-    "heTen": "Cửa nâng trượt",
-    "ketCau": "n",
-    "chucNang": [],
-    "thongSo": {
-      "Độ kín khí": "≤ Class 2",
-      "Cách âm": "30 dB",
-      "Độ kín nước": "≤ Class 8A",
-      "Chịu gió": "C5/B5",
-      "Kính áp dụng": "5–24 mm"
-    },
-    "ghiChu": "",
-    "banVe": [
-      "/images/he-cua/ban-ve/cua-nang-truot-phien-ban-2-1.webp"
-    ]
-  },
-  {
-    "slug": "cua-di-mo-quay-vao-kinh-5-24-mm",
-    "ten": "Cửa đi mở quay vào, kính 5–24 mm",
-    "he": "d",
-    "heTen": "Cửa đi",
-    "ketCau": "n",
-    "chucNang": [],
-    "thongSo": {
-      "Độ kín khí": "≤ Class 4",
-      "Cách âm": "29 dB",
-      "Độ kín nước": "≤ E700",
-      "Chịu gió": "C5/B5",
-      "Kính áp dụng": "5–24 mm"
-    },
-    "ghiChu": "",
-    "banVe": [
-      "/images/he-cua/ban-ve/cua-di-mo-quay-vao-kinh-5-24-mm-1.webp"
-    ]
-  },
-  {
-    "slug": "cua-di-mo-quay-ra-kinh-5-24-mm",
-    "ten": "Cửa đi mở quay ra, kính 5–24 mm",
-    "he": "d",
-    "heTen": "Cửa đi",
-    "ketCau": "n",
-    "chucNang": [],
-    "thongSo": {
-      "Độ kín khí": "≤ Class 4",
-      "Cách âm": "29 dB",
-      "Độ kín nước": "≤ E1000",
-      "Chịu gió": "C5/B5",
-      "Kính áp dụng": "5–24 mm"
-    },
-    "ghiChu": "",
-    "banVe": [
-      "/images/he-cua/ban-ve/cua-di-mo-quay-ra-kinh-5-24-mm-1.webp"
-    ]
-  },
-  {
-    "slug": "cua-di-mo-quay-vao-kinh-5-32-mm",
-    "ten": "Cửa đi mở quay vào, kính 5–32 mm",
-    "he": "d",
-    "heTen": "Cửa đi",
-    "ketCau": "n",
-    "chucNang": [],
-    "thongSo": {
-      "Độ kín khí": "≤ Class 4",
-      "Cách âm": "31 dB",
-      "Độ kín nước": "≤ E700",
-      "Chịu gió": "C5/B5",
-      "Kính áp dụng": "5–32 mm"
-    },
-    "ghiChu": "",
-    "banVe": [
-      "/images/he-cua/ban-ve/cua-di-mo-quay-vao-kinh-5-32-mm-1.webp"
-    ]
-  },
-  {
-    "slug": "cua-di-mo-quay-ra-kinh-5-32-mm",
-    "ten": "Cửa đi mở quay ra, kính 5–32 mm",
-    "he": "d",
-    "heTen": "Cửa đi",
-    "ketCau": "n",
-    "chucNang": [],
-    "thongSo": {
-      "Độ kín khí": "≤ Class 4",
-      "Cách âm": "31 dB",
-      "Độ kín nước": "≤ E1000",
-      "Chịu gió": "C5/B5",
-      "Kính áp dụng": "5–32 mm"
-    },
-    "ghiChu": "",
-    "banVe": [
-      "/images/he-cua/ban-ve/cua-di-mo-quay-ra-kinh-5-32-mm-1.webp"
-    ]
-  },
-  {
-    "slug": "cua-xep-gap",
-    "ten": "Cửa xếp gấp",
-    "he": "f",
-    "heTen": "Cửa xếp gấp",
-    "ketCau": "n",
-    "chucNang": [],
-    "thongSo": {
-      "Độ kín khí": "≤ Class 2",
-      "Cách âm": "29 dB",
-      "Độ kín nước": "≤ E1200",
-      "Chịu gió": "C5/B5",
-      "Kính áp dụng": "5–36 mm"
-    },
-    "ghiChu": "",
-    "banVe": [
-      "/images/he-cua/ban-ve/cua-xep-gap-1.webp"
-    ]
-  },
-  {
-    "slug": "cua-so-mo-quay-ra",
-    "ten": "Cửa sổ mở quay ra",
-    "he": "w",
-    "heTen": "Cửa sổ",
-    "ketCau": "n",
-    "chucNang": [],
-    "thongSo": {
-      "Độ kín khí": "≤ Class 4",
-      "Cách âm": "29 dB",
-      "Độ kín nước": "≤ E1000",
-      "Chịu gió": "C5/B5",
-      "Kính áp dụng": "5–24 mm"
-    },
-    "ghiChu": "",
-    "banVe": [
-      "/images/he-cua/ban-ve/cua-so-mo-quay-ra-1.webp"
-    ]
-  },
-  {
-    "slug": "cua-so-mo-hat-quay-co-luoi",
-    "ten": "Cửa sổ mở hất/quay có lưới",
-    "he": "w",
-    "heTen": "Cửa sổ",
-    "ketCau": "n",
-    "chucNang": [
-      "Lưới chống côn trùng"
-    ],
-    "thongSo": {
-      "Độ kín khí": "≤ Class 4",
-      "Cách âm": "31 dB",
-      "Độ kín nước": "≤ E1200",
-      "Chịu gió": "C5/B5",
-      "Kính áp dụng": "5–42 mm"
-    },
-    "ghiChu": "",
-    "banVe": [
-      "/images/he-cua/ban-ve/cua-so-mo-hat-quay-co-luoi-1.webp"
-    ]
-  },
-  {
-    "slug": "cua-so-mo-quay-ra-co-luoi",
-    "ten": "Cửa sổ mở quay ra có lưới",
-    "he": "w",
-    "heTen": "Cửa sổ",
-    "ketCau": "n",
-    "chucNang": [
-      "Lưới chống côn trùng"
-    ],
-    "thongSo": {
-      "Độ kín khí": "≤ Class 4",
-      "Cách âm": "31 dB",
-      "Độ kín nước": "≤ E1200",
-      "Chịu gió": "C5/B5",
-      "Kính áp dụng": "5–32 mm"
-    },
-    "ghiChu": "",
-    "banVe": [
-      "/images/he-cua/ban-ve/cua-so-mo-quay-ra-co-luoi-1.webp"
-    ]
-  },
-  {
-    "slug": "cua-so-truot-co-luoi",
-    "ten": "Cửa sổ trượt có lưới",
-    "he": "w",
-    "heTen": "Cửa sổ trượt",
-    "ketCau": "n",
-    "chucNang": [
-      "Lưới chống côn trùng"
-    ],
-    "thongSo": {
-      "Độ kín khí": "≤ Class 2",
-      "Cách âm": "26 dB",
-      "Độ kín nước": "≤ Class 5A",
-      "Chịu gió": "C5/B5",
-      "Kính áp dụng": "5–24 mm"
-    },
-    "ghiChu": "",
-    "banVe": [
-      "/images/he-cua/ban-ve/cua-so-truot-co-luoi-1.webp"
-    ]
-  },
-  {
-    "slug": "cua-truot-khung-manh-kinh-10-32-mm",
-    "ten": "Cửa trượt khung mảnh, kính 10–32 mm",
-    "he": "s",
-    "heTen": "Cửa trượt",
-    "ketCau": "n",
-    "chucNang": [
-      "Khung mảnh"
-    ],
-    "thongSo": {
-      "Độ kín khí": "≤ Class 2",
-      "Cách âm": "28 dB",
-      "Độ kín nước": "≤ Class 5A",
-      "Chịu gió": "C5/B5",
-      "Kính áp dụng": "10–32 mm"
-    },
-    "ghiChu": "",
-    "banVe": [
-      "/images/he-cua/ban-ve/cua-truot-khung-manh-kinh-10-32-mm-1.webp"
-    ]
-  },
-  {
-    "slug": "cua-truot-khung-manh-kinh-15-32-mm",
-    "ten": "Cửa trượt khung mảnh, kính 15–32 mm",
-    "he": "s",
-    "heTen": "Cửa trượt",
-    "ketCau": "n",
-    "chucNang": [
-      "Khung mảnh"
-    ],
-    "thongSo": {
-      "Độ kín khí": "≤ Class 4",
-      "Cách âm": "28 dB",
-      "Độ kín nước": "≤ E1200",
-      "Chịu gió": "C5/B5",
-      "Kính áp dụng": "15–32 mm"
-    },
-    "ghiChu": "",
-    "banVe": [
-      "/images/he-cua/ban-ve/cua-truot-khung-manh-kinh-15-32-mm-1.webp"
-    ]
-  },
-  {
-    "slug": "cua-truot-1-canh-ray-tren",
-    "ten": "Cửa trượt 1 cánh, ray trên",
-    "he": "s",
-    "heTen": "Cửa trượt",
-    "ketCau": "n",
-    "chucNang": [],
-    "thongSo": {},
-    "ghiChu": "Không khung bao đứng",
-    "banVe": [
-      "/images/he-cua/ban-ve/cua-truot-1-canh-ray-tren-1.webp"
-    ]
-  },
-  {
-    "slug": "cua-truot-banh-xe-duoi-tren",
-    "ten": "Cửa trượt bánh xe dưới / trên",
-    "he": "s",
-    "heTen": "Cửa trượt",
-    "ketCau": "n",
-    "chucNang": [],
-    "thongSo": {},
-    "ghiChu": "",
-    "banVe": [
-      "/images/he-cua/ban-ve/cua-truot-banh-xe-duoi-tren-1.webp",
-      "/images/he-cua/ban-ve/cua-truot-banh-xe-duoi-tren-2.webp"
-    ]
-  },
-  {
-    "slug": "cua-truot-2-ray-treo-tren",
-    "ten": "Cửa trượt 2 ray treo trên",
-    "he": "s",
-    "heTen": "Cửa trượt",
-    "ketCau": "n",
-    "chucNang": [],
-    "thongSo": {},
-    "ghiChu": "Không khung bao đứng",
-    "banVe": [
-      "/images/he-cua/ban-ve/cua-truot-2-ray-treo-tren-1.webp"
-    ]
-  },
-  {
-    "slug": "cua-truot-banh-xe-duoi-tren-2-4-canh",
-    "ten": "Cửa trượt bánh xe dưới / trên, 2–4 cánh",
-    "he": "s",
-    "heTen": "Cửa trượt",
-    "ketCau": "n",
-    "chucNang": [],
-    "thongSo": {},
-    "ghiChu": "",
-    "banVe": [
-      "/images/he-cua/ban-ve/cua-truot-banh-xe-duoi-tren-2-4-canh-1.webp",
-      "/images/he-cua/ban-ve/cua-truot-banh-xe-duoi-tren-2-4-canh-2.webp",
-      "/images/he-cua/ban-ve/cua-truot-banh-xe-duoi-tren-2-4-canh-3.webp",
-      "/images/he-cua/ban-ve/cua-truot-banh-xe-duoi-tren-2-4-canh-4.webp"
-    ]
-  },
-  {
-    "slug": "cua-truot-banh-xe-duoi-tren-3-canh",
-    "ten": "Cửa trượt bánh xe dưới / trên, 3 cánh",
-    "he": "s",
-    "heTen": "Cửa trượt",
-    "ketCau": "n",
-    "chucNang": [],
-    "thongSo": {},
-    "ghiChu": "",
-    "banVe": [
-      "/images/he-cua/ban-ve/cua-truot-banh-xe-duoi-tren-3-canh-1.webp",
-      "/images/he-cua/ban-ve/cua-truot-banh-xe-duoi-tren-3-canh-2.webp"
-    ]
-  },
-  {
-    "slug": "cua-truot-banh-xe-duoi-tren-4-canh",
-    "ten": "Cửa trượt bánh xe dưới / trên, 4 cánh",
-    "he": "s",
-    "heTen": "Cửa trượt",
-    "ketCau": "n",
-    "chucNang": [],
-    "thongSo": {},
-    "ghiChu": "",
-    "banVe": [
-      "/images/he-cua/ban-ve/cua-truot-banh-xe-duoi-tren-4-canh-1.webp",
-      "/images/he-cua/ban-ve/cua-truot-banh-xe-duoi-tren-4-canh-2.webp"
-    ]
-  },
-  {
-    "slug": "cua-mo-quay-vao-1-2-canh",
-    "ten": "Cửa mở quay vào, 1–2 cánh",
-    "he": "d",
-    "heTen": "Cửa đi",
-    "ketCau": "n",
-    "chucNang": [],
-    "thongSo": {},
-    "ghiChu": "",
-    "banVe": [
-      "/images/he-cua/ban-ve/cua-mo-quay-vao-1-2-canh-1.webp",
-      "/images/he-cua/ban-ve/cua-mo-quay-vao-1-2-canh-2.webp"
-    ]
-  },
-  {
-    "slug": "cua-mo-quay-ra-1-2-canh-co-phao",
-    "ten": "Cửa mở quay ra, 1–2 cánh, có phào",
-    "he": "d",
-    "heTen": "Cửa đi",
-    "ketCau": "n",
-    "chucNang": [],
-    "thongSo": {},
-    "ghiChu": "",
-    "banVe": [
-      "/images/he-cua/ban-ve/cua-mo-quay-ra-1-2-canh-co-phao-1.webp",
-      "/images/he-cua/ban-ve/cua-mo-quay-ra-1-2-canh-co-phao-2.webp",
-      "/images/he-cua/ban-ve/cua-mo-quay-ra-1-2-canh-co-phao-3.webp"
-    ]
-  },
-  {
-    "slug": "cua-mo-quay-vao-dong-khung-manh",
-    "ten": "Cửa mở quay vào dòng khung mảnh",
-    "he": "d",
-    "heTen": "Cửa đi",
-    "ketCau": "n",
-    "chucNang": [
-      "Khung mảnh"
-    ],
-    "thongSo": {},
-    "ghiChu": "",
-    "banVe": [
-      "/images/he-cua/ban-ve/cua-mo-quay-vao-dong-khung-manh-1.webp",
-      "/images/he-cua/ban-ve/cua-mo-quay-vao-dong-khung-manh-2.webp"
-    ]
-  },
-  {
-    "slug": "cua-mo-quay-ra-dong-khung-manh",
-    "ten": "Cửa mở quay ra dòng khung mảnh",
-    "he": "d",
-    "heTen": "Cửa đi",
-    "ketCau": "n",
-    "chucNang": [
-      "Khung mảnh"
-    ],
-    "thongSo": {},
-    "ghiChu": "",
-    "banVe": [
-      "/images/he-cua/ban-ve/cua-mo-quay-ra-dong-khung-manh-1.webp",
-      "/images/he-cua/ban-ve/cua-mo-quay-ra-dong-khung-manh-2.webp"
-    ]
-  },
-  {
-    "slug": "cua-truot-ray-duoi-1-3-ray",
-    "ten": "Cửa trượt ray dưới, 1–3 ray",
-    "he": "s",
-    "heTen": "Cửa trượt",
-    "ketCau": "n",
-    "chucNang": [],
-    "thongSo": {},
-    "ghiChu": "",
-    "banVe": [
-      "/images/he-cua/ban-ve/cua-truot-ray-duoi-1-3-ray-1.webp",
-      "/images/he-cua/ban-ve/cua-truot-ray-duoi-1-3-ray-2.webp",
-      "/images/he-cua/ban-ve/cua-truot-ray-duoi-1-3-ray-3.webp",
-      "/images/he-cua/ban-ve/cua-truot-ray-duoi-1-3-ray-4.webp"
-    ]
-  },
-  {
-    "slug": "cua-truot-ray-tren-1-2-ray",
-    "ten": "Cửa trượt ray trên, 1–2 ray",
-    "he": "s",
-    "heTen": "Cửa trượt",
-    "ketCau": "n",
-    "chucNang": [],
-    "thongSo": {},
-    "ghiChu": "",
-    "banVe": [
-      "/images/he-cua/ban-ve/cua-truot-ray-tren-1-2-ray-1.webp",
-      "/images/he-cua/ban-ve/cua-truot-ray-tren-1-2-ray-2.webp"
-    ]
-  },
-  {
-    "slug": "cua-truot-ray-tren-1-3-ray",
-    "ten": "Cửa trượt ray trên, 1–3 ray",
-    "he": "s",
-    "heTen": "Cửa trượt",
-    "ketCau": "n",
-    "chucNang": [],
-    "thongSo": {},
-    "ghiChu": "",
-    "banVe": [
-      "/images/he-cua/ban-ve/cua-truot-ray-tren-1-3-ray-1.webp",
-      "/images/he-cua/ban-ve/cua-truot-ray-tren-1-3-ray-2.webp",
-      "/images/he-cua/ban-ve/cua-truot-ray-tren-1-3-ray-3.webp",
-      "/images/he-cua/ban-ve/cua-truot-ray-tren-1-3-ray-4.webp"
-    ]
-  },
-  {
-    "slug": "cua-so-khung-manh-cach-nhiet",
-    "ten": "Cửa sổ khung mảnh, cách nhiệt",
-    "he": "w",
-    "heTen": "Cửa sổ",
-    "ketCau": "t",
-    "chucNang": [
-      "Khung mảnh"
-    ],
-    "thongSo": {
-      "Hệ số truyền nhiệt U (W/m²K)": "1.7",
-      "Cách âm": "35 dB",
-      "Độ kín nước": "500 Pa",
-      "Chống đột nhập": "RC3 (phụ kiện)"
-    },
-    "ghiChu": "",
-    "banVe": [
-      "/images/he-cua/ban-ve/cua-so-khung-manh-cach-nhiet-1.webp",
-      "/images/he-cua/ban-ve/cua-so-khung-manh-cach-nhiet-2.webp",
-      "/images/he-cua/ban-ve/cua-so-khung-manh-cach-nhiet-3.webp"
-    ]
-  },
-  {
-    "slug": "cua-so-cach-nhiet-uw-1-9",
-    "ten": "Cửa sổ, cách nhiệt, Uw 1.9",
-    "he": "w",
-    "heTen": "Cửa sổ",
-    "ketCau": "t",
-    "chucNang": [],
-    "thongSo": {
-      "Hệ số truyền nhiệt U (W/m²K)": "1.9",
-      "Cách âm": "36 dB",
-      "Độ kín nước": "700 Pa"
-    },
-    "ghiChu": "",
-    "banVe": [
-      "/images/he-cua/ban-ve/cua-so-cach-nhiet-uw-1-9-1.webp",
-      "/images/he-cua/ban-ve/cua-so-cach-nhiet-uw-1-9-2.webp"
-    ]
-  },
-  {
-    "slug": "cua-so-cach-nhiet-uw-2-1",
-    "ten": "Cửa sổ, cách nhiệt, Uw 2.1",
-    "he": "w",
-    "heTen": "Cửa sổ",
-    "ketCau": "t",
-    "chucNang": [
-      "Thông minh / động cơ"
-    ],
-    "thongSo": {
-      "Hệ số truyền nhiệt U (W/m²K)": "2.1",
-      "Cách âm": "35 dB",
-      "Độ kín nước": "1000 Pa",
-      "Chống đột nhập": "RC3 (phụ kiện)"
-    },
-    "ghiChu": "",
-    "banVe": []
-  },
-  {
-    "slug": "cua-so-cach-nhiet-uw-1-8",
-    "ten": "Cửa sổ, cách nhiệt, Uw 1.8",
-    "he": "w",
-    "heTen": "Cửa sổ",
-    "ketCau": "t",
-    "chucNang": [
-      "Thông minh / động cơ"
-    ],
-    "thongSo": {
-      "Hệ số truyền nhiệt U (W/m²K)": "1.8",
-      "Cách âm": "35 dB",
-      "Độ kín nước": "1000 Pa",
-      "Chống đột nhập": "RC3 (phụ kiện)"
-    },
-    "ghiChu": "",
-    "banVe": [
-      "/images/he-cua/ban-ve/cua-so-cach-nhiet-uw-1-8-1.webp",
-      "/images/he-cua/ban-ve/cua-so-cach-nhiet-uw-1-8-2.webp"
-    ]
-  },
-  {
-    "slug": "cua-so-cach-nhiet-uw-1-5",
-    "ten": "Cửa sổ, cách nhiệt, Uw 1.5",
-    "he": "w",
-    "heTen": "Cửa sổ",
-    "ketCau": "t",
-    "chucNang": [
-      "Thông minh / động cơ"
-    ],
-    "thongSo": {
-      "Hệ số truyền nhiệt U (W/m²K)": "1.5",
-      "Cách âm": "38 dB",
-      "Độ kín nước": "1000 Pa",
-      "Chống đột nhập": "RC3 (phụ kiện)"
-    },
-    "ghiChu": "",
-    "banVe": [
-      "/images/he-cua/ban-ve/cua-so-cach-nhiet-uw-1-5-1.webp",
-      "/images/he-cua/ban-ve/cua-so-cach-nhiet-uw-1-5-2.webp"
-    ]
-  },
-  {
-    "slug": "cua-so-cach-nhiet-uw-1-2",
-    "ten": "Cửa sổ, cách nhiệt, Uw 1.2",
-    "he": "w",
-    "heTen": "Cửa sổ",
-    "ketCau": "t",
-    "chucNang": [
-      "Cách nhiệt cao",
-      "Thông minh / động cơ"
-    ],
-    "thongSo": {
-      "Hệ số truyền nhiệt U (W/m²K)": "1.2",
-      "Cách âm": "39 dB",
-      "Độ kín nước": "1000 Pa",
-      "Chống đột nhập": "RC3 (phụ kiện)"
-    },
-    "ghiChu": "",
-    "banVe": [
-      "/images/he-cua/ban-ve/cua-so-cach-nhiet-uw-1-2-1.webp"
-    ]
-  },
-  {
-    "slug": "cua-so-cach-nhiet-uw-0-778",
-    "ten": "Cửa sổ, cách nhiệt, Uw 0.778",
-    "he": "w",
-    "heTen": "Cửa sổ",
-    "ketCau": "t",
-    "chucNang": [
-      "Cách nhiệt cao",
-      "Thông minh / động cơ"
-    ],
-    "thongSo": {
-      "Hệ số truyền nhiệt U (W/m²K)": "0.778",
-      "Cách âm": "41 dB",
-      "Độ kín nước": "1000 Pa",
-      "Chống đột nhập": "RC3 (phụ kiện)"
-    },
-    "ghiChu": "",
-    "banVe": []
-  },
-  {
-    "slug": "cua-so-co-canh-luoi-cach-nhiet-uw-2-1",
-    "ten": "Cửa sổ có cánh lưới, cách nhiệt, Uw 2.1",
-    "he": "w",
-    "heTen": "Cửa sổ",
-    "ketCau": "t",
-    "chucNang": [
-      "Thông minh / động cơ",
-      "Lưới chống côn trùng"
-    ],
-    "thongSo": {
-      "Hệ số truyền nhiệt U (W/m²K)": "2.1",
-      "Cách âm": "35 dB",
-      "Độ kín nước": "1000 Pa",
-      "Chống đột nhập": "RC3 (phụ kiện)"
-    },
-    "ghiChu": "",
-    "banVe": [
-      "/images/he-cua/ban-ve/cua-so-co-canh-luoi-cach-nhiet-uw-2-1-1.webp"
-    ]
-  },
-  {
-    "slug": "cua-so-co-canh-luoi-cach-nhiet-uw-1-8-phien-ban-1",
-    "ten": "Cửa sổ có cánh lưới, cách nhiệt, Uw 1.8, phiên bản 1",
-    "he": "w",
-    "heTen": "Cửa sổ",
-    "ketCau": "t",
-    "chucNang": [
-      "Lưới chống côn trùng"
-    ],
-    "thongSo": {
-      "Hệ số truyền nhiệt U (W/m²K)": "1.8",
-      "Cách âm": "36 dB",
-      "Độ kín nước": "1000 Pa",
-      "Chống đột nhập": "RC3 (phụ kiện)"
-    },
-    "ghiChu": "",
-    "banVe": []
-  },
-  {
-    "slug": "cua-so-co-canh-luoi-cach-nhiet-uw-2-3",
-    "ten": "Cửa sổ có cánh lưới, cách nhiệt, Uw 2.3",
-    "he": "w",
-    "heTen": "Cửa sổ",
-    "ketCau": "t",
-    "chucNang": [
-      "Lưới chống côn trùng"
-    ],
-    "thongSo": {
-      "Hệ số truyền nhiệt U (W/m²K)": "2.3",
-      "Cách âm": "35 dB",
-      "Độ kín nước": "1000 Pa",
-      "Chống đột nhập": "RC3 (phụ kiện)"
-    },
-    "ghiChu": "",
-    "banVe": []
-  },
-  {
-    "slug": "cua-so-co-canh-luoi-cach-nhiet-uw-1-8-phien-ban-2",
-    "ten": "Cửa sổ có cánh lưới, cách nhiệt, Uw 1.8, phiên bản 2",
-    "he": "w",
-    "heTen": "Cửa sổ",
-    "ketCau": "t",
-    "chucNang": [
-      "Lưới chống côn trùng"
-    ],
-    "thongSo": {
-      "Hệ số truyền nhiệt U (W/m²K)": "1.8",
-      "Cách âm": "36 dB",
-      "Độ kín nước": "1000 Pa",
-      "Chống đột nhập": "RC3 (phụ kiện)"
-    },
-    "ghiChu": "",
-    "banVe": [
-      "/images/he-cua/ban-ve/cua-so-co-canh-luoi-cach-nhiet-uw-1-8-phien-ban-2-1.webp"
-    ]
-  },
-  {
-    "slug": "cua-so-kieu-co-dien-cach-nhiet",
-    "ten": "Cửa sổ kiểu cổ điển, cách nhiệt",
-    "he": "w",
-    "heTen": "Cửa sổ",
-    "ketCau": "t",
-    "chucNang": [
-      "Thông minh / động cơ",
-      "Kiểu cổ điển"
-    ],
-    "thongSo": {
-      "Hệ số truyền nhiệt U (W/m²K)": "1.5",
-      "Cách âm": "39 dB",
-      "Độ kín nước": "1000 Pa",
-      "Chống đột nhập": "RC3 (phụ kiện)"
-    },
-    "ghiChu": "",
-    "banVe": [
-      "/images/he-cua/ban-ve/cua-so-kieu-co-dien-cach-nhiet-1.webp",
-      "/images/he-cua/ban-ve/cua-so-kieu-co-dien-cach-nhiet-2.webp",
-      "/images/he-cua/ban-ve/cua-so-kieu-co-dien-cach-nhiet-3.webp",
-      "/images/he-cua/ban-ve/cua-so-kieu-co-dien-cach-nhiet-4.webp"
-    ]
-  },
-  {
-    "slug": "cua-so-thong-gio-cach-nhiet",
-    "ten": "Cửa sổ thông gió, cách nhiệt",
-    "he": "w",
-    "heTen": "Cửa sổ",
-    "ketCau": "t",
-    "chucNang": [
-      "Thông minh / động cơ",
-      "Thông gió"
-    ],
-    "thongSo": {
-      "Hệ số truyền nhiệt U (W/m²K)": "2.2",
-      "Cách âm": "35 dB",
-      "Độ kín nước": "1000 Pa",
-      "Chống đột nhập": "RC3 (phụ kiện)"
-    },
-    "ghiChu": "",
-    "banVe": [
-      "/images/he-cua/ban-ve/cua-so-thong-gio-cach-nhiet-1.webp"
-    ]
-  },
-  {
-    "slug": "cua-so-cach-nhiet-uw-2-5",
-    "ten": "Cửa sổ, cách nhiệt, Uw 2.5",
-    "he": "w",
-    "heTen": "Cửa sổ",
-    "ketCau": "t",
-    "chucNang": [
-      "Thông minh / động cơ"
-    ],
-    "thongSo": {
-      "Hệ số truyền nhiệt U (W/m²K)": "2.5",
-      "Cách âm": "35 dB",
-      "Độ kín nước": "1000 Pa",
-      "Chống đột nhập": "RC2 (phụ kiện)"
-    },
-    "ghiChu": "",
-    "banVe": []
-  },
-  {
-    "slug": "cua-so",
-    "ten": "Cửa sổ",
-    "he": "w",
-    "heTen": "Cửa sổ",
-    "ketCau": "tn",
-    "chucNang": [],
-    "thongSo": {
-      "Hệ số truyền nhiệt U (W/m²K)": "3.0",
-      "Cách âm": "30 dB",
-      "Độ kín nước": "1000 Pa",
-      "Chống đột nhập": "RC3 (phụ kiện)"
-    },
-    "ghiChu": "",
-    "banVe": []
-  },
-  {
-    "slug": "cua-di-cach-nhiet-uw-2-2-phien-ban-1",
-    "ten": "Cửa đi, cách nhiệt, Uw 2.2, phiên bản 1",
-    "he": "d",
-    "heTen": "Cửa đi",
-    "ketCau": "t",
-    "chucNang": [
-      "Dễ tiếp cận"
-    ],
-    "thongSo": {
-      "Hệ số truyền nhiệt U (W/m²K)": "2.2",
-      "Cách âm": "35 dB",
-      "Độ kín nước": "700 Pa"
-    },
-    "ghiChu": "",
-    "banVe": [
-      "/images/he-cua/ban-ve/cua-di-cach-nhiet-uw-2-2-phien-ban-1-1.webp",
-      "/images/he-cua/ban-ve/cua-di-cach-nhiet-uw-2-2-phien-ban-1-2.webp",
-      "/images/he-cua/ban-ve/cua-di-cach-nhiet-uw-2-2-phien-ban-1-3.webp",
-      "/images/he-cua/ban-ve/cua-di-cach-nhiet-uw-2-2-phien-ban-1-4.webp"
-    ]
-  },
-  {
-    "slug": "cua-di-cach-nhiet-uw-2-6",
-    "ten": "Cửa đi, cách nhiệt, Uw 2.6",
-    "he": "d",
-    "heTen": "Cửa đi",
-    "ketCau": "t",
-    "chucNang": [
-      "An ninh cao",
-      "Dễ tiếp cận"
-    ],
-    "thongSo": {
-      "Hệ số truyền nhiệt U (W/m²K)": "2.6",
-      "Cách âm": "33 dB",
-      "Độ kín nước": "700 Pa",
-      "Chống đột nhập": "RC3"
-    },
-    "ghiChu": "",
-    "banVe": [
-      "/images/he-cua/ban-ve/cua-di-cach-nhiet-uw-2-6-1.webp",
-      "/images/he-cua/ban-ve/cua-di-cach-nhiet-uw-2-6-2.webp",
-      "/images/he-cua/ban-ve/cua-di-cach-nhiet-uw-2-6-3.webp",
-      "/images/he-cua/ban-ve/cua-di-cach-nhiet-uw-2-6-4.webp"
-    ]
-  },
-  {
-    "slug": "cua-di-cach-nhiet-uw-2-2-phien-ban-2",
-    "ten": "Cửa đi, cách nhiệt, Uw 2.2, phiên bản 2",
-    "he": "d",
-    "heTen": "Cửa đi",
-    "ketCau": "t",
-    "chucNang": [
-      "An ninh cao",
-      "Dễ tiếp cận"
-    ],
-    "thongSo": {
-      "Hệ số truyền nhiệt U (W/m²K)": "2.2",
-      "Cách âm": "35 dB",
-      "Độ kín nước": "700 Pa",
-      "Chống đột nhập": "RC3"
-    },
-    "ghiChu": "",
-    "banVe": [
-      "/images/he-cua/ban-ve/cua-di-cach-nhiet-uw-2-2-phien-ban-2-1.webp",
-      "/images/he-cua/ban-ve/cua-di-cach-nhiet-uw-2-2-phien-ban-2-2.webp",
-      "/images/he-cua/ban-ve/cua-di-cach-nhiet-uw-2-2-phien-ban-2-3.webp",
-      "/images/he-cua/ban-ve/cua-di-cach-nhiet-uw-2-2-phien-ban-2-4.webp"
-    ]
-  },
-  {
-    "slug": "cua-di-cach-nhiet-uw-1-6",
-    "ten": "Cửa đi, cách nhiệt, Uw 1.6",
-    "he": "d",
-    "heTen": "Cửa đi",
-    "ketCau": "t",
-    "chucNang": [
-      "An ninh cao",
-      "Dễ tiếp cận"
-    ],
-    "thongSo": {
-      "Hệ số truyền nhiệt U (W/m²K)": "1.6",
-      "Cách âm": "38 dB",
-      "Độ kín nước": "700 Pa",
-      "Chống đột nhập": "RC3"
-    },
-    "ghiChu": "",
-    "banVe": [
-      "/images/he-cua/ban-ve/cua-di-cach-nhiet-uw-1-6-1.webp",
-      "/images/he-cua/ban-ve/cua-di-cach-nhiet-uw-1-6-2.webp",
-      "/images/he-cua/ban-ve/cua-di-cach-nhiet-uw-1-6-3.webp",
-      "/images/he-cua/ban-ve/cua-di-cach-nhiet-uw-1-6-4.webp"
-    ]
-  },
-  {
-    "slug": "cua-di-kieu-co-dien-cach-nhiet",
-    "ten": "Cửa đi kiểu cổ điển, cách nhiệt",
-    "he": "d",
-    "heTen": "Cửa đi",
-    "ketCau": "t",
-    "chucNang": [
-      "Dễ tiếp cận",
-      "Kiểu cổ điển"
-    ],
-    "thongSo": {
-      "Hệ số truyền nhiệt U (W/m²K)": "2.2",
-      "Cách âm": "35 dB",
-      "Độ kín nước": "700 Pa",
-      "Chống đột nhập": "RC3 (phụ kiện)"
-    },
-    "ghiChu": "",
-    "banVe": [
-      "/images/he-cua/ban-ve/cua-di-kieu-co-dien-cach-nhiet-1.webp",
-      "/images/he-cua/ban-ve/cua-di-kieu-co-dien-cach-nhiet-2.webp",
-      "/images/he-cua/ban-ve/cua-di-kieu-co-dien-cach-nhiet-3.webp",
-      "/images/he-cua/ban-ve/cua-di-kieu-co-dien-cach-nhiet-4.webp"
-    ]
-  },
-  {
-    "slug": "cua-di-uw-3-3",
-    "ten": "Cửa đi, Uw 3.3",
-    "he": "d",
-    "heTen": "Cửa đi",
-    "ketCau": "tn",
-    "chucNang": [
-      "An ninh cao",
-      "Dễ tiếp cận"
-    ],
-    "thongSo": {
-      "Hệ số truyền nhiệt U (W/m²K)": "3.3",
-      "Cách âm": "30 dB",
-      "Độ kín nước": "1000 Pa",
-      "Chống đột nhập": "RC3"
-    },
-    "ghiChu": "",
-    "banVe": [
-      "/images/he-cua/ban-ve/cua-di-uw-3-3-1.webp",
-      "/images/he-cua/ban-ve/cua-di-uw-3-3-2.webp",
-      "/images/he-cua/ban-ve/cua-di-uw-3-3-3.webp",
-      "/images/he-cua/ban-ve/cua-di-uw-3-3-4.webp"
-    ]
-  },
-  {
-    "slug": "cua-truot-cach-nhiet-uw-1-7-phien-ban-1",
-    "ten": "Cửa trượt, cách nhiệt, Uw 1.7, phiên bản 1",
-    "he": "s",
-    "heTen": "Cửa trượt",
-    "ketCau": "t",
-    "chucNang": [
-      "An ninh cao",
-      "Dễ tiếp cận"
-    ],
-    "thongSo": {
-      "Hệ số truyền nhiệt U (W/m²K)": "1.7",
-      "Cách âm": "32 dB",
-      "Độ kín nước": "350 Pa",
-      "Chống đột nhập": "RC2"
-    },
-    "ghiChu": "",
-    "banVe": [
-      "/images/he-cua/ban-ve/cua-truot-cach-nhiet-uw-1-7-phien-ban-1-1.webp"
-    ]
-  },
-  {
-    "slug": "cua-truot-cach-nhiet-uw-1-2",
-    "ten": "Cửa trượt, cách nhiệt, Uw 1.2",
-    "he": "s",
-    "heTen": "Cửa trượt",
-    "ketCau": "t",
-    "chucNang": [
-      "Cách nhiệt cao",
-      "An ninh cao",
-      "Dễ tiếp cận",
-      "Thông minh / động cơ"
-    ],
-    "thongSo": {
-      "Hệ số truyền nhiệt U (W/m²K)": "1.2",
-      "Cách âm": "42 dB",
-      "Độ kín nước": "400 Pa",
-      "Chống đột nhập": "RC2"
-    },
-    "ghiChu": "",
-    "banVe": [
-      "/images/he-cua/ban-ve/cua-truot-cach-nhiet-uw-1-2-1.webp",
-      "/images/he-cua/ban-ve/cua-truot-cach-nhiet-uw-1-2-2.webp"
-    ]
-  },
-  {
-    "slug": "cua-truot-cach-nhiet-uw-2-5",
-    "ten": "Cửa trượt, cách nhiệt, Uw 2.5",
-    "he": "s",
-    "heTen": "Cửa trượt",
-    "ketCau": "t",
-    "chucNang": [
-      "Dễ tiếp cận"
-    ],
-    "thongSo": {
-      "Hệ số truyền nhiệt U (W/m²K)": "2.5",
-      "Cách âm": "33 dB",
-      "Độ kín nước": "300 Pa"
-    },
-    "ghiChu": "",
-    "banVe": []
-  },
-  {
-    "slug": "cua-truot-cach-nhiet-uw-1-7-phien-ban-2",
-    "ten": "Cửa trượt, cách nhiệt, Uw 1.7, phiên bản 2",
-    "he": "s",
-    "heTen": "Cửa trượt",
-    "ketCau": "t",
-    "chucNang": [
-      "Dễ tiếp cận"
-    ],
-    "thongSo": {
-      "Hệ số truyền nhiệt U (W/m²K)": "1.7",
-      "Cách âm": "35 dB",
-      "Độ kín nước": "800 Pa",
-      "Chống đột nhập": "RC2 (phụ kiện)"
-    },
-    "ghiChu": "",
-    "banVe": [
-      "/images/he-cua/ban-ve/cua-truot-cach-nhiet-uw-1-7-phien-ban-2-1.webp",
-      "/images/he-cua/ban-ve/cua-truot-cach-nhiet-uw-1-7-phien-ban-2-2.webp"
-    ]
-  },
-  {
-    "slug": "cua-nang-truot-cach-nhiet-uw-1-4",
-    "ten": "Cửa nâng trượt, cách nhiệt, Uw 1.4",
-    "he": "l",
-    "heTen": "Cửa nâng trượt",
-    "ketCau": "t",
-    "chucNang": [
-      "Cách nhiệt cao",
-      "An ninh cao",
-      "Dễ tiếp cận"
-    ],
-    "thongSo": {
-      "Hệ số truyền nhiệt U (W/m²K)": "1.4",
-      "Cách âm": "37 dB",
-      "Độ kín nước": "450 Pa",
-      "Chống đột nhập": "RC2"
-    },
-    "ghiChu": "",
-    "banVe": [
-      "/images/he-cua/ban-ve/cua-nang-truot-cach-nhiet-uw-1-4-1.webp"
-    ]
-  },
-  {
-    "slug": "cua-xep-truot-cach-nhiet",
-    "ten": "Cửa xếp trượt, cách nhiệt",
-    "he": "f",
-    "heTen": "Cửa xếp gấp",
-    "ketCau": "t",
-    "chucNang": [],
-    "thongSo": {
-      "Hệ số truyền nhiệt U (W/m²K)": "2.2",
-      "Cách âm": "33 dB",
-      "Độ kín nước": "700 Pa",
-      "Chống đột nhập": "RC2 (phụ kiện)"
-    },
-    "ghiChu": "",
-    "banVe": [
-      "/images/he-cua/ban-ve/cua-xep-truot-cach-nhiet-1.webp"
-    ]
-  },
-  {
-    "slug": "cua-so-truot-cach-nhiet",
-    "ten": "Cửa sổ trượt, cách nhiệt",
-    "he": "w",
-    "heTen": "Cửa sổ trượt",
-    "ketCau": "t",
-    "chucNang": [],
-    "thongSo": {
-      "Hệ số truyền nhiệt U (W/m²K)": "3.2",
-      "Cách âm": "28 dB",
-      "Độ kín nước": "300 Pa",
-      "Chống đột nhập": "RC2 (phụ kiện)"
-    },
-    "ghiChu": "",
-    "banVe": [
-      "/images/he-cua/ban-ve/cua-so-truot-cach-nhiet-1.webp"
-    ]
-  },
-  {
-    "slug": "cua-truot-uw-3-3",
-    "ten": "Cửa trượt, Uw 3.3",
-    "he": "s",
-    "heTen": "Cửa trượt",
-    "ketCau": "tn",
-    "chucNang": [],
-    "thongSo": {
-      "Hệ số truyền nhiệt U (W/m²K)": "3.3",
-      "Cách âm": "30 dB",
-      "Độ kín nước": "500 Pa",
-      "Chống đột nhập": "RC2 (phụ kiện)"
-    },
-    "ghiChu": "",
-    "banVe": [
-      "/images/he-cua/ban-ve/cua-truot-uw-3-3-1.webp",
-      "/images/he-cua/ban-ve/cua-truot-uw-3-3-2.webp"
-    ]
-  },
-  {
-    "slug": "cua-so-truot",
-    "ten": "Cửa sổ trượt",
-    "he": "w",
-    "heTen": "Cửa sổ trượt",
-    "ketCau": "tn",
-    "chucNang": [],
-    "thongSo": {
-      "Hệ số truyền nhiệt U (W/m²K)": "3.8",
-      "Cách âm": "25 dB",
-      "Độ kín nước": "350 Pa",
-      "Chống đột nhập": "RC2 (phụ kiện)"
-    },
-    "ghiChu": "",
-    "banVe": [
-      "/images/he-cua/ban-ve/cua-so-truot-1.webp"
-    ]
-  },
-  {
-    "slug": "cua-so-mo-quay-phien-ban-1",
-    "ten": "Cửa sổ mở quay, phiên bản 1",
-    "he": "w",
-    "heTen": "Cửa sổ",
-    "ketCau": "n",
-    "chucNang": [],
-    "thongSo": {},
-    "ghiChu": "",
-    "banVe": [
-      "/images/he-cua/ban-ve/cua-so-mo-quay-phien-ban-1-1.webp"
-    ]
-  },
-  {
-    "slug": "cua-so-mo-quay-cach-nhiet-uw-1-90",
-    "ten": "Cửa sổ mở quay, cách nhiệt, Uw 1.90",
-    "he": "w",
-    "heTen": "Cửa sổ",
-    "ketCau": "t",
-    "chucNang": [],
-    "thongSo": {
-      "Hệ số truyền nhiệt U (W/m²K)": "1,90 (Ug 0,7) · 1,80 (Ug 1,0)",
-      "Độ kín khí": "Class 4"
-    },
-    "ghiChu": "",
-    "banVe": [
-      "/images/he-cua/ban-ve/cua-so-mo-quay-cach-nhiet-uw-1-90-1.webp"
-    ]
-  },
-  {
-    "slug": "cua-so-mo-quay-cach-nhiet-uw-1-21",
-    "ten": "Cửa sổ mở quay, cách nhiệt, Uw 1.21",
-    "he": "w",
-    "heTen": "Cửa sổ",
-    "ketCau": "t",
-    "chucNang": [
-      "Cách nhiệt cao"
-    ],
-    "thongSo": {
-      "Hệ số truyền nhiệt U (W/m²K)": "1,21 (Ug 0,7) · 1,45 (Ug 1,0)",
-      "Độ kín khí": "Class 4"
-    },
-    "ghiChu": "",
-    "banVe": []
-  },
-  {
-    "slug": "cua-so-mo-quay-cach-nhiet-uw-0-96",
-    "ten": "Cửa sổ mở quay, cách nhiệt, Uw 0.96",
-    "he": "w",
-    "heTen": "Cửa sổ",
-    "ketCau": "t",
-    "chucNang": [
-      "Cách nhiệt cao",
-      "An ninh cao"
-    ],
-    "thongSo": {
-      "Hệ số truyền nhiệt U (W/m²K)": "0,96 (Ug 0,6) · 1,30 (Ug 1,0)",
-      "Độ kín khí": "Class 4",
-      "Cách âm": "47 dB",
-      "Độ kín nước": "E1500",
-      "Chịu gió": "C5",
-      "Chống đột nhập": "RC2/RC3 (bản kèm phụ kiện chống đột nhập)"
-    },
-    "ghiChu": "Khung 65/79 mm, cánh 71/77 mm. Catalog ghi Uw 1,4 (cửa 2 cánh 1540×1480) và 1,3 (1540×2180) với kính Ug 1,0.",
-    "banVe": []
-  },
-  {
-    "slug": "cua-so-mo-quay-cach-nhiet-uw-1-4",
-    "ten": "Cửa sổ mở quay, cách nhiệt, Uw 1.4",
-    "he": "w",
-    "heTen": "Cửa sổ",
-    "ketCau": "t",
-    "chucNang": [
-      "Cách nhiệt cao"
-    ],
-    "thongSo": {
-      "Hệ số truyền nhiệt U (W/m²K)": "1,4 (Ug 0,7) · 1,6 (Ug 1,0)",
-      "Độ kín khí": "Class 4",
-      "Cách âm": "44 dB",
-      "Độ kín nước": "9A",
-      "Chịu gió": "C3"
-    },
-    "ghiChu": "",
-    "banVe": []
-  },
-  {
-    "slug": "cua-so-mo-quay-cach-nhiet-uw-0-86",
-    "ten": "Cửa sổ mở quay, cách nhiệt, Uw 0.86",
-    "he": "w",
-    "heTen": "Cửa sổ",
-    "ketCau": "t",
-    "chucNang": [
-      "Cách nhiệt cao",
-      "An ninh cao"
-    ],
-    "thongSo": {
-      "Hệ số truyền nhiệt U (W/m²K)": "0,86 (Ug 0,6) · 1,20 (Ug 1,0)",
-      "Độ kín khí": "Class 4",
-      "Cách âm": "41–46 dB",
-      "Độ kín nước": "E1500",
-      "Chịu gió": "C5",
-      "Chống đột nhập": "RC2/RC3 (bản kèm phụ kiện chống đột nhập)"
-    },
-    "ghiChu": "Khung 75/89 mm, cánh 81/82,5 mm. Cánh nặng tối đa 170 kg (180 kg với bộ gia cường). Catalog ghi Uw 1,3 (cửa 2 cánh 1540×1480) và 1,2 (1540×2180) với kính Ug 1,0.",
-    "banVe": []
-  },
-  {
-    "slug": "cua-so-mo-quay-canh-an-cach-nhiet",
-    "ten": "Cửa sổ mở quay (cánh ẩn), cách nhiệt",
-    "he": "w",
-    "heTen": "Cửa sổ",
-    "ketCau": "t",
-    "chucNang": [
-      "Cách nhiệt cao"
-    ],
-    "thongSo": {
-      "Hệ số truyền nhiệt U (W/m²K)": "1,3 (Ug 1,0)",
-      "Cách âm": "đến 46 dB",
-      "Độ kín nước": "E900",
-      "Chịu gió": "C3"
-    },
-    "ghiChu": "",
-    "banVe": []
-  },
-  {
-    "slug": "cua-so-mo-quay-cach-nhiet-uw-1-30-phien-ban-1",
-    "ten": "Cửa sổ mở quay, cách nhiệt, Uw 1.30, phiên bản 1",
-    "he": "w",
-    "heTen": "Cửa sổ",
-    "ketCau": "t",
-    "chucNang": [
-      "Cách nhiệt cao"
-    ],
-    "thongSo": {
-      "Hệ số truyền nhiệt U (W/m²K)": "1,30 (Ug 1,0)",
-      "Độ kín khí": "Class 4",
-      "Cách âm": "đến 45 dB",
-      "Độ kín nước": "E900",
-      "Chịu gió": "C3"
-    },
-    "ghiChu": "",
-    "banVe": []
-  },
-  {
-    "slug": "cua-so-mo-quay-cach-nhiet-uw-1-30-phien-ban-2",
-    "ten": "Cửa sổ mở quay, cách nhiệt, Uw 1.30, phiên bản 2",
-    "he": "w",
-    "heTen": "Cửa sổ",
-    "ketCau": "t",
-    "chucNang": [
-      "Cách nhiệt cao"
-    ],
-    "thongSo": {
-      "Hệ số truyền nhiệt U (W/m²K)": "1,30 (Ug 1,0) · 1,00 (Ug 0,6)",
-      "Độ kín khí": "Class 4",
-      "Cách âm": "đến 46 dB",
-      "Độ kín nước": "9A",
-      "Chịu gió": "C3"
-    },
-    "ghiChu": "",
-    "banVe": []
-  },
-  {
-    "slug": "cua-so-mo-quay-cach-nhiet-uw-1-30-phien-ban-3",
-    "ten": "Cửa sổ mở quay, cách nhiệt, Uw 1.30, phiên bản 3",
-    "he": "w",
-    "heTen": "Cửa sổ",
-    "ketCau": "t",
-    "chucNang": [
-      "Cách nhiệt cao"
-    ],
-    "thongSo": {
-      "Hệ số truyền nhiệt U (W/m²K)": "1,30 (Ug 1,0) · 1,00 (Ug 0,6)",
-      "Độ kín khí": "Class 4",
-      "Cách âm": "đến 46 dB",
-      "Độ kín nước": "9A",
-      "Chịu gió": "C3"
-    },
-    "ghiChu": "",
-    "banVe": []
-  },
-  {
-    "slug": "cua-so-mo-quay-phien-ban-2",
-    "ten": "Cửa sổ mở quay, phiên bản 2",
-    "he": "w",
-    "heTen": "Cửa sổ",
-    "ketCau": "n",
-    "chucNang": [],
-    "thongSo": {},
-    "ghiChu": "",
-    "banVe": [
-      "/images/he-cua/ban-ve/cua-so-mo-quay-phien-ban-2-1.webp"
-    ]
-  },
-  {
-    "slug": "cua-so-mo-quay-cach-nhiet-uw-1-54",
-    "ten": "Cửa sổ mở quay, cách nhiệt, Uw 1.54",
-    "he": "w",
-    "heTen": "Cửa sổ",
-    "ketCau": "t",
-    "chucNang": [],
-    "thongSo": {
-      "Hệ số truyền nhiệt U (W/m²K)": "1,54 · 1,78 (kính warm edge)",
-      "Độ kín khí": "Class 4",
-      "Cách âm": "37–44 dB",
-      "Độ kín nước": "E750",
-      "Chịu gió": "C4"
-    },
-    "ghiChu": "",
-    "banVe": [
-      "/images/he-cua/ban-ve/cua-so-mo-quay-cach-nhiet-uw-1-54-1.webp"
-    ]
-  },
-  {
-    "slug": "cua-so-mo-quay-phien-ban-3",
-    "ten": "Cửa sổ mở quay, phiên bản 3",
-    "he": "w",
-    "heTen": "Cửa sổ",
-    "ketCau": "n",
-    "chucNang": [],
-    "thongSo": {},
-    "ghiChu": "",
-    "banVe": [
-      "/images/he-cua/ban-ve/cua-so-mo-quay-phien-ban-3-1.webp"
-    ]
-  },
-  {
-    "slug": "cua-so-mo-quay-cach-nhiet-uw-1-36",
-    "ten": "Cửa sổ mở quay, cách nhiệt, Uw 1.36",
-    "he": "w",
-    "heTen": "Cửa sổ",
-    "ketCau": "t",
-    "chucNang": [
-      "Cách nhiệt cao"
-    ],
-    "thongSo": {
-      "Hệ số truyền nhiệt U (W/m²K)": "1,36 (Ug 0,7) · 1,59 (Ug 1,0)",
-      "Độ kín khí": "Class 4",
-      "Cách âm": "37–46 dB",
-      "Độ kín nước": "9A",
-      "Chịu gió": "C4"
-    },
-    "ghiChu": "",
-    "banVe": [
-      "/images/he-cua/ban-ve/cua-so-mo-quay-cach-nhiet-uw-1-36-1.webp"
-    ]
-  },
-  {
-    "slug": "cua-so-mo-quay-cach-nhiet-uw-1-07",
-    "ten": "Cửa sổ mở quay, cách nhiệt, Uw 1.07",
-    "he": "w",
-    "heTen": "Cửa sổ",
-    "ketCau": "t",
-    "chucNang": [
-      "Cách nhiệt cao"
-    ],
-    "thongSo": {
-      "Hệ số truyền nhiệt U (W/m²K)": "1,07 (Ug 0,7) · 1,31 (Ug 1,0)",
-      "Độ kín khí": "Class 4",
-      "Cách âm": "42–44 dB",
-      "Độ kín nước": "E1200",
-      "Chịu gió": "C4"
-    },
-    "ghiChu": "",
-    "banVe": [
-      "/images/he-cua/ban-ve/cua-so-mo-quay-cach-nhiet-uw-1-07-1.webp"
-    ]
-  },
-  {
-    "slug": "cua-truot",
-    "ten": "Cửa trượt",
-    "he": "s",
-    "heTen": "Cửa trượt",
-    "ketCau": "n",
-    "chucNang": [],
-    "thongSo": {},
-    "ghiChu": "",
-    "banVe": []
-  },
-  {
-    "slug": "cua-truot-cach-nhiet-uw-1-90-phien-ban-1",
-    "ten": "Cửa trượt, cách nhiệt, Uw 1.90, phiên bản 1",
-    "he": "s",
-    "heTen": "Cửa trượt",
-    "ketCau": "t",
-    "chucNang": [],
-    "thongSo": {
-      "Hệ số truyền nhiệt U (W/m²K)": "1,90 · 1,80 (Ug 1,0, hai kích thước thử)",
-      "Độ kín khí": "Class 4",
-      "Cách âm": "38 dB",
-      "Độ kín nước": "9A",
-      "Chịu gió": "C3"
-    },
-    "ghiChu": "Khung 2 ray 65/87 mm, cánh 46 mm, buồng kính 30 mm.",
-    "banVe": []
-  },
-  {
-    "slug": "cua-truot-cach-nhiet-uw-1-90-phien-ban-2",
-    "ten": "Cửa trượt, cách nhiệt, Uw 1.90, phiên bản 2",
-    "he": "s",
-    "heTen": "Cửa trượt",
-    "ketCau": "t",
-    "chucNang": [],
-    "thongSo": {
-      "Hệ số truyền nhiệt U (W/m²K)": "1,90 · 1,80 (Ug 1,0, hai kích thước thử)",
-      "Độ kín khí": "Class 4",
-      "Cách âm": "38 dB",
-      "Độ kín nước": "E900",
-      "Chịu gió": "C3"
-    },
-    "ghiChu": "",
-    "banVe": []
-  },
-  {
-    "slug": "cua-truot-khung-an-cach-nhiet",
-    "ten": "Cửa trượt khung ẩn, cách nhiệt",
-    "he": "s",
-    "heTen": "Cửa trượt",
-    "ketCau": "t",
-    "chucNang": [
-      "Cách nhiệt cao",
-      "An ninh cao"
-    ],
-    "thongSo": {
-      "Hệ số truyền nhiệt U (W/m²K)": "1,40 (Ug 1,0)",
-      "Độ kín khí": "Class 4",
-      "Cách âm": "đến 40 dB",
-      "Độ kín nước": "7A",
-      "Chịu gió": "C1",
-      "Chống đột nhập": "RC2 (cửa 2 cánh kèm phụ kiện chống đột nhập)"
-    },
-    "ghiChu": "Khung 2 ray 150 mm, cánh 59 mm, buồng kính 39–43 mm.",
-    "banVe": []
-  },
-  {
-    "slug": "cua-nang-truot-cach-nhiet-uw-1-70",
-    "ten": "Cửa nâng trượt, cách nhiệt, Uw 1.70",
-    "he": "l",
-    "heTen": "Cửa nâng trượt",
-    "ketCau": "t",
-    "chucNang": [
-      "An ninh cao"
-    ],
-    "thongSo": {
-      "Hệ số truyền nhiệt U (W/m²K)": "1,70 (Ug 1,0)",
-      "Độ kín khí": "Class 4",
-      "Cách âm": "đến 42 dB",
-      "Độ kín nước": "E1350",
-      "Chịu gió": "C4",
-      "Chống đột nhập": "RC3/RC4 (cửa 2 cánh kèm phụ kiện chống đột nhập)"
-    },
-    "ghiChu": "Khung 2 ray 160 mm, cánh 67 mm.",
-    "banVe": []
-  },
-  {
-    "slug": "cua-di-phien-ban-1",
-    "ten": "Cửa đi, phiên bản 1",
-    "he": "d",
-    "heTen": "Cửa đi",
-    "ketCau": "n",
-    "chucNang": [],
-    "thongSo": {},
-    "ghiChu": "",
-    "banVe": [
-      "/images/he-cua/ban-ve/cua-di-phien-ban-1-1.webp"
-    ]
-  },
-  {
-    "slug": "cua-di-cach-nhiet-phien-ban-1",
-    "ten": "Cửa đi, cách nhiệt, phiên bản 1",
-    "he": "d",
-    "heTen": "Cửa đi",
-    "ketCau": "t",
-    "chucNang": [],
-    "thongSo": {},
-    "ghiChu": "",
-    "banVe": [
-      "/images/he-cua/ban-ve/cua-di-cach-nhiet-phien-ban-1-1.webp"
-    ]
-  },
-  {
-    "slug": "cua-di-cach-nhiet-uw-1-21",
-    "ten": "Cửa đi, cách nhiệt, Uw 1.21",
-    "he": "d",
-    "heTen": "Cửa đi",
-    "ketCau": "t",
-    "chucNang": [
-      "Cách nhiệt cao"
-    ],
-    "thongSo": {
-      "Hệ số truyền nhiệt U (W/m²K)": "1,21 (Ug 0,7) · 1,45 (Ug 1,0)",
-      "Độ kín khí": "Class 4"
-    },
-    "ghiChu": "",
-    "banVe": []
-  },
-  {
-    "slug": "cua-di-phien-ban-2",
-    "ten": "Cửa đi, phiên bản 2",
-    "he": "d",
-    "heTen": "Cửa đi",
-    "ketCau": "",
-    "chucNang": [],
-    "thongSo": {},
-    "ghiChu": "",
-    "banVe": [
-      "/images/he-cua/ban-ve/cua-di-phien-ban-2-1.webp"
-    ]
-  },
-  {
-    "slug": "cua-di-phien-ban-3",
-    "ten": "Cửa đi, phiên bản 3",
-    "he": "d",
-    "heTen": "Cửa đi",
-    "ketCau": "n",
-    "chucNang": [],
-    "thongSo": {},
-    "ghiChu": "",
-    "banVe": [
-      "/images/he-cua/ban-ve/cua-di-phien-ban-3-1.webp"
-    ]
-  },
-  {
-    "slug": "cua-di-cach-nhiet-phien-ban-2",
-    "ten": "Cửa đi, cách nhiệt, phiên bản 2",
-    "he": "d",
-    "heTen": "Cửa đi",
-    "ketCau": "t",
-    "chucNang": [],
-    "thongSo": {},
-    "ghiChu": "",
-    "banVe": [
-      "/images/he-cua/ban-ve/cua-di-cach-nhiet-phien-ban-2-1.webp"
-    ]
-  },
-  {
-    "slug": "cua-di-cach-nhiet-uw-2-00",
-    "ten": "Cửa đi, cách nhiệt, Uw 2.00",
-    "he": "d",
-    "heTen": "Cửa đi",
-    "ketCau": "t",
-    "chucNang": [],
-    "thongSo": {
-      "Hệ số truyền nhiệt U (W/m²K)": "2,00 (Ug 0,7)"
-    },
-    "ghiChu": "",
-    "banVe": [
-      "/images/he-cua/ban-ve/cua-di-cach-nhiet-uw-2-00-1.webp"
-    ]
-  },
-  {
-    "slug": "cua-di-cach-nhiet-uw-1-07",
-    "ten": "Cửa đi, cách nhiệt, Uw 1.07",
-    "he": "d",
-    "heTen": "Cửa đi",
-    "ketCau": "t",
-    "chucNang": [
-      "Cách nhiệt cao"
-    ],
-    "thongSo": {
-      "Hệ số truyền nhiệt U (W/m²K)": "1,07 (Ug 0,7)",
-      "Độ kín khí": "Class 3",
-      "Cách âm": "40 dB",
-      "Độ kín nước": "3A",
-      "Chịu gió": "C2"
-    },
-    "ghiChu": "",
-    "banVe": [
-      "/images/he-cua/ban-ve/cua-di-cach-nhiet-uw-1-07-1.webp"
-    ]
-  },
-  {
-    "slug": "cua-di-thoat-hiem-cach-nhiet",
-    "ten": "Cửa đi thoát hiểm, cách nhiệt",
-    "he": "d",
-    "heTen": "Cửa đi",
-    "ketCau": "t",
-    "chucNang": [
-      "Thoát hiểm"
-    ],
-    "thongSo": {
-      "Hệ số truyền nhiệt U (W/m²K)": "1,70 (Ug 1,0)",
-      "Độ kín khí": "Class 3",
-      "Cách âm": "40 dB",
-      "Độ kín nước": "3A",
-      "Chịu gió": "C2"
-    },
-    "ghiChu": "",
-    "banVe": [
-      "/images/he-cua/ban-ve/cua-di-thoat-hiem-cach-nhiet-1.webp"
-    ]
-  },
-  {
-    "slug": "cua-di-cach-nhiet-phien-ban-3",
-    "ten": "Cửa đi, cách nhiệt, phiên bản 3",
-    "he": "d",
-    "heTen": "Cửa đi",
-    "ketCau": "t",
-    "chucNang": [],
-    "thongSo": {},
-    "ghiChu": "",
-    "banVe": []
-  },
-  {
-    "slug": "cua-truot-cach-nhiet",
-    "ten": "Cửa trượt, cách nhiệt",
-    "he": "s",
-    "heTen": "Cửa trượt",
-    "ketCau": "t",
-    "chucNang": [],
-    "thongSo": {},
-    "ghiChu": "Khung 2 ray 150 mm, 3 ray 235 mm; cánh 65 mm; ngàm kính 15 mm.",
-    "banVe": []
-  },
-  {
-    "slug": "cua-nang-truot-cach-nhiet",
-    "ten": "Cửa nâng trượt, cách nhiệt",
-    "he": "l",
-    "heTen": "Cửa nâng trượt",
-    "ketCau": "t",
-    "chucNang": [],
-    "thongSo": {},
-    "ghiChu": "Khung 2 ray 150 mm, 3 ray 235 mm; cánh 65 mm; ngàm kính 15 mm.",
-    "banVe": []
-  },
-  {
-    "slug": "vach-kinh-truot",
-    "ten": "Vách kính trượt",
-    "he": "s",
-    "heTen": "Cửa trượt",
-    "ketCau": "",
-    "chucNang": [
-      "Thông minh / động cơ"
-    ],
-    "thongSo": {},
-    "ghiChu": "Cánh khuyến nghị 450 kg, tối đa 1000 kg; vận hành tay hoặc động cơ; bánh xe inox, khung dưới âm sàn (theo tài liệu hãng).",
-    "banVe": []
-  }
+ {
+  "id": 0,
+  "hang": "civro",
+  "ma": "PW80 · Enfini Pro Slender Frames",
+  "loai": "Cửa sổ khung mảnh",
+  "he": "w",
+  "ketCau": "t",
+  "tags": [],
+  "u": "1.7",
+  "kinKhi": "",
+  "cachAm": "35 dB",
+  "kinNuoc": "500 Pa",
+  "chiuGio": "",
+  "chongTrom": "RC3 (phụ kiện)",
+  "ghiChu": "",
+  "anh": {
+   "c": [],
+   "d": [
+    "/images/he-cua/ban-ve/civro-pw80-enfini-pro-slender-frames-1.webp",
+    "/images/he-cua/ban-ve/civro-pw80-enfini-pro-slender-frames-2.webp",
+    "/images/he-cua/ban-ve/civro-pw80-enfini-pro-slender-frames-3.webp"
+   ]
+  },
+  "them": false
+ },
+ {
+  "id": 1,
+  "hang": "civro",
+  "ma": "MW65",
+  "loai": "Cửa sổ",
+  "he": "w",
+  "ketCau": "t",
+  "tags": [],
+  "u": "1.9",
+  "kinKhi": "",
+  "cachAm": "36 dB",
+  "kinNuoc": "700 Pa",
+  "chiuGio": "",
+  "chongTrom": "N/A",
+  "ghiChu": "",
+  "anh": {
+   "c": [],
+   "d": [
+    "/images/he-cua/ban-ve/civro-mw65-1.webp",
+    "/images/he-cua/ban-ve/civro-mw65-2.webp"
+   ]
+  },
+  "them": false
+ },
+ {
+  "id": 2,
+  "hang": "civro",
+  "ma": "XW55",
+  "loai": "Cửa sổ",
+  "he": "w",
+  "ketCau": "t",
+  "tags": [
+   "sm"
+  ],
+  "u": "2.1",
+  "kinKhi": "",
+  "cachAm": "35 dB",
+  "kinNuoc": "1000 Pa",
+  "chiuGio": "",
+  "chongTrom": "RC3 (phụ kiện)",
+  "ghiChu": "",
+  "anh": {
+   "c": [],
+   "d": []
+  },
+  "them": false
+ },
+ {
+  "id": 3,
+  "hang": "civro",
+  "ma": "XW65",
+  "loai": "Cửa sổ",
+  "he": "w",
+  "ketCau": "t",
+  "tags": [
+   "sm"
+  ],
+  "u": "1.8",
+  "kinKhi": "",
+  "cachAm": "35 dB",
+  "kinNuoc": "1000 Pa",
+  "chiuGio": "",
+  "chongTrom": "RC3 (phụ kiện)",
+  "ghiChu": "",
+  "anh": {
+   "c": [],
+   "d": [
+    "/images/he-cua/ban-ve/civro-xw65-1.webp",
+    "/images/he-cua/ban-ve/civro-xw65-2.webp"
+   ]
+  },
+  "them": false
+ },
+ {
+  "id": 4,
+  "hang": "civro",
+  "ma": "XW75",
+  "loai": "Cửa sổ",
+  "he": "w",
+  "ketCau": "t",
+  "tags": [
+   "sm"
+  ],
+  "u": "1.5",
+  "kinKhi": "",
+  "cachAm": "38 dB",
+  "kinNuoc": "1000 Pa",
+  "chiuGio": "",
+  "chongTrom": "RC3 (phụ kiện)",
+  "ghiChu": "",
+  "anh": {
+   "c": [],
+   "d": [
+    "/images/he-cua/ban-ve/civro-xw75-1.webp",
+    "/images/he-cua/ban-ve/civro-xw75-2.webp"
+   ]
+  },
+  "them": false
+ },
+ {
+  "id": 5,
+  "hang": "civro",
+  "ma": "XW80",
+  "loai": "Cửa sổ",
+  "he": "w",
+  "ketCau": "t",
+  "tags": [
+   "cn",
+   "sm"
+  ],
+  "u": "1.2",
+  "kinKhi": "",
+  "cachAm": "39 dB",
+  "kinNuoc": "1000 Pa",
+  "chiuGio": "",
+  "chongTrom": "RC3 (phụ kiện)",
+  "ghiChu": "",
+  "anh": {
+   "c": [],
+   "d": [
+    "/images/he-cua/ban-ve/civro-xw80-1.webp"
+   ]
+  },
+  "them": false
+ },
+ {
+  "id": 6,
+  "hang": "civro",
+  "ma": "XW98",
+  "loai": "Cửa sổ",
+  "he": "w",
+  "ketCau": "t",
+  "tags": [
+   "cn",
+   "sm"
+  ],
+  "u": "0.778",
+  "kinKhi": "",
+  "cachAm": "41 dB",
+  "kinNuoc": "1000 Pa",
+  "chiuGio": "",
+  "chongTrom": "RC3 (phụ kiện)",
+  "ghiChu": "",
+  "anh": {
+   "c": [],
+   "d": []
+  },
+  "them": false
+ },
+ {
+  "id": 7,
+  "hang": "civro",
+  "ma": "XWS90",
+  "loai": "Cửa sổ có cánh lưới",
+  "he": "w",
+  "ketCau": "t",
+  "tags": [
+   "sm"
+  ],
+  "u": "2.1",
+  "kinKhi": "",
+  "cachAm": "35 dB",
+  "kinNuoc": "1000 Pa",
+  "chiuGio": "",
+  "chongTrom": "RC3 (phụ kiện)",
+  "ghiChu": "",
+  "anh": {
+   "c": [],
+   "d": [
+    "/images/he-cua/ban-ve/civro-xws90-1.webp"
+   ]
+  },
+  "them": false
+ },
+ {
+  "id": 8,
+  "hang": "civro",
+  "ma": "XWS100",
+  "loai": "Cửa sổ có cánh lưới",
+  "he": "w",
+  "ketCau": "t",
+  "tags": [],
+  "u": "1.8",
+  "kinKhi": "",
+  "cachAm": "36 dB",
+  "kinNuoc": "1000 Pa",
+  "chiuGio": "",
+  "chongTrom": "RC3 (phụ kiện)",
+  "ghiChu": "",
+  "anh": {
+   "c": [],
+   "d": []
+  },
+  "them": false
+ },
+ {
+  "id": 9,
+  "hang": "civro",
+  "ma": "XWS115",
+  "loai": "Cửa sổ có cánh lưới",
+  "he": "w",
+  "ketCau": "t",
+  "tags": [],
+  "u": "2.3",
+  "kinKhi": "",
+  "cachAm": "35 dB",
+  "kinNuoc": "1000 Pa",
+  "chiuGio": "",
+  "chongTrom": "RC3 (phụ kiện)",
+  "ghiChu": "",
+  "anh": {
+   "c": [],
+   "d": []
+  },
+  "them": false
+ },
+ {
+  "id": 10,
+  "hang": "civro",
+  "ma": "XWS125",
+  "loai": "Cửa sổ có cánh lưới",
+  "he": "w",
+  "ketCau": "t",
+  "tags": [],
+  "u": "1.8",
+  "kinKhi": "",
+  "cachAm": "36 dB",
+  "kinNuoc": "1000 Pa",
+  "chiuGio": "",
+  "chongTrom": "RC3 (phụ kiện)",
+  "ghiChu": "",
+  "anh": {
+   "c": [],
+   "d": [
+    "/images/he-cua/ban-ve/civro-xws125-1.webp"
+   ]
+  },
+  "them": false
+ },
+ {
+  "id": 11,
+  "hang": "civro",
+  "ma": "Retro XW85_BC/XW95_BC",
+  "loai": "Cửa sổ kiểu Retro",
+  "he": "w",
+  "ketCau": "t",
+  "tags": [
+   "sm"
+  ],
+  "u": "1.5",
+  "kinKhi": "",
+  "cachAm": "39 dB",
+  "kinNuoc": "1000 Pa",
+  "chiuGio": "",
+  "chongTrom": "RC3 (phụ kiện)",
+  "ghiChu": "",
+  "anh": {
+   "c": [],
+   "d": [
+    "/images/he-cua/ban-ve/civro-retro-xw85-bc-xw95-bc-1.webp",
+    "/images/he-cua/ban-ve/civro-retro-xw85-bc-xw95-bc-2.webp",
+    "/images/he-cua/ban-ve/civro-retro-xw85-bc-xw95-bc-3.webp",
+    "/images/he-cua/ban-ve/civro-retro-xw85-bc-xw95-bc-4.webp"
+   ]
+  },
+  "them": false
+ },
+ {
+  "id": 12,
+  "hang": "civro",
+  "ma": "XVE65 & XVE100",
+  "loai": "Cửa sổ thông gió",
+  "he": "w",
+  "ketCau": "t",
+  "tags": [
+   "sm"
+  ],
+  "u": "2.2",
+  "kinKhi": "",
+  "cachAm": "35 dB",
+  "kinNuoc": "1000 Pa",
+  "chiuGio": "",
+  "chongTrom": "RC3 (phụ kiện)",
+  "ghiChu": "",
+  "anh": {
+   "c": [],
+   "d": [
+    "/images/he-cua/ban-ve/civro-xve65-xve100-1.webp"
+   ]
+  },
+  "them": false
+ },
+ {
+  "id": 13,
+  "hang": "civro",
+  "ma": "XW100PO/XW110PO",
+  "loai": "Cửa sổ",
+  "he": "w",
+  "ketCau": "t",
+  "tags": [
+   "sm"
+  ],
+  "u": "2.5",
+  "kinKhi": "",
+  "cachAm": "35 dB",
+  "kinNuoc": "1000 Pa",
+  "chiuGio": "",
+  "chongTrom": "RC2 (phụ kiện)",
+  "ghiChu": "",
+  "anh": {
+   "c": [],
+   "d": []
+  },
+  "them": false
+ },
+ {
+  "id": 14,
+  "hang": "civro",
+  "ma": "NW55_E",
+  "loai": "Cửa sổ",
+  "he": "w",
+  "ketCau": "tn",
+  "tags": [],
+  "u": "3.0",
+  "kinKhi": "",
+  "cachAm": "30 dB",
+  "kinNuoc": "1000 Pa",
+  "chiuGio": "",
+  "chongTrom": "RC3 (phụ kiện)",
+  "ghiChu": "",
+  "anh": {
+   "c": [],
+   "d": []
+  },
+  "them": false
+ },
+ {
+  "id": 15,
+  "hang": "civro",
+  "ma": "MD65",
+  "loai": "Cửa đi",
+  "he": "d",
+  "ketCau": "t",
+  "tags": [
+   "de"
+  ],
+  "u": "2.2",
+  "kinKhi": "",
+  "cachAm": "35 dB",
+  "kinNuoc": "700 Pa",
+  "chiuGio": "",
+  "chongTrom": "N/A",
+  "ghiChu": "",
+  "anh": {
+   "c": [],
+   "d": [
+    "/images/he-cua/ban-ve/civro-md65-1.webp",
+    "/images/he-cua/ban-ve/civro-md65-2.webp",
+    "/images/he-cua/ban-ve/civro-md65-3.webp",
+    "/images/he-cua/ban-ve/civro-md65-4.webp"
+   ]
+  },
+  "them": false
+ },
+ {
+  "id": 16,
+  "hang": "civro",
+  "ma": "XD55",
+  "loai": "Cửa đi",
+  "he": "d",
+  "ketCau": "t",
+  "tags": [
+   "an",
+   "de"
+  ],
+  "u": "2.6",
+  "kinKhi": "",
+  "cachAm": "33 dB",
+  "kinNuoc": "700 Pa",
+  "chiuGio": "",
+  "chongTrom": "RC3",
+  "ghiChu": "",
+  "anh": {
+   "c": [],
+   "d": [
+    "/images/he-cua/ban-ve/civro-xd55-1.webp",
+    "/images/he-cua/ban-ve/civro-xd55-2.webp",
+    "/images/he-cua/ban-ve/civro-xd55-3.webp",
+    "/images/he-cua/ban-ve/civro-xd55-4.webp"
+   ]
+  },
+  "them": false
+ },
+ {
+  "id": 17,
+  "hang": "civro",
+  "ma": "XD65",
+  "loai": "Cửa đi",
+  "he": "d",
+  "ketCau": "t",
+  "tags": [
+   "an",
+   "de"
+  ],
+  "u": "2.2",
+  "kinKhi": "",
+  "cachAm": "35 dB",
+  "kinNuoc": "700 Pa",
+  "chiuGio": "",
+  "chongTrom": "RC3",
+  "ghiChu": "",
+  "anh": {
+   "c": [],
+   "d": [
+    "/images/he-cua/ban-ve/civro-xd65-1.webp",
+    "/images/he-cua/ban-ve/civro-xd65-2.webp",
+    "/images/he-cua/ban-ve/civro-xd65-3.webp",
+    "/images/he-cua/ban-ve/civro-xd65-4.webp"
+   ]
+  },
+  "them": false
+ },
+ {
+  "id": 18,
+  "hang": "civro",
+  "ma": "XD80",
+  "loai": "Cửa đi",
+  "he": "d",
+  "ketCau": "t",
+  "tags": [
+   "an",
+   "de"
+  ],
+  "u": "1.6",
+  "kinKhi": "",
+  "cachAm": "38 dB",
+  "kinNuoc": "700 Pa",
+  "chiuGio": "",
+  "chongTrom": "RC3",
+  "ghiChu": "",
+  "anh": {
+   "c": [],
+   "d": [
+    "/images/he-cua/ban-ve/civro-xd80-1.webp",
+    "/images/he-cua/ban-ve/civro-xd80-2.webp",
+    "/images/he-cua/ban-ve/civro-xd80-3.webp",
+    "/images/he-cua/ban-ve/civro-xd80-4.webp"
+   ]
+  },
+  "them": false
+ },
+ {
+  "id": 19,
+  "hang": "civro",
+  "ma": "Retro XD85_BC/XD95_BC",
+  "loai": "Cửa đi kiểu Retro",
+  "he": "d",
+  "ketCau": "t",
+  "tags": [
+   "de"
+  ],
+  "u": "2.2",
+  "kinKhi": "",
+  "cachAm": "35 dB",
+  "kinNuoc": "700 Pa",
+  "chiuGio": "",
+  "chongTrom": "RC3 (phụ kiện)",
+  "ghiChu": "",
+  "anh": {
+   "c": [],
+   "d": [
+    "/images/he-cua/ban-ve/civro-retro-xd85-bc-xd95-bc-1.webp",
+    "/images/he-cua/ban-ve/civro-retro-xd85-bc-xd95-bc-2.webp",
+    "/images/he-cua/ban-ve/civro-retro-xd85-bc-xd95-bc-3.webp",
+    "/images/he-cua/ban-ve/civro-retro-xd85-bc-xd95-bc-4.webp"
+   ]
+  },
+  "them": false
+ },
+ {
+  "id": 20,
+  "hang": "civro",
+  "ma": "ND55_E",
+  "loai": "Cửa đi",
+  "he": "d",
+  "ketCau": "tn",
+  "tags": [
+   "an",
+   "de"
+  ],
+  "u": "3.3",
+  "kinKhi": "",
+  "cachAm": "30 dB",
+  "kinNuoc": "1000 Pa",
+  "chiuGio": "",
+  "chongTrom": "RC3",
+  "ghiChu": "",
+  "anh": {
+   "c": [],
+   "d": [
+    "/images/he-cua/ban-ve/civro-nd55-e-1.webp",
+    "/images/he-cua/ban-ve/civro-nd55-e-2.webp",
+    "/images/he-cua/ban-ve/civro-nd55-e-3.webp",
+    "/images/he-cua/ban-ve/civro-nd55-e-4.webp"
+   ]
+  },
+  "them": false
+ },
+ {
+  "id": 21,
+  "hang": "civro",
+  "ma": "PD65 · Enfini Pro",
+  "loai": "Cửa trượt",
+  "he": "s",
+  "ketCau": "t",
+  "tags": [
+   "an",
+   "de"
+  ],
+  "u": "1.7",
+  "kinKhi": "",
+  "cachAm": "32 dB",
+  "kinNuoc": "350 Pa",
+  "chiuGio": "",
+  "chongTrom": "RC2",
+  "ghiChu": "",
+  "anh": {
+   "c": [],
+   "d": [
+    "/images/he-cua/ban-ve/civro-pd65-enfini-pro-1.webp"
+   ]
+  },
+  "them": false
+ },
+ {
+  "id": 22,
+  "hang": "civro",
+  "ma": "CIVRO-ORAMA UD137/UD207",
+  "loai": "Cửa trượt",
+  "he": "s",
+  "ketCau": "t",
+  "tags": [
+   "cn",
+   "an",
+   "de",
+   "sm"
+  ],
+  "u": "1.2",
+  "kinKhi": "",
+  "cachAm": "42 dB",
+  "kinNuoc": "400 Pa",
+  "chiuGio": "",
+  "chongTrom": "RC2",
+  "ghiChu": "",
+  "anh": {
+   "c": [],
+   "d": [
+    "/images/he-cua/ban-ve/civro-civro-orama-ud137-ud207-1.webp",
+    "/images/he-cua/ban-ve/civro-civro-orama-ud137-ud207-2.webp"
+   ]
+  },
+  "them": false
+ },
+ {
+  "id": 23,
+  "hang": "civro",
+  "ma": "MD45SS",
+  "loai": "Cửa trượt",
+  "he": "s",
+  "ketCau": "t",
+  "tags": [
+   "de"
+  ],
+  "u": "2.5",
+  "kinKhi": "",
+  "cachAm": "33 dB",
+  "kinNuoc": "300 Pa",
+  "chiuGio": "",
+  "chongTrom": "N/A",
+  "ghiChu": "",
+  "anh": {
+   "c": [],
+   "d": []
+  },
+  "them": false
+ },
+ {
+  "id": 24,
+  "hang": "civro",
+  "ma": "XD63",
+  "loai": "Cửa trượt",
+  "he": "s",
+  "ketCau": "t",
+  "tags": [
+   "de"
+  ],
+  "u": "1.7",
+  "kinKhi": "",
+  "cachAm": "35 dB",
+  "kinNuoc": "800 Pa",
+  "chiuGio": "",
+  "chongTrom": "RC2 (phụ kiện)",
+  "ghiChu": "",
+  "anh": {
+   "c": [],
+   "d": [
+    "/images/he-cua/ban-ve/civro-xd63-1.webp",
+    "/images/he-cua/ban-ve/civro-xd63-2.webp"
+   ]
+  },
+  "them": false
+ },
+ {
+  "id": 25,
+  "hang": "civro",
+  "ma": "XD73LS",
+  "loai": "Cửa nâng trượt",
+  "he": "l",
+  "ketCau": "t",
+  "tags": [
+   "cn",
+   "an",
+   "de"
+  ],
+  "u": "1.4",
+  "kinKhi": "",
+  "cachAm": "37 dB",
+  "kinNuoc": "450 Pa",
+  "chiuGio": "",
+  "chongTrom": "RC2",
+  "ghiChu": "",
+  "anh": {
+   "c": [],
+   "d": [
+    "/images/he-cua/ban-ve/civro-xd73ls-1.webp"
+   ]
+  },
+  "them": false
+ },
+ {
+  "id": 26,
+  "hang": "civro",
+  "ma": "AD80FD",
+  "loai": "Cửa xếp trượt",
+  "he": "f",
+  "ketCau": "t",
+  "tags": [],
+  "u": "2.2",
+  "kinKhi": "",
+  "cachAm": "33 dB",
+  "kinNuoc": "700 Pa",
+  "chiuGio": "",
+  "chongTrom": "RC2 (phụ kiện)",
+  "ghiChu": "",
+  "anh": {
+   "c": [],
+   "d": [
+    "/images/he-cua/ban-ve/civro-ad80fd-1.webp"
+   ]
+  },
+  "them": false
+ },
+ {
+  "id": 27,
+  "hang": "civro",
+  "ma": "AW55SS",
+  "loai": "Cửa sổ trượt",
+  "he": "ws",
+  "ketCau": "t",
+  "tags": [],
+  "u": "3.2",
+  "kinKhi": "",
+  "cachAm": "28 dB",
+  "kinNuoc": "300 Pa",
+  "chiuGio": "",
+  "chongTrom": "RC2 (phụ kiện)",
+  "ghiChu": "",
+  "anh": {
+   "c": [],
+   "d": [
+    "/images/he-cua/ban-ve/civro-aw55ss-1.webp"
+   ]
+  },
+  "them": false
+ },
+ {
+  "id": 28,
+  "hang": "civro",
+  "ma": "ND45SS",
+  "loai": "Cửa trượt",
+  "he": "s",
+  "ketCau": "tn",
+  "tags": [],
+  "u": "3.3",
+  "kinKhi": "",
+  "cachAm": "30 dB",
+  "kinNuoc": "500 Pa",
+  "chiuGio": "",
+  "chongTrom": "RC2 (phụ kiện)",
+  "ghiChu": "",
+  "anh": {
+   "c": [],
+   "d": [
+    "/images/he-cua/ban-ve/civro-nd45ss-1.webp",
+    "/images/he-cua/ban-ve/civro-nd45ss-2.webp"
+   ]
+  },
+  "them": false
+ },
+ {
+  "id": 29,
+  "hang": "civro",
+  "ma": "NW55SS",
+  "loai": "Cửa sổ trượt",
+  "he": "ws",
+  "ketCau": "tn",
+  "tags": [],
+  "u": "3.8",
+  "kinKhi": "",
+  "cachAm": "25 dB",
+  "kinNuoc": "350 Pa",
+  "chiuGio": "",
+  "chongTrom": "RC2 (phụ kiện)",
+  "ghiChu": "",
+  "anh": {
+   "c": [],
+   "d": [
+    "/images/he-cua/ban-ve/civro-nw55ss-1.webp"
+   ]
+  },
+  "them": false
+ },
+ {
+  "id": 30,
+  "hang": "romadio",
+  "ma": "PANORAMA 19H",
+  "loai": "Cửa trượt Infinity View",
+  "he": "s",
+  "ketCau": "t",
+  "tags": [],
+  "u": "≥ 2.3",
+  "kinKhi": "≤ Class 4",
+  "cachAm": "28 dB",
+  "kinNuoc": "≤ E1200",
+  "chiuGio": "C5/B5",
+  "chongTrom": "",
+  "ghiChu": "Kính áp dụng: 10–32 mm",
+  "anh": {
+   "c": [
+    "/images/he-cua/mau-goc/romadio-panorama-19h-g1.webp"
+   ],
+   "d": [
+    "/images/he-cua/ban-ve/romadio-panorama-19h-1.webp"
+   ]
+  },
+  "them": false
+ },
+ {
+  "id": 31,
+  "hang": "romadio",
+  "ma": "RCT65",
+  "loai": "Vách kính (Curtain wall)",
+  "he": "v",
+  "ketCau": "t",
+  "tags": [],
+  "u": "≥ 1.2",
+  "kinKhi": "Class 4",
+  "cachAm": "39 dB",
+  "kinNuoc": "E1200",
+  "chiuGio": "C5/B5",
+  "chongTrom": "",
+  "ghiChu": "Kính áp dụng: 5–28 mm",
+  "anh": {
+   "c": [
+    "/images/he-cua/mau-goc/romadio-rct65-g1.webp"
+   ],
+   "d": []
+  },
+  "them": false
+ },
+ {
+  "id": 32,
+  "hang": "romadio",
+  "ma": "RD120LS/SS",
+  "loai": "Cửa nâng trượt",
+  "he": "l",
+  "ketCau": "t",
+  "tags": [],
+  "u": "≥ 2.5",
+  "kinKhi": "Class 2",
+  "cachAm": "32 dB",
+  "kinNuoc": "Class 7A",
+  "chiuGio": "C5/B5",
+  "chongTrom": "",
+  "ghiChu": "Kính áp dụng: 5–28 mm",
+  "anh": {
+   "c": [],
+   "d": [
+    "/images/he-cua/ban-ve/romadio-rd120ls-ss-1.webp"
+   ]
+  },
+  "them": false
+ },
+ {
+  "id": 33,
+  "hang": "romadio",
+  "ma": "RD150LS/SS Triple Glass",
+  "loai": "Cửa nâng trượt kính ba lớp",
+  "he": "l",
+  "ketCau": "t",
+  "tags": [],
+  "u": "≥ 2.5",
+  "kinKhi": "Class 4",
+  "cachAm": "36 dB",
+  "kinNuoc": "Class 8A",
+  "chiuGio": "C5/B5",
+  "chongTrom": "",
+  "ghiChu": "Kính áp dụng: 24–52 mm",
+  "anh": {
+   "c": [],
+   "d": [
+    "/images/he-cua/ban-ve/romadio-rd150ls-ss-triple-glass-1.webp"
+   ]
+  },
+  "them": false
+ },
+ {
+  "id": 34,
+  "hang": "romadio",
+  "ma": "RD190LS/SS",
+  "loai": "Cửa nâng trượt",
+  "he": "l",
+  "ketCau": "t",
+  "tags": [],
+  "u": "≥ 2.5",
+  "kinKhi": "Class 2",
+  "cachAm": "32 dB",
+  "kinNuoc": "Class 7A",
+  "chiuGio": "C5/B5",
+  "chongTrom": "",
+  "ghiChu": "Kính áp dụng: 5–28 mm",
+  "anh": {
+   "c": [],
+   "d": [
+    "/images/he-cua/ban-ve/romadio-rd190ls-ss-1.webp"
+   ]
+  },
+  "them": false
+ },
+ {
+  "id": 35,
+  "hang": "romadio",
+  "ma": "RD225LS/SS Triple Glass",
+  "loai": "Cửa nâng trượt kính ba lớp",
+  "he": "l",
+  "ketCau": "t",
+  "tags": [],
+  "u": "≥ 1.4",
+  "kinKhi": "Class 4",
+  "cachAm": "36 dB",
+  "kinNuoc": "Class 8A",
+  "chiuGio": "C5/B5",
+  "chongTrom": "",
+  "ghiChu": "Kính áp dụng: 24–52 mm",
+  "anh": {
+   "c": [],
+   "d": []
+  },
+  "them": false
+ },
+ {
+  "id": 36,
+  "hang": "romadio",
+  "ma": "RD65IN",
+  "loai": "Cửa đi mở quay vào",
+  "he": "d",
+  "ketCau": "t",
+  "tags": [],
+  "u": "≥ 2.2",
+  "kinKhi": "≤ Class 4",
+  "cachAm": "34 dB",
+  "kinNuoc": "≤ E700",
+  "chiuGio": "C5/B5",
+  "chongTrom": "",
+  "ghiChu": "Kính áp dụng: 5–42 mm",
+  "anh": {
+   "c": [],
+   "d": [
+    "/images/he-cua/ban-ve/romadio-rd65in-1.webp"
+   ]
+  },
+  "them": false
+ },
+ {
+  "id": 37,
+  "hang": "romadio",
+  "ma": "RD65OU",
+  "loai": "Cửa đi mở quay ra",
+  "he": "d",
+  "ketCau": "t",
+  "tags": [],
+  "u": "≥ 1.2",
+  "kinKhi": "Class 4",
+  "cachAm": "34 dB",
+  "kinNuoc": "≤ E700",
+  "chiuGio": "C5/B5",
+  "chongTrom": "",
+  "ghiChu": "Kính áp dụng: 5–32 mm",
+  "anh": {
+   "c": [],
+   "d": [
+    "/images/he-cua/ban-ve/romadio-rd65ou-1.webp"
+   ]
+  },
+  "them": false
+ },
+ {
+  "id": 38,
+  "hang": "romadio",
+  "ma": "RD80FD",
+  "loai": "Cửa xếp gấp",
+  "he": "f",
+  "ketCau": "t",
+  "tags": [],
+  "u": "≥ 1.2",
+  "kinKhi": "Class 4",
+  "cachAm": "29 dB",
+  "kinNuoc": "≥ E1000",
+  "chiuGio": "C5/B5",
+  "chongTrom": "",
+  "ghiChu": "Kính áp dụng: 5–36 mm",
+  "anh": {
+   "c": [],
+   "d": [
+    "/images/he-cua/ban-ve/romadio-rd80fd-1.webp"
+   ]
+  },
+  "them": false
+ },
+ {
+  "id": 39,
+  "hang": "romadio",
+  "ma": "RP127OU + Fence",
+  "loai": "Cửa sổ song song có lan can",
+  "he": "w",
+  "ketCau": "t",
+  "tags": [],
+  "u": "≥ 2.5",
+  "kinKhi": "0.21 m³/(m·h)",
+  "cachAm": "35 dB",
+  "kinNuoc": "1000 Pa",
+  "chiuGio": "≤ 5.0 kPa",
+  "chongTrom": "",
+  "ghiChu": "Kính áp dụng: 24 mm",
+  "anh": {
+   "c": [],
+   "d": [
+    "/images/he-cua/ban-ve/romadio-rp127ou-fence-1.webp"
+   ]
+  },
+  "them": false
+ },
+ {
+  "id": 40,
+  "hang": "romadio",
+  "ma": "RVE100IN",
+  "loai": "Cửa sổ thông gió có lưới",
+  "he": "w",
+  "ketCau": "t",
+  "tags": [],
+  "u": "≥ 2.6",
+  "kinKhi": "Class 4",
+  "cachAm": "39 dB",
+  "kinNuoc": "E1200",
+  "chiuGio": "C5/B5",
+  "chongTrom": "",
+  "ghiChu": "Kính áp dụng: 13–52 mm",
+  "anh": {
+   "c": [],
+   "d": [
+    "/images/he-cua/ban-ve/romadio-rve100in-1.webp"
+   ]
+  },
+  "them": false
+ },
+ {
+  "id": 41,
+  "hang": "romadio",
+  "ma": "RVE65IN",
+  "loai": "Cửa sổ thông gió",
+  "he": "w",
+  "ketCau": "t",
+  "tags": [],
+  "u": "≥ 2.6",
+  "kinKhi": "Class 4",
+  "cachAm": "39 dB",
+  "kinNuoc": "E700",
+  "chiuGio": "C5/B5",
+  "chongTrom": "",
+  "ghiChu": "Kính áp dụng: 5–42 mm",
+  "anh": {
+   "c": [],
+   "d": [
+    "/images/he-cua/ban-ve/romadio-rve65in-1.webp"
+   ]
+  },
+  "them": false
+ },
+ {
+  "id": 42,
+  "hang": "romadio",
+  "ma": "RW100IN + FW40G",
+  "loai": "Cửa sổ mở hất/quay có lưới",
+  "he": "w",
+  "ketCau": "t",
+  "tags": [],
+  "u": "≥ 1.8",
+  "kinKhi": "Class 4",
+  "cachAm": "38 dB",
+  "kinNuoc": "E1200",
+  "chiuGio": "C5/B5",
+  "chongTrom": "",
+  "ghiChu": "Kính áp dụng: 13–52 mm",
+  "anh": {
+   "c": [],
+   "d": [
+    "/images/he-cua/ban-ve/romadio-rw100in-fw40g-1.webp"
+   ]
+  },
+  "them": false
+ },
+ {
+  "id": 43,
+  "hang": "romadio",
+  "ma": "RW100SS",
+  "loai": "Cửa sổ trượt",
+  "he": "ws",
+  "ketCau": "t",
+  "tags": [],
+  "u": "≥ 3.2",
+  "kinKhi": "≤ Class 1",
+  "cachAm": "29 dB",
+  "kinNuoc": "≤ Class 5A",
+  "chiuGio": "C5/B5",
+  "chongTrom": "",
+  "ghiChu": "Kính áp dụng: 24 mm",
+  "anh": {
+   "c": [],
+   "d": []
+  },
+  "them": false
+ },
+ {
+  "id": 44,
+  "hang": "romadio",
+  "ma": "RW120OU + MESH",
+  "loai": "Cửa sổ mở quay ra có lưới",
+  "he": "w",
+  "ketCau": "t",
+  "tags": [],
+  "u": "≥ 1.2",
+  "kinKhi": "Class 4",
+  "cachAm": "34 dB",
+  "kinNuoc": "≤ E1200",
+  "chiuGio": "C5/B5",
+  "chongTrom": "",
+  "ghiChu": "Kính áp dụng: 5–32 mm",
+  "anh": {
+   "c": [],
+   "d": [
+    "/images/he-cua/ban-ve/romadio-rw120ou-mesh-1.webp"
+   ]
+  },
+  "them": false
+ },
+ {
+  "id": 45,
+  "hang": "romadio",
+  "ma": "RW65IN + Mesh",
+  "loai": "Cửa sổ mở hất/quay có lưới",
+  "he": "w",
+  "ketCau": "t",
+  "tags": [],
+  "u": "≥ 2.6",
+  "kinKhi": "Class 4",
+  "cachAm": "33 dB",
+  "kinNuoc": "≤ E1200",
+  "chiuGio": "B5",
+  "chongTrom": "",
+  "ghiChu": "Kính áp dụng: 5–42 mm",
+  "anh": {
+   "c": [],
+   "d": [
+    "/images/he-cua/ban-ve/romadio-rw65in-mesh-1.webp"
+   ]
+  },
+  "them": false
+ },
+ {
+  "id": 46,
+  "hang": "romadio",
+  "ma": "RW65OU",
+  "loai": "Cửa sổ mở quay ra",
+  "he": "w",
+  "ketCau": "t",
+  "tags": [],
+  "u": "≥ 2.3",
+  "kinKhi": "≤ Class 4",
+  "cachAm": "34 dB",
+  "kinNuoc": "≤ E1200",
+  "chiuGio": "C5/B5",
+  "chongTrom": "",
+  "ghiChu": "Kính áp dụng: 5–32 mm",
+  "anh": {
+   "c": [],
+   "d": [
+    "/images/he-cua/ban-ve/romadio-rw65ou-1.webp"
+   ]
+  },
+  "them": false
+ },
+ {
+  "id": 47,
+  "hang": "romadio",
+  "ma": "MD120LS/SS",
+  "loai": "Cửa nâng trượt",
+  "he": "l",
+  "ketCau": "n",
+  "tags": [],
+  "u": "",
+  "kinKhi": "≤ Class 2",
+  "cachAm": "30 dB",
+  "kinNuoc": "≤ Class 8A",
+  "chiuGio": "C5/B5",
+  "chongTrom": "",
+  "ghiChu": "Kính áp dụng: 5–24 mm",
+  "anh": {
+   "c": [],
+   "d": [
+    "/images/he-cua/ban-ve/romadio-md120ls-ss-1.webp"
+   ]
+  },
+  "them": false
+ },
+ {
+  "id": 48,
+  "hang": "romadio",
+  "ma": "MD190LS/SS",
+  "loai": "Cửa nâng trượt",
+  "he": "l",
+  "ketCau": "n",
+  "tags": [],
+  "u": "",
+  "kinKhi": "≤ Class 2",
+  "cachAm": "30 dB",
+  "kinNuoc": "≤ Class 8A",
+  "chiuGio": "C5/B5",
+  "chongTrom": "",
+  "ghiChu": "Kính áp dụng: 5–24 mm",
+  "anh": {
+   "c": [],
+   "d": [
+    "/images/he-cua/ban-ve/romadio-md190ls-ss-1.webp"
+   ]
+  },
+  "them": false
+ },
+ {
+  "id": 49,
+  "hang": "romadio",
+  "ma": "MD55IN",
+  "loai": "Cửa đi mở quay vào",
+  "he": "d",
+  "ketCau": "n",
+  "tags": [],
+  "u": "",
+  "kinKhi": "≤ Class 4",
+  "cachAm": "29 dB",
+  "kinNuoc": "≤ E700",
+  "chiuGio": "C5/B5",
+  "chongTrom": "",
+  "ghiChu": "Kính áp dụng: 5–24 mm",
+  "anh": {
+   "c": [],
+   "d": [
+    "/images/he-cua/ban-ve/romadio-md55in-1.webp"
+   ]
+  },
+  "them": false
+ },
+ {
+  "id": 50,
+  "hang": "romadio",
+  "ma": "MD55OU",
+  "loai": "Cửa đi mở quay ra",
+  "he": "d",
+  "ketCau": "n",
+  "tags": [],
+  "u": "",
+  "kinKhi": "≤ Class 4",
+  "cachAm": "29 dB",
+  "kinNuoc": "≤ E1000",
+  "chiuGio": "C5/B5",
+  "chongTrom": "",
+  "ghiChu": "Kính áp dụng: 5–24 mm",
+  "anh": {
+   "c": [],
+   "d": [
+    "/images/he-cua/ban-ve/romadio-md55ou-1.webp"
+   ]
+  },
+  "them": false
+ },
+ {
+  "id": 51,
+  "hang": "romadio",
+  "ma": "MD65IN",
+  "loai": "Cửa đi mở quay vào",
+  "he": "d",
+  "ketCau": "n",
+  "tags": [],
+  "u": "",
+  "kinKhi": "≤ Class 4",
+  "cachAm": "31 dB",
+  "kinNuoc": "≤ E700",
+  "chiuGio": "C5/B5",
+  "chongTrom": "",
+  "ghiChu": "Kính áp dụng: 5–32 mm",
+  "anh": {
+   "c": [],
+   "d": [
+    "/images/he-cua/ban-ve/romadio-md65in-1.webp"
+   ]
+  },
+  "them": false
+ },
+ {
+  "id": 52,
+  "hang": "romadio",
+  "ma": "MD65OU",
+  "loai": "Cửa đi mở quay ra",
+  "he": "d",
+  "ketCau": "n",
+  "tags": [],
+  "u": "",
+  "kinKhi": "≤ Class 4",
+  "cachAm": "31 dB",
+  "kinNuoc": "≤ E1000",
+  "chiuGio": "C5/B5",
+  "chongTrom": "",
+  "ghiChu": "Kính áp dụng: 5–32 mm",
+  "anh": {
+   "c": [],
+   "d": [
+    "/images/he-cua/ban-ve/romadio-md65ou-1.webp"
+   ]
+  },
+  "them": false
+ },
+ {
+  "id": 53,
+  "hang": "romadio",
+  "ma": "MD80FD",
+  "loai": "Cửa xếp gấp",
+  "he": "f",
+  "ketCau": "n",
+  "tags": [],
+  "u": "",
+  "kinKhi": "≤ Class 2",
+  "cachAm": "29 dB",
+  "kinNuoc": "≤ E1200",
+  "chiuGio": "C5/B5",
+  "chongTrom": "",
+  "ghiChu": "Kính áp dụng: 5–36 mm",
+  "anh": {
+   "c": [],
+   "d": [
+    "/images/he-cua/ban-ve/romadio-md80fd-1.webp"
+   ]
+  },
+  "them": false
+ },
+ {
+  "id": 54,
+  "hang": "romadio",
+  "ma": "MW55OU",
+  "loai": "Cửa sổ mở quay ra",
+  "he": "w",
+  "ketCau": "n",
+  "tags": [],
+  "u": "",
+  "kinKhi": "≤ Class 4",
+  "cachAm": "29 dB",
+  "kinNuoc": "≤ E1000",
+  "chiuGio": "C5/B5",
+  "chongTrom": "",
+  "ghiChu": "Kính áp dụng: 5–24 mm",
+  "anh": {
+   "c": [],
+   "d": [
+    "/images/he-cua/ban-ve/romadio-mw55ou-1.webp"
+   ]
+  },
+  "them": false
+ },
+ {
+  "id": 55,
+  "hang": "romadio",
+  "ma": "MW65IN + Mesh",
+  "loai": "Cửa sổ mở hất/quay có lưới",
+  "he": "w",
+  "ketCau": "n",
+  "tags": [],
+  "u": "",
+  "kinKhi": "≤ Class 4",
+  "cachAm": "31 dB",
+  "kinNuoc": "≤ E1200",
+  "chiuGio": "C5/B5",
+  "chongTrom": "",
+  "ghiChu": "Kính áp dụng: 5–42 mm",
+  "anh": {
+   "c": [],
+   "d": [
+    "/images/he-cua/ban-ve/romadio-mw65in-mesh-1.webp"
+   ]
+  },
+  "them": false
+ },
+ {
+  "id": 56,
+  "hang": "romadio",
+  "ma": "MW65OU + MESH",
+  "loai": "Cửa sổ mở quay ra có lưới",
+  "he": "w",
+  "ketCau": "n",
+  "tags": [],
+  "u": "",
+  "kinKhi": "≤ Class 4",
+  "cachAm": "31 dB",
+  "kinNuoc": "≤ E1200",
+  "chiuGio": "C5/B5",
+  "chongTrom": "",
+  "ghiChu": "Kính áp dụng: 5–32 mm",
+  "anh": {
+   "c": [],
+   "d": [
+    "/images/he-cua/ban-ve/romadio-mw65ou-mesh-1.webp"
+   ]
+  },
+  "them": false
+ },
+ {
+  "id": 57,
+  "hang": "romadio",
+  "ma": "MW65SS + Mesh",
+  "loai": "Cửa sổ trượt có lưới",
+  "he": "ws",
+  "ketCau": "n",
+  "tags": [],
+  "u": "",
+  "kinKhi": "≤ Class 2",
+  "cachAm": "26 dB",
+  "kinNuoc": "≤ Class 5A",
+  "chiuGio": "C5/B5",
+  "chongTrom": "",
+  "ghiChu": "Kính áp dụng: 5–24 mm",
+  "anh": {
+   "c": [],
+   "d": [
+    "/images/he-cua/ban-ve/romadio-mw65ss-mesh-1.webp"
+   ]
+  },
+  "them": false
+ },
+ {
+  "id": 58,
+  "hang": "romadio",
+  "ma": "PANORAMA 19S · 2 ray",
+  "loai": "Cửa trượt slim",
+  "he": "s",
+  "ketCau": "n",
+  "tags": [],
+  "u": "",
+  "kinKhi": "≤ Class 2",
+  "cachAm": "28 dB",
+  "kinNuoc": "≤ Class 5A",
+  "chiuGio": "C5/B5",
+  "chongTrom": "",
+  "ghiChu": "Kính áp dụng: 10–32 mm",
+  "anh": {
+   "c": [],
+   "d": [
+    "/images/he-cua/ban-ve/romadio-panorama-19s-2-ray-1.webp"
+   ]
+  },
+  "them": false
+ },
+ {
+  "id": 59,
+  "hang": "romadio",
+  "ma": "PANORAMA 19S · 3 ray",
+  "loai": "Cửa trượt slim",
+  "he": "s",
+  "ketCau": "n",
+  "tags": [],
+  "u": "",
+  "kinKhi": "≤ Class 4",
+  "cachAm": "28 dB",
+  "kinNuoc": "≤ E1200",
+  "chiuGio": "C5/B5",
+  "chongTrom": "",
+  "ghiChu": "Kính áp dụng: 15–32 mm",
+  "anh": {
+   "c": [],
+   "d": [
+    "/images/he-cua/ban-ve/romadio-panorama-19s-3-ray-1.webp"
+   ]
+  },
+  "them": false
+ },
+ {
+  "id": 60,
+  "hang": "ponzio",
+  "ma": "WS 45",
+  "loai": "Cửa sổ/cửa mở quay",
+  "he": "w",
+  "ketCau": "n",
+  "tags": [],
+  "u": "",
+  "kinKhi": "",
+  "cachAm": "",
+  "kinNuoc": "",
+  "chiuGio": "",
+  "chongTrom": "",
+  "ghiChu": "",
+  "anh": {
+   "c": [],
+   "d": [
+    "/images/he-cua/ban-ve/ponzio-ws-45-1.webp"
+   ]
+  },
+  "them": false
+ },
+ {
+  "id": 61,
+  "hang": "ponzio",
+  "ma": "WS 45 TT",
+  "loai": "Cửa sổ/cửa mở quay",
+  "he": "w",
+  "ketCau": "t",
+  "tags": [],
+  "u": "1,90 (Ug 0,7) · 1,80 (Ug 1,0)",
+  "kinKhi": "Class 4",
+  "cachAm": "",
+  "kinNuoc": "",
+  "chiuGio": "",
+  "chongTrom": "",
+  "ghiChu": "",
+  "anh": {
+   "c": [],
+   "d": [
+    "/images/he-cua/ban-ve/ponzio-ws-45-tt-1.webp"
+   ]
+  },
+  "them": false
+ },
+ {
+  "id": 62,
+  "hang": "ponzio",
+  "ma": "WS 55 TT",
+  "loai": "Cửa sổ/cửa mở quay",
+  "he": "w",
+  "ketCau": "t",
+  "tags": [
+   "cn"
+  ],
+  "u": "1,21 (Ug 0,7) · 1,45 (Ug 1,0)",
+  "kinKhi": "Class 4",
+  "cachAm": "",
+  "kinNuoc": "",
+  "chiuGio": "",
+  "chongTrom": "",
+  "ghiChu": "",
+  "anh": {
+   "c": [],
+   "d": []
+  },
+  "them": false
+ },
+ {
+  "id": 63,
+  "hang": "ponzio",
+  "ma": "WS 65 THI",
+  "loai": "Cửa sổ/cửa mở quay",
+  "he": "w",
+  "ketCau": "t",
+  "tags": [
+   "cn",
+   "an"
+  ],
+  "u": "0,96 (Ug 0,6) · 1,30 (Ug 1,0)",
+  "kinKhi": "Class 4",
+  "cachAm": "47 dB",
+  "kinNuoc": "E1500",
+  "chiuGio": "C5",
+  "chongTrom": "RC2/RC3 (bản kèm phụ kiện chống đột nhập)",
+  "ghiChu": "Khung 65/79 mm, cánh 71/77 mm. Catalog ghi Uw 1,4 (cửa 2 cánh 1540×1480) và 1,3 (1540×2180) với kính Ug 1,0.",
+  "anh": {
+   "c": [],
+   "d": []
+  },
+  "them": false
+ },
+ {
+  "id": 64,
+  "hang": "ponzio",
+  "ma": "WS 65 THI AS",
+  "loai": "Cửa sổ/cửa mở quay",
+  "he": "w",
+  "ketCau": "t",
+  "tags": [
+   "cn"
+  ],
+  "u": "1,4 (Ug 0,7) · 1,6 (Ug 1,0)",
+  "kinKhi": "Class 4",
+  "cachAm": "44 dB",
+  "kinNuoc": "9A",
+  "chiuGio": "C3",
+  "chongTrom": "",
+  "ghiChu": "",
+  "anh": {
+   "c": [],
+   "d": []
+  },
+  "them": false
+ },
+ {
+  "id": 65,
+  "hang": "ponzio",
+  "ma": "WS 75 THI",
+  "loai": "Cửa sổ/cửa mở quay",
+  "he": "w",
+  "ketCau": "t",
+  "tags": [
+   "cn",
+   "an"
+  ],
+  "u": "0,86 (Ug 0,6) · 1,20 (Ug 1,0)",
+  "kinKhi": "Class 4",
+  "cachAm": "41–46 dB",
+  "kinNuoc": "E1500",
+  "chiuGio": "C5",
+  "chongTrom": "RC2/RC3 (bản kèm phụ kiện chống đột nhập)",
+  "ghiChu": "Khung 75/89 mm, cánh 81/82,5 mm. Cánh nặng tối đa 170 kg (180 kg với bộ gia cường). Catalog ghi Uw 1,3 (cửa 2 cánh 1540×1480) và 1,2 (1540×2180) với kính Ug 1,0.",
+  "anh": {
+   "c": [],
+   "d": []
+  },
+  "them": false
+ },
+ {
+  "id": 66,
+  "hang": "ponzio",
+  "ma": "WS 65/75 AS",
+  "loai": "Cửa sổ/cửa mở quay (cánh ẩn)",
+  "he": "w",
+  "ketCau": "t",
+  "tags": [
+   "cn"
+  ],
+  "u": "1,3 (Ug 1,0)",
+  "kinKhi": "",
+  "cachAm": "đến 46 dB",
+  "kinNuoc": "E900",
+  "chiuGio": "C3",
+  "chongTrom": "",
+  "ghiChu": "",
+  "anh": {
+   "c": [],
+   "d": []
+  },
+  "them": false
+ },
+ {
+  "id": 67,
+  "hang": "ponzio",
+  "ma": "WS 65/75 AD",
+  "loai": "Cửa sổ/cửa mở quay",
+  "he": "w",
+  "ketCau": "t",
+  "tags": [
+   "cn"
+  ],
+  "u": "1,30 (Ug 1,0)",
+  "kinKhi": "Class 4",
+  "cachAm": "đến 45 dB",
+  "kinNuoc": "E900",
+  "chiuGio": "C3",
+  "chongTrom": "",
+  "ghiChu": "",
+  "anh": {
+   "c": [],
+   "d": []
+  },
+  "them": false
+ },
+ {
+  "id": 68,
+  "hang": "ponzio",
+  "ma": "WS 65/75 FL",
+  "loai": "Cửa sổ/cửa mở quay",
+  "he": "w",
+  "ketCau": "t",
+  "tags": [
+   "cn"
+  ],
+  "u": "1,30 (Ug 1,0) · 1,00 (Ug 0,6)",
+  "kinKhi": "Class 4",
+  "cachAm": "đến 46 dB",
+  "kinNuoc": "9A",
+  "chiuGio": "C3",
+  "chongTrom": "",
+  "ghiChu": "",
+  "anh": {
+   "c": [],
+   "d": []
+  },
+  "them": false
+ },
+ {
+  "id": 69,
+  "hang": "ponzio",
+  "ma": "WS 65/75 IL",
+  "loai": "Cửa sổ/cửa mở quay",
+  "he": "w",
+  "ketCau": "t",
+  "tags": [
+   "cn"
+  ],
+  "u": "1,30 (Ug 1,0) · 1,00 (Ug 0,6)",
+  "kinKhi": "Class 4",
+  "cachAm": "đến 46 dB",
+  "kinNuoc": "9A",
+  "chiuGio": "C3",
+  "chongTrom": "",
+  "ghiChu": "",
+  "anh": {
+   "c": [],
+   "d": []
+  },
+  "them": false
+ },
+ {
+  "id": 70,
+  "hang": "ponzio",
+  "ma": "NT 50",
+  "loai": "Cửa sổ/cửa mở quay",
+  "he": "w",
+  "ketCau": "n",
+  "tags": [],
+  "u": "",
+  "kinKhi": "",
+  "cachAm": "",
+  "kinNuoc": "",
+  "chiuGio": "",
+  "chongTrom": "",
+  "ghiChu": "",
+  "anh": {
+   "c": [],
+   "d": [
+    "/images/he-cua/ban-ve/ponzio-nt-50-1.webp"
+   ]
+  },
+  "them": false
+ },
+ {
+  "id": 71,
+  "hang": "ponzio",
+  "ma": "NT 52 TT",
+  "loai": "Cửa sổ/cửa mở quay",
+  "he": "w",
+  "ketCau": "t",
+  "tags": [],
+  "u": "1,54 · 1,78 (kính warm edge)",
+  "kinKhi": "Class 4",
+  "cachAm": "37–44 dB",
+  "kinNuoc": "E750",
+  "chiuGio": "C4",
+  "chongTrom": "",
+  "ghiChu": "",
+  "anh": {
+   "c": [],
+   "d": [
+    "/images/he-cua/ban-ve/ponzio-nt-52-tt-1.webp"
+   ]
+  },
+  "them": false
+ },
+ {
+  "id": 72,
+  "hang": "ponzio",
+  "ma": "NT 60 F",
+  "loai": "Cửa sổ/cửa mở quay",
+  "he": "w",
+  "ketCau": "n",
+  "tags": [],
+  "u": "",
+  "kinKhi": "",
+  "cachAm": "",
+  "kinNuoc": "",
+  "chiuGio": "",
+  "chongTrom": "",
+  "ghiChu": "",
+  "anh": {
+   "c": [],
+   "d": [
+    "/images/he-cua/ban-ve/ponzio-nt-60-f-1.webp"
+   ]
+  },
+  "them": false
+ },
+ {
+  "id": 73,
+  "hang": "ponzio",
+  "ma": "NT 60 TT",
+  "loai": "Cửa sổ/cửa mở quay",
+  "he": "w",
+  "ketCau": "t",
+  "tags": [
+   "cn"
+  ],
+  "u": "1,36 (Ug 0,7) · 1,59 (Ug 1,0)",
+  "kinKhi": "Class 4",
+  "cachAm": "37–46 dB",
+  "kinNuoc": "9A",
+  "chiuGio": "C4",
+  "chongTrom": "",
+  "ghiChu": "",
+  "anh": {
+   "c": [],
+   "d": [
+    "/images/he-cua/ban-ve/ponzio-nt-60-tt-1.webp"
+   ]
+  },
+  "them": false
+ },
+ {
+  "id": 74,
+  "hang": "ponzio",
+  "ma": "NT 65 TT",
+  "loai": "Cửa sổ/cửa mở quay",
+  "he": "w",
+  "ketCau": "t",
+  "tags": [
+   "cn"
+  ],
+  "u": "1,07 (Ug 0,7) · 1,31 (Ug 1,0)",
+  "kinKhi": "Class 4",
+  "cachAm": "42–44 dB",
+  "kinNuoc": "E1200",
+  "chiuGio": "C4",
+  "chongTrom": "",
+  "ghiChu": "",
+  "anh": {
+   "c": [],
+   "d": [
+    "/images/he-cua/ban-ve/ponzio-nt-65-tt-1.webp"
+   ]
+  },
+  "them": false
+ },
+ {
+  "id": 75,
+  "hang": "ponzio",
+  "ma": "SL600 Evo Freddo",
+  "loai": "Cửa trượt",
+  "he": "s",
+  "ketCau": "n",
+  "tags": [],
+  "u": "",
+  "kinKhi": "",
+  "cachAm": "",
+  "kinNuoc": "",
+  "chiuGio": "",
+  "chongTrom": "",
+  "ghiChu": "",
+  "anh": {
+   "c": [],
+   "d": []
+  },
+  "them": false
+ },
+ {
+  "id": 76,
+  "hang": "ponzio",
+  "ma": "SL600 TT Evo",
+  "loai": "Cửa trượt",
+  "he": "s",
+  "ketCau": "t",
+  "tags": [],
+  "u": "1,90 · 1,80 (Ug 1,0, hai kích thước thử)",
+  "kinKhi": "Class 4",
+  "cachAm": "38 dB",
+  "kinNuoc": "9A",
+  "chiuGio": "C3",
+  "chongTrom": "",
+  "ghiChu": "Khung 2 ray 65/87 mm, cánh 46 mm, buồng kính 30 mm.",
+  "anh": {
+   "c": [],
+   "d": []
+  },
+  "them": false
+ },
+ {
+  "id": 77,
+  "hang": "ponzio",
+  "ma": "SL600 TT Evozero",
+  "loai": "Cửa trượt",
+  "he": "s",
+  "ketCau": "t",
+  "tags": [],
+  "u": "1,90 · 1,80 (Ug 1,0, hai kích thước thử)",
+  "kinKhi": "Class 4",
+  "cachAm": "38 dB",
+  "kinNuoc": "E900",
+  "chiuGio": "C3",
+  "chongTrom": "",
+  "ghiChu": "",
+  "anh": {
+   "c": [],
+   "d": []
+  },
+  "them": false
+ },
+ {
+  "id": 78,
+  "hang": "ponzio",
+  "ma": "SL1300 TT",
+  "loai": "Cửa trượt khung ẩn",
+  "he": "s",
+  "ketCau": "t",
+  "tags": [
+   "cn",
+   "an"
+  ],
+  "u": "1,40 (Ug 1,0)",
+  "kinKhi": "Class 4",
+  "cachAm": "đến 40 dB",
+  "kinNuoc": "7A",
+  "chiuGio": "C1",
+  "chongTrom": "RC2 (cửa 2 cánh kèm phụ kiện chống đột nhập)",
+  "ghiChu": "Khung 2 ray 150 mm, cánh 59 mm, buồng kính 39–43 mm.",
+  "anh": {
+   "c": [],
+   "d": []
+  },
+  "them": false
+ },
+ {
+  "id": 79,
+  "hang": "ponzio",
+  "ma": "SL1600 TT",
+  "loai": "Cửa nâng trượt",
+  "he": "l",
+  "ketCau": "t",
+  "tags": [
+   "an"
+  ],
+  "u": "1,70 (Ug 1,0)",
+  "kinKhi": "Class 4",
+  "cachAm": "đến 42 dB",
+  "kinNuoc": "E1350",
+  "chiuGio": "C4",
+  "chongTrom": "RC3/RC4 (cửa 2 cánh kèm phụ kiện chống đột nhập)",
+  "ghiChu": "Khung 2 ray 160 mm, cánh 67 mm.",
+  "anh": {
+   "c": [],
+   "d": []
+  },
+  "them": false
+ },
+ {
+  "id": 80,
+  "hang": "ponzio",
+  "ma": "WS 45 (cửa đi)",
+  "loai": "Cửa đi",
+  "he": "d",
+  "ketCau": "n",
+  "tags": [],
+  "u": "",
+  "kinKhi": "",
+  "cachAm": "",
+  "kinNuoc": "",
+  "chiuGio": "",
+  "chongTrom": "",
+  "ghiChu": "",
+  "anh": {
+   "c": [],
+   "d": [
+    "/images/he-cua/ban-ve/ponzio-ws-45-cua-di-1.webp"
+   ]
+  },
+  "them": false
+ },
+ {
+  "id": 81,
+  "hang": "ponzio",
+  "ma": "WS 45 TT (cửa đi)",
+  "loai": "Cửa đi",
+  "he": "d",
+  "ketCau": "t",
+  "tags": [],
+  "u": "",
+  "kinKhi": "",
+  "cachAm": "",
+  "kinNuoc": "",
+  "chiuGio": "",
+  "chongTrom": "",
+  "ghiChu": "",
+  "anh": {
+   "c": [],
+   "d": [
+    "/images/he-cua/ban-ve/ponzio-ws-45-tt-cua-di-1.webp"
+   ]
+  },
+  "them": false
+ },
+ {
+  "id": 82,
+  "hang": "ponzio",
+  "ma": "WS 55 TT (cửa đi)",
+  "loai": "Cửa đi",
+  "he": "d",
+  "ketCau": "t",
+  "tags": [
+   "cn"
+  ],
+  "u": "1,21 (Ug 0,7) · 1,45 (Ug 1,0)",
+  "kinKhi": "Class 4",
+  "cachAm": "",
+  "kinNuoc": "",
+  "chiuGio": "",
+  "chongTrom": "",
+  "ghiChu": "",
+  "anh": {
+   "c": [],
+   "d": []
+  },
+  "them": false
+ },
+ {
+  "id": 83,
+  "hang": "ponzio",
+  "ma": "WS 60 (cửa đi)",
+  "loai": "Cửa đi",
+  "he": "d",
+  "ketCau": "",
+  "tags": [],
+  "u": "",
+  "kinKhi": "",
+  "cachAm": "",
+  "kinNuoc": "",
+  "chiuGio": "",
+  "chongTrom": "",
+  "ghiChu": "",
+  "anh": {
+   "c": [],
+   "d": [
+    "/images/he-cua/ban-ve/ponzio-ws-60-cua-di-1.webp"
+   ]
+  },
+  "them": false
+ },
+ {
+  "id": 84,
+  "hang": "ponzio",
+  "ma": "NT 50 (cửa đi)",
+  "loai": "Cửa đi",
+  "he": "d",
+  "ketCau": "n",
+  "tags": [],
+  "u": "",
+  "kinKhi": "",
+  "cachAm": "",
+  "kinNuoc": "",
+  "chiuGio": "",
+  "chongTrom": "",
+  "ghiChu": "",
+  "anh": {
+   "c": [],
+   "d": [
+    "/images/he-cua/ban-ve/ponzio-nt-50-cua-di-1.webp"
+   ]
+  },
+  "them": false
+ },
+ {
+  "id": 85,
+  "hang": "ponzio",
+  "ma": "NT 52 TT (cửa đi)",
+  "loai": "Cửa đi",
+  "he": "d",
+  "ketCau": "t",
+  "tags": [],
+  "u": "",
+  "kinKhi": "",
+  "cachAm": "",
+  "kinNuoc": "",
+  "chiuGio": "",
+  "chongTrom": "",
+  "ghiChu": "",
+  "anh": {
+   "c": [],
+   "d": [
+    "/images/he-cua/ban-ve/ponzio-nt-52-tt-cua-di-1.webp"
+   ]
+  },
+  "them": false
+ },
+ {
+  "id": 86,
+  "hang": "ponzio",
+  "ma": "NT 60 TT (cửa đi)",
+  "loai": "Cửa đi",
+  "he": "d",
+  "ketCau": "t",
+  "tags": [],
+  "u": "2,00 (Ug 0,7)",
+  "kinKhi": "",
+  "cachAm": "",
+  "kinNuoc": "",
+  "chiuGio": "",
+  "chongTrom": "",
+  "ghiChu": "",
+  "anh": {
+   "c": [],
+   "d": [
+    "/images/he-cua/ban-ve/ponzio-nt-60-tt-cua-di-1.webp"
+   ]
+  },
+  "them": false
+ },
+ {
+  "id": 87,
+  "hang": "ponzio",
+  "ma": "NT 65 TT (cửa đi)",
+  "loai": "Cửa đi",
+  "he": "d",
+  "ketCau": "t",
+  "tags": [
+   "cn"
+  ],
+  "u": "1,07 (Ug 0,7)",
+  "kinKhi": "Class 3",
+  "cachAm": "40 dB",
+  "kinNuoc": "3A",
+  "chiuGio": "C2",
+  "chongTrom": "",
+  "ghiChu": "",
+  "anh": {
+   "c": [],
+   "d": [
+    "/images/he-cua/ban-ve/ponzio-nt-65-tt-cua-di-1.webp"
+   ]
+  },
+  "them": false
+ },
+ {
+  "id": 88,
+  "hang": "ponzio",
+  "ma": "NT 65 TT Panic (SAC 1)",
+  "loai": "Cửa đi thoát hiểm",
+  "he": "d",
+  "ketCau": "t",
+  "tags": [],
+  "u": "1,70 (Ug 1,0)",
+  "kinKhi": "Class 3",
+  "cachAm": "40 dB",
+  "kinNuoc": "3A",
+  "chiuGio": "C2",
+  "chongTrom": "",
+  "ghiChu": "",
+  "anh": {
+   "c": [],
+   "d": [
+    "/images/he-cua/ban-ve/ponzio-nt-65-tt-panic-sac-1-1.webp"
+   ]
+  },
+  "them": false
+ },
+ {
+  "id": 89,
+  "hang": "ponzio",
+  "ma": "NT 75 TT HI (cửa đi)",
+  "loai": "Cửa đi",
+  "he": "d",
+  "ketCau": "t",
+  "tags": [],
+  "u": "",
+  "kinKhi": "",
+  "cachAm": "",
+  "kinNuoc": "",
+  "chiuGio": "",
+  "chongTrom": "",
+  "ghiChu": "",
+  "anh": {
+   "c": [],
+   "d": []
+  },
+  "them": false
+ },
+ {
+  "id": 90,
+  "hang": "ponzio",
+  "ma": "SL65 In linea",
+  "loai": "Cửa trượt",
+  "he": "s",
+  "ketCau": "t",
+  "tags": [],
+  "u": "",
+  "kinKhi": "",
+  "cachAm": "",
+  "kinNuoc": "",
+  "chiuGio": "",
+  "chongTrom": "",
+  "ghiChu": "Khung 2 ray 150 mm, 3 ray 235 mm; cánh 65 mm; ngàm kính 15 mm.",
+  "anh": {
+   "c": [],
+   "d": []
+  },
+  "them": false
+ },
+ {
+  "id": 91,
+  "hang": "ponzio",
+  "ma": "SL65 Nâng trượt",
+  "loai": "Cửa nâng trượt",
+  "he": "l",
+  "ketCau": "t",
+  "tags": [],
+  "u": "",
+  "kinKhi": "",
+  "cachAm": "",
+  "kinNuoc": "",
+  "chiuGio": "",
+  "chongTrom": "",
+  "ghiChu": "Khung 2 ray 150 mm, 3 ray 235 mm; cánh 65 mm; ngàm kính 15 mm.",
+  "anh": {
+   "c": [],
+   "d": []
+  },
+  "them": false
+ },
+ {
+  "id": 92,
+  "hang": "ponzio",
+  "ma": "Apexfine",
+  "loai": "Vách kính trượt",
+  "he": "s",
+  "ketCau": "",
+  "tags": [
+   "sm"
+  ],
+  "u": "",
+  "kinKhi": "",
+  "cachAm": "",
+  "kinNuoc": "",
+  "chiuGio": "",
+  "chongTrom": "",
+  "ghiChu": "Cánh khuyến nghị 450 kg, tối đa 1000 kg; vận hành tay hoặc động cơ; bánh xe inox, khung dưới âm sàn (theo tài liệu hãng).",
+  "anh": {
+   "c": [],
+   "d": []
+  },
+  "them": false
+ },
+ {
+  "id": 93,
+  "hang": "romadio",
+  "ma": "LID45",
+  "loai": "Cửa trượt 1 cánh, ray trên",
+  "he": "s",
+  "ketCau": "n",
+  "tags": [],
+  "u": "",
+  "kinKhi": "",
+  "cachAm": "",
+  "kinNuoc": "",
+  "chiuGio": "",
+  "chongTrom": "",
+  "ghiChu": "Không khung bao đứng",
+  "anh": {
+   "c": [],
+   "d": [
+    "/images/he-cua/ban-ve/romadio-lid45-1.webp"
+   ]
+  },
+  "them": false
+ },
+ {
+  "id": 94,
+  "hang": "romadio",
+  "ma": "LID58",
+  "loai": "Cửa trượt bánh xe dưới / trên",
+  "he": "s",
+  "ketCau": "n",
+  "tags": [],
+  "u": "",
+  "kinKhi": "",
+  "cachAm": "",
+  "kinNuoc": "",
+  "chiuGio": "",
+  "chongTrom": "",
+  "ghiChu": "",
+  "anh": {
+   "c": [],
+   "d": [
+    "/images/he-cua/ban-ve/romadio-lid58-1.webp",
+    "/images/he-cua/ban-ve/romadio-lid58-2.webp"
+   ]
+  },
+  "them": false
+ },
+ {
+  "id": 95,
+  "hang": "romadio",
+  "ma": "LID102",
+  "loai": "Cửa trượt 2 ray treo trên",
+  "he": "s",
+  "ketCau": "n",
+  "tags": [],
+  "u": "",
+  "kinKhi": "",
+  "cachAm": "",
+  "kinNuoc": "",
+  "chiuGio": "",
+  "chongTrom": "",
+  "ghiChu": "Không khung bao đứng",
+  "anh": {
+   "c": [],
+   "d": [
+    "/images/he-cua/ban-ve/romadio-lid102-1.webp"
+   ]
+  },
+  "them": false
+ },
+ {
+  "id": 96,
+  "hang": "romadio",
+  "ma": "LID115",
+  "loai": "Cửa trượt bánh xe dưới / trên, 2–4 cánh",
+  "he": "s",
+  "ketCau": "n",
+  "tags": [],
+  "u": "",
+  "kinKhi": "",
+  "cachAm": "",
+  "kinNuoc": "",
+  "chiuGio": "",
+  "chongTrom": "",
+  "ghiChu": "",
+  "anh": {
+   "c": [],
+   "d": [
+    "/images/he-cua/ban-ve/romadio-lid115-1.webp",
+    "/images/he-cua/ban-ve/romadio-lid115-2.webp",
+    "/images/he-cua/ban-ve/romadio-lid115-3.webp",
+    "/images/he-cua/ban-ve/romadio-lid115-4.webp"
+   ]
+  },
+  "them": false
+ },
+ {
+  "id": 97,
+  "hang": "romadio",
+  "ma": "LID172",
+  "loai": "Cửa trượt bánh xe dưới / trên, 3 cánh",
+  "he": "s",
+  "ketCau": "n",
+  "tags": [],
+  "u": "",
+  "kinKhi": "",
+  "cachAm": "",
+  "kinNuoc": "",
+  "chiuGio": "",
+  "chongTrom": "",
+  "ghiChu": "",
+  "anh": {
+   "c": [],
+   "d": [
+    "/images/he-cua/ban-ve/romadio-lid172-1.webp",
+    "/images/he-cua/ban-ve/romadio-lid172-2.webp"
+   ]
+  },
+  "them": false
+ },
+ {
+  "id": 98,
+  "hang": "romadio",
+  "ma": "LID230",
+  "loai": "Cửa trượt bánh xe dưới / trên, 4 cánh",
+  "he": "s",
+  "ketCau": "n",
+  "tags": [],
+  "u": "",
+  "kinKhi": "",
+  "cachAm": "",
+  "kinNuoc": "",
+  "chiuGio": "",
+  "chongTrom": "",
+  "ghiChu": "",
+  "anh": {
+   "c": [],
+   "d": [
+    "/images/he-cua/ban-ve/romadio-lid230-1.webp",
+    "/images/he-cua/ban-ve/romadio-lid230-2.webp"
+   ]
+  },
+  "them": false
+ },
+ {
+  "id": 99,
+  "hang": "romadio",
+  "ma": "LID67IN",
+  "loai": "Cửa mở quay vào, 1–2 cánh",
+  "he": "d",
+  "ketCau": "n",
+  "tags": [],
+  "u": "",
+  "kinKhi": "",
+  "cachAm": "",
+  "kinNuoc": "",
+  "chiuGio": "",
+  "chongTrom": "",
+  "ghiChu": "",
+  "anh": {
+   "c": [],
+   "d": [
+    "/images/he-cua/ban-ve/romadio-lid67in-1.webp",
+    "/images/he-cua/ban-ve/romadio-lid67in-2.webp"
+   ]
+  },
+  "them": false
+ },
+ {
+  "id": 100,
+  "hang": "romadio",
+  "ma": "LID67OU",
+  "loai": "Cửa mở quay ra, 1–2 cánh, có phào",
+  "he": "d",
+  "ketCau": "n",
+  "tags": [],
+  "u": "",
+  "kinKhi": "",
+  "cachAm": "",
+  "kinNuoc": "",
+  "chiuGio": "",
+  "chongTrom": "",
+  "ghiChu": "",
+  "anh": {
+   "c": [],
+   "d": [
+    "/images/he-cua/ban-ve/romadio-lid67ou-1.webp",
+    "/images/he-cua/ban-ve/romadio-lid67ou-2.webp",
+    "/images/he-cua/ban-ve/romadio-lid67ou-3.webp"
+   ]
+  },
+  "them": false
+ },
+ {
+  "id": 101,
+  "hang": "romadio",
+  "ma": "LD16IN",
+  "loai": "Cửa mở quay vào dòng Slim",
+  "he": "d",
+  "ketCau": "n",
+  "tags": [],
+  "u": "",
+  "kinKhi": "",
+  "cachAm": "",
+  "kinNuoc": "",
+  "chiuGio": "",
+  "chongTrom": "",
+  "ghiChu": "",
+  "anh": {
+   "c": [],
+   "d": [
+    "/images/he-cua/ban-ve/romadio-ld16in-1.webp",
+    "/images/he-cua/ban-ve/romadio-ld16in-2.webp"
+   ]
+  },
+  "them": false
+ },
+ {
+  "id": 102,
+  "hang": "romadio",
+  "ma": "LD16OU",
+  "loai": "Cửa mở quay ra dòng Slim",
+  "he": "d",
+  "ketCau": "n",
+  "tags": [],
+  "u": "",
+  "kinKhi": "",
+  "cachAm": "",
+  "kinNuoc": "",
+  "chiuGio": "",
+  "chongTrom": "",
+  "ghiChu": "",
+  "anh": {
+   "c": [],
+   "d": [
+    "/images/he-cua/ban-ve/romadio-ld16ou-1.webp",
+    "/images/he-cua/ban-ve/romadio-ld16ou-2.webp"
+   ]
+  },
+  "them": false
+ },
+ {
+  "id": 103,
+  "hang": "romadio",
+  "ma": "LD16SB-F",
+  "loai": "Cửa trượt ray dưới, 1–3 ray",
+  "he": "s",
+  "ketCau": "n",
+  "tags": [],
+  "u": "",
+  "kinKhi": "",
+  "cachAm": "",
+  "kinNuoc": "",
+  "chiuGio": "",
+  "chongTrom": "",
+  "ghiChu": "",
+  "anh": {
+   "c": [],
+   "d": [
+    "/images/he-cua/ban-ve/romadio-ld16sb-f-1.webp",
+    "/images/he-cua/ban-ve/romadio-ld16sb-f-2.webp",
+    "/images/he-cua/ban-ve/romadio-ld16sb-f-3.webp",
+    "/images/he-cua/ban-ve/romadio-ld16sb-f-4.webp"
+   ]
+  },
+  "them": false
+ },
+ {
+  "id": 104,
+  "hang": "romadio",
+  "ma": "LD16ST",
+  "loai": "Cửa trượt ray trên, 1–2 ray",
+  "he": "s",
+  "ketCau": "n",
+  "tags": [],
+  "u": "",
+  "kinKhi": "",
+  "cachAm": "",
+  "kinNuoc": "",
+  "chiuGio": "",
+  "chongTrom": "",
+  "ghiChu": "",
+  "anh": {
+   "c": [],
+   "d": [
+    "/images/he-cua/ban-ve/romadio-ld16st-1.webp",
+    "/images/he-cua/ban-ve/romadio-ld16st-2.webp"
+   ]
+  },
+  "them": false
+ },
+ {
+  "id": 105,
+  "hang": "romadio",
+  "ma": "LD16ST-F",
+  "loai": "Cửa trượt ray trên, 1–3 ray",
+  "he": "s",
+  "ketCau": "n",
+  "tags": [],
+  "u": "",
+  "kinKhi": "",
+  "cachAm": "",
+  "kinNuoc": "",
+  "chiuGio": "",
+  "chongTrom": "",
+  "ghiChu": "",
+  "anh": {
+   "c": [],
+   "d": [
+    "/images/he-cua/ban-ve/romadio-ld16st-f-1.webp",
+    "/images/he-cua/ban-ve/romadio-ld16st-f-2.webp",
+    "/images/he-cua/ban-ve/romadio-ld16st-f-3.webp",
+    "/images/he-cua/ban-ve/romadio-ld16st-f-4.webp"
+   ]
+  },
+  "them": false
+ },
+ {
+  "id": 106,
+  "tags": [],
+  "u": "2.2",
+  "kinKhi": "0.21 m³/(m·h)",
+  "cachAm": "35 dB",
+  "kinNuoc": "700 Pa",
+  "chiuGio": "4.0 kPa",
+  "chongTrom": "",
+  "ghiChu": "Mặt đứng 60 mm; chiều sâu thanh đứng 166 mm, thanh ngang 125 mm; kính 24 mm.",
+  "ketCau": "t",
+  "anh": {
+   "c": [],
+   "d": []
+  },
+  "them": true,
+  "hang": "civro",
+  "ma": "ACW120",
+  "loai": "Vách kính (Curtain wall)",
+  "he": "v"
+ },
+ {
+  "id": 107,
+  "tags": [],
+  "u": "2.2",
+  "kinKhi": "",
+  "cachAm": "35 dB",
+  "kinNuoc": "",
+  "chiuGio": "",
+  "chongTrom": "",
+  "ghiChu": "AWG140 có cầu nhiệt (kính 28 mm), NWG110 không cầu nhiệt. Mái song song, mái dốc một phía hoặc mái nhiều dốc (AWG140). Hãng chưa công bố đủ thông số cho NWG110.",
+  "ketCau": "tn",
+  "anh": {
+   "c": [],
+   "d": []
+  },
+  "them": true,
+  "hang": "civro",
+  "ma": "AWG140 / NWG110",
+  "loai": "Nhà kính (Conservatory)",
+  "he": "v"
+ },
+ {
+  "id": 108,
+  "tags": [],
+  "u": "",
+  "kinKhi": "",
+  "cachAm": "",
+  "kinNuoc": "",
+  "chiuGio": "",
+  "chongTrom": "",
+  "ghiChu": "Khung mô-đun, kính hộp, treo trên, nâng đứng, trượt hoặc nhiều cánh chạy động cơ. Hãng chưa công bố bảng thông số.",
+  "ketCau": "",
+  "anh": {
+   "c": [],
+   "d": []
+  },
+  "them": true,
+  "hang": "civro",
+  "ma": "USL",
+  "loai": "Cửa mái (Skylight)",
+  "he": "v"
+ },
+ {
+  "id": 109,
+  "tags": [
+   "sm"
+  ],
+  "u": "",
+  "kinKhi": "",
+  "cachAm": "",
+  "kinNuoc": "",
+  "chiuGio": "",
+  "chongTrom": "",
+  "ghiChu": "Lưới giấu trong khung bên, vận hành một tay, lắp trong hoặc ngoài cửa trượt. Hãng chưa công bố bảng thông số.",
+  "ketCau": "",
+  "anh": {
+   "c": [],
+   "d": []
+  },
+  "them": true,
+  "hang": "civro",
+  "ma": "USW",
+  "loai": "Màn chắn côn trùng cuốn toàn cảnh",
+  "he": "s"
+ },
+ {
+  "id": 110,
+  "tags": [],
+  "u": "",
+  "kinKhi": "",
+  "cachAm": "",
+  "kinNuoc": "",
+  "chiuGio": "",
+  "chongTrom": "",
+  "ghiChu": "Khung nhìn thấy 16 mm; chiều cao cánh tối đa 3600 mm; trượt hoặc treo, mở quay, xoay trục.",
+  "ketCau": "n",
+  "anh": {
+   "c": [],
+   "d": []
+  },
+  "them": true,
+  "hang": "civro",
+  "ma": "AMAZA UID16",
+  "loai": "Cửa nội thất siêu mảnh",
+  "he": "s"
+ },
+ {
+  "id": 111,
+  "tags": [],
+  "u": "",
+  "kinKhi": "",
+  "cachAm": "",
+  "kinNuoc": "",
+  "chiuGio": "",
+  "chongTrom": "",
+  "ghiChu": "Có bản không nan trang trí. Hãng chưa công bố bảng thông số.",
+  "ketCau": "tn",
+  "anh": {
+   "c": [],
+   "d": []
+  },
+  "them": true,
+  "hang": "romadio",
+  "ma": "FineLine 59WO",
+  "loai": "Cửa sổ nan trang trí",
+  "he": "w"
+ },
+ {
+  "id": 112,
+  "tags": [],
+  "u": "",
+  "kinKhi": "",
+  "cachAm": "",
+  "kinNuoc": "",
+  "chiuGio": "",
+  "chongTrom": "",
+  "ghiChu": "Hãng chưa công bố bảng thông số.",
+  "ketCau": "tn",
+  "anh": {
+   "c": [],
+   "d": []
+  },
+  "them": true,
+  "hang": "romadio",
+  "ma": "FineLine 62DO",
+  "loai": "Cửa đi nan trang trí",
+  "he": "d"
+ },
+ {
+  "id": 113,
+  "tags": [],
+  "u": "",
+  "kinKhi": "",
+  "cachAm": "",
+  "kinNuoc": "",
+  "chiuGio": "",
+  "chongTrom": "",
+  "ghiChu": "Hãng chưa công bố bảng thông số.",
+  "ketCau": "n",
+  "anh": {
+   "c": [],
+   "d": []
+  },
+  "them": true,
+  "hang": "romadio",
+  "ma": "OVERSKY 23S Double",
+  "loai": "Cửa trượt 2 ray",
+  "he": "s"
+ },
+ {
+  "id": 114,
+  "tags": [],
+  "u": "",
+  "kinKhi": "",
+  "cachAm": "",
+  "kinNuoc": "",
+  "chiuGio": "",
+  "chongTrom": "",
+  "ghiChu": "Hãng chưa công bố bảng thông số.",
+  "ketCau": "n",
+  "anh": {
+   "c": [],
+   "d": []
+  },
+  "them": true,
+  "hang": "romadio",
+  "ma": "OVERSKY 23S Triple",
+  "loai": "Cửa trượt 3 ray",
+  "he": "s"
+ }
 ];
