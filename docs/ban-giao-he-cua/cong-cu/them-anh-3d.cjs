@@ -29,7 +29,8 @@ const DS = [
   { ma: "LD16SB-F", tep: "LD16SB-F.png", kieu: "anh" },
   { ma: "LD16ST", tep: "LD16ST.png", kieu: "anh" },
   { ma: "LD16ST-F", tep: "LD16ST-F.png", kieu: "anh" },
-  { ma: "LD16OU", tep: "LD67OU - LD16OU.png", kieu: "anh" }, // tên tệp ghi chung LD67OU và LD16OU: chỉ gán cho LD16OU
+  { ma: "LD16OU", tep: "LD67OU - LD16OU.png", kieu: "anh" },
+  { ma: "LID67OU", tep: "LD67OU - LD16OU.png", kieu: "anh" }, // anh Huy xác nhận 11/11/2026: tệp này dùng chung cho LD16OU và LID67OU
 ];
 
 // Hệ có ảnh mẫu góc CÓ logo hãng. stem = phần đầu tên tệp (bản tách nền: "<stem> 1_nobg.png", "<stem> 2_nobg.png", ...);

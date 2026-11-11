@@ -2667,7 +2667,9 @@ export const HE_CUA_DS: HeCua[] = [
   "chongTrom": "",
   "ghiChu": "",
   "anh": {
-   "c": [],
+   "c": [
+    "/images/he-cua/mau-goc/romadio-lid67ou-p1.webp"
+   ],
    "d": [
     "/images/he-cua/ban-ve/romadio-lid67ou-1.webp",
     "/images/he-cua/ban-ve/romadio-lid67ou-2.webp",
