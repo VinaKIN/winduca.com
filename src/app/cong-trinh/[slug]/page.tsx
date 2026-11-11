@@ -54,7 +54,7 @@ export default async function ChiTiet({ params }: PageProps<"/cong-trinh/[slug]"
                   ["Kiểu cửa", c.kieuCua],
                 ].map(([t, v]) => (
                   <div key={t}>
-                    <dt className="text-xs font-medium uppercase tracking-[0.14em] text-than-chi/55">{t}</dt>
+                    <dt className="text-xs font-medium uppercase tracking-[0.14em] text-than-chi/65">{t}</dt>
                     <dd className="mt-1 font-semibold">{v}</dd>
                   </div>
                 ))}

@@ -94,7 +94,7 @@ export default function DanhChoKts() {
                   {x.nut}
                 </a>
               ) : (
-                <span className="mt-4 text-sm font-medium text-than-chi/50">Sắp có</span>
+                <span className="mt-4 text-sm font-medium text-than-chi/65">Sắp có</span>
               )}
             </li>
           ))}
@@ -152,7 +152,7 @@ export default function DanhChoKts() {
             ["Trao đổi, hoàn thiện", "Qua điện thoại, Zalo, email hoặc họp online."],
           ].map(([t, m], i) => (
             <li key={t} className="border-t border-accent pt-6">
-              <span className="nhan-muc text-than-chi/60">{String(i + 1).padStart(2, "0")}</span>
+              <span className="nhan-muc text-than-chi/65">{String(i + 1).padStart(2, "0")}</span>
               <h3 className="tieu-de mt-3 text-lg">{t}</h3>
               <p className="mt-2 text-[15px] leading-relaxed text-than-chi/80">{m}</p>
             </li>

@@ -136,7 +136,7 @@ export function CrossSection({
               )}
             </div>
             <div className="absolute bottom-4 right-4 flex items-center gap-1.5 text-nga">
-              <span className="mr-2 hidden text-xs text-nga/60 sm:inline">Kéo để xoay</span>
+              <span className="mr-2 hidden text-xs text-nga/70 sm:inline">Kéo để xoay</span>
               <button type="button" aria-label="Thu nhỏ" onClick={() => setZoom((z) => Math.max(0.6, +(z - 0.25).toFixed(2)))} className="flex h-8 w-8 items-center justify-center rounded-[6px] bg-white/10 text-lg hover:bg-white/20">
                 −
               </button>
@@ -165,7 +165,7 @@ export function CrossSection({
               className="mt-3 w-full accent-[#bfa678]"
               aria-label="Tách các lớp cấu tạo"
             />
-            <div className="mt-2 flex justify-between text-xs text-than-chi/60">
+            <div className="mt-2 flex justify-between text-xs text-than-chi/65">
               <span>Liền khối</span>
               <span>Tách rời</span>
             </div>
@@ -223,7 +223,7 @@ export function CrossSection({
             ))}
           </div>
         </div>
-        <p className="mt-4 text-xs text-than-chi/60">
+        <p className="mt-4 text-xs text-than-chi/65">
           Thông số kỹ thuật sẽ được công bố cùng nguồn kiểm định khi có kết quả xác nhận.
         </p>
       </div>

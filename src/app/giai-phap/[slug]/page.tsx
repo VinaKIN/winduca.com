@@ -93,7 +93,7 @@ export default async function GiaiPhapChiTiet({ params }: PageProps<"/giai-phap/
                     <Image src={asset(ANH_HE_CUA[k.slug])} alt={k.ten} fill quality={60} sizes="(min-width: 1024px) 22vw, 70vw" className="object-cover transition-transform duration-700 group-hover:scale-[1.05]" />
                   </div>
                   <div className="p-5">
-                    <p className="text-xs font-medium uppercase tracking-[0.16em] text-than-chi/50">{TEN_EN_HE_CUA[k.slug]}</p>
+                    <p className="text-xs font-medium uppercase tracking-[0.16em] text-than-chi/65">{TEN_EN_HE_CUA[k.slug]}</p>
                     <h3 className="mt-1 text-xl font-bold group-hover:text-accent">{k.ten}</h3>
                     <p className="mt-1 text-[15px] leading-relaxed text-than-chi/70">{k.tagline}</p>
                   </div>
@@ -125,7 +125,7 @@ export default async function GiaiPhapChiTiet({ params }: PageProps<"/giai-phap/
               ))}
             </KeoNgang>
           </div>
-          <p className="mt-5 max-w-2xl text-sm text-than-chi/60">
+          <p className="mt-5 max-w-2xl text-sm text-than-chi/65">
             Giải pháp và chi tiết WINDUCA đề xuất mang tính tham khảo; kiến trúc sư chịu trách nhiệm thiết kế cuối cùng của công trình.
           </p>
         </Wrap>

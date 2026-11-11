@@ -38,7 +38,7 @@ export function HeroKieuCua({
         <div className="mt-10 grid overflow-hidden rounded-[10px] border border-white/15 bg-than-chi/70 backdrop-blur-xl md:mt-14 md:grid-cols-[1fr_1fr_1.4fr_auto]">
           {thongTin.map(([t, v]) => (
             <div key={t} className="border-b border-white/10 p-5 md:border-b-0 md:border-r md:p-6">
-              <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-white/55">{t}</p>
+              <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-white/70">{t}</p>
               <p className="mt-2 text-[15px] font-medium leading-snug">{v}</p>
             </div>
           ))}

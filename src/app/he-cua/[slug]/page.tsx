@@ -93,7 +93,7 @@ export default async function KieuCuaPage({ params }: PageProps<"/he-cua/[slug]"
                 <h3 className="text-2xl font-light md:text-3xl">
                   Sản phẩm thuộc <span className="font-medium">{k.ten.toLowerCase()}</span>
                 </h3>
-                <p className="max-w-sm text-sm text-than-chi/60">Bốn chỉ số để so sánh nhanh; giá trị được công bố khi có xác nhận kiểm định.</p>
+                <p className="max-w-sm text-sm text-than-chi/65">Bốn chỉ số để so sánh nhanh; giá trị được công bố khi có xác nhận kiểm định.</p>
               </Hien>
               <ul className="mt-8 grid gap-px overflow-hidden rounded-[12px] border border-than-chi/10 bg-than-chi/10 md:grid-cols-2 lg:grid-cols-3">
                 {sanPham.map((p, i) => (
@@ -120,7 +120,7 @@ export default async function KieuCuaPage({ params }: PageProps<"/he-cua/[slug]"
             <Hien>
               <Nhan so="04" t="Thông số kỹ thuật" toi />
               <h2 className="tieu-lon mt-6 max-w-xl">Chính xác đến từng chi tiết.</h2>
-              <p className="mt-5 max-w-md text-[15px] leading-relaxed text-white/65">Các giá trị sẽ được công bố cùng nguồn kiểm định khi có kết quả xác nhận.</p>
+              <p className="mt-5 max-w-md text-[15px] leading-relaxed text-white/70">Các giá trị sẽ được công bố cùng nguồn kiểm định khi có kết quả xác nhận.</p>
               <dl className="mt-10 border-t border-white/15">
                 {THONG_SO_BANG.map((ten, i) => (
                   <div key={ten} className="grid grid-cols-[2.5rem_1fr_auto] items-baseline gap-4 border-b border-white/10 py-4">
@@ -128,8 +128,8 @@ export default async function KieuCuaPage({ params }: PageProps<"/he-cua/[slug]"
                       <span className="text-[11px] font-semibold tracking-[0.2em] text-accent">{String(i + 1).padStart(2, "0")}</span>
                       <span className="text-[15px] text-white/90">{ten}</span>
                     </dt>
-                    <dd className="text-sm text-white/55">
-                      Đang chờ xác nhận <span className="ml-1 text-xs text-white/35">{DON_VI[i]}</span>
+                    <dd className="text-sm text-white/70">
+                      Đang chờ xác nhận <span className="ml-1 text-xs text-white/70">{DON_VI[i]}</span>
                     </dd>
                   </div>
                 ))}
@@ -138,7 +138,7 @@ export default async function KieuCuaPage({ params }: PageProps<"/he-cua/[slug]"
                 {["Mặt cắt DWG", "Mô hình BIM (RFA, IFC)", "Catalog kỹ thuật"].map((t) => (
                   <li key={t} className="flex items-center gap-3 rounded-full border border-white/15 px-4 py-1.5 text-xs text-white/75">
                     {t}
-                    <span className="text-white/40">Sắp có</span>
+                    <span className="text-white/70">Sắp có</span>
                   </li>
                 ))}
               </ul>
@@ -157,7 +157,7 @@ export default async function KieuCuaPage({ params }: PageProps<"/he-cua/[slug]"
                 }}
                 phu={{ src: "/images/xuong/thanh-nhom-tay-nam.webp", alt: "Góc nhôm và tay nắm", viTri: "center 30%" }}
               />
-              <p className="mt-6 max-w-md text-[15px] leading-relaxed text-white/65">
+              <p className="mt-6 max-w-md text-[15px] leading-relaxed text-white/70">
                 Phụ kiện được chọn đồng bộ về màu và đường nét với khung nhôm. Tay nắm chỉ khắc duy nhất chữ WINDUCA; anh chị có thể chạm thử mẫu ngay trong hộp mẫu.
               </p>
             </Hien>
@@ -201,7 +201,7 @@ export default async function KieuCuaPage({ params }: PageProps<"/he-cua/[slug]"
                 );
               })}
             </ul>
-            <p className="mt-4 text-xs text-than-chi/50">Ảnh cảm hứng, không phải công trình do WINDUCA thực hiện.</p>
+            <p className="mt-4 text-xs text-than-chi/65">Ảnh cảm hứng, không phải công trình do WINDUCA thực hiện.</p>
           </Wrap>
         </section>
       )}

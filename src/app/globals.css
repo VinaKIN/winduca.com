@@ -614,3 +614,10 @@ section.nen-nga {
 .nhan-tinh { display: flex; align-items: center; gap: 1rem; font-size: 11px; font-weight: 600; letter-spacing: 0.28em; text-transform: uppercase; }
 .nhan-tinh i { display: block; width: 2.5rem; height: 1px; background: currentColor; opacity: 0.35; }
 .nhan-tinh b { color: var(--accent); font-weight: 700; }
+
+/* Chữ nhấn đạt tương phản AA theo bề mặt (11/11/2026): đỏ đậm trên nền sáng/Ngà, đỏ sáng trên nền tối. Kế thừa từ bề mặt gần nhất. */
+:root { --accent-text: #c8102e; }
+.bg-white, .bg-nga, .mat-nga, .mat-sang, .nen-nga, .nen-sang { --accent-text: #c8102e; }
+.bg-than-chi, [class*="bg-than-chi/"], .mat-toi, .nen-toi, .hero-gradient, .kinh-mo, .text-white { --accent-text: #ff5a6e; }
+.text-accent { color: var(--accent-text); }
+.nhan-tinh b { color: var(--accent-text); }

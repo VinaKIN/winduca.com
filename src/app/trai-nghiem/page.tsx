@@ -38,7 +38,7 @@ export default function TraiNghiem() {
             ["Giao hộp mẫu", "Chính sách nhận hộp mẫu sẽ được công bố khi có xác nhận."],
           ].map(([t, m], i) => (
             <li key={t} className="border-t border-accent pt-6">
-              <span className="nhan-muc text-than-chi/60">{String(i + 1).padStart(2, "0")}</span>
+              <span className="nhan-muc text-than-chi/65">{String(i + 1).padStart(2, "0")}</span>
               <h3 className="tieu-de mt-3 text-lg">{t}</h3>
               <p className="mt-2 text-[15px] leading-relaxed text-than-chi/80">{m}</p>
             </li>
@@ -62,7 +62,7 @@ export default function TraiNghiem() {
                 ["Trao đổi bản vẽ & tư vấn", "Mang theo bản vẽ hoặc ảnh công trình để trao đổi."],
               ].map(([t, m], i) => (
                 <li key={t} className="flex gap-4">
-                  <span className="nhan-muc mt-1 text-than-chi/60">{String(i + 1).padStart(2, "0")}</span>
+                  <span className="nhan-muc mt-1 text-than-chi/65">{String(i + 1).padStart(2, "0")}</span>
                   <span>
                     <span className="tieu-de block text-lg">{t}</span>
                     <span className="mt-1 block text-[15px] leading-relaxed text-than-chi/80">{m}</span>
@@ -92,7 +92,7 @@ export default function TraiNghiem() {
               </div>
             </dl>
             {/* Bản đồ: chỉ tải sau khi khách đồng ý cookie / bấm "Xem bản đồ" — chờ địa chỉ thật */}
-            <div className="mt-6 flex h-40 items-center justify-center border border-dashed border-than-chi/30 text-xs text-than-chi/60">
+            <div className="mt-6 flex h-40 items-center justify-center border border-dashed border-than-chi/30 text-xs text-than-chi/65">
               Bản đồ sẽ hiển thị khi có địa chỉ showroom
             </div>
           </div>

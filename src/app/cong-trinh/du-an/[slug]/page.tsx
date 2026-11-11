@@ -35,15 +35,15 @@ export default async function CaseStudy({ params }: PageProps<"/cong-trinh/du-an
         </div>
         <dl className="mt-6 grid gap-6 md:grid-cols-3">
           <div>
-            <dt className="nhan-muc text-than-chi/60">Loại công trình</dt>
+            <dt className="nhan-muc text-than-chi/65">Loại công trình</dt>
             <dd className="mt-2 text-base">{d.loai}</dd>
           </div>
           <div>
-            <dt className="nhan-muc text-than-chi/60">Hệ cửa sử dụng</dt>
+            <dt className="nhan-muc text-than-chi/65">Hệ cửa sử dụng</dt>
             <dd className="mt-2 text-base">{d.heCua.join(" · ")}</dd>
           </div>
           <div>
-            <dt className="nhan-muc text-than-chi/60">Khu vực</dt>
+            <dt className="nhan-muc text-than-chi/65">Khu vực</dt>
             <dd className="mt-2 text-base">{d.khuVuc}</dd>
           </div>
         </dl>

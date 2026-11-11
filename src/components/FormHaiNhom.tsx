@@ -28,13 +28,13 @@ export function FormHaiNhom() {
               type="button"
               aria-selected={i === k}
               onClick={() => setI(k)}
-              className={`rounded-full px-4 py-1.5 text-sm font-semibold transition-colors ${i === k ? "bg-than-chi text-white" : "text-than-chi/60 hover:text-than-chi"}`}
+              className={`rounded-full px-4 py-1.5 text-sm font-semibold transition-colors ${i === k ? "bg-than-chi text-white" : "text-than-chi/65 hover:text-than-chi"}`}
             >
               {x.ten}
             </button>
           ))}
         </div>
-        <p className="mt-2.5 text-xs text-than-chi/60">{n.cta}</p>
+        <p className="mt-2.5 text-xs text-than-chi/65">{n.cta}</p>
       </div>
       <LeadForm key={n.id} loai={n.loai} tone="sang" gon />
     </div>

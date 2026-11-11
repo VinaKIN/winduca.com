@@ -26,7 +26,7 @@ export function ThuVienKts() {
     <div>
       <div className="flex flex-wrap gap-6">
         <div>
-          <p className="nhan-muc mb-3 text-than-chi/60">Kiểu cửa</p>
+          <p className="nhan-muc mb-3 text-than-chi/65">Kiểu cửa</p>
           <div className="flex flex-wrap gap-2">
             {["Tất cả", ...KIEU_CUA.map((k) => k.ten)].map((t) => (
               <button key={t} type="button" onClick={() => setKieu(t)} aria-pressed={kieu === t} className={chip(kieu === t)}>
@@ -36,7 +36,7 @@ export function ThuVienKts() {
           </div>
         </div>
         <div>
-          <p className="nhan-muc mb-3 text-than-chi/60">Loại tệp</p>
+          <p className="nhan-muc mb-3 text-than-chi/65">Loại tệp</p>
           <div className="flex flex-wrap gap-2">
             {["Tất cả", "DWG", "BIM", "PDF"].map((t) => (
               <button key={t} type="button" onClick={() => setLoai(t)} aria-pressed={loai === t} className={chip(loai === t)}>
@@ -52,7 +52,7 @@ export function ThuVienKts() {
           <li key={t.ten} className="border border-than-chi/20 p-6">
             <p className="nhan-muc text-than-chi/70">{t.dinhDang}</p>
             <p className="tieu-de mt-3 text-lg">{t.ten}</p>
-            <p className="mt-1 text-xs text-than-chi/60">{t.kieu}</p>
+            <p className="mt-1 text-xs text-than-chi/65">{t.kieu}</p>
             <p className="mt-6 inline-block rounded-sm border border-than-chi/30 px-2 py-1 text-xs">Sắp có</p>
           </li>
         ))}

@@ -32,7 +32,7 @@ export function HeCuaDanhSach() {
           ))}
         </div>
         <div className="flex items-center gap-4">
-          <span className="text-xs text-than-chi/60">
+          <span role="status" aria-live="polite" className="text-xs text-than-chi/65">
             {ds.length} / {SAN_PHAM.length} sản phẩm
           </span>
           <label className="sr-only" htmlFor="tim-san-pham">

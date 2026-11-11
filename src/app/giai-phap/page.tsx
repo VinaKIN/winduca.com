@@ -63,7 +63,7 @@ export default function GiaiPhap() {
               </Hien>
             ))}
           </KeoNgang>
-          <p className="mt-3 text-xs text-than-chi/50 lg:hidden">Vuốt ngang để xem tiếp</p>
+          <p className="mt-3 text-xs text-than-chi/65 lg:hidden">Vuốt ngang để xem tiếp</p>
         </Wrap>
       </section>
 

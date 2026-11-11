@@ -49,7 +49,7 @@ export default function NangLucXuong() {
           {BUOC.map(([t, m], i) => (
             <li key={t} className="relative border-t border-accent pt-8">
               <span className="absolute -top-[5px] left-0 h-2.5 w-2.5 rotate-45 bg-accent" aria-hidden="true" />
-              <span className="nhan-muc text-than-chi/60">{String(i + 1).padStart(2, "0")}</span>
+              <span className="nhan-muc text-than-chi/65">{String(i + 1).padStart(2, "0")}</span>
               <h3 className="tieu-de mt-3 text-lg">{t}</h3>
               <p className="mt-2 text-[15px] leading-relaxed text-than-chi/80">{m}</p>
             </li>
@@ -75,7 +75,7 @@ export default function NangLucXuong() {
             ))}
           </ul>
         </div>
-        <p className="mt-5 max-w-2xl text-[15px] leading-relaxed text-white/60">
+        <p className="mt-5 max-w-2xl text-[15px] leading-relaxed text-white/70">
           Thanh nhôm định hình là vật tư đầu vào; xưởng thực hiện các công đoạn gia công, lắp ráp và hoàn thiện nêu trên.
         </p>
       </Section>
@@ -88,13 +88,13 @@ export default function NangLucXuong() {
             ["Trước giao", "Kiểm tra lần cuối trước khi đóng gói và giao."],
           ].map(([t, m], i) => (
             <li key={t} className="border-t border-accent pt-6">
-              <span className="nhan-muc text-than-chi/60">{String(i + 1).padStart(2, "0")}</span>
+              <span className="nhan-muc text-than-chi/65">{String(i + 1).padStart(2, "0")}</span>
               <h3 className="tieu-de mt-3 text-lg">{t}</h3>
               <p className="mt-2 text-[15px] leading-relaxed text-than-chi/80">{m}</p>
             </li>
           ))}
         </ol>
-        <p className="mt-8 text-xs text-than-chi/60">
+        <p className="mt-8 text-xs text-than-chi/65">
           Hạng mục kiểm tra chi tiết và kết quả thử nghiệm sẽ được công bố khi có xác nhận.
         </p>
       </Section>

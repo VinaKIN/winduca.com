@@ -37,7 +37,7 @@ export default async function BaiVietPage({ params }: PageProps<"/tin-tuc/[slug]
             </section>
           ))}
           <p className="border-t border-than-chi/15 pt-6 text-base font-medium">{b.ketLuan}</p>
-          <p className="mt-4 text-xs text-than-chi/55">Bài viết giải thích nguyên lý chung, không kèm thông số riêng của sản phẩm. Thông số chính thức sẽ được công bố khi có tài liệu kiểm định.</p>
+          <p className="mt-4 text-xs text-than-chi/65">Bài viết giải thích nguyên lý chung, không kèm thông số riêng của sản phẩm. Thông số chính thức sẽ được công bố khi có tài liệu kiểm định.</p>
           <div className="mt-8 flex flex-wrap gap-3">
             <Link href="/lien-he" className="nut nut-chinh">
               Liên hệ tư vấn

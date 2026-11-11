@@ -148,6 +148,18 @@ export function TrinhDienHeCua({ slug, ten, chon, setChon }: { slug: string; ten
   ];
   const g = kg[Math.min(kgChon, Math.max(0, kg.length - 1))];
 
+  /** Điều hướng tab bằng bàn phím: ← → chuyển tab, Home/End về đầu/cuối; focus đi theo tab. */
+  function phimTab(e: React.KeyboardEvent<HTMLDivElement>) {
+    if (!["ArrowRight", "ArrowLeft", "Home", "End"].includes(e.key)) return;
+    const nut = Array.from(e.currentTarget.querySelectorAll<HTMLButtonElement>('[role="tab"]'));
+    const i = nut.findIndex((b) => b === document.activeElement);
+    if (i < 0) return;
+    e.preventDefault();
+    const n = e.key === "Home" ? 0 : e.key === "End" ? nut.length - 1 : (i + (e.key === "ArrowRight" ? 1 : -1) + nut.length) % nut.length;
+    nut[n].focus();
+    setTab(TABS[n][0]);
+  }
+
   return (
     <section className="mat-nga khoi-doc" aria-label="Trải nghiệm hệ cửa">
       <Wrap>
@@ -156,13 +168,16 @@ export function TrinhDienHeCua({ slug, ten, chon, setChon }: { slug: string; ten
           <i aria-hidden="true" />
           Trải nghiệm {ten.toLowerCase()}
         </p>
-        <div role="tablist" aria-label="Chế độ xem" className="mt-6 flex flex-wrap gap-2">
+        <div role="tablist" aria-label="Chế độ xem" onKeyDown={phimTab} className="mt-6 flex flex-wrap gap-2">
           {TABS.map(([id, nhan]) => (
             <button
               key={id}
               type="button"
               role="tab"
+              id={`tab-${id}`}
               aria-selected={tab === id}
+              aria-controls="khung-trai-nghiem"
+              tabIndex={tab === id ? 0 : -1}
               onClick={() => setTab(id)}
               className={`rounded-full border px-5 py-2 text-sm font-medium transition-colors ${tab === id ? "border-than-chi bg-than-chi text-white" : "border-than-chi/20 hover:border-than-chi"}`}
             >
@@ -171,7 +186,7 @@ export function TrinhDienHeCua({ slug, ten, chon, setChon }: { slug: string; ten
           ))}
         </div>
 
-        <div className="mt-8 grid gap-8 lg:grid-cols-[1.7fr_1fr] lg:gap-12">
+        <div id="khung-trai-nghiem" role="tabpanel" aria-labelledby={`tab-${tab}`} className="mt-8 grid gap-8 lg:grid-cols-[1.7fr_1fr] lg:gap-12">
           <div className="relative h-[clamp(320px,58svh,600px)] overflow-hidden rounded-[16px] bg-than-chi">
             {tab === "khong-gian" && g ? (
               <Image src={asset(g.anh)} alt={`${ten} trong ${g.ten.toLowerCase()}`} fill quality={72} sizes="(min-width: 1024px) 60vw, 100vw" className="object-cover" style={{ objectPosition: g.pos }} />
@@ -243,7 +258,7 @@ export function TrinhDienHeCua({ slug, ten, chon, setChon }: { slug: string; ten
                   }}
                   className="mt-2 w-full accent-[#e31937]"
                 />
-                <p className="mt-3 text-xs text-than-chi/60">Sơ đồ phẳng minh họa cách vận hành, không phải bản vẽ kỹ thuật.</p>
+                <p className="mt-3 text-xs text-than-chi/65">Sơ đồ phẳng minh họa cách vận hành, không phải bản vẽ kỹ thuật.</p>
               </>
             )}
 
@@ -271,7 +286,7 @@ export function TrinhDienHeCua({ slug, ten, chon, setChon }: { slug: string; ten
                     <Link href={`/giai-phap/${g.slug}`} className="nut nut-dac mt-6 self-start">
                       Xem giải pháp
                     </Link>
-                    <p className="mt-3 text-xs text-than-chi/60">Ảnh không gian tham khảo, không phải công trình của WINDUCA.</p>
+                    <p className="mt-3 text-xs text-than-chi/65">Ảnh không gian tham khảo, không phải công trình của WINDUCA.</p>
                   </>
                 )}
               </>

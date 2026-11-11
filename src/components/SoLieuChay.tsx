@@ -54,11 +54,11 @@ export function SoLieuChay({ muc }: { muc: SoLieu[] }) {
     <dl className="mt-8 grid max-w-xl grid-cols-3 gap-6 border-t border-inox pt-6 md:mt-12 md:pt-8">
       {muc.map((s) => (
         <div key={s.nhan}>
-          <dt className="text-xs font-medium uppercase tracking-[0.12em] text-than-chi/55">{s.nhan}</dt>
+          <dt className="text-xs font-medium uppercase tracking-[0.12em] text-than-chi/65">{s.nhan}</dt>
           <dd className="mt-2 text-4xl font-bold tabular-nums text-than-chi md:text-5xl">
             <Dem gia_tri={s.gia_tri} hau_to={s.hau_to} do_dai={s.do_dai} />
           </dd>
-          <dd className="mt-1 text-xs text-than-chi/55">Số liệu ước tính</dd>
+          <dd className="mt-1 text-xs text-than-chi/65">Số liệu ước tính</dd>
         </div>
       ))}
     </dl>

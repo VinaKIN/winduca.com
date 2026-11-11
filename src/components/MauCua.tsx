@@ -15,7 +15,7 @@ function Khung({ anh, nhan }: { anh: string | null; nhan: string }) {
       {anh ? (
         <Image src={asset(anh)} alt={nhan} fill quality={70} sizes="(min-width: 768px) 50vw, 100vw" className="object-contain" />
       ) : (
-        <p className="max-w-xs px-6 text-center text-sm text-than-chi/55">{nhan}: đang chờ tài liệu từ catalog.</p>
+        <p className="max-w-xs px-6 text-center text-sm text-than-chi/65">{nhan}: đang chờ tài liệu từ catalog.</p>
       )}
     </div>
   );
@@ -78,14 +78,14 @@ function CuaSo({ mau, dong }: { mau: Mau; dong: () => void }) {
             <dl className="grid gap-px overflow-hidden rounded-[6px] border border-than-chi/15 bg-than-chi/15 sm:grid-cols-2">
               {THONG_SO_BANG.map((ten) => (
                 <div key={ten} className="bg-white p-4">
-                  <dt className="text-xs font-medium uppercase tracking-[0.14em] text-than-chi/55">{ten}</dt>
-                  <dd className="mt-1 text-sm font-semibold">{mau.thongSo[ten] ?? <span className="font-normal text-than-chi/55">Đang chờ xác nhận</span>}</dd>
+                  <dt className="text-xs font-medium uppercase tracking-[0.14em] text-than-chi/65">{ten}</dt>
+                  <dd className="mt-1 text-sm font-semibold">{mau.thongSo[ten] ?? <span className="font-normal text-than-chi/65">Đang chờ xác nhận</span>}</dd>
                 </div>
               ))}
             </dl>
           )}
         </div>
-        <p className="mt-4 text-xs text-than-chi/55">Tên hãng và dòng mẫu cần được xác nhận quyền sử dụng trước khi công bố chính thức.</p>
+        <p className="mt-4 text-xs text-than-chi/65">Tên hãng và dòng mẫu cần được xác nhận quyền sử dụng trước khi công bố chính thức.</p>
       </div>
     </div>
   );
@@ -110,7 +110,7 @@ export function MauCua() {
             {h}
           </button>
         ))}
-        <span className="ml-2 text-xs text-than-chi/55">{ds.length} mẫu</span>
+        <span className="ml-2 text-xs text-than-chi/65">{ds.length} mẫu</span>
       </div>
 
       <ul className="mt-5 flex snap-x snap-mandatory gap-3 overflow-x-auto pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden sm:grid sm:grid-cols-2 sm:gap-4 sm:overflow-visible lg:grid-cols-3">

@@ -35,7 +35,7 @@ export function SoSanhHeCua() {
             {k.ten}
           </button>
         ))}
-        <span className="ml-2 text-xs text-than-chi/55">Chọn 2 đến 3 kiểu cửa</span>
+        <span className="ml-2 text-xs text-than-chi/65">Chọn 2 đến 3 kiểu cửa</span>
       </div>
 
       <div className="mt-5 overflow-x-auto rounded-[6px] border border-than-chi/10 bg-white">
@@ -45,7 +45,7 @@ export function SoSanhHeCua() {
               <th className="w-40 p-4" />
               {ds.map((k) => (
                 <th key={k.slug} className="p-4 align-bottom">
-                  <p className="text-xs font-medium uppercase tracking-[0.16em] text-than-chi/50">{TEN_EN_HE_CUA[k.slug]}</p>
+                  <p className="text-xs font-medium uppercase tracking-[0.16em] text-than-chi/65">{TEN_EN_HE_CUA[k.slug]}</p>
                   <Link href={`/he-cua/${k.slug}`} className="text-xl font-bold hover:text-accent">
                     {k.ten}
                   </Link>
@@ -56,11 +56,11 @@ export function SoSanhHeCua() {
           <tbody>
             {hang.map(([t, f]) => (
               <tr key={t} className="border-b border-than-chi/10 align-top last:border-b-0">
-                <th className="p-4 text-xs font-medium uppercase tracking-[0.14em] text-than-chi/55">{t}</th>
+                <th className="p-4 text-xs font-medium uppercase tracking-[0.14em] text-than-chi/65">{t}</th>
                 {ds.map((k) => {
                   const v = f(k);
                   return (
-                    <td key={k.slug} className={`p-4 ${v === "Đang chờ xác nhận" ? "text-than-chi/45" : "text-than-chi/85"}`}>
+                    <td key={k.slug} className={`p-4 ${v === "Đang chờ xác nhận" ? "text-than-chi/65" : "text-than-chi/85"}`}>
                       {v}
                     </td>
                   );

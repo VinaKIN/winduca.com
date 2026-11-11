@@ -54,7 +54,7 @@ export function CongTrinhLuoi() {
             ))}
           </select>
         </div>
-        <p className="text-xs text-than-chi/55">{ds.length} không gian</p>
+        <p role="status" aria-live="polite" className="text-xs text-than-chi/65">{ds.length} không gian</p>
       </div>
 
       <ul className="mt-4 grid auto-rows-[clamp(110px,17svh,165px)] grid-cols-2 gap-3 md:grid-cols-4">
@@ -97,7 +97,7 @@ export function CongTrinhLuoi() {
       {ds.length > soHien && (
         <div className="mt-6 text-center">
           <button type="button" onClick={() => setSoHien((n) => n + 8)} className="nut nut-vien-sang">
-            Xem thêm
+            Xem thêm công trình
           </button>
         </div>
       )}

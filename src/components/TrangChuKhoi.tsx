@@ -167,7 +167,7 @@ export function CongTrinhKhoi() {
             <h2 className="mt-0.5 text-[clamp(1.625rem,2.6vw,2.5rem)] font-light tracking-[-0.01em] leading-[1.05]">Không gian sống tiêu biểu</h2>
           </div>
           <Link href="/cong-trinh" className="nut nut-dac">
-            Xem thêm
+            Xem thêm công trình
           </Link>
         </div>
         <ul className="mt-6 flex snap-x snap-mandatory gap-3 overflow-x-auto pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden md:grid md:grid-cols-3 md:gap-5 md:overflow-visible">
@@ -315,7 +315,7 @@ export function TinTucKhoi() {
             <h2 className="mt-0.5 text-[clamp(1.625rem,2.6vw,2.5rem)] font-light tracking-[-0.01em] leading-[1.05]">Kiến thức và câu chuyện công trình</h2>
           </div>
           <Link href="/tin-tuc" className="nut nut-dac">
-            Xem thêm
+            Xem thêm bài viết
           </Link>
         </div>
         {/* Bố cục bento 4 thẻ: một thẻ lớn bên trái; bên phải một thẻ ngang phía trên và hai thẻ nhỏ phía dưới; chữ đặt trên ảnh */}

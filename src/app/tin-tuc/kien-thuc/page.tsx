@@ -43,7 +43,7 @@ export default function KienThuc() {
                   <h2 className="mt-2 text-2xl font-bold">{c.t}</h2>
                   <p className="mt-2 text-[15px] leading-relaxed text-than-chi/70">{c.m}</p>
                   <ul className="mt-4 space-y-2 border-t border-than-chi/10 pt-4">
-                    {bai.length === 0 && <li className="text-sm text-than-chi/50">Đang chuẩn bị bài viết.</li>}
+                    {bai.length === 0 && <li className="text-sm text-than-chi/65">Đang chuẩn bị bài viết.</li>}
                     {bai.map((b) => (
                       <li key={b.slug}>
                         <Link href={`/tin-tuc/${b.slug}`} className="flex items-baseline justify-between gap-4 hover:text-accent">

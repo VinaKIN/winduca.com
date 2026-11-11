@@ -68,7 +68,7 @@ export default function HeCua() {
                     <Image src={asset(ANH[k.slug][1])} alt="" fill quality={65} sizes="(min-width: 1024px) 24vw, 50vw" className="object-cover opacity-0 transition-opacity duration-700 group-hover:opacity-100" />
                   </div>
                   <div className="p-5">
-                    <p className="text-xs font-medium uppercase tracking-[0.16em] text-than-chi/50">
+                    <p className="text-xs font-medium uppercase tracking-[0.16em] text-than-chi/65">
                       {String(i + 1).padStart(2, "0")} · {TEN_EN_HE_CUA[k.slug]}
                     </p>
                     <h3 className="mt-1 text-xl font-bold group-hover:text-accent">{k.ten}</h3>

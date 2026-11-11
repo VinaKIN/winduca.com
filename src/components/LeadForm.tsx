@@ -60,13 +60,13 @@ export function LeadForm({ loai, tone = "sang", kieuCuaMacDinh = "", khiXong, go
 
   const nhan = gon ? "sr-only" : `block text-sm font-medium ${toi ? "text-nga" : "text-than-chi"}`;
   const o = gon
-    ? "w-full rounded-[2px] border border-than-chi/80 bg-white px-4 py-3 text-base font-light text-than-chi outline-none transition-colors placeholder:text-than-chi/60 focus:border-accent"
+    ? "w-full rounded-[2px] border border-than-chi/80 bg-white px-4 py-3 text-base font-light text-than-chi outline-none transition-colors placeholder:text-than-chi/65 focus:border-accent"
     : `mt-2 w-full rounded-md border px-3 py-3 text-base outline-none transition-colors focus:border-accent ${
     toi
-      ? "border-inox/40 bg-than-chi/40 text-nga placeholder:text-nga/50"
-      : "border-than-chi/25 bg-white text-than-chi placeholder:text-than-chi/50"
+      ? "border-inox/40 bg-than-chi/40 text-nga placeholder:text-nga/70"
+      : "border-than-chi/25 bg-white text-than-chi placeholder:text-than-chi/65"
   }`;
-  const phu = `mt-1 text-xs ${toi ? "text-nga/60" : "text-than-chi/60"}`;
+  const phu = `mt-1 text-xs ${toi ? "text-nga/70" : "text-than-chi/65"}`;
   const loiCss = "mt-1 text-xs text-do-do " + (toi ? "!text-[#e0a0a8]" : "");
 
   async function guiDi(e: FormEvent<HTMLFormElement>) {
@@ -84,7 +84,11 @@ export function LeadForm({ loai, tone = "sang", kieuCuaMacDinh = "", khiXong, go
     const tep = fd.get("tep");
     if (tep instanceof File && tep.size > 30 * 1024 * 1024) l.tep = "Tệp tối đa 30MB. Tệp lớn hơn xin gửi qua đường dẫn.";
     setLoiTruong(l);
-    if (Object.keys(l).length) return;
+    if (Object.keys(l).length) {
+      // đưa focus tới trường lỗi đầu tiên để người dùng bàn phím và trình đọc màn hình biết chỗ cần sửa
+      window.setTimeout(() => formRef.current?.querySelector<HTMLElement>("[aria-invalid=true]")?.focus(), 0);
+      return;
+    }
 
     if (CHUA_CO_NOI_NHAN) {
       // Chưa có Worker: mở thư gửi tới email chung để yêu cầu vẫn đến được WINDUCA.
@@ -145,23 +149,23 @@ export function LeadForm({ loai, tone = "sang", kieuCuaMacDinh = "", khiXong, go
         <label className={nhan} htmlFor={`ten-${loai}`}>
           Họ và tên
         </label>
-        <input id={`ten-${loai}`} name="ten" autoComplete="name" placeholder={gon ? "Họ và tên" : undefined} className={o} required />
-        {loiTruong.ten && <p className={loiCss}>{loiTruong.ten}</p>}
+        <input id={`ten-${loai}`} name="ten" autoComplete="name" placeholder={gon ? "Họ và tên" : undefined} aria-invalid={loiTruong.ten ? true : undefined} aria-describedby={loiTruong.ten ? `loi-ten-${loai}` : undefined} className={o} required />
+        {loiTruong.ten && <p id={`loi-ten-${loai}`} className={loiCss}>{loiTruong.ten}</p>}
       </div>
       <div>
         <label className={nhan} htmlFor={`sdt-${loai}`}>
           Số điện thoại / Zalo
         </label>
-        <input id={`sdt-${loai}`} name="sdt" type="tel" inputMode="tel" autoComplete="tel" placeholder={gon ? "Số điện thoại / Zalo" : undefined} className={o} required />
-        {loiTruong.sdt && <p className={loiCss}>{loiTruong.sdt}</p>}
+        <input id={`sdt-${loai}`} name="sdt" type="tel" inputMode="tel" autoComplete="tel" placeholder={gon ? "Số điện thoại / Zalo" : undefined} aria-invalid={loiTruong.sdt ? true : undefined} aria-describedby={loiTruong.sdt ? `loi-sdt-${loai}` : undefined} className={o} required />
+        {loiTruong.sdt && <p id={`loi-sdt-${loai}`} className={loiCss}>{loiTruong.sdt}</p>}
       </div>
 
       <div>
         <label className={nhan} htmlFor={`email-${loai}`}>
           Email <span className="font-normal opacity-70">(không bắt buộc)</span>
         </label>
-        <input id={`email-${loai}`} name="email" type="email" autoComplete="email" placeholder={gon ? "Email (không bắt buộc)" : undefined} className={o} />
-        {loiTruong.email && <p className={loiCss}>{loiTruong.email}</p>}
+        <input id={`email-${loai}`} name="email" type="email" autoComplete="email" placeholder={gon ? "Email (không bắt buộc)" : undefined} aria-invalid={loiTruong.email ? true : undefined} aria-describedby={loiTruong.email ? `loi-email-${loai}` : undefined} className={o} />
+        {loiTruong.email && <p id={`loi-email-${loai}`} className={loiCss}>{loiTruong.email}</p>}
       </div>
 
       {!gon && (loai === "tai-lieu" || loai === "lien-he" || loai === "ban-ve") && (
@@ -281,12 +285,12 @@ export function LeadForm({ loai, tone = "sang", kieuCuaMacDinh = "", khiXong, go
             <label className={nhan} htmlFor="tep-ban-ve">
               Bản vẽ (PDF, DWG, JPG, PNG)
             </label>
-            <input id="tep-ban-ve" name="tep" type="file" accept=".pdf,.dwg,.jpg,.jpeg,.png" className={`${o} file:mr-4 file:rounded-[2px] file:border-0 file:bg-accent file:px-3 file:py-2 file:text-sm file:font-semibold file:text-white`} />
+            <input id="tep-ban-ve" name="tep" type="file" accept=".pdf,.dwg,.jpg,.jpeg,.png" aria-invalid={loiTruong.tep ? true : undefined} aria-describedby={loiTruong.tep ? "loi-tep" : undefined} className={`${o} file:mr-4 file:rounded-[2px] file:border-0 file:bg-accent file:px-3 file:py-2 file:text-sm file:font-semibold file:text-white`} />
             <p className={phu}>
               Tối đa 30MB. Bản vẽ chỉ dùng để tư vấn cho đúng công trình này, không chia sẻ cho bên thứ ba, xóa sau 30
               ngày; anh chị có thể yêu cầu xóa sớm.
             </p>
-            {loiTruong.tep && <p className={loiCss}>{loiTruong.tep}</p>}
+            {loiTruong.tep && <p id="loi-tep" className={loiCss}>{loiTruong.tep}</p>}
           </div>
         </>
       )}
@@ -306,10 +310,10 @@ export function LeadForm({ loai, tone = "sang", kieuCuaMacDinh = "", khiXong, go
       ) : (
         <div className={span}>
           <label className={`flex items-start gap-3 text-sm ${toi ? "text-nga/90" : "text-than-chi/85"}`}>
-            <input type="checkbox" name="dongY" className="mt-1 h-4 w-4 accent-[#e31937]" />
+            <input type="checkbox" name="dongY" aria-invalid={loiTruong.dongY ? true : undefined} aria-describedby={loiTruong.dongY ? `loi-dongy-${loai}` : undefined} className="mt-1 h-4 w-4 accent-[#e31937]" />
             <span>{CAU_DONG_Y[loai]}</span>
           </label>
-          {loiTruong.dongY && <p className={loiCss}>{loiTruong.dongY}</p>}
+          {loiTruong.dongY && <p id={`loi-dongy-${loai}`} className={loiCss}>{loiTruong.dongY}</p>}
         </div>
       )}
 

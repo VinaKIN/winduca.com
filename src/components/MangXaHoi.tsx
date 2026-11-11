@@ -38,7 +38,7 @@ export function MangXaHoi({ lop = "", kieu = "vien" }: { lop?: string; kieu?: "v
                 {bieuTuong}
               </a>
             ) : (
-              <span title={`${m.ten}: đang cập nhật liên kết`} aria-label={`${m.ten} (đang cập nhật liên kết)`} role="img" className={`${chung} cursor-not-allowed ${kieu === "dac" ? "!border-white/15 text-white/30" : "text-white/35"}`}>
+              <span title={`${m.ten}: đang cập nhật liên kết`} aria-label={`${m.ten} (đang cập nhật liên kết)`} role="img" className={`${chung} cursor-not-allowed ${kieu === "dac" ? "!border-white/15 text-white/70" : "text-white/70"}`}>
                 {bieuTuong}
               </span>
             )}

@@ -28,7 +28,7 @@ Token **must** được dùng theo tên ngữ nghĩa (cột "Dùng cho"), không
 | `color.text.primary` | `--than-chi` / `text-than-chi` | Chữ chính trên nền sáng |
 | `color.text.secondary` | `text-than-chi` với độ mờ **≥ 0,7** | Chữ phụ trên nền sáng |
 | `color.text.inverse` | `text-white` (độ mờ **≥ 0,7**) | Chữ trên nền tối |
-| `color.text.accent` | `--accent` / `text-accent` | Nhãn, số thứ tự, liên kết nhấn (xem 2.1.2) |
+| `color.text.accent` | `--accent-text` / `text-accent` (đổi theo bề mặt gần nhất) | Nhãn, số thứ tự, liên kết nhấn (xem 2.1.2) |
 | `color.surface.base` | `#ffffff` / `.mat-sang` | Nền khối sáng |
 | `color.surface.muted` | `--nga` / `.mat-nga` | Nền khối xen kẽ |
 | `color.surface.inverse` | `.mat-toi` | Nền khối tối |
@@ -45,15 +45,19 @@ Token **must** được dùng theo tên ngữ nghĩa (cột "Dùng cho"), không
 | Chữ chính / Ngà | 14,7 | đạt | đạt |
 | Chữ trắng / nút nhấn | 4,71 | đạt (sát ngưỡng) | đạt |
 | Chữ trắng / nút nhấn khi hover | 6,65 | đạt | đạt |
-| Chữ nhấn / nền trắng | 4,71 | đạt (sát ngưỡng) | đạt |
-| Chữ nhấn / Ngà | **4,25** | **không đạt** | đạt |
-| Chữ nhấn / nền tối | **3,92** | **không đạt** | đạt |
+| Màu nhấn gốc (`--accent`) làm chữ / nền trắng | 4,71 | đạt (sát ngưỡng) | đạt |
+| Màu nhấn gốc làm chữ / Ngà | **4,25** | **không đạt** | đạt |
+| Màu nhấn gốc làm chữ / nền tối | **3,92** | **không đạt** | đạt |
+| Chữ nhấn trên nền sáng (`--accent-text`, đỏ đậm) / trắng, Ngà | 5,88 / 5,08–5,31 | đạt | đạt |
+| Chữ nhấn trên nền tối (`--accent-text`, đỏ sáng) / nền tối | 4,94–6,10 | đạt | đạt |
 | Chữ trắng / nền tối | 18,46 | đạt | đạt |
 
 #### 2.1.2 Quy tắc dùng màu nhấn
-- Chữ màu nhấn cỡ thường (dưới 18,66px đậm hoặc dưới 24px) **must** chỉ đặt trên nền trắng. Trên nền Ngà hoặc nền tối, chữ nhấn **must** là chữ lớn (≥ 24px, hoặc ≥ 18,66px đậm) hoặc phải đổi sang `color.text.inverse` / `color.text.primary` kèm một chi tiết nhấn không phải chữ (đường kẻ, chấm, số lớn).
+- Màu nhấn gốc (`--accent`) **must** chỉ dùng làm nền nút, nền chấm, đường kẻ, viền và vòng focus, không dùng làm chữ cỡ thường.
+- Chữ nhấn **must** dùng `text-accent`, lớp này đã đọc biến `--accent-text` của **bề mặt gần nhất**: đỏ đậm trên nền trắng/Ngà, đỏ sáng trên nền tối (`.bg-than-chi`, `.mat-toi`, `.nen-toi`, `.hero-gradient`, `.kinh-mo`, `.text-white`). Linh kiện **must not** tự đặt màu chữ đỏ khác.
+- Bề mặt mới có nền đặc **must** khai báo một trong các lớp bề mặt trên để chữ nhấn nhận đúng màu.
 - Vòng focus màu nhấn trên nền tối (3,92) **should** giữ độ dày 2px và offset 3px để đạt ngưỡng 3:1 cho thành phần giao diện.
-- Độ mờ của chữ trên nền trắng **must** ≥ 0,65 (đo được: 0,5 → 3,21; 0,55 → 3,72; 0,6 → 4,33; 0,65 → 5,12; 0,7 → 6,03).
+- Độ mờ của chữ **must** ≥ 0,65 trên nền sáng và ≥ 0,70 trên nền tối (đo được trên nền trắng: 0,5 → 3,21; 0,55 → 3,72; 0,6 → 4,33; 0,65 → 5,12; 0,7 → 6,03).
 
 ### 2.2 Chữ
 
@@ -133,7 +137,7 @@ Kích thước vùng chạm: mục tiêu con trỏ **must** ≥ 24×24px (WCAG 2
 
 - **Giải phẫu:** hai nút tròn (gọi, thư) bên trái, logo giữa, nút ba gạch bên phải; nền chuyển Than đen khi cuộn.
 - **Trạng thái:** nút tròn có hover đổi nền sang màu nhấn; focus-visible theo 3.0; disabled/loading/error không áp dụng.
-- **Menu (hộp thoại):** `role="dialog"`, `aria-modal="true"`, đóng bằng `Esc` và nút "Đóng", khóa cuộn nền. **Must** đưa focus vào hộp thoại khi mở và trả focus về nút ba gạch khi đóng. **Should** giữ focus trong hộp thoại (focus trap).
+- **Menu (hộp thoại):** `role="dialog"`, `aria-modal="true"`, đóng bằng `Esc` và nút "Đóng", khóa cuộn nền. **Must** đưa focus vào hộp thoại khi mở và trả focus về nút ba gạch khi đóng. **Must** giữ focus trong hộp thoại (focus trap).
 - **Phản hồi:** dưới 1024px, mục con hiện sẵn dưới tiêu đề mục, không cần bấm mở.
 - **Nội dung dài:** hộp thoại **must** cuộn dọc được khi nội dung vượt màn hình.
 
@@ -173,7 +177,7 @@ Kích thước vùng chạm: mục tiêu con trỏ **must** ≥ 24×24px (WCAG 2
 - **Giải phẫu:** nhãn, ô nhập (họ tên, SĐT, email tùy chọn…), ô đồng ý, nút gửi, thông báo.
 - **Quy tắc trường:** mọi ô **must** có `label` gắn qua `htmlFor`; trường bắt buộc **must** nói rõ; ô `tel` dùng `inputMode="tel"` và `autoComplete`.
 - **Trạng thái:** mặc định; focus (viền màu nhấn); disabled (nút gửi khi đang gửi); loading ("Đang gửi…", chặn gửi trùng); error (thông báo dưới trường, thông báo chung dùng `role="alert"`).
-- **Lỗi:** mỗi thông báo lỗi trường **must** gắn `aria-describedby` và trường lỗi **must** có `aria-invalid="true"` (hiện chưa có, xem mục 7).
+- **Lỗi:** mỗi thông báo lỗi trường **must** gắn `aria-describedby` và trường lỗi **must** có `aria-invalid="true"` (đã có từ 11/11/2026, xem mục 7).
 - **Quyền riêng tư:** câu đồng ý **must** hiện đủ; **must not** lưu hay ghi nhật ký họ tên/SĐT ở phía trình duyệt ngoài việc gửi.
 - **Bản xem thử tĩnh:** hiện thông báo "bản xem thử, biểu mẫu chưa gửi được" kèm hotline.
 
@@ -246,17 +250,19 @@ Mức mục tiêu: **WCAG 2.2 AA**. Mỗi tiêu chí có cách kiểm tra đạt
 
 ---
 
-## 7. Ghi chú di chuyển (khoảng trống đã xác minh trong mã)
+## 7. Ghi chú di chuyển (đã xử lý ngày 11/11/2026)
 
-Các điểm dưới đây đã đối chiếu với mã ngày 11/11/2026 và **should** được xử lý theo thứ tự ưu tiên:
+Bảy khoảng trống do đối chiếu mã đã được sửa. Ghi lại để biết cách kiểm tra lại:
 
-1. **Tương phản chữ nhấn:** nhãn `nhan-muc text-accent` 11px đang đặt trên nền Ngà (4,25:1) và nền tối (3,92:1), không đạt 4,5:1. Cần đổi sang chữ Than đen/trắng kèm chấm hay đường kẻ nhấn, hoặc tăng cỡ.
-2. **Chữ mờ:** nhiều chỗ dùng `text-than-chi/50`, `/55`, `/60` (3,21 / 3,72 / 4,33). Cần nâng lên ≥ `/65` cho nội dung đọc.
-3. **Biểu mẫu:** `LeadForm` có `role="alert"` và trạng thái gửi (`disabled`) nhưng chưa có `aria-invalid` và `aria-describedby` cho lỗi từng trường.
-4. **Menu toàn màn hình:** đã có `role="dialog"`, `Esc` và khóa cuộn, chưa giữ focus trong hộp thoại và chưa trả focus về nút mở.
-5. **Tab trải nghiệm (`TrinhDienHeCua`):** các nút `role="tab"` chưa có điều hướng bằng mũi tên như `QuyTrinhTuongTac`.
-6. **Nhãn mơ hồ:** nút "Xem thêm" (khối Công trình, Tin tức) nên đổi thành "Xem thêm công trình", "Xem thêm bài viết".
-7. **Số kết quả lọc:** chưa có vùng `aria-live` thông báo số sản phẩm sau khi lọc.
+1. **Tương phản chữ nhấn:** thêm biến `--accent-text` theo bề mặt (đỏ đậm trên nền sáng, đỏ sáng trên nền tối). Kiểm tra: mọi phần tử `.text-accent` có nền đặc đều ≥ 4,5:1 (đo trên trang kiểu cửa: thấp nhất 5,88).
+2. **Chữ mờ:** `text-than-chi/30…60` nâng lên `/65`; `text-white/30…65` và `text-nga/…` nâng lên `/70` (trừ phần tử trang trí đánh dấu `aria-hidden`).
+3. **Biểu mẫu:** `LeadForm` gắn `aria-invalid` và `aria-describedby` cho họ tên, SĐT, email, tệp, ô đồng ý; mỗi lỗi có `id` riêng; sau khi gửi lỗi, focus chuyển tới trường lỗi đầu tiên.
+4. **Menu toàn màn hình:** focus vào nút "Đóng" khi mở, giữ focus trong hộp thoại bằng `Tab`/`Shift+Tab`, `Esc` đóng và trả focus về nút ba gạch.
+5. **Tab trải nghiệm (`TrinhDienHeCua`):** có điều hướng `←` `→` `Home` `End`, focus đi theo tab, `tabIndex` chỉ ở tab đang chọn, vùng nội dung `role="tabpanel"` gắn `aria-labelledby`.
+6. **Nhãn mơ hồ:** "Xem thêm" đổi thành "Xem thêm công trình" (khối Công trình trang chủ và nút tải thêm ở trang Công trình) và "Xem thêm bài viết" (Tin tức).
+7. **Số kết quả lọc:** số sản phẩm (trang Hệ cửa) và số không gian (trang Công trình) nằm trong vùng `role="status"` `aria-live="polite"`.
+
+Việc còn lại **should** làm: thông báo trạng thái khi bấm các nút mũi tên băng chuyền ở đầu/cuối danh sách (chuyển sang disabled), và đo lại tương phản trên các khối có nền ảnh.
 
 ---
 

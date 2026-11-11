@@ -25,7 +25,7 @@ export function TuyenNgonVaBaThe() {
       <Wrap className="relative py-24 md:py-40">
         <div className="grid gap-5 md:grid-cols-[14rem_1fr] md:gap-12">
           <div>
-            <p className="nhan-muc text-than-chi/60">Dành cho ai</p>
+            <p className="nhan-muc text-than-chi/65">Dành cho ai</p>
             <div className="mt-4 h-px w-14 bg-accent" />
           </div>
           <p className="tieu-de max-w-4xl text-[clamp(1.9rem,4.6vw,4rem)] [text-wrap:balance]">
@@ -83,7 +83,7 @@ export function KhoiKTS() {
               <li key={t.ten} className="flex items-center justify-between gap-4 py-5">
                 <span>
                   <span className="block text-sm font-semibold">{t.ten}</span>
-                  <span className="mt-1 block text-xs text-than-chi/60">{t.loai}</span>
+                  <span className="mt-1 block text-xs text-than-chi/65">{t.loai}</span>
                 </span>
                 <span className="rounded-sm border border-than-chi/30 px-2 py-1 text-xs">Sắp có</span>
               </li>
@@ -120,7 +120,7 @@ export function KhoiChuNha() {
       <div className="grid gap-px border border-than-chi/15 bg-than-chi/15 md:grid-cols-3">
         {noiDau.map((n, i) => (
           <div key={n.t} className="bg-white p-8">
-            <span className="nhan-muc text-than-chi/60">{String(i + 1).padStart(2, "0")}</span>
+            <span className="nhan-muc text-than-chi/65">{String(i + 1).padStart(2, "0")}</span>
             <h3 className="tieu-de mt-6 text-xl">{n.t}</h3>
             <p className="mt-3 text-[15px] leading-relaxed text-than-chi/80">{n.m}</p>
             <p className="mt-5">
@@ -214,7 +214,7 @@ export function QuyTrinh() {
         {buoc.map((b, i) => (
           <li key={b.t} className="relative border-t border-accent pt-8 md:pr-6">
             <span className="absolute -top-[5px] left-0 h-2.5 w-2.5 rotate-45 bg-accent" aria-hidden="true" />
-            <span className="nhan-muc text-than-chi/60">{String(i + 1).padStart(2, "0")}</span>
+            <span className="nhan-muc text-than-chi/65">{String(i + 1).padStart(2, "0")}</span>
             <h3 className="tieu-de mt-3 text-lg">{b.t}</h3>
             <p className="mt-2 text-[15px] leading-relaxed text-than-chi/80">{b.m}</p>
           </li>

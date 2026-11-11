@@ -144,7 +144,7 @@ export function QuyTrinhTuongTac({ daoBen = false }: { daoBen?: boolean }) {
                 <path d="m9 6 6 6-6 6" />
               </svg>
             </button>
-            <span className="text-xs text-than-chi/50">Quy trình tham khảo, đội kỹ thuật sẽ xác nhận chi tiết.</span>
+            <span className="text-xs text-than-chi/65">Quy trình tham khảo, đội kỹ thuật sẽ xác nhận chi tiết.</span>
           </div>
         </div>
       </div>

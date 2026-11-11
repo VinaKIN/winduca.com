@@ -61,7 +61,7 @@ export default function CongTrinh() {
                   Công trình thực tế đang được cập nhật. Mỗi công trình sẽ có ảnh tổng thể, ảnh chi tiết cửa, loại công trình, hệ cửa sử dụng, yêu cầu kiến
                   trúc, giải pháp triển khai và kết quả thực tế, khi có hình ảnh và sự đồng ý của chủ đầu tư.
                 </p>
-                <p className="mt-3 text-sm text-than-chi/60">Khi có ảnh trước và sau thi công cùng góc chụp, bạn sẽ kéo ngang để so sánh ngay trên trang Case Study.</p>
+                <p className="mt-3 text-sm text-than-chi/65">Khi có ảnh trước và sau thi công cùng góc chụp, bạn sẽ kéo ngang để so sánh ngay trên trang Case Study.</p>
               </div>
               <div className="flex flex-col items-start justify-center gap-3">
                 <NutHut href="/lien-he" className="nut nut-chinh">

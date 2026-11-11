@@ -21,7 +21,7 @@ export function CauHinhCua() {
 
   const nhom = (nhan: string, ds: string[], cur: string, set: (v: string) => void) => (
     <div>
-      <p className="nhan-muc mb-2 text-than-chi/60">{nhan}</p>
+      <p className="nhan-muc mb-2 text-than-chi/65">{nhan}</p>
       <div className="flex flex-wrap gap-2" role="radiogroup" aria-label={nhan}>
         {ds.map((t) => (
           <button
@@ -57,7 +57,7 @@ export function CauHinhCua() {
           {gui ? "Thu gọn" : "Gửi cấu hình để được tư vấn"}
         </button>
       </div>
-      <p className="mt-2 text-xs text-than-chi/55">Chúng tôi không hỏi ngân sách và không đăng giá. Màu là màu minh họa, mã màu chính thức đang chờ xác nhận.</p>
+      <p className="mt-2 text-xs text-than-chi/65">Chúng tôi không hỏi ngân sách và không đăng giá. Màu là màu minh họa, mã màu chính thức đang chờ xác nhận.</p>
 
       {gui && (
         <div className="mt-6 border-t border-than-chi/15 pt-6">

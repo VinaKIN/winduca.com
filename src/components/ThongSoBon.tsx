@@ -7,8 +7,8 @@ export function ThongSoBon({ sp, toi = false, lop = "" }: { sp: SanPham; toi?: b
     <dl className={`grid grid-cols-2 gap-x-6 gap-y-4 text-sm ${lop}`}>
       {THONG_SO_SAN_PHAM.map((ten, i) => (
         <div key={ten}>
-          <dt className={`text-[11px] font-bold uppercase tracking-[0.12em] ${toi ? "text-white/55" : "text-than-chi/50"}`}>{ten}</dt>
-          <dd className={`mt-1 font-medium leading-snug ${gt[i] === CHO_XAC_NHAN ? (toi ? "text-white/70" : "text-than-chi/60") : ""}`}>{gt[i]}</dd>
+          <dt className={`text-[11px] font-bold uppercase tracking-[0.12em] ${toi ? "text-white/70" : "text-than-chi/65"}`}>{ten}</dt>
+          <dd className={`mt-1 font-medium leading-snug ${gt[i] === CHO_XAC_NHAN ? (toi ? "text-white/70" : "text-than-chi/65") : ""}`}>{gt[i]}</dd>
         </div>
       ))}
     </dl>

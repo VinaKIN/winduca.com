@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useState, type ReactNode } from "react";
+import { useEffect, useRef, useState, type ReactNode } from "react";
 import { asset } from "@/lib/asset";
 import { DIA_CHI, EMAIL, HERO_ANH, HOTLINE, HOTLINE_TEL, MENU_CHINH } from "@/lib/site";
 
@@ -79,6 +79,8 @@ export function Header() {
   const duongDan = usePathname();
   const [moMenu, setMoMenu] = useState(false);
   const [mucMo, setMucMo] = useState<number | null>(null);
+  const nutMo = useRef<HTMLButtonElement>(null);
+  const hopThoai = useRef<HTMLDivElement>(null);
   const coHover = () => typeof window !== "undefined" && window.matchMedia("(hover: hover) and (pointer: fine)").matches;
   const [duongDanMo, setDuongDanMo] = useState(duongDan);
 
@@ -93,9 +95,30 @@ export function Header() {
     if (!moMenu) return;
     const cu = document.body.style.overflow;
     document.body.style.overflow = "hidden";
-    const onKey = (e: KeyboardEvent) => e.key === "Escape" && setMoMenu(false);
+    // Đưa focus vào hộp thoại (nút Đóng), giữ focus trong hộp thoại khi bấm Tab, trả focus về nút mở khi đóng
+    const nutMoHienTai = nutMo.current;
+    window.setTimeout(() => hopThoai.current?.querySelector<HTMLElement>("[data-dau-tien]")?.focus(), 0);
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        setMoMenu(false);
+        return;
+      }
+      if (e.key !== "Tab" || !hopThoai.current) return;
+      const ds = Array.from(hopThoai.current.querySelectorAll<HTMLElement>('a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])')).filter((el) => el.offsetParent !== null);
+      if (ds.length === 0) return;
+      const dau = ds[0];
+      const cuoi = ds[ds.length - 1];
+      if (e.shiftKey && document.activeElement === dau) {
+        e.preventDefault();
+        cuoi.focus();
+      } else if (!e.shiftKey && document.activeElement === cuoi) {
+        e.preventDefault();
+        dau.focus();
+      }
+    };
     window.addEventListener("keydown", onKey);
     return () => {
+      nutMoHienTai?.focus();
       document.body.style.overflow = cu;
       window.removeEventListener("keydown", onKey);
     };
@@ -126,6 +149,7 @@ export function Header() {
             aria-expanded={moMenu}
             aria-controls="menu-toan-man-hinh"
             aria-label="Mở menu"
+            ref={nutMo}
             onClick={() => setMoMenu(true)}
           >
             <span className="block h-[2px] w-8 bg-white" />
@@ -142,6 +166,7 @@ export function Header() {
           role="dialog"
           aria-modal="true"
           aria-label="Menu"
+          ref={hopThoai}
           className="fixed inset-0 z-[60] overflow-y-auto bg-white px-3 py-3 md:px-6 md:py-5"
         >
           <div className="mx-auto flex min-h-full max-w-[1440px] flex-col rounded-[28px] bg-nga p-2 md:rounded-[40px] md:p-2.5">
@@ -151,6 +176,7 @@ export function Header() {
               <button
                 type="button"
                 aria-label="Đóng menu"
+                data-dau-tien="true"
                 onClick={() => setMoMenu(false)}
                 className="group flex items-center gap-2 rounded-full bg-than-chi py-1 pl-6 pr-1 text-[0.8125rem] font-bold uppercase tracking-[0.04em] text-white transition-colors hover:bg-accent"
               >
