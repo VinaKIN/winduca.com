@@ -47,7 +47,7 @@ export default function GioiThieu() {
       />
 
       {/* 01 · Câu chuyện thương hiệu */}
-      <section className="luoi-ban-ve-toi nen-toi py-7 text-white">
+      <section className="luoi-ban-ve-toi nen-toi khoi-doc text-white">
         <Wrap>
           <Hien>
             <NhanSo so="01" nhan="Câu chuyện thương hiệu" />
@@ -55,8 +55,8 @@ export default function GioiThieu() {
               Cánh cửa là một phần của <span className="font-bold">kiến trúc.</span>
             </h2>
           </Hien>
-          <div className="mt-6 grid items-center gap-6 lg:grid-cols-[1.15fr_1fr] lg:gap-12">
-            <Hien tre={100}>
+          <div className="mt-8 grid items-center gap-10 md:mt-10 lg:grid-cols-[1.3fr_1fr] lg:gap-16">
+            <Hien tre={100} className="lg:-ml-10">
               <KhungAnhChong
                 vienToi
                 chinh={{ src: "/images/mau-khung-nhom-den.jpg", alt: "Chi tiết khung cửa nhôm", chuThich: "Khung nhôm cầu cách nhiệt", so: "FIG. 01", diem: { x: "58%", y: "42%", nhan: "Thanh cầu cách nhiệt" } }}
@@ -111,14 +111,14 @@ export default function GioiThieu() {
       <GiaiPhapDongBo />
 
       {/* 04 · Quy trình kiểm soát chất lượng */}
-      <section className="luoi-ban-ve nen-sang py-7">
+      <section className="luoi-ban-ve nen-sang khoi-doc">
         <Wrap>
           <Hien>
             <NhanSo so="05" nhan="Quy trình kiểm soát chất lượng" />
             <h2 className="mt-4 text-[clamp(1.625rem,2.6vw,2.5rem)] font-light leading-[1.15] tracking-[-0.01em]">Bốn bước từ bản vẽ đến nghiệm thu</h2>
           </Hien>
-          <div className="mt-6">
-            <QuyTrinhTuongTac />
+          <div className="mt-8 md:mt-10">
+            <QuyTrinhTuongTac daoBen />
           </div>
         </Wrap>
       </section>
@@ -126,7 +126,7 @@ export default function GioiThieu() {
       <DoiTacKhoi />
 
       {/* CTA */}
-      <section className="relative overflow-hidden nen-toi py-7 text-white">
+      <section className="relative overflow-hidden nen-toi khoi-doc text-white">
         <div className="luoi-ban-ve-toi pointer-events-none absolute inset-0" aria-hidden="true" />
         <Wrap className="relative">
           <Hien>

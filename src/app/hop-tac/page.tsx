@@ -51,7 +51,7 @@ export default function HopTac() {
       </PageHero>
 
       {/* 01 · Ba nhóm đối tác */}
-      <section className="luoi-ban-ve nen-sang py-7">
+      <section className="luoi-ban-ve nen-sang khoi-doc">
         <Wrap>
           <Dau so="01" nhan="Hệ sinh thái đối tác" tieuDe={<>Ba nhóm đối tác <span className="font-bold">của WINDUCA</span></>} />
           <Hien tre={100} className="mt-5">
@@ -61,7 +61,7 @@ export default function HopTac() {
       </section>
 
       {/* 02 · Lộ trình hợp tác */}
-      <section className="nen-nga py-7">
+      <section className="nen-nga khoi-doc">
         <Wrap>
           <Dau so="02" nhan="Lộ trình hợp tác" tieuDe={<>Bốn bước <span className="font-bold">từ đăng ký đến triển khai</span></>} />
           <div className="relative mt-6">
@@ -82,7 +82,7 @@ export default function HopTac() {
       </section>
 
       {/* 03 · Văn phòng khu vực */}
-      <section className="luoi-ban-ve nen-sang py-7">
+      <section className="luoi-ban-ve nen-sang khoi-doc">
         <Wrap>
           <Dau so="03" nhan="Văn phòng khu vực" tieuDe={<>Gần công trình <span className="font-bold">của bạn</span></>} />
           <ul className="mt-5 grid gap-4 md:grid-cols-3">
@@ -98,7 +98,7 @@ export default function HopTac() {
       </section>
 
       {/* 04 · Đăng ký */}
-      <section id="dang-ky-hop-tac" className="relative overflow-hidden nen-toi py-6 text-white">
+      <section id="dang-ky-hop-tac" className="relative overflow-hidden nen-toi khoi-doc-gon text-white">
         <div className="luoi-ban-ve-toi pointer-events-none absolute inset-0" aria-hidden="true" />
         <Wrap className="relative">
           <Hien>

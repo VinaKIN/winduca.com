@@ -125,7 +125,7 @@ const CANH = [
 export function GiaiPhapDongBo() {
   const [i, setI] = useState(0);
   return (
-    <section className="nen-toi khong-cat py-6 text-white">
+    <section className="nen-toi khong-cat khoi-doc-gon text-white">
       <Wrap>
         <div className="grid items-center gap-8 lg:grid-cols-[0.85fr_1.25fr] lg:gap-12">
           <div className="min-w-0">

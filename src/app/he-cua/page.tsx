@@ -56,7 +56,7 @@ export default function HeCua() {
       </PageHero>
 
       {/* 01 · Bốn kiểu cửa */}
-      <section className="luoi-ban-ve nen-sang py-7">
+      <section className="luoi-ban-ve nen-sang khoi-doc">
         <Wrap>
           <Dau so="01" nhan="Bốn kiểu cửa" tieuDe={<>Chọn kiểu cửa phù hợp <span className="font-bold">với không gian</span></>} />
           <ul className="mt-6 flex snap-x snap-mandatory gap-3 overflow-x-auto pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden sm:grid sm:grid-cols-2 sm:gap-4 sm:overflow-visible lg:grid-cols-4">
@@ -82,7 +82,7 @@ export default function HeCua() {
       </section>
 
       {/* 02 · So sánh */}
-      <section id="so-sanh" className="nen-nga py-7">
+      <section id="so-sanh" className="nen-nga khoi-doc">
         <Wrap>
           <Dau so="02" nhan="So sánh hệ cửa" tieuDe={<>Đặt hai đến ba kiểu cửa <span className="font-bold">cạnh nhau</span></>} />
           <Hien tre={100} className="mt-5">
@@ -92,7 +92,7 @@ export default function HeCua() {
       </section>
 
       {/* 03 · Sản phẩm theo chức năng (11/11/2026: thay mục Mẫu cửa theo hãng; không dùng tên hãng) */}
-      <section id="san-pham" className="luoi-ban-ve nen-sang py-7">
+      <section id="san-pham" className="luoi-ban-ve nen-sang khoi-doc">
         <Wrap>
           <Dau so="03" nhan="Sản phẩm" tieuDe={<>Chọn sản phẩm theo <span className="font-bold">thông số kỹ thuật</span></>} />
           <Hien tre={100} className="mt-5">
@@ -102,7 +102,7 @@ export default function HeCua() {
       </section>
 
       {/* 04 · Cấu hình cửa */}
-      <section id="cau-hinh" className="relative overflow-hidden nen-nga py-7">
+      <section id="cau-hinh" className="relative overflow-hidden nen-nga khoi-doc">
         <Wrap>
           <Dau so="04" nhan="Cấu hình cửa" tieuDe={<>Chọn cấu hình, <span className="font-bold">nhận tư vấn</span></>} />
           <Hien tre={100} className="mt-5">

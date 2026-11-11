@@ -46,7 +46,8 @@ const BUOC: Buoc[] = [
   },
 ];
 
-export function QuyTrinhTuongTac() {
+/** daoBen: đặt ảnh bên phải (xen kẽ với khối ảnh bên trái ở phía trên trang). */
+export function QuyTrinhTuongTac({ daoBen = false }: { daoBen?: boolean }) {
   const [i, setI] = useState(0);
   const nut = useRef<(HTMLButtonElement | null)[]>([]);
   const b = BUOC[i];
@@ -60,9 +61,9 @@ export function QuyTrinhTuongTac() {
   }
 
   return (
-    <div className="grid gap-6 lg:grid-cols-[0.9fr_1.4fr] lg:gap-10">
+    <div className={`grid gap-10 lg:gap-14 ${daoBen ? "lg:grid-cols-[1.1fr_1.1fr]" : "lg:grid-cols-[1.1fr_1.1fr]"}`}>
       {/* Ảnh: bốn khung xếp chồng trong cùng một ô, chỉ khung của bước đang chọn hiện ra */}
-      <div className="grid" aria-live="polite">
+      <div className={`grid ${daoBen ? "lg:order-2 lg:-mr-10" : ""}`} aria-live="polite">
         {BUOC.map((x, k) => (
           <div
             key={x.t}
@@ -74,7 +75,7 @@ export function QuyTrinhTuongTac() {
         ))}
       </div>
 
-      <div className="relative min-w-0">
+      <div className={`relative min-w-0 ${daoBen ? "lg:order-1" : ""}`}>
         <div className="absolute left-0 right-0 top-[1.6rem] hidden h-px bg-than-chi/20 lg:block" aria-hidden="true" />
         <div role="tablist" aria-label="Các bước kiểm soát chất lượng" className="relative grid grid-cols-2 gap-x-4 gap-y-6 lg:grid-cols-4 lg:gap-x-6">
           {BUOC.map((x, k) => {
@@ -93,7 +94,7 @@ export function QuyTrinhTuongTac() {
                 tabIndex={dang ? 0 : -1}
                 onClick={() => setI(k)}
                 onKeyDown={(e) => phim(e, k)}
-                className="group text-left"
+                className="group flex flex-col items-start justify-start text-left"
               >
                 <span
                   className={`relative z-10 flex h-[3.2rem] w-[3.2rem] items-center justify-center rounded-full border text-sm font-bold transition-colors duration-300 ${

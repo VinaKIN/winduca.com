@@ -63,7 +63,7 @@ export default async function KieuCuaPage({ params }: PageProps<"/he-cua/[slug]"
       </PageHero>
 
       {/* 01 · Tổng quan */}
-      <section className="luoi-ban-ve nen-sang py-7">
+      <section className="luoi-ban-ve nen-sang khoi-doc">
         <Wrap>
           <Hien>
             <Dau so="01" nhan="Tổng quan" />
@@ -87,7 +87,7 @@ export default async function KieuCuaPage({ params }: PageProps<"/he-cua/[slug]"
 
       {/* Sản phẩm thuộc kiểu cửa này (11/11/2026): 4 dòng thông số mỗi sản phẩm */}
       {sanPham.length > 0 && (
-        <section className="nen-nga py-7">
+        <section className="nen-nga khoi-doc">
           <Wrap>
             <Hien>
               <p className="nhan-muc text-accent">Sản phẩm</p>
@@ -114,7 +114,7 @@ export default async function KieuCuaPage({ params }: PageProps<"/he-cua/[slug]"
       <DoorExplorer tenKieuCua={k.ten} slug={k.slug} />
 
       {/* 04 · Thông số */}
-      <section className="nen-nga py-7">
+      <section className="nen-nga khoi-doc">
         <Wrap>
           <Hien>
             <Dau so="04" nhan="Thông số kỹ thuật" />
@@ -132,7 +132,7 @@ export default async function KieuCuaPage({ params }: PageProps<"/he-cua/[slug]"
       </section>
 
       {/* 05 · Phụ kiện + tài liệu */}
-      <section className="luoi-ban-ve nen-sang py-7">
+      <section className="luoi-ban-ve nen-sang khoi-doc">
         <Wrap>
           <div className="grid gap-8 lg:grid-cols-2 lg:gap-12">
             <Hien>
@@ -159,7 +159,7 @@ export default async function KieuCuaPage({ params }: PageProps<"/he-cua/[slug]"
 
       {/* 06 · Không gian cảm hứng */}
       {lienQuan.length > 0 && (
-        <section className="nen-nga py-7">
+        <section className="nen-nga khoi-doc">
           <Wrap>
             <Hien>
               <Dau so="06" nhan="Cảm hứng" />
@@ -186,7 +186,7 @@ export default async function KieuCuaPage({ params }: PageProps<"/he-cua/[slug]"
       )}
 
       {/* 07 · Câu hỏi thường gặp */}
-      <section className="nen-sang py-7">
+      <section className="nen-sang khoi-doc">
         <Wrap>
           <Hien>
             <Dau so="07" nhan="Câu hỏi thường gặp" />
@@ -198,7 +198,7 @@ export default async function KieuCuaPage({ params }: PageProps<"/he-cua/[slug]"
       </section>
 
       {/* Đăng ký hộp mẫu */}
-      <section id="dang-ky" className="relative overflow-hidden nen-toi py-6 text-white">
+      <section id="dang-ky" className="relative overflow-hidden nen-toi khoi-doc-gon text-white">
         <div className="luoi-ban-ve-toi pointer-events-none absolute inset-0" aria-hidden="true" />
         <Wrap className="relative">
           <div className="grid gap-6 lg:grid-cols-[0.8fr_1.4fr] lg:gap-12">

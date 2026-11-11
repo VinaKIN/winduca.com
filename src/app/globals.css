@@ -601,3 +601,7 @@ section.nen-nga {
 .khong-cat::after {
   display: none;
 }
+
+/* Khoảng thở giữa các khối (11/11/2026, anh Huy: trang bị chật). Mobile ~48px, desktop ~88px. */
+.khoi-doc { padding-block: clamp(3rem, 7vw, 5.5rem); }
+.khoi-doc-gon { padding-block: clamp(2.25rem, 5vw, 3.75rem); }

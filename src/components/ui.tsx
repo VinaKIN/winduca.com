@@ -38,7 +38,7 @@ export function Section({
   const co = Boolean(nhanChu || tieuDe || moTa);
   return (
     <section id={id} className={`relative overflow-hidden ${nen} ${tone === "sang" ? "luoi-ban-ve" : ""} ${nhanChu ? "muc-so" : ""} ${className}`}>
-      <Wrap className={`relative ${gon ? "py-5" : "py-7"}`}>
+      <Wrap className={`relative ${gon ? "khoi-doc-gon" : "khoi-doc"}`}>
         {co && (
           <Hien>
             {nhanChu && <p className={`nhan-muc nhan-so ${toi ? "text-accent" : "text-accent"}`}>{nhanChu}</p>}
@@ -47,7 +47,7 @@ export function Section({
           </Hien>
         )}
         {children && (
-          <Hien tre={80} className={co ? (gon ? "mt-4" : "mt-5") : ""}>
+          <Hien tre={80} className={co ? (gon ? "mt-6" : "mt-8 md:mt-10") : ""}>
             {children}
           </Hien>
         )}
@@ -109,8 +109,8 @@ export function PageHero({
         <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-accent" />
         Premium Window &amp; Door
       </p>
-      <Wrap className="relative pb-8 pt-24 md:min-h-[300px] md:pb-10 md:pt-32">
-        <div className={anhPhai ? "grid items-center gap-8 lg:grid-cols-[1.05fr_0.95fr] lg:gap-14" : ""}>
+      <Wrap className="relative flex min-h-[46svh] flex-col justify-end pb-10 pt-28 md:min-h-[56svh] md:pb-14 md:pt-36">
+        <div className={anhPhai ? "grid items-center gap-8 lg:grid-cols-[1.05fr_0.95fr] lg:gap-14" : "w-full"}>
           <div>
             <p className="nhan-muc text-accent">{nhan}</p>
             <h1 className="mt-3 max-w-4xl text-[clamp(1.875rem,3.6vw,3.25rem)] font-medium uppercase leading-[1.12] tracking-[0.01em] [text-wrap:balance]">{tieuDe}</h1>

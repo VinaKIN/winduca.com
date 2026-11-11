@@ -42,7 +42,7 @@ export function GioiThieuKhoi() {
     { so: "03", t: "Architectural Precision", m: "Cửa khổ lớn, đường nét mảnh, hoàn thiện theo bản vẽ kiến trúc sư." },
   ];
   return (
-    <section className="nen-sang py-7">
+    <section className="nen-sang khoi-doc">
       <Wrap>
         <div className="grid items-center gap-8 lg:grid-cols-[1.05fr_1fr] lg:gap-14">
           <div className="relative overflow-hidden rounded-[28px] md:rounded-[36px]">
@@ -107,7 +107,7 @@ export function GioiThieuKhoi() {
 /* ---------- Sản phẩm nổi bật ---------- */
 export function SanPhamKhoi() {
   return (
-    <section className="overflow-hidden nen-nga py-7">
+    <section className="overflow-hidden nen-nga khoi-doc">
       <div className="text-center">
         <NhanDo>Sản phẩm</NhanDo>
         <h2 className="mt-0.5 text-[clamp(1.625rem,2.6vw,2.5rem)] font-light tracking-[-0.01em] leading-[1.05]">Hệ cửa nổi bật</h2>
@@ -128,7 +128,7 @@ export function DichVuKhoi() {
     { so: "04", t: "Hỗ trợ đối tác", m: "Đào tạo kỹ thuật và bán hàng cho đại lý, nhà thầu.", anh: NHAO, pos: "50% 78%" },
   ];
   return (
-    <section className="nen-sang py-7">
+    <section className="nen-sang khoi-doc">
       <Wrap>
         <div className="grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:gap-14">
           <div className="lg:sticky lg:top-32 lg:self-start">
@@ -159,7 +159,7 @@ export function CongTrinhKhoi() {
     { src: RESORT, pos: "50% 50%" },
   ];
   return (
-    <section className="nen-nga py-7">
+    <section className="nen-nga khoi-doc">
       <Wrap>
         <div className="flex flex-wrap items-end justify-between gap-6">
           <div>
@@ -263,7 +263,7 @@ export function DoiTacKhoi() {
     { t: "Dành cho đại lý", m: "Chương trình hợp tác phân phối, đào tạo sản phẩm và kỹ thuật.", href: "/hop-tac" },
   ];
   return (
-    <section className="nen-sang py-7">
+    <section className="nen-sang khoi-doc">
       <Wrap>
         <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:gap-14">
           <div>
@@ -307,7 +307,7 @@ export const BAI_SAP_CO = [
 
 export function TinTucKhoi() {
   return (
-    <section className="nen-sang py-7">
+    <section className="nen-sang khoi-doc">
       <Wrap>
         <div className="flex flex-wrap items-end justify-between gap-6">
           <div>

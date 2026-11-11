@@ -28,7 +28,7 @@ export function NenAnh({
       </NenParallax>
       <div className="nen-anh-phu absolute inset-0" aria-hidden="true" />
       <div className="luoi-ban-ve-toi pointer-events-none absolute inset-0 opacity-60" aria-hidden="true" />
-      <Wrap className="relative py-7">{children}</Wrap>
+      <Wrap className="relative khoi-doc">{children}</Wrap>
     </section>
   );
 }

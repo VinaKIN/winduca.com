@@ -57,7 +57,7 @@ export default async function GiaiPhapChiTiet({ params }: PageProps<"/giai-phap/
         </NutHut>
       </PageHero>
 
-      <section className="luoi-ban-ve nen-sang py-7">
+      <section className="luoi-ban-ve nen-sang khoi-doc">
         <Wrap>
           <Hien>
             <Dau so="01" nhan="Câu hỏi 1" />
@@ -76,7 +76,7 @@ export default async function GiaiPhapChiTiet({ params }: PageProps<"/giai-phap/
         </Wrap>
       </section>
 
-      <section className="nen-nga py-7">
+      <section className="nen-nga khoi-doc">
         <Wrap>
           <Hien>
             <Dau so="02" nhan="Câu hỏi 2" />
@@ -104,7 +104,7 @@ export default async function GiaiPhapChiTiet({ params }: PageProps<"/giai-phap/
         </Wrap>
       </section>
 
-      <section className="luoi-ban-ve nen-sang py-7">
+      <section className="luoi-ban-ve nen-sang khoi-doc">
         <Wrap>
           <Hien>
             <Dau so="03" nhan="Câu hỏi 3" />
@@ -131,7 +131,7 @@ export default async function GiaiPhapChiTiet({ params }: PageProps<"/giai-phap/
         </Wrap>
       </section>
 
-      <section className="relative overflow-hidden nen-toi py-7 text-white">
+      <section className="relative overflow-hidden nen-toi khoi-doc text-white">
         <div className="luoi-ban-ve-toi pointer-events-none absolute inset-0" aria-hidden="true" />
         <Wrap className="relative">
           <Hien>

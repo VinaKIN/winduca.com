@@ -26,7 +26,7 @@ export default function GiaiPhap() {
         anh="/images/architecture/giai-phap-penthouse.webp"
       />
 
-      <section className="luoi-ban-ve nen-sang py-7">
+      <section className="luoi-ban-ve nen-sang khoi-doc">
         <Wrap>
           <Hien>
             <div className="flex items-end gap-4">
@@ -42,7 +42,7 @@ export default function GiaiPhap() {
         </Wrap>
       </section>
 
-      <section className="nen-nga py-7">
+      <section className="nen-nga khoi-doc">
         <Wrap>
           <Hien>
             <div className="flex items-end gap-4">
@@ -67,7 +67,7 @@ export default function GiaiPhap() {
         </Wrap>
       </section>
 
-      <section className="relative overflow-hidden nen-toi py-7 text-white">
+      <section className="relative overflow-hidden nen-toi khoi-doc text-white">
         <div className="luoi-ban-ve-toi pointer-events-none absolute inset-0" aria-hidden="true" />
         <Wrap className="relative">
           <Hien>
