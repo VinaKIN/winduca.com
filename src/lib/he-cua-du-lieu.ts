@@ -855,7 +855,11 @@ export const HE_CUA_DS: HeCua[] = [
   "chongTrom": "",
   "ghiChu": "Kính áp dụng: 5–28 mm",
   "anh": {
-   "c": [],
+   "c": [
+    "/images/he-cua/mau-goc/romadio-rd120ls-ss-g1.webp",
+    "/images/he-cua/mau-goc/romadio-rd120ls-ss-g2.webp",
+    "/images/he-cua/mau-goc/romadio-rd120ls-ss-g3.webp"
+   ],
    "d": [
     "/images/he-cua/ban-ve/romadio-rd120ls-ss-1.webp"
    ]
@@ -878,7 +882,11 @@ export const HE_CUA_DS: HeCua[] = [
   "chongTrom": "",
   "ghiChu": "Kính áp dụng: 24–52 mm",
   "anh": {
-   "c": [],
+   "c": [
+    "/images/he-cua/mau-goc/romadio-rd150ls-ss-triple-glass-g1.webp",
+    "/images/he-cua/mau-goc/romadio-rd150ls-ss-triple-glass-g2.webp",
+    "/images/he-cua/mau-goc/romadio-rd150ls-ss-triple-glass-g3.webp"
+   ],
    "d": [
     "/images/he-cua/ban-ve/romadio-rd150ls-ss-triple-glass-1.webp"
    ]
@@ -901,7 +909,11 @@ export const HE_CUA_DS: HeCua[] = [
   "chongTrom": "",
   "ghiChu": "Kính áp dụng: 5–28 mm",
   "anh": {
-   "c": [],
+   "c": [
+    "/images/he-cua/mau-goc/romadio-rd190ls-ss-g1.webp",
+    "/images/he-cua/mau-goc/romadio-rd190ls-ss-g2.webp",
+    "/images/he-cua/mau-goc/romadio-rd190ls-ss-g3.webp"
+   ],
    "d": [
     "/images/he-cua/ban-ve/romadio-rd190ls-ss-1.webp"
    ]
@@ -924,7 +936,11 @@ export const HE_CUA_DS: HeCua[] = [
   "chongTrom": "",
   "ghiChu": "Kính áp dụng: 24–52 mm",
   "anh": {
-   "c": [],
+   "c": [
+    "/images/he-cua/mau-goc/romadio-rd225ls-ss-triple-glass-g1.webp",
+    "/images/he-cua/mau-goc/romadio-rd225ls-ss-triple-glass-g2.webp",
+    "/images/he-cua/mau-goc/romadio-rd225ls-ss-triple-glass-g3.webp"
+   ],
    "d": []
   },
   "them": false
@@ -945,7 +961,11 @@ export const HE_CUA_DS: HeCua[] = [
   "chongTrom": "",
   "ghiChu": "Kính áp dụng: 5–42 mm",
   "anh": {
-   "c": [],
+   "c": [
+    "/images/he-cua/mau-goc/romadio-rd65in-g1.webp",
+    "/images/he-cua/mau-goc/romadio-rd65in-g2.webp",
+    "/images/he-cua/mau-goc/romadio-rd65in-g3.webp"
+   ],
    "d": [
     "/images/he-cua/ban-ve/romadio-rd65in-1.webp"
    ]
@@ -968,7 +988,11 @@ export const HE_CUA_DS: HeCua[] = [
   "chongTrom": "",
   "ghiChu": "Kính áp dụng: 5–32 mm",
   "anh": {
-   "c": [],
+   "c": [
+    "/images/he-cua/mau-goc/romadio-rd65ou-g1.webp",
+    "/images/he-cua/mau-goc/romadio-rd65ou-g2.webp",
+    "/images/he-cua/mau-goc/romadio-rd65ou-g3.webp"
+   ],
    "d": [
     "/images/he-cua/ban-ve/romadio-rd65ou-1.webp"
    ]
@@ -1016,7 +1040,10 @@ export const HE_CUA_DS: HeCua[] = [
   "chongTrom": "",
   "ghiChu": "Kính áp dụng: 24 mm",
   "anh": {
-   "c": [],
+   "c": [
+    "/images/he-cua/mau-goc/romadio-rp127ou-fence-g1.webp",
+    "/images/he-cua/mau-goc/romadio-rp127ou-fence-g2.webp"
+   ],
    "d": [
     "/images/he-cua/ban-ve/romadio-rp127ou-fence-1.webp"
    ]
@@ -1039,7 +1066,11 @@ export const HE_CUA_DS: HeCua[] = [
   "chongTrom": "",
   "ghiChu": "Kính áp dụng: 13–52 mm",
   "anh": {
-   "c": [],
+   "c": [
+    "/images/he-cua/mau-goc/romadio-rve100in-g1.webp",
+    "/images/he-cua/mau-goc/romadio-rve100in-g2.webp",
+    "/images/he-cua/mau-goc/romadio-rve100in-g3.webp"
+   ],
    "d": [
     "/images/he-cua/ban-ve/romadio-rve100in-1.webp"
    ]
@@ -1062,7 +1093,11 @@ export const HE_CUA_DS: HeCua[] = [
   "chongTrom": "",
   "ghiChu": "Kính áp dụng: 5–42 mm",
   "anh": {
-   "c": [],
+   "c": [
+    "/images/he-cua/mau-goc/romadio-rve65in-g1.webp",
+    "/images/he-cua/mau-goc/romadio-rve65in-g2.webp",
+    "/images/he-cua/mau-goc/romadio-rve65in-g3.webp"
+   ],
    "d": [
     "/images/he-cua/ban-ve/romadio-rve65in-1.webp"
    ]
@@ -1108,7 +1143,11 @@ export const HE_CUA_DS: HeCua[] = [
   "chongTrom": "",
   "ghiChu": "Kính áp dụng: 24 mm",
   "anh": {
-   "c": [],
+   "c": [
+    "/images/he-cua/mau-goc/romadio-rw100ss-g1.webp",
+    "/images/he-cua/mau-goc/romadio-rw100ss-g2.webp",
+    "/images/he-cua/mau-goc/romadio-rw100ss-g3.webp"
+   ],
    "d": []
   },
   "them": false
@@ -1129,7 +1168,11 @@ export const HE_CUA_DS: HeCua[] = [
   "chongTrom": "",
   "ghiChu": "Kính áp dụng: 5–32 mm",
   "anh": {
-   "c": [],
+   "c": [
+    "/images/he-cua/mau-goc/romadio-rw120ou-mesh-g1.webp",
+    "/images/he-cua/mau-goc/romadio-rw120ou-mesh-g2.webp",
+    "/images/he-cua/mau-goc/romadio-rw120ou-mesh-g3.webp"
+   ],
    "d": [
     "/images/he-cua/ban-ve/romadio-rw120ou-mesh-1.webp"
    ]
@@ -1152,7 +1195,11 @@ export const HE_CUA_DS: HeCua[] = [
   "chongTrom": "",
   "ghiChu": "Kính áp dụng: 5–42 mm",
   "anh": {
-   "c": [],
+   "c": [
+    "/images/he-cua/mau-goc/romadio-rw65in-mesh-g1.webp",
+    "/images/he-cua/mau-goc/romadio-rw65in-mesh-g2.webp",
+    "/images/he-cua/mau-goc/romadio-rw65in-mesh-g3.webp"
+   ],
    "d": [
     "/images/he-cua/ban-ve/romadio-rw65in-mesh-1.webp"
    ]
@@ -1175,7 +1222,11 @@ export const HE_CUA_DS: HeCua[] = [
   "chongTrom": "",
   "ghiChu": "Kính áp dụng: 5–32 mm",
   "anh": {
-   "c": [],
+   "c": [
+    "/images/he-cua/mau-goc/romadio-rw65ou-g1.webp",
+    "/images/he-cua/mau-goc/romadio-rw65ou-g2.webp",
+    "/images/he-cua/mau-goc/romadio-rw65ou-g3.webp"
+   ],
    "d": [
     "/images/he-cua/ban-ve/romadio-rw65ou-1.webp"
    ]
@@ -1198,7 +1249,11 @@ export const HE_CUA_DS: HeCua[] = [
   "chongTrom": "",
   "ghiChu": "Kính áp dụng: 5–24 mm",
   "anh": {
-   "c": [],
+   "c": [
+    "/images/he-cua/mau-goc/romadio-md120ls-ss-g1.webp",
+    "/images/he-cua/mau-goc/romadio-md120ls-ss-g2.webp",
+    "/images/he-cua/mau-goc/romadio-md120ls-ss-g3.webp"
+   ],
    "d": [
     "/images/he-cua/ban-ve/romadio-md120ls-ss-1.webp"
    ]
@@ -1221,7 +1276,11 @@ export const HE_CUA_DS: HeCua[] = [
   "chongTrom": "",
   "ghiChu": "Kính áp dụng: 5–24 mm",
   "anh": {
-   "c": [],
+   "c": [
+    "/images/he-cua/mau-goc/romadio-md190ls-ss-g1.webp",
+    "/images/he-cua/mau-goc/romadio-md190ls-ss-g2.webp",
+    "/images/he-cua/mau-goc/romadio-md190ls-ss-g3.webp"
+   ],
    "d": [
     "/images/he-cua/ban-ve/romadio-md190ls-ss-1.webp"
    ]
@@ -1244,7 +1303,11 @@ export const HE_CUA_DS: HeCua[] = [
   "chongTrom": "",
   "ghiChu": "Kính áp dụng: 5–24 mm",
   "anh": {
-   "c": [],
+   "c": [
+    "/images/he-cua/mau-goc/romadio-md55in-g1.webp",
+    "/images/he-cua/mau-goc/romadio-md55in-g2.webp",
+    "/images/he-cua/mau-goc/romadio-md55in-g3.webp"
+   ],
    "d": [
     "/images/he-cua/ban-ve/romadio-md55in-1.webp"
    ]
@@ -1267,7 +1330,11 @@ export const HE_CUA_DS: HeCua[] = [
   "chongTrom": "",
   "ghiChu": "Kính áp dụng: 5–24 mm",
   "anh": {
-   "c": [],
+   "c": [
+    "/images/he-cua/mau-goc/romadio-md55ou-g1.webp",
+    "/images/he-cua/mau-goc/romadio-md55ou-g2.webp",
+    "/images/he-cua/mau-goc/romadio-md55ou-g3.webp"
+   ],
    "d": [
     "/images/he-cua/ban-ve/romadio-md55ou-1.webp"
    ]
@@ -1290,7 +1357,11 @@ export const HE_CUA_DS: HeCua[] = [
   "chongTrom": "",
   "ghiChu": "Kính áp dụng: 5–32 mm",
   "anh": {
-   "c": [],
+   "c": [
+    "/images/he-cua/mau-goc/romadio-md65in-g1.webp",
+    "/images/he-cua/mau-goc/romadio-md65in-g2.webp",
+    "/images/he-cua/mau-goc/romadio-md65in-g3.webp"
+   ],
    "d": [
     "/images/he-cua/ban-ve/romadio-md65in-1.webp"
    ]
@@ -1313,7 +1384,11 @@ export const HE_CUA_DS: HeCua[] = [
   "chongTrom": "",
   "ghiChu": "Kính áp dụng: 5–32 mm",
   "anh": {
-   "c": [],
+   "c": [
+    "/images/he-cua/mau-goc/romadio-md65ou-g1.webp",
+    "/images/he-cua/mau-goc/romadio-md65ou-g2.webp",
+    "/images/he-cua/mau-goc/romadio-md65ou-g3.webp"
+   ],
    "d": [
     "/images/he-cua/ban-ve/romadio-md65ou-1.webp"
    ]
@@ -1361,7 +1436,11 @@ export const HE_CUA_DS: HeCua[] = [
   "chongTrom": "",
   "ghiChu": "Kính áp dụng: 5–24 mm",
   "anh": {
-   "c": [],
+   "c": [
+    "/images/he-cua/mau-goc/romadio-mw55ou-g1.webp",
+    "/images/he-cua/mau-goc/romadio-mw55ou-g2.webp",
+    "/images/he-cua/mau-goc/romadio-mw55ou-g3.webp"
+   ],
    "d": [
     "/images/he-cua/ban-ve/romadio-mw55ou-1.webp"
    ]
@@ -1384,7 +1463,11 @@ export const HE_CUA_DS: HeCua[] = [
   "chongTrom": "",
   "ghiChu": "Kính áp dụng: 5–42 mm",
   "anh": {
-   "c": [],
+   "c": [
+    "/images/he-cua/mau-goc/romadio-mw65in-mesh-g1.webp",
+    "/images/he-cua/mau-goc/romadio-mw65in-mesh-g2.webp",
+    "/images/he-cua/mau-goc/romadio-mw65in-mesh-g3.webp"
+   ],
    "d": [
     "/images/he-cua/ban-ve/romadio-mw65in-mesh-1.webp"
    ]
@@ -1407,7 +1490,11 @@ export const HE_CUA_DS: HeCua[] = [
   "chongTrom": "",
   "ghiChu": "Kính áp dụng: 5–32 mm",
   "anh": {
-   "c": [],
+   "c": [
+    "/images/he-cua/mau-goc/romadio-mw65ou-mesh-g1.webp",
+    "/images/he-cua/mau-goc/romadio-mw65ou-mesh-g2.webp",
+    "/images/he-cua/mau-goc/romadio-mw65ou-mesh-g3.webp"
+   ],
    "d": [
     "/images/he-cua/ban-ve/romadio-mw65ou-mesh-1.webp"
    ]
@@ -1430,7 +1517,11 @@ export const HE_CUA_DS: HeCua[] = [
   "chongTrom": "",
   "ghiChu": "Kính áp dụng: 5–24 mm",
   "anh": {
-   "c": [],
+   "c": [
+    "/images/he-cua/mau-goc/romadio-mw65ss-mesh-g1.webp",
+    "/images/he-cua/mau-goc/romadio-mw65ss-mesh-g2.webp",
+    "/images/he-cua/mau-goc/romadio-mw65ss-mesh-g3.webp"
+   ],
    "d": [
     "/images/he-cua/ban-ve/romadio-mw65ss-mesh-1.webp"
    ]
@@ -1453,7 +1544,11 @@ export const HE_CUA_DS: HeCua[] = [
   "chongTrom": "",
   "ghiChu": "Kính áp dụng: 10–32 mm",
   "anh": {
-   "c": [],
+   "c": [
+    "/images/he-cua/mau-goc/romadio-panorama-19s-2-ray-g1.webp",
+    "/images/he-cua/mau-goc/romadio-panorama-19s-2-ray-g2.webp",
+    "/images/he-cua/mau-goc/romadio-panorama-19s-2-ray-g3.webp"
+   ],
    "d": [
     "/images/he-cua/ban-ve/romadio-panorama-19s-2-ray-1.webp"
    ]
@@ -1476,7 +1571,11 @@ export const HE_CUA_DS: HeCua[] = [
   "chongTrom": "",
   "ghiChu": "Kính áp dụng: 15–32 mm",
   "anh": {
-   "c": [],
+   "c": [
+    "/images/he-cua/mau-goc/romadio-panorama-19s-3-ray-g1.webp",
+    "/images/he-cua/mau-goc/romadio-panorama-19s-3-ray-g2.webp",
+    "/images/he-cua/mau-goc/romadio-panorama-19s-3-ray-g3.webp"
+   ],
    "d": [
     "/images/he-cua/ban-ve/romadio-panorama-19s-3-ray-1.webp"
    ]
@@ -2731,7 +2830,11 @@ export const HE_CUA_DS: HeCua[] = [
   "ghiChu": "Hãng chưa công bố bảng thông số.",
   "ketCau": "n",
   "anh": {
-   "c": [],
+   "c": [
+    "/images/he-cua/mau-goc/romadio-oversky-23s-double-g1.webp",
+    "/images/he-cua/mau-goc/romadio-oversky-23s-double-g2.webp",
+    "/images/he-cua/mau-goc/romadio-oversky-23s-double-g3.webp"
+   ],
    "d": []
   },
   "them": true,
@@ -2752,7 +2855,11 @@ export const HE_CUA_DS: HeCua[] = [
   "ghiChu": "Hãng chưa công bố bảng thông số.",
   "ketCau": "n",
   "anh": {
-   "c": [],
+   "c": [
+    "/images/he-cua/mau-goc/romadio-oversky-23s-triple-g1.webp",
+    "/images/he-cua/mau-goc/romadio-oversky-23s-triple-g2.webp",
+    "/images/he-cua/mau-goc/romadio-oversky-23s-triple-g3.webp"
+   ],
    "d": []
   },
   "them": true,
