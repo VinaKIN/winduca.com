@@ -53,7 +53,7 @@ export function LuoiLoc({ tieuDe, tabs, the, ghiChu, tatCa = "Tất cả" }: { t
                   type="button"
                   aria-pressed={tab === t}
                   onClick={() => setTab(t)}
-                  className={`py-1 transition-colors ${tab === t ? "font-bold text-accent" : "text-than-chi/80 hover:text-accent"}`}
+                  className={`inline-flex min-h-11 items-center transition-colors ${tab === t ? "font-bold text-accent" : "text-than-chi/80 hover:text-accent"}`}
                 >
                   {t}
                 </button>

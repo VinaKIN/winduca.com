@@ -28,7 +28,7 @@ export function FormHaiNhom() {
               type="button"
               aria-selected={i === k}
               onClick={() => setI(k)}
-              className={`rounded-full px-4 py-1.5 text-sm font-semibold transition-colors ${i === k ? "bg-than-chi text-white" : "text-than-chi/65 hover:text-than-chi"}`}
+              className={`inline-flex min-h-11 items-center rounded-full px-4 text-sm font-semibold transition-colors ${i === k ? "bg-than-chi text-white" : "text-than-chi/65 hover:text-than-chi"}`}
             >
               {x.ten}
             </button>

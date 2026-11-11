@@ -137,10 +137,10 @@ export function CrossSection({
             </div>
             <div className="absolute bottom-4 right-4 flex items-center gap-1.5 text-nga">
               <span className="mr-2 hidden text-xs text-nga/70 sm:inline">Kéo để xoay</span>
-              <button type="button" aria-label="Thu nhỏ" onClick={() => setZoom((z) => Math.max(0.6, +(z - 0.25).toFixed(2)))} className="flex h-8 w-8 items-center justify-center rounded-[6px] bg-white/10 text-lg hover:bg-white/20">
+              <button type="button" aria-label="Thu nhỏ" onClick={() => setZoom((z) => Math.max(0.6, +(z - 0.25).toFixed(2)))} className="flex h-11 w-11 items-center justify-center rounded-[6px] bg-white/10 text-lg md:h-9 md:w-9 hover:bg-white/20">
                 −
               </button>
-              <button type="button" aria-label="Phóng to" onClick={() => setZoom((z) => Math.min(2.2, +(z + 0.25).toFixed(2)))} className="flex h-8 w-8 items-center justify-center rounded-[6px] bg-white/10 text-lg hover:bg-white/20">
+              <button type="button" aria-label="Phóng to" onClick={() => setZoom((z) => Math.min(2.2, +(z + 0.25).toFixed(2)))} className="flex h-11 w-11 items-center justify-center rounded-[6px] bg-white/10 text-lg md:h-9 md:w-9 hover:bg-white/20">
                 +
               </button>
               <button type="button" onClick={() => setZoom(1)} className="h-8 rounded-[6px] bg-white/10 px-3 text-xs hover:bg-white/20">

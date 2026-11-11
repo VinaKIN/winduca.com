@@ -74,7 +74,7 @@ export function HeroBangChuyen({ mau }: { mau: MauNoiBat[] }) {
       {/* chú thích kiểu bản vẽ */}
       <div className="absolute inset-x-0 bottom-0 z-40 flex items-end justify-between gap-4 border-t border-white/15 pt-3 text-white/70">
         <div aria-live="polite">
-          <p className="text-[11px] font-medium uppercase tracking-[0.2em] text-accent">FIG. {String(dang + 1).padStart(2, "0")}</p>
+          <p className="text-[12px] font-medium uppercase tracking-[0.2em] text-accent">FIG. {String(dang + 1).padStart(2, "0")}</p>
           <p className="mt-1 text-[13px] font-medium uppercase tracking-[0.16em] text-white">
             {mau[dang].hang} · {mau[dang].ma}
           </p>

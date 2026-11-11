@@ -126,7 +126,7 @@ export function HeroSlider() {
       ))}
 
       {/* chấm tròn */}
-      <div className="absolute inset-x-0 bottom-6 flex justify-center gap-2.5 md:bottom-8" role="tablist" aria-label="Chọn slide">
+      <div className="absolute inset-x-0 bottom-6 flex justify-center md:bottom-8" role="tablist" aria-label="Chọn slide">
         {SLIDES.map((s, k) => (
           <button
             key={s.dong[0]}
@@ -135,8 +135,10 @@ export function HeroSlider() {
             aria-selected={k === i}
             aria-label={`Slide ${k + 1}`}
             onClick={() => setI(k)}
-            className={`h-2.5 rounded-full transition-all duration-300 ${k === i ? "w-6 bg-white" : "w-2.5 bg-white/50 hover:bg-white/80"}`}
-          />
+            className="group flex h-11 items-center justify-center px-1.5"
+          >
+            <span className={`block h-2.5 rounded-full transition-all duration-300 ${k === i ? "w-6 bg-white" : "w-2.5 bg-white/50 group-hover:bg-white/80"}`} />
+          </button>
         ))}
       </div>
     </section>

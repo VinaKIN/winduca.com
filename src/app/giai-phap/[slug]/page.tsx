@@ -55,7 +55,7 @@ export default async function GiaiPhapChiTiet({ params }: PageProps<"/giai-phap/
           </nav>
           <h1 className="mt-8 max-w-[20ch] text-[clamp(2.8rem,8vw,7rem)] font-light leading-[0.95] tracking-[-0.02em] [text-wrap:balance]">{g.tenDai}</h1>
           <p className="mt-6 max-w-2xl text-[clamp(1.3rem,2.2vw,1.9rem)] leading-snug text-white/90">{g.dan}</p>
-          <p className="mt-6 text-[11px] uppercase tracking-[0.2em] text-white/70">FIG. {so} · {g.chuThich} · Ảnh minh họa, nguồn Pexels</p>
+          <p className="mt-6 text-[12px] uppercase tracking-[0.2em] text-white/70">FIG. {so} · {g.chuThich} · Ảnh minh họa, nguồn Pexels</p>
         </Wrap>
       </section>
 

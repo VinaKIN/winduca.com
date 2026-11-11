@@ -19,7 +19,7 @@ export function ThuVienKts() {
     (t) => (kieu === "Tất cả" || t.kieu === kieu || t.kieu === "Tất cả") && (loai === "Tất cả" || t.loai === loai),
   );
   const chip = (dangChon: boolean) =>
-    `border px-3 py-1.5 text-xs font-semibold transition-colors ${
+    `inline-flex min-h-11 items-center border px-3 text-xs font-semibold transition-colors ${
       dangChon ? "border-accent bg-accent text-than-chi" : "border-than-chi/30 text-nga hover:border-accent"
     }`;
   return (

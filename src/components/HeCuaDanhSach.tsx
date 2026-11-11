@@ -454,7 +454,7 @@ function ThongSoThe({ r }: { r: HeCua }) {
     <dl className="grid grid-cols-3 overflow-hidden rounded-[12px] border border-[#e3e7ec]">
       {ds.map(([t, v]) => (
         <div key={t} className="min-w-0 border-r border-[#e3e7ec] px-3 py-2.5 last:border-r-0">
-          <dt className="whitespace-nowrap text-[11px] font-bold uppercase tracking-[0.1em] text-[#697280]">{t}</dt>
+          <dt className="whitespace-nowrap text-[12px] font-bold uppercase tracking-[0.1em] text-[#697280]">{t}</dt>
           <dd className={`mt-1 overflow-hidden text-ellipsis whitespace-nowrap text-[15px] leading-tight md:text-base ${v ? "font-bold" : "font-light text-[#b7bec8]"}`}>{v || "—"}</dd>
         </div>
       ))}
@@ -594,7 +594,7 @@ export function HeCuaDanhSach() {
 
       {/* Lọc thả xuống, chọn nhiều */}
       <div className="hidden flex-wrap items-center gap-2.5 py-4 md:flex" data-loc>
-        <span className="mr-1 flex items-center gap-2 text-[11px] font-bold uppercase tracking-[0.2em] text-[#4b5563]">
+        <span className="mr-1 flex items-center gap-2 text-[12px] font-bold uppercase tracking-[0.2em] text-[#4b5563]">
           <i className="h-px w-4 bg-accent" aria-hidden="true" />
           Lọc theo
         </span>
@@ -611,7 +611,7 @@ export function HeCuaDanhSach() {
                 className={`flex min-h-11 items-center gap-2 rounded-[10px] border px-4 py-2 text-[13px] ${n ? "border-than-chi bg-than-chi/5 font-bold" : "border-[#d5dbe3] bg-white hover:border-than-chi"}`}
               >
                 {g.ten}
-                {n > 0 && <em className="rounded-full bg-accent px-1.5 text-[11px] not-italic text-white">{n}</em>}
+                {n > 0 && <em className="rounded-full bg-accent px-1.5 text-[12px] not-italic text-white">{n}</em>}
                 <svg viewBox="0 0 12 8" className={`h-2 w-3 transition-transform ${m ? "rotate-180" : ""}`} fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" aria-hidden="true">
                   <path d="m1 1.5 5 5 5-5" />
                 </svg>
@@ -644,6 +644,7 @@ export function HeCuaDanhSach() {
       <div className="h-3 md:hidden" aria-hidden="true" />
 
       {/* Lưới thẻ */}
+      <h2 className="sr-only">Danh sách hệ cửa</h2>
       <ul key={`${loc.b}-${loc.k}-${loc.f}-${loc.h}-${loc.q}-${trang}`} className="mt-6 grid gap-x-5 sm:grid-cols-2 lg:grid-cols-3 lg:gap-x-7">
         {hien.map((r, i) => {
           const chon = cmp.includes(r.id);
@@ -775,7 +776,7 @@ export function HeCuaDanhSach() {
             <p className="text-[18px] font-bold">Bộ lọc</p>
             {NHOM_LOC.map((g) => (
               <fieldset key={g.k} className="mt-5">
-                <legend className="mb-2.5 text-[11px] font-bold uppercase tracking-[0.2em] text-[#4b5563]">{g.ten}</legend>
+                <legend className="mb-2.5 text-[12px] font-bold uppercase tracking-[0.2em] text-[#4b5563]">{g.ten}</legend>
                 <div className="flex flex-wrap gap-2">
                   {g.o.map(([v, t]) => {
                     const on = loc[g.k].includes(v);

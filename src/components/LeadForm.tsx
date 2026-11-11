@@ -309,8 +309,8 @@ export function LeadForm({ loai, tone = "sang", kieuCuaMacDinh = "", khiXong, go
         <input type="hidden" name="dongY" value="1" />
       ) : (
         <div className={span}>
-          <label className={`flex items-start gap-3 text-sm ${toi ? "text-nga/90" : "text-than-chi/85"}`}>
-            <input type="checkbox" name="dongY" aria-invalid={loiTruong.dongY ? true : undefined} aria-describedby={loiTruong.dongY ? `loi-dongy-${loai}` : undefined} className="mt-1 h-4 w-4 accent-[#e31937]" />
+          <label className={`flex min-h-11 items-start gap-3 py-1 text-sm ${toi ? "text-nga/90" : "text-than-chi/85"}`}>
+            <input type="checkbox" name="dongY" aria-invalid={loiTruong.dongY ? true : undefined} aria-describedby={loiTruong.dongY ? `loi-dongy-${loai}` : undefined} className="mt-0.5 h-5 w-5 shrink-0 accent-[#e31937]" />
             <span>{CAU_DONG_Y[loai]}</span>
           </label>
           {loiTruong.dongY && <p id={`loi-dongy-${loai}`} className={loiCss}>{loiTruong.dongY}</p>}

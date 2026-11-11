@@ -98,7 +98,7 @@ export default async function KieuCuaPage({ params }: PageProps<"/he-cua/[slug]"
               <ul className="mt-8 grid gap-px overflow-hidden rounded-[12px] border border-than-chi/10 bg-than-chi/10 md:grid-cols-2 lg:grid-cols-3">
                 {sanPham.map((p, i) => (
                   <Hien key={p.slug} as="li" tre={i * 80} className="group bg-white p-7 transition-colors duration-500 hover:bg-[#faf8f4] md:p-9">
-                    <p className="text-[11px] font-semibold tracking-[0.26em] text-accent">{String(i + 1).padStart(2, "0")}</p>
+                    <p className="text-[12px] font-semibold tracking-[0.26em] text-accent">{String(i + 1).padStart(2, "0")}</p>
                     <h4 className="mt-4 text-2xl font-light leading-snug">{p.ten}</h4>
                     <p className="mt-2 text-[15px] leading-relaxed text-than-chi/65">{p.mota}</p>
                     <ThongSoBon sp={p} lop="mt-6 border-t border-than-chi/10 pt-6" />
@@ -125,7 +125,7 @@ export default async function KieuCuaPage({ params }: PageProps<"/he-cua/[slug]"
                 {THONG_SO_BANG.map((ten, i) => (
                   <div key={ten} className="grid grid-cols-[2.5rem_1fr_auto] items-baseline gap-4 border-b border-white/10 py-4">
                     <dt className="col-span-2 grid grid-cols-subgrid">
-                      <span className="text-[11px] font-semibold tracking-[0.2em] text-accent">{String(i + 1).padStart(2, "0")}</span>
+                      <span className="text-[12px] font-semibold tracking-[0.2em] text-accent">{String(i + 1).padStart(2, "0")}</span>
                       <span className="text-[15px] text-white/90">{ten}</span>
                     </dt>
                     <dd className="text-sm text-white/70">

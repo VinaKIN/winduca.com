@@ -133,7 +133,7 @@ export function DangKyDoiTac() {
               role="radio"
               aria-checked={id === x.id}
               onClick={() => chon(x.id)}
-              className={`rounded-full border px-4 py-1.5 text-xs font-bold transition-colors ${id === x.id ? "border-accent bg-accent text-white" : "border-white/30 text-white/80 hover:border-accent"}`}
+              className={`inline-flex min-h-11 items-center rounded-full border px-4 text-xs font-bold transition-colors ${id === x.id ? "border-accent bg-accent text-white" : "border-white/30 text-white/80 hover:border-accent"}`}
             >
               {x.ten.split(" và ")[0]}
             </button>

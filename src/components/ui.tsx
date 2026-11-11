@@ -105,7 +105,7 @@ export function PageHero({
         </>
       )}
       <div className="hero-duong-sang pointer-events-none absolute inset-x-0 bottom-0 h-px" aria-hidden="true" />
-      <p className="pointer-events-none absolute bottom-4 right-10 hidden items-center gap-3 text-[11px] font-medium uppercase tracking-[0.3em] text-white/45 md:flex" aria-hidden="true">
+      <p className="pointer-events-none absolute bottom-4 right-10 hidden items-center gap-3 text-[12px] font-medium uppercase tracking-[0.3em] text-white/45 md:flex" aria-hidden="true">
         <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-accent" />
         Premium Window &amp; Door
       </p>

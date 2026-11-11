@@ -46,7 +46,7 @@ export function KhungAnh({
         <div className="anh-thuoc" aria-hidden="true" />
         <div className="anh-quet" aria-hidden="true" />
         {so && (
-          <span className="absolute left-3 top-4 z-[3] text-[10px] tracking-[0.22em] text-white/75" aria-hidden="true">
+          <span className="absolute left-3 top-4 z-[3] text-[12px] tracking-[0.22em] text-white/75" aria-hidden="true">
             {so}
           </span>
         )}
@@ -55,12 +55,12 @@ export function KhungAnh({
             <span className="diem-do" aria-hidden="true" />
             <span className="hidden items-center gap-2 sm:flex" aria-hidden="true">
               <span className="h-px w-8 bg-accent" />
-              <span className="rounded-[3px] bg-than-chi/75 px-2 py-1 text-[10px] uppercase tracking-[0.16em] text-white backdrop-blur-sm">{diem.nhan}</span>
+              <span className="rounded-[3px] bg-than-chi/75 px-2 py-1 text-[12px] uppercase tracking-[0.16em] text-white backdrop-blur-sm">{diem.nhan}</span>
             </span>
           </span>
         )}
         {chuThich && (
-          <figcaption className="absolute bottom-3 left-3 z-[3] flex items-center gap-2 rounded-full bg-than-chi/70 px-3 py-1.5 text-[11px] font-medium uppercase tracking-[0.14em] text-white backdrop-blur-sm">
+          <figcaption className="absolute bottom-3 left-3 z-[3] flex items-center gap-2 rounded-full bg-than-chi/70 px-3 py-1.5 text-[12px] font-medium uppercase tracking-[0.14em] text-white backdrop-blur-sm">
             <span className="h-1.5 w-1.5 rounded-full bg-accent" aria-hidden="true" />
             {chuThich}
           </figcaption>

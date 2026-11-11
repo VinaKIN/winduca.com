@@ -62,7 +62,7 @@ function NutTron({ href, nhan, children }: { href: string; nhan: string; childre
 
 function Logo({ lop, tren }: { lop: string; tren: boolean }) {
   return (
-    <Link href="/" aria-label="WINDUCA — trang chủ" className="block shrink-0 py-2">
+    <Link href="/" aria-label="WINDUCA — trang chủ" className="flex min-h-11 shrink-0 items-center py-1">
       <Image
         src={asset(tren ? "/brand/WINDUCA-ngang-am-ban-trong.svg" : "/brand/WINDUCA-ngang-mau-trong.svg")}
         alt="WINDUCA"
@@ -242,7 +242,7 @@ export function Header() {
                                     )}
                                     <span>
                                       {c.label}
-                                      {c.so !== undefined && <sup className="ml-1 text-[10px] font-bold tabular-nums text-accent">{c.so}</sup>}
+                                      {c.so !== undefined && <sup className="ml-1 text-[12px] font-bold tabular-nums text-accent">{c.so}</sup>}
                                     </span>
                                   </Link>
                                 </li>

@@ -341,7 +341,7 @@ export function TinTucKhoi() {
                     style={{ objectPosition: b.pos }}
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#0c0a0b]/90 via-[#0c0a0b]/25 to-[#0c0a0b]/10" aria-hidden="true" />
-                  <span className="relative z-10 inline-flex w-fit items-center gap-2 rounded-full border border-white/25 bg-white/10 px-3.5 py-1.5 text-[11px] font-medium uppercase tracking-[0.16em] backdrop-blur-md">
+                  <span className="relative z-10 inline-flex w-fit items-center gap-2 rounded-full border border-white/25 bg-white/10 px-3.5 py-1.5 text-[12px] font-medium uppercase tracking-[0.16em] backdrop-blur-md">
                     <span className="h-1.5 w-1.5 rounded-full bg-accent" aria-hidden="true" />
                     {b.loai}
                   </span>
