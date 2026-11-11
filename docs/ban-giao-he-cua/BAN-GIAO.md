@@ -48,6 +48,8 @@ File chính:
 - **Ảnh 3D** (`c`) và ảnh thực tế (`p`) của Winboss/Romadio/Civro đều có logo → **chưa dùng**. Riêng 2 ảnh 3D lấy từ thư mục `ROMADIO` của người dùng và đã xem tận mắt là sạch: `INFINITY 19H_nobg.png` (dùng cho hệ PANORAMA 19H, `idx 30`) và `RCT65 3_nobg.png` (dùng cho RCT65, `idx 31`). Cấu hình ở biến `RENDER_SACH` trong `gen3.cjs`.
 - Hầu hết ảnh 3D trong thư mục `ROMADIO` (601 ảnh png/jpg, nhiều góc và bản "Tách nền" `_nobg`) **có logo ROMADIO ở mọi góc**. Bộ dò logo tự động `logo-det.cjs` chỉ bắt được khoảng 40% (bỏ sót nhiều logo nhỏ/xoay), **không đủ tin cậy**; chỉ dùng làm bước lọc thô, vẫn phải xem mắt.
 - Hệ không có ảnh hợp lệ hiển thị hình minh họa SVG theo loại cửa (`HinhMinhHoa`).
+- **Rà ảnh 11/11/2026 (đã xem tận mắt bằng bảng ảnh ghép và phóng to):** trong ~600 ảnh ROMADIO, phần lớn render 3D có chữ **"ROMADIO" in nhỏ ngay trên thanh nhôm** (không phải ở góc ảnh như ghi trước đó; bốn góc thường sạch), nên đã loại: OVERSKY 23S, RD120/150/190/225/230LS, RD65, RW*, MD65/190, MW*, FineLine bản có nhãn, bản "tách nền" của chúng. Bộ dò màu xanh navy chỉ để lọc thô, **luôn phải xem mắt**. Ảnh sạch dùng được và đã gán (script `cong-cu/them-anh-3d.cjs`): RD80FD, MD80FD (render tách nền), FineLine 59WO (6), FineLine 62DO (3), LD16IN, LD16OU, LD16SB-F, LD16ST, LD16ST-F (ảnh phối cảnh thư mục L SERIES; tab/ô hiển thị gọi chung "Mẫu góc"). Cộng với PANORAMA 19H và RCT65 có sẵn, tổng **11 hệ Romadio có ảnh**.
+- Ảnh Entrance door (78 ảnh) chưa xét vì không phải hệ cửa trong danh sách.
 - Cắt/làm mờ logo trên ảnh là phương án người dùng đã được hỏi nhưng **không chọn** (họ chọn "chỉ ảnh không logo"). Đừng tự làm.
 
 ## 6. Thư mục ảnh của người dùng (nguồn bổ sung)
@@ -75,11 +77,12 @@ node docs/ban-giao-he-cua/cong-cu/parse-all.cjs "$S"        # parse trang Winbos
 node docs/ban-giao-he-cua/cong-cu/dl-wb.mjs "$S/wb-he-cua/other.json" "$S/wb-img-other"   # tải ảnh (chỉ khi cần)
 node docs/ban-giao-he-cua/cong-cu/sheet-local.cjs "$S" "INFINITY 19H"   # cũng tạo local-list.json
 node docs/ban-giao-he-cua/cong-cu/gen3.cjs "$S"             # ghi src/lib/he-cua-du-lieu.ts + public/images/he-cua/**
+node docs/ban-giao-he-cua/cong-cu/them-anh-3d.cjs "<thư mục ROMADIO>"   # CHẠY SAU gen3: gen3 xóa public/images/he-cua nên mất 9 ảnh 3D thêm sau; script này làm lại
 ```
 `gen3.cjs` xóa và tạo lại `public/images/he-cua/`. 9 hệ bổ sung được khai báo ngay trong `gen3.cjs` (hàm `them(...)`). Lưu ý đường dẫn trong `sheet-local.cjs`/`gen3.cjs` đang trỏ thẳng vào thư mục `ROMADIO` trên máy người dùng.
 
 ## 8. Việc còn lại / đề xuất (theo thứ tự ưu tiên)
-1. **Xin hãng ảnh 3D bản không logo** (hoặc bộ "Chưa có Logo" cho R/M series) để thay bản vẽ làm ảnh thẻ như Winboss. Đây là chỗ khác biệt lớn nhất còn lại.
+1. **Xin hãng ảnh 3D bản không logo** (hoặc bộ "Chưa có Logo" cho R/M series). Đã tận dụng hết ảnh sạch hiện có (11 hệ Romadio, xem mục 5); còn ~36 hệ Romadio, toàn bộ Civro (chỉ có PDF) và Ponzio chưa có ảnh 3D. Đây vẫn là chỗ khác biệt lớn nhất so với Winboss.
 2. **Xác nhận quyền dùng** số liệu, bản vẽ và tên hãng trên WINDUCA trước khi công bố chính thức (người dùng đã được nhắc nhiều lần, chưa trả lời dứt khoát).
 3. ~~Kiểm tra số ACW120 và AWG140~~ **Đã kiểm 11/11/2026 bằng cách xem trang PDF thật** (không dùng chữ trích): ACW120 U 2.2, cách âm 35 dB, kín khí 0.21, kín nước 700 Pa, chịu gió **≤ 4.0 kPa** (đã sửa từ "4.0 kPa"); AWG140 U 2.2 và cách âm 35 dB, NWG110 ghi "/" (không công bố), PDF không có kín khí, kín nước, chịu gió cho cụm này. 7 hệ bổ sung còn lại chưa có bảng thông số ("Hãng chưa công bố thông số").
 4. **Cmech**: thư mục trống; khi có tài liệu thì thêm hệ như `them(...)`.

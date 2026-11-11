@@ -1,7 +1,7 @@
 /**
  * Dữ liệu 115 hệ cửa nhôm kính (11/11/2026), tạo tự động.
  * - 106 hệ lấy từ bảng công bố trên trang hệ cửa của Winboss; 9 hệ còn thiếu bổ sung từ tài liệu hãng trong thư mục ảnh (them = true).
- * - Ảnh: bản vẽ 2D đã kiểm tra (bỏ bản vẽ có logo, cắt dải mã sản phẩm ở đáy hình Civro) và 2 ảnh 3D đã kiểm tra không có logo.
+ * - Ảnh: bản vẽ 2D đã kiểm tra (bỏ bản vẽ có logo, cắt dải mã sản phẩm ở đáy hình Civro) và các ảnh 3D/ảnh thực tế đã kiểm tra không có logo.
  *   Ảnh 3D và ảnh thực tế còn lại có logo hãng nên chưa dùng.
  * - Số liệu chỉ để tham khảo, thay đổi theo kích thước và cấu hình; cần xác nhận quyền sử dụng trước khi công bố chính thức.
  */
@@ -991,7 +991,9 @@ export const HE_CUA_DS: HeCua[] = [
   "chongTrom": "",
   "ghiChu": "Kính áp dụng: 5–36 mm",
   "anh": {
-   "c": [],
+   "c": [
+    "/images/he-cua/mau-goc/romadio-rd80fd-g1.webp"
+   ],
    "d": [
     "/images/he-cua/ban-ve/romadio-rd80fd-1.webp"
    ]
@@ -1334,7 +1336,9 @@ export const HE_CUA_DS: HeCua[] = [
   "chongTrom": "",
   "ghiChu": "Kính áp dụng: 5–36 mm",
   "anh": {
-   "c": [],
+   "c": [
+    "/images/he-cua/mau-goc/romadio-md80fd-g1.webp"
+   ],
    "d": [
     "/images/he-cua/ban-ve/romadio-md80fd-1.webp"
    ]
@@ -2444,7 +2448,9 @@ export const HE_CUA_DS: HeCua[] = [
   "chongTrom": "",
   "ghiChu": "",
   "anh": {
-   "c": [],
+   "c": [
+    "/images/he-cua/mau-goc/romadio-ld16in-g1.webp"
+   ],
    "d": [
     "/images/he-cua/ban-ve/romadio-ld16in-1.webp",
     "/images/he-cua/ban-ve/romadio-ld16in-2.webp"
@@ -2468,7 +2474,9 @@ export const HE_CUA_DS: HeCua[] = [
   "chongTrom": "",
   "ghiChu": "",
   "anh": {
-   "c": [],
+   "c": [
+    "/images/he-cua/mau-goc/romadio-ld16ou-g1.webp"
+   ],
    "d": [
     "/images/he-cua/ban-ve/romadio-ld16ou-1.webp",
     "/images/he-cua/ban-ve/romadio-ld16ou-2.webp"
@@ -2492,7 +2500,9 @@ export const HE_CUA_DS: HeCua[] = [
   "chongTrom": "",
   "ghiChu": "",
   "anh": {
-   "c": [],
+   "c": [
+    "/images/he-cua/mau-goc/romadio-ld16sb-f-g1.webp"
+   ],
    "d": [
     "/images/he-cua/ban-ve/romadio-ld16sb-f-1.webp",
     "/images/he-cua/ban-ve/romadio-ld16sb-f-2.webp",
@@ -2518,7 +2528,9 @@ export const HE_CUA_DS: HeCua[] = [
   "chongTrom": "",
   "ghiChu": "",
   "anh": {
-   "c": [],
+   "c": [
+    "/images/he-cua/mau-goc/romadio-ld16st-g1.webp"
+   ],
    "d": [
     "/images/he-cua/ban-ve/romadio-ld16st-1.webp",
     "/images/he-cua/ban-ve/romadio-ld16st-2.webp"
@@ -2542,7 +2554,9 @@ export const HE_CUA_DS: HeCua[] = [
   "chongTrom": "",
   "ghiChu": "",
   "anh": {
-   "c": [],
+   "c": [
+    "/images/he-cua/mau-goc/romadio-ld16st-f-g1.webp"
+   ],
    "d": [
     "/images/he-cua/ban-ve/romadio-ld16st-f-1.webp",
     "/images/he-cua/ban-ve/romadio-ld16st-f-2.webp",
@@ -2671,7 +2685,9 @@ export const HE_CUA_DS: HeCua[] = [
   "ghiChu": "Có bản không nan trang trí. Hãng chưa công bố bảng thông số.",
   "ketCau": "tn",
   "anh": {
-   "c": [],
+   "c": [
+    "/images/he-cua/mau-goc/romadio-fineline-59wo-g1.webp"
+   ],
    "d": []
   },
   "them": true,
@@ -2692,7 +2708,9 @@ export const HE_CUA_DS: HeCua[] = [
   "ghiChu": "Hãng chưa công bố bảng thông số.",
   "ketCau": "tn",
   "anh": {
-   "c": [],
+   "c": [
+    "/images/he-cua/mau-goc/romadio-fineline-62do-g1.webp"
+   ],
    "d": []
   },
   "them": true,
