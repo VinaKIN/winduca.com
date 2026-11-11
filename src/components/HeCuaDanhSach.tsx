@@ -647,11 +647,11 @@ export function HeCuaDanhSach() {
       <div className="h-3 md:hidden" aria-hidden="true" />
 
       {/* Lưới thẻ */}
-      <ul key={`${loc.b}-${loc.k}-${loc.f}-${loc.h}-${loc.q}-${trang}`} className="mt-6 grid gap-5 sm:grid-cols-2 lg:grid-cols-3 lg:gap-7">
+      <ul key={`${loc.b}-${loc.k}-${loc.f}-${loc.h}-${loc.q}-${trang}`} className="mt-6 grid gap-x-5 sm:grid-cols-2 lg:grid-cols-3 lg:gap-x-7">
         {hien.map((r, i) => {
           const chon = cmp.includes(r.id);
           return (
-            <li key={r.id} style={{ animationDelay: `${i * 35}ms` }} className="the-hien group relative flex flex-col overflow-hidden rounded-[22px] border border-[#e3e7ec] bg-white shadow-[0_4px_18px_rgba(15,17,21,0.04)] transition-[border-color,box-shadow,transform] duration-300 focus-within:border-than-chi hover:-translate-y-1 hover:border-than-chi hover:shadow-[0_24px_50px_rgba(15,17,21,0.14)]">
+            <li key={r.id} style={{ animationDelay: `${i * 35}ms` }} className="the-hien group relative mb-5 grid grid-rows-subgrid row-span-3 gap-y-0 overflow-hidden rounded-[22px] lg:mb-7 border border-[#e3e7ec] bg-white shadow-[0_4px_18px_rgba(15,17,21,0.04)] transition-[border-color,box-shadow,transform] duration-300 focus-within:border-than-chi hover:-translate-y-1 hover:border-than-chi hover:shadow-[0_24px_50px_rgba(15,17,21,0.14)]">
               <div className={`${SAN_KHAU} relative flex aspect-[1/0.9] items-center justify-center border-b border-[#e3e7ec]`}>
                 <span className="absolute left-[18px] top-4 z-[1] flex items-center gap-[7px] text-[12px] font-bold uppercase tracking-[0.2em] text-[#4b5563]">
                   <i className="h-1.5 w-1.5 bg-accent" aria-hidden="true" />
@@ -665,16 +665,16 @@ export function HeCuaDanhSach() {
                   </span>
                 </label>
               </div>
-              <div className="flex flex-1 flex-col gap-3.5 p-4 md:px-5 md:pb-5 md:pt-[18px]">
-                <div className="flex flex-col gap-0.5 sm:flex-row sm:items-baseline sm:justify-between sm:gap-3">
-                  <h3 className="text-[clamp(1.0625rem,1.5vw,1.25rem)] font-bold leading-tight tracking-[-0.01em]">
-                    <button type="button" onClick={() => setChiTiet(r)} aria-haspopup="dialog" className="text-left after:absolute after:inset-0 after:z-[1] after:content-[''] focus-visible:outline-none">
-                      <span className="sr-only">{TEN_HANG[r.hang]} </span>
-                      {r.ma}
-                    </button>
-                  </h3>
-                  <p className="text-[12px] text-[#697280] sm:text-right">{r.loai}</p>
-                </div>
+              <div className="px-4 pt-4 md:px-5 md:pt-[18px]">
+                <p className="text-[12px] font-medium uppercase tracking-[0.12em] text-[#697280]">{r.loai}</p>
+                <h3 className="mt-1.5 text-[clamp(1.0625rem,1.5vw,1.25rem)] font-bold leading-tight tracking-[-0.01em]">
+                  <button type="button" onClick={() => setChiTiet(r)} aria-haspopup="dialog" className="text-left after:absolute after:inset-0 after:z-[1] after:content-[''] focus-visible:outline-none">
+                    <span className="sr-only">{TEN_HANG[r.hang]} </span>
+                    {r.ma}
+                  </button>
+                </h3>
+              </div>
+              <div className="flex flex-col gap-3.5 px-4 pb-4 pt-3.5 md:px-5 md:pb-5">
                 <ThongSoThe r={r} />
                 <ul className="flex min-h-[26px] flex-wrap gap-1.5" aria-label="Chức năng">
                   {r.tags.map((t) => (
