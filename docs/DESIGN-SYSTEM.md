@@ -224,14 +224,14 @@ Các linh kiện dưới đây dùng ma trận 7 trạng thái ở mục 3.0; m�
 - **Chuyển động:** tự xoay **must** dừng khi giảm chuyển động hoặc khi người dùng đã tương tác.
 - **Trạng thái 3D lỗi:** khi trình duyệt không có WebGL hoặc màn hình nhỏ, **must** hiện hình SVG thay thế có `role="img"` và nhãn.
 
-#### 3.11.4 So sánh hệ cửa (`SoSanhHeCua`)
+#### 3.11.4 So sánh hệ cửa (`SoSanhHeCua`, đã gỡ 11/11/2026, giữ lại làm mẫu quy tắc)
 - **Giải phẫu:** nhóm nút chọn 2–3 kiểu cửa, vùng thông báo, bảng so sánh.
 - **Nút chọn:** `aria-pressed`; khi chỉ còn 2 kiểu cửa được chọn thì nút đang bật có `aria-disabled="true"` (vẫn focus được).
 - **Thông báo:** mỗi thay đổi **must** được nói ra trong vùng `role="status"` ("Đã thêm …", "Cần giữ tối thiểu 2 kiểu cửa", "Tối đa 3 kiểu cửa: đã thay … bằng …").
 - **Bảng:** **must** có `caption` (có thể ẩn bằng `sr-only`), `scope="col"` cho đầu cột, `scope="row"` cho đầu hàng; vùng cuộn ngang **must** là `role="region"` có tên và `tabIndex=0` để cuộn bằng bàn phím.
 - **Ô chưa có số liệu:** ghi "Đang chờ xác nhận", không để trống.
 
-#### 3.11.5 Cấu hình cửa (`CauHinhCua`)
+#### 3.11.5 Cấu hình cửa (`CauHinhCua`, đã gỡ 11/11/2026, giữ lại làm mẫu quy tắc)
 - **Giải phẫu:** 4 nhóm chọn một (Loại công trình, Kiểu cửa, Màu khung, Khẩu độ gần đúng), dòng tóm tắt, nút gửi, biểu mẫu mở ra.
 - **Nhóm chọn:** `radiogroup` theo mẫu 3.11.2; chip cao ≥ 38px.
 - **Dòng tóm tắt:** **must** nằm trong vùng `role="status"` để người dùng nghe được cấu hình sau mỗi lựa chọn.
@@ -249,7 +249,8 @@ Các linh kiện dưới đây dùng ma trận 7 trạng thái ở mục 3.0; m�
 #### 3.11.8 Trang Hệ cửa kiểu Winboss (`HeCuaDanhSach`, dựng lại 11/11/2026)
 - **Bố cục:** trang chỉ còn một khung bo góc 28px (nhãn nhỏ, tiêu đề light kèm chữ đậm, mô tả hai dòng), rồi tab hãng, ô tìm kiếm, hàng "Lọc theo", lưới thẻ, phân trang. Nền xám nhạt có quầng đỏ mờ góc phải. Các khối cũ (4 kiểu cửa, so sánh kiểu cửa, cấu hình cửa) đã gỡ khỏi trang này; 4 trang kiểu cửa riêng vẫn còn.
 - **Tab hãng (Tất cả · Romadio · Civro · Ponzio):** nhóm chọn một (`role="radiogroup"`, roving tabindex, `phimNhomChon`), kèm số đếm theo các bộ lọc khác. Trên trang này (theo yêu cầu 11/11/2026) hiện tên hãng và mã hệ như trang gốc; các trang khác của WINDUCA vẫn không nêu tên hãng.
-- **Lọc thả xuống chọn nhiều:** Hệ thống · Kết cấu · Chức năng; nút `aria-expanded` + `aria-controls`, danh sách là `role="group"` các chip `aria-pressed`, đóng bằng Esc hoặc bấm ra ngoài. Hệ "có cả hai" phiên bản khớp cả hai giá trị Kết cấu; Hệ thống khớp theo ký tự (cửa sổ trượt thuộc cả Cửa sổ và Trượt).
+- **Nút Bộ lọc dạng dock (điện thoại, dưới `md`):** hàng lọc thả xuống ẩn; nút cố định cách đáy 16px ở giữa, có số bộ lọc đang bật; bấm mở tấm trượt từ dưới (`role="dialog"`, `aria-modal`, giữ focus, Esc đóng) gồm ba nhóm chip `aria-pressed` và nút "Xem N hệ" cố định ở đáy. Các phần tử `fixed` của trang này (dock, tấm lọc, thanh so sánh, hộp thoại) dựng qua `createPortal` vào `<body>` vì khung bao ngoài có `backdrop-filter` làm `fixed` tính sai.
+- **Lọc thả xuống chọn nhiều (từ `md` trở lên):** Hệ thống · Kết cấu · Chức năng; nút `aria-expanded` + `aria-controls`, danh sách là `role="group"` các chip `aria-pressed`, đóng bằng Esc hoặc bấm ra ngoài. Hệ "có cả hai" phiên bản khớp cả hai giá trị Kết cấu; Hệ thống khớp theo ký tự (cửa sổ trượt thuộc cả Cửa sổ và Trượt).
 - **Thẻ:** nền giấy kẻ ô có dấu góc, nhãn hãng, ô chọn so sánh (vùng bấm 44px), ảnh, mã hệ + loại, 3 chỉ số (U-value, Cách âm, Kín nước), nhãn chức năng. Cả thẻ bấm được qua nút ở tiêu đề (kỹ thuật "liên kết kéo giãn"), ô chọn so sánh nằm trên lớp đó. Hiệu ứng: rê chuột nâng thẻ 3px, viền đậm, ảnh phóng nhẹ; thẻ hiện dần khi đổi trang hoặc bộ lọc (tắt khi người dùng giảm chuyển động).
 - **Phân trang** 12 / 8 / 4 thẻ theo cỡ màn hình, nút số có `aria-current="page"`. **So sánh** tối đa 3 hệ (thanh nổi + bảng, thông báo `aria-live` khi quá 3). **Địa chỉ trang** ghi lại b, k, f, h, q, p để chia sẻ link; nạp bằng `useSyncExternalStore`, không `setState` trong effect.
 - **Hộp chi tiết** (`role="dialog"` `aria-modal`, giữ focus, Esc đóng, trả focus): trái là thư viện ảnh (tab Mẫu góc · Bản vẽ 2D, ảnh nhỏ, bấm để phóng to), phải là nhãn hệ thống, mã, loại, kết cấu, chức năng, 3 chỉ số lớn, bảng thông số, ghi chú, nguồn số liệu và nút Nhận tư vấn · Gọi hotline.

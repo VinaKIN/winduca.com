@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useCallback, useEffect, useId, useMemo, useRef, useState, useSyncExternalStore, type ReactNode } from "react";
+import { createPortal } from "react-dom";
 import { asset } from "@/lib/asset";
 import { HE_CUA_DS, TEN_HANG, TEN_HE, TEN_KET_CAU, TEN_TAG, type HeCua, type Hang } from "@/lib/he-cua-du-lieu";
 import { phimNhomChon } from "@/lib/phim";
@@ -119,8 +120,15 @@ function AnhThe({ r, lopMau = "" }: { r: HeCua; lopMau?: string }) {
   return <HinhMinhHoa he={r.he} lop="h-[78%] w-[56%]" />;
 }
 
+/* ---------- Cổng: đưa phần tử cố định ra <body> (thẻ bao ngoài có backdrop-filter nên "fixed" sẽ tính sai) ---------- */
+const khongDangKy = () => () => {};
+function Cong({ children }: { children: ReactNode }) {
+  const sanSang = useSyncExternalStore(khongDangKy, () => true, () => false);
+  return sanSang ? createPortal(children, document.body) : null;
+}
+
 /* ---------- Hộp thoại dùng chung: giữ focus, Esc đóng, trả focus ---------- */
-function HopThoai({ dong, tieuDe, rong = true, children }: { dong: () => void; tieuDe: string; rong?: boolean; children: ReactNode }) {
+function HopThoai({ dong, tieuDe, rong = true, duoi = false, children }: { dong: () => void; tieuDe: string; rong?: boolean; duoi?: boolean; children: ReactNode }) {
   const hop = useRef<HTMLDivElement>(null);
   const nutDong = useRef<HTMLButtonElement>(null);
   useEffect(() => {
@@ -154,14 +162,14 @@ function HopThoai({ dong, tieuDe, rong = true, children }: { dong: () => void; t
     };
   }, [dong]);
   return (
-    <div className="fixed inset-0 z-[70] flex items-center justify-center bg-[#0a0c0f]/70 p-4 backdrop-blur-[2px]" onClick={dong}>
+    <div className={`fixed inset-0 z-[70] flex justify-center bg-[#0a0c0f]/70 backdrop-blur-[2px] ${duoi ? "items-end p-0" : "items-center p-4"}`} onClick={dong}>
       <div
         ref={hop}
         role="dialog"
         aria-modal="true"
         aria-label={tieuDe}
         onClick={(e) => e.stopPropagation()}
-        className={`relative max-h-[90svh] w-full overflow-auto rounded-[22px] bg-white ${rong ? "max-w-[1000px] md:grid md:grid-cols-[5fr_6fr]" : "max-w-[860px]"}`}
+        className={`relative w-full overflow-auto bg-white ${duoi ? "max-h-[85svh] rounded-b-none rounded-t-[22px]" : "max-h-[90svh] rounded-[22px]"} ${rong ? "max-w-[1000px] md:grid md:grid-cols-[5fr_6fr]" : "max-w-[860px]"}`}
       >
         <button ref={nutDong} type="button" onClick={dong} aria-label="Đóng" className="absolute right-3 top-3 z-10 flex h-11 w-11 items-center justify-center rounded-full bg-white/90 text-3xl leading-none text-[#697280] hover:text-than-chi">
           <span aria-hidden="true">×</span>
@@ -440,6 +448,7 @@ export function HeCuaDanhSach() {
   const [mo, setMo] = useState<string>("");
   const [chiTiet, setChiTiet] = useState<HeCua | null>(null);
   const [soSanh, setSoSanh] = useState(false);
+  const [tamLoc, setTamLoc] = useState(false);
   const [thongBao, setThongBao] = useState("");
   const dau = useRef<HTMLDivElement>(null);
   const idLoc = useId();
@@ -558,7 +567,7 @@ export function HeCuaDanhSach() {
       </div>
 
       {/* Lọc thả xuống, chọn nhiều */}
-      <div className="flex flex-wrap items-center gap-2.5 py-4" data-loc>
+      <div className="hidden flex-wrap items-center gap-2.5 py-4 md:flex" data-loc>
         <span className="mr-1 flex items-center gap-2 text-[11px] font-bold uppercase tracking-[0.2em] text-[#4b5563]">
           <i className="h-px w-4 bg-accent" aria-hidden="true" />
           Lọc theo
@@ -603,6 +612,8 @@ export function HeCuaDanhSach() {
           </button>
         )}
       </div>
+
+      <div className="h-3 md:hidden" aria-hidden="true" />
 
       {/* Lưới thẻ */}
       <ul key={`${loc.b}-${loc.k}-${loc.f}-${loc.h}-${loc.q}-${trang}`} className="mt-4 grid gap-4 sm:grid-cols-2 sm:gap-5 lg:grid-cols-3 lg:gap-7">
@@ -690,6 +701,7 @@ export function HeCuaDanhSach() {
         {thongBao}
       </div>
       {cmp.length > 0 && (
+        <Cong>
         <div className="fixed bottom-[88px] left-1/2 z-40 flex max-w-[calc(100vw-24px)] -translate-x-1/2 items-center gap-4 whitespace-nowrap rounded-[14px] bg-than-chi py-2 pl-5 pr-2.5 text-sm text-white shadow-[0_14px_36px_rgba(0,0,0,0.3)] md:bottom-[100px]">
           <span>Đã chọn {cmp.length}/3 hệ</span>
           <button type="button" onClick={() => setSoSanh(true)} disabled={cmp.length < 2} className="nut nut-chinh !min-h-0 !px-5 !py-2.5 disabled:opacity-50">
@@ -706,10 +718,67 @@ export function HeCuaDanhSach() {
             Bỏ chọn
           </button>
         </div>
+        </Cong>
       )}
 
-      {chiTiet && <CuaSoChiTiet r={chiTiet} dong={() => setChiTiet(null)} />}
-      {soSanh && dsCmp.length > 1 && <CuaSoSoSanh ds={dsCmp} dong={() => setSoSanh(false)} />}
+      {/* Nút Bộ lọc cố định phía dưới (điện thoại), mở tấm chọn lọc như Winboss */}
+      <Cong>
+      <button
+        type="button"
+        onClick={() => setTamLoc(true)}
+        aria-haspopup="dialog"
+        className="fixed bottom-4 left-1/2 z-40 flex min-h-12 -translate-x-1/2 items-center gap-2.5 rounded-full bg-than-chi px-6 text-[14px] font-bold text-white shadow-[0_14px_36px_rgba(0,0,0,0.35)] md:hidden"
+      >
+        <svg viewBox="0 0 24 24" className="h-[18px] w-[18px]" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" aria-hidden="true">
+          <path d="M4 6h16M7 12h10M10 18h4" />
+        </svg>
+        Bộ lọc
+        {soLoc > 0 && <em className="rounded-full bg-accent px-2 py-0.5 text-[12px] not-italic">{soLoc}</em>}
+      </button>
+      {tamLoc && (
+        <HopThoai dong={() => setTamLoc(false)} tieuDe="Bộ lọc hệ cửa" rong={false} duoi>
+          <div className="px-5 pb-28 pt-5">
+            <p className="text-[18px] font-bold">Bộ lọc</p>
+            {NHOM_LOC.map((g) => (
+              <fieldset key={g.k} className="mt-5">
+                <legend className="mb-2.5 text-[11px] font-bold uppercase tracking-[0.2em] text-[#4b5563]">{g.ten}</legend>
+                <div className="flex flex-wrap gap-2">
+                  {g.o.map(([v, t]) => {
+                    const on = loc[g.k].includes(v);
+                    return (
+                      <button
+                        key={v}
+                        type="button"
+                        aria-pressed={on}
+                        onClick={() => bat(g.k, v)}
+                        className={`min-h-11 rounded-[10px] border px-3.5 py-2 text-[14px] ${on ? "border-accent bg-accent font-bold text-white" : "border-[#d5dbe3] bg-white text-than-chi"}`}
+                      >
+                        {t}
+                      </button>
+                    );
+                  })}
+                </div>
+              </fieldset>
+            ))}
+          </div>
+          <div className="sticky bottom-0 flex items-center gap-3 border-t border-[#e3e7ec] bg-white px-5 py-3">
+            {soLoc > 0 && (
+              <button type="button" onClick={() => doi({ k: [], f: [], h: [] })} className="min-h-11 text-[14px] text-[#4b5563] underline underline-offset-4">
+                Xóa lọc
+              </button>
+            )}
+            <button type="button" onClick={() => setTamLoc(false)} className="nut nut-chinh ml-auto flex-1 md:flex-none">
+              Xem {ketQua.length} hệ
+            </button>
+          </div>
+        </HopThoai>
+      )}
+      </Cong>
+
+      <Cong>
+        {chiTiet && <CuaSoChiTiet r={chiTiet} dong={() => setChiTiet(null)} />}
+        {soSanh && dsCmp.length > 1 && <CuaSoSoSanh ds={dsCmp} dong={() => setSoSanh(false)} />}
+      </Cong>
     </div>
   );
 }

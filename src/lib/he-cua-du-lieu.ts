@@ -2559,7 +2559,7 @@ export const HE_CUA_DS: HeCua[] = [
   "kinKhi": "0.21 m³/(m·h)",
   "cachAm": "35 dB",
   "kinNuoc": "700 Pa",
-  "chiuGio": "4.0 kPa",
+  "chiuGio": "≤ 4.0 kPa",
   "chongTrom": "",
   "ghiChu": "Mặt đứng 60 mm; chiều sâu thanh đứng 166 mm, thanh ngang 125 mm; kính 24 mm.",
   "ketCau": "t",
@@ -2582,7 +2582,7 @@ export const HE_CUA_DS: HeCua[] = [
   "kinNuoc": "",
   "chiuGio": "",
   "chongTrom": "",
-  "ghiChu": "AWG140 có cầu nhiệt (kính 28 mm), NWG110 không cầu nhiệt. Mái song song, mái dốc một phía hoặc mái nhiều dốc (AWG140). Hãng chưa công bố đủ thông số cho NWG110.",
+  "ghiChu": "AWG140 có cầu nhiệt (kính 28 mm), NWG110 không cầu nhiệt. Mái song song, mái dốc một phía hoặc mái nhiều dốc (AWG140). Chỉ số U và cách âm trong bảng là của AWG140. Hãng chưa công bố thông số hiệu năng cho NWG110.",
   "ketCau": "tn",
   "anh": {
    "c": [],

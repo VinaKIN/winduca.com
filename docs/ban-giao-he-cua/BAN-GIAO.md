@@ -35,7 +35,7 @@ File chính:
 | `public/images/he-cua/mau-goc/` | 2 ảnh 3D không logo (`romadio-panorama-19h-g1.webp`, `romadio-rct65-g1.webp`) |
 | `src/lib/phim.ts` | `phimNhomChon` cho radiogroup (mũi tên, Home/End) |
 
-Các file cũ **không còn dùng trên `/he-cua`** nhưng vẫn tồn tại: `CauHinhCua.tsx`, `SoSanhHeCua.tsx`, `MauCua.tsx`, `src/lib/mau-cua.ts`, `src/lib/san-pham.ts` (vẫn dùng ở trang chủ qua `SanPhamBangChuyen`). 4 trang `/he-cua/[slug]` (cua-truot-nang, cua-di-mo-quay, cua-xep-truot, cua-so) vẫn chạy bình thường.
+Đã gỡ `CauHinhCua.tsx`, `SoSanhHeCua.tsx`, `MauCua.tsx`, `src/lib/mau-cua.ts` (11/11/2026, không còn nơi nào import). `src/lib/san-pham.ts` vẫn dùng (trang chủ qua `SanPhamBangChuyen`, 4 trang con). 4 trang `/he-cua/[slug]` (cua-truot-nang, cua-di-mo-quay, cua-xep-truot, cua-so) vẫn chạy bình thường.
 
 ## 4. Mô hình dữ liệu (`HeCua`)
 `id, hang (romadio|civro|ponzio), ma, loai, he, ketCau (t|n|tn|""), tags (cn an de sm), u, kinKhi, cachAm, kinNuoc, chiuGio, chongTrom, ghiChu, anh {c: ảnh 3D, d: bản vẽ 2D}, them`.
@@ -81,12 +81,12 @@ node docs/ban-giao-he-cua/cong-cu/gen3.cjs "$S"             # ghi src/lib/he-cua
 ## 8. Việc còn lại / đề xuất (theo thứ tự ưu tiên)
 1. **Xin hãng ảnh 3D bản không logo** (hoặc bộ "Chưa có Logo" cho R/M series) để thay bản vẽ làm ảnh thẻ như Winboss. Đây là chỗ khác biệt lớn nhất còn lại.
 2. **Xác nhận quyền dùng** số liệu, bản vẽ và tên hãng trên WINDUCA trước khi công bố chính thức (người dùng đã được nhắc nhiều lần, chưa trả lời dứt khoát).
-3. **Kiểm tra số ACW120 và AWG140** (lấy từ PDF Civro bị lệch cột; gán theo thứ tự nhãn: U 2.2, cách âm 35 dB, kín khí 0.21, kín nước 700 Pa, chịu gió 4.0 kPa). 8 hệ bổ sung còn lại chưa có bảng thông số ("Hãng chưa công bố thông số").
+3. ~~Kiểm tra số ACW120 và AWG140~~ **Đã kiểm 11/11/2026 bằng cách xem trang PDF thật** (không dùng chữ trích): ACW120 U 2.2, cách âm 35 dB, kín khí 0.21, kín nước 700 Pa, chịu gió **≤ 4.0 kPa** (đã sửa từ "4.0 kPa"); AWG140 U 2.2 và cách âm 35 dB, NWG110 ghi "/" (không công bố), PDF không có kín khí, kín nước, chịu gió cho cụm này. 7 hệ bổ sung còn lại chưa có bảng thông số ("Hãng chưa công bố thông số").
 4. **Cmech**: thư mục trống; khi có tài liệu thì thêm hệ như `them(...)`.
 5. Cân nhắc hệ Romadio khác chưa vào danh sách: MCL20, MCW-120H/S, SEMI (chưa rõ loại cửa nên **chưa thêm**, đừng đoán).
 6. Nhóm sản phẩm ngoài hệ cửa trong thư mục (F lan can/mái kính, B vách tắm, D phễu sàn, Entrance door) nếu muốn đưa lên site thì nên làm trang riêng, không trộn vào danh sách hệ cửa.
-7. Dọn mã cũ không dùng (`CauHinhCua`, `SoSanhHeCua`, `MauCua`, `mau-cua.ts`) nếu người dùng đồng ý.
-8. Đã có sẵn nhưng chưa làm cho trang `/he-cua`: nút "Bộ lọc" kiểu dock cố định ở dưới (Winboss có trên mobile); hiện dùng hàng nút thả xuống ngay dưới thanh tab, hoạt động tốt cả mobile.
+7. ~~Dọn mã cũ không dùng~~ Đã làm 11/11/2026 (người dùng đồng ý).
+8. ~~Nút "Bộ lọc" dạng dock trên mobile~~ Đã làm 11/11/2026 (xem DESIGN-SYSTEM 3.11.8). Bẫy: các phần tử `fixed` trong `HeCuaDanhSach` phải qua `Cong` (portal ra `<body>`), vì thẻ bao ngoài có `backdrop-filter`.
 9. Mảng khác còn dang dở từ trước: thay ảnh stock Pexels bằng ảnh/video thật, số liệu chính thức cho thẻ, đưa lên Vercel, và **điều tra Winboss.biz (WordPress) mất sản phẩm** (danh mục Winboss/Civro rỗng, sản phẩm là bài viết, 10 trong "Sản phẩm": Ponzio 6, Romadio 4; 7 bản nháp, 1 thùng rác; chưa rõ nguyên nhân; đã tạm dừng theo ý người dùng).
 
 ## 9. Quy tắc và bẫy kỹ thuật
