@@ -4,11 +4,11 @@ import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useId, useMemo, useRef, useState } from "react";
 import { asset } from "@/lib/asset";
-import { CHUC_NANG, HE_CUA_DS, HE_THONG, THONG_SO_THU_TU, type HeCua } from "@/lib/he-cua-du-lieu";
+import { CHUC_NANG, HE_CUA_DS, HE_THONG, THONG_SO_THU_TU, nhanKetCau, type HeCua } from "@/lib/he-cua-du-lieu";
 import { phimNhomChon } from "@/lib/phim";
 
 /**
- * Danh sách 43 hệ cửa kiểu Winboss (11/11/2026): 3 bộ lọc Hệ thống · Kết cấu · Chức năng, ô tìm kiếm,
+ * Danh sách 106 hệ cửa kiểu Winboss (11/11/2026): 3 bộ lọc Hệ thống · Kết cấu · Chức năng, ô tìm kiếm,
  * thẻ có bản vẽ 2D, bấm thẻ mở cửa sổ chi tiết (bản vẽ + thông số). Không dùng tên hãng hoặc mã sản phẩm.
  */
 const TAT_CA = "Tất cả";
@@ -109,7 +109,8 @@ function CuaSo({ h, dong }: { h: HeCua; dong: () => void }) {
           <div>
             <p className="nhan-muc text-accent">
               {h.heTen}
-              {h.cauNhiet ? " · Có cầu nhiệt" : " · Không cầu nhiệt"}
+              {" · "}
+              {nhanKetCau(h.ketCau)}
             </p>
             <h3 id={id} className="mt-2 text-2xl font-bold md:text-3xl">
               {h.ten}
@@ -183,6 +184,22 @@ function CuaSo({ h, dong }: { h: HeCua; dong: () => void }) {
   );
 }
 
+/** Thẻ hiện tối đa 4 thông số đang có (theo thứ tự ưu tiên); thiếu hết thì báo chờ xác nhận. */
+function ThongSoThe({ h }: { h: HeCua }) {
+  const co = THONG_SO_THU_TU.filter((k) => k !== "Kính áp dụng" && h.thongSo[k]).slice(0, 4);
+  if (co.length === 0) return <p className="mt-3 border-t border-than-chi/10 pt-3 text-sm text-than-chi/70">Thông số đang chờ xác nhận.</p>;
+  return (
+    <dl className="mt-3 grid grid-cols-2 gap-x-4 gap-y-1 border-t border-than-chi/10 pt-3 text-sm">
+      {co.map((k) => (
+        <div key={k}>
+          <dt className="text-[11px] uppercase tracking-[0.1em] text-than-chi/65">{k.replace(" (W/m²K)", "")}</dt>
+          <dd className="font-semibold">{h.thongSo[k]}</dd>
+        </div>
+      ))}
+    </dl>
+  );
+}
+
 export function HeCuaDanhSach() {
   const [he, setHe] = useState(TAT_CA);
   const [kc, setKc] = useState(TAT_CA);
@@ -200,7 +217,7 @@ export function HeCuaDanhSach() {
     return HE_CUA_DS.filter(
       (h) =>
         (he === TAT_CA || h.he === he) &&
-        (kc === TAT_CA || (kc === "cn") === h.cauNhiet) &&
+        (kc === TAT_CA || h.ketCau === "tn" || (kc === "cn" ? h.ketCau === "t" : h.ketCau === "n")) &&
         (cn === TAT_CA || h.chucNang.includes(cn)) &&
         (q === "" || `${h.ten} ${h.heTen} ${h.chucNang.join(" ")}`.toLowerCase().includes(q)),
     );
@@ -267,17 +284,10 @@ export function HeCuaDanhSach() {
               </div>
               <div className="p-5">
                 <p className="nhan-muc text-accent">
-                  {h.heTen} · {h.cauNhiet ? "Có cầu nhiệt" : "Không cầu nhiệt"}
+                  {h.heTen} · {nhanKetCau(h.ketCau)}
                 </p>
                 <h3 className="mt-1 text-lg font-bold leading-snug group-hover:text-accent">{h.ten}</h3>
-                <dl className="mt-3 grid grid-cols-2 gap-x-4 gap-y-1 border-t border-than-chi/10 pt-3 text-sm">
-                  {(["Áp lực gió", "Độ kín nước", "Độ kín khí", "Cách âm"] as const).map((k) => (
-                    <div key={k}>
-                      <dt className="text-[11px] uppercase tracking-[0.1em] text-than-chi/65">{k}</dt>
-                      <dd className="font-semibold">{h.thongSo[k] ?? <span className="font-normal text-than-chi/60">Chờ xác nhận</span>}</dd>
-                    </div>
-                  ))}
-                </dl>
+                <ThongSoThe h={h} />
                 <span className="mt-4 inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.08em] text-accent-text">
                   Xem bản vẽ và thông số <span aria-hidden="true">→</span>
                 </span>

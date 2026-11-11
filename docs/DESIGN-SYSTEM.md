@@ -246,10 +246,10 @@ Các linh kiện dưới đây dùng ma trận 7 trạng thái ở mục 3.0; m�
 - **Thứ bậc đề mục:** mỗi trang **must** có đúng một `h1`; mỗi khối có `h2` trước khi dùng `h3`. Khối "Trải nghiệm" dùng `h2` (nhãn khối).
 - **`aria-controls`:** **must** chỉ trỏ tới phần tử đang tồn tại; với nút mở menu hay liên hệ nhanh, thuộc tính chỉ gắn khi vùng đích đã mở.
 
-#### 3.11.8 Danh sách 43 hệ cửa (`HeCuaDanhSach`, bổ sung 11/11/2026)
+#### 3.11.8 Danh sách 106 hệ cửa (`HeCuaDanhSach`, bổ sung 11/11/2026)
 - **Ba bộ lọc kiểu Winboss:** Hệ thống · Kết cấu (có/không cầu nhiệt) · Chức năng, cộng ô tìm kiếm. Mỗi bộ lọc là một nhóm chọn một (`role="radiogroup"` + `role="radio"`, `aria-checked`, roving tabindex, `onKeyDown={phimNhomChon}`), nhãn nhóm nối bằng `aria-labelledby`. Có nút "Xóa bộ lọc" khi đang lọc.
-- **Dữ liệu:** `src/lib/he-cua-du-lieu.ts` (tạo từ bảng công bố của nhà sản xuất). Tên theo chức năng, **không** tên hãng hoặc mã sản phẩm; "Chức năng" suy từ tên loại cửa và cấu tạo, không thêm thông tin mới.
-- **Ảnh:** chỉ dùng bản vẽ 2D đã kiểm tra không có tên hãng hoặc mã profile (bản vẽ vách kính có mã profile nên để trống, hiện "Bản vẽ đang được cập nhật"). Ảnh 3D và ảnh thực tế có logo nên không dùng.
+- **Dữ liệu:** `src/lib/he-cua-du-lieu.ts` (tạo từ bảng công bố của các nhà sản xuất: 43 + 30 + 33 hệ). Tên theo chức năng, **không** tên hãng hoặc mã sản phẩm; "Chức năng" lấy từ nhãn của trang gốc (cách nhiệt cao, an ninh cao, dễ tiếp cận, thông minh) và suy từ tên loại cửa, không thêm thông tin mới. Kết cấu có 3 giá trị (có cầu nhiệt, không, hoặc cả hai); hệ chưa rõ chỉ hiện khi chọn Tất cả.
+- **Ảnh:** chỉ dùng bản vẽ 2D đã kiểm tra: bỏ bản vẽ có logo hoặc mã profile in trên hình (vách kính và 4 bản vẽ chi tiết phụ kiện), cắt dải ghi mã sản phẩm ở đáy hình (52 bản vẽ); hệ không có bản vẽ hợp lệ hiện "Bản vẽ đang được cập nhật". Ảnh 3D và ảnh thực tế có logo nên không dùng.
 - **Thẻ** là `button` có `aria-haspopup="dialog"`; hộp chi tiết `role="dialog"` `aria-modal`, tiêu đề nối `aria-labelledby`, focus vào nút Đóng khi mở, giữ focus trong hộp bằng Tab, `Escape` đóng và trả focus về thẻ đã bấm.
 - **Tải dần:** hiện 12 thẻ, nút "Xem thêm" mỗi lần 12; đổi bộ lọc thì quay về 12. Không bọc cả danh sách trong hiệu ứng hiện dần (khối quá cao nên không bao giờ kích hoạt).
 - **Số liệu** luôn kèm ghi chú: tham khảo, thay đổi theo kích thước và cấu hình; chưa công bố chính thức khi chưa xác nhận quyền sử dụng.
