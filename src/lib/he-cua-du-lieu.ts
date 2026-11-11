@@ -50,7 +50,11 @@ export const HE_CUA_DS: HeCua[] = [
   "chongTrom": "RC3 (phụ kiện)",
   "ghiChu": "",
   "anh": {
-   "c": [],
+   "c": [
+    "/images/he-cua/mau-goc/civro-pw80-enfini-pro-slender-frames-g1.webp",
+    "/images/he-cua/mau-goc/civro-pw80-enfini-pro-slender-frames-g2.webp",
+    "/images/he-cua/mau-goc/civro-pw80-enfini-pro-slender-frames-g3.webp"
+   ],
    "d": [
     "/images/he-cua/ban-ve/civro-pw80-enfini-pro-slender-frames-1.webp",
     "/images/he-cua/ban-ve/civro-pw80-enfini-pro-slender-frames-2.webp",
@@ -75,7 +79,10 @@ export const HE_CUA_DS: HeCua[] = [
   "chongTrom": "N/A",
   "ghiChu": "",
   "anh": {
-   "c": [],
+   "c": [
+    "/images/he-cua/mau-goc/civro-mw65-g1.webp",
+    "/images/he-cua/mau-goc/civro-mw65-g2.webp"
+   ],
    "d": [
     "/images/he-cua/ban-ve/civro-mw65-1.webp",
     "/images/he-cua/ban-ve/civro-mw65-2.webp"
@@ -101,7 +108,10 @@ export const HE_CUA_DS: HeCua[] = [
   "chongTrom": "RC3 (phụ kiện)",
   "ghiChu": "",
   "anh": {
-   "c": [],
+   "c": [
+    "/images/he-cua/mau-goc/civro-xw55-g1.webp",
+    "/images/he-cua/mau-goc/civro-xw55-g2.webp"
+   ],
    "d": []
   },
   "them": false
@@ -124,7 +134,10 @@ export const HE_CUA_DS: HeCua[] = [
   "chongTrom": "RC3 (phụ kiện)",
   "ghiChu": "",
   "anh": {
-   "c": [],
+   "c": [
+    "/images/he-cua/mau-goc/civro-xw65-g1.webp",
+    "/images/he-cua/mau-goc/civro-xw65-g2.webp"
+   ],
    "d": [
     "/images/he-cua/ban-ve/civro-xw65-1.webp",
     "/images/he-cua/ban-ve/civro-xw65-2.webp"
@@ -150,7 +163,10 @@ export const HE_CUA_DS: HeCua[] = [
   "chongTrom": "RC3 (phụ kiện)",
   "ghiChu": "",
   "anh": {
-   "c": [],
+   "c": [
+    "/images/he-cua/mau-goc/civro-xw75-g1.webp",
+    "/images/he-cua/mau-goc/civro-xw75-g2.webp"
+   ],
    "d": [
     "/images/he-cua/ban-ve/civro-xw75-1.webp",
     "/images/he-cua/ban-ve/civro-xw75-2.webp"
@@ -177,7 +193,9 @@ export const HE_CUA_DS: HeCua[] = [
   "chongTrom": "RC3 (phụ kiện)",
   "ghiChu": "",
   "anh": {
-   "c": [],
+   "c": [
+    "/images/he-cua/mau-goc/civro-xw80-g1.webp"
+   ],
    "d": [
     "/images/he-cua/ban-ve/civro-xw80-1.webp"
    ]
@@ -203,7 +221,9 @@ export const HE_CUA_DS: HeCua[] = [
   "chongTrom": "RC3 (phụ kiện)",
   "ghiChu": "",
   "anh": {
-   "c": [],
+   "c": [
+    "/images/he-cua/mau-goc/civro-xw98-g1.webp"
+   ],
    "d": []
   },
   "them": false
@@ -226,7 +246,9 @@ export const HE_CUA_DS: HeCua[] = [
   "chongTrom": "RC3 (phụ kiện)",
   "ghiChu": "",
   "anh": {
-   "c": [],
+   "c": [
+    "/images/he-cua/mau-goc/civro-xws90-g1.webp"
+   ],
    "d": [
     "/images/he-cua/ban-ve/civro-xws90-1.webp"
    ]
@@ -249,7 +271,9 @@ export const HE_CUA_DS: HeCua[] = [
   "chongTrom": "RC3 (phụ kiện)",
   "ghiChu": "",
   "anh": {
-   "c": [],
+   "c": [
+    "/images/he-cua/mau-goc/civro-xws100-g1.webp"
+   ],
    "d": []
   },
   "them": false
@@ -270,7 +294,9 @@ export const HE_CUA_DS: HeCua[] = [
   "chongTrom": "RC3 (phụ kiện)",
   "ghiChu": "",
   "anh": {
-   "c": [],
+   "c": [
+    "/images/he-cua/mau-goc/civro-xws115-g1.webp"
+   ],
    "d": []
   },
   "them": false
@@ -291,7 +317,9 @@ export const HE_CUA_DS: HeCua[] = [
   "chongTrom": "RC3 (phụ kiện)",
   "ghiChu": "",
   "anh": {
-   "c": [],
+   "c": [
+    "/images/he-cua/mau-goc/civro-xws125-g1.webp"
+   ],
    "d": [
     "/images/he-cua/ban-ve/civro-xws125-1.webp"
    ]
@@ -316,7 +344,11 @@ export const HE_CUA_DS: HeCua[] = [
   "chongTrom": "RC3 (phụ kiện)",
   "ghiChu": "",
   "anh": {
-   "c": [],
+   "c": [
+    "/images/he-cua/mau-goc/civro-retro-xw85-bc-xw95-bc-g1.webp",
+    "/images/he-cua/mau-goc/civro-retro-xw85-bc-xw95-bc-g2.webp",
+    "/images/he-cua/mau-goc/civro-retro-xw85-bc-xw95-bc-g3.webp"
+   ],
    "d": [
     "/images/he-cua/ban-ve/civro-retro-xw85-bc-xw95-bc-1.webp",
     "/images/he-cua/ban-ve/civro-retro-xw85-bc-xw95-bc-2.webp",
@@ -344,7 +376,10 @@ export const HE_CUA_DS: HeCua[] = [
   "chongTrom": "RC3 (phụ kiện)",
   "ghiChu": "",
   "anh": {
-   "c": [],
+   "c": [
+    "/images/he-cua/mau-goc/civro-xve65-xve100-g1.webp",
+    "/images/he-cua/mau-goc/civro-xve65-xve100-g2.webp"
+   ],
    "d": [
     "/images/he-cua/ban-ve/civro-xve65-xve100-1.webp"
    ]
@@ -369,7 +404,10 @@ export const HE_CUA_DS: HeCua[] = [
   "chongTrom": "RC2 (phụ kiện)",
   "ghiChu": "",
   "anh": {
-   "c": [],
+   "c": [
+    "/images/he-cua/mau-goc/civro-xw100po-xw110po-g1.webp",
+    "/images/he-cua/mau-goc/civro-xw100po-xw110po-g2.webp"
+   ],
    "d": []
   },
   "them": false
@@ -390,7 +428,10 @@ export const HE_CUA_DS: HeCua[] = [
   "chongTrom": "RC3 (phụ kiện)",
   "ghiChu": "",
   "anh": {
-   "c": [],
+   "c": [
+    "/images/he-cua/mau-goc/civro-nw55-e-g1.webp",
+    "/images/he-cua/mau-goc/civro-nw55-e-g2.webp"
+   ],
    "d": []
   },
   "them": false
@@ -413,7 +454,11 @@ export const HE_CUA_DS: HeCua[] = [
   "chongTrom": "N/A",
   "ghiChu": "",
   "anh": {
-   "c": [],
+   "c": [
+    "/images/he-cua/mau-goc/civro-md65-g1.webp",
+    "/images/he-cua/mau-goc/civro-md65-g2.webp",
+    "/images/he-cua/mau-goc/civro-md65-g3.webp"
+   ],
    "d": [
     "/images/he-cua/ban-ve/civro-md65-1.webp",
     "/images/he-cua/ban-ve/civro-md65-2.webp",
@@ -471,7 +516,11 @@ export const HE_CUA_DS: HeCua[] = [
   "chongTrom": "RC3",
   "ghiChu": "",
   "anh": {
-   "c": [],
+   "c": [
+    "/images/he-cua/mau-goc/civro-xd65-g1.webp",
+    "/images/he-cua/mau-goc/civro-xd65-g2.webp",
+    "/images/he-cua/mau-goc/civro-xd65-g3.webp"
+   ],
    "d": [
     "/images/he-cua/ban-ve/civro-xd65-1.webp",
     "/images/he-cua/ban-ve/civro-xd65-2.webp",
@@ -500,7 +549,11 @@ export const HE_CUA_DS: HeCua[] = [
   "chongTrom": "RC3",
   "ghiChu": "",
   "anh": {
-   "c": [],
+   "c": [
+    "/images/he-cua/mau-goc/civro-xd80-g1.webp",
+    "/images/he-cua/mau-goc/civro-xd80-g2.webp",
+    "/images/he-cua/mau-goc/civro-xd80-g3.webp"
+   ],
    "d": [
     "/images/he-cua/ban-ve/civro-xd80-1.webp",
     "/images/he-cua/ban-ve/civro-xd80-2.webp",
@@ -528,7 +581,11 @@ export const HE_CUA_DS: HeCua[] = [
   "chongTrom": "RC3 (phụ kiện)",
   "ghiChu": "",
   "anh": {
-   "c": [],
+   "c": [
+    "/images/he-cua/mau-goc/civro-retro-xd85-bc-xd95-bc-g1.webp",
+    "/images/he-cua/mau-goc/civro-retro-xd85-bc-xd95-bc-g2.webp",
+    "/images/he-cua/mau-goc/civro-retro-xd85-bc-xd95-bc-g3.webp"
+   ],
    "d": [
     "/images/he-cua/ban-ve/civro-retro-xd85-bc-xd95-bc-1.webp",
     "/images/he-cua/ban-ve/civro-retro-xd85-bc-xd95-bc-2.webp",
@@ -557,7 +614,10 @@ export const HE_CUA_DS: HeCua[] = [
   "chongTrom": "RC3",
   "ghiChu": "",
   "anh": {
-   "c": [],
+   "c": [
+    "/images/he-cua/mau-goc/civro-nd55-e-g1.webp",
+    "/images/he-cua/mau-goc/civro-nd55-e-g2.webp"
+   ],
    "d": [
     "/images/he-cua/ban-ve/civro-nd55-e-1.webp",
     "/images/he-cua/ban-ve/civro-nd55-e-2.webp",
@@ -586,7 +646,9 @@ export const HE_CUA_DS: HeCua[] = [
   "chongTrom": "RC2",
   "ghiChu": "",
   "anh": {
-   "c": [],
+   "c": [
+    "/images/he-cua/mau-goc/civro-pd65-enfini-pro-g1.webp"
+   ],
    "d": [
     "/images/he-cua/ban-ve/civro-pd65-enfini-pro-1.webp"
    ]
@@ -614,7 +676,10 @@ export const HE_CUA_DS: HeCua[] = [
   "chongTrom": "RC2",
   "ghiChu": "",
   "anh": {
-   "c": [],
+   "c": [
+    "/images/he-cua/mau-goc/civro-civro-orama-ud137-ud207-g1.webp",
+    "/images/he-cua/mau-goc/civro-civro-orama-ud137-ud207-g2.webp"
+   ],
    "d": [
     "/images/he-cua/ban-ve/civro-civro-orama-ud137-ud207-1.webp",
     "/images/he-cua/ban-ve/civro-civro-orama-ud137-ud207-2.webp"
@@ -640,7 +705,11 @@ export const HE_CUA_DS: HeCua[] = [
   "chongTrom": "N/A",
   "ghiChu": "",
   "anh": {
-   "c": [],
+   "c": [
+    "/images/he-cua/mau-goc/civro-md45ss-g1.webp",
+    "/images/he-cua/mau-goc/civro-md45ss-g2.webp",
+    "/images/he-cua/mau-goc/civro-md45ss-g3.webp"
+   ],
    "d": []
   },
   "them": false
@@ -663,7 +732,11 @@ export const HE_CUA_DS: HeCua[] = [
   "chongTrom": "RC2 (phụ kiện)",
   "ghiChu": "",
   "anh": {
-   "c": [],
+   "c": [
+    "/images/he-cua/mau-goc/civro-xd63-g1.webp",
+    "/images/he-cua/mau-goc/civro-xd63-g2.webp",
+    "/images/he-cua/mau-goc/civro-xd63-g3.webp"
+   ],
    "d": [
     "/images/he-cua/ban-ve/civro-xd63-1.webp",
     "/images/he-cua/ban-ve/civro-xd63-2.webp"
@@ -691,7 +764,9 @@ export const HE_CUA_DS: HeCua[] = [
   "chongTrom": "RC2",
   "ghiChu": "",
   "anh": {
-   "c": [],
+   "c": [
+    "/images/he-cua/mau-goc/civro-xd73ls-g1.webp"
+   ],
    "d": [
     "/images/he-cua/ban-ve/civro-xd73ls-1.webp"
    ]
@@ -714,7 +789,9 @@ export const HE_CUA_DS: HeCua[] = [
   "chongTrom": "RC2 (phụ kiện)",
   "ghiChu": "",
   "anh": {
-   "c": [],
+   "c": [
+    "/images/he-cua/mau-goc/civro-ad80fd-g1.webp"
+   ],
    "d": [
     "/images/he-cua/ban-ve/civro-ad80fd-1.webp"
    ]
@@ -737,7 +814,9 @@ export const HE_CUA_DS: HeCua[] = [
   "chongTrom": "RC2 (phụ kiện)",
   "ghiChu": "",
   "anh": {
-   "c": [],
+   "c": [
+    "/images/he-cua/mau-goc/civro-aw55ss-g1.webp"
+   ],
    "d": [
     "/images/he-cua/ban-ve/civro-aw55ss-1.webp"
    ]
@@ -760,7 +839,10 @@ export const HE_CUA_DS: HeCua[] = [
   "chongTrom": "RC2 (phụ kiện)",
   "ghiChu": "",
   "anh": {
-   "c": [],
+   "c": [
+    "/images/he-cua/mau-goc/civro-nd45ss-g1.webp",
+    "/images/he-cua/mau-goc/civro-nd45ss-g2.webp"
+   ],
    "d": [
     "/images/he-cua/ban-ve/civro-nd45ss-1.webp",
     "/images/he-cua/ban-ve/civro-nd45ss-2.webp"
@@ -784,7 +866,9 @@ export const HE_CUA_DS: HeCua[] = [
   "chongTrom": "RC2 (phụ kiện)",
   "ghiChu": "",
   "anh": {
-   "c": [],
+   "c": [
+    "/images/he-cua/mau-goc/civro-nw55ss-g1.webp"
+   ],
    "d": [
     "/images/he-cua/ban-ve/civro-nw55ss-1.webp"
    ]
@@ -1598,7 +1682,9 @@ export const HE_CUA_DS: HeCua[] = [
   "chongTrom": "",
   "ghiChu": "",
   "anh": {
-   "c": [],
+   "c": [
+    "/images/he-cua/mau-goc/ponzio-ws-45-g1.webp"
+   ],
    "d": [
     "/images/he-cua/ban-ve/ponzio-ws-45-1.webp"
    ]
@@ -1621,7 +1707,9 @@ export const HE_CUA_DS: HeCua[] = [
   "chongTrom": "",
   "ghiChu": "",
   "anh": {
-   "c": [],
+   "c": [
+    "/images/he-cua/mau-goc/ponzio-ws-45-tt-g1.webp"
+   ],
    "d": [
     "/images/he-cua/ban-ve/ponzio-ws-45-tt-1.webp"
    ]
@@ -1646,7 +1734,9 @@ export const HE_CUA_DS: HeCua[] = [
   "chongTrom": "",
   "ghiChu": "",
   "anh": {
-   "c": [],
+   "c": [
+    "/images/he-cua/mau-goc/ponzio-ws-55-tt-g1.webp"
+   ],
    "d": []
   },
   "them": false
@@ -1670,7 +1760,9 @@ export const HE_CUA_DS: HeCua[] = [
   "chongTrom": "RC2/RC3 (bản kèm phụ kiện chống đột nhập)",
   "ghiChu": "Khung 65/79 mm, cánh 71/77 mm. Catalog ghi Uw 1,4 (cửa 2 cánh 1540×1480) và 1,3 (1540×2180) với kính Ug 1,0.",
   "anh": {
-   "c": [],
+   "c": [
+    "/images/he-cua/mau-goc/ponzio-ws-65-thi-g1.webp"
+   ],
    "d": []
   },
   "them": false
@@ -1693,7 +1785,9 @@ export const HE_CUA_DS: HeCua[] = [
   "chongTrom": "",
   "ghiChu": "",
   "anh": {
-   "c": [],
+   "c": [
+    "/images/he-cua/mau-goc/ponzio-ws-65-thi-as-g1.webp"
+   ],
    "d": []
   },
   "them": false
@@ -1717,7 +1811,9 @@ export const HE_CUA_DS: HeCua[] = [
   "chongTrom": "RC2/RC3 (bản kèm phụ kiện chống đột nhập)",
   "ghiChu": "Khung 75/89 mm, cánh 81/82,5 mm. Cánh nặng tối đa 170 kg (180 kg với bộ gia cường). Catalog ghi Uw 1,3 (cửa 2 cánh 1540×1480) và 1,2 (1540×2180) với kính Ug 1,0.",
   "anh": {
-   "c": [],
+   "c": [
+    "/images/he-cua/mau-goc/ponzio-ws-75-thi-g1.webp"
+   ],
    "d": []
   },
   "them": false
@@ -1740,7 +1836,9 @@ export const HE_CUA_DS: HeCua[] = [
   "chongTrom": "",
   "ghiChu": "",
   "anh": {
-   "c": [],
+   "c": [
+    "/images/he-cua/mau-goc/ponzio-ws-65-75-as-g1.webp"
+   ],
    "d": []
   },
   "them": false
@@ -1763,7 +1861,9 @@ export const HE_CUA_DS: HeCua[] = [
   "chongTrom": "",
   "ghiChu": "",
   "anh": {
-   "c": [],
+   "c": [
+    "/images/he-cua/mau-goc/ponzio-ws-65-75-ad-g1.webp"
+   ],
    "d": []
   },
   "them": false
@@ -1786,7 +1886,9 @@ export const HE_CUA_DS: HeCua[] = [
   "chongTrom": "",
   "ghiChu": "",
   "anh": {
-   "c": [],
+   "c": [
+    "/images/he-cua/mau-goc/ponzio-ws-65-75-fl-g1.webp"
+   ],
    "d": []
   },
   "them": false
@@ -1809,7 +1911,9 @@ export const HE_CUA_DS: HeCua[] = [
   "chongTrom": "",
   "ghiChu": "",
   "anh": {
-   "c": [],
+   "c": [
+    "/images/he-cua/mau-goc/ponzio-ws-65-75-il-g1.webp"
+   ],
    "d": []
   },
   "them": false
@@ -1830,7 +1934,9 @@ export const HE_CUA_DS: HeCua[] = [
   "chongTrom": "",
   "ghiChu": "",
   "anh": {
-   "c": [],
+   "c": [
+    "/images/he-cua/mau-goc/ponzio-nt-50-g1.webp"
+   ],
    "d": [
     "/images/he-cua/ban-ve/ponzio-nt-50-1.webp"
    ]
@@ -1853,7 +1959,9 @@ export const HE_CUA_DS: HeCua[] = [
   "chongTrom": "",
   "ghiChu": "",
   "anh": {
-   "c": [],
+   "c": [
+    "/images/he-cua/mau-goc/ponzio-nt-52-tt-g1.webp"
+   ],
    "d": [
     "/images/he-cua/ban-ve/ponzio-nt-52-tt-1.webp"
    ]
@@ -1876,7 +1984,9 @@ export const HE_CUA_DS: HeCua[] = [
   "chongTrom": "",
   "ghiChu": "",
   "anh": {
-   "c": [],
+   "c": [
+    "/images/he-cua/mau-goc/ponzio-nt-60-f-g1.webp"
+   ],
    "d": [
     "/images/he-cua/ban-ve/ponzio-nt-60-f-1.webp"
    ]
@@ -1901,7 +2011,9 @@ export const HE_CUA_DS: HeCua[] = [
   "chongTrom": "",
   "ghiChu": "",
   "anh": {
-   "c": [],
+   "c": [
+    "/images/he-cua/mau-goc/ponzio-nt-60-tt-g1.webp"
+   ],
    "d": [
     "/images/he-cua/ban-ve/ponzio-nt-60-tt-1.webp"
    ]
@@ -1926,7 +2038,9 @@ export const HE_CUA_DS: HeCua[] = [
   "chongTrom": "",
   "ghiChu": "",
   "anh": {
-   "c": [],
+   "c": [
+    "/images/he-cua/mau-goc/ponzio-nt-65-tt-g1.webp"
+   ],
    "d": [
     "/images/he-cua/ban-ve/ponzio-nt-65-tt-1.webp"
    ]
@@ -1949,7 +2063,9 @@ export const HE_CUA_DS: HeCua[] = [
   "chongTrom": "",
   "ghiChu": "",
   "anh": {
-   "c": [],
+   "c": [
+    "/images/he-cua/mau-goc/ponzio-sl600-evo-freddo-g1.webp"
+   ],
    "d": []
   },
   "them": false
@@ -1970,7 +2086,9 @@ export const HE_CUA_DS: HeCua[] = [
   "chongTrom": "",
   "ghiChu": "Khung 2 ray 65/87 mm, cánh 46 mm, buồng kính 30 mm.",
   "anh": {
-   "c": [],
+   "c": [
+    "/images/he-cua/mau-goc/ponzio-sl600-tt-evo-g1.webp"
+   ],
    "d": []
   },
   "them": false
@@ -1991,7 +2109,9 @@ export const HE_CUA_DS: HeCua[] = [
   "chongTrom": "",
   "ghiChu": "",
   "anh": {
-   "c": [],
+   "c": [
+    "/images/he-cua/mau-goc/ponzio-sl600-tt-evozero-g1.webp"
+   ],
    "d": []
   },
   "them": false
@@ -2015,7 +2135,9 @@ export const HE_CUA_DS: HeCua[] = [
   "chongTrom": "RC2 (cửa 2 cánh kèm phụ kiện chống đột nhập)",
   "ghiChu": "Khung 2 ray 150 mm, cánh 59 mm, buồng kính 39–43 mm.",
   "anh": {
-   "c": [],
+   "c": [
+    "/images/he-cua/mau-goc/ponzio-sl1300-tt-g1.webp"
+   ],
    "d": []
   },
   "them": false
@@ -2038,7 +2160,9 @@ export const HE_CUA_DS: HeCua[] = [
   "chongTrom": "RC3/RC4 (cửa 2 cánh kèm phụ kiện chống đột nhập)",
   "ghiChu": "Khung 2 ray 160 mm, cánh 67 mm.",
   "anh": {
-   "c": [],
+   "c": [
+    "/images/he-cua/mau-goc/ponzio-sl1600-tt-g1.webp"
+   ],
    "d": []
   },
   "them": false
@@ -2059,7 +2183,9 @@ export const HE_CUA_DS: HeCua[] = [
   "chongTrom": "",
   "ghiChu": "",
   "anh": {
-   "c": [],
+   "c": [
+    "/images/he-cua/mau-goc/ponzio-ws-45-cua-di-g1.webp"
+   ],
    "d": [
     "/images/he-cua/ban-ve/ponzio-ws-45-cua-di-1.webp"
    ]
@@ -2082,7 +2208,9 @@ export const HE_CUA_DS: HeCua[] = [
   "chongTrom": "",
   "ghiChu": "",
   "anh": {
-   "c": [],
+   "c": [
+    "/images/he-cua/mau-goc/ponzio-ws-45-tt-cua-di-g1.webp"
+   ],
    "d": [
     "/images/he-cua/ban-ve/ponzio-ws-45-tt-cua-di-1.webp"
    ]
@@ -2107,7 +2235,9 @@ export const HE_CUA_DS: HeCua[] = [
   "chongTrom": "",
   "ghiChu": "",
   "anh": {
-   "c": [],
+   "c": [
+    "/images/he-cua/mau-goc/ponzio-ws-55-tt-cua-di-g1.webp"
+   ],
    "d": []
   },
   "them": false
@@ -2128,7 +2258,9 @@ export const HE_CUA_DS: HeCua[] = [
   "chongTrom": "",
   "ghiChu": "",
   "anh": {
-   "c": [],
+   "c": [
+    "/images/he-cua/mau-goc/ponzio-ws-60-cua-di-g1.webp"
+   ],
    "d": [
     "/images/he-cua/ban-ve/ponzio-ws-60-cua-di-1.webp"
    ]
@@ -2151,7 +2283,9 @@ export const HE_CUA_DS: HeCua[] = [
   "chongTrom": "",
   "ghiChu": "",
   "anh": {
-   "c": [],
+   "c": [
+    "/images/he-cua/mau-goc/ponzio-nt-50-cua-di-g1.webp"
+   ],
    "d": [
     "/images/he-cua/ban-ve/ponzio-nt-50-cua-di-1.webp"
    ]
@@ -2174,7 +2308,9 @@ export const HE_CUA_DS: HeCua[] = [
   "chongTrom": "",
   "ghiChu": "",
   "anh": {
-   "c": [],
+   "c": [
+    "/images/he-cua/mau-goc/ponzio-nt-52-tt-cua-di-g1.webp"
+   ],
    "d": [
     "/images/he-cua/ban-ve/ponzio-nt-52-tt-cua-di-1.webp"
    ]
@@ -2197,7 +2333,9 @@ export const HE_CUA_DS: HeCua[] = [
   "chongTrom": "",
   "ghiChu": "",
   "anh": {
-   "c": [],
+   "c": [
+    "/images/he-cua/mau-goc/ponzio-nt-60-tt-cua-di-g1.webp"
+   ],
    "d": [
     "/images/he-cua/ban-ve/ponzio-nt-60-tt-cua-di-1.webp"
    ]
@@ -2222,7 +2360,9 @@ export const HE_CUA_DS: HeCua[] = [
   "chongTrom": "",
   "ghiChu": "",
   "anh": {
-   "c": [],
+   "c": [
+    "/images/he-cua/mau-goc/ponzio-nt-65-tt-cua-di-g1.webp"
+   ],
    "d": [
     "/images/he-cua/ban-ve/ponzio-nt-65-tt-cua-di-1.webp"
    ]
@@ -2245,7 +2385,9 @@ export const HE_CUA_DS: HeCua[] = [
   "chongTrom": "",
   "ghiChu": "",
   "anh": {
-   "c": [],
+   "c": [
+    "/images/he-cua/mau-goc/ponzio-nt-65-tt-panic-sac-1-g1.webp"
+   ],
    "d": [
     "/images/he-cua/ban-ve/ponzio-nt-65-tt-panic-sac-1-1.webp"
    ]
@@ -2677,7 +2819,9 @@ export const HE_CUA_DS: HeCua[] = [
   "ghiChu": "Mặt đứng 60 mm; chiều sâu thanh đứng 166 mm, thanh ngang 125 mm; kính 24 mm.",
   "ketCau": "t",
   "anh": {
-   "c": [],
+   "c": [
+    "/images/he-cua/mau-goc/civro-acw120-g1.webp"
+   ],
    "d": []
   },
   "them": true,
@@ -2698,7 +2842,10 @@ export const HE_CUA_DS: HeCua[] = [
   "ghiChu": "AWG140 có cầu nhiệt (kính 28 mm), NWG110 không cầu nhiệt. Mái song song, mái dốc một phía hoặc mái nhiều dốc (AWG140). Chỉ số U và cách âm trong bảng là của AWG140. Hãng chưa công bố thông số hiệu năng cho NWG110.",
   "ketCau": "tn",
   "anh": {
-   "c": [],
+   "c": [
+    "/images/he-cua/mau-goc/civro-awg140-nwg110-g1.webp",
+    "/images/he-cua/mau-goc/civro-awg140-nwg110-g2.webp"
+   ],
    "d": []
   },
   "them": true,

@@ -50,6 +50,11 @@ File chính:
 - Hệ không có ảnh hợp lệ hiển thị hình minh họa SVG theo loại cửa (`HinhMinhHoa`).
 - **Rà ảnh 11/11/2026 (đã xem tận mắt bằng bảng ảnh ghép và phóng to):** trong ~600 ảnh ROMADIO, phần lớn render 3D có chữ **"ROMADIO" in nhỏ ngay trên thanh nhôm** (không phải ở góc ảnh như ghi trước đó; bốn góc thường sạch), nên đã loại: OVERSKY 23S, RD120/150/190/225/230LS, RD65, RW*, MD65/190, MW*, FineLine bản có nhãn, bản "tách nền" của chúng. Bộ dò màu xanh navy chỉ để lọc thô, **luôn phải xem mắt**. Ảnh sạch dùng được và đã gán (script `cong-cu/them-anh-3d.cjs`): RD80FD, MD80FD (render tách nền), FineLine 59WO (6), FineLine 62DO (3), LD16IN, LD16OU, LD16SB-F, LD16ST, LD16ST-F (ảnh phối cảnh thư mục L SERIES; tab/ô hiển thị gọi chung "Mẫu góc"). Cộng với PANORAMA 19H và RCT65 có sẵn, đó là 11 hệ có ảnh **không logo**; thêm 27 hệ có ảnh có logo (xem ngay dưới).
 - **Quyết định mới 11/11/2026 (người dùng):** cho phép dùng **ảnh mẫu góc CÓ logo hãng** (chữ ROMADIO nhỏ trên thanh nhôm) cho những hệ có ảnh, thay cho việc chỉ để bản vẽ 2D. Đã gán 27 hệ Romadio nữa (R/M Series, PANORAMA 19S 2/3 ray, OVERSKY 23S), tối đa 3 góc nhìn mỗi hệ (ưu tiên bản tách nền `_nobg`), cấu hình ở mảng `CO_LOGO` trong `cong-cu/them-anh-3d.cjs`. Tổng **38/47 hệ Romadio có mẫu góc**. Chưa có: RW100IN + FW40G (tên tệp là "RW100IN MESH", chưa chắc cùng hệ nên không đoán), 8 hệ LID (không có ảnh). **Civro và Ponzio không có ảnh 3D nào trong thư mục (Civro chỉ có PDF, Ponzio không có)** nên vẫn là bản vẽ 2D. Không cắt hay làm mờ logo.
+- **Ảnh lấy từ trang chính thức của hãng (người dùng yêu cầu 11/11/2026, cho các hệ chưa có ảnh):**
+  - **Civro** (`cong-cu/them-anh-civro.cjs`): ảnh render 3D mẫu góc ở mục Product của https://www.civro.com/product/<hệ>/ (png/webp nền trong suốt, rộng ~500 px, đã xem tận mắt, **không logo**). 31/35 hệ Civro; chưa có XD55 (trang không có ảnh), USL, USW, AMAZA UID16 (không có trang sản phẩm). Chỉ lấy ảnh mẫu góc, không lấy ảnh phối cảnh nội thất (.jpg). Tối đa 3 ảnh/hệ (góc trong/ngoài, ngưỡng thấp/cao).
+  - **Ponzio** (`cong-cu/them-anh-ponzio.cjs`): ảnh render 3D mẫu góc ở đầu trang hệ https://ponzioaluminium.com/en/<hệ>/ (png 500 px, **không logo**). 29/33 hệ Ponzio, mỗi hệ 1 ảnh. Chưa có: NT 75 TT HI (cửa đi, liên kết trên trang hãng bị 404), SL65 In linea, SL65 Nâng trượt, Apexfine (chưa tìm được trang; trang apexfine chuyển hướng và hết thời gian). WS 55 TT (cửa đi) dùng chung ảnh với WS 55 TT (trang hãng gộp). Ảnh của WS 45 TT trên trang hãng trùng ảnh WS 55 TT.
+  - Địa chỉ ảnh nằm sẵn trong từng script. Cần xác nhận quyền dùng ảnh/dữ liệu của hãng trước khi công bố chính thức (mục 8.2).
+  - **Tổng cộng 98/115 hệ có ảnh mẫu góc** (Romadio 38/47, Civro 31/35, Ponzio 29/33). Trang vẫn hiện đủ 115 hệ; 17 hệ còn lại dùng bản vẽ 2D (hoặc hình minh họa SVG).
 - Ảnh Entrance door (78 ảnh) chưa xét vì không phải hệ cửa trong danh sách.
 - Cắt/làm mờ logo trên ảnh là phương án người dùng đã được hỏi nhưng **không chọn** (họ chọn "chỉ ảnh không logo"). Đừng tự làm.
 
@@ -78,12 +83,14 @@ node docs/ban-giao-he-cua/cong-cu/parse-all.cjs "$S"        # parse trang Winbos
 node docs/ban-giao-he-cua/cong-cu/dl-wb.mjs "$S/wb-he-cua/other.json" "$S/wb-img-other"   # tải ảnh (chỉ khi cần)
 node docs/ban-giao-he-cua/cong-cu/sheet-local.cjs "$S" "INFINITY 19H"   # cũng tạo local-list.json
 node docs/ban-giao-he-cua/cong-cu/gen3.cjs "$S"             # ghi src/lib/he-cua-du-lieu.ts + public/images/he-cua/**
+node docs/ban-giao-he-cua/cong-cu/them-anh-civro.cjs          # CHẠY SAU gen3 (cần mạng, tải từ civro.com)
+node docs/ban-giao-he-cua/cong-cu/them-anh-ponzio.cjs         # CHẠY SAU gen3 (cần mạng, tải từ ponzioaluminium.com)
 node docs/ban-giao-he-cua/cong-cu/them-anh-3d.cjs "<thư mục ROMADIO>"   # CHẠY SAU gen3: gen3 xóa public/images/he-cua nên mất các ảnh 3D thêm sau (36 hệ); script này làm lại
 ```
 `gen3.cjs` xóa và tạo lại `public/images/he-cua/`. 9 hệ bổ sung được khai báo ngay trong `gen3.cjs` (hàm `them(...)`). Lưu ý đường dẫn trong `sheet-local.cjs`/`gen3.cjs` đang trỏ thẳng vào thư mục `ROMADIO` trên máy người dùng.
 
 ## 8. Việc còn lại / đề xuất (theo thứ tự ưu tiên)
-1. **Xin hãng ảnh 3D bản không logo** (hoặc bộ "Chưa có Logo" cho R/M series). Đã tận dụng hết ảnh sạch hiện có (11 hệ Romadio) và, theo quyết định mới, cả ảnh có logo (thêm 27 hệ; xem mục 5). Toàn bộ Civro (chỉ có PDF) và Ponzio vẫn chưa có ảnh 3D nào. Đây vẫn là chỗ khác biệt lớn nhất so với Winboss.
+1. **Xin hãng ảnh 3D bản không logo** (hoặc bộ "Chưa có Logo" cho R/M series). Đã tận dụng hết ảnh sạch hiện có (11 hệ Romadio) và, theo quyết định mới, cả ảnh có logo (thêm 27 hệ; xem mục 5). Civro và Ponzio đã lấy ảnh từ trang chính thức của hãng (xem mục 5); còn 17 hệ chưa có ảnh. Đây vẫn là chỗ khác biệt lớn nhất so với Winboss.
 2. **Xác nhận quyền dùng** số liệu, bản vẽ và tên hãng trên WINDUCA trước khi công bố chính thức (người dùng đã được nhắc nhiều lần, chưa trả lời dứt khoát).
 3. ~~Kiểm tra số ACW120 và AWG140~~ **Đã kiểm 11/11/2026 bằng cách xem trang PDF thật** (không dùng chữ trích): ACW120 U 2.2, cách âm 35 dB, kín khí 0.21, kín nước 700 Pa, chịu gió **≤ 4.0 kPa** (đã sửa từ "4.0 kPa"); AWG140 U 2.2 và cách âm 35 dB, NWG110 ghi "/" (không công bố), PDF không có kín khí, kín nước, chịu gió cho cụm này. 7 hệ bổ sung còn lại chưa có bảng thông số ("Hãng chưa công bố thông số").
 4. **Cmech**: thư mục trống; khi có tài liệu thì thêm hệ như `them(...)`.
