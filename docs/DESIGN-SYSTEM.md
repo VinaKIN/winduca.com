@@ -257,6 +257,11 @@ Các linh kiện dưới đây dùng ma trận 7 trạng thái ở mục 3.0; m�
 - **Dữ liệu:** `src/lib/he-cua-du-lieu.ts` (115 hệ: 106 từ bảng công bố của trang gốc, 9 hệ bổ sung từ tài liệu hãng trong thư mục ảnh, đánh dấu `them`). Hệ không có ảnh dùng hình minh họa theo loại cửa.
 - **Ảnh:** chỉ dùng bản vẽ 2D đã kiểm tra (bỏ bản vẽ có logo hoặc mã profile in trên hình, cắt dải mã sản phẩm ở đáy hình Civro) và 2 ảnh 3D đã kiểm tra không có logo. Ảnh 3D và ảnh thực tế còn lại có logo hãng nên chưa dùng, cần ảnh bản không logo từ hãng.
 - **Số liệu** luôn kèm ghi chú: tham khảo, thay đổi theo kích thước và cấu hình; chưa công bố chính thức khi chưa xác nhận quyền sử dụng.
+### 3.12 Trang Giải pháp kiểu tạp chí (11/11/2026)
+- Chữ có chân **Cormorant Garamond** (biến `--font-cormorant`, lớp `font-serif`) chỉ dùng cho tiêu đề, số thứ tự, câu trích và chữ cái đầu bài ở `/giai-phap` và `/giai-phap/<slug>`; nội dung và nút vẫn Roboto.
+- Bố cục: bìa ảnh toàn khung, thư ngỏ, mục lục có ảnh đổi theo (`MucLucTapChi`), tám bài xen kẽ trái/phải, quy trình năm bước. Trang chi tiết: bìa, câu dẫn, thân bài có chữ cái đầu, câu trích, ảnh rộng, ba điều cần cân nhắc, hệ cửa, hỏi đáp (`<details>`), quy trình, bài tiếp theo.
+- Dữ liệu ở `src/lib/giai-phap.ts` (8 loại công trình). Ảnh minh họa Pexels ở `public/images/giai-phap/`, mỗi ảnh có chú thích "Ảnh minh họa, nguồn Pexels", ID ghi ở `public/images/NGUON-ANH.md`.
+
 ---
 
 ## 4. Yêu cầu truy cập và tiêu chí nghiệm thu kiểm tra được

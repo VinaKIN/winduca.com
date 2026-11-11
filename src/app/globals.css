@@ -26,6 +26,7 @@
   --color-do-do: var(--do-do);
   --font-sans: var(--font-roboto), system-ui, sans-serif;
   --font-display: var(--font-roboto), system-ui, sans-serif;
+  --font-serif: var(--font-cormorant), Georgia, "Times New Roman", serif;
 }
 
 html {

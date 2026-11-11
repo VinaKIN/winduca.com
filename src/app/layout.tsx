@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Roboto } from "next/font/google";
+import { Cormorant_Garamond, Roboto } from "next/font/google";
 import "./globals.css";
 import { Header } from "@/components/Header";
 import { Analytics } from "@/components/Analytics";
@@ -15,6 +15,15 @@ const roboto = Roboto({
   variable: "--font-roboto",
   subsets: ["latin", "vietnamese"],
   weight: ["300", "400", "500", "700", "900"],
+  display: "swap",
+});
+
+/** Chữ có chân dùng cho tiêu đề kiểu tạp chí (trang Giải pháp). */
+const cormorant = Cormorant_Garamond({
+  variable: "--font-cormorant",
+  subsets: ["latin", "vietnamese"],
+  weight: ["400", "500", "600"],
+  style: ["normal", "italic"],
   display: "swap",
 });
 
@@ -43,7 +52,7 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="vi" className={roboto.variable}>
+    <html lang="vi" className={`${roboto.variable} ${cormorant.variable}`}>
       <body className="min-h-screen flex flex-col">
         <a
           href="#noi-dung"

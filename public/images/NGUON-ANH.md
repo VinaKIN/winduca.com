@@ -86,3 +86,19 @@ Nguồn: thư mục "Hình anh" (winduca (1..127).jpg). Trạng thái bản quy�
 | xuong/tay-nghe-phu-kien.webp | 75.jpg (người dùng gửi 10/11/2026) | 1377x768 | 46KB | Xưởng + Giới thiệu: kiểm tra phụ kiện |
 | xuong/kiem-tra-gia-cong.webp | 76.jpg (người dùng gửi 10/11/2026) | 1404x768 | 68KB | Xưởng: công đoạn gia công |
 | xuong/thanh-nhom-tay-nam.webp | 77.jpg (người dùng gửi 10/11/2026) | 1414x2000 | 72KB | Trải nghiệm: hero (mẫu góc nhôm và tay nắm) |
+
+## Trang Giải pháp (11/11/2026): ảnh minh họa từ Pexels
+
+Giấy phép Pexels: miễn phí dùng thương mại, không bắt buộc ghi nguồn; vẫn ghi chú "Ảnh minh họa, nguồn Pexels" trên trang. Không phải công trình của WINDUCA. Chọn theo yêu cầu của anh Huy 11/11/2026. Tệp `public/images/giai-phap/<slug>-1|2.webp`, WebP rộng 1800 px. Trang ảnh: `https://www.pexels.com/photo/<id>/`.
+
+| Tệp | ID ảnh Pexels |
+|---|---|
+| bia-1 (bìa trang tổng) | 36710315 |
+| biet-thu-1 / -2 | 8134753 / 35361412 |
+| penthouse-1 / -2 | 7045918 / 40134484 |
+| can-ho-cao-cap-1 / -2 | 6758521 / 27051764 |
+| nha-pho-cao-cap-1 / -2 | 28403269 / 19516616 |
+| khach-san-resort-1 / -2 | 7974839 / 34940589 |
+| van-phong-hang-a-1 / -2 | 13219418 / 40182762 |
+| nha-hang-quan-ca-phe-1 / -2 | 39833713 / 4850278 |
+| cong-trinh-dac-thu-1 / -2 | 11861957 / 38247895 |
