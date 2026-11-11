@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { CauHinhCua } from "@/components/CauHinhCua";
 import { Hien, NutHut } from "@/components/HieuUng";
-import { MauCua } from "@/components/MauCua";
+import { HeCuaDanhSach } from "@/components/HeCuaDanhSach";
 import { SoSanhHeCua } from "@/components/SoSanhHeCua";
 import { PageHero, Wrap } from "@/components/ui";
 import { asset } from "@/lib/asset";
@@ -91,12 +91,12 @@ export default function HeCua() {
         </Wrap>
       </section>
 
-      {/* 03 · Mẫu cửa theo hãng */}
-      <section id="mau-cua" className="luoi-ban-ve nen-sang py-7">
+      {/* 03 · Sản phẩm theo chức năng (11/11/2026: thay mục Mẫu cửa theo hãng; không dùng tên hãng) */}
+      <section id="san-pham" className="luoi-ban-ve nen-sang py-7">
         <Wrap>
-          <Dau so="03" nhan="Mẫu cửa" tieuDe={<>Mẫu cửa <span className="font-bold">Romadio, Civro, Ponzio</span></>} />
+          <Dau so="03" nhan="Sản phẩm" tieuDe={<>Chọn sản phẩm theo <span className="font-bold">thông số kỹ thuật</span></>} />
           <Hien tre={100} className="mt-5">
-            <MauCua />
+            <HeCuaDanhSach />
           </Hien>
         </Wrap>
       </section>

@@ -6,7 +6,9 @@ import { DoorExplorer } from "@/components/DoorExplorer";
 import { Faq } from "@/components/Faq";
 import { Hien, KeoNgang, NutHut } from "@/components/HieuUng";
 import { LeadForm } from "@/components/LeadForm";
+import { ThongSoBon } from "@/components/ThongSoBon";
 import { PageHero, Wrap } from "@/components/ui";
+import { SAN_PHAM } from "@/lib/san-pham";
 import { asset } from "@/lib/asset";
 import { CONG_TRINH_MINH_HOA, FAQ_CHUNG, KIEU_CUA, TEN_EN_HE_CUA, THONG_SO_BANG } from "@/lib/site";
 
@@ -46,6 +48,7 @@ export default async function KieuCuaPage({ params }: PageProps<"/he-cua/[slug]"
   if (!k) notFound();
 
   const khac = KIEU_CUA.filter((x) => x.slug !== k.slug);
+  const sanPham = SAN_PHAM.filter((p) => p.kieu === k.slug);
   const lienQuan = CONG_TRINH_MINH_HOA.filter((c) => c.kieuCua === k.ten).slice(0, 4);
 
   return (
@@ -81,6 +84,31 @@ export default async function KieuCuaPage({ params }: PageProps<"/he-cua/[slug]"
           </dl>
         </Wrap>
       </section>
+
+      {/* Sản phẩm thuộc kiểu cửa này (11/11/2026): 4 dòng thông số mỗi sản phẩm */}
+      {sanPham.length > 0 && (
+        <section className="nen-nga py-7">
+          <Wrap>
+            <Hien>
+              <p className="nhan-muc text-accent">Sản phẩm</p>
+              <h2 className="mt-3 max-w-3xl text-[clamp(1.625rem,2.6vw,2.5rem)] font-light leading-[1.15] tracking-[-0.01em]">
+                Sản phẩm thuộc <span className="font-bold">{k.ten.toLowerCase()}</span>
+              </h2>
+              <p className="mt-3 max-w-2xl text-[15px] leading-relaxed text-than-chi/65">Bốn chỉ số để so sánh nhanh; giá trị được công bố khi có xác nhận kiểm định.</p>
+            </Hien>
+            <ul className="mt-5 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+              {sanPham.map((p, i) => (
+                <Hien key={p.slug} as="li" tre={i * 80} className="dau-goc rounded-[6px] border border-than-chi/10 bg-white p-5 md:p-6">
+                  <p className="nhan-muc text-accent">{p.nhom}</p>
+                  <h3 className="mt-1 text-xl font-bold">{p.ten}</h3>
+                  <p className="mt-1 text-[15px] leading-relaxed text-than-chi/70">{p.mota}</p>
+                  <ThongSoBon sp={p} lop="mt-4 border-t border-than-chi/10 pt-4" />
+                </Hien>
+              ))}
+            </ul>
+          </Wrap>
+        </section>
+      )}
 
       {/* 02 · Trải nghiệm + 03 · Cấu tạo 3D */}
       <DoorExplorer tenKieuCua={k.ten} slug={k.slug} />
