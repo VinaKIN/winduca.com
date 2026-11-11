@@ -120,7 +120,7 @@ const SAN_KHAU = "bg-[radial-gradient(ellipse_at_50%_36%,#ffffff_0%,#f2f5f9_50%,
 const NHAN_KET_CAU: Record<string, string> = { t: "Có cầu cách nhiệt", n: "Không cầu nhiệt", tn: "Cả hai phiên bản" };
 function chipThe(r: HeCua): string[] {
   const kinh = /^Kính áp dụng:\s*(.+)$/.exec(r.ghiChu.trim());
-  return [...(r.ketCau ? [NHAN_KET_CAU[r.ketCau]] : []), ...(kinh ? [`Kính ${kinh[1]}`] : []), ...r.tags.map((t) => TEN_TAG[t])];
+  return [...(r.ketCau ? [NHAN_KET_CAU[r.ketCau]] : []), ...(kinh ? [`Kính ${kinh[1]}`] : []), ...(/RC[1-6]/.test(r.chongTrom) ? [`Chống đột nhập ${/RC\d(?:\/RC\d)?/.exec(r.chongTrom)?.[0]}`] : []), ...r.tags.map((t) => TEN_TAG[t])];
 }
 
 /** Ảnh chụp (tệp có hậu tố -p<số>) phủ kín khung; ảnh render tách nền đã chuẩn hóa vuông, hiện vừa khung và có bóng dưới chân. */
@@ -243,15 +243,15 @@ function CuaSoChiTiet({ r, dong }: { r: HeCua; dong: () => void }) {
 
   return (
     <HopThoai dong={dong} tieuDe={`${ten}, ${r.loai}`}>
-      <div className={`${SAN_KHAU} relative flex min-h-[300px] flex-col items-center justify-center border-b border-[#e3e7ec] p-5 md:min-h-[520px] md:border-b-0 md:border-r`}>
-        <span className="absolute left-4 top-4 flex items-center gap-2 text-[12px] font-bold uppercase tracking-[0.2em] text-[#4b5563]">
+      <div className="relative flex min-h-[300px] flex-col items-center justify-center bg-[radial-gradient(ellipse_at_50%_38%,#4a1f27_0%,#1b1c21_52%,#0d0e11_100%)] p-5 md:min-h-[520px]">
+        <span className="absolute left-4 top-4 flex items-center gap-2 text-[12px] font-bold uppercase tracking-[0.2em] text-white/70">
           <i className="h-1.5 w-1.5 bg-accent" aria-hidden="true" />
           {TEN_HANG[r.hang]}
         </span>
         {anhDang ? (
           <>
             <button type="button" onClick={() => setPhong(true)} aria-label="Phóng to ảnh" className="relative mt-6 h-[clamp(260px,50svh,500px)] w-full cursor-zoom-in">
-              <Image src={asset(anhDang)} alt={`${co[tab][0]} ${ten}`} fill quality={75} sizes="(min-width: 768px) 50vw, 92vw" className="object-contain drop-shadow-[0_22px_26px_rgba(15,17,21,0.22)]" />
+              <Image key={anhDang} src={asset(anhDang)} alt={`${co[tab][0]} ${ten}`} fill quality={75} sizes="(min-width: 768px) 50vw, 92vw" className="anh-doi object-contain drop-shadow-[0_26px_30px_rgba(0,0,0,0.55)]" />
             </button>
             {co.length > 1 && (
               <div role="tablist" aria-label="Loại hình" className="mt-3 flex gap-2">
@@ -265,7 +265,7 @@ function CuaSoChiTiet({ r, dong }: { r: HeCua; dong: () => void }) {
                       setTab(i);
                       setK(0);
                     }}
-                    className={`min-h-11 rounded-full border px-4 py-2 text-[13px] ${tab === i ? "border-than-chi bg-than-chi font-bold text-white" : "border-[#c9d0d9] bg-white text-[#4b5563] hover:border-than-chi"}`}
+                    className={`min-h-11 rounded-full border px-4 py-2 text-[13px] ${tab === i ? "border-white bg-white font-bold text-than-chi" : "border-white/25 bg-transparent text-white/75 hover:border-white"}`}
                   >
                     {t}
                   </button>
@@ -276,7 +276,7 @@ function CuaSoChiTiet({ r, dong }: { r: HeCua; dong: () => void }) {
               <ul className="mt-3 flex flex-wrap justify-center gap-2" aria-label="Chọn hình">
                 {co[tab][1].map((u, i) => (
                   <li key={u}>
-                    <button type="button" onClick={() => setK(i)} aria-label={`Hình ${i + 1}`} aria-current={i === k} className={`relative h-14 w-16 overflow-hidden rounded-[8px] border bg-white ${i === k ? "border-accent" : "border-[#c9d0d9]"}`}>
+                    <button type="button" onClick={() => setK(i)} aria-label={`Hình ${i + 1}`} aria-current={i === k} className={`relative h-14 w-16 overflow-hidden rounded-[8px] border bg-white/[0.06] ${i === k ? "border-accent" : "border-white/20"}`}>
                       <Image src={asset(u)} alt="" fill quality={60} sizes="64px" className="object-contain p-1" />
                     </button>
                   </li>
@@ -653,6 +653,12 @@ export function HeCuaDanhSach() {
                 <span className="absolute left-[18px] top-4 z-[1] flex items-center gap-[7px] text-[12px] font-bold uppercase tracking-[0.2em] text-[#4b5563]">
                   <i className="h-1.5 w-1.5 bg-accent" aria-hidden="true" />
                   {TEN_HANG[r.hang]}
+                </span>
+                <span className="goc-do pointer-events-none absolute inset-0" aria-hidden="true">
+                  <i />
+                  <i />
+                  <i />
+                  <i />
                 </span>
                 <AnhThe r={r} lopMau="group-hover:scale-[1.04]" />
                 <label className="absolute right-2 top-1.5 z-10 flex h-11 w-11 cursor-pointer items-center justify-center" title="So sánh">

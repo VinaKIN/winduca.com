@@ -42,7 +42,7 @@ export const MENU = [
 ];
 
 /** Menu ba gạch (toàn màn hình): theo mẫu anh Huy gửi 10/11/2026 — Giới thiệu · Sản phẩm · Tin tức · Chính sách · Liên hệ */
-export type MucMenu = { href: string; label: string; con?: { href: string; label: string }[] };
+export type MucMenu = { href: string; label: string; con?: { href: string; label: string; anh?: string; so?: number }[] };
 export const MENU_CHINH: MucMenu[] = [
   {
     href: "/gioi-thieu",
@@ -56,11 +56,14 @@ export const MENU_CHINH: MucMenu[] = [
   {
     href: "/he-cua",
     label: "Hệ cửa",
+    // 6 loại hệ của trang /he-cua, bấm vào là lọc sẵn. `so` = số hệ (tính 11/11/2026 từ he-cua-du-lieu.ts; cập nhật khi thêm hệ).
     con: [
-      { href: "/he-cua/cua-truot-nang", label: "Cửa trượt nâng" },
-      { href: "/he-cua/cua-di-mo-quay", label: "Cửa đi mở quay" },
-      { href: "/he-cua/cua-xep-truot", label: "Cửa xếp trượt" },
-      { href: "/he-cua/cua-so", label: "Cửa sổ" },
+      { href: "/he-cua?h=w", label: "Cửa sổ", so: 45, anh: "/images/he-cua/mau-goc/civro-xw65-g1.webp" },
+      { href: "/he-cua?h=d", label: "Cửa đi", so: 27, anh: "/images/he-cua/mau-goc/civro-xd65-g1.webp" },
+      { href: "/he-cua?h=s", label: "Cửa trượt", so: 31, anh: "/images/he-cua/mau-goc/civro-pd65-enfini-pro-g1.webp" },
+      { href: "/he-cua?h=l", label: "Nâng trượt", so: 9, anh: "/images/he-cua/mau-goc/romadio-rd120ls-ss-g1.webp" },
+      { href: "/he-cua?h=f", label: "Xếp gấp", so: 3, anh: "/images/he-cua/mau-goc/romadio-rd80fd-g1.webp" },
+      { href: "/he-cua?h=v", label: "Vách kính", so: 4, anh: "/images/he-cua/mau-goc/romadio-rct65-g1.webp" },
     ],
   },
   {

@@ -664,3 +664,40 @@ section.nen-nga {
     animation: none;
   }
 }
+
+/* /he-cua: ảnh trong hộp chi tiết hiện dần khi đổi góc nhìn; thẻ có bốn góc "đo" như bản vẽ khi rê chuột */
+@keyframes anh-hien-dan {
+  from {
+    opacity: 0;
+    transform: scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+.anh-doi {
+  animation: anh-hien-dan 0.6s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+.goc-do > i {
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  border-color: rgba(200, 16, 46, 0.7);
+  opacity: 0;
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+.goc-do > i:nth-child(1) { left: 12px; top: 40px; border-width: 1px 0 0 1px; transform: translate(6px, 6px); }
+.goc-do > i:nth-child(2) { right: 12px; top: 40px; border-width: 1px 1px 0 0; transform: translate(-6px, 6px); }
+.goc-do > i:nth-child(3) { left: 12px; bottom: 12px; border-width: 0 0 1px 1px; transform: translate(6px, -6px); }
+.goc-do > i:nth-child(4) { right: 12px; bottom: 12px; border-width: 0 1px 1px 0; transform: translate(-6px, -6px); }
+.group:hover .goc-do > i,
+.group:focus-within .goc-do > i {
+  opacity: 1;
+  transform: none;
+}
+@media (prefers-reduced-motion: reduce) {
+  .anh-doi {
+    animation: none;
+  }
+}

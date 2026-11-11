@@ -233,9 +233,17 @@ export function Header() {
                                     href={c.href}
                                     tabIndex={mo ? 0 : -1}
                                     aria-current={dangO(c.href) ? "page" : undefined}
-                                    className={`text-sm transition-colors hover:text-accent ${dangO(c.href) ? "font-bold text-accent" : "text-than-chi/65"}`}
+                                    className={`group/mc flex items-center gap-2.5 text-sm transition-colors hover:text-accent ${dangO(c.href) ? "font-bold text-accent" : "text-than-chi/65"}`}
                                   >
-                                    {c.label}
+                                    {c.anh && (
+                                      <span className="relative h-10 w-10 shrink-0 overflow-hidden rounded-full bg-[radial-gradient(circle_at_50%_40%,#fff,#e4e9f0)] ring-1 ring-than-chi/10 transition-shadow group-hover/mc:ring-accent/50">
+                                        <Image src={asset(c.anh)} alt="" fill quality={60} sizes="40px" className="object-contain p-0.5 transition-transform duration-500 group-hover/mc:scale-110" aria-hidden="true" />
+                                      </span>
+                                    )}
+                                    <span>
+                                      {c.label}
+                                      {c.so !== undefined && <sup className="ml-1 text-[10px] font-bold tabular-nums text-accent">{c.so}</sup>}
+                                    </span>
                                   </Link>
                                 </li>
                               ))}

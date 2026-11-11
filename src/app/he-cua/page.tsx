@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import { HeCuaDanhSach } from "@/components/HeCuaDanhSach";
+import { HeroBangChuyen } from "@/components/HeroBangChuyen";
 import { Wrap } from "@/components/ui";
-import { asset } from "@/lib/asset";
 import { HE_CUA_DS } from "@/lib/he-cua-du-lieu";
 
 export const metadata: Metadata = {
@@ -15,9 +14,11 @@ export const metadata: Metadata = {
  * lưới thẻ có sân khấu sáng cho ảnh mẫu góc, phân trang, so sánh và hộp chi tiết.
  */
 const NOI_BAT = [
-  { src: "/images/he-cua/mau-goc/ponzio-ws-65-thi-g1.webp", nhan: "Ponzio · WS 65 THI", lop: "left-[2%] top-[14%] w-[34%] -rotate-3 opacity-90", sizes: "20vw" },
-  { src: "/images/he-cua/mau-goc/romadio-rd80fd-g1.webp", nhan: "Romadio · RD80FD", lop: "right-[0%] top-[18%] w-[34%] rotate-3 opacity-90", sizes: "20vw" },
-  { src: "/images/he-cua/mau-goc/civro-xw65-g1.webp", nhan: "Civro · XW65", lop: "left-1/2 top-0 z-10 w-[42%] -translate-x-1/2", sizes: "30vw" },
+  { src: "/images/he-cua/mau-goc/civro-xw65-g1.webp", hang: "Civro", ma: "XW65" },
+  { src: "/images/he-cua/mau-goc/romadio-rd80fd-g1.webp", hang: "Romadio", ma: "RD80FD" },
+  { src: "/images/he-cua/mau-goc/ponzio-ws-65-thi-g1.webp", hang: "Ponzio", ma: "WS 65 THI" },
+  { src: "/images/he-cua/mau-goc/romadio-rct65-g1.webp", hang: "Romadio", ma: "RCT65" },
+  { src: "/images/he-cua/mau-goc/civro-xd65-g1.webp", hang: "Civro", ma: "XD65" },
 ];
 
 export default function HeCua() {
@@ -51,22 +52,7 @@ export default function HeCua() {
                 ))}
               </dl>
             </div>
-            <div className="relative mx-auto hidden h-[380px] w-full max-w-[560px] sm:block lg:h-[420px]" aria-hidden="true">
-              <div className="absolute inset-x-[8%] bottom-[8%] top-[12%] rounded-full bg-accent/20 blur-[70px]" />
-              {NOI_BAT.map((n) => (
-                <figure key={n.src} className={`absolute drop-shadow-[0_30px_40px_rgba(0,0,0,0.55)] ${n.lop}`}>
-                  <Image src={asset(n.src)} alt="" width={700} height={900} quality={75} sizes={n.sizes} priority className="h-auto w-full" />
-                </figure>
-              ))}
-              <div className="absolute inset-x-0 bottom-0 z-20 flex flex-wrap justify-center gap-x-5 gap-y-1 text-[11px] font-medium uppercase tracking-[0.18em] text-white/60">
-                {NOI_BAT.map((n) => (
-                  <span key={n.nhan} className="inline-flex items-center gap-2">
-                    <i className="h-1.5 w-1.5 rounded-full bg-accent" />
-                    {n.nhan}
-                  </span>
-                ))}
-              </div>
-            </div>
+            <HeroBangChuyen mau={NOI_BAT} />
           </div>
         </Wrap>
       </section>
