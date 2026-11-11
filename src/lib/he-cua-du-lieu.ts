@@ -1205,8 +1205,9 @@ export const HE_CUA_DS: HeCua[] = [
   "ghiChu": "Kính áp dụng: 13–52 mm",
   "anh": {
    "c": [
-    "/images/he-cua/mau-goc/romadio-rw100in-fw40g-p1.webp",
-    "/images/he-cua/mau-goc/romadio-rw100in-fw40g-p2.webp"
+    "/images/he-cua/mau-goc/romadio-rw100in-fw40g-g1.webp",
+    "/images/he-cua/mau-goc/romadio-rw100in-fw40g-g2.webp",
+    "/images/he-cua/mau-goc/romadio-rw100in-fw40g-g3.webp"
    ],
    "d": [
     "/images/he-cua/ban-ve/romadio-rw100in-fw40g-1.webp"

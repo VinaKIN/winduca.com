@@ -40,6 +40,7 @@ async function doSanPham(buf, nguong) {
   let boQua = 0;
   for (const ten of fs.readdirSync(THU_MUC).sort()) {
     if (!ten.endsWith(".webp") || /-p\d\.webp$/.test(ten)) continue;
+    if (process.argv[2] && !ten.includes(process.argv[2])) continue; // tùy chọn: chỉ xử lý tệp có chuỗi này trong tên
     const duong = THU_MUC + ten;
     const buf = fs.readFileSync(duong);
     const m = await sharp(buf).metadata();

@@ -35,6 +35,8 @@ const DS = [
 
 // Hệ có ảnh mẫu góc CÓ logo hãng. stem = phần đầu tên tệp (bản tách nền: "<stem> 1_nobg.png", "<stem> 2_nobg.png", ...);
 // tep = danh sách tên tệp cụ thể khi không có bản tách nền.
+// Biến môi trường CHI_MA="ma1,ma2" chỉ xử lý các hệ đó (để không phải chuẩn hóa lại mọi ảnh).
+const CHI_MA = process.env.CHI_MA ? process.env.CHI_MA.split(",") : null;
 const CO_LOGO = [
   { ma: "RD120LS/SS", stem: "RD120LS" },
   { ma: "RD150LS/SS Triple Glass", stem: "RD150LS" },
@@ -45,7 +47,8 @@ const CO_LOGO = [
   { ma: "RP127OU + Fence", stem: "RP127OU" },
   { ma: "RVE100IN", stem: "RVE100IN" },
   { ma: "RVE65IN", stem: "RVE65IN" },
-  { ma: "RW100SS", tep: ["RW100SS.png", "RW100SS (2).png", "RW100SS (3).png"] },
+  { ma: "RW100SS", stem: "RW100SS" },
+  { ma: "RW100IN + FW40G", stem: "RW100IN MESH" },
   { ma: "RW120OU + MESH", stem: "RW120OU MESH" },
   { ma: "RW65IN + Mesh", stem: "RW65IN MESH" },
   { ma: "RW65OU", stem: "RW65OU" },
@@ -90,6 +93,7 @@ function tim(ten) {
   const arr = JSON.parse(s.slice(a, b + 1));
   let n = 0;
   for (const m of DS) {
+    if (CHI_MA && !CHI_MA.includes(m.ma)) continue;
     const r = arr.find((x) => x.hang === "romadio" && x.ma === m.ma);
     if (!r) {
       console.log("KHÔNG THẤY hệ:", m.ma);
@@ -112,6 +116,7 @@ function tim(ten) {
   }
   let nl = 0;
   for (const m of CO_LOGO) {
+    if (CHI_MA && !CHI_MA.includes(m.ma)) continue;
     const r = arr.find((x) => x.hang === "romadio" && x.ma === m.ma);
     if (!r) {
       console.log("KHÔNG THẤY hệ:", m.ma);
