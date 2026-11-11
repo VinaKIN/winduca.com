@@ -95,9 +95,9 @@ export default function HeCua() {
       <section id="san-pham" className="luoi-ban-ve nen-sang khoi-doc">
         <Wrap>
           <Dau so="03" nhan="Sản phẩm" tieuDe={<>Chọn sản phẩm theo <span className="font-bold">thông số kỹ thuật</span></>} />
-          <Hien tre={100} className="mt-5">
+          <div className="mt-5">
             <HeCuaDanhSach />
-          </Hien>
+          </div>
         </Wrap>
       </section>
 
