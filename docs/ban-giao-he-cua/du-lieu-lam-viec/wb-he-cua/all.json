@@ -1,0 +1,2829 @@
+[
+ {
+  "idx": 0,
+  "hang": "civro",
+  "ma": "PW80 · Enfini Pro Slender Frames",
+  "loai": "Cửa sổ khung mảnh",
+  "he": "w",
+  "ketCau": "t",
+  "tags": "",
+  "uValue": "1.7",
+  "kinKhi": "",
+  "cachAm": "35 dB",
+  "kinNuoc": "500 Pa",
+  "apLucGio": "",
+  "chongTrom": "RC3 (phụ kiện)",
+  "ghiChu": "",
+  "anh": {
+   "c": [
+    "/wp-content/uploads/2026/11/civro-pw80-cover1.webp",
+    "/wp-content/uploads/2026/11/civro-pw80-cover2.webp",
+    "/wp-content/uploads/2026/11/civro-pw80-cover3.webp"
+   ],
+   "d": [
+    "/wp-content/uploads/2026/11/civro-pw80-2d1.webp",
+    "/wp-content/uploads/2026/11/civro-pw80-2d2.webp",
+    "/wp-content/uploads/2026/11/civro-pw80-2d3.webp"
+   ],
+   "p": [
+    "/wp-content/uploads/2026/11/civro-pw80-photo1.webp",
+    "/wp-content/uploads/2026/11/civro-pw80-photo2.webp",
+    "/wp-content/uploads/2026/11/civro-pw80-photo3.webp",
+    "/wp-content/uploads/2026/11/civro-pw80-photo4.webp"
+   ]
+  }
+ },
+ {
+  "idx": 1,
+  "hang": "civro",
+  "ma": "MW65",
+  "loai": "Cửa sổ",
+  "he": "w",
+  "ketCau": "t",
+  "tags": "",
+  "uValue": "1.9",
+  "kinKhi": "",
+  "cachAm": "36 dB",
+  "kinNuoc": "700 Pa",
+  "apLucGio": "",
+  "chongTrom": "N/A",
+  "ghiChu": "",
+  "anh": {
+   "c": [
+    "/wp-content/uploads/2026/11/civro-mw65-cover1.webp",
+    "/wp-content/uploads/2026/11/civro-mw65-cover2.webp"
+   ],
+   "d": [
+    "/wp-content/uploads/2026/11/civro-mw65-2d1.webp",
+    "/wp-content/uploads/2026/11/civro-mw65-2d2.webp"
+   ],
+   "p": [
+    "/wp-content/uploads/2026/11/civro-mw65-photo1.webp",
+    "/wp-content/uploads/2026/11/civro-mw65-photo2.webp",
+    "/wp-content/uploads/2026/11/civro-mw65-photo3.webp",
+    "/wp-content/uploads/2026/11/civro-mw65-photo4.webp"
+   ]
+  }
+ },
+ {
+  "idx": 2,
+  "hang": "civro",
+  "ma": "XW55",
+  "loai": "Cửa sổ",
+  "he": "w",
+  "ketCau": "t",
+  "tags": "sm",
+  "uValue": "2.1",
+  "kinKhi": "",
+  "cachAm": "35 dB",
+  "kinNuoc": "1000 Pa",
+  "apLucGio": "",
+  "chongTrom": "RC3 (phụ kiện)",
+  "ghiChu": "",
+  "anh": {
+   "c": [
+    "/wp-content/uploads/2026/11/civro-xw55-cover1.webp",
+    "/wp-content/uploads/2026/11/civro-xw55-cover2.webp"
+   ],
+   "d": [],
+   "p": [
+    "/wp-content/uploads/2026/11/civro-xw55-photo1.webp",
+    "/wp-content/uploads/2026/11/civro-xw55-photo2.webp"
+   ]
+  }
+ },
+ {
+  "idx": 3,
+  "hang": "civro",
+  "ma": "XW65",
+  "loai": "Cửa sổ",
+  "he": "w",
+  "ketCau": "t",
+  "tags": "sm",
+  "uValue": "1.8",
+  "kinKhi": "",
+  "cachAm": "35 dB",
+  "kinNuoc": "1000 Pa",
+  "apLucGio": "",
+  "chongTrom": "RC3 (phụ kiện)",
+  "ghiChu": "",
+  "anh": {
+   "c": [
+    "/wp-content/uploads/2026/11/civro-xw65-cover1.webp",
+    "/wp-content/uploads/2026/11/civro-xw65-cover2.webp"
+   ],
+   "d": [
+    "/wp-content/uploads/2026/11/civro-xw65-2d1.webp",
+    "/wp-content/uploads/2026/11/civro-xw65-2d2.webp"
+   ],
+   "p": [
+    "/wp-content/uploads/2026/11/civro-xw65-photo1.webp",
+    "/wp-content/uploads/2026/11/civro-xw65-photo2.webp"
+   ]
+  }
+ },
+ {
+  "idx": 4,
+  "hang": "civro",
+  "ma": "XW75",
+  "loai": "Cửa sổ",
+  "he": "w",
+  "ketCau": "t",
+  "tags": "sm",
+  "uValue": "1.5",
+  "kinKhi": "",
+  "cachAm": "38 dB",
+  "kinNuoc": "1000 Pa",
+  "apLucGio": "",
+  "chongTrom": "RC3 (phụ kiện)",
+  "ghiChu": "",
+  "anh": {
+   "c": [
+    "/wp-content/uploads/2026/11/civro-xw75-cover1.webp",
+    "/wp-content/uploads/2026/11/civro-xw75-cover2.webp"
+   ],
+   "d": [
+    "/wp-content/uploads/2026/11/civro-xw75-2d1.webp",
+    "/wp-content/uploads/2026/11/civro-xw75-2d2.webp"
+   ],
+   "p": [
+    "/wp-content/uploads/2026/11/civro-xw75-photo1.webp",
+    "/wp-content/uploads/2026/11/civro-xw75-photo2.webp"
+   ]
+  }
+ },
+ {
+  "idx": 5,
+  "hang": "civro",
+  "ma": "XW80",
+  "loai": "Cửa sổ",
+  "he": "w",
+  "ketCau": "t",
+  "tags": "cn,sm",
+  "uValue": "1.2",
+  "kinKhi": "",
+  "cachAm": "39 dB",
+  "kinNuoc": "1000 Pa",
+  "apLucGio": "",
+  "chongTrom": "RC3 (phụ kiện)",
+  "ghiChu": "",
+  "anh": {
+   "c": [
+    "/wp-content/uploads/2026/11/civro-xw80-cover1.webp"
+   ],
+   "d": [
+    "/wp-content/uploads/2026/11/civro-xw80-2d1.webp"
+   ],
+   "p": [
+    "/wp-content/uploads/2026/11/civro-xw80-photo1.webp"
+   ]
+  }
+ },
+ {
+  "idx": 6,
+  "hang": "civro",
+  "ma": "XW98",
+  "loai": "Cửa sổ",
+  "he": "w",
+  "ketCau": "t",
+  "tags": "cn,sm",
+  "uValue": "0.778",
+  "kinKhi": "",
+  "cachAm": "41 dB",
+  "kinNuoc": "1000 Pa",
+  "apLucGio": "",
+  "chongTrom": "RC3 (phụ kiện)",
+  "ghiChu": "",
+  "anh": {
+   "c": [
+    "/wp-content/uploads/2026/11/civro-xw98-cover1.webp"
+   ],
+   "d": [],
+   "p": [
+    "/wp-content/uploads/2026/11/civro-xw98-photo1.webp"
+   ]
+  }
+ },
+ {
+  "idx": 7,
+  "hang": "civro",
+  "ma": "XWS90",
+  "loai": "Cửa sổ có cánh lưới",
+  "he": "w",
+  "ketCau": "t",
+  "tags": "sm",
+  "uValue": "2.1",
+  "kinKhi": "",
+  "cachAm": "35 dB",
+  "kinNuoc": "1000 Pa",
+  "apLucGio": "",
+  "chongTrom": "RC3 (phụ kiện)",
+  "ghiChu": "",
+  "anh": {
+   "c": [
+    "/wp-content/uploads/2026/11/civro-xws90-cover1.webp"
+   ],
+   "d": [
+    "/wp-content/uploads/2026/11/civro-xws90-2d1.webp"
+   ],
+   "p": [
+    "/wp-content/uploads/2026/11/civro-xws90-photo1.webp",
+    "/wp-content/uploads/2026/11/civro-xws90-photo2.webp"
+   ]
+  }
+ },
+ {
+  "idx": 8,
+  "hang": "civro",
+  "ma": "XWS100",
+  "loai": "Cửa sổ có cánh lưới",
+  "he": "w",
+  "ketCau": "t",
+  "tags": "",
+  "uValue": "1.8",
+  "kinKhi": "",
+  "cachAm": "36 dB",
+  "kinNuoc": "1000 Pa",
+  "apLucGio": "",
+  "chongTrom": "RC3 (phụ kiện)",
+  "ghiChu": "",
+  "anh": {
+   "c": [
+    "/wp-content/uploads/2026/11/civro-xws100-cover1.webp"
+   ],
+   "d": [],
+   "p": [
+    "/wp-content/uploads/2026/11/civro-xws100-photo1.webp"
+   ]
+  }
+ },
+ {
+  "idx": 9,
+  "hang": "civro",
+  "ma": "XWS115",
+  "loai": "Cửa sổ có cánh lưới",
+  "he": "w",
+  "ketCau": "t",
+  "tags": "",
+  "uValue": "2.3",
+  "kinKhi": "",
+  "cachAm": "35 dB",
+  "kinNuoc": "1000 Pa",
+  "apLucGio": "",
+  "chongTrom": "RC3 (phụ kiện)",
+  "ghiChu": "",
+  "anh": {
+   "c": [
+    "/wp-content/uploads/2026/11/civro-xws115-cover1.webp"
+   ],
+   "d": [],
+   "p": [
+    "/wp-content/uploads/2026/11/civro-xws115-photo1.webp"
+   ]
+  }
+ },
+ {
+  "idx": 10,
+  "hang": "civro",
+  "ma": "XWS125",
+  "loai": "Cửa sổ có cánh lưới",
+  "he": "w",
+  "ketCau": "t",
+  "tags": "",
+  "uValue": "1.8",
+  "kinKhi": "",
+  "cachAm": "36 dB",
+  "kinNuoc": "1000 Pa",
+  "apLucGio": "",
+  "chongTrom": "RC3 (phụ kiện)",
+  "ghiChu": "",
+  "anh": {
+   "c": [
+    "/wp-content/uploads/2026/11/civro-xws125-cover1.webp"
+   ],
+   "d": [
+    "/wp-content/uploads/2026/11/civro-xws125-2d1.webp"
+   ],
+   "p": [
+    "/wp-content/uploads/2026/11/civro-xws125-photo1.webp"
+   ]
+  }
+ },
+ {
+  "idx": 11,
+  "hang": "civro",
+  "ma": "Retro XW85_BC/XW95_BC",
+  "loai": "Cửa sổ kiểu Retro",
+  "he": "w",
+  "ketCau": "t",
+  "tags": "sm",
+  "uValue": "1.5",
+  "kinKhi": "",
+  "cachAm": "39 dB",
+  "kinNuoc": "1000 Pa",
+  "apLucGio": "",
+  "chongTrom": "RC3 (phụ kiện)",
+  "ghiChu": "",
+  "anh": {
+   "c": [
+    "/wp-content/uploads/2026/11/civro-retro-xw85-bc-xw95-bc-cover1.webp",
+    "/wp-content/uploads/2026/11/civro-retro-xw85-bc-xw95-bc-cover2.webp",
+    "/wp-content/uploads/2026/11/civro-retro-xw85-bc-xw95-bc-cover3.webp",
+    "/wp-content/uploads/2026/11/civro-retro-xw85-bc-xw95-bc-cover4.webp"
+   ],
+   "d": [
+    "/wp-content/uploads/2026/11/civro-retro-xw85-bc-xw95-bc-2d1.webp",
+    "/wp-content/uploads/2026/11/civro-retro-xw85-bc-xw95-bc-2d2.webp",
+    "/wp-content/uploads/2026/11/civro-retro-xw85-bc-xw95-bc-2d3.webp",
+    "/wp-content/uploads/2026/11/civro-retro-xw85-bc-xw95-bc-2d4.webp"
+   ],
+   "p": [
+    "/wp-content/uploads/2026/11/civro-retro-xw85-bc-xw95-bc-photo1.webp",
+    "/wp-content/uploads/2026/11/civro-retro-xw85-bc-xw95-bc-photo2.webp"
+   ]
+  }
+ },
+ {
+  "idx": 12,
+  "hang": "civro",
+  "ma": "XVE65 & XVE100",
+  "loai": "Cửa sổ thông gió",
+  "he": "w",
+  "ketCau": "t",
+  "tags": "sm",
+  "uValue": "2.2",
+  "kinKhi": "",
+  "cachAm": "35 dB",
+  "kinNuoc": "1000 Pa",
+  "apLucGio": "",
+  "chongTrom": "RC3 (phụ kiện)",
+  "ghiChu": "",
+  "anh": {
+   "c": [
+    "/wp-content/uploads/2026/11/civro-xve65-xve100-cover1.webp",
+    "/wp-content/uploads/2026/11/civro-xve65-xve100-cover2.webp"
+   ],
+   "d": [
+    "/wp-content/uploads/2026/11/civro-xve65-xve100-2d1.webp"
+   ],
+   "p": [
+    "/wp-content/uploads/2026/11/civro-xve65-xve100-photo1.webp",
+    "/wp-content/uploads/2026/11/civro-xve65-xve100-photo2.webp"
+   ]
+  }
+ },
+ {
+  "idx": 13,
+  "hang": "civro",
+  "ma": "XW100PO/XW110PO",
+  "loai": "Cửa sổ",
+  "he": "w",
+  "ketCau": "t",
+  "tags": "sm",
+  "uValue": "2.5",
+  "kinKhi": "",
+  "cachAm": "35 dB",
+  "kinNuoc": "1000 Pa",
+  "apLucGio": "",
+  "chongTrom": "RC2 (phụ kiện)",
+  "ghiChu": "",
+  "anh": {
+   "c": [
+    "/wp-content/uploads/2026/11/civro-xw100po-xw110po-cover1.webp",
+    "/wp-content/uploads/2026/11/civro-xw100po-xw110po-cover2.webp"
+   ],
+   "d": [],
+   "p": [
+    "/wp-content/uploads/2026/11/civro-xw100po-xw110po-photo1.webp"
+   ]
+  }
+ },
+ {
+  "idx": 14,
+  "hang": "civro",
+  "ma": "NW55_E",
+  "loai": "Cửa sổ",
+  "he": "w",
+  "ketCau": "tn",
+  "tags": "",
+  "uValue": "3.0",
+  "kinKhi": "",
+  "cachAm": "30 dB",
+  "kinNuoc": "1000 Pa",
+  "apLucGio": "",
+  "chongTrom": "RC3 (phụ kiện)",
+  "ghiChu": "",
+  "anh": {
+   "c": [
+    "/wp-content/uploads/2026/11/civro-nw55-e-cover1.webp",
+    "/wp-content/uploads/2026/11/civro-nw55-e-cover2.webp"
+   ],
+   "d": [],
+   "p": [
+    "/wp-content/uploads/2026/11/civro-nw55-e-photo1.webp",
+    "/wp-content/uploads/2026/11/civro-nw55-e-photo2.webp"
+   ]
+  }
+ },
+ {
+  "idx": 15,
+  "hang": "civro",
+  "ma": "MD65",
+  "loai": "Cửa đi",
+  "he": "d",
+  "ketCau": "t",
+  "tags": "de",
+  "uValue": "2.2",
+  "kinKhi": "",
+  "cachAm": "35 dB",
+  "kinNuoc": "700 Pa",
+  "apLucGio": "",
+  "chongTrom": "N/A",
+  "ghiChu": "",
+  "anh": {
+   "c": [
+    "/wp-content/uploads/2026/11/civro-md55-cover1.webp",
+    "/wp-content/uploads/2026/11/civro-md55-cover2.webp"
+   ],
+   "d": [
+    "/wp-content/uploads/2026/11/civro-md55-2d1.webp",
+    "/wp-content/uploads/2026/11/civro-md55-2d2.webp",
+    "/wp-content/uploads/2026/11/civro-md55-2d3.webp",
+    "/wp-content/uploads/2026/11/civro-md55-2d4.webp"
+   ],
+   "p": [
+    "/wp-content/uploads/2026/11/civro-md55-photo1.webp"
+   ]
+  }
+ },
+ {
+  "idx": 16,
+  "hang": "civro",
+  "ma": "XD55",
+  "loai": "Cửa đi",
+  "he": "d",
+  "ketCau": "t",
+  "tags": "an,de",
+  "uValue": "2.6",
+  "kinKhi": "",
+  "cachAm": "33 dB",
+  "kinNuoc": "700 Pa",
+  "apLucGio": "",
+  "chongTrom": "RC3",
+  "ghiChu": "",
+  "anh": {
+   "c": [
+    "/wp-content/uploads/2026/11/civro-xd55-cover1.webp",
+    "/wp-content/uploads/2026/11/civro-xd55-cover2.webp"
+   ],
+   "d": [
+    "/wp-content/uploads/2026/11/civro-xd55-2d1.webp",
+    "/wp-content/uploads/2026/11/civro-xd55-2d2.webp",
+    "/wp-content/uploads/2026/11/civro-xd55-2d3.webp",
+    "/wp-content/uploads/2026/11/civro-xd55-2d4.webp"
+   ],
+   "p": [
+    "/wp-content/uploads/2026/11/civro-xd55-photo1.webp",
+    "/wp-content/uploads/2026/11/civro-xd55-photo2.webp"
+   ]
+  }
+ },
+ {
+  "idx": 17,
+  "hang": "civro",
+  "ma": "XD65",
+  "loai": "Cửa đi",
+  "he": "d",
+  "ketCau": "t",
+  "tags": "an,de",
+  "uValue": "2.2",
+  "kinKhi": "",
+  "cachAm": "35 dB",
+  "kinNuoc": "700 Pa",
+  "apLucGio": "",
+  "chongTrom": "RC3",
+  "ghiChu": "",
+  "anh": {
+   "c": [
+    "/wp-content/uploads/2026/11/civro-xd65-cover1.webp",
+    "/wp-content/uploads/2026/11/civro-xd65-cover2.webp"
+   ],
+   "d": [
+    "/wp-content/uploads/2026/11/civro-xd65-2d1.webp",
+    "/wp-content/uploads/2026/11/civro-xd65-2d2.webp",
+    "/wp-content/uploads/2026/11/civro-xd65-2d3.webp",
+    "/wp-content/uploads/2026/11/civro-xd65-2d4.webp"
+   ],
+   "p": [
+    "/wp-content/uploads/2026/11/civro-xd65-photo1.webp",
+    "/wp-content/uploads/2026/11/civro-xd65-photo2.webp"
+   ]
+  }
+ },
+ {
+  "idx": 18,
+  "hang": "civro",
+  "ma": "XD80",
+  "loai": "Cửa đi",
+  "he": "d",
+  "ketCau": "t",
+  "tags": "an,de",
+  "uValue": "1.6",
+  "kinKhi": "",
+  "cachAm": "38 dB",
+  "kinNuoc": "700 Pa",
+  "apLucGio": "",
+  "chongTrom": "RC3",
+  "ghiChu": "",
+  "anh": {
+   "c": [
+    "/wp-content/uploads/2026/11/civro-xd80-cover1.webp",
+    "/wp-content/uploads/2026/11/civro-xd80-cover2.webp"
+   ],
+   "d": [
+    "/wp-content/uploads/2026/11/civro-xd80-2d1.webp",
+    "/wp-content/uploads/2026/11/civro-xd80-2d2.webp",
+    "/wp-content/uploads/2026/11/civro-xd80-2d3.webp",
+    "/wp-content/uploads/2026/11/civro-xd80-2d4.webp"
+   ],
+   "p": [
+    "/wp-content/uploads/2026/11/civro-xd80-photo1.webp",
+    "/wp-content/uploads/2026/11/civro-xd80-photo2.webp"
+   ]
+  }
+ },
+ {
+  "idx": 19,
+  "hang": "civro",
+  "ma": "Retro XD85_BC/XD95_BC",
+  "loai": "Cửa đi kiểu Retro",
+  "he": "d",
+  "ketCau": "t",
+  "tags": "de",
+  "uValue": "2.2",
+  "kinKhi": "",
+  "cachAm": "35 dB",
+  "kinNuoc": "700 Pa",
+  "apLucGio": "",
+  "chongTrom": "RC3 (phụ kiện)",
+  "ghiChu": "",
+  "anh": {
+   "c": [
+    "/wp-content/uploads/2026/11/civro-retro-xd85-bc-xd95-bc-cover1.webp",
+    "/wp-content/uploads/2026/11/civro-retro-xd85-bc-xd95-bc-cover2.webp",
+    "/wp-content/uploads/2026/11/civro-retro-xd85-bc-xd95-bc-cover3.webp",
+    "/wp-content/uploads/2026/11/civro-retro-xd85-bc-xd95-bc-cover4.webp"
+   ],
+   "d": [
+    "/wp-content/uploads/2026/11/civro-retro-xd85-bc-xd95-bc-2d1.webp",
+    "/wp-content/uploads/2026/11/civro-retro-xd85-bc-xd95-bc-2d2.webp",
+    "/wp-content/uploads/2026/11/civro-retro-xd85-bc-xd95-bc-2d3.webp",
+    "/wp-content/uploads/2026/11/civro-retro-xd85-bc-xd95-bc-2d4.webp"
+   ],
+   "p": [
+    "/wp-content/uploads/2026/11/civro-retro-xd85-bc-xd95-bc-photo1.webp",
+    "/wp-content/uploads/2026/11/civro-retro-xd85-bc-xd95-bc-photo2.webp"
+   ]
+  }
+ },
+ {
+  "idx": 20,
+  "hang": "civro",
+  "ma": "ND55_E",
+  "loai": "Cửa đi",
+  "he": "d",
+  "ketCau": "tn",
+  "tags": "an,de",
+  "uValue": "3.3",
+  "kinKhi": "",
+  "cachAm": "30 dB",
+  "kinNuoc": "1000 Pa",
+  "apLucGio": "",
+  "chongTrom": "RC3",
+  "ghiChu": "",
+  "anh": {
+   "c": [
+    "/wp-content/uploads/2026/11/civro-nd55-e-cover1.webp",
+    "/wp-content/uploads/2026/11/civro-nd55-e-cover2.webp"
+   ],
+   "d": [
+    "/wp-content/uploads/2026/11/civro-nd55-e-2d1.webp",
+    "/wp-content/uploads/2026/11/civro-nd55-e-2d2.webp",
+    "/wp-content/uploads/2026/11/civro-nd55-e-2d3.webp",
+    "/wp-content/uploads/2026/11/civro-nd55-e-2d4.webp"
+   ],
+   "p": [
+    "/wp-content/uploads/2026/11/civro-nd55-e-photo1.webp",
+    "/wp-content/uploads/2026/11/civro-nd55-e-photo2.webp"
+   ]
+  }
+ },
+ {
+  "idx": 21,
+  "hang": "civro",
+  "ma": "PD65 · Enfini Pro",
+  "loai": "Cửa trượt",
+  "he": "s",
+  "ketCau": "t",
+  "tags": "an,de",
+  "uValue": "1.7",
+  "kinKhi": "",
+  "cachAm": "32 dB",
+  "kinNuoc": "350 Pa",
+  "apLucGio": "",
+  "chongTrom": "RC2",
+  "ghiChu": "",
+  "anh": {
+   "c": [
+    "/wp-content/uploads/2026/11/civro-pd65-cover1.webp"
+   ],
+   "d": [
+    "/wp-content/uploads/2026/11/civro-pd65-2d1.webp"
+   ],
+   "p": [
+    "/wp-content/uploads/2026/11/civro-pd65-photo1.webp"
+   ]
+  }
+ },
+ {
+  "idx": 22,
+  "hang": "civro",
+  "ma": "CIVRO-ORAMA UD137/UD207",
+  "loai": "Cửa trượt",
+  "he": "s",
+  "ketCau": "t",
+  "tags": "cn,an,de,sm",
+  "uValue": "1.2",
+  "kinKhi": "",
+  "cachAm": "42 dB",
+  "kinNuoc": "400 Pa",
+  "apLucGio": "",
+  "chongTrom": "RC2",
+  "ghiChu": "",
+  "anh": {
+   "c": [
+    "/wp-content/uploads/2026/11/civro-civro-orama-ud137ud207-cover1.webp",
+    "/wp-content/uploads/2026/11/civro-civro-orama-ud137ud207-cover2.webp"
+   ],
+   "d": [
+    "/wp-content/uploads/2026/11/civro-civro-orama-ud137ud207-2d1.webp",
+    "/wp-content/uploads/2026/11/civro-civro-orama-ud137ud207-2d2.webp"
+   ],
+   "p": [
+    "/wp-content/uploads/2026/11/civro-civro-orama-ud137ud207-photo1.webp",
+    "/wp-content/uploads/2026/11/civro-civro-orama-ud137ud207-photo2.webp"
+   ]
+  }
+ },
+ {
+  "idx": 23,
+  "hang": "civro",
+  "ma": "MD45SS",
+  "loai": "Cửa trượt",
+  "he": "s",
+  "ketCau": "t",
+  "tags": "de",
+  "uValue": "2.5",
+  "kinKhi": "",
+  "cachAm": "33 dB",
+  "kinNuoc": "300 Pa",
+  "apLucGio": "",
+  "chongTrom": "N/A",
+  "ghiChu": "",
+  "anh": {
+   "c": [
+    "/wp-content/uploads/2026/11/civro-md45ss-cover1.webp",
+    "/wp-content/uploads/2026/11/civro-md45ss-cover2.webp",
+    "/wp-content/uploads/2026/11/civro-md45ss-cover3.webp"
+   ],
+   "d": [],
+   "p": [
+    "/wp-content/uploads/2026/11/civro-md45ss-photo1.webp",
+    "/wp-content/uploads/2026/11/civro-md45ss-photo2.webp",
+    "/wp-content/uploads/2026/11/civro-md45ss-photo3.webp"
+   ]
+  }
+ },
+ {
+  "idx": 24,
+  "hang": "civro",
+  "ma": "XD63",
+  "loai": "Cửa trượt",
+  "he": "s",
+  "ketCau": "t",
+  "tags": "de",
+  "uValue": "1.7",
+  "kinKhi": "",
+  "cachAm": "35 dB",
+  "kinNuoc": "800 Pa",
+  "apLucGio": "",
+  "chongTrom": "RC2 (phụ kiện)",
+  "ghiChu": "",
+  "anh": {
+   "c": [
+    "/wp-content/uploads/2026/11/civro-xd63-cover1.webp",
+    "/wp-content/uploads/2026/11/civro-xd63-cover2.webp"
+   ],
+   "d": [
+    "/wp-content/uploads/2026/11/civro-xd63-2d1.webp",
+    "/wp-content/uploads/2026/11/civro-xd63-2d2.webp"
+   ],
+   "p": [
+    "/wp-content/uploads/2026/11/civro-xd63-photo1.webp",
+    "/wp-content/uploads/2026/11/civro-xd63-photo2.webp",
+    "/wp-content/uploads/2026/11/civro-xd63-photo3.webp"
+   ]
+  }
+ },
+ {
+  "idx": 25,
+  "hang": "civro",
+  "ma": "XD73LS",
+  "loai": "Cửa nâng trượt",
+  "he": "l",
+  "ketCau": "t",
+  "tags": "cn,an,de",
+  "uValue": "1.4",
+  "kinKhi": "",
+  "cachAm": "37 dB",
+  "kinNuoc": "450 Pa",
+  "apLucGio": "",
+  "chongTrom": "RC2",
+  "ghiChu": "",
+  "anh": {
+   "c": [
+    "/wp-content/uploads/2026/11/civro-xd73-cover1.webp"
+   ],
+   "d": [
+    "/wp-content/uploads/2026/11/civro-xd73-2d1.webp"
+   ],
+   "p": [
+    "/wp-content/uploads/2026/11/civro-xd73-photo1.webp"
+   ]
+  }
+ },
+ {
+  "idx": 26,
+  "hang": "civro",
+  "ma": "AD80FD",
+  "loai": "Cửa xếp trượt",
+  "he": "f",
+  "ketCau": "t",
+  "tags": "",
+  "uValue": "2.2",
+  "kinKhi": "",
+  "cachAm": "33 dB",
+  "kinNuoc": "700 Pa",
+  "apLucGio": "",
+  "chongTrom": "RC2 (phụ kiện)",
+  "ghiChu": "",
+  "anh": {
+   "c": [
+    "/wp-content/uploads/2026/11/civro-ad80fd-cover1.webp"
+   ],
+   "d": [
+    "/wp-content/uploads/2026/11/civro-ad80fd-2d1.webp"
+   ],
+   "p": [
+    "/wp-content/uploads/2026/11/civro-ad80fd-photo1.webp"
+   ]
+  }
+ },
+ {
+  "idx": 27,
+  "hang": "civro",
+  "ma": "AW55SS",
+  "loai": "Cửa sổ trượt",
+  "he": "ws",
+  "ketCau": "t",
+  "tags": "",
+  "uValue": "3.2",
+  "kinKhi": "",
+  "cachAm": "28 dB",
+  "kinNuoc": "300 Pa",
+  "apLucGio": "",
+  "chongTrom": "RC2 (phụ kiện)",
+  "ghiChu": "",
+  "anh": {
+   "c": [
+    "/wp-content/uploads/2026/11/civro-aw55ss-cover1.webp"
+   ],
+   "d": [
+    "/wp-content/uploads/2026/11/civro-aw55ss-2d1.webp"
+   ],
+   "p": [
+    "/wp-content/uploads/2026/11/civro-aw55ss-photo1.webp"
+   ]
+  }
+ },
+ {
+  "idx": 28,
+  "hang": "civro",
+  "ma": "ND45SS",
+  "loai": "Cửa trượt",
+  "he": "s",
+  "ketCau": "tn",
+  "tags": "",
+  "uValue": "3.3",
+  "kinKhi": "",
+  "cachAm": "30 dB",
+  "kinNuoc": "500 Pa",
+  "apLucGio": "",
+  "chongTrom": "RC2 (phụ kiện)",
+  "ghiChu": "",
+  "anh": {
+   "c": [
+    "/wp-content/uploads/2026/11/civro-nd45ss-cover1.webp",
+    "/wp-content/uploads/2026/11/civro-nd45ss-cover2.webp"
+   ],
+   "d": [
+    "/wp-content/uploads/2026/11/civro-nd45ss-2d1.webp",
+    "/wp-content/uploads/2026/11/civro-nd45ss-2d2.webp"
+   ],
+   "p": [
+    "/wp-content/uploads/2026/11/civro-nd45ss-photo1.webp",
+    "/wp-content/uploads/2026/11/civro-nd45ss-photo2.webp"
+   ]
+  }
+ },
+ {
+  "idx": 29,
+  "hang": "civro",
+  "ma": "NW55SS",
+  "loai": "Cửa sổ trượt",
+  "he": "ws",
+  "ketCau": "tn",
+  "tags": "",
+  "uValue": "3.8",
+  "kinKhi": "",
+  "cachAm": "25 dB",
+  "kinNuoc": "350 Pa",
+  "apLucGio": "",
+  "chongTrom": "RC2 (phụ kiện)",
+  "ghiChu": "",
+  "anh": {
+   "c": [
+    "/wp-content/uploads/2026/11/civro-nw55ss-cover1.webp"
+   ],
+   "d": [
+    "/wp-content/uploads/2026/11/civro-nw55ss-2d1.webp"
+   ],
+   "p": [
+    "/wp-content/uploads/2026/11/civro-nw55ss-photo1.webp"
+   ]
+  }
+ },
+ {
+  "idx": 30,
+  "hang": "romadio",
+  "ma": "PANORAMA 19H",
+  "loai": "Cửa trượt Infinity View",
+  "he": "s",
+  "ketCau": "t",
+  "tags": "",
+  "uValue": "≥ 2.3",
+  "kinKhi": "≤ Class 4",
+  "cachAm": "28 dB",
+  "kinNuoc": "≤ E1200",
+  "apLucGio": "C5/B5",
+  "chongTrom": "",
+  "ghiChu": "Kính áp dụng: 10–32 mm",
+  "anh": {
+   "c": [
+    "/wp-content/uploads/2026/11/romadio-panorama-19h-cover1-1.webp",
+    "/wp-content/uploads/2026/11/romadio-panorama-19h-cover2-1.webp",
+    "/wp-content/uploads/2026/11/romadio-panorama-19h-cover3-1.webp"
+   ],
+   "d": [
+    "/wp-content/uploads/2026/11/romadio-panorama-19h-ban-ve-hd-1-scaled.webp"
+   ],
+   "p": []
+  }
+ },
+ {
+  "idx": 31,
+  "hang": "romadio",
+  "ma": "RCT65",
+  "loai": "Vách kính (Curtain wall)",
+  "he": "v",
+  "ketCau": "t",
+  "tags": "",
+  "uValue": "≥ 1.2",
+  "kinKhi": "Class 4",
+  "cachAm": "39 dB",
+  "kinNuoc": "E1200",
+  "apLucGio": "C5/B5",
+  "chongTrom": "",
+  "ghiChu": "Kính áp dụng: 5–28 mm",
+  "anh": {
+   "c": [
+    "/wp-content/uploads/2026/11/romadio-rct65-mau-goc-1.webp",
+    "/wp-content/uploads/2026/11/romadio-rct65-mau-goc-2.webp",
+    "/wp-content/uploads/2026/11/romadio-rct65-mau-goc-3.webp"
+   ],
+   "d": [
+    "/wp-content/uploads/2026/11/romadio-rct65-ban-ve-hd-1-scaled.webp"
+   ],
+   "p": []
+  }
+ },
+ {
+  "idx": 32,
+  "hang": "romadio",
+  "ma": "RD120LS/SS",
+  "loai": "Cửa nâng trượt",
+  "he": "l",
+  "ketCau": "t",
+  "tags": "",
+  "uValue": "≥ 2.5",
+  "kinKhi": "Class 2",
+  "cachAm": "32 dB",
+  "kinNuoc": "Class 7A",
+  "apLucGio": "C5/B5",
+  "chongTrom": "",
+  "ghiChu": "Kính áp dụng: 5–28 mm",
+  "anh": {
+   "c": [
+    "/wp-content/uploads/2026/11/romadio-rd120ls-mau-goc-1.webp",
+    "/wp-content/uploads/2026/11/romadio-rd120ls-mau-goc-2.webp",
+    "/wp-content/uploads/2026/11/romadio-rd120ls-mau-goc-3.webp"
+   ],
+   "d": [
+    "/wp-content/uploads/2026/11/romadio-rd120ls-ban-ve-hd-1-scaled.webp"
+   ],
+   "p": []
+  }
+ },
+ {
+  "idx": 33,
+  "hang": "romadio",
+  "ma": "RD150LS/SS Triple Glass",
+  "loai": "Cửa nâng trượt kính ba lớp",
+  "he": "l",
+  "ketCau": "t",
+  "tags": "",
+  "uValue": "≥ 2.5",
+  "kinKhi": "Class 4",
+  "cachAm": "36 dB",
+  "kinNuoc": "Class 8A",
+  "apLucGio": "C5/B5",
+  "chongTrom": "",
+  "ghiChu": "Kính áp dụng: 24–52 mm",
+  "anh": {
+   "c": [
+    "/wp-content/uploads/2026/11/romadio-rd150ls-mau-goc-1.webp",
+    "/wp-content/uploads/2026/11/romadio-rd150ls-mau-goc-2.webp",
+    "/wp-content/uploads/2026/11/romadio-rd150ls-mau-goc-3.webp"
+   ],
+   "d": [
+    "/wp-content/uploads/2026/11/romadio-rd150ls-ban-ve-hd-1-scaled.webp"
+   ],
+   "p": []
+  }
+ },
+ {
+  "idx": 34,
+  "hang": "romadio",
+  "ma": "RD190LS/SS",
+  "loai": "Cửa nâng trượt",
+  "he": "l",
+  "ketCau": "t",
+  "tags": "",
+  "uValue": "≥ 2.5",
+  "kinKhi": "Class 2",
+  "cachAm": "32 dB",
+  "kinNuoc": "Class 7A",
+  "apLucGio": "C5/B5",
+  "chongTrom": "",
+  "ghiChu": "Kính áp dụng: 5–28 mm",
+  "anh": {
+   "c": [
+    "/wp-content/uploads/2026/11/romadio-rd190ls-mau-goc-1.webp",
+    "/wp-content/uploads/2026/11/romadio-rd190ls-mau-goc-2.webp",
+    "/wp-content/uploads/2026/11/romadio-rd190ls-mau-goc-3.webp"
+   ],
+   "d": [
+    "/wp-content/uploads/2026/11/romadio-rd190ls-ban-ve-hd-1-scaled.webp"
+   ],
+   "p": []
+  }
+ },
+ {
+  "idx": 35,
+  "hang": "romadio",
+  "ma": "RD225LS/SS Triple Glass",
+  "loai": "Cửa nâng trượt kính ba lớp",
+  "he": "l",
+  "ketCau": "t",
+  "tags": "",
+  "uValue": "≥ 1.4",
+  "kinKhi": "Class 4",
+  "cachAm": "36 dB",
+  "kinNuoc": "Class 8A",
+  "apLucGio": "C5/B5",
+  "chongTrom": "",
+  "ghiChu": "Kính áp dụng: 24–52 mm",
+  "anh": {
+   "c": [
+    "/wp-content/uploads/2026/11/romadio-rd225ls-mau-goc-1.webp",
+    "/wp-content/uploads/2026/11/romadio-rd225ls-mau-goc-2.webp",
+    "/wp-content/uploads/2026/11/romadio-rd225ls-mau-goc-3.webp"
+   ],
+   "d": [],
+   "p": []
+  }
+ },
+ {
+  "idx": 36,
+  "hang": "romadio",
+  "ma": "RD65IN",
+  "loai": "Cửa đi mở quay vào",
+  "he": "d",
+  "ketCau": "t",
+  "tags": "",
+  "uValue": "≥ 2.2",
+  "kinKhi": "≤ Class 4",
+  "cachAm": "34 dB",
+  "kinNuoc": "≤ E700",
+  "apLucGio": "C5/B5",
+  "chongTrom": "",
+  "ghiChu": "Kính áp dụng: 5–42 mm",
+  "anh": {
+   "c": [
+    "/wp-content/uploads/2026/11/romadio-rd65in-mau-goc-1.webp",
+    "/wp-content/uploads/2026/11/romadio-rd65in-mau-goc-2.webp",
+    "/wp-content/uploads/2026/11/romadio-rd65in-mau-goc-3.webp"
+   ],
+   "d": [
+    "/wp-content/uploads/2026/11/romadio-rd65in-ban-ve-hd-1-scaled.webp"
+   ],
+   "p": []
+  }
+ },
+ {
+  "idx": 37,
+  "hang": "romadio",
+  "ma": "RD65OU",
+  "loai": "Cửa đi mở quay ra",
+  "he": "d",
+  "ketCau": "t",
+  "tags": "",
+  "uValue": "≥ 1.2",
+  "kinKhi": "Class 4",
+  "cachAm": "34 dB",
+  "kinNuoc": "≤ E700",
+  "apLucGio": "C5/B5",
+  "chongTrom": "",
+  "ghiChu": "Kính áp dụng: 5–32 mm",
+  "anh": {
+   "c": [
+    "/wp-content/uploads/2026/11/romadio-rd65ou-mau-goc-1.webp",
+    "/wp-content/uploads/2026/11/romadio-rd65ou-mau-goc-2.webp",
+    "/wp-content/uploads/2026/11/romadio-rd65ou-mau-goc-3.webp"
+   ],
+   "d": [
+    "/wp-content/uploads/2026/11/romadio-rd65ou-ban-ve-hd-1-scaled.webp"
+   ],
+   "p": []
+  }
+ },
+ {
+  "idx": 38,
+  "hang": "romadio",
+  "ma": "RD80FD",
+  "loai": "Cửa xếp gấp",
+  "he": "f",
+  "ketCau": "t",
+  "tags": "",
+  "uValue": "≥ 1.2",
+  "kinKhi": "Class 4",
+  "cachAm": "29 dB",
+  "kinNuoc": "≥ E1000",
+  "apLucGio": "C5/B5",
+  "chongTrom": "",
+  "ghiChu": "Kính áp dụng: 5–36 mm",
+  "anh": {
+   "c": [
+    "/wp-content/uploads/2026/11/romadio-rd80fd-mau-goc-1.webp"
+   ],
+   "d": [
+    "/wp-content/uploads/2026/11/romadio-rd80fd-ban-ve-hd-1-scaled.webp"
+   ],
+   "p": []
+  }
+ },
+ {
+  "idx": 39,
+  "hang": "romadio",
+  "ma": "RP127OU + Fence",
+  "loai": "Cửa sổ song song có lan can",
+  "he": "w",
+  "ketCau": "t",
+  "tags": "",
+  "uValue": "≥ 2.5",
+  "kinKhi": "0.21 m³/(m·h)",
+  "cachAm": "35 dB",
+  "kinNuoc": "1000 Pa",
+  "apLucGio": "≤ 5.0 kPa",
+  "chongTrom": "",
+  "ghiChu": "Kính áp dụng: 24 mm",
+  "anh": {
+   "c": [
+    "/wp-content/uploads/2026/11/romadio-rp127ou-mau-goc-1.webp",
+    "/wp-content/uploads/2026/11/romadio-rp127ou-mau-goc-2.webp"
+   ],
+   "d": [
+    "/wp-content/uploads/2026/11/romadio-rp127ou-ban-ve-hd-1-scaled.webp"
+   ],
+   "p": []
+  }
+ },
+ {
+  "idx": 40,
+  "hang": "romadio",
+  "ma": "RVE100IN",
+  "loai": "Cửa sổ thông gió có lưới",
+  "he": "w",
+  "ketCau": "t",
+  "tags": "",
+  "uValue": "≥ 2.6",
+  "kinKhi": "Class 4",
+  "cachAm": "39 dB",
+  "kinNuoc": "E1200",
+  "apLucGio": "C5/B5",
+  "chongTrom": "",
+  "ghiChu": "Kính áp dụng: 13–52 mm",
+  "anh": {
+   "c": [
+    "/wp-content/uploads/2026/11/romadio-rve100in-mau-goc-1.webp",
+    "/wp-content/uploads/2026/11/romadio-rve100in-mau-goc-2.webp",
+    "/wp-content/uploads/2026/11/romadio-rve100in-mau-goc-3.webp"
+   ],
+   "d": [
+    "/wp-content/uploads/2026/11/romadio-rve100in-ban-ve-hd-1-scaled.webp"
+   ],
+   "p": [
+    "/wp-content/uploads/2026/11/romadio-rve100in-hinh-anh-1.webp",
+    "/wp-content/uploads/2026/11/romadio-rve100in-hinh-anh-2.webp",
+    "/wp-content/uploads/2026/11/romadio-rve100in-hinh-anh-3.webp",
+    "/wp-content/uploads/2026/11/romadio-rve100in-hinh-anh-4.webp"
+   ]
+  }
+ },
+ {
+  "idx": 41,
+  "hang": "romadio",
+  "ma": "RVE65IN",
+  "loai": "Cửa sổ thông gió",
+  "he": "w",
+  "ketCau": "t",
+  "tags": "",
+  "uValue": "≥ 2.6",
+  "kinKhi": "Class 4",
+  "cachAm": "39 dB",
+  "kinNuoc": "E700",
+  "apLucGio": "C5/B5",
+  "chongTrom": "",
+  "ghiChu": "Kính áp dụng: 5–42 mm",
+  "anh": {
+   "c": [
+    "/wp-content/uploads/2026/11/romadio-rve65in-mau-goc-1.webp",
+    "/wp-content/uploads/2026/11/romadio-rve65in-mau-goc-2.webp",
+    "/wp-content/uploads/2026/11/romadio-rve65in-mau-goc-3.webp"
+   ],
+   "d": [
+    "/wp-content/uploads/2026/11/romadio-rve65in-ban-ve-hd-1-scaled.webp"
+   ],
+   "p": []
+  }
+ },
+ {
+  "idx": 42,
+  "hang": "romadio",
+  "ma": "RW100IN + FW40G",
+  "loai": "Cửa sổ mở hất/quay có lưới",
+  "he": "w",
+  "ketCau": "t",
+  "tags": "",
+  "uValue": "≥ 1.8",
+  "kinKhi": "Class 4",
+  "cachAm": "38 dB",
+  "kinNuoc": "E1200",
+  "apLucGio": "C5/B5",
+  "chongTrom": "",
+  "ghiChu": "Kính áp dụng: 13–52 mm",
+  "anh": {
+   "c": [
+    "/wp-content/uploads/2026/11/romadio-rw100in-mau-goc-1.webp",
+    "/wp-content/uploads/2026/11/romadio-rw100in-mau-goc-2.webp",
+    "/wp-content/uploads/2026/11/romadio-rw100in-mau-goc-3.webp"
+   ],
+   "d": [
+    "/wp-content/uploads/2026/11/romadio-rw100in-ban-ve-hd-1-scaled.webp"
+   ],
+   "p": []
+  }
+ },
+ {
+  "idx": 43,
+  "hang": "romadio",
+  "ma": "RW100SS",
+  "loai": "Cửa sổ trượt",
+  "he": "ws",
+  "ketCau": "t",
+  "tags": "",
+  "uValue": "≥ 3.2",
+  "kinKhi": "≤ Class 1",
+  "cachAm": "29 dB",
+  "kinNuoc": "≤ Class 5A",
+  "apLucGio": "C5/B5",
+  "chongTrom": "",
+  "ghiChu": "Kính áp dụng: 24 mm",
+  "anh": {
+   "c": [
+    "/wp-content/uploads/2026/11/romadio-rw100ss-mau-goc-1.webp",
+    "/wp-content/uploads/2026/11/romadio-rw100ss-mau-goc-2.webp",
+    "/wp-content/uploads/2026/11/romadio-rw100ss-mau-goc-3.webp"
+   ],
+   "d": [],
+   "p": []
+  }
+ },
+ {
+  "idx": 44,
+  "hang": "romadio",
+  "ma": "RW120OU + MESH",
+  "loai": "Cửa sổ mở quay ra có lưới",
+  "he": "w",
+  "ketCau": "t",
+  "tags": "",
+  "uValue": "≥ 1.2",
+  "kinKhi": "Class 4",
+  "cachAm": "34 dB",
+  "kinNuoc": "≤ E1200",
+  "apLucGio": "C5/B5",
+  "chongTrom": "",
+  "ghiChu": "Kính áp dụng: 5–32 mm",
+  "anh": {
+   "c": [
+    "/wp-content/uploads/2026/11/romadio-rw120ou-mau-goc-1.webp",
+    "/wp-content/uploads/2026/11/romadio-rw120ou-mau-goc-2.webp",
+    "/wp-content/uploads/2026/11/romadio-rw120ou-mau-goc-3.webp"
+   ],
+   "d": [
+    "/wp-content/uploads/2026/11/romadio-rw120ou-ban-ve-hd-1-scaled.webp"
+   ],
+   "p": []
+  }
+ },
+ {
+  "idx": 45,
+  "hang": "romadio",
+  "ma": "RW65IN + Mesh",
+  "loai": "Cửa sổ mở hất/quay có lưới",
+  "he": "w",
+  "ketCau": "t",
+  "tags": "",
+  "uValue": "≥ 2.6",
+  "kinKhi": "Class 4",
+  "cachAm": "33 dB",
+  "kinNuoc": "≤ E1200",
+  "apLucGio": "B5",
+  "chongTrom": "",
+  "ghiChu": "Kính áp dụng: 5–42 mm",
+  "anh": {
+   "c": [
+    "/wp-content/uploads/2026/11/romadio-rw65in-mau-goc-1.webp",
+    "/wp-content/uploads/2026/11/romadio-rw65in-mau-goc-2.webp",
+    "/wp-content/uploads/2026/11/romadio-rw65in-mau-goc-3.webp"
+   ],
+   "d": [
+    "/wp-content/uploads/2026/11/romadio-rw65in-ban-ve-hd-1-scaled.webp"
+   ],
+   "p": []
+  }
+ },
+ {
+  "idx": 46,
+  "hang": "romadio",
+  "ma": "RW65OU",
+  "loai": "Cửa sổ mở quay ra",
+  "he": "w",
+  "ketCau": "t",
+  "tags": "",
+  "uValue": "≥ 2.3",
+  "kinKhi": "≤ Class 4",
+  "cachAm": "34 dB",
+  "kinNuoc": "≤ E1200",
+  "apLucGio": "C5/B5",
+  "chongTrom": "",
+  "ghiChu": "Kính áp dụng: 5–32 mm",
+  "anh": {
+   "c": [
+    "/wp-content/uploads/2026/11/romadio-rw65ou-mau-goc-1.webp",
+    "/wp-content/uploads/2026/11/romadio-rw65ou-mau-goc-2.webp",
+    "/wp-content/uploads/2026/11/romadio-rw65ou-mau-goc-3.webp"
+   ],
+   "d": [
+    "/wp-content/uploads/2026/11/romadio-rw65ou-ban-ve-hd-1-scaled.webp"
+   ],
+   "p": []
+  }
+ },
+ {
+  "idx": 47,
+  "hang": "romadio",
+  "ma": "MD120LS/SS",
+  "loai": "Cửa nâng trượt",
+  "he": "l",
+  "ketCau": "n",
+  "tags": "",
+  "uValue": "",
+  "kinKhi": "≤ Class 2",
+  "cachAm": "30 dB",
+  "kinNuoc": "≤ Class 8A",
+  "apLucGio": "C5/B5",
+  "chongTrom": "",
+  "ghiChu": "Kính áp dụng: 5–24 mm",
+  "anh": {
+   "c": [
+    "/wp-content/uploads/2026/11/romadio-md120ls-mau-goc-1.webp",
+    "/wp-content/uploads/2026/11/romadio-md120ls-mau-goc-2.webp",
+    "/wp-content/uploads/2026/11/romadio-md120ls-mau-goc-3.webp"
+   ],
+   "d": [
+    "/wp-content/uploads/2026/11/romadio-md120ls-ban-ve-hd-1-scaled.webp"
+   ],
+   "p": [
+    "/wp-content/uploads/2026/11/romadio-md120ls-hinh-anh-1.webp",
+    "/wp-content/uploads/2026/11/romadio-md120ls-hinh-anh-2.webp",
+    "/wp-content/uploads/2026/11/romadio-md120ls-hinh-anh-3.webp"
+   ]
+  }
+ },
+ {
+  "idx": 48,
+  "hang": "romadio",
+  "ma": "MD190LS/SS",
+  "loai": "Cửa nâng trượt",
+  "he": "l",
+  "ketCau": "n",
+  "tags": "",
+  "uValue": "",
+  "kinKhi": "≤ Class 2",
+  "cachAm": "30 dB",
+  "kinNuoc": "≤ Class 8A",
+  "apLucGio": "C5/B5",
+  "chongTrom": "",
+  "ghiChu": "Kính áp dụng: 5–24 mm",
+  "anh": {
+   "c": [
+    "/wp-content/uploads/2026/11/romadio-md190ls-mau-goc-1.webp",
+    "/wp-content/uploads/2026/11/romadio-md190ls-mau-goc-2.webp",
+    "/wp-content/uploads/2026/11/romadio-md190ls-mau-goc-3.webp"
+   ],
+   "d": [
+    "/wp-content/uploads/2026/11/romadio-md190ls-ban-ve-hd-1-scaled.webp"
+   ],
+   "p": []
+  }
+ },
+ {
+  "idx": 49,
+  "hang": "romadio",
+  "ma": "MD55IN",
+  "loai": "Cửa đi mở quay vào",
+  "he": "d",
+  "ketCau": "n",
+  "tags": "",
+  "uValue": "",
+  "kinKhi": "≤ Class 4",
+  "cachAm": "29 dB",
+  "kinNuoc": "≤ E700",
+  "apLucGio": "C5/B5",
+  "chongTrom": "",
+  "ghiChu": "Kính áp dụng: 5–24 mm",
+  "anh": {
+   "c": [
+    "/wp-content/uploads/2026/11/romadio-md55in-mau-goc-1.webp",
+    "/wp-content/uploads/2026/11/romadio-md55in-mau-goc-2.webp",
+    "/wp-content/uploads/2026/11/romadio-md55in-mau-goc-3.webp"
+   ],
+   "d": [
+    "/wp-content/uploads/2026/11/romadio-md55in-ban-ve-hd-1.webp"
+   ],
+   "p": []
+  }
+ },
+ {
+  "idx": 50,
+  "hang": "romadio",
+  "ma": "MD55OU",
+  "loai": "Cửa đi mở quay ra",
+  "he": "d",
+  "ketCau": "n",
+  "tags": "",
+  "uValue": "",
+  "kinKhi": "≤ Class 4",
+  "cachAm": "29 dB",
+  "kinNuoc": "≤ E1000",
+  "apLucGio": "C5/B5",
+  "chongTrom": "",
+  "ghiChu": "Kính áp dụng: 5–24 mm",
+  "anh": {
+   "c": [
+    "/wp-content/uploads/2026/11/romadio-md55ou-mau-goc-1.webp",
+    "/wp-content/uploads/2026/11/romadio-md55ou-mau-goc-2.webp",
+    "/wp-content/uploads/2026/11/romadio-md55ou-mau-goc-3.webp"
+   ],
+   "d": [
+    "/wp-content/uploads/2026/11/romadio-md55ou-ban-ve-hd-1.webp"
+   ],
+   "p": []
+  }
+ },
+ {
+  "idx": 51,
+  "hang": "romadio",
+  "ma": "MD65IN",
+  "loai": "Cửa đi mở quay vào",
+  "he": "d",
+  "ketCau": "n",
+  "tags": "",
+  "uValue": "",
+  "kinKhi": "≤ Class 4",
+  "cachAm": "31 dB",
+  "kinNuoc": "≤ E700",
+  "apLucGio": "C5/B5",
+  "chongTrom": "",
+  "ghiChu": "Kính áp dụng: 5–32 mm",
+  "anh": {
+   "c": [
+    "/wp-content/uploads/2026/11/romadio-md65in-mau-goc-1.webp",
+    "/wp-content/uploads/2026/11/romadio-md65in-mau-goc-2.webp",
+    "/wp-content/uploads/2026/11/romadio-md65in-mau-goc-3.webp"
+   ],
+   "d": [
+    "/wp-content/uploads/2026/11/romadio-md65in-ban-ve-hd-1-scaled.webp"
+   ],
+   "p": []
+  }
+ },
+ {
+  "idx": 52,
+  "hang": "romadio",
+  "ma": "MD65OU",
+  "loai": "Cửa đi mở quay ra",
+  "he": "d",
+  "ketCau": "n",
+  "tags": "",
+  "uValue": "",
+  "kinKhi": "≤ Class 4",
+  "cachAm": "31 dB",
+  "kinNuoc": "≤ E1000",
+  "apLucGio": "C5/B5",
+  "chongTrom": "",
+  "ghiChu": "Kính áp dụng: 5–32 mm",
+  "anh": {
+   "c": [
+    "/wp-content/uploads/2026/11/romadio-md65ou-mau-goc-1.webp",
+    "/wp-content/uploads/2026/11/romadio-md65ou-mau-goc-2.webp",
+    "/wp-content/uploads/2026/11/romadio-md65ou-mau-goc-3.webp"
+   ],
+   "d": [
+    "/wp-content/uploads/2026/11/romadio-md65ou-ban-ve-hd-1-scaled.webp"
+   ],
+   "p": [
+    "/wp-content/uploads/2026/11/romadio-md65ou-hinh-anh-1.webp",
+    "/wp-content/uploads/2026/11/romadio-md65ou-hinh-anh-2.webp",
+    "/wp-content/uploads/2026/11/romadio-md65ou-hinh-anh-3.webp"
+   ]
+  }
+ },
+ {
+  "idx": 53,
+  "hang": "romadio",
+  "ma": "MD80FD",
+  "loai": "Cửa xếp gấp",
+  "he": "f",
+  "ketCau": "n",
+  "tags": "",
+  "uValue": "",
+  "kinKhi": "≤ Class 2",
+  "cachAm": "29 dB",
+  "kinNuoc": "≤ E1200",
+  "apLucGio": "C5/B5",
+  "chongTrom": "",
+  "ghiChu": "Kính áp dụng: 5–36 mm",
+  "anh": {
+   "c": [
+    "/wp-content/uploads/2026/11/romadio-md80fd-mau-goc-1.webp"
+   ],
+   "d": [
+    "/wp-content/uploads/2026/11/romadio-md80fd-ban-ve-hd-1-scaled.webp"
+   ],
+   "p": []
+  }
+ },
+ {
+  "idx": 54,
+  "hang": "romadio",
+  "ma": "MW55OU",
+  "loai": "Cửa sổ mở quay ra",
+  "he": "w",
+  "ketCau": "n",
+  "tags": "",
+  "uValue": "",
+  "kinKhi": "≤ Class 4",
+  "cachAm": "29 dB",
+  "kinNuoc": "≤ E1000",
+  "apLucGio": "C5/B5",
+  "chongTrom": "",
+  "ghiChu": "Kính áp dụng: 5–24 mm",
+  "anh": {
+   "c": [
+    "/wp-content/uploads/2026/11/romadio-mw55ou-mau-goc-1.webp",
+    "/wp-content/uploads/2026/11/romadio-mw55ou-mau-goc-2.webp",
+    "/wp-content/uploads/2026/11/romadio-mw55ou-mau-goc-3.webp"
+   ],
+   "d": [
+    "/wp-content/uploads/2026/11/romadio-mw55ou-ban-ve-hd-1.webp"
+   ],
+   "p": []
+  }
+ },
+ {
+  "idx": 55,
+  "hang": "romadio",
+  "ma": "MW65IN + Mesh",
+  "loai": "Cửa sổ mở hất/quay có lưới",
+  "he": "w",
+  "ketCau": "n",
+  "tags": "",
+  "uValue": "",
+  "kinKhi": "≤ Class 4",
+  "cachAm": "31 dB",
+  "kinNuoc": "≤ E1200",
+  "apLucGio": "C5/B5",
+  "chongTrom": "",
+  "ghiChu": "Kính áp dụng: 5–42 mm",
+  "anh": {
+   "c": [
+    "/wp-content/uploads/2026/11/romadio-mw65in-mau-goc-1.webp",
+    "/wp-content/uploads/2026/11/romadio-mw65in-mau-goc-2.webp",
+    "/wp-content/uploads/2026/11/romadio-mw65in-mau-goc-3.webp"
+   ],
+   "d": [
+    "/wp-content/uploads/2026/11/romadio-mw65in-ban-ve-hd-1-scaled.webp"
+   ],
+   "p": []
+  }
+ },
+ {
+  "idx": 56,
+  "hang": "romadio",
+  "ma": "MW65OU + MESH",
+  "loai": "Cửa sổ mở quay ra có lưới",
+  "he": "w",
+  "ketCau": "n",
+  "tags": "",
+  "uValue": "",
+  "kinKhi": "≤ Class 4",
+  "cachAm": "31 dB",
+  "kinNuoc": "≤ E1200",
+  "apLucGio": "C5/B5",
+  "chongTrom": "",
+  "ghiChu": "Kính áp dụng: 5–32 mm",
+  "anh": {
+   "c": [
+    "/wp-content/uploads/2026/11/romadio-mw65ou-mau-goc-1.webp",
+    "/wp-content/uploads/2026/11/romadio-mw65ou-mau-goc-2.webp",
+    "/wp-content/uploads/2026/11/romadio-mw65ou-mau-goc-3.webp"
+   ],
+   "d": [
+    "/wp-content/uploads/2026/11/romadio-mw65ou-ban-ve-hd-1-scaled.webp"
+   ],
+   "p": [
+    "/wp-content/uploads/2026/11/romadio-mw65ou-hinh-anh-1.webp",
+    "/wp-content/uploads/2026/11/romadio-mw65ou-hinh-anh-2.webp",
+    "/wp-content/uploads/2026/11/romadio-mw65ou-hinh-anh-3.webp"
+   ]
+  }
+ },
+ {
+  "idx": 57,
+  "hang": "romadio",
+  "ma": "MW65SS + Mesh",
+  "loai": "Cửa sổ trượt có lưới",
+  "he": "ws",
+  "ketCau": "n",
+  "tags": "",
+  "uValue": "",
+  "kinKhi": "≤ Class 2",
+  "cachAm": "26 dB",
+  "kinNuoc": "≤ Class 5A",
+  "apLucGio": "C5/B5",
+  "chongTrom": "",
+  "ghiChu": "Kính áp dụng: 5–24 mm",
+  "anh": {
+   "c": [
+    "/wp-content/uploads/2026/11/romadio-mw65ss-mau-goc-1.webp",
+    "/wp-content/uploads/2026/11/romadio-mw65ss-mau-goc-2.webp",
+    "/wp-content/uploads/2026/11/romadio-mw65ss-mau-goc-3.webp"
+   ],
+   "d": [
+    "/wp-content/uploads/2026/11/romadio-mw65ss-ban-ve-hd-1-scaled.webp"
+   ],
+   "p": []
+  }
+ },
+ {
+  "idx": 58,
+  "hang": "romadio",
+  "ma": "PANORAMA 19S · 2 ray",
+  "loai": "Cửa trượt slim",
+  "he": "s",
+  "ketCau": "n",
+  "tags": "",
+  "uValue": "",
+  "kinKhi": "≤ Class 2",
+  "cachAm": "28 dB",
+  "kinNuoc": "≤ Class 5A",
+  "apLucGio": "C5/B5",
+  "chongTrom": "",
+  "ghiChu": "Kính áp dụng: 10–32 mm",
+  "anh": {
+   "c": [
+    "/wp-content/uploads/2026/11/romadio-panorama-19s-2ray-mau-goc-1.webp",
+    "/wp-content/uploads/2026/11/romadio-panorama-19s-2ray-mau-goc-2.webp",
+    "/wp-content/uploads/2026/11/romadio-panorama-19s-2ray-mau-goc-3.webp"
+   ],
+   "d": [
+    "/wp-content/uploads/2026/11/romadio-panorama-19s-2ray-ban-ve-hd-1-scaled.webp"
+   ],
+   "p": [
+    "/wp-content/uploads/2026/11/romadio-panorama-19s-2ray-hinh-anh-1.webp",
+    "/wp-content/uploads/2026/11/romadio-panorama-19s-2ray-hinh-anh-2.webp",
+    "/wp-content/uploads/2026/11/romadio-panorama-19s-2ray-hinh-anh-3.webp"
+   ]
+  }
+ },
+ {
+  "idx": 59,
+  "hang": "romadio",
+  "ma": "PANORAMA 19S · 3 ray",
+  "loai": "Cửa trượt slim",
+  "he": "s",
+  "ketCau": "n",
+  "tags": "",
+  "uValue": "",
+  "kinKhi": "≤ Class 4",
+  "cachAm": "28 dB",
+  "kinNuoc": "≤ E1200",
+  "apLucGio": "C5/B5",
+  "chongTrom": "",
+  "ghiChu": "Kính áp dụng: 15–32 mm",
+  "anh": {
+   "c": [
+    "/wp-content/uploads/2026/11/romadio-panorama-19s-3ray-mau-goc-1.webp",
+    "/wp-content/uploads/2026/11/romadio-panorama-19s-3ray-mau-goc-2.webp",
+    "/wp-content/uploads/2026/11/romadio-panorama-19s-3ray-mau-goc-3.webp"
+   ],
+   "d": [
+    "/wp-content/uploads/2026/11/romadio-panorama-19s-3ray-ban-ve-hd-1-scaled.webp"
+   ],
+   "p": [
+    "/wp-content/uploads/2026/11/romadio-panorama-19s-3ray-hinh-anh-1.webp",
+    "/wp-content/uploads/2026/11/romadio-panorama-19s-3ray-hinh-anh-2.webp",
+    "/wp-content/uploads/2026/11/romadio-panorama-19s-3ray-hinh-anh-3.webp",
+    "/wp-content/uploads/2026/11/romadio-panorama-19s-3ray-hinh-anh-4.webp"
+   ]
+  }
+ },
+ {
+  "idx": 60,
+  "hang": "ponzio",
+  "ma": "WS 45",
+  "loai": "Cửa sổ/cửa mở quay",
+  "he": "w",
+  "ketCau": "n",
+  "tags": "",
+  "uValue": "",
+  "kinKhi": "",
+  "cachAm": "",
+  "kinNuoc": "",
+  "apLucGio": "",
+  "chongTrom": "",
+  "ghiChu": "",
+  "anh": {
+   "c": [
+    "/wp-content/uploads/2026/11/ponzio-ws45-cover1.webp",
+    "/wp-content/uploads/2026/11/ponzio-ws45-cover2.webp"
+   ],
+   "d": [
+    "/wp-content/uploads/2026/11/ponzio-ws45-2d1.webp"
+   ],
+   "p": []
+  }
+ },
+ {
+  "idx": 61,
+  "hang": "ponzio",
+  "ma": "WS 45 TT",
+  "loai": "Cửa sổ/cửa mở quay",
+  "he": "w",
+  "ketCau": "t",
+  "tags": "",
+  "uValue": "1,90 (Ug 0,7) · 1,80 (Ug 1,0)",
+  "kinKhi": "Class 4",
+  "cachAm": "",
+  "kinNuoc": "",
+  "apLucGio": "",
+  "chongTrom": "",
+  "ghiChu": "",
+  "anh": {
+   "c": [],
+   "d": [
+    "/wp-content/uploads/2026/11/ponzio-ws45tt-2d1.webp"
+   ],
+   "p": []
+  }
+ },
+ {
+  "idx": 62,
+  "hang": "ponzio",
+  "ma": "WS 55 TT",
+  "loai": "Cửa sổ/cửa mở quay",
+  "he": "w",
+  "ketCau": "t",
+  "tags": "cn",
+  "uValue": "1,21 (Ug 0,7) · 1,45 (Ug 1,0)",
+  "kinKhi": "Class 4",
+  "cachAm": "",
+  "kinNuoc": "",
+  "apLucGio": "",
+  "chongTrom": "",
+  "ghiChu": "",
+  "anh": {
+   "c": [
+    "/wp-content/uploads/2026/11/ponzio-ws55tt-cover1.webp",
+    "/wp-content/uploads/2026/11/ponzio-ws55tt-cover2.webp"
+   ],
+   "d": [],
+   "p": []
+  }
+ },
+ {
+  "idx": 63,
+  "hang": "ponzio",
+  "ma": "WS 65 THI",
+  "loai": "Cửa sổ/cửa mở quay",
+  "he": "w",
+  "ketCau": "t",
+  "tags": "cn,an",
+  "uValue": "0,96 (Ug 0,6) · 1,30 (Ug 1,0)",
+  "kinKhi": "Class 4",
+  "cachAm": "47 dB",
+  "kinNuoc": "E1500",
+  "apLucGio": "C5",
+  "chongTrom": "RC2/RC3 (bản kèm phụ kiện chống đột nhập)",
+  "ghiChu": "Khung 65/79 mm, cánh 71/77 mm. Catalog ghi Uw 1,4 (cửa 2 cánh 1540×1480) và 1,3 (1540×2180) với kính Ug 1,0.",
+  "anh": {
+   "c": [
+    "/wp-content/uploads/2026/11/ponzio-ws65thi-cover1.webp",
+    "/wp-content/uploads/2026/11/ponzio-ws65thi-cover2.webp"
+   ],
+   "d": [],
+   "p": []
+  }
+ },
+ {
+  "idx": 64,
+  "hang": "ponzio",
+  "ma": "WS 65 THI AS",
+  "loai": "Cửa sổ/cửa mở quay",
+  "he": "w",
+  "ketCau": "t",
+  "tags": "cn",
+  "uValue": "1,4 (Ug 0,7) · 1,6 (Ug 1,0)",
+  "kinKhi": "Class 4",
+  "cachAm": "44 dB",
+  "kinNuoc": "9A",
+  "apLucGio": "C3",
+  "chongTrom": "",
+  "ghiChu": "",
+  "anh": {
+   "c": [
+    "/wp-content/uploads/2026/11/ponzio-ws65thias-cover1.webp",
+    "/wp-content/uploads/2026/11/ponzio-ws65thias-cover2.webp"
+   ],
+   "d": [],
+   "p": []
+  }
+ },
+ {
+  "idx": 65,
+  "hang": "ponzio",
+  "ma": "WS 75 THI",
+  "loai": "Cửa sổ/cửa mở quay",
+  "he": "w",
+  "ketCau": "t",
+  "tags": "cn,an",
+  "uValue": "0,86 (Ug 0,6) · 1,20 (Ug 1,0)",
+  "kinKhi": "Class 4",
+  "cachAm": "41–46 dB",
+  "kinNuoc": "E1500",
+  "apLucGio": "C5",
+  "chongTrom": "RC2/RC3 (bản kèm phụ kiện chống đột nhập)",
+  "ghiChu": "Khung 75/89 mm, cánh 81/82,5 mm. Cánh nặng tối đa 170 kg (180 kg với bộ gia cường). Catalog ghi Uw 1,3 (cửa 2 cánh 1540×1480) và 1,2 (1540×2180) với kính Ug 1,0.",
+  "anh": {
+   "c": [
+    "/wp-content/uploads/2026/11/ponzio-ws75thi-cover1.webp",
+    "/wp-content/uploads/2026/11/ponzio-ws75thi-cover2.webp"
+   ],
+   "d": [],
+   "p": []
+  }
+ },
+ {
+  "idx": 66,
+  "hang": "ponzio",
+  "ma": "WS 65/75 AS",
+  "loai": "Cửa sổ/cửa mở quay (cánh ẩn)",
+  "he": "w",
+  "ketCau": "t",
+  "tags": "cn",
+  "uValue": "1,3 (Ug 1,0)",
+  "kinKhi": "",
+  "cachAm": "đến 46 dB",
+  "kinNuoc": "E900",
+  "apLucGio": "C3",
+  "chongTrom": "",
+  "ghiChu": "",
+  "anh": {
+   "c": [
+    "/wp-content/uploads/2026/11/ponzio-ws65as-cover1.webp",
+    "/wp-content/uploads/2026/11/ponzio-ws65as-cover2.webp"
+   ],
+   "d": [],
+   "p": []
+  }
+ },
+ {
+  "idx": 67,
+  "hang": "ponzio",
+  "ma": "WS 65/75 AD",
+  "loai": "Cửa sổ/cửa mở quay",
+  "he": "w",
+  "ketCau": "t",
+  "tags": "cn",
+  "uValue": "1,30 (Ug 1,0)",
+  "kinKhi": "Class 4",
+  "cachAm": "đến 45 dB",
+  "kinNuoc": "E900",
+  "apLucGio": "C3",
+  "chongTrom": "",
+  "ghiChu": "",
+  "anh": {
+   "c": [
+    "/wp-content/uploads/2026/11/ponzio-ws65ad-cover1.webp",
+    "/wp-content/uploads/2026/11/ponzio-ws65ad-cover2.webp"
+   ],
+   "d": [],
+   "p": []
+  }
+ },
+ {
+  "idx": 68,
+  "hang": "ponzio",
+  "ma": "WS 65/75 FL",
+  "loai": "Cửa sổ/cửa mở quay",
+  "he": "w",
+  "ketCau": "t",
+  "tags": "cn",
+  "uValue": "1,30 (Ug 1,0) · 1,00 (Ug 0,6)",
+  "kinKhi": "Class 4",
+  "cachAm": "đến 46 dB",
+  "kinNuoc": "9A",
+  "apLucGio": "C3",
+  "chongTrom": "",
+  "ghiChu": "",
+  "anh": {
+   "c": [
+    "/wp-content/uploads/2026/11/ponzio-ws65fl-cover1.webp",
+    "/wp-content/uploads/2026/11/ponzio-ws65fl-cover2.webp"
+   ],
+   "d": [],
+   "p": []
+  }
+ },
+ {
+  "idx": 69,
+  "hang": "ponzio",
+  "ma": "WS 65/75 IL",
+  "loai": "Cửa sổ/cửa mở quay",
+  "he": "w",
+  "ketCau": "t",
+  "tags": "cn",
+  "uValue": "1,30 (Ug 1,0) · 1,00 (Ug 0,6)",
+  "kinKhi": "Class 4",
+  "cachAm": "đến 46 dB",
+  "kinNuoc": "9A",
+  "apLucGio": "C3",
+  "chongTrom": "",
+  "ghiChu": "",
+  "anh": {
+   "c": [
+    "/wp-content/uploads/2026/11/ponzio-ws65il-cover1.webp",
+    "/wp-content/uploads/2026/11/ponzio-ws65il-cover2.webp"
+   ],
+   "d": [],
+   "p": []
+  }
+ },
+ {
+  "idx": 70,
+  "hang": "ponzio",
+  "ma": "NT 50",
+  "loai": "Cửa sổ/cửa mở quay",
+  "he": "w",
+  "ketCau": "n",
+  "tags": "",
+  "uValue": "",
+  "kinKhi": "",
+  "cachAm": "",
+  "kinNuoc": "",
+  "apLucGio": "",
+  "chongTrom": "",
+  "ghiChu": "",
+  "anh": {
+   "c": [
+    "/wp-content/uploads/2026/11/ponzio-nt50-cover1.webp",
+    "/wp-content/uploads/2026/11/ponzio-nt50-cover2.webp"
+   ],
+   "d": [
+    "/wp-content/uploads/2026/11/ponzio-nt50-2d1.webp"
+   ],
+   "p": []
+  }
+ },
+ {
+  "idx": 71,
+  "hang": "ponzio",
+  "ma": "NT 52 TT",
+  "loai": "Cửa sổ/cửa mở quay",
+  "he": "w",
+  "ketCau": "t",
+  "tags": "",
+  "uValue": "1,54 · 1,78 (kính warm edge)",
+  "kinKhi": "Class 4",
+  "cachAm": "37–44 dB",
+  "kinNuoc": "E750",
+  "apLucGio": "C4",
+  "chongTrom": "",
+  "ghiChu": "",
+  "anh": {
+   "c": [],
+   "d": [
+    "/wp-content/uploads/2026/11/ponzio-nt52tt-2d1.webp"
+   ],
+   "p": []
+  }
+ },
+ {
+  "idx": 72,
+  "hang": "ponzio",
+  "ma": "NT 60 F",
+  "loai": "Cửa sổ/cửa mở quay",
+  "he": "w",
+  "ketCau": "n",
+  "tags": "",
+  "uValue": "",
+  "kinKhi": "",
+  "cachAm": "",
+  "kinNuoc": "",
+  "apLucGio": "",
+  "chongTrom": "",
+  "ghiChu": "",
+  "anh": {
+   "c": [
+    "/wp-content/uploads/2026/11/ponzio-nt60f-cover1.webp",
+    "/wp-content/uploads/2026/11/ponzio-nt60f-cover2.webp"
+   ],
+   "d": [
+    "/wp-content/uploads/2026/11/ponzio-nt60f-2d1.webp"
+   ],
+   "p": []
+  }
+ },
+ {
+  "idx": 73,
+  "hang": "ponzio",
+  "ma": "NT 60 TT",
+  "loai": "Cửa sổ/cửa mở quay",
+  "he": "w",
+  "ketCau": "t",
+  "tags": "cn",
+  "uValue": "1,36 (Ug 0,7) · 1,59 (Ug 1,0)",
+  "kinKhi": "Class 4",
+  "cachAm": "37–46 dB",
+  "kinNuoc": "9A",
+  "apLucGio": "C4",
+  "chongTrom": "",
+  "ghiChu": "",
+  "anh": {
+   "c": [],
+   "d": [
+    "/wp-content/uploads/2026/11/ponzio-nt60tt-2d1.webp"
+   ],
+   "p": []
+  }
+ },
+ {
+  "idx": 74,
+  "hang": "ponzio",
+  "ma": "NT 65 TT",
+  "loai": "Cửa sổ/cửa mở quay",
+  "he": "w",
+  "ketCau": "t",
+  "tags": "cn",
+  "uValue": "1,07 (Ug 0,7) · 1,31 (Ug 1,0)",
+  "kinKhi": "Class 4",
+  "cachAm": "42–44 dB",
+  "kinNuoc": "E1200",
+  "apLucGio": "C4",
+  "chongTrom": "",
+  "ghiChu": "",
+  "anh": {
+   "c": [
+    "/wp-content/uploads/2026/11/ponzio-nt65tt-cover1.webp",
+    "/wp-content/uploads/2026/11/ponzio-nt65tt-cover2.webp"
+   ],
+   "d": [
+    "/wp-content/uploads/2026/11/ponzio-nt65tt-2d1.webp"
+   ],
+   "p": []
+  }
+ },
+ {
+  "idx": 75,
+  "hang": "ponzio",
+  "ma": "SL600 Evo Freddo",
+  "loai": "Cửa trượt",
+  "he": "s",
+  "ketCau": "n",
+  "tags": "",
+  "uValue": "",
+  "kinKhi": "",
+  "cachAm": "",
+  "kinNuoc": "",
+  "apLucGio": "",
+  "chongTrom": "",
+  "ghiChu": "",
+  "anh": {
+   "c": [
+    "/wp-content/uploads/2026/11/ponzio-sl600evofreddo-cover1.webp",
+    "/wp-content/uploads/2026/11/ponzio-sl600evofreddo-cover2.webp"
+   ],
+   "d": [],
+   "p": []
+  }
+ },
+ {
+  "idx": 76,
+  "hang": "ponzio",
+  "ma": "SL600 TT Evo",
+  "loai": "Cửa trượt",
+  "he": "s",
+  "ketCau": "t",
+  "tags": "",
+  "uValue": "1,90 · 1,80 (Ug 1,0, hai kích thước thử)",
+  "kinKhi": "Class 4",
+  "cachAm": "38 dB",
+  "kinNuoc": "9A",
+  "apLucGio": "C3",
+  "chongTrom": "",
+  "ghiChu": "Khung 2 ray 65/87 mm, cánh 46 mm, buồng kính 30 mm.",
+  "anh": {
+   "c": [
+    "/wp-content/uploads/2026/11/ponzio-sl600ttevo-cover1.webp",
+    "/wp-content/uploads/2026/11/ponzio-sl600ttevo-cover2.webp"
+   ],
+   "d": [
+    "/wp-content/uploads/2026/11/ponzio-sl600ttevo-2d1.webp"
+   ],
+   "p": []
+  }
+ },
+ {
+  "idx": 77,
+  "hang": "ponzio",
+  "ma": "SL600 TT Evozero",
+  "loai": "Cửa trượt",
+  "he": "s",
+  "ketCau": "t",
+  "tags": "",
+  "uValue": "1,90 · 1,80 (Ug 1,0, hai kích thước thử)",
+  "kinKhi": "Class 4",
+  "cachAm": "38 dB",
+  "kinNuoc": "E900",
+  "apLucGio": "C3",
+  "chongTrom": "",
+  "ghiChu": "",
+  "anh": {
+   "c": [
+    "/wp-content/uploads/2026/11/ponzio-sl600evozero-cover1.webp",
+    "/wp-content/uploads/2026/11/ponzio-sl600evozero-cover2.webp"
+   ],
+   "d": [
+    "/wp-content/uploads/2026/11/ponzio-sl600evozero-2d1.webp"
+   ],
+   "p": []
+  }
+ },
+ {
+  "idx": 78,
+  "hang": "ponzio",
+  "ma": "SL1300 TT",
+  "loai": "Cửa trượt khung ẩn",
+  "he": "s",
+  "ketCau": "t",
+  "tags": "cn,an",
+  "uValue": "1,40 (Ug 1,0)",
+  "kinKhi": "Class 4",
+  "cachAm": "đến 40 dB",
+  "kinNuoc": "7A",
+  "apLucGio": "C1",
+  "chongTrom": "RC2 (cửa 2 cánh kèm phụ kiện chống đột nhập)",
+  "ghiChu": "Khung 2 ray 150 mm, cánh 59 mm, buồng kính 39–43 mm.",
+  "anh": {
+   "c": [
+    "/wp-content/uploads/2026/11/ponzio-sl1300tt-cover1.webp",
+    "/wp-content/uploads/2026/11/ponzio-sl1300tt-cover2.webp"
+   ],
+   "d": [
+    "/wp-content/uploads/2026/11/ponzio-sl1300tt-2d1.webp"
+   ],
+   "p": []
+  }
+ },
+ {
+  "idx": 79,
+  "hang": "ponzio",
+  "ma": "SL1600 TT",
+  "loai": "Cửa nâng trượt",
+  "he": "l",
+  "ketCau": "t",
+  "tags": "an",
+  "uValue": "1,70 (Ug 1,0)",
+  "kinKhi": "Class 4",
+  "cachAm": "đến 42 dB",
+  "kinNuoc": "E1350",
+  "apLucGio": "C4",
+  "chongTrom": "RC3/RC4 (cửa 2 cánh kèm phụ kiện chống đột nhập)",
+  "ghiChu": "Khung 2 ray 160 mm, cánh 67 mm.",
+  "anh": {
+   "c": [
+    "/wp-content/uploads/2026/11/ponzio-sl1600tt-cover1.webp",
+    "/wp-content/uploads/2026/11/ponzio-sl1600tt-cover2.webp"
+   ],
+   "d": [
+    "/wp-content/uploads/2026/11/ponzio-sl1600tt-2d1.webp"
+   ],
+   "p": []
+  }
+ },
+ {
+  "idx": 80,
+  "hang": "ponzio",
+  "ma": "WS 45 (cửa đi)",
+  "loai": "Cửa đi",
+  "he": "d",
+  "ketCau": "n",
+  "tags": "",
+  "uValue": "",
+  "kinKhi": "",
+  "cachAm": "",
+  "kinNuoc": "",
+  "apLucGio": "",
+  "chongTrom": "",
+  "ghiChu": "",
+  "anh": {
+   "c": [
+    "/wp-content/uploads/2026/11/ponzio-ws45-cover1.webp",
+    "/wp-content/uploads/2026/11/ponzio-ws45-cover2.webp"
+   ],
+   "d": [
+    "/wp-content/uploads/2026/11/ponzio-door-ws45-2d1.webp"
+   ],
+   "p": []
+  }
+ },
+ {
+  "idx": 81,
+  "hang": "ponzio",
+  "ma": "WS 45 TT (cửa đi)",
+  "loai": "Cửa đi",
+  "he": "d",
+  "ketCau": "t",
+  "tags": "",
+  "uValue": "",
+  "kinKhi": "",
+  "cachAm": "",
+  "kinNuoc": "",
+  "apLucGio": "",
+  "chongTrom": "",
+  "ghiChu": "",
+  "anh": {
+   "c": [],
+   "d": [
+    "/wp-content/uploads/2026/11/ponzio-door-ws45tt-2d1.webp"
+   ],
+   "p": []
+  }
+ },
+ {
+  "idx": 82,
+  "hang": "ponzio",
+  "ma": "WS 55 TT (cửa đi)",
+  "loai": "Cửa đi",
+  "he": "d",
+  "ketCau": "t",
+  "tags": "cn",
+  "uValue": "1,21 (Ug 0,7) · 1,45 (Ug 1,0)",
+  "kinKhi": "Class 4",
+  "cachAm": "",
+  "kinNuoc": "",
+  "apLucGio": "",
+  "chongTrom": "",
+  "ghiChu": "",
+  "anh": {
+   "c": [
+    "/wp-content/uploads/2026/11/ponzio-ws55tt-cover1.webp",
+    "/wp-content/uploads/2026/11/ponzio-ws55tt-cover2.webp"
+   ],
+   "d": [],
+   "p": []
+  }
+ },
+ {
+  "idx": 83,
+  "hang": "ponzio",
+  "ma": "WS 60 (cửa đi)",
+  "loai": "Cửa đi",
+  "he": "d",
+  "ketCau": "",
+  "tags": "",
+  "uValue": "",
+  "kinKhi": "",
+  "cachAm": "",
+  "kinNuoc": "",
+  "apLucGio": "",
+  "chongTrom": "",
+  "ghiChu": "",
+  "anh": {
+   "c": [],
+   "d": [
+    "/wp-content/uploads/2026/11/ponzio-door-ws60-2d1.webp"
+   ],
+   "p": []
+  }
+ },
+ {
+  "idx": 84,
+  "hang": "ponzio",
+  "ma": "NT 50 (cửa đi)",
+  "loai": "Cửa đi",
+  "he": "d",
+  "ketCau": "n",
+  "tags": "",
+  "uValue": "",
+  "kinKhi": "",
+  "cachAm": "",
+  "kinNuoc": "",
+  "apLucGio": "",
+  "chongTrom": "",
+  "ghiChu": "",
+  "anh": {
+   "c": [
+    "/wp-content/uploads/2026/11/ponzio-nt50-cover1.webp",
+    "/wp-content/uploads/2026/11/ponzio-nt50-cover2.webp"
+   ],
+   "d": [
+    "/wp-content/uploads/2026/11/ponzio-door-nt50-2d1.webp"
+   ],
+   "p": []
+  }
+ },
+ {
+  "idx": 85,
+  "hang": "ponzio",
+  "ma": "NT 52 TT (cửa đi)",
+  "loai": "Cửa đi",
+  "he": "d",
+  "ketCau": "t",
+  "tags": "",
+  "uValue": "",
+  "kinKhi": "",
+  "cachAm": "",
+  "kinNuoc": "",
+  "apLucGio": "",
+  "chongTrom": "",
+  "ghiChu": "",
+  "anh": {
+   "c": [],
+   "d": [
+    "/wp-content/uploads/2026/11/ponzio-door-nt52tt-2d1.webp"
+   ],
+   "p": []
+  }
+ },
+ {
+  "idx": 86,
+  "hang": "ponzio",
+  "ma": "NT 60 TT (cửa đi)",
+  "loai": "Cửa đi",
+  "he": "d",
+  "ketCau": "t",
+  "tags": "",
+  "uValue": "2,00 (Ug 0,7)",
+  "kinKhi": "",
+  "cachAm": "",
+  "kinNuoc": "",
+  "apLucGio": "",
+  "chongTrom": "",
+  "ghiChu": "",
+  "anh": {
+   "c": [],
+   "d": [
+    "/wp-content/uploads/2026/11/ponzio-door-nt60tt-2d1.webp"
+   ],
+   "p": []
+  }
+ },
+ {
+  "idx": 87,
+  "hang": "ponzio",
+  "ma": "NT 65 TT (cửa đi)",
+  "loai": "Cửa đi",
+  "he": "d",
+  "ketCau": "t",
+  "tags": "cn",
+  "uValue": "1,07 (Ug 0,7)",
+  "kinKhi": "Class 3",
+  "cachAm": "40 dB",
+  "kinNuoc": "3A",
+  "apLucGio": "C2",
+  "chongTrom": "",
+  "ghiChu": "",
+  "anh": {
+   "c": [
+    "/wp-content/uploads/2026/11/ponzio-nt65tt-cover1.webp",
+    "/wp-content/uploads/2026/11/ponzio-nt65tt-cover2.webp"
+   ],
+   "d": [
+    "/wp-content/uploads/2026/11/ponzio-door-nt65tt-2d1.webp"
+   ],
+   "p": []
+  }
+ },
+ {
+  "idx": 88,
+  "hang": "ponzio",
+  "ma": "NT 65 TT Panic (SAC 1)",
+  "loai": "Cửa đi thoát hiểm",
+  "he": "d",
+  "ketCau": "t",
+  "tags": "",
+  "uValue": "1,70 (Ug 1,0)",
+  "kinKhi": "Class 3",
+  "cachAm": "40 dB",
+  "kinNuoc": "3A",
+  "apLucGio": "C2",
+  "chongTrom": "",
+  "ghiChu": "",
+  "anh": {
+   "c": [
+    "/wp-content/uploads/2026/11/ponzio-nt65tt-cover1.webp",
+    "/wp-content/uploads/2026/11/ponzio-nt65tt-cover2.webp"
+   ],
+   "d": [
+    "/wp-content/uploads/2026/11/ponzio-door-nt65panic-2d1.webp"
+   ],
+   "p": []
+  }
+ },
+ {
+  "idx": 89,
+  "hang": "ponzio",
+  "ma": "NT 75 TT HI (cửa đi)",
+  "loai": "Cửa đi",
+  "he": "d",
+  "ketCau": "t",
+  "tags": "",
+  "uValue": "",
+  "kinKhi": "",
+  "cachAm": "",
+  "kinNuoc": "",
+  "apLucGio": "",
+  "chongTrom": "",
+  "ghiChu": "",
+  "anh": {
+   "c": [
+    "/wp-content/uploads/2026/11/ponzio-nt75tthi-cover1.webp",
+    "/wp-content/uploads/2026/11/ponzio-nt75tthi-cover2.webp"
+   ],
+   "d": [],
+   "p": []
+  }
+ },
+ {
+  "idx": 90,
+  "hang": "ponzio",
+  "ma": "SL65 In linea",
+  "loai": "Cửa trượt",
+  "he": "s",
+  "ketCau": "t",
+  "tags": "",
+  "uValue": "",
+  "kinKhi": "",
+  "cachAm": "",
+  "kinNuoc": "",
+  "apLucGio": "",
+  "chongTrom": "",
+  "ghiChu": "Khung 2 ray 150 mm, 3 ray 235 mm; cánh 65 mm; ngàm kính 15 mm.",
+  "anh": {
+   "c": [
+    "/wp-content/uploads/2026/11/ponzio-sl65-cover1.webp",
+    "/wp-content/uploads/2026/11/ponzio-sl65-cover2.webp"
+   ],
+   "d": [],
+   "p": []
+  }
+ },
+ {
+  "idx": 91,
+  "hang": "ponzio",
+  "ma": "SL65 Nâng trượt",
+  "loai": "Cửa nâng trượt",
+  "he": "l",
+  "ketCau": "t",
+  "tags": "",
+  "uValue": "",
+  "kinKhi": "",
+  "cachAm": "",
+  "kinNuoc": "",
+  "apLucGio": "",
+  "chongTrom": "",
+  "ghiChu": "Khung 2 ray 150 mm, 3 ray 235 mm; cánh 65 mm; ngàm kính 15 mm.",
+  "anh": {
+   "c": [
+    "/wp-content/uploads/2026/11/ponzio-sl65-cover1.webp",
+    "/wp-content/uploads/2026/11/ponzio-sl65-cover2.webp"
+   ],
+   "d": [],
+   "p": []
+  }
+ },
+ {
+  "idx": 92,
+  "hang": "ponzio",
+  "ma": "Apexfine",
+  "loai": "Vách kính trượt",
+  "he": "s",
+  "ketCau": "",
+  "tags": "sm",
+  "uValue": "",
+  "kinKhi": "",
+  "cachAm": "",
+  "kinNuoc": "",
+  "apLucGio": "",
+  "chongTrom": "",
+  "ghiChu": "Cánh khuyến nghị 450 kg, tối đa 1000 kg; vận hành tay hoặc động cơ; bánh xe inox, khung dưới âm sàn (theo tài liệu hãng).",
+  "anh": {
+   "c": [
+    "/wp-content/uploads/2026/11/ponzio-apexfine-cover1.webp",
+    "/wp-content/uploads/2026/11/ponzio-apexfine-cover2.webp"
+   ],
+   "d": [],
+   "p": []
+  }
+ },
+ {
+  "idx": 93,
+  "hang": "romadio",
+  "ma": "LID45",
+  "loai": "Cửa trượt 1 cánh, ray trên",
+  "he": "s",
+  "ketCau": "n",
+  "tags": "",
+  "uValue": "",
+  "kinKhi": "",
+  "cachAm": "",
+  "kinNuoc": "",
+  "apLucGio": "",
+  "chongTrom": "",
+  "ghiChu": "Không khung bao đứng",
+  "anh": {
+   "c": [],
+   "d": [
+    "/wp-content/uploads/2026/11/romadio-lid45-ban-ve-hd-1.webp"
+   ],
+   "p": []
+  }
+ },
+ {
+  "idx": 94,
+  "hang": "romadio",
+  "ma": "LID58",
+  "loai": "Cửa trượt bánh xe dưới / trên",
+  "he": "s",
+  "ketCau": "n",
+  "tags": "",
+  "uValue": "",
+  "kinKhi": "",
+  "cachAm": "",
+  "kinNuoc": "",
+  "apLucGio": "",
+  "chongTrom": "",
+  "ghiChu": "",
+  "anh": {
+   "c": [],
+   "d": [
+    "/wp-content/uploads/2026/11/romadio-lid58-ban-ve-hd-1.webp",
+    "/wp-content/uploads/2026/11/romadio-lid58-ban-ve-hd-2.webp"
+   ],
+   "p": []
+  }
+ },
+ {
+  "idx": 95,
+  "hang": "romadio",
+  "ma": "LID102",
+  "loai": "Cửa trượt 2 ray treo trên",
+  "he": "s",
+  "ketCau": "n",
+  "tags": "",
+  "uValue": "",
+  "kinKhi": "",
+  "cachAm": "",
+  "kinNuoc": "",
+  "apLucGio": "",
+  "chongTrom": "",
+  "ghiChu": "Không khung bao đứng",
+  "anh": {
+   "c": [],
+   "d": [
+    "/wp-content/uploads/2026/11/romadio-lid102-ban-ve-hd-1.webp"
+   ],
+   "p": []
+  }
+ },
+ {
+  "idx": 96,
+  "hang": "romadio",
+  "ma": "LID115",
+  "loai": "Cửa trượt bánh xe dưới / trên, 2–4 cánh",
+  "he": "s",
+  "ketCau": "n",
+  "tags": "",
+  "uValue": "",
+  "kinKhi": "",
+  "cachAm": "",
+  "kinNuoc": "",
+  "apLucGio": "",
+  "chongTrom": "",
+  "ghiChu": "",
+  "anh": {
+   "c": [],
+   "d": [
+    "/wp-content/uploads/2026/11/romadio-lid115-ban-ve-hd-1.webp",
+    "/wp-content/uploads/2026/11/romadio-lid115-ban-ve-hd-2.webp",
+    "/wp-content/uploads/2026/11/romadio-lid115-ban-ve-hd-3.webp",
+    "/wp-content/uploads/2026/11/romadio-lid115-ban-ve-hd-4.webp"
+   ],
+   "p": []
+  }
+ },
+ {
+  "idx": 97,
+  "hang": "romadio",
+  "ma": "LID172",
+  "loai": "Cửa trượt bánh xe dưới / trên, 3 cánh",
+  "he": "s",
+  "ketCau": "n",
+  "tags": "",
+  "uValue": "",
+  "kinKhi": "",
+  "cachAm": "",
+  "kinNuoc": "",
+  "apLucGio": "",
+  "chongTrom": "",
+  "ghiChu": "",
+  "anh": {
+   "c": [],
+   "d": [
+    "/wp-content/uploads/2026/11/romadio-lid172-ban-ve-hd-1.webp",
+    "/wp-content/uploads/2026/11/romadio-lid172-ban-ve-hd-2.webp"
+   ],
+   "p": []
+  }
+ },
+ {
+  "idx": 98,
+  "hang": "romadio",
+  "ma": "LID230",
+  "loai": "Cửa trượt bánh xe dưới / trên, 4 cánh",
+  "he": "s",
+  "ketCau": "n",
+  "tags": "",
+  "uValue": "",
+  "kinKhi": "",
+  "cachAm": "",
+  "kinNuoc": "",
+  "apLucGio": "",
+  "chongTrom": "",
+  "ghiChu": "",
+  "anh": {
+   "c": [],
+   "d": [
+    "/wp-content/uploads/2026/11/romadio-lid230-ban-ve-hd-1.webp",
+    "/wp-content/uploads/2026/11/romadio-lid230-ban-ve-hd-2.webp"
+   ],
+   "p": []
+  }
+ },
+ {
+  "idx": 99,
+  "hang": "romadio",
+  "ma": "LID67IN",
+  "loai": "Cửa mở quay vào, 1–2 cánh",
+  "he": "d",
+  "ketCau": "n",
+  "tags": "",
+  "uValue": "",
+  "kinKhi": "",
+  "cachAm": "",
+  "kinNuoc": "",
+  "apLucGio": "",
+  "chongTrom": "",
+  "ghiChu": "",
+  "anh": {
+   "c": [],
+   "d": [
+    "/wp-content/uploads/2026/11/romadio-lid67in-ban-ve-hd-1.webp",
+    "/wp-content/uploads/2026/11/romadio-lid67in-ban-ve-hd-2.webp"
+   ],
+   "p": []
+  }
+ },
+ {
+  "idx": 100,
+  "hang": "romadio",
+  "ma": "LID67OU",
+  "loai": "Cửa mở quay ra, 1–2 cánh, có phào",
+  "he": "d",
+  "ketCau": "n",
+  "tags": "",
+  "uValue": "",
+  "kinKhi": "",
+  "cachAm": "",
+  "kinNuoc": "",
+  "apLucGio": "",
+  "chongTrom": "",
+  "ghiChu": "",
+  "anh": {
+   "c": [],
+   "d": [
+    "/wp-content/uploads/2026/11/romadio-lid67ou-ban-ve-hd-1.webp",
+    "/wp-content/uploads/2026/11/romadio-lid67ou-ban-ve-hd-2.webp",
+    "/wp-content/uploads/2026/11/romadio-lid67ou-ban-ve-hd-3.webp"
+   ],
+   "p": []
+  }
+ },
+ {
+  "idx": 101,
+  "hang": "romadio",
+  "ma": "LD16IN",
+  "loai": "Cửa mở quay vào dòng Slim",
+  "he": "d",
+  "ketCau": "n",
+  "tags": "",
+  "uValue": "",
+  "kinKhi": "",
+  "cachAm": "",
+  "kinNuoc": "",
+  "apLucGio": "",
+  "chongTrom": "",
+  "ghiChu": "",
+  "anh": {
+   "c": [],
+   "d": [
+    "/wp-content/uploads/2026/11/romadio-ld16in-ban-ve-hd-1.webp",
+    "/wp-content/uploads/2026/11/romadio-ld16in-ban-ve-hd-2.webp"
+   ],
+   "p": []
+  }
+ },
+ {
+  "idx": 102,
+  "hang": "romadio",
+  "ma": "LD16OU",
+  "loai": "Cửa mở quay ra dòng Slim",
+  "he": "d",
+  "ketCau": "n",
+  "tags": "",
+  "uValue": "",
+  "kinKhi": "",
+  "cachAm": "",
+  "kinNuoc": "",
+  "apLucGio": "",
+  "chongTrom": "",
+  "ghiChu": "",
+  "anh": {
+   "c": [],
+   "d": [
+    "/wp-content/uploads/2026/11/romadio-ld16ou-ban-ve-hd-1.webp",
+    "/wp-content/uploads/2026/11/romadio-ld16ou-ban-ve-hd-2.webp"
+   ],
+   "p": []
+  }
+ },
+ {
+  "idx": 103,
+  "hang": "romadio",
+  "ma": "LD16SB-F",
+  "loai": "Cửa trượt ray dưới, 1–3 ray",
+  "he": "s",
+  "ketCau": "n",
+  "tags": "",
+  "uValue": "",
+  "kinKhi": "",
+  "cachAm": "",
+  "kinNuoc": "",
+  "apLucGio": "",
+  "chongTrom": "",
+  "ghiChu": "",
+  "anh": {
+   "c": [],
+   "d": [
+    "/wp-content/uploads/2026/11/romadio-ld16sb-f-ban-ve-hd-1.webp",
+    "/wp-content/uploads/2026/11/romadio-ld16sb-f-ban-ve-hd-2.webp",
+    "/wp-content/uploads/2026/11/romadio-ld16sb-f-ban-ve-hd-3.webp",
+    "/wp-content/uploads/2026/11/romadio-ld16sb-f-ban-ve-hd-4.webp"
+   ],
+   "p": []
+  }
+ },
+ {
+  "idx": 104,
+  "hang": "romadio",
+  "ma": "LD16ST",
+  "loai": "Cửa trượt ray trên, 1–2 ray",
+  "he": "s",
+  "ketCau": "n",
+  "tags": "",
+  "uValue": "",
+  "kinKhi": "",
+  "cachAm": "",
+  "kinNuoc": "",
+  "apLucGio": "",
+  "chongTrom": "",
+  "ghiChu": "",
+  "anh": {
+   "c": [],
+   "d": [
+    "/wp-content/uploads/2026/11/romadio-ld16st-ban-ve-hd-1.webp",
+    "/wp-content/uploads/2026/11/romadio-ld16st-ban-ve-hd-2.webp"
+   ],
+   "p": []
+  }
+ },
+ {
+  "idx": 105,
+  "hang": "romadio",
+  "ma": "LD16ST-F",
+  "loai": "Cửa trượt ray trên, 1–3 ray",
+  "he": "s",
+  "ketCau": "n",
+  "tags": "",
+  "uValue": "",
+  "kinKhi": "",
+  "cachAm": "",
+  "kinNuoc": "",
+  "apLucGio": "",
+  "chongTrom": "",
+  "ghiChu": "",
+  "anh": {
+   "c": [],
+   "d": [
+    "/wp-content/uploads/2026/11/romadio-ld16st-f-ban-ve-hd-1.webp",
+    "/wp-content/uploads/2026/11/romadio-ld16st-f-ban-ve-hd-2.webp",
+    "/wp-content/uploads/2026/11/romadio-ld16st-f-ban-ve-hd-3.webp",
+    "/wp-content/uploads/2026/11/romadio-ld16st-f-ban-ve-hd-4.webp"
+   ],
+   "p": []
+  }
+ }
+]
