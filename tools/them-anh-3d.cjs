@@ -1,6 +1,6 @@
 /**
  * Thêm ảnh 3D / ảnh thực tế KHÔNG LOGO của Romadio vào dữ liệu trang /he-cua (11/11/2026).
- * Chạy từ GỐC repo:  node docs/ban-giao-he-cua/cong-cu/them-anh-3d.cjs "<đường dẫn thư mục ROMADIO>"
+ * Chạy từ GỐC repo:  node tools/them-anh-3d.cjs "<đường dẫn thư mục ROMADIO>"
  *
  * Việc làm: đổi ảnh nguồn sang WebP (public/images/he-cua/mau-goc/), rồi gán vào trường anh.c của hệ có mã tương ứng
  * trong src/lib/he-cua-du-lieu.ts. Chạy lại được nhiều lần (ghi đè, không nhân đôi).

@@ -29,7 +29,7 @@ File chính:
 |---|---|
 | `src/app/he-cua/page.tsx` | Khung trang, metadata |
 | `src/components/HeCuaDanhSach.tsx` | Toàn bộ UI và tính năng (client component, ~700 dòng) |
-| `src/lib/he-cua-du-lieu.ts` | **Dữ liệu 115 hệ, tự sinh, đừng sửa tay** (sinh bằng `cong-cu/gen3.cjs`) |
+| `src/lib/he-cua-du-lieu.ts` | **Dữ liệu 115 hệ, tự sinh, đừng sửa tay** (sinh bằng `tools/gen3.cjs`) |
 | `src/app/globals.css` (cuối file) | `.grid-giay` (nền giấy kẻ ô + dấu góc), `.the-hien` (thẻ hiện dần) |
 | `public/images/he-cua/ban-ve/` | 125 bản vẽ 2D webp (tên `<hang>-<ma>-<n>.webp`) |
 | `public/images/he-cua/mau-goc/` | 2 ảnh 3D không logo (`romadio-panorama-19h-g1.webp`, `romadio-rct65-g1.webp`) |
@@ -48,11 +48,11 @@ File chính:
 - **Ảnh 3D** (`c`) và ảnh thực tế (`p`) của Winboss/Romadio/Civro đều có logo → **chưa dùng**. Riêng 2 ảnh 3D lấy từ thư mục `ROMADIO` của người dùng và đã xem tận mắt là sạch: `INFINITY 19H_nobg.png` (dùng cho hệ PANORAMA 19H, `idx 30`) và `RCT65 3_nobg.png` (dùng cho RCT65, `idx 31`). Cấu hình ở biến `RENDER_SACH` trong `gen3.cjs`.
 - Hầu hết ảnh 3D trong thư mục `ROMADIO` (601 ảnh png/jpg, nhiều góc và bản "Tách nền" `_nobg`) **có logo ROMADIO ở mọi góc**. Bộ dò logo tự động `logo-det.cjs` chỉ bắt được khoảng 40% (bỏ sót nhiều logo nhỏ/xoay), **không đủ tin cậy**; chỉ dùng làm bước lọc thô, vẫn phải xem mắt.
 - Hệ không có ảnh hợp lệ hiển thị hình minh họa SVG theo loại cửa (`HinhMinhHoa`).
-- **Rà ảnh 11/11/2026 (đã xem tận mắt bằng bảng ảnh ghép và phóng to):** trong ~600 ảnh ROMADIO, phần lớn render 3D có chữ **"ROMADIO" in nhỏ ngay trên thanh nhôm** (không phải ở góc ảnh như ghi trước đó; bốn góc thường sạch), nên đã loại: OVERSKY 23S, RD120/150/190/225/230LS, RD65, RW*, MD65/190, MW*, FineLine bản có nhãn, bản "tách nền" của chúng. Bộ dò màu xanh navy chỉ để lọc thô, **luôn phải xem mắt**. Ảnh sạch dùng được và đã gán (script `cong-cu/them-anh-3d.cjs`): RD80FD, MD80FD (render tách nền), FineLine 59WO (6), FineLine 62DO (3), LD16IN, LD16OU, LD16SB-F, LD16ST, LD16ST-F (ảnh phối cảnh thư mục L SERIES; tab/ô hiển thị gọi chung "Mẫu góc"). Cộng với PANORAMA 19H và RCT65 có sẵn, đó là 11 hệ có ảnh **không logo**; thêm 27 hệ có ảnh có logo (xem ngay dưới).
-- **Quyết định mới 11/11/2026 (người dùng):** cho phép dùng **ảnh mẫu góc CÓ logo hãng** (chữ ROMADIO nhỏ trên thanh nhôm) cho những hệ có ảnh, thay cho việc chỉ để bản vẽ 2D. Đã gán 27 hệ Romadio nữa (R/M Series, PANORAMA 19S 2/3 ray, OVERSKY 23S), tối đa 3 góc nhìn mỗi hệ (ưu tiên bản tách nền `_nobg`), cấu hình ở mảng `CO_LOGO` trong `cong-cu/them-anh-3d.cjs`. Tổng **38/47 hệ Romadio có mẫu góc**. Chưa có: RW100IN + FW40G (tên tệp là "RW100IN MESH", chưa chắc cùng hệ nên không đoán), 8 hệ LID (không có ảnh). **Civro và Ponzio không có ảnh 3D nào trong thư mục (Civro chỉ có PDF, Ponzio không có)** nên vẫn là bản vẽ 2D. Không cắt hay làm mờ logo.
+- **Rà ảnh 11/11/2026 (đã xem tận mắt bằng bảng ảnh ghép và phóng to):** trong ~600 ảnh ROMADIO, phần lớn render 3D có chữ **"ROMADIO" in nhỏ ngay trên thanh nhôm** (không phải ở góc ảnh như ghi trước đó; bốn góc thường sạch), nên đã loại: OVERSKY 23S, RD120/150/190/225/230LS, RD65, RW*, MD65/190, MW*, FineLine bản có nhãn, bản "tách nền" của chúng. Bộ dò màu xanh navy chỉ để lọc thô, **luôn phải xem mắt**. Ảnh sạch dùng được và đã gán (script `tools/them-anh-3d.cjs`): RD80FD, MD80FD (render tách nền), FineLine 59WO (6), FineLine 62DO (3), LD16IN, LD16OU, LD16SB-F, LD16ST, LD16ST-F (ảnh phối cảnh thư mục L SERIES; tab/ô hiển thị gọi chung "Mẫu góc"). Cộng với PANORAMA 19H và RCT65 có sẵn, đó là 11 hệ có ảnh **không logo**; thêm 27 hệ có ảnh có logo (xem ngay dưới).
+- **Quyết định mới 11/11/2026 (người dùng):** cho phép dùng **ảnh mẫu góc CÓ logo hãng** (chữ ROMADIO nhỏ trên thanh nhôm) cho những hệ có ảnh, thay cho việc chỉ để bản vẽ 2D. Đã gán 27 hệ Romadio nữa (R/M Series, PANORAMA 19S 2/3 ray, OVERSKY 23S), tối đa 3 góc nhìn mỗi hệ (ưu tiên bản tách nền `_nobg`), cấu hình ở mảng `CO_LOGO` trong `tools/them-anh-3d.cjs`. Tổng **38/47 hệ Romadio có mẫu góc**. Chưa có: RW100IN + FW40G (tên tệp là "RW100IN MESH", chưa chắc cùng hệ nên không đoán), 8 hệ LID (không có ảnh). **Civro và Ponzio không có ảnh 3D nào trong thư mục (Civro chỉ có PDF, Ponzio không có)** nên vẫn là bản vẽ 2D. Không cắt hay làm mờ logo.
 - **Ảnh lấy từ trang chính thức của hãng (người dùng yêu cầu 11/11/2026, cho các hệ chưa có ảnh):**
-  - **Civro** (`cong-cu/them-anh-civro.cjs`): ảnh render 3D mẫu góc ở mục Product của https://www.civro.com/product/<hệ>/ (png/webp nền trong suốt, rộng ~500 px, đã xem tận mắt, **không logo**). 31/35 hệ Civro; chưa có XD55 (trang không có ảnh), USL, USW, AMAZA UID16 (không có trang sản phẩm). Chỉ lấy ảnh mẫu góc, không lấy ảnh phối cảnh nội thất (.jpg). Tối đa 3 ảnh/hệ (góc trong/ngoài, ngưỡng thấp/cao).
-  - **Ponzio** (`cong-cu/them-anh-ponzio.cjs`): ảnh render 3D mẫu góc ở đầu trang hệ https://ponzioaluminium.com/en/<hệ>/ (png 500 px, **không logo**). 29/33 hệ Ponzio, mỗi hệ 1 ảnh. Chưa có: NT 75 TT HI (cửa đi, liên kết trên trang hãng bị 404), SL65 In linea, SL65 Nâng trượt, Apexfine (chưa tìm được trang; trang apexfine chuyển hướng và hết thời gian). WS 55 TT (cửa đi) dùng chung ảnh với WS 55 TT (trang hãng gộp). Ảnh của WS 45 TT trên trang hãng trùng ảnh WS 55 TT.
+  - **Civro** (`tools/them-anh-civro.cjs`): ảnh render 3D mẫu góc ở mục Product của https://www.civro.com/product/<hệ>/ (png/webp nền trong suốt, rộng ~500 px, đã xem tận mắt, **không logo**). 31/35 hệ Civro; chưa có XD55 (trang không có ảnh), USL, USW, AMAZA UID16 (không có trang sản phẩm). Chỉ lấy ảnh mẫu góc, không lấy ảnh phối cảnh nội thất (.jpg). Tối đa 3 ảnh/hệ (góc trong/ngoài, ngưỡng thấp/cao).
+  - **Ponzio** (`tools/them-anh-ponzio.cjs`): ảnh render 3D mẫu góc ở đầu trang hệ https://ponzioaluminium.com/en/<hệ>/ (png 500 px, **không logo**). 29/33 hệ Ponzio, mỗi hệ 1 ảnh. Chưa có: NT 75 TT HI (cửa đi, liên kết trên trang hãng bị 404), SL65 In linea, SL65 Nâng trượt, Apexfine (chưa tìm được trang; trang apexfine chuyển hướng và hết thời gian). WS 55 TT (cửa đi) dùng chung ảnh với WS 55 TT (trang hãng gộp). Ảnh của WS 45 TT trên trang hãng trùng ảnh WS 55 TT.
   - Địa chỉ ảnh nằm sẵn trong từng script. Cần xác nhận quyền dùng ảnh/dữ liệu của hãng trước khi công bố chính thức (mục 8.2).
   - **Tổng cộng 98/115 hệ có ảnh mẫu góc** (Romadio 38/47, Civro 31/35, Ponzio 29/33). Trang vẫn hiện đủ 115 hệ; 17 hệ còn lại dùng bản vẽ 2D (hoặc hình minh họa SVG).
 - Ảnh Entrance door (78 ảnh) chưa xét vì không phải hệ cửa trong danh sách.
@@ -66,9 +66,9 @@ File chính:
 - `masco vinakin/`, `Logo/`: mascot và logo VinaKIN/WINDUCA, không liên quan trang này.
 
 ## 7. Cách sinh lại dữ liệu và ảnh
-Thư mục `cong-cu/` (Node, chạy từ **gốc repo**, vì dùng `node_modules/sharp`). Các script nhận tham số `S` = thư mục làm việc có cấu trúc:
+Thư mục `tools/` (Node, chạy từ **gốc repo**, vì dùng `node_modules/sharp`). Các script nhận tham số `S` = thư mục làm việc có cấu trúc:
 ```
-S/wb-he-cua/he-cua.html      (snapshot trang Winboss, có sẵn trong du-lieu-lam-viec/)
+S/wb-he-cua/he-cua.html      (snapshot trang Winboss; bản lưu trong _luu-tru/wb-he-cua/he-cua.html)
 S/wb-he-cua/all.json         (đã parse; sinh bằng parse-all.cjs)
 S/wb-he-cua/other.json       (URL bản vẽ Civro + Ponzio theo thứ tự)
 S/wb-img-romadio/            (ảnh Romadio tải từ winboss.biz; có trong file zip)
@@ -79,14 +79,14 @@ Lệnh:
 ```bash
 cd "D:/3 Cowork Demo/winduca.com"
 S="<đường dẫn thư mục làm việc>"
-node docs/ban-giao-he-cua/cong-cu/parse-all.cjs "$S"        # parse trang Winboss -> all.json
-node docs/ban-giao-he-cua/cong-cu/dl-wb.mjs "$S/wb-he-cua/other.json" "$S/wb-img-other"   # tải ảnh (chỉ khi cần)
-node docs/ban-giao-he-cua/cong-cu/sheet-local.cjs "$S" "INFINITY 19H"   # cũng tạo local-list.json
-node docs/ban-giao-he-cua/cong-cu/gen3.cjs "$S"             # ghi src/lib/he-cua-du-lieu.ts + public/images/he-cua/**
-node docs/ban-giao-he-cua/cong-cu/them-anh-civro.cjs          # CHẠY SAU gen3 (cần mạng, tải từ civro.com)
-node docs/ban-giao-he-cua/cong-cu/them-anh-ponzio.cjs         # CHẠY SAU gen3 (cần mạng, tải từ ponzioaluminium.com)
-node docs/ban-giao-he-cua/cong-cu/them-anh-3d.cjs "<thư mục ROMADIO>"   # CHẠY SAU gen3: gen3 xóa public/images/he-cua nên mất các ảnh 3D thêm sau (36 hệ); script này làm lại
-node docs/ban-giao-he-cua/cong-cu/chuan-hoa-anh.cjs          # CUỐI CÙNG: cắt sát rồi phóng/thu theo "khối lượng" điểm ảnh đặc (sqrt(M) bằng nhau, hộp bao ≤ 97%, mục tiêu 62% khung 1:0,9) để thẻ có sản phẩm to bằng nhau; tệp -p<số> (ảnh chụp: FineLine, LD16) được bỏ qua và hiển thị kiểu phủ kín
+node tools/parse-all.cjs "$S"        # parse trang Winboss -> all.json
+node tools/dl-wb.mjs "$S/wb-he-cua/other.json" "$S/wb-img-other"   # tải ảnh (chỉ khi cần)
+node tools/sheet-local.cjs "$S" "INFINITY 19H"   # cũng tạo local-list.json
+node tools/gen3.cjs "$S"             # ghi src/lib/he-cua-du-lieu.ts + public/images/he-cua/**
+node tools/them-anh-civro.cjs          # CHẠY SAU gen3 (cần mạng, tải từ civro.com)
+node tools/them-anh-ponzio.cjs         # CHẠY SAU gen3 (cần mạng, tải từ ponzioaluminium.com)
+node tools/them-anh-3d.cjs "<thư mục ROMADIO>"   # CHẠY SAU gen3: gen3 xóa public/images/he-cua nên mất các ảnh 3D thêm sau (36 hệ); script này làm lại
+node tools/chuan-hoa-anh.cjs          # CUỐI CÙNG: cắt sát rồi phóng/thu theo "khối lượng" điểm ảnh đặc (sqrt(M) bằng nhau, hộp bao ≤ 97%, mục tiêu 62% khung 1:0,9) để thẻ có sản phẩm to bằng nhau; tệp -p<số> (ảnh chụp: FineLine, LD16) được bỏ qua và hiển thị kiểu phủ kín
 ```
 `gen3.cjs` xóa và tạo lại `public/images/he-cua/`. 9 hệ bổ sung được khai báo ngay trong `gen3.cjs` (hàm `them(...)`). Lưu ý đường dẫn trong `sheet-local.cjs`/`gen3.cjs` đang trỏ thẳng vào thư mục `ROMADIO` trên máy người dùng.
 
@@ -122,7 +122,7 @@ Mở `/he-cua`: 115 hệ (Romadio 47, Civro 35, Ponzio 33), lọc "Civro + Cửa
 ## Cập nhật 11/11/2026 (đợt thiết kế lại lần 2)
 
 - **Thứ tự chạy script dữ liệu** (từ gốc repo): gen3 → them-anh-civro → them-anh-ponzio → them-anh-3d → **bo-sung-tag** → chuan-hoa-anh (cuối; bỏ qua tệp -p).
-- **Tag chức năng** (`cong-cu/bo-sung-tag.cjs`): thêm tag suy ra từ số liệu hãng (cn: U số cụ thể ≤ 1.4; an: RC2 trở lên không ghi "(phụ kiện)"; sm: ghi chú nêu động cơ). Kết quả chỉ thêm 1 hệ (USL): tag trong dữ liệu gốc đã đủ theo các quy tắc này. "Dễ tiếp cận" không suy ra được vì không có số liệu ngưỡng. 79/115 hệ vẫn không có tag chức năng vì hãng chưa công bố số liệu. Thẻ vì vậy hiện thêm nhãn kết cấu, độ dày kính và cấp chống đột nhập (hàm `chipThe`).
+- **Tag chức năng** (`tools/bo-sung-tag.cjs`): thêm tag suy ra từ số liệu hãng (cn: U số cụ thể ≤ 1.4; an: RC2 trở lên không ghi "(phụ kiện)"; sm: ghi chú nêu động cơ). Kết quả chỉ thêm 1 hệ (USL): tag trong dữ liệu gốc đã đủ theo các quy tắc này. "Dễ tiếp cận" không suy ra được vì không có số liệu ngưỡng. 79/115 hệ vẫn không có tag chức năng vì hãng chưa công bố số liệu. Thẻ vì vậy hiện thêm nhãn kết cấu, độ dày kính và cấp chống đột nhập (hàm `chipThe`).
 - **Ảnh**: RW100IN + FW40G và RW100SS dùng bản tách nền trong thư mục `2. Tach nền` (RW100IN MESH 1-3, RW100SS), để cùng kiểu với các thẻ khác; bản ảnh studio nền xám từ romadio.com đã bỏ vì lệch kiểu. Chạy riêng vài hệ: `CHI_MA="RW100SS,RW100IN + FW40G" node ...them-anh-3d.cjs <thư mục>` rồi `node ...chuan-hoa-anh.cjs rw100`. Còn 16 hệ chưa có ảnh 3D chính thức: Civro XD55, USL, USW, AMAZA UID16; Ponzio NT 75 TT HI (cửa đi), SL65 In linea, SL65 Nâng trượt, Apexfine; Romadio LID45/58/102/115/172/230/67IN (không có trên romadio.com hay Drive; LID67OU dùng chung ảnh LD67OU - LD16OU, anh Huy xác nhận).
 - **Menu "Hệ cửa"** (`src/lib/site.ts` + `Header.tsx`): 6 loại hệ có ảnh tròn và số hệ, trỏ tới `/he-cua?h=w|d|s|l|f|v`. Số hệ (`so`) ghi tay theo dữ liệu ngày 11/11/2026, cập nhật khi thêm hệ. Các trang `/he-cua/cua-truot-nang`... vẫn còn nhưng không còn trong menu.
 - **Hero** (`HeroBangChuyen.tsx`): băng chuyền 5 mẫu góc quay vòng cung, tự quay 4,2 giây, rê chuột vào mẫu bên cạnh thì mẫu đó ra trước; có chú thích FIG. và số 01/05; tắt tự quay khi người dùng chọn giảm chuyển động.
