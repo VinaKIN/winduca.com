@@ -121,7 +121,7 @@ export function ChonNhomDoiTac() {
             <Cot tieuDe="Hỗ trợ kỹ thuật" ds={n.kyThuat} />
             <Cot tieuDe="Tài liệu" ds={n.taiLieu} />
           </div>
-          <a href="#dang-ky-hop-tac" className="nut nut-chinh mt-5">
+          <a href="#dang-ky-tham-quan" className="nut nut-chinh mt-5">
             Đăng ký hợp tác nhóm này
           </a>
         </div>

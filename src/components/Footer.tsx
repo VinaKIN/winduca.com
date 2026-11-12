@@ -58,7 +58,9 @@ export function Footer() {
                 </div>
               </div>
             </div>
-            <FormHaiNhom />
+            <div id="dang-ky-tham-quan" className="scroll-mt-24">
+              <FormHaiNhom />
+            </div>
           </div>
         </Wrap>
       </section>

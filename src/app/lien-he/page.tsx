@@ -53,7 +53,7 @@ export default function LienHe() {
                 ["Tư vấn sản phẩm", "/he-cua"],
                 ["Nhận hộp mẫu", "/trai-nghiem#sample-box"],
                 ["Gửi bản vẽ kỹ thuật", "/danh-cho-kts#tu-van"],
-                ["Đăng ký đại lý, nhà thầu", "/hop-tac#dang-ky-hop-tac"],
+                ["Đăng ký đại lý, nhà thầu", "/hop-tac#dang-ky-tham-quan"],
                 ["Hợp tác kiến trúc sư", "/hop-tac#architect"],
               ].map(([t, h]) => (
                 <li key={t}>

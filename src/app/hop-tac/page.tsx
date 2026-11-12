@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { DangKyDoiTac, ChonNhomDoiTac } from "@/components/DoiTacTuongTac";
+import { ChonNhomDoiTac } from "@/components/DoiTacTuongTac";
 import { Hien, KeoNgang } from "@/components/HieuUng";
 import { TieuDeTrang } from "@/components/TrangMau";
 import { Wrap } from "@/components/ui";
@@ -59,16 +59,6 @@ export default function HopTac() {
               ))}
             </KeoNgang>
           </div>
-        </Wrap>
-      </section>
-
-      {/* 04 · Đăng ký */}
-      <section id="dang-ky-hop-tac" className="relative overflow-hidden nen-toi khoi-doc-gon text-white">
-        <div className="luoi-ban-ve-toi pointer-events-none absolute inset-0" aria-hidden="true" />
-        <Wrap className="relative">
-          <Hien>
-            <DangKyDoiTac />
-          </Hien>
         </Wrap>
       </section>
     </>
