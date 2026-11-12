@@ -21,7 +21,7 @@ const SE_CO: Record<MucId, string[]> = {
 
 function MuiTen() {
   return (
-    <span className="inline-flex items-center gap-2 text-[13px] font-bold uppercase tracking-[0.16em] text-than-chi transition-colors group-hover:text-accent">
+    <span className="inline-flex items-center gap-2 text-[13px] font-bold uppercase tracking-[0.16em] text-than-chi transition-colors duration-150 group-hover:text-accent">
       Đọc bài
       <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="transition-transform duration-300 group-hover:translate-x-1.5" aria-hidden="true">
         <path d="M5 12h14M13 6l6 6-6 6" />
@@ -66,11 +66,11 @@ export function TinTucDanhSach({ bai, mucDau = "tat-ca" }: { bai: TheBai[]; mucD
                 role="tab"
                 aria-selected={dang}
                 onClick={() => setMuc(m.id)}
-                className={`group relative inline-flex min-h-11 shrink-0 items-center gap-2 px-3.5 text-[14px] transition-colors md:px-4 ${dang ? "font-bold text-than-chi" : "text-than-chi/70 hover:text-than-chi"}`}
+                className={`group relative inline-flex min-h-11 shrink-0 items-center gap-2 px-3.5 text-[14px] transition-colors duration-150 md:px-4 ${dang ? "font-bold text-than-chi" : "text-than-chi/70 hover:text-than-chi"}`}
               >
                 {m.ten}
                 <span className={`text-[12px] tabular-nums ${dang ? "text-accent" : "text-than-chi/50"}`}>{dem[m.id]}</span>
-                <span className={`absolute inset-x-3 -bottom-[13px] h-[2px] origin-left bg-accent transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] ${dang ? "scale-x-100" : "scale-x-0"}`} aria-hidden="true" />
+                <span className={`absolute inset-x-3 -bottom-[13px] h-[2px] origin-left bg-accent transition-transform duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] ${dang ? "scale-x-100" : "scale-x-0"}`} aria-hidden="true" />
               </button>
             );
           })}
@@ -136,7 +136,7 @@ export function TinTucDanhSach({ bai, mucDau = "tat-ca" }: { bai: TheBai[]; mucD
           {/* Vùng 1 (mắt dừng đầu tiên): bài nổi bật lớn bên trái, "Đọc nhanh" ba bài hàng ngang bên phải */}
           {noiBat && (
             <div className="mt-6 grid gap-6 lg:grid-cols-[1.55fr_1fr] lg:gap-8">
-              <Link href={`/tin-tuc/${noiBat.slug}`} className="the-hien group block overflow-hidden rounded-[18px] border border-than-chi/10 bg-white shadow-[0_14px_40px_rgba(15,17,21,0.06)] transition-[box-shadow,transform] duration-500 hover:-translate-y-1 hover:shadow-[0_28px_60px_rgba(15,17,21,0.12)]">
+              <Link href={`/tin-tuc/${noiBat.slug}`} className="the-hien group block overflow-hidden rounded-[20px] border border-than-chi/10 bg-white shadow-[0_5px_20px_rgba(0,0,0,0.04)] transition-[box-shadow,transform] duration-300 hover:-translate-y-1 active:translate-y-0 hover:shadow-[0_28px_60px_rgba(15,17,21,0.12)]">
                 <span className="relative block aspect-[16/9] overflow-hidden bg-than-chi">
                   <AnhBai anh={noiBat.anh} kieu={noiBat.kieu} chuDe={noiBat.chuDe} priority quality={70} sizes="(min-width: 1024px) 52vw, 100vw" zoom="group-hover:scale-[1.05]" />
                   <span className="absolute left-4 top-4 rounded-full bg-white/92 px-3 py-1 text-[12px] font-bold uppercase tracking-[0.14em] text-than-chi">Bài mới nhất</span>
@@ -153,7 +153,7 @@ export function TinTucDanhSach({ bai, mucDau = "tat-ca" }: { bai: TheBai[]; mucD
               </Link>
 
               {nhanh.length > 0 && (
-                <aside aria-label="Đọc nhanh" className="the-hien flex flex-col rounded-[18px] border border-than-chi/10 bg-white p-5 md:p-6" style={{ animationDelay: "90ms" }}>
+                <aside aria-label="Đọc nhanh" className="the-hien flex flex-col rounded-[20px] border border-than-chi/10 bg-white p-5 md:p-6" style={{ animationDelay: "90ms" }}>
                   <p className="flex items-center gap-3 text-[12px] font-bold uppercase tracking-[0.2em] text-than-chi/70">
                     <i className="h-px w-6 bg-accent" aria-hidden="true" />
                     Đọc nhanh
@@ -162,12 +162,12 @@ export function TinTucDanhSach({ bai, mucDau = "tat-ca" }: { bai: TheBai[]; mucD
                     {nhanh.map((b) => (
                       <li key={b.slug} className="flex flex-1 items-center">
                         <Link href={`/tin-tuc/${b.slug}`} className="group flex w-full items-center gap-4 py-4">
-                          <span className="relative block h-[84px] w-[84px] shrink-0 overflow-hidden rounded-[10px] bg-than-chi/10">
+                          <span className="relative block h-[84px] w-[84px] shrink-0 overflow-hidden rounded-[12px] bg-than-chi/10">
                             <AnhBai anh={b.anh} kieu={b.kieu} chuDe={b.chuDe} quality={60} sizes="84px" zoom="group-hover:scale-[1.08]" />
                           </span>
                           <span className="min-w-0">
                             <span className="block text-[12px] font-bold uppercase tracking-[0.12em]" style={{ color: mauChuDe(b.chuDe).chu }}>{b.chuDe}</span>
-                            <span className="mt-1 line-clamp-2 block text-[15.5px] font-bold leading-snug transition-colors group-hover:text-accent">{b.tieuDe}</span>
+                            <span className="mt-1 line-clamp-2 block text-[15.5px] font-bold leading-snug transition-colors duration-150 group-hover:text-accent">{b.tieuDe}</span>
                             <span className="mt-1 block text-[12.5px] text-than-chi/65">
                               {b.phut} phút đọc · {b.ngay}
                             </span>
@@ -195,7 +195,7 @@ export function TinTucDanhSach({ bai, mucDau = "tat-ca" }: { bai: TheBai[]; mucD
                     <li key={b.slug} className="the-hien" style={{ animationDelay: `${(i + 2) * 70}ms` }}>
                       <Link
                         href={`/tin-tuc/${b.slug}`}
-                        className={`group flex h-full flex-col overflow-hidden rounded-[16px] border transition-[box-shadow,transform,border-color] duration-500 hover:-translate-y-1 ${
+                        className={`group flex h-full flex-col overflow-hidden rounded-[16px] border transition-[box-shadow,transform,border-color] duration-300 hover:-translate-y-1 active:translate-y-0 ${
                           toi ? "border-than-chi bg-than-chi text-white hover:shadow-[0_24px_50px_rgba(15,17,21,0.3)]" : "border-than-chi/10 bg-white hover:border-than-chi/30 hover:shadow-[0_22px_46px_rgba(15,17,21,0.12)]"
                         }`}
                       >
@@ -206,7 +206,7 @@ export function TinTucDanhSach({ bai, mucDau = "tat-ca" }: { bai: TheBai[]; mucD
                         </span>
                         <span className="flex flex-1 flex-col p-5">
                           <span className={`text-[12.5px] ${toi ? "text-white/70" : "text-than-chi/65"}`}>{b.ngay}</span>
-                          <span className={`mt-1.5 block text-[1.15rem] font-bold leading-snug transition-colors ${toi ? "group-hover:text-white/80" : "group-hover:text-accent"}`}>{b.tieuDe}</span>
+                          <span className={`mt-1.5 block text-[1.15rem] font-bold leading-snug transition-colors duration-150 ${toi ? "group-hover:text-white/80" : "group-hover:text-accent"}`}>{b.tieuDe}</span>
                           {toi && b.diem.length > 0 ? (
                             <ul className="mt-3 space-y-1.5 text-[14px] leading-snug text-white/80" role="list">
                               {b.diem.map((d) => (
@@ -220,7 +220,7 @@ export function TinTucDanhSach({ bai, mucDau = "tat-ca" }: { bai: TheBai[]; mucD
                             <span className="mt-2 line-clamp-2 block text-[14.5px] leading-relaxed text-than-chi/70">{b.tomTat}</span>
                           )}
                           <span className="mt-auto block pt-4">
-                            <span className={`inline-flex items-center gap-2 text-[13px] font-bold uppercase tracking-[0.16em] transition-colors ${toi ? "text-white group-hover:text-white/80" : "text-than-chi group-hover:text-accent"}`}>
+                            <span className={`inline-flex items-center gap-2 text-[13px] font-bold uppercase tracking-[0.16em] transition-colors duration-150 ${toi ? "text-white group-hover:text-white/80" : "text-than-chi group-hover:text-accent"}`}>
                               Đọc bài
                               <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="transition-transform duration-300 group-hover:translate-x-1.5" aria-hidden="true">
                                 <path d="M5 12h14M13 6l6 6-6 6" />

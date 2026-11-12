@@ -19,7 +19,7 @@ export function AnhBai({ anh, kieu, chuDe, sizes, quality = 65, priority = false
         priority={priority}
         quality={quality}
         sizes={sizes}
-        className={`${kt ? "object-contain p-[7%]" : "object-cover"} transition-transform duration-[1200ms] ease-[cubic-bezier(0.22,1,0.36,1)] ${zoom}`}
+        className={`${kt ? "object-contain p-[7%]" : "object-cover"} transition-transform duration-300 ease-out ${zoom}`}
       />
       {!kt && <span className="absolute inset-0 bg-[#1b1d22]/10 mix-blend-multiply" aria-hidden="true" />}
       {kt && (
