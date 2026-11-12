@@ -116,11 +116,100 @@ function HinhMinhHoa({ he, lop = "" }: { he: string; lop?: string }) {
 /** Nền "sân khấu" sáng cho ảnh mẫu góc: chiếu sáng giữa, tối dần ra mép, như ảnh chụp trong studio. */
 const SAN_KHAU = "bg-[radial-gradient(ellipse_at_50%_36%,#ffffff_0%,#f2f5f9_50%,#dfe5ee_100%)]";
 
-/** Nhãn đặc điểm trên thẻ: kết cấu, độ dày kính hãng công bố, rồi các chức năng; thiếu dữ liệu thì không hiện nhãn nào. */
-const NHAN_KET_CAU: Record<string, string> = { t: "Có cầu cách nhiệt", n: "Không cầu nhiệt", tn: "Cả hai phiên bản" };
-function chipThe(r: HeCua): string[] {
+/**
+ * Hệ thống chú thích trên thẻ (12/11/2026): mỗi đặc điểm là một "huy hiệu" gồm biểu tượng + nhãn ngắn, có loại để tô sắc độ và
+ * chú giải đầy đủ (title) khi rê chuột. Thứ tự ưu tiên: kết cấu, chống đột nhập, kính, rồi chức năng. Thẻ chỉ hiện tối đa
+ * SO_CHU_THICH huy hiệu, phần dư gộp thành "+N" (đầy đủ nằm trong hộp chi tiết) để chiều cao các thẻ luôn gọn và đều.
+ */
+type LoaiCT = "nhiet" | "an-ninh" | "kinh" | "tien-ich" | "thong-minh";
+type ChuThich = { loai: LoaiCT; nhan: string; day: string };
+const SO_CHU_THICH = 3;
+const NHAN_KET_CAU: Record<string, { nhan: string; day: string }> = {
+  t: { nhan: "Cầu cách nhiệt", day: "Có cầu cách nhiệt" },
+  n: { nhan: "Không cầu nhiệt", day: "Không có cầu cách nhiệt" },
+  tn: { nhan: "Cầu nhiệt tùy chọn", day: "Có cả hai phiên bản: có và không có cầu cách nhiệt" },
+};
+const LOAI_TAG: Record<string, LoaiCT> = { cn: "nhiet", an: "an-ninh", de: "tien-ich", sm: "thong-minh" };
+const NHAN_TAG: Record<string, string> = { cn: "Cách nhiệt cao", an: "An ninh cao", de: "Dễ tiếp cận", sm: "Thông minh" };
+
+function chuThichThe(r: HeCua): ChuThich[] {
+  const ds: ChuThich[] = [];
+  if (r.ketCau && NHAN_KET_CAU[r.ketCau]) ds.push({ loai: "nhiet", ...NHAN_KET_CAU[r.ketCau] });
+  const rc = /RC\d(?:\/RC\d)?/.exec(r.chongTrom)?.[0];
+  if (rc) ds.push({ loai: "an-ninh", nhan: rc, day: `Chống đột nhập ${r.chongTrom}` });
   const kinh = /^Kính áp dụng:\s*(.+)$/.exec(r.ghiChu.trim());
-  return [...(r.ketCau ? [NHAN_KET_CAU[r.ketCau]] : []), ...(kinh ? [`Kính ${kinh[1]}`] : []), ...(/RC[1-6]/.test(r.chongTrom) ? [`Chống đột nhập ${/RC\d(?:\/RC\d)?/.exec(r.chongTrom)?.[0]}`] : []), ...r.tags.map((t) => TEN_TAG[t])];
+  if (kinh) ds.push({ loai: "kinh", nhan: `Kính ${kinh[1].replace(/\s*mm$/, "")}`, day: `Độ dày kính áp dụng: ${kinh[1]}` });
+  for (const t of r.tags) {
+    if (t === "an" && rc) continue; // đã có huy hiệu RC
+    ds.push({ loai: LOAI_TAG[t], nhan: NHAN_TAG[t], day: TEN_TAG[t] });
+  }
+  return ds;
+}
+
+function BieuTuongCT({ loai }: { loai: LoaiCT }) {
+  const chung = { viewBox: "0 0 24 24", width: 14, height: 14, fill: "none", stroke: "currentColor", strokeWidth: 2, strokeLinecap: "round" as const, strokeLinejoin: "round" as const, "aria-hidden": true };
+  if (loai === "an-ninh")
+    return (
+      <svg {...chung}>
+        <path d="M12 3 5 6v5c0 4.5 3 8 7 10 4-2 7-5.5 7-10V6l-7-3Z" />
+        <path d="m9 12 2 2 4-4" />
+      </svg>
+    );
+  if (loai === "kinh")
+    return (
+      <svg {...chung}>
+        <rect x="4" y="3" width="16" height="18" rx="1.5" />
+        <path d="M9 3v18M15 3v18" />
+      </svg>
+    );
+  if (loai === "thong-minh")
+    return (
+      <svg {...chung}>
+        <path d="M13 2 4 14h7l-1 8 9-12h-7l1-8Z" />
+      </svg>
+    );
+  if (loai === "tien-ich")
+    return (
+      <svg {...chung}>
+        <circle cx="12" cy="12" r="9" />
+        <path d="M8 12h8M12 8v8" />
+      </svg>
+    );
+  return (
+    <svg {...chung}>
+      <path d="M12 3v11.5a3.5 3.5 0 1 1-3 0V3a1.5 1.5 0 0 1 3 0Z" />
+    </svg>
+  );
+}
+
+const MAU_CT: Record<LoaiCT, string> = {
+  nhiet: "bg-[#eef1f5] text-[#374151] [&>svg]:text-[#6b7280]",
+  "an-ninh": "bg-[#1b1d22] text-white [&>svg]:text-white/80",
+  kinh: "bg-[#eef1f5] text-[#374151] [&>svg]:text-[#6b7280]",
+  "tien-ich": "bg-[#eef1f5] text-[#374151] [&>svg]:text-[#6b7280]",
+  "thong-minh": "bg-accent/10 text-accent-dam [&>svg]:text-accent",
+};
+
+function HangChuThich({ r }: { r: HeCua }) {
+  const ds = chuThichThe(r);
+  const hien = ds.slice(0, SO_CHU_THICH);
+  const du = ds.slice(SO_CHU_THICH);
+  return (
+    <ul className="mt-3 flex flex-wrap content-start gap-1.5" aria-label="Chú thích đặc điểm">
+      {hien.map((c) => (
+        <li key={c.nhan} title={c.day} className={`inline-flex h-7 items-center gap-1.5 rounded-full px-2.5 text-[12px] font-medium leading-none ${MAU_CT[c.loai]}`}>
+          <BieuTuongCT loai={c.loai} />
+          <span className="sr-only">{c.day}. </span>
+          <span aria-hidden="true">{c.nhan}</span>
+        </li>
+      ))}
+      {du.length > 0 && (
+        <li title={du.map((c) => c.day).join("; ")} className="inline-flex h-7 items-center rounded-full border border-dashed border-[#c3cad4] px-2.5 text-[12px] font-medium leading-none text-[#4b5563]">
+          +{du.length}
+        </li>
+      )}
+    </ul>
+  );
 }
 
 /** Ảnh chụp (tệp có hậu tố -p<số>) phủ kín khung; ảnh render tách nền đã chuẩn hóa vuông, hiện vừa khung và có bóng dưới chân. */
@@ -662,13 +751,7 @@ export function HeCuaDanhSach() {
                     {r.ma}
                   </button>
                 </h3>
-                <ul className="mt-3 flex flex-wrap content-start gap-1.5" aria-label="Đặc điểm">
-                  {chipThe(r).map((t) => (
-                    <li key={t} className="rounded-[7px] border border-[#e3e7ec] bg-[#f3f5f8] px-2 py-0.5 text-[12px] leading-snug text-[#4b5563]">
-                      {t}
-                    </li>
-                  ))}
-                </ul>
+                <HangChuThich r={r} />
               </div>
               <div className="flex items-end px-4 pb-4 pt-4 md:px-5 md:pb-5">
                 <span className="inline-flex items-center gap-2 text-[13px] font-bold text-than-chi transition-colors group-hover:text-accent">
