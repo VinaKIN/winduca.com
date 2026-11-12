@@ -3,10 +3,15 @@
  * tuyên bố riêng về sản phẩm WINDUCA. Cần đội kỹ thuật WINDUCA duyệt trước khi công bố chính thức.
  */
 
+export type MucId = "kien-thuc" | "hoat-dong" | "cong-trinh" | "tai-lieu";
+
 export type MucBai = { h: string; p: string[] };
 
 export type BaiViet = {
   slug: string;
+  /** Chuyên mục của Tin tức (mặc định "kien-thuc"). */
+  muc?: MucId;
+  /** Chủ đề bài (nhãn tiếng Anh cũ, dùng TEN_CHU_DE để hiện tiếng Việt). */
   chuyenMuc: string;
   tieuDe: string;
   tomTat: string;
@@ -17,6 +22,156 @@ export type BaiViet = {
 };
 
 export const BAI_VIET: BaiViet[] = [
+  {
+    slug: "chon-cua-theo-khong-gian",
+    chuyenMuc: "Architecture & Design",
+    tieuDe: "Chọn cửa theo không gian: phòng khách, ban công, phòng ngủ",
+    tomTat: "Mỗi không gian dùng cửa khác nhau. Vài câu hỏi đơn giản giúp chọn kiểu cửa trước khi nói đến vật liệu.",
+    anh: "/images/giai-phap/can-ho-cao-cap-1.webp",
+    ngay: "2026-11-12",
+    noiDung: [
+      {
+        h: "Bắt đầu từ cách dùng, không phải từ kiểu cửa",
+        p: [
+          "Cùng là một ô cửa, nhưng cửa phòng khách, cửa ban công và cửa phòng ngủ phục vụ những việc rất khác nhau. Phòng khách cần tầm nhìn và lối ra vào rộng, ban công cần tiết kiệm diện tích khi mở, phòng ngủ cần yên tĩnh và riêng tư.",
+          "Trước khi chọn kiểu cửa, nên viết ra vài câu: ô cửa này mở bao nhiêu lần mỗi ngày, ai dùng, và mong muốn lớn nhất là gì. Câu trả lời thường đã gợi ý được kiểu mở phù hợp.",
+        ],
+      },
+      {
+        h: "Gợi ý theo từng không gian",
+        p: [
+          "Phòng khách liên thông với sân vườn thường hợp với cánh lớn trượt hoặc xếp gọn để mở rộng tầm nhìn. Ban công và lô gia hợp với cánh trượt vì không chiếm chỗ khi mở. Phòng ngủ và phòng làm việc thường ưu tiên cửa sổ có thể thông gió mà vẫn giữ được sự riêng tư.",
+          "Đây là gợi ý chung. Bản vẽ, hướng nắng, tiếng ồn và khẩu độ thực tế sẽ quyết định cấu hình cuối cùng.",
+        ],
+      },
+      {
+        h: "Giữ sự đồng bộ giữa các ô cửa",
+        p: [
+          "Khi nhiều kiểu cửa cùng xuất hiện trong một công trình, đường nét khung và màu hoàn thiện nên thống nhất. Một ngôn ngữ chung giúp mặt tiền và nội thất liền mạch, dù từng ô cửa có cách mở khác nhau.",
+        ],
+      },
+    ],
+    ketLuan: "Anh chị có thể gửi bản vẽ hoặc mô tả không gian để đội kỹ thuật WINDUCA gợi ý kiểu cửa phù hợp.",
+  },
+  {
+    slug: "cach-doc-ban-ve-cua-truoc-khi-dat-hang",
+    chuyenMuc: "Architecture & Design",
+    tieuDe: "Cách đọc bản vẽ cửa trước khi đặt hàng",
+    tomTat: "Vài điểm cần nhìn kỹ trên bản vẽ để tránh sửa đổi tốn kém khi cửa đã sản xuất.",
+    anh: "/images/ban-ve-kts.jpg",
+    ngay: "2026-11-12",
+    noiDung: [
+      {
+        h: "Bản vẽ cho biết điều gì?",
+        p: [
+          "Bản vẽ cửa thường gồm mặt đứng thể hiện hình dạng và cách chia ô, và mặt cắt thể hiện cấu tạo khung, kính và phụ kiện. Hai loại bản vẽ này bổ sung cho nhau: mặt đứng cho thấy cửa trông thế nào, mặt cắt cho thấy cửa được làm ra sao.",
+        ],
+      },
+      {
+        h: "Những điểm nên kiểm tra",
+        p: [
+          "Trước hết là kích thước và vị trí mở của từng cánh: cánh nào mở, cánh nào cố định, mở vào trong hay ra ngoài. Tiếp theo là cao độ sàn và ngưỡng cửa, vì chi tiết này ảnh hưởng đến cả vận hành lẫn thoát nước.",
+          "Cuối cùng là các ghi chú về màu hoàn thiện, loại kính và phụ kiện. Nếu một ghi chú chưa rõ, hãy hỏi lại trước khi chốt thay vì chờ đến khi lắp đặt.",
+        ],
+      },
+      {
+        h: "Cùng đội kỹ thuật rà soát",
+        p: [
+          "Bóc tách cùng đội kỹ thuật giúp phát hiện sớm những chỗ bản vẽ kiến trúc chưa tính đến chi tiết cửa, ví dụ chỗ giấu ray hoặc khoảng hở lắp đặt. Làm rõ ở giai đoạn này luôn nhẹ nhàng hơn xử lý tại công trình.",
+        ],
+      },
+    ],
+    ketLuan: "Anh chị có thể gửi bản vẽ để đội kỹ thuật WINDUCA cùng rà soát trước khi chốt cấu hình.",
+  },
+  {
+    slug: "kinh-hop-trong-cua-nhom-nen-hoi-gi",
+    chuyenMuc: "Material & Engineering",
+    tieuDe: "Kính hộp trong cửa nhôm: những điều nên hỏi",
+    tomTat: "Kính chiếm phần lớn diện tích cửa. Biết đặt câu hỏi đúng giúp chọn kính phù hợp với không gian.",
+    anh: "/images/engineering/exploded-windows.webp",
+    ngay: "2026-11-12",
+    noiDung: [
+      {
+        h: "Kính hộp là gì?",
+        p: [
+          "Kính hộp gồm hai hay nhiều lớp kính ngăn cách bằng một khoảng đệm kín. Cấu tạo này góp phần cải thiện cách nhiệt và cách âm so với kính một lớp, tùy vào cấu hình cụ thể.",
+        ],
+      },
+      {
+        h: "Câu hỏi nên đặt cho nhà cung cấp",
+        p: [
+          "Hãy hỏi về cấu hình lớp kính, loại kính (kính cường lực, kính dán an toàn, kính phủ) và cách nhà cung cấp kiểm soát chất lượng thanh đệm và keo làm kín. Hỏi thêm về tài liệu kiểm định nếu có.",
+          "Cũng nên nói rõ vị trí lắp: mặt hướng nắng, mặt hướng đường lớn hay khu vực cần an toàn cao sẽ đòi hỏi cấu hình khác nhau.",
+        ],
+      },
+      {
+        h: "Đừng quên khung và gioăng",
+        p: [
+          "Kính tốt chỉ phát huy khi khung, gioăng và cách lắp đặt tương xứng. Khả năng cách nhiệt và cách âm của cả bộ cửa là kết quả của toàn bộ các thành phần cùng làm việc.",
+        ],
+      },
+    ],
+    ketLuan: "Số liệu cụ thể nên lấy từ tài liệu kiểm định của từng hệ cửa. Anh chị có thể liên hệ để được tư vấn theo công trình.",
+  },
+  {
+    slug: "bao-tri-cua-nhom-kinh-viec-nho-giu-cua-ben",
+    chuyenMuc: "Window Technology",
+    tieuDe: "Bảo trì cửa nhôm kính: những việc nhỏ giữ cửa bền lâu",
+    tomTat: "Vệ sinh ray, kiểm tra gioăng và tra phụ kiện đúng lúc giúp cửa vận hành êm lâu hơn.",
+    anh: "/images/xuong/tay-nghe-phu-kien.webp",
+    ngay: "2026-11-12",
+    noiDung: [
+      {
+        h: "Vệ sinh ray và rãnh thoát nước",
+        p: [
+          "Bụi và cát tích tụ trong ray làm bánh xe và con lăn nhanh mòn, cánh trượt nặng và ồn hơn. Hút bụi và lau ray định kỳ, kiểm tra rãnh thoát nước không bị nghẹt, là việc đơn giản nhưng hiệu quả nhất.",
+        ],
+      },
+      {
+        h: "Kiểm tra gioăng và phụ kiện",
+        p: [
+          "Gioăng cao su có thể cứng hoặc nứt theo thời gian. Khi thấy gioăng hở hoặc biến dạng, nên báo để thay đúng loại. Tay nắm, bản lề và khóa cũng cần được vặn chặt và tra dầu phù hợp theo hướng dẫn của nhà cung cấp.",
+        ],
+      },
+      {
+        h: "Khi nào nên gọi kỹ thuật?",
+        p: [
+          "Nếu cánh cửa bị xệ, khó đóng, đóng không kín hoặc có tiếng kêu bất thường, đừng tự ý tháo chỉnh bộ phận chịu lực. Hãy liên hệ đội kỹ thuật để kiểm tra và hiệu chỉnh đúng cách.",
+        ],
+      },
+    ],
+    ketLuan: "Chính sách bảo hành và hậu mãi cụ thể đang được hoàn thiện. Anh chị liên hệ WINDUCA để được hỗ trợ khi cần.",
+  },
+  {
+    slug: "anh-sang-tu-nhien-va-cua-kinh-lon",
+    chuyenMuc: "Architecture & Design",
+    tieuDe: "Ánh sáng tự nhiên và cửa kính lớn: cân bằng thế nào?",
+    tomTat: "Mặt kính lớn đón sáng và tầm nhìn, nhưng cũng cần tính đến nắng nóng, chói và riêng tư.",
+    anh: "/images/giai-phap/penthouse-1.webp",
+    ngay: "2026-11-12",
+    noiDung: [
+      {
+        h: "Vì sao nên có nhiều ánh sáng tự nhiên?",
+        p: [
+          "Ánh sáng tự nhiên làm không gian thoáng và dễ chịu hơn, đồng thời giúp giảm nhu cầu bật đèn ban ngày. Cửa kính lớn là cách trực tiếp nhất để đưa ánh sáng và tầm nhìn vào nhà.",
+        ],
+      },
+      {
+        h: "Những điều cần cân bằng",
+        p: [
+          "Mặt kính hướng nắng có thể gây chói và nóng. Giải pháp thường kết hợp nhiều yếu tố: loại kính, mái hiên hoặc lam che, rèm và cách bố trí nội thất. Không có một đáp án chung, vì mỗi hướng nhà có điều kiện riêng.",
+          "Riêng tư cũng là câu hỏi quan trọng với nhà phố và căn hộ. Vị trí ô mở, cách chia ô kính và rèm hoặc kính mờ có thể giải quyết tùy tình huống.",
+        ],
+      },
+      {
+        h: "Trao đổi sớm với kiến trúc sư",
+        p: [
+          "Quyết định về diện tích kính nên được cân nhắc từ giai đoạn thiết kế, cùng với hướng nhà, che nắng và thông gió. Khi đó cửa không chỉ là chi tiết hoàn thiện mà là một phần của ý đồ kiến trúc.",
+        ],
+      },
+    ],
+    ketLuan: "Anh chị có thể gửi bản vẽ để đội kỹ thuật WINDUCA cùng kiến trúc sư cân nhắc giải pháp cửa phù hợp từng hướng nhà.",
+  },
   {
     slug: "cua-truot-nang-khac-gi-cua-truot-thuong",
     chuyenMuc: "Window Technology",
@@ -146,3 +301,33 @@ export const BAI_VIET: BaiViet[] = [
     ketLuan: "Anh chị có thể gửi bản vẽ để đội kỹ thuật WINDUCA tư vấn chi tiết phù hợp với công trình.",
   },
 ];
+
+/** Chuyên mục của Tin tức. Ba mục sau chưa có bài thật nên trang hiện trạng thái đang cập nhật. */
+export const MUC_TIN_TUC: { id: MucId; ten: string; mota: string; href: string }[] = [
+  { id: "kien-thuc", ten: "Kiến thức", mota: "Bài chuyên môn về kiến trúc, công nghệ cửa, vật liệu và kỹ thuật.", href: "/tin-tuc/kien-thuc" },
+  { id: "hoat-dong", ten: "Tin hoạt động", mota: "Ra mắt, triển lãm, hợp tác và hoạt động của WINDUCA.", href: "/tin-tuc/hoat-dong" },
+  { id: "cong-trinh", ten: "Câu chuyện công trình", mota: "Công trình và giải pháp triển khai, khi có sự đồng ý của chủ đầu tư.", href: "/tin-tuc/cong-trinh" },
+  { id: "tai-lieu", ten: "Tài liệu", mota: "Catalog, hồ sơ kỹ thuật và bảng màu khi đã được kiểm duyệt.", href: "/tin-tuc/tai-lieu" },
+];
+
+export const TEN_CHU_DE: Record<string, string> = {
+  "Window Technology": "Công nghệ cửa",
+  "Material & Engineering": "Vật liệu và kỹ thuật",
+  "Architecture & Design": "Kiến trúc và thiết kế",
+};
+
+export const mucCua = (b: BaiViet): MucId => b.muc ?? "kien-thuc";
+export const chuDeCua = (b: BaiViet) => TEN_CHU_DE[b.chuyenMuc] ?? b.chuyenMuc;
+
+/** Số phút đọc ước tính (khoảng 200 từ mỗi phút), tối thiểu 1. */
+export function phutDoc(b: BaiViet): number {
+  const chu = [b.tomTat, b.ketLuan, ...b.noiDung.flatMap((m) => [m.h, ...m.p])].join(" ");
+  return Math.max(1, Math.round(chu.split(/\s+/).filter(Boolean).length / 200));
+}
+
+/** 2026-11-12 -> 12/11/2026 */
+export const ngayVN = (iso: string) => iso.split("-").reverse().join("/");
+
+/** Dữ liệu gọn cho thành phần client (không chứa nội dung bài). */
+export type TheBai = { slug: string; muc: MucId; chuDe: string; tieuDe: string; tomTat: string; anh: string; ngay: string; phut: number };
+export const THE_BAI: TheBai[] = BAI_VIET.map((b) => ({ slug: b.slug, muc: mucCua(b), chuDe: chuDeCua(b), tieuDe: b.tieuDe, tomTat: b.tomTat, anh: b.anh, ngay: ngayVN(b.ngay), phut: phutDoc(b) }));
