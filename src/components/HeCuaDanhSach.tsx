@@ -461,7 +461,7 @@ function CuaSoChiTiet({ r, dong, dieuHuong, dangSoSanh, doiSoSanh }: { r: HeCua;
             </button>
             {thongTin && (
               <p className="relative z-10 mx-5 mt-2 text-[12px] leading-snug text-white/70">
-                {thongTin.chuThich} · Nguồn:{" "}
+                {thongTin.chuThich} · {thongTin.dungMa ? "Dự án có dùng hệ này theo hãng" : "Công trình tiêu biểu của hãng"} · Nguồn:{" "}
                 <a href={thongTin.nguon} target="_blank" rel="noopener noreferrer" className="underline underline-offset-2 hover:text-white">
                   {thongTin.tenNguon}
                 </a>
