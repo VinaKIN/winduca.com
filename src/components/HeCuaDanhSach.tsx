@@ -334,9 +334,7 @@ function DiemDuLieu({ co }: { co: number }) {
           <i key={i} className={`h-1.5 w-5 rounded-full ${i < co ? "bg-accent" : "bg-[#dfe3e9]"}`} />
         ))}
       </span>
-      <span>
-        {co}/6 chỉ số do hãng công bố
-      </span>
+      <span className="whitespace-nowrap">{co}/6 do hãng công bố</span>
     </p>
   );
 }
@@ -419,7 +417,7 @@ function CuaSoChiTiet({ r, dong, dieuHuong, dangSoSanh, doiSoSanh }: { r: HeCua;
         <i className="pointer-events-none absolute bottom-4 right-4 hidden h-5 w-5 border-b border-r border-white/40 md:block" aria-hidden="true" />
 
         {/* thanh trên: hãng + điều hướng giữa các hệ */}
-        <div className="relative z-10 flex items-center justify-between gap-3 px-5 pt-5">
+        <div className="relative z-10 flex items-center justify-between gap-3 pl-5 pr-16 pt-5 md:pr-5">
           <span className="flex items-center gap-2 text-[12px] font-bold uppercase tracking-[0.2em] text-white/75">
             <i className="h-1.5 w-1.5 bg-accent" aria-hidden="true" />
             {TEN_HANG[r.hang]}
@@ -450,7 +448,7 @@ function CuaSoChiTiet({ r, dong, dieuHuong, dangSoSanh, doiSoSanh }: { r: HeCua;
 
         {anhDang ? (
           <>
-            <button type="button" onClick={() => setPhong(true)} aria-label="Phóng to ảnh" className="relative z-10 mx-5 mt-2 block h-[clamp(240px,46svh,470px)] flex-1 cursor-zoom-in [perspective:900px]">
+            <button type="button" onClick={() => setPhong(true)} aria-label="Phóng to ảnh" className="relative z-10 mx-5 mt-2 block h-[clamp(240px,46svh,470px)] shrink-0 cursor-zoom-in [perspective:900px]">
               <span className="relative block h-full w-full transition-transform duration-300 ease-out [transform:rotateY(var(--rx))_rotateX(var(--ry))]">
                 {laCongTrinh ? (
                   <Image key={anhDang} src={anhDang.startsWith("http") ? anhDang : asset(anhDang)} alt={`Công trình dùng hệ cửa ${TEN_HANG[r.hang]}`} fill quality={75} sizes="(min-width: 768px) 50vw, 92vw" unoptimized className="anh-doi rounded-[10px] object-cover" />
@@ -467,7 +465,7 @@ function CuaSoChiTiet({ r, dong, dieuHuong, dangSoSanh, doiSoSanh }: { r: HeCua;
                 </a>
               </p>
             )}
-            <div className="relative z-10 flex flex-col items-center gap-3 px-5 pb-5 pt-3">
+            <div className="relative z-10 mt-auto flex flex-col items-center gap-3 px-5 pb-5 pt-3">
               {co.length > 1 && (
                 <div role="tablist" aria-label="Loại hình" className="flex flex-wrap justify-center gap-2">
                   {co.map(([t, l], i) => (
@@ -538,8 +536,8 @@ function CuaSoChiTiet({ r, dong, dieuHuong, dangSoSanh, doiSoSanh }: { r: HeCua;
         )}
 
         {/* ba chỉ số chính */}
-        <div className="mt-6 flex items-center justify-between gap-3">
-          <h4 className={NHAN_NHO}>Chỉ số chính</h4>
+        <div className="mt-6 flex flex-wrap items-center justify-between gap-x-3 gap-y-2">
+          <h4 className={`${NHAN_NHO} whitespace-nowrap`}>Chỉ số chính</h4>
           <DiemDuLieu co={cs.co} />
         </div>
         <dl className="mt-3 grid grid-cols-3 overflow-hidden rounded-[16px] border border-[#e3e7ec] bg-[linear-gradient(180deg,#fff,#f7f8fa)]">
@@ -548,7 +546,7 @@ function CuaSoChiTiet({ r, dong, dieuHuong, dangSoSanh, doiSoSanh }: { r: HeCua;
               <dt className={NHAN_NHO}>{c.nhan}</dt>
               <dd className="mt-2">
                 {c.gt ? (
-                  <span className="block text-[clamp(1.15rem,2vw,1.75rem)] font-light leading-tight tracking-[-0.02em]">
+                  <span className="block whitespace-nowrap text-[clamp(1.05rem,5vw,1.3rem)] font-light leading-tight tracking-[-0.02em] md:text-[clamp(1.15rem,2vw,1.75rem)]">
                     {c.gt}
                     {c.dv && c.gt !== "Không áp dụng" && <small className="ml-1 text-xs text-[#697280]">{c.dv}</small>}
                   </span>
