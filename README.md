@@ -21,7 +21,7 @@ Yêu cầu: Node 20+ (đã thử trên Node 26), npm.
 
 ## Công nghệ
 
-Next.js (App Router) · TypeScript · Tailwind CSS v4 · react-three-fiber + three · `next/font` (Montserrat, Be Vietnam Pro).
+Next.js (App Router) · TypeScript · Tailwind CSS v4 · react-three-fiber + three · `next/font` (Roboto).
 
 ## Quy tắc bắt buộc
 
@@ -30,3 +30,11 @@ Next.js (App Router) · TypeScript · Tailwind CSS v4 · react-three-fiber + thr
 - **Không lưu dữ liệu khách trong repo hay trên máy chủ web.** Không commit `.env`, khóa API, tệp có thông tin khách.
 - **Ảnh minh họa luôn gắn nhãn**; ảnh tạm chỉ từ nguồn cho dùng thương mại, ghi nguồn vào `public/images/NGUON-ANH.md`.
 - **Push lên GitHub chỉ sau khi chủ dự án duyệt** mốc có nội dung công khai.
+
+## Mở bằng Visual Studio Code
+
+1. Giải nén gói mã nguồn, mở thư mục `winduca.com` bằng VS Code (File > Open Folder). VS Code sẽ gợi ý cài ESLint, Tailwind CSS IntelliSense, Prettier và Claude Code.
+2. Chạy `npm install` rồi `npm run dev`, mở http://localhost:3000.
+3. Đọc `CLAUDE.md` trước (bản đồ trang, dữ liệu, giao diện, quyết định, ranh đỏ nội dung), sau đó `docs/DESIGN-SYSTEM.md` và `docs/BAN-GIAO.md`.
+4. Build bản xem thử tĩnh giống GitHub Pages: xem mục "Lệnh" trong `CLAUDE.md` (phải tạm chuyển `src/app/api` ra ngoài).
+5. Gói này không chứa `node_modules`, `.next`, `out` và `.git`. Khóa API, `.env` không được đóng gói; dùng `.env.example` làm mẫu.
