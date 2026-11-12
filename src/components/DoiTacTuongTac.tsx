@@ -68,24 +68,38 @@ export function ChonNhomDoiTac() {
 
   return (
     <div className="grid gap-4 lg:grid-cols-[0.75fr_1.7fr] lg:gap-8">
-      <div role="tablist" aria-label="Nhóm đối tác" className="flex gap-2 overflow-x-auto pb-1 [scrollbar-width:none] lg:flex-col lg:gap-0 lg:overflow-visible lg:border-y lg:border-than-chi/15 [&::-webkit-scrollbar]:hidden">
-        {NHOM_DOI_TAC.map((x, k) => (
-          <button
-            key={x.id}
-            id={`tab-${x.id}`}
-            type="button"
-            role="tab"
-            aria-selected={id === x.id}
-            onClick={() => chon(x.id)}
-            onMouseEnter={() => {
-              if (window.matchMedia("(hover: hover) and (pointer: fine)").matches) chon(x.id);
-            }}
-            className={`flex shrink-0 items-center gap-3 whitespace-nowrap rounded-full border px-4 py-2 text-left transition-colors lg:w-full lg:gap-5 lg:rounded-none lg:border-0 lg:border-b lg:border-than-chi/15 lg:px-0 lg:py-4 lg:last:border-b-0 ${id === x.id ? "border-accent text-accent" : "border-than-chi/20 text-than-chi/75 hover:text-than-chi"}`}
-          >
-            <span className="text-xs font-bold tracking-[0.12em] lg:w-7">{String(k + 1).padStart(2, "0")}</span>
-            <span className="text-sm font-semibold uppercase tracking-[0.04em] lg:text-base">{x.ten}</span>
-          </button>
-        ))}
+      <div role="tablist" aria-label="Nhóm đối tác" className="flex snap-x gap-3 overflow-x-auto pb-1 [scrollbar-width:none] lg:grid lg:grid-rows-3 lg:gap-4 lg:overflow-visible lg:pb-0 [&::-webkit-scrollbar]:hidden">
+        {NHOM_DOI_TAC.map((x, k) => {
+          const dang = id === x.id;
+          return (
+            <button
+              key={x.id}
+              id={`tab-${x.id}`}
+              type="button"
+              role="tab"
+              aria-selected={dang}
+              aria-controls={x.id}
+              onClick={() => chon(x.id)}
+              className={`group relative isolate flex min-h-[88px] w-[78%] shrink-0 snap-start items-center gap-4 overflow-hidden rounded-[14px] border p-5 text-left shadow-[0_6px_22px_rgba(15,17,21,0.05)] transition-[border-color,box-shadow,transform] duration-500 sm:w-[46%] lg:w-full ${
+                dang ? "border-accent shadow-[0_14px_34px_rgba(227,25,55,0.25)] lg:translate-x-1" : "border-than-chi/15 bg-white hover:border-than-chi/40"
+              }`}
+            >
+              {/* lớp màu trượt từ trái sang khi được chọn */}
+              <span
+                className={`absolute inset-0 -z-10 origin-left bg-gradient-to-r from-than-chi via-[#4a1620] to-accent transition-transform duration-[600ms] ease-[cubic-bezier(0.22,1,0.36,1)] ${dang ? "scale-x-100" : "scale-x-0"}`}
+                aria-hidden="true"
+              />
+              <span className={`text-[2rem] font-light leading-none transition-colors duration-500 ${dang ? "text-white/90" : "text-than-chi/30 group-hover:text-accent"}`}>{String(k + 1).padStart(2, "0")}</span>
+              <span className="min-w-0">
+                <span className={`block text-[12px] font-medium uppercase tracking-[0.16em] transition-colors duration-500 ${dang ? "text-white/80" : "text-accent"}`}>{x.en}</span>
+                <span className={`mt-1 block text-[16px] font-bold leading-snug transition-colors duration-500 ${dang ? "text-white" : "text-than-chi"}`}>{x.ten}</span>
+              </span>
+              <span className={`ml-auto hidden shrink-0 transition-all duration-500 sm:block ${dang ? "translate-x-0 text-white opacity-100" : "-translate-x-2 text-accent opacity-0 group-hover:translate-x-0 group-hover:opacity-100"}`} aria-hidden="true">
+                →
+              </span>
+            </button>
+          );
+        })}
       </div>
 
       <div id={n.id} role="tabpanel" aria-labelledby={`tab-${n.id}`} className="dau-goc overflow-hidden rounded-[6px] border border-than-chi/10 bg-white">
