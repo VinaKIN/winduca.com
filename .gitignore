@@ -42,3 +42,5 @@ next-env.d.ts
 
 # allow the env example file (contains no secrets)
 !.env.example
+
+_luu-tru/

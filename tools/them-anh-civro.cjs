@@ -1,6 +1,6 @@
 /**
  * Thêm ảnh mẫu góc 3D của Civro (lấy từ trang sản phẩm chính thức https://www.civro.com/product/..., 11/11/2026).
- * Chạy từ GỐC repo:  node docs/ban-giao-he-cua/cong-cu/them-anh-civro.cjs
+ * Chạy từ GỐC repo:  node tools/them-anh-civro.cjs
  *
  * Người dùng yêu cầu lấy ảnh từ trang của hãng cho các hệ chưa có ảnh. Ảnh là render 3D mẫu góc (png/webp nền trong suốt) ở
  * mục "Product" của từng hệ, đã xem tận mắt: không có logo hay chữ trên sản phẩm. Không lấy ảnh phối cảnh nội thất (.jpg).

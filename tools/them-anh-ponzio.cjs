@@ -1,6 +1,6 @@
 /**
  * Thêm ảnh mẫu góc 3D của Ponzio (lấy từ trang hệ chính thức https://ponzioaluminium.com/en/<hệ>/, 11/11/2026).
- * Chạy từ GỐC repo:  node docs/ban-giao-he-cua/cong-cu/them-anh-ponzio.cjs
+ * Chạy từ GỐC repo:  node tools/them-anh-ponzio.cjs
  *
  * Người dùng yêu cầu lấy ảnh từ trang của hãng cho các hệ chưa có ảnh. Mỗi hệ một ảnh render 3D mẫu góc (png nền trong suốt,
  * 500 px) ở đầu trang hệ, đã xem tận mắt: không có logo hay chữ. WS 55 TT (cửa đi) dùng chung ảnh với WS 55 TT vì trang của

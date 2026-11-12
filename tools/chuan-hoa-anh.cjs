@@ -1,7 +1,7 @@
 /**
  * Chuẩn hóa kích thước ảnh mẫu góc để các thẻ trên trang /he-cua có sản phẩm to bằng nhau (11/11/2026).
  * Chạy từ GỐC repo, SAU các script them-anh-*.cjs (chạy lại các script đó trước khi chuẩn hóa lại, để không làm mờ dần):
- *   node docs/ban-giao-he-cua/cong-cu/chuan-hoa-anh.cjs
+ *   node tools/chuan-hoa-anh.cjs
  *
  * Với mỗi ảnh WebP trong public/images/he-cua/mau-goc/ có nền trong suốt:
  *   1) đo "khối lượng" sản phẩm M = số điểm ảnh đặc (alpha > 12; nền bán trong suốt thì > 200) và hộp bao sát sản phẩm,

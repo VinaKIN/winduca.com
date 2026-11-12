@@ -1,6 +1,6 @@
 /**
  * Bổ sung tag chức năng suy ra từ số liệu hãng (11/11/2026). Chạy từ GỐC repo, sau gen3 và các script them-anh-*:
- *   node docs/ban-giao-he-cua/cong-cu/bo-sung-tag.cjs
+ *   node tools/bo-sung-tag.cjs
  * Quy tắc (đã đối chiếu với các hệ có sẵn tag từ trang gốc, không ghi đè tag có sẵn, chỉ thêm):
  *   cn  Cách nhiệt cao : U số cụ thể (không có dấu ≥) và số đầu tiên ≤ 1.4 W/m²K.
  *   an  An ninh cao    : chongTrom có cấp RC2 trở lên và KHÔNG ghi "(phụ kiện)" (cấp RC do riêng phụ kiện thì không tính);
