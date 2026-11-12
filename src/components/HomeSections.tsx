@@ -4,7 +4,7 @@ import { CanhMinhHoa, MatCat2D } from "./Illustration";
 import { Faq } from "./Faq";
 import { LeadForm } from "./LeadForm";
 import { HomeFormTabs } from "./HomeFormTabs";
-import { Section, Wrap, ChoXacNhan, NhanMinhHoa } from "./ui";
+import { Section, Wrap, NhanMinhHoa } from "./ui";
 import { asset } from "@/lib/asset";
 import { CONG_TRINH_MINH_HOA, FAQ_CHUNG, KIEU_CUA } from "@/lib/site";
 
@@ -123,9 +123,6 @@ export function KhoiChuNha() {
             <span className="nhan-muc text-than-chi/65">{String(i + 1).padStart(2, "0")}</span>
             <h3 className="tieu-de mt-6 text-xl">{n.t}</h3>
             <p className="mt-3 text-[15px] leading-relaxed text-than-chi/80">{n.m}</p>
-            <p className="mt-5">
-              <ChoXacNhan tone="sang">Số liệu kiểm định: đang chờ xác nhận</ChoXacNhan>
-            </p>
           </div>
         ))}
       </div>

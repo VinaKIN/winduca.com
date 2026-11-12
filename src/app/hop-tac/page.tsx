@@ -16,7 +16,6 @@ const LO_TRINH = [
   { t: "Làm quen sản phẩm", m: "Nhận hộp mẫu, tài liệu và buổi giới thiệu giải pháp." },
   { t: "Cùng triển khai", m: "Phối hợp trên công trình thực tế với một đầu mối hỗ trợ." },
 ];
-const VUNG = ["Miền Bắc", "Miền Trung", "Miền Nam"];
 
 function Dau({ tieuDe }: { so?: string; nhan?: string; tieuDe: React.ReactNode }) {
   return (
@@ -60,22 +59,6 @@ export default function HopTac() {
               ))}
             </KeoNgang>
           </div>
-        </Wrap>
-      </section>
-
-      {/* 03 · Văn phòng khu vực */}
-      <section className="luoi-ban-ve nen-sang khoi-doc">
-        <Wrap>
-          <Dau tieuDe="Văn phòng khu vực" />
-          <ul className="mt-5 grid gap-4 md:grid-cols-3">
-            {VUNG.map((v, i) => (
-              <Hien key={v} as="li" tre={i * 100} className="dau-goc rounded-[6px] border border-than-chi/10 bg-white p-6">
-                <p className="text-[17px] font-bold">{v}</p>
-                <p className="mt-3 text-[15px] leading-relaxed text-than-chi/75">Địa chỉ: [CHỜ XÁC NHẬN]</p>
-                <p className="mt-1 text-[15px] leading-relaxed text-than-chi/75">Điện thoại: [CHỜ XÁC NHẬN]</p>
-              </Hien>
-            ))}
-          </ul>
         </Wrap>
       </section>
 

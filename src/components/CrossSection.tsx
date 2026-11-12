@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import dynamic from "next/dynamic";
 import { useEffect, useRef, useState } from "react";
 import { LOP, type LopId } from "./CrossSection3D";
@@ -38,14 +39,6 @@ function MatCatTinh() {
   );
 }
 
-const THONG_SO = [
-  "Bề rộng khung",
-  "Độ dày thành nhôm",
-  "Thanh cách nhiệt",
-  "Độ dày kính tối đa",
-  "Tải gió",
-  "Hệ số truyền nhiệt khung (Uf)",
-];
 
 export function CrossSection({
   nhan = "04 / 09 · Cấu tạo",
@@ -210,22 +203,12 @@ export function CrossSection({
           </div>
         </div>
 
-        {/* BẢNG THÔNG SỐ — 6 hàng, mỗi ô nhãn "Đang chờ xác nhận" (chưa có phiếu kiểm định) */}
-        <div className="mt-5 hidden rounded-sm border border-than-chi/15 bg-nga md:block">
-          <div className="grid divide-y divide-than-chi/15 sm:grid-cols-2 sm:divide-y-0 lg:grid-cols-3">
-            {THONG_SO.map((ten) => (
-              <div key={ten} className="border-than-chi/15 p-5 sm:border-b lg:[&:nth-last-child(-n+3)]:border-b-0">
-                <p className="nhan-muc text-than-chi/70">{ten}</p>
-                <p className="mt-2 inline-flex items-center gap-2 text-sm font-medium text-than-chi/80">
-                  <span className="h-1.5 w-1.5 rotate-45 bg-accent" aria-hidden="true" />
-                  Đang chờ xác nhận
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-        <p className="mt-4 text-xs text-than-chi/65">
-          Thông số kỹ thuật sẽ được công bố cùng nguồn kiểm định khi có kết quả xác nhận.
+        <p className="mt-5 text-sm text-than-chi/75">
+          Thông số kỹ thuật từng hệ cửa do hãng công bố nằm ở trang{" "}
+          <Link href="/he-cua" className="font-bold text-accent underline-offset-2 hover:underline">
+            Hệ cửa
+          </Link>
+          .
         </p>
       </div>
     </section>

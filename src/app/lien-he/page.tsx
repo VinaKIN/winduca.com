@@ -7,7 +7,7 @@ import { DIA_CHI, EMAIL, HOTLINE, HOTLINE_TEL, MAPS_URL } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Liên hệ | WINDUCA",
-  description: "Liên hệ WINDUCA: hotline, Zalo và biểu mẫu. Chúng tôi không hỏi ngân sách và không đăng giá.",
+  description: "Liên hệ WINDUCA: hotline, email và biểu mẫu. Chúng tôi không hỏi ngân sách và không đăng giá.",
 };
 
 export default function LienHe() {
@@ -29,22 +29,12 @@ export default function LienHe() {
                 </dd>
               </div>
               <div>
-                <dt className="font-semibold">Zalo</dt>
-                <dd className="text-than-chi/70">[CHỜ LINK] Zalo OA</dd>
-              </div>
-              <div>
                 <dt className="font-semibold">Email</dt>
                 <dd className="text-than-chi/70"><a href={`mailto:${EMAIL}`} className="hover:underline">{EMAIL}</a></dd>
               </div>
               <div>
                 <dt className="font-semibold">Showroom</dt>
                 <dd className="text-than-chi/70"><a href={MAPS_URL} target="_blank" rel="noopener noreferrer" className="hover:underline">{DIA_CHI}</a></dd>
-              </div>
-            </dl>
-            <dl className="mt-4 space-y-4 text-base">
-              <div>
-                <dt className="font-semibold">Thời gian làm việc</dt>
-                <dd className="text-than-chi/70">[CHỜ XÁC NHẬN]</dd>
               </div>
             </dl>
             <div className="mt-6 flex flex-wrap gap-3">

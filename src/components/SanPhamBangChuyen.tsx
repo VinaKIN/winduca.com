@@ -3,9 +3,8 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useRef, useState, type PointerEvent as RPointerEvent } from "react";
-import { ThongSoBon } from "./ThongSoBon";
 import { asset } from "@/lib/asset";
-import { ANH_THEO_KIEU, SAN_PHAM } from "@/lib/san-pham";
+import { ANH_THEO_KIEU, MA_LOC_THEO_NHOM, SAN_PHAM, SO_HE_THEO_NHOM } from "@/lib/san-pham";
 
 /**
  * Băng chuyền "Hệ cửa nổi bật" (kiểu Winboss): thẻ tối, ảnh trái + 4 dòng thông số phải, mũi tên và chấm bên dưới.
@@ -118,8 +117,8 @@ export function SanPhamBangChuyen() {
                 </p>
                 <h3 className="mt-3 text-2xl font-bold md:text-3xl">{p.ten}</h3>
                 <p className="mt-2 text-[15px] font-light leading-relaxed text-white/80">{p.mota}</p>
-                <ThongSoBon sp={p} toi lop="mt-4 border-t border-white/15 pt-4" />
-                <Link href={`/he-cua/${p.kieu}`} draggable={false} className="nut nut-chinh mt-6 self-start">
+                <p className="mt-4 border-t border-white/15 pt-4 text-[14px] text-white/75">{SO_HE_THEO_NHOM[p.nhom]} hệ {p.nhom.toLowerCase()} trong danh mục</p>
+                <Link href={`/he-cua?h=${MA_LOC_THEO_NHOM[p.nhom]}`} draggable={false} className="nut nut-chinh mt-6 self-start">
                   Khám phá ngay
                 </Link>
               </div>

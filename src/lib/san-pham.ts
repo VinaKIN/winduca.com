@@ -51,3 +51,11 @@ export const ANH_THEO_KIEU: Record<string, { src: string; hover: string }> = {
   "cua-xep-truot": { src: "/images/products/bi-fold.webp", hover: "/images/products/bi-fold-hover.webp" },
   "cua-so": { src: "/images/products/window.webp", hover: "/images/products/window-hover.webp" },
 };
+
+/** Mã lọc của trang /he-cua (tham số h) theo kiểu cửa, và số hệ trong danh mục (tính 11/11/2026 từ he-cua-du-lieu.ts, cập nhật khi thêm hệ). */
+export const MA_LOC_THEO_KIEU: Record<string, string> = { "cua-truot-nang": "l", "cua-di-mo-quay": "d", "cua-xep-truot": "f", "cua-so": "w" };
+export const SO_HE_THEO_KIEU: Record<string, number> = { "cua-truot-nang": 9, "cua-di-mo-quay": 27, "cua-xep-truot": 3, "cua-so": 45 };
+
+/** Như trên nhưng theo nhóm sản phẩm hiển thị ở trang chủ (Cửa trượt khác Cửa nâng trượt). */
+export const MA_LOC_THEO_NHOM: Record<string, string> = { "Cửa trượt": "s", "Cửa nâng trượt": "l", "Cửa xếp gấp": "f", "Cửa đi mở quay": "d", "Cửa sổ": "w" };
+export const SO_HE_THEO_NHOM: Record<string, number> = { "Cửa trượt": 31, "Cửa nâng trượt": 9, "Cửa xếp gấp": 3, "Cửa đi mở quay": 27, "Cửa sổ": 45 };
