@@ -46,31 +46,24 @@ function useNhom(): [NhomDoiTac["id"], (id: NhomDoiTac["id"]) => void] {
   return [id, chon];
 }
 
-function Cot({ so, tieuDe, ds, tre }: { so: string; tieuDe: string; ds: string[]; tre: number }) {
+function Cot({ tieuDe, ds }: { tieuDe: string; ds: string[] }) {
   return (
-    <div className="anh-doi bg-white p-6 md:p-7" style={{ animationDelay: `${tre}ms` }}>
-      <div className="flex items-baseline justify-between gap-3 border-t-2 border-accent pt-4">
-        <p className="text-[1.05rem] font-bold">{tieuDe}</p>
-        <span className="text-[1.6rem] font-light leading-none text-than-chi/25">{so}</span>
-      </div>
-      <ul className="mt-4 space-y-3 text-[15px] leading-relaxed text-than-chi/85">
-        {ds.map((x) => {
-          const cho = /\(đang hoàn thiện\)/i.test(x);
-          const chu = x.replace(/\s*\(đang hoàn thiện\)/i, "");
-          return (
-            <li key={x} className="flex items-start gap-3">
-              <span className="mt-[0.6em] h-1.5 w-1.5 shrink-0 rotate-45 bg-accent" aria-hidden="true" />
-              <span>
-                {chu}
-                {cho && <em className="ml-2 inline-block rounded-full border border-than-chi/20 px-2 py-0.5 align-middle text-[12px] not-italic text-than-chi/70">Đang hoàn thiện</em>}
-              </span>
-            </li>
-          );
-        })}
+    <div>
+      <p className="nhan-muc text-accent">{tieuDe}</p>
+      <ul className="mt-3 space-y-2 text-[15px] leading-relaxed text-than-chi/80">
+        {ds.map((x) => (
+          <li key={x} className="flex items-start gap-2">
+            <span className="mt-[7px] h-1.5 w-1.5 shrink-0 rotate-45 bg-accent" aria-hidden="true" />
+            <span>{x}</span>
+          </li>
+        ))}
       </ul>
     </div>
   );
 }
+
+/** Vị trí cắt ảnh banner để giữ phần chính của ảnh (bắt tay, cần cẩu, bàn vẽ). */
+const VI_TRI_ANH: Record<string, string> = { dealer: "50% 78%", contractor: "50% 32%", architect: "50% 58%" };
 
 export function ChonNhomDoiTac() {
   const [id, chon] = useNhom();
@@ -112,45 +105,23 @@ export function ChonNhomDoiTac() {
         })}
       </div>
 
-      <div id={n.id} role="tabpanel" aria-labelledby={`tab-${n.id}`} className="overflow-hidden rounded-[16px] border border-than-chi/10 bg-white shadow-[0_18px_44px_rgba(15,17,21,0.08)]">
-        <div className="relative isolate h-[clamp(190px,26svh,230px)] overflow-hidden bg-than-chi">
-          {NHOM_DOI_TAC.map((x) => (
-            <Image
-              key={x.id}
-              src={asset(x.anh)}
-              alt={x.id === n.id ? x.ten : ""}
-              fill
-              quality={65}
-              sizes="(min-width: 1024px) 60vw, 100vw"
-              priority={x.id === NHOM_DOI_TAC[0].id}
-              className={`-z-20 object-cover transition-[opacity,transform,filter] duration-[1100ms] ease-[cubic-bezier(0.22,1,0.36,1)] ${x.id === n.id ? "scale-100 opacity-100 blur-0" : "scale-[1.08] opacity-0 blur-md"}`}
-              aria-hidden={x.id !== n.id}
-            />
-          ))}
-          <div className="absolute inset-0 -z-10 bg-[linear-gradient(115deg,rgba(18,16,17,0.7)_0%,rgba(18,16,17,0.25)_55%,rgba(150,12,36,0.4)_100%)]" aria-hidden="true" />
-          <div className="luoi-ban-ve-toi pointer-events-none absolute inset-0 -z-10 opacity-60" aria-hidden="true" />
-          <i className="pointer-events-none absolute left-4 top-4 h-5 w-5 border-l border-t border-white/70" aria-hidden="true" />
-          <i className="pointer-events-none absolute right-4 top-4 h-5 w-5 border-r border-t border-white/70" aria-hidden="true" />
-          <span className="pointer-events-none absolute right-6 top-4 hidden select-none text-[clamp(4rem,7vw,6.5rem)] font-bold leading-none text-transparent [-webkit-text-stroke:1px_rgba(255,255,255,0.28)] sm:block md:right-10" aria-hidden="true">
-            {String(NHOM_DOI_TAC.findIndex((x) => x.id === n.id) + 1).padStart(2, "0")}
-          </span>
-
-          {/* thẻ kính nổi */}
-          <div key={n.id} className="anh-doi absolute inset-x-4 bottom-4 rounded-[12px] border border-white/25 bg-white/10 px-4 py-3 text-white shadow-[0_16px_40px_rgba(0,0,0,0.35)] backdrop-blur-md md:left-6 md:right-auto md:max-w-[30rem] md:px-5 md:py-4">
-            <p className="text-[12px] font-medium uppercase tracking-[0.2em] text-white/80">{n.en}</p>
-            <h3 className="mt-1 text-[clamp(1.25rem,2vw,1.6rem)] font-bold leading-tight">{n.ten}</h3>
-            <p className="mt-1.5 hidden text-[14px] leading-snug text-white/90 md:line-clamp-2">{n.tomTat}</p>
+      <div id={n.id} role="tabpanel" aria-labelledby={`tab-${n.id}`} className="dau-goc overflow-hidden rounded-[6px] border border-than-chi/10 bg-white">
+        <div className="relative h-[clamp(110px,17svh,160px)] bg-than-chi">
+          <Image key={n.anh} src={asset(n.anh)} alt={n.ten} fill quality={65} sizes="(min-width: 1024px) 60vw, 100vw" className="object-cover" style={{ objectPosition: VI_TRI_ANH[n.id] ?? "50% 50%" }} priority />
+          <div className="absolute inset-0 bg-than-chi/55" aria-hidden="true" />
+          <div className="absolute inset-x-0 bottom-0 p-4 text-white md:p-5">
+            <p className="text-xs font-medium uppercase tracking-[0.18em] text-accent">{n.en}</p>
+            <h3 className="mt-1 text-xl font-bold md:text-2xl">{n.ten}</h3>
           </div>
         </div>
-
-        <div key={`ct-${n.id}`} className="grid gap-px bg-than-chi/10 md:grid-cols-3">
-          <Cot so="01" tieuDe="Quyền lợi" ds={n.quyenLoi} tre={0} />
-          <Cot so="02" tieuDe="Hỗ trợ kỹ thuật" ds={n.kyThuat} tre={90} />
-          <Cot so="03" tieuDe="Tài liệu" ds={n.taiLieu} tre={180} />
-        </div>
-        <div className="flex flex-wrap items-center justify-between gap-4 bg-nga px-6 py-5 md:px-7">
-          <p className="text-[14px] text-than-chi/75">Chúng tôi không hỏi ngân sách. Để lại thông tin, chuyên viên sẽ liên hệ.</p>
-          <a href="#dang-ky-hop-tac" className="nut nut-chinh">
+        <div className="p-5 md:p-6">
+          <p className="max-w-2xl text-[15px] leading-relaxed text-than-chi/75">{n.tomTat}</p>
+          <div className="mt-4 grid gap-5 md:grid-cols-3">
+            <Cot tieuDe="Quyền lợi" ds={n.quyenLoi} />
+            <Cot tieuDe="Hỗ trợ kỹ thuật" ds={n.kyThuat} />
+            <Cot tieuDe="Tài liệu" ds={n.taiLieu} />
+          </div>
+          <a href="#dang-ky-hop-tac" className="nut nut-chinh mt-5">
             Đăng ký hợp tác nhóm này
           </a>
         </div>
