@@ -284,7 +284,7 @@ function HopThoai({ dong, tieuDe, rong = true, duoi = false, children }: { dong:
         aria-modal="true"
         aria-label={tieuDe}
         onClick={(e) => e.stopPropagation()}
-        className={`relative w-full overflow-auto bg-white ${duoi ? "max-h-[85svh] rounded-b-none rounded-t-[22px]" : "max-h-[90svh] rounded-[22px]"} ${rong ? "max-w-[1120px] md:grid md:grid-cols-[6fr_5fr]" : "max-w-[860px]"}`}
+        className={`relative w-full overflow-auto bg-white ${duoi ? "max-h-[85svh] rounded-b-none rounded-t-[22px]" : "max-h-[90svh] rounded-[22px]"} ${rong ? "max-w-[1120px] md:grid md:h-[min(620px,90svh)] md:grid-cols-[6fr_5fr] md:overflow-hidden" : "max-w-[860px]"}`}
       >
         <button ref={nutDong} type="button" onClick={dong} aria-label="Đóng" className="absolute right-3 top-3 z-10 flex h-11 w-11 items-center justify-center rounded-full bg-white/90 text-3xl leading-none text-[#697280] hover:text-than-chi">
           <span aria-hidden="true">×</span>
@@ -409,7 +409,7 @@ function CuaSoChiTiet({ r, dong, dieuHuong, dangSoSanh, doiSoSanh }: { r: HeCua;
         ref={khung}
         onPointerMove={theoChuot}
         onPointerLeave={roiChuot}
-        className="relative flex min-h-[320px] flex-col bg-[#0c0d10] [--gx:50%] [--gy:38%] [--rx:0deg] [--ry:0deg] md:min-h-[560px]"
+        className="relative flex min-h-[320px] flex-col bg-[#0c0d10] [--gx:50%] [--gy:38%] [--rx:0deg] [--ry:0deg] md:h-full md:min-h-0"
       >
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(520px_circle_at_var(--gx)_var(--gy),rgba(227,25,55,0.26),transparent_62%)] transition-[background] duration-300" aria-hidden="true" />
         <div className="luoi-ban-ve-toi pointer-events-none absolute inset-0 opacity-70" aria-hidden="true" />
@@ -448,7 +448,7 @@ function CuaSoChiTiet({ r, dong, dieuHuong, dangSoSanh, doiSoSanh }: { r: HeCua;
 
         {anhDang ? (
           <>
-            <button type="button" onClick={() => setPhong(true)} aria-label="Phóng to ảnh" className="relative z-10 mx-5 mt-2 block h-[clamp(240px,46svh,470px)] shrink-0 cursor-zoom-in [perspective:900px]">
+            <button type="button" onClick={() => setPhong(true)} aria-label="Phóng to ảnh" className="relative z-10 mx-5 mt-2 block h-[clamp(240px,46svh,470px)] shrink-0 cursor-zoom-in md:h-auto md:min-h-0 md:flex-1 md:shrink [perspective:900px]">
               <span className="relative block h-full w-full transition-transform duration-300 ease-out [transform:rotateY(var(--rx))_rotateX(var(--ry))]">
                 {laCongTrinh ? (
                   <Image key={anhDang} src={anhDang.startsWith("http") ? anhDang : asset(anhDang)} alt={`Công trình dùng hệ cửa ${TEN_HANG[r.hang]}`} fill quality={75} sizes="(min-width: 768px) 50vw, 92vw" unoptimized className="anh-doi rounded-[10px] object-cover" />
@@ -465,7 +465,7 @@ function CuaSoChiTiet({ r, dong, dieuHuong, dangSoSanh, doiSoSanh }: { r: HeCua;
                 </a>
               </p>
             )}
-            <div className="relative z-10 mt-auto flex flex-col items-center gap-3 px-5 pb-5 pt-3">
+            <div className="relative z-10 mt-auto flex flex-col items-center gap-2 px-5 pb-4 pt-2 md:flex-row md:justify-between md:gap-4">
               {co.length > 1 && (
                 <div role="tablist" aria-label="Loại hình" className="flex flex-wrap justify-center gap-2">
                   {co.map(([t, l], i) => (
@@ -487,11 +487,11 @@ function CuaSoChiTiet({ r, dong, dieuHuong, dangSoSanh, doiSoSanh }: { r: HeCua;
                 </div>
               )}
               {co[tab][1].length > 1 && (
-                <ul className="flex flex-wrap justify-center gap-2" aria-label="Chọn hình">
+                <ul className="flex flex-wrap justify-center gap-1.5" aria-label="Chọn hình">
                   {co[tab][1].map((u, i) => (
                     <li key={u}>
-                      <button type="button" onClick={() => setK(i)} aria-label={`Hình ${i + 1}`} aria-current={i === k} className={`relative h-14 w-16 overflow-hidden rounded-[8px] border bg-white/[0.06] transition-colors ${i === k ? "border-accent" : "border-white/20 hover:border-white/50"}`}>
-                        <Image src={u.startsWith("http") ? u : asset(u)} alt="" fill quality={60} sizes="64px" unoptimized={u.startsWith("http")} className={laCongTrinh ? "object-cover" : "object-contain p-1"} />
+                      <button type="button" onClick={() => setK(i)} aria-label={`Hình ${i + 1}`} aria-current={i === k} className={`relative h-11 w-14 overflow-hidden rounded-[8px] border bg-white/[0.06] transition-colors ${i === k ? "border-accent" : "border-white/20 hover:border-white/50"}`}>
+                        <Image src={u.startsWith("http") ? u : asset(u)} alt="" fill quality={60} sizes="56px" unoptimized={u.startsWith("http")} className={laCongTrinh ? "object-cover" : "object-contain p-1"} />
                       </button>
                     </li>
                   ))}
@@ -515,79 +515,73 @@ function CuaSoChiTiet({ r, dong, dieuHuong, dangSoSanh, doiSoSanh }: { r: HeCua;
         )}
       </div>
 
-      {/* ---------- THÔNG TIN ---------- */}
-      <div className="p-6 md:p-9 md:pt-10">
+      {/* ---------- THÔNG TIN (gọn, vừa một khung hình) ---------- */}
+      <div className="flex min-h-0 flex-col p-5 md:p-7">
         <p className="text-[12px] font-bold uppercase tracking-[0.2em] text-accent-text">{tenHe(r).join(" / ")}</p>
-        <h3 className="mt-2.5 text-[clamp(1.75rem,3vw,2.3rem)] font-light leading-[1.12] tracking-[-0.02em]">{r.ma}</h3>
-        <p className="mt-1.5 text-[15px] text-[#697280]">
+        <h3 className="mt-1.5 text-[clamp(1.6rem,2.6vw,2.1rem)] font-light leading-[1.1] tracking-[-0.02em]">{r.ma}</h3>
+        <p className="mt-1 truncate text-[14px] text-[#697280]">
           {r.loai}
           {r.ketCau && ` · ${TEN_KET_CAU[r.ketCau]}`}
         </p>
         {chuThich.length > 0 && (
-          <ul className="mt-3 flex flex-wrap gap-1.5" aria-label="Chú thích đặc điểm">
-            {chuThich.map((c) => (
+          <ul className="mt-2.5 flex flex-wrap gap-1.5" aria-label="Chú thích đặc điểm">
+            {chuThich.slice(0, 3).map((c) => (
               <li key={c.nhan} title={c.day} className={`inline-flex h-7 items-center gap-1.5 rounded-full px-2.5 text-[12px] font-medium leading-none ${MAU_CT[c.loai]}`}>
                 <BieuTuongCT loai={c.loai} />
                 <span className="sr-only">{c.day}. </span>
-                <span aria-hidden="true">{c.day.length <= 24 ? c.day : c.nhan}</span>
+                <span aria-hidden="true">{c.nhan}</span>
               </li>
             ))}
+            {chuThich.length > 3 && (
+              <li title={chuThich.slice(3).map((c) => c.day).join("; ")} className="inline-flex h-7 items-center rounded-full border border-dashed border-[#c3cad4] px-2.5 text-[12px] font-medium leading-none text-[#4b5563]">
+                +{chuThich.length - 3}
+              </li>
+            )}
           </ul>
         )}
 
-        {/* ba chỉ số chính */}
-        <div className="mt-6 flex flex-wrap items-center justify-between gap-x-3 gap-y-2">
-          <h4 className={`${NHAN_NHO} whitespace-nowrap`}>Chỉ số chính</h4>
+        {/* sáu chỉ số trong một bảng: hàng trên là ba chỉ số chính, hàng dưới là ba chỉ số bổ sung */}
+        <div className="mt-4 flex flex-wrap items-center justify-between gap-x-3 gap-y-1">
+          <h4 className={`${NHAN_NHO} whitespace-nowrap`}>Thông số kỹ thuật</h4>
           <DiemDuLieu co={cs.co} />
         </div>
-        <dl className="mt-3 grid grid-cols-3 overflow-hidden rounded-[16px] border border-[#e3e7ec] bg-[linear-gradient(180deg,#fff,#f7f8fa)]">
+        <dl className="mt-2 grid grid-cols-3 overflow-hidden rounded-[14px] border border-[#e3e7ec] bg-[linear-gradient(180deg,#fff,#f7f8fa)]">
           {cs.chinh.map((c) => (
-            <div key={c.nhan} className="border-r border-[#e3e7ec] p-3.5 last:border-r-0 md:p-4">
+            <div key={c.nhan} className="border-r border-[#e3e7ec] px-3.5 py-3.5 last:border-r-0">
               <dt className={NHAN_NHO}>{c.nhan}</dt>
-              <dd className="mt-2">
+              <dd className="mt-1">
                 {c.gt ? (
-                  <span className="block whitespace-nowrap text-[clamp(1.05rem,5vw,1.3rem)] font-light leading-tight tracking-[-0.02em] md:text-[clamp(1.15rem,2vw,1.75rem)]">
+                  <span className="block whitespace-nowrap text-[clamp(1.05rem,5vw,1.25rem)] font-light leading-tight tracking-[-0.02em] md:text-[1.9rem]">
                     {c.gt}
-                    {c.dv && c.gt !== "Không áp dụng" && <small className="ml-1 text-xs text-[#697280]">{c.dv}</small>}
+                    {c.dv && c.gt !== "Không áp dụng" && <small className="ml-1 text-[12px] text-[#697280]">{c.dv}</small>}
                   </span>
                 ) : (
-                  <span className="block text-[13px] leading-snug text-[#8a93a0]">{KHONG_CONG_BO}</span>
+                  <span className="block text-[12.5px] leading-snug text-[#8a93a0]">{KHONG_CONG_BO}</span>
                 )}
-                <span className="mt-1.5 block text-[12px] leading-snug text-[#8a93a0]">{c.mota}</span>
               </dd>
             </div>
           ))}
-        </dl>
-
-        {/* ba chỉ số bổ sung */}
-        <h4 className={`${NHAN_NHO} mt-6`}>Chỉ số bổ sung</h4>
-        <dl className="mt-1">
           {cs.them.map((c) => (
-            <div key={c.nhan} className="flex items-baseline justify-between gap-6 border-b border-[#e3e7ec] py-3">
-              <dt className="text-[14px] text-[#4b5563]">{c.nhan}</dt>
-              <dd className={`text-right text-[15px] ${c.gt ? "font-medium" : "text-[#8a93a0]"}`}>{c.gt ?? KHONG_CONG_BO}</dd>
+            <div key={c.nhan} className="border-r border-t border-[#e3e7ec] px-3.5 py-3 last:border-r-0">
+              <dt className={NHAN_NHO}>{c.nhan}</dt>
+              <dd className={`mt-1 text-[14px] leading-snug ${c.gt ? "font-medium" : "text-[#8a93a0]"}`}>{c.gt ?? KHONG_CONG_BO}</dd>
             </div>
           ))}
-          {r.ghiChu && (
-            <div className="border-b border-[#e3e7ec] py-3">
-              <dt className="text-[14px] text-[#4b5563]">Ghi chú</dt>
-              <dd className="mt-1 text-[15px] leading-normal">{r.ghiChu}</dd>
-            </div>
-          )}
         </dl>
+        {r.ghiChu && <p className="mt-2 line-clamp-2 text-[13px] leading-snug text-[#4b5563]">{r.ghiChu}</p>}
 
-        <p className="mt-4 text-[12.5px] leading-[1.7] text-[#697280]">
-          {r.them ? "Thông tin lấy từ tài liệu hãng cung cấp" : "Số liệu do hãng công bố"}, mang tính tham khảo. Giá trị thực tế phụ thuộc kích thước, kính và cấu hình công trình; vui lòng liên hệ để được xác nhận.
+        <p className="mt-2.5 text-[12px] leading-snug text-[#697280]">
+          {r.them ? "Tài liệu hãng cung cấp" : "Số liệu do hãng công bố"}, mang tính tham khảo; liên hệ để được xác nhận theo cấu hình công trình.
         </p>
-        <div className="mt-4 flex flex-wrap gap-3">
+        <div className="mt-auto flex flex-wrap items-center gap-2.5 pt-4">
           <Link href="/lien-he" className="nut nut-chinh">
             Nhận tư vấn
           </Link>
           <button type="button" onClick={doiSoSanh} aria-pressed={dangSoSanh} className={`nut ${dangSoSanh ? "nut-dac" : "nut-vien-sang"}`}>
-            {dangSoSanh ? "Đã thêm để so sánh" : "Thêm để so sánh"}
+            {dangSoSanh ? "Đã thêm so sánh" : "So sánh"}
           </button>
-          <a href={HOTLINE_TEL} className="nut nut-vien">
-            Gọi {HOTLINE}
+          <a href={HOTLINE_TEL} aria-label={`Gọi ${HOTLINE}`} className="nut nut-vien-sang !px-4">
+            Gọi
           </a>
         </div>
       </div>
