@@ -102,3 +102,13 @@ Giấy phép Pexels: miễn phí dùng thương mại, không bắt buộc ghi n
 | van-phong-hang-a-1 / -2 | 13219418 / 40182762 |
 | nha-hang-quan-ca-phe-1 / -2 | 39833713 / 4850278 |
 | cong-trinh-dac-thu-1 / -2 | 11861957 / 38247895 |
+
+## Trang Đối tác (12/11/2026): ảnh minh họa từ Pexels
+
+Tệp `public/images/doi-tac/*.webp` (rộng 1600 px). Không phải ảnh của WINDUCA. Giấy phép Pexels: miễn phí dùng thương mại.
+
+| Tệp | ID ảnh Pexels |
+|---|---|
+| dai-ly | 36766676 |
+| nha-thau | 27694455 |
+| kien-truc-su | 9617369 |

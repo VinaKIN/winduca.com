@@ -113,7 +113,7 @@ export function ChonNhomDoiTac() {
       </div>
 
       <div id={n.id} role="tabpanel" aria-labelledby={`tab-${n.id}`} className="overflow-hidden rounded-[16px] border border-than-chi/10 bg-white shadow-[0_18px_44px_rgba(15,17,21,0.08)]">
-        <div className="relative isolate min-h-[320px] overflow-hidden bg-than-chi md:min-h-[360px]">
+        <div className="relative isolate h-[clamp(190px,26svh,230px)] overflow-hidden bg-than-chi">
           {NHOM_DOI_TAC.map((x) => (
             <Image
               key={x.id}
@@ -127,19 +127,19 @@ export function ChonNhomDoiTac() {
               aria-hidden={x.id !== n.id}
             />
           ))}
-          <div className="absolute inset-0 -z-10 bg-[linear-gradient(115deg,rgba(18,16,17,0.78)_0%,rgba(18,16,17,0.35)_55%,rgba(120,10,30,0.35)_100%)]" aria-hidden="true" />
+          <div className="absolute inset-0 -z-10 bg-[linear-gradient(115deg,rgba(18,16,17,0.7)_0%,rgba(18,16,17,0.25)_55%,rgba(150,12,36,0.4)_100%)]" aria-hidden="true" />
           <div className="luoi-ban-ve-toi pointer-events-none absolute inset-0 -z-10 opacity-60" aria-hidden="true" />
           <i className="pointer-events-none absolute left-4 top-4 h-5 w-5 border-l border-t border-white/70" aria-hidden="true" />
           <i className="pointer-events-none absolute right-4 top-4 h-5 w-5 border-r border-t border-white/70" aria-hidden="true" />
-          <span className="pointer-events-none absolute right-6 top-4 hidden select-none text-[clamp(5rem,10vw,9rem)] font-bold leading-none text-transparent [-webkit-text-stroke:1px_rgba(255,255,255,0.28)] sm:block md:right-10" aria-hidden="true">
+          <span className="pointer-events-none absolute right-6 top-4 hidden select-none text-[clamp(4rem,7vw,6.5rem)] font-bold leading-none text-transparent [-webkit-text-stroke:1px_rgba(255,255,255,0.28)] sm:block md:right-10" aria-hidden="true">
             {String(NHOM_DOI_TAC.findIndex((x) => x.id === n.id) + 1).padStart(2, "0")}
           </span>
 
           {/* thẻ kính nổi */}
-          <div key={n.id} className="anh-doi absolute bottom-5 left-5 right-5 rounded-[14px] border border-white/25 bg-white/10 p-5 text-white shadow-[0_20px_50px_rgba(0,0,0,0.35)] backdrop-blur-md md:bottom-7 md:left-7 md:right-auto md:max-w-[34rem] md:p-7">
+          <div key={n.id} className="anh-doi absolute inset-x-4 bottom-4 rounded-[12px] border border-white/25 bg-white/10 px-4 py-3 text-white shadow-[0_16px_40px_rgba(0,0,0,0.35)] backdrop-blur-md md:left-6 md:right-auto md:max-w-[30rem] md:px-5 md:py-4">
             <p className="text-[12px] font-medium uppercase tracking-[0.2em] text-white/80">{n.en}</p>
-            <h3 className="mt-2 text-[clamp(1.5rem,2.6vw,2.2rem)] font-bold leading-tight">{n.ten}</h3>
-            <p className="mt-3 text-[15px] leading-relaxed text-white/90">{n.tomTat}</p>
+            <h3 className="mt-1 text-[clamp(1.25rem,2vw,1.6rem)] font-bold leading-tight">{n.ten}</h3>
+            <p className="mt-1.5 hidden text-[14px] leading-snug text-white/90 md:line-clamp-2">{n.tomTat}</p>
           </div>
         </div>
 
