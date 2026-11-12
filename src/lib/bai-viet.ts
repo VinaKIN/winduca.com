@@ -329,5 +329,5 @@ export function phutDoc(b: BaiViet): number {
 export const ngayVN = (iso: string) => iso.split("-").reverse().join("/");
 
 /** Dữ liệu gọn cho thành phần client (không chứa nội dung bài). */
-export type TheBai = { slug: string; muc: MucId; chuDe: string; tieuDe: string; tomTat: string; anh: string; ngay: string; phut: number };
-export const THE_BAI: TheBai[] = BAI_VIET.map((b) => ({ slug: b.slug, muc: mucCua(b), chuDe: chuDeCua(b), tieuDe: b.tieuDe, tomTat: b.tomTat, anh: b.anh, ngay: ngayVN(b.ngay), phut: phutDoc(b) }));
+export type TheBai = { slug: string; muc: MucId; chuDe: string; tieuDe: string; tomTat: string; anh: string; ngay: string; phut: number; diem: string[] };
+export const THE_BAI: TheBai[] = BAI_VIET.map((b) => ({ slug: b.slug, muc: mucCua(b), chuDe: chuDeCua(b), tieuDe: b.tieuDe, tomTat: b.tomTat, anh: b.anh, ngay: ngayVN(b.ngay), phut: phutDoc(b), diem: b.noiDung.slice(0, 3).map((m) => m.h) }));
