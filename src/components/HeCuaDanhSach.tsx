@@ -447,21 +447,6 @@ function Chip({ bat, chon, children }: { bat: boolean; chon: () => void; childre
   );
 }
 
-function ThongSoThe({ r }: { r: HeCua }) {
-  const ds: [string, string][] = [["U-value", uVal(r)], ["Cách âm · dB", dbVal(r)], ["Kín nước", r.kinNuoc]];
-  if (!ds.some(([, v]) => v)) return <p className="rounded-[12px] border border-dashed border-[#d5dbe3] px-3 py-3 text-[13px] text-[#697280]">Hãng chưa công bố thông số</p>;
-  return (
-    <dl className="grid grid-cols-3 overflow-hidden rounded-[12px] border border-[#e3e7ec]">
-      {ds.map(([t, v]) => (
-        <div key={t} className="min-w-0 border-r border-[#e3e7ec] px-3 py-2.5 last:border-r-0">
-          <dt className="whitespace-nowrap text-[12px] font-bold uppercase tracking-[0.1em] text-[#697280]">{t}</dt>
-          <dd className={`mt-1 overflow-hidden text-ellipsis whitespace-nowrap text-[15px] leading-tight md:text-base ${v ? "font-bold" : "font-light text-[#b7bec8]"}`}>{v || "—"}</dd>
-        </div>
-      ))}
-    </dl>
-  );
-}
-
 export function HeCuaDanhSach() {
   // Bộ lọc ban đầu đọc từ địa chỉ trang (link chia sẻ); sau khi người dùng chỉnh thì dùng bản chỉnh
   const search = useSyncExternalStore(dangKyUrl, () => window.location.search, () => "");
@@ -678,8 +663,7 @@ export function HeCuaDanhSach() {
                   </button>
                 </h3>
               </div>
-              <div className="flex flex-col gap-3.5 px-4 pb-4 pt-3.5 md:px-5 md:pb-5">
-                <ThongSoThe r={r} />
+              <div className="flex flex-col gap-3 px-4 pb-4 pt-3.5 md:px-5 md:pb-5">
                 <ul className="flex flex-wrap content-start gap-1.5" aria-label="Đặc điểm">
                   {chipThe(r).map((t) => (
                     <li key={t} className="rounded-[7px] border border-[#e3e7ec] bg-[#f3f5f8] px-2 py-0.5 text-[12px] leading-snug text-[#4b5563]">
@@ -687,6 +671,12 @@ export function HeCuaDanhSach() {
                     </li>
                   ))}
                 </ul>
+                <span className="mt-auto inline-flex items-center gap-2 pt-1 text-[13px] font-bold text-than-chi transition-colors group-hover:text-accent">
+                  Xem thông số
+                  <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="transition-transform duration-300 group-hover:translate-x-1" aria-hidden="true">
+                    <path d="M5 12h14M13 6l6 6-6 6" />
+                  </svg>
+                </span>
               </div>
             </li>
           );
