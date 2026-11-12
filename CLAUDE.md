@@ -82,7 +82,7 @@ Build tĩnh xuất thư mục `out/`; bản này không có route API. Workflow 
 | `/giai-phap`, `/giai-phap/<slug>` | 8 loại công trình, bài chi tiết, hỏi đáp, quy trình 5 bước | `lib/giai-phap.ts`, ảnh `public/images/giai-phap/` (Pexels) |
 | `/cong-trinh`, `/cong-trinh/<slug>` | Công trình tiêu biểu: 12 mục cảm hứng (minh họa), `DU_AN` thật hiện rỗng | `lib/site.ts` (`CONG_TRINH_MINH_HOA`), `lib/du-an.ts` |
 | `/hop-tac` | Đối tác: 3 nhóm, lý do, lộ trình, hỏi đáp, khu vực; form ở chân trang `#dang-ky-tham-quan` | `lib/doi-tac.ts`, `components/DoiTacTuongTac.tsx` |
-| `/tin-tuc`, `/tin-tuc/<bài>`, 4 chuyên mục con | Tạp chí tối giản: bài nổi bật, tìm kiếm, lọc, thanh tiến độ đọc, mục lục nổi | `lib/bai-viet.ts` (9 bài kiến thức), `components/TinTucDanhSach.tsx`, `TinTucTrang.tsx`, `DocBai.tsx` |
+| `/tin-tuc`, `/tin-tuc/<bài>`, 4 chuyên mục con | Tạp chí tối giản: bài nổi bật, tìm kiếm, lọc, thanh tiến độ đọc, mục lục nổi | `lib/bai-viet.ts` (9 bài kiến thức), `components/TinTucDanhSach.tsx`, `AnhBai.tsx` (khung ảnh chung: bài có `kieu: "ky-thuat"` dùng mẫu 3D/bản vẽ 2D của WINDUCA trên nền tối kẻ lưới; thanh màu theo chủ đề qua `mauChuDe`), `TinTucTrang.tsx`, `DocBai.tsx` |
 | `/chinh-sach*`, `/dieu-khoan-su-dung`, `/lien-he`, `/cam-on` | Pháp lý (bản nháp chờ pháp chế), liên hệ, cảm ơn | `page.tsx`, `components/LeadForm.tsx` |
 
 Menu và hằng số chung ở `src/lib/site.ts` (`MENU_CHINH`, hotline 0947 686 668, email info@winduca.com, địa chỉ showroom). Menu "Hệ cửa" có 6 loại hệ kèm số hệ ghi tay (`so`), cập nhật khi thêm hệ.

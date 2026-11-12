@@ -16,6 +16,8 @@ export type BaiViet = {
   tieuDe: string;
   tomTat: string;
   anh: string;
+  /** "ky-thuat": ảnh nền trong (mẫu 3D, bản vẽ 2D) đặt trên khung tối kiểu bản vẽ, không cắt xén. */
+  kieu?: "ky-thuat";
   ngay: string;
   noiDung: MucBai[];
   ketLuan: string;
@@ -58,7 +60,8 @@ export const BAI_VIET: BaiViet[] = [
     chuyenMuc: "Architecture & Design",
     tieuDe: "Cách đọc bản vẽ cửa trước khi đặt hàng",
     tomTat: "Vài điểm cần nhìn kỹ trên bản vẽ để tránh sửa đổi tốn kém khi cửa đã sản xuất.",
-    anh: "/images/ban-ve-kts.jpg",
+    anh: "/images/he-cua/ban-ve/civro-xd65-1.webp",
+    kieu: "ky-thuat",
     ngay: "2026-11-12",
     noiDung: [
       {
@@ -177,7 +180,8 @@ export const BAI_VIET: BaiViet[] = [
     chuyenMuc: "Window Technology",
     tieuDe: "Cửa trượt nâng khác gì cửa trượt thường?",
     tomTat: "Hai kiểu cửa cùng trượt ngang nhưng khác nhau ở cách cánh tựa vào ray và cách đóng kín.",
-    anh: "/images/products/lift-slide.webp",
+    anh: "/images/he-cua/mau-goc/romadio-rd120ls-ss-g1.webp",
+    kieu: "ky-thuat",
     ngay: "2026-11-10",
     noiDung: [
       {
@@ -209,7 +213,8 @@ export const BAI_VIET: BaiViet[] = [
     chuyenMuc: "Material & Engineering",
     tieuDe: "Cách đọc chỉ số Uw của cửa cách nhiệt",
     tomTat: "Uw cho biết khả năng cản nhiệt của cả bộ cửa, và cách so sánh các con số này cho đúng.",
-    anh: "/images/engineering/exploded-profiles.webp",
+    anh: "/images/he-cua/ban-ve/civro-xw65-1.webp",
+    kieu: "ky-thuat",
     ngay: "2026-11-10",
     noiDung: [
       {
@@ -316,6 +321,14 @@ export const TEN_CHU_DE: Record<string, string> = {
   "Architecture & Design": "Kiến trúc và thiết kế",
 };
 
+/** Mã màu theo chủ đề: chữ (đủ tương phản trên nền sáng) và thanh nhấn dưới ảnh. */
+export const MAU_CHU_DE: Record<string, { chu: string; thanh: string }> = {
+  "Kiến trúc và thiết kế": { chu: "#b8122b", thanh: "#e31937" },
+  "Vật liệu và kỹ thuật": { chu: "#2f5d80", thanh: "#4f86b0" },
+  "Công nghệ cửa": { chu: "#8a5a12", thanh: "#d19a2e" },
+};
+export const mauChuDe = (ten: string) => MAU_CHU_DE[ten] ?? { chu: "#b8122b", thanh: "#e31937" };
+
 export const mucCua = (b: BaiViet): MucId => b.muc ?? "kien-thuc";
 export const chuDeCua = (b: BaiViet) => TEN_CHU_DE[b.chuyenMuc] ?? b.chuyenMuc;
 
@@ -329,5 +342,5 @@ export function phutDoc(b: BaiViet): number {
 export const ngayVN = (iso: string) => iso.split("-").reverse().join("/");
 
 /** Dữ liệu gọn cho thành phần client (không chứa nội dung bài). */
-export type TheBai = { slug: string; muc: MucId; chuDe: string; tieuDe: string; tomTat: string; anh: string; ngay: string; phut: number; diem: string[] };
-export const THE_BAI: TheBai[] = BAI_VIET.map((b) => ({ slug: b.slug, muc: mucCua(b), chuDe: chuDeCua(b), tieuDe: b.tieuDe, tomTat: b.tomTat, anh: b.anh, ngay: ngayVN(b.ngay), phut: phutDoc(b), diem: b.noiDung.slice(0, 3).map((m) => m.h) }));
+export type TheBai = { slug: string; muc: MucId; chuDe: string; tieuDe: string; tomTat: string; anh: string; kieu?: "ky-thuat"; ngay: string; phut: number; diem: string[] };
+export const THE_BAI: TheBai[] = BAI_VIET.map((b) => ({ slug: b.slug, muc: mucCua(b), chuDe: chuDeCua(b), tieuDe: b.tieuDe, tomTat: b.tomTat, anh: b.anh, kieu: b.kieu, ngay: ngayVN(b.ngay), phut: phutDoc(b), diem: b.noiDung.slice(0, 3).map((m) => m.h) }));

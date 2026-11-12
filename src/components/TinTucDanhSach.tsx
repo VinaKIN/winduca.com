@@ -1,10 +1,9 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import { useId, useMemo, useState } from "react";
-import { asset } from "@/lib/asset";
-import { MUC_TIN_TUC, type MucId, type TheBai } from "@/lib/bai-viet";
+import { AnhBai } from "./AnhBai";
+import { MUC_TIN_TUC, mauChuDe, type MucId, type TheBai } from "@/lib/bai-viet";
 
 /**
  * Danh sách Tin tức kiểu tạp chí tối giản (12/11/2026): tab chuyên mục có số bài, ô tìm kiếm không phân biệt dấu,
@@ -139,13 +138,12 @@ export function TinTucDanhSach({ bai, mucDau = "tat-ca" }: { bai: TheBai[]; mucD
             <div className="mt-6 grid gap-6 lg:grid-cols-[1.55fr_1fr] lg:gap-8">
               <Link href={`/tin-tuc/${noiBat.slug}`} className="the-hien group block overflow-hidden rounded-[18px] border border-than-chi/10 bg-white shadow-[0_14px_40px_rgba(15,17,21,0.06)] transition-[box-shadow,transform] duration-500 hover:-translate-y-1 hover:shadow-[0_28px_60px_rgba(15,17,21,0.12)]">
                 <span className="relative block aspect-[16/9] overflow-hidden bg-than-chi">
-                  <Image src={asset(noiBat.anh)} alt="" fill priority quality={70} sizes="(min-width: 1024px) 52vw, 100vw" className="object-cover transition-transform duration-[1400ms] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.05]" />
-                  <span className="absolute inset-0 bg-[#1b1d22]/10 mix-blend-multiply" aria-hidden="true" />
+                  <AnhBai anh={noiBat.anh} kieu={noiBat.kieu} chuDe={noiBat.chuDe} priority quality={70} sizes="(min-width: 1024px) 52vw, 100vw" zoom="group-hover:scale-[1.05]" />
                   <span className="absolute left-4 top-4 rounded-full bg-white/92 px-3 py-1 text-[12px] font-bold uppercase tracking-[0.14em] text-than-chi">Bài mới nhất</span>
                   <span className="absolute bottom-4 right-4 rounded-full bg-than-chi px-3 py-1 text-[12px] font-medium text-white">{noiBat.phut} phút đọc</span>
                 </span>
                 <span className="block p-6 md:p-8">
-                  <span className="text-[12px] font-bold uppercase tracking-[0.14em] text-accent">{noiBat.chuDe}</span>
+                  <span className="text-[12px] font-bold uppercase tracking-[0.14em]" style={{ color: mauChuDe(noiBat.chuDe).chu }}>{noiBat.chuDe}</span>
                   <span className="mt-2 block text-[clamp(1.5rem,2.4vw,2.2rem)] font-bold leading-[1.15] tracking-[-0.01em] [text-wrap:balance]">{noiBat.tieuDe}</span>
                   <span className="mt-3 block max-w-2xl text-[16px] leading-relaxed text-than-chi/75">{noiBat.tomTat}</span>
                   <span className="mt-5 block">
@@ -165,10 +163,10 @@ export function TinTucDanhSach({ bai, mucDau = "tat-ca" }: { bai: TheBai[]; mucD
                       <li key={b.slug} className="flex flex-1 items-center">
                         <Link href={`/tin-tuc/${b.slug}`} className="group flex w-full items-center gap-4 py-4">
                           <span className="relative block h-[84px] w-[84px] shrink-0 overflow-hidden rounded-[10px] bg-than-chi/10">
-                            <Image src={asset(b.anh)} alt="" fill quality={60} sizes="84px" className="object-cover transition-transform duration-700 group-hover:scale-[1.08]" />
+                            <AnhBai anh={b.anh} kieu={b.kieu} chuDe={b.chuDe} quality={60} sizes="84px" zoom="group-hover:scale-[1.08]" />
                           </span>
                           <span className="min-w-0">
-                            <span className="block text-[12px] font-bold uppercase tracking-[0.12em] text-accent">{b.chuDe}</span>
+                            <span className="block text-[12px] font-bold uppercase tracking-[0.12em]" style={{ color: mauChuDe(b.chuDe).chu }}>{b.chuDe}</span>
                             <span className="mt-1 line-clamp-2 block text-[15.5px] font-bold leading-snug transition-colors group-hover:text-accent">{b.tieuDe}</span>
                             <span className="mt-1 block text-[12.5px] text-than-chi/65">
                               {b.phut} phút đọc · {b.ngay}
@@ -202,8 +200,7 @@ export function TinTucDanhSach({ bai, mucDau = "tat-ca" }: { bai: TheBai[]; mucD
                         }`}
                       >
                         <span className="relative block aspect-[16/10] overflow-hidden bg-than-chi/10">
-                          <Image src={asset(b.anh)} alt="" fill quality={65} sizes="(min-width: 1024px) 31vw, (min-width: 640px) 46vw, 92vw" className="object-cover transition-transform duration-[1200ms] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.06]" />
-                          <span className="absolute inset-0 bg-[#1b1d22]/10 mix-blend-multiply" aria-hidden="true" />
+                          <AnhBai anh={b.anh} kieu={b.kieu} chuDe={b.chuDe} sizes="(min-width: 1024px) 31vw, (min-width: 640px) 46vw, 92vw" />
                           <span className="absolute left-3 top-3 rounded-full bg-white/92 px-2.5 py-1 text-[12px] font-medium text-than-chi">{b.chuDe}</span>
                           <span className="absolute bottom-3 right-3 rounded-full bg-than-chi px-2.5 py-1 text-[12px] font-medium text-white">{b.phut} phút</span>
                         </span>

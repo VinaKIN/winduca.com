@@ -1,12 +1,11 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { AnhBai } from "@/components/AnhBai";
 import { MucLucNoi, ThanhTienDoDoc } from "@/components/DocBai";
 import { Hien, NutHut } from "@/components/HieuUng";
 import { Wrap } from "@/components/ui";
-import { asset } from "@/lib/asset";
-import { BAI_VIET, MUC_TIN_TUC, chuDeCua, mucCua, ngayVN, phutDoc } from "@/lib/bai-viet";
+import { BAI_VIET, MUC_TIN_TUC, chuDeCua, mauChuDe, mucCua, ngayVN, phutDoc } from "@/lib/bai-viet";
 
 export function generateStaticParams() {
   return BAI_VIET.map((b) => ({ slug: b.slug }));
@@ -59,7 +58,7 @@ export default async function BaiVietPage({ params }: PageProps<"/tin-tuc/[slug]
             </div>
           </div>
           <div className="dau-goc relative mt-9 aspect-[16/8] overflow-hidden rounded-[14px] bg-than-chi md:mt-12">
-            <Image src={asset(b.anh)} alt="" fill priority quality={70} sizes="(min-width: 1440px) 1360px, 100vw" className="object-cover" />
+            <AnhBai anh={b.anh} kieu={b.kieu} chuDe={chuDeCua(b)} priority quality={70} sizes="(min-width: 1440px) 1360px, 100vw" zoom="" />
           </div>
         </Wrap>
       </header>
@@ -119,9 +118,9 @@ export default async function BaiVietPage({ params }: PageProps<"/tin-tuc/[slug]
               <Hien key={x.slug} as="li" tre={i * 90}>
                 <Link href={`/tin-tuc/${x.slug}`} className="group block">
                   <span className="relative block aspect-[4/3] overflow-hidden rounded-[14px] bg-than-chi/10 transition-[box-shadow,transform] duration-500 group-hover:-translate-y-1 group-hover:shadow-[0_20px_44px_rgba(15,17,21,0.16)]">
-                    <Image src={asset(x.anh)} alt="" fill quality={65} sizes="(min-width: 1024px) 31vw, 92vw" className="object-cover transition-transform duration-[1200ms] group-hover:scale-[1.06]" />
+                    <AnhBai anh={x.anh} kieu={x.kieu} chuDe={chuDeCua(x)} sizes="(min-width: 1024px) 31vw, 92vw" />
                   </span>
-                  <span className="mt-4 block text-[12.5px] font-bold uppercase tracking-[0.14em] text-accent">{chuDeCua(x)}</span>
+                  <span className="mt-4 block text-[12.5px] font-bold uppercase tracking-[0.14em]" style={{ color: mauChuDe(chuDeCua(x)).chu }}>{chuDeCua(x)}</span>
                   <span className="mt-1 block text-[1.1rem] font-bold leading-snug transition-colors group-hover:text-accent">{x.tieuDe}</span>
                   <span className="mt-1 block text-[13px] text-than-chi/65">{phutDoc(x)} phút đọc</span>
                 </Link>
