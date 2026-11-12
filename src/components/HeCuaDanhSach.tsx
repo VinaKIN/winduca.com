@@ -238,8 +238,7 @@ function AnhThe({ r, lopMau = "" }: { r: HeCua; lopMau?: string }) {
 
 /* ---------- Cổng: đưa phần tử cố định ra <body> (thẻ bao ngoài có backdrop-filter nên "fixed" sẽ tính sai) ---------- */
 const khongDangKy = () => () => {};
-/** Địa chỉ lúc mở trang đã có bộ lọc (link chia sẻ)? Đọc một lần khi tải, nên chỉnh bộ lọc sau đó không làm nhảy bước. */
-const URL_MO_DAU_CO_LOC = typeof window !== "undefined" && /[?&](b|k|f|h|q)=/.test(window.location.search);
+
 function Cong({ children }: { children: ReactNode }) {
   const sanSang = useSyncExternalStore(khongDangKy, () => true, () => false);
   return sanSang ? createPortal(children, document.body) : null;
@@ -703,8 +702,8 @@ export function HeCuaDanhSach() {
   const [soSanh, setSoSanh] = useState(false);
   const [tamLoc, setTamLoc] = useState(false);
   const [thongBao, setThongBao] = useState("");
-  const [buocTay, setBuocTay] = useState<number | null>(null);
-  const dauBuoc = useRef<HTMLDivElement>(null);
+  const [moChon, setMoChon] = useState(false);
+  const [buoc, setBuoc] = useState(1);
   const dau = useRef<HTMLDivElement>(null);
   const idLoc = useId();
   const mot = useSyncExternalStore(dangKyCo, soThe, () => 12);
@@ -747,15 +746,9 @@ export function HeCuaDanhSach() {
   const demHang = (h: Hang | "") => HE_CUA_DS.filter((r) => khop(r, loc, true) && (h === "" || r.hang === h)).length;
   const soLoc = loc.k.length + loc.f.length + loc.h.length;
   const dangLoc = soLoc > 0 || loc.b !== "" || loc.q !== "";
-  // Bước hiện tại: người dùng chọn, hoặc bước 4 nếu trang được mở bằng đường dẫn đã có bộ lọc, nếu không thì bước 1
-  const mo_bang_loc = useSyncExternalStore(khongDangKy, () => URL_MO_DAU_CO_LOC, () => false);
-  const buoc = buocTay ?? (mo_bang_loc ? 4 : 1);
 
   const doi = (p: Partial<Loc>) => setLoc((c) => ({ ...c, p: 1, ...p }));
-  const datBuoc = (n: number) => {
-    setBuocTay(Math.max(1, Math.min(5, n)));
-    dauBuoc.current?.scrollIntoView({ behavior: "smooth", block: "start" });
-  };
+  const datBuoc = (n: number) => setBuoc(Math.max(1, Math.min(5, n)));
   const bat = (k: "k" | "f" | "h", v: string) => doi({ [k]: loc[k].includes(v) ? loc[k].filter((x) => x !== v) : [...loc[k], v] });
   const chonSoSanh = useCallback((r: HeCua, co: boolean) => {
     setCmp((c) => {
@@ -805,33 +798,6 @@ export function HeCuaDanhSach() {
 
   return (
     <div>
-      <div ref={dauBuoc} className="scroll-mt-24">
-        <ThanhBuoc buoc={buoc} dat={datBuoc} tomTat={tomTat} />
-      </div>
-
-      {buoc === 1 && (
-        <KhungBuoc buoc={1}>
-          <BuocHang chon={loc.b} dat={(h) => doi({ b: h as Hang | "" })} dem={dem} />
-        </KhungBuoc>
-      )}
-      {buoc === 2 && (
-        <KhungBuoc buoc={2}>
-          <BuocLoai chon={loc.h} bat={(m) => bat("h", m)} dem={dem} />
-        </KhungBuoc>
-      )}
-      {buoc === 3 && (
-        <KhungBuoc buoc={3}>
-          <BuocDacDiem k={loc.k} f={loc.f} bat={bat} dem={dem} q={loc.q} doiQ={(v) => doi({ q: v })} />
-        </KhungBuoc>
-      )}
-      {buoc === 5 && (
-        <KhungBuoc buoc={5}>
-          <BuocSoSanh ds={dsCmp} bo={(r) => chonSoSanh(r, false)} moBang={() => setSoSanh(true)} veDanhSach={() => datBuoc(4)} />
-        </KhungBuoc>
-      )}
-
-      {buoc === 4 && (
-      <div className="anh-doi mt-6">
       {/* Khung công cụ: tab hãng, ô tìm kiếm, lọc */}
       <div className="rounded-[18px] border border-[#e3e7ec] bg-white/95 px-4 shadow-[0_10px_34px_rgba(15,17,21,0.06)] md:px-6">
       <div ref={dau} className="flex scroll-mt-24 flex-wrap items-center justify-between gap-5 border-b border-[#eef0f4] py-3.5">
@@ -855,6 +821,13 @@ export function HeCuaDanhSach() {
           })}
         </div>
         <div className="flex w-full flex-wrap items-center gap-x-5 gap-y-3 md:w-auto">
+          <button type="button" onClick={() => setMoChon(true)} aria-haspopup="dialog" className="nut nut-chinh !min-h-11 gap-2.5 !px-5">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+              <path d="M4 6h16M7 12h10M10 18h4" />
+            </svg>
+            Chọn hệ
+            {dangLoc && <em className="rounded-full bg-white/90 px-1.5 text-[12px] not-italic text-accent-dam">{soLoc + (loc.b ? 1 : 0)}</em>}
+          </button>
           <span role="status" aria-live="polite" className="text-[13px] font-bold tracking-[0.04em] text-[#4b5563]">
             {ketQua.length} / {HE_CUA_DS.length} hệ
           </span>
@@ -1021,41 +994,6 @@ export function HeCuaDanhSach() {
         </nav>
       )}
 
-      </div>
-      )}
-
-      {/* Quay lại / Tiếp theo */}
-      <div className="mt-10 flex flex-wrap items-center justify-between gap-3 border-t border-[#e3e7ec] pt-6">
-        <button type="button" onClick={() => datBuoc(buoc - 1)} disabled={buoc === 1} className="nut nut-vien-sang disabled:opacity-40">
-          ← Quay lại
-        </button>
-        <div className="flex flex-wrap items-center gap-3">
-          {buoc < 4 && (
-            <button type="button" onClick={() => datBuoc(4)} className="min-h-11 text-[14px] text-[#4b5563] underline underline-offset-4 hover:text-than-chi">
-              Xem {ketQua.length} hệ ngay
-            </button>
-          )}
-          {buoc < 5 ? (
-            <button type="button" onClick={() => datBuoc(buoc + 1)} className="nut nut-chinh">
-              Tiếp theo: {BUOC[buoc].ten}
-              {buoc === 3 ? ` · ${ketQua.length} hệ` : ""} →
-            </button>
-          ) : (
-            <button
-              type="button"
-              onClick={() => {
-                setLoc(LOC_RONG);
-                setCmp([]);
-                datBuoc(1);
-              }}
-              className="nut nut-dac"
-            >
-              Làm lại từ đầu
-            </button>
-          )}
-        </div>
-      </div>
-
       {/* Thanh so sánh */}
       <div role="status" aria-live="polite" className="sr-only">
         {thongBao}
@@ -1083,7 +1021,6 @@ export function HeCuaDanhSach() {
 
       {/* Nút Bộ lọc cố định phía dưới (điện thoại), mở tấm chọn lọc như Winboss */}
       <Cong>
-      {buoc === 4 && (
       <button
         type="button"
         onClick={() => setTamLoc(true)}
@@ -1096,7 +1033,6 @@ export function HeCuaDanhSach() {
         Bộ lọc
         {soLoc > 0 && <em className="rounded-full bg-accent px-2 py-0.5 text-[12px] not-italic">{soLoc}</em>}
       </button>
-      )}
       {tamLoc && (
         <HopThoai dong={() => setTamLoc(false)} tieuDe="Bộ lọc hệ cửa" rong={false} duoi>
           <div className="px-5 pb-28 pt-5">
@@ -1138,6 +1074,104 @@ export function HeCuaDanhSach() {
       </Cong>
 
       <Cong>
+        {moChon && (
+          <HopThoai dong={() => setMoChon(false)} tieuDe="Chọn hệ cửa theo 5 bước" rong={false}>
+            <div className="p-5 pb-6 pt-14 md:p-7 md:pt-14">
+              <ThanhBuoc buoc={buoc} dat={datBuoc} tomTat={tomTat} />
+              {buoc === 1 && (
+                <KhungBuoc buoc={1}>
+                  <BuocHang chon={loc.b} dat={(h) => doi({ b: h as Hang | "" })} dem={dem} />
+                </KhungBuoc>
+              )}
+              {buoc === 2 && (
+                <KhungBuoc buoc={2}>
+                  <BuocLoai chon={loc.h} bat={(m) => bat("h", m)} dem={dem} />
+                </KhungBuoc>
+              )}
+              {buoc === 3 && (
+                <KhungBuoc buoc={3}>
+                  <BuocDacDiem k={loc.k} f={loc.f} bat={bat} dem={dem} q={loc.q} doiQ={(v) => doi({ q: v })} />
+                </KhungBuoc>
+              )}
+              {buoc === 4 && (
+                <KhungBuoc buoc={4}>
+                  {ketQua.length === 0 ? (
+                    <p className="rounded-[16px] border border-dashed border-[#c3cad4] p-8 text-center text-[#697280]">Chưa có hệ phù hợp. Quay lại để bỏ bớt lựa chọn.</p>
+                  ) : (
+                    <ul className="grid grid-cols-2 gap-3 sm:grid-cols-3">
+                      {ketQua.slice(0, 6).map((r) => (
+                        <li key={r.id}>
+                          <button
+                            type="button"
+                            onClick={() => {
+                              setMoChon(false);
+                              setChiTiet(r);
+                            }}
+                            className="group block w-full overflow-hidden rounded-[16px] border border-[#e3e7ec] bg-white text-left transition-[border-color,box-shadow] hover:border-than-chi hover:shadow-[0_14px_34px_rgba(15,17,21,0.1)]"
+                          >
+                            <span className={`${SAN_KHAU} relative block aspect-[1/0.8]`}>
+                              <AnhThe r={r} lopMau="group-hover:scale-[1.04]" />
+                            </span>
+                            <span className="block px-3.5 py-2.5">
+                              <span className="block text-[12px] font-bold uppercase tracking-[0.14em] text-[#697280]">{TEN_HANG[r.hang]}</span>
+                              <span className="block truncate text-[15px] font-bold">{r.ma}</span>
+                            </span>
+                          </button>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setMoChon(false);
+                      dau.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+                    }}
+                    className="nut nut-dac mt-5"
+                  >
+                    Xem cả {ketQua.length} hệ trên trang
+                  </button>
+                </KhungBuoc>
+              )}
+              {buoc === 5 && (
+                <KhungBuoc buoc={5}>
+                  <BuocSoSanh
+                    ds={dsCmp}
+                    bo={(r) => chonSoSanh(r, false)}
+                    moBang={() => {
+                      setMoChon(false);
+                      setSoSanh(true);
+                    }}
+                    veDanhSach={() => datBuoc(4)}
+                  />
+                </KhungBuoc>
+              )}
+
+              <div className="mt-8 flex flex-wrap items-center justify-between gap-3 border-t border-[#e3e7ec] pt-5">
+                <button type="button" onClick={() => datBuoc(buoc - 1)} disabled={buoc === 1} className="nut nut-vien-sang disabled:opacity-40">
+                  ← Quay lại
+                </button>
+                <div className="flex flex-wrap items-center gap-3">
+                  {dangLoc && (
+                    <button type="button" onClick={() => setLoc(LOC_RONG)} className="min-h-11 text-[14px] text-[#4b5563] underline underline-offset-4 hover:text-than-chi">
+                      Xóa lựa chọn
+                    </button>
+                  )}
+                  {buoc < 5 ? (
+                    <button type="button" onClick={() => datBuoc(buoc + 1)} className="nut nut-chinh">
+                      Tiếp theo: {BUOC[buoc].ten}
+                      {buoc === 3 ? ` · ${ketQua.length} hệ` : ""} →
+                    </button>
+                  ) : (
+                    <button type="button" onClick={() => setMoChon(false)} className="nut nut-dac">
+                      Đóng
+                    </button>
+                  )}
+                </div>
+              </div>
+            </div>
+          </HopThoai>
+        )}
         {chiTiet && (
           <CuaSoChiTiet
             key={chiTiet.id}
