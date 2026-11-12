@@ -263,6 +263,13 @@ Các linh kiện dưới đây dùng ma trận 7 trạng thái ở mục 3.0; m�
 - Đã bỏ `uppercase` và `tracking` rộng ở các tiêu đề h1/h2 toàn site (PageHero, hero trang chủ, hero kiểu cửa, hệ cửa, giải pháp đồng bộ).
 - Dữ liệu Giải pháp ở `src/lib/giai-phap.ts` (8 loại); ảnh minh họa Pexels ở `public/images/giai-phap/` (ID ở `public/images/NGUON-ANH.md`).
 
+### 3.13 Quy tắc cho Tin tức theo bộ design system "AI" (12/11/2026)
+Áp cấu trúc và độ chuẩn, giữ Roboto và màu thương hiệu (không dùng Inter, #0d6efd).
+- **Token:** bo góc thẻ lớn 20px, thẻ 16px, ảnh nhỏ 12px, nút và ô tìm kiếm tròn; bóng thẻ `0 5px 20px rgba(0,0,0,.04)`; chuyển động 150ms (màu) và 300ms (nâng thẻ, phóng ảnh).
+- **Trạng thái thẻ bài, tab, nút:** mặc định, hover (nâng thẻ, đổi màu tiêu đề), focus-visible (viền đỏ 2px, toàn site), active (về vị trí cũ). Ô tìm kiếm có viền đỏ khi focus. Rỗng và không có kết quả: khối "Không có bài phù hợp" hoặc "đang được cập nhật". Đang tải: trang tĩnh, không áp dụng.
+- **Nghiệm thu kiểm tra được:** điều hướng bàn phím qua tab, thẻ, ô tìm kiếm; vùng chạm tối thiểu 44px; chữ tối thiểu 12px; tương phản chữ chủ đề đạt AA trên nền sáng; tắt chuyển động khi `prefers-reduced-motion`; tiêu đề dài không tràn ngang ở 375px.
+- **Cấm:** văn bản tương phản thấp, ẩn viền focus, nhãn mơ hồ không kèm ngữ cảnh, khoảng cách hoặc cỡ chữ ngoài thang.
+
 ---
 
 ## 4. Yêu cầu truy cập và tiêu chí nghiệm thu kiểm tra được
