@@ -34,7 +34,8 @@ export const metadata: Metadata = {
     images: [{ url: asset("/images/hero.jpg"), width: 1536, height: 1024, alt: "Cửa kính khổ lớn mở ra không gian sống" }],
   },
   // Bản xem thử nội bộ: chặn công cụ tìm kiếm cho tới ngày go-live.
-  robots: { index: false, follow: false },
+  // Bản xem thử chặn công cụ tìm kiếm. Khi go-live đặt NEXT_PUBLIC_INDEXABLE=true lúc build (đồng bộ với robots.ts).
+  robots: process.env.NEXT_PUBLIC_INDEXABLE === "true" ? { index: true, follow: true } : { index: false, follow: false },
 };
 
 export const viewport: Viewport = {
