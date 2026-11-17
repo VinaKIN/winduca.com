@@ -92,22 +92,23 @@ export function HeroSlider() {
           {s.anh && <Image src={s.anh} alt="Không gian sống với cửa nhôm kính khổ lớn" fill priority={k === 0} quality={60} sizes="100vw" className="object-cover" />}
           <div className="absolute inset-0 bg-than-chi/45" aria-hidden="true" />
 
-          <div className="absolute inset-0 flex flex-col items-center justify-end px-6 pb-[14svh] text-center text-white md:pb-[16svh]">
+          <div className="absolute inset-0 flex items-end">
+          <div className="mx-auto w-full max-w-[1440px] px-5 pb-[14svh] text-left text-white md:px-10 md:pb-[16svh]">
             {k === 0 ? (
-              <h1 className="max-w-5xl text-[clamp(1.875rem,3.8vw,3.5rem)] font-bold leading-[1.18] [text-wrap:balance]">
+              <h1 className="max-w-4xl text-[clamp(1.875rem,3.8vw,3.5rem)] font-medium leading-[1.18] [text-wrap:balance]">
                 {s.dong[0]} <span className="block">{s.dong[1]}</span>
               </h1>
             ) : (
-              <p className="max-w-5xl text-[clamp(1.875rem,3.8vw,3.5rem)] font-medium uppercase leading-[1.15] tracking-[0.01em] [text-wrap:balance]">
+              <p className="max-w-4xl text-[clamp(1.875rem,3.8vw,3.5rem)] font-medium leading-[1.18] [text-wrap:balance]">
                 {s.dong[0]} <span className="block">{s.dong[1]}</span>
               </p>
             )}
             <p className="mt-4 max-w-3xl text-sm font-light text-white/95 md:mt-5 md:text-lg">{s.phu}</p>
-            <div className="mt-8 flex flex-wrap items-center justify-center gap-3 md:mt-10 md:gap-4">
+            <div className="mt-8 flex flex-wrap items-center justify-start gap-3 md:mt-10 md:gap-4">
               <Link
                 href={s.nut1.href}
                 tabIndex={k === i ? 0 : -1}
-                className="group inline-flex items-center gap-4 rounded-full bg-white py-1.5 pl-7 pr-1.5 text-[0.8125rem] font-bold uppercase tracking-[0.04em] text-than-chi transition-colors hover:bg-nga"
+                className="group inline-flex items-center gap-4 rounded-full bg-white py-1.5 pl-7 pr-1.5 text-[0.8125rem] font-semibold uppercase tracking-[0.04em] text-than-chi transition-colors hover:bg-nga"
               >
                 {s.nut1.nhan}
                 <MuiTenTron kieu="do" />
@@ -115,12 +116,13 @@ export function HeroSlider() {
               <Link
                 href={s.nut2.href}
                 tabIndex={k === i ? 0 : -1}
-                className="group inline-flex items-center gap-4 rounded-full border border-white/85 py-1.5 pl-7 pr-1.5 text-[0.8125rem] font-bold uppercase tracking-[0.04em] text-white transition-colors hover:bg-white hover:text-than-chi"
+                className="group inline-flex items-center gap-4 rounded-full border border-white/85 py-1.5 pl-7 pr-1.5 text-[0.8125rem] font-semibold uppercase tracking-[0.04em] text-white transition-colors hover:bg-white hover:text-than-chi"
               >
                 {s.nut2.nhan}
                 <MuiTenTron kieu="vien" />
               </Link>
             </div>
+          </div>
           </div>
         </div>
       ))}
@@ -137,7 +139,7 @@ export function HeroSlider() {
             onClick={() => setI(k)}
             className="group flex h-11 items-center justify-center px-1.5"
           >
-            <span className={`block h-2.5 rounded-full transition-all duration-300 ${k === i ? "w-6 bg-white" : "w-2.5 bg-white/50 group-hover:bg-white/80"}`} />
+            <span className={`block h-2.5 rounded-full transition-colors duration-300 ${k === i ? "w-6 bg-white" : "w-2.5 bg-white/50 group-hover:bg-white/80"}`} />
           </button>
         ))}
       </div>

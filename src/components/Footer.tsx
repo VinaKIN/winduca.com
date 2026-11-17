@@ -78,10 +78,10 @@ export function Footer() {
                   height={102}
                   className="h-auto w-[280px] md:w-[360px]"
                 />
-                <p className="mt-3 text-center text-[12px] font-medium uppercase tracking-[0.5em] text-white/70 md:text-[13px]">Premium Window &amp; Door</p>
+                <p className="mt-3 text-center text-[13px] font-medium tracking-[0.02em] text-white/70 md:text-sm">Premium Window &amp; Door</p>
               </div>
               <nav aria-label="Liên kết chân trang">
-                <ul className="grid max-w-md grid-flow-col grid-cols-2 grid-rows-3 gap-x-6 gap-y-5 text-[14px] uppercase tracking-[0.18em]">
+                <ul className="grid max-w-md grid-flow-col grid-cols-2 grid-rows-3 gap-x-6 gap-y-5 text-[15px] tracking-[0.02em]">
                   {[
                     ["/", "Trang chủ"],
                     ["/gioi-thieu", "Giới thiệu"],
@@ -91,7 +91,7 @@ export function Footer() {
                     ["/hop-tac", "Hợp tác"],
                   ].map(([h, t], i) => (
                     <li key={h}>
-                      <Link href={h} className={`link-gach inline-block py-2.5 ${i === 0 ? "font-bold text-white" : "font-medium text-white/75"}`}>
+                      <Link href={h} className={`link-gach inline-block py-2.5 ${i === 0 ? "font-semibold text-white" : "font-medium text-white/75"}`}>
                         {t}
                       </Link>
                     </li>

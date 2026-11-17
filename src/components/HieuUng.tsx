@@ -100,22 +100,9 @@ export function KeoNgang({ children, className = "" }: { children: ReactNode; cl
 
 /** Nút/liên kết hút nhẹ về phía con trỏ (chỉ chuột, desktop). */
 export function NutHut({ href, children, className = "" }: { href: string; children: ReactNode; className?: string }) {
-  const ref = useRef<HTMLAnchorElement>(null);
-
-  function di(e: RPointerEvent<HTMLAnchorElement>) {
-    const el = ref.current;
-    if (!el || e.pointerType !== "mouse" || giamChuyenDong()) return;
-    const r = el.getBoundingClientRect();
-    const dx = (e.clientX - (r.left + r.width / 2)) * 0.22;
-    const dy = (e.clientY - (r.top + r.height / 2)) * 0.3;
-    el.style.transform = `translate(${dx.toFixed(1)}px, ${dy.toFixed(1)}px)`;
-  }
-  function ra() {
-    if (ref.current) ref.current.style.transform = "";
-  }
-
+  // Bỏ hiệu ứng nút bám theo con trỏ (17/11/2026): nút đứng yên, chỉ đổi màu khi rê
   return (
-    <Link ref={ref} href={href} onPointerMove={di} onPointerLeave={ra} className={`${className} transition-transform duration-200 ease-out`}>
+    <Link href={href} className={className}>
       {children}
     </Link>
   );
@@ -123,31 +110,6 @@ export function NutHut({ href, children, className = "" }: { href: string; child
 
 /** Nền parallax: dịch chậm hơn nội dung khi cuộn. */
 export function NenParallax({ children, className = "" }: { children: ReactNode; className?: string }) {
-  const ref = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    if (giamChuyenDong()) return;
-    const el = ref.current;
-    if (!el) return;
-    let raf = 0;
-    const cap = () => {
-      raf = 0;
-      el.style.transform = `translate3d(0, ${Math.min(window.scrollY, 900) * 0.18}px, 0) scale(1.12)`;
-    };
-    const khiCuon = () => {
-      if (!raf) raf = requestAnimationFrame(cap);
-    };
-    cap();
-    window.addEventListener("scroll", khiCuon, { passive: true });
-    return () => {
-      window.removeEventListener("scroll", khiCuon);
-      if (raf) cancelAnimationFrame(raf);
-    };
-  }, []);
-
-  return (
-    <div ref={ref} className={`absolute inset-0 will-change-transform ${className}`}>
-      {children}
-    </div>
-  );
+  // Bỏ parallax nền (17/11/2026): ảnh nền đứng yên khi cuộn
+  return <div className={`absolute inset-0 ${className}`}>{children}</div>;
 }

@@ -178,7 +178,7 @@ export function Header() {
                 aria-label="Đóng menu"
                 data-dau-tien="true"
                 onClick={() => setMoMenu(false)}
-                className="group flex items-center gap-2 rounded-full bg-than-chi py-1 pl-6 pr-1 text-[0.8125rem] font-bold uppercase tracking-[0.04em] text-white transition-colors hover:bg-accent"
+                className="group flex items-center gap-2 rounded-full bg-than-chi py-1 pl-6 pr-1 text-[0.8125rem] font-semibold uppercase tracking-[0.04em] text-white transition-colors hover:bg-accent"
               >
                 Đóng
                 <span className="flex h-10 w-10 items-center justify-center rounded-full bg-accent text-white">
@@ -204,8 +204,8 @@ export function Header() {
                         }}
                       >
                         <div className="flex items-center gap-5 text-than-chi">
-                          <span className="w-6 text-xs font-bold tracking-[0.12em] text-accent">{String(i + 1).padStart(2, "0")}</span>
-                          <Link href={m.href} className="tieu-de text-[1.15rem] font-bold uppercase tracking-[0.02em] transition-colors hover:text-accent md:text-[1.45rem]">
+                          <span className="w-6 text-xs font-semibold tracking-[0.12em] text-accent">{String(i + 1).padStart(2, "0")}</span>
+                          <Link href={m.href} className="tieu-de text-[1.15rem] font-semibold uppercase tracking-[0.02em] transition-colors hover:text-accent md:text-[1.45rem]">
                             {m.label}
                           </Link>
                           {m.con && (
@@ -233,7 +233,7 @@ export function Header() {
                                     href={c.href}
                                     tabIndex={mo ? 0 : -1}
                                     aria-current={dangO(c.href) ? "page" : undefined}
-                                    className={`group/mc flex items-center gap-2.5 text-sm transition-colors hover:text-accent ${dangO(c.href) ? "font-bold text-accent" : "text-than-chi/65"}`}
+                                    className={`group/mc flex items-center gap-2.5 text-sm transition-colors hover:text-accent ${dangO(c.href) ? "font-semibold text-accent" : "text-than-chi/65"}`}
                                   >
                                     {c.anh && (
                                       <span className="relative h-10 w-10 shrink-0 overflow-hidden rounded-full bg-[radial-gradient(circle_at_50%_40%,#fff,#e4e9f0)] ring-1 ring-than-chi/10 transition-shadow group-hover/mc:ring-accent/50">
@@ -242,7 +242,7 @@ export function Header() {
                                     )}
                                     <span>
                                       {c.label}
-                                      {c.so !== undefined && <sup className="ml-1 text-[12px] font-bold tabular-nums text-accent">{c.so}</sup>}
+                                      {c.so !== undefined && <sup className="ml-1 text-[12px] font-semibold tabular-nums text-accent">{c.so}</sup>}
                                     </span>
                                   </Link>
                                 </li>
@@ -261,7 +261,7 @@ export function Header() {
                 {HERO_ANH && <Image src={HERO_ANH} alt="" fill quality={60} sizes="(min-width: 1024px) 40vw, 100vw" className="object-cover" aria-hidden="true" />}
                 <div className="absolute inset-0 bg-than-chi/20" aria-hidden="true" />
                 <div className="absolute inset-x-3 bottom-3 rounded-[22px] bg-nga p-5 md:inset-x-4 md:bottom-4 md:rounded-[26px] md:p-6">
-                  <p className="tieu-de text-xl font-bold text-than-chi">Liên hệ</p>
+                  <p className="tieu-de text-xl font-semibold text-than-chi">Liên hệ</p>
                   <ul className="mt-4 space-y-3 text-[0.9rem] text-than-chi/85">
                     <li className="flex items-start gap-3">
                       <span className="mt-0.5 text-accent">
@@ -286,7 +286,7 @@ export function Header() {
                   </ul>
                   <Link
                     href="/trai-nghiem"
-                    className="group mt-5 inline-flex w-full items-center justify-between gap-4 rounded-full bg-than-chi py-1.5 pl-6 pr-1.5 text-[0.8125rem] font-bold uppercase tracking-[0.04em] text-white transition-colors hover:bg-accent sm:w-auto"
+                    className="group mt-5 inline-flex w-full items-center justify-between gap-4 rounded-full bg-than-chi py-1.5 pl-6 pr-1.5 text-[0.8125rem] font-semibold uppercase tracking-[0.04em] text-white transition-colors hover:bg-accent sm:w-auto"
                   >
                     Đăng ký trải nghiệm
                     <span className="flex h-10 w-10 items-center justify-center rounded-full bg-accent text-white transition-transform duration-300 group-hover:rotate-45">

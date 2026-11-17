@@ -115,7 +115,7 @@ export function SanPhamBangChuyen() {
                 <p className="nhan-muc text-accent">
                   {p.nhom} · {String(n + 1).padStart(2, "0")} / {String(tong).padStart(2, "0")}
                 </p>
-                <h3 className="mt-3 text-2xl font-bold md:text-3xl">{p.ten}</h3>
+                <h3 className="mt-3 text-2xl font-semibold md:text-3xl">{p.ten}</h3>
                 <p className="mt-2 text-[15px] font-light leading-relaxed text-white/80">{p.mota}</p>
                 <p className="mt-4 border-t border-white/15 pt-4 text-[14px] text-white/75">{SO_HE_THEO_NHOM[p.nhom]} hệ {p.nhom.toLowerCase()} trong danh mục</p>
                 <Link href={`/he-cua?h=${MA_LOC_THEO_NHOM[p.nhom]}`} draggable={false} className="nut nut-chinh mt-6 self-start">
@@ -147,7 +147,7 @@ export function SanPhamBangChuyen() {
               aria-label={`Đến ${p.ten}`}
               aria-current={n === chiSo}
               onClick={() => toi(n)}
-              className={`h-2 rounded-full transition-all ${n === chiSo ? "w-6 bg-accent" : "w-2 bg-than-chi/25 hover:bg-than-chi/50"}`}
+              className={`h-2 rounded-full transition-colors ${n === chiSo ? "w-6 bg-accent" : "w-2 bg-than-chi/25 hover:bg-than-chi/50"}`}
             />
           ))}
         </div>

@@ -60,13 +60,13 @@ export function DichVuTruot({ muc }: { muc: DichVu[] }) {
         {muc.map((d) => (
           <li key={d.so} className="w-full shrink-0 snap-center">
             <Link href="/lien-he" className="group relative block min-h-[220px] overflow-hidden rounded-[24px] bg-than-chi text-white md:h-[clamp(300px,50svh,420px)] md:min-h-0 md:rounded-[32px]">
-              <Image src={asset(d.anh)} alt={d.t} fill quality={60} sizes="(min-width: 1024px) 45vw, 100vw" className="object-cover transition-transform duration-700 group-hover:scale-[1.04]" style={{ objectPosition: d.pos }} />
+              <Image src={asset(d.anh)} alt={d.t} fill quality={60} sizes="(min-width: 1024px) 45vw, 100vw" className="object-cover" style={{ objectPosition: d.pos }} />
               <div className="absolute inset-0 bg-than-chi/55" aria-hidden="true" />
               <div className="relative flex h-full min-h-[220px] flex-col justify-between p-6 md:min-h-0 md:p-8">
-                <span className="text-sm font-bold text-white/80">{d.so}</span>
+                <span className="text-sm font-semibold text-white/80">{d.so}</span>
                 <div className="flex items-end justify-between gap-6">
                   <div>
-                    <h3 className="text-xl font-bold md:text-2xl">{d.t}</h3>
+                    <h3 className="text-xl font-semibold md:text-2xl">{d.t}</h3>
                     <p className="mt-2 max-w-md text-[15px] font-light leading-relaxed text-white/85">{d.m}</p>
                   </div>
                   <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-accent text-white transition-transform duration-300 group-hover:translate-x-1">
@@ -92,7 +92,7 @@ export function DichVuTruot({ muc }: { muc: DichVu[] }) {
               aria-selected={k === i}
               aria-label={`Dịch vụ ${d.so}: ${d.t}`}
               onClick={() => toi(k)}
-              className={`h-2 rounded-full transition-all ${k === i ? "w-6 bg-accent" : "w-2 bg-than-chi/25 hover:bg-than-chi/50"}`}
+              className={`h-2 rounded-full transition-colors ${k === i ? "w-6 bg-accent" : "w-2 bg-than-chi/25 hover:bg-than-chi/50"}`}
             />
           ))}
         </div>

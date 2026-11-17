@@ -99,7 +99,7 @@ export default async function GiaiPhapChiTiet({ params }: PageProps<"/giai-phap/
                   <p
                     key={d}
                     className={`mb-6 text-[1.15rem] font-light leading-[1.7] text-than-chi/90 md:text-[1.3rem] ${
-                      i === 0 ? "first-letter:float-left first-letter:mr-3 first-letter:mt-1 first-letter:first-letter:text-[5.2rem] first-letter:font-medium first-letter:leading-[0.8] first-letter:text-accent" : ""
+                      i === 0 ? "first-letter:float-left first-letter:mr-3 first-letter:mt-1 first-letter:text-[5.2rem] first-letter:font-medium first-letter:leading-[0.8] first-letter:text-accent" : ""
                     }`}
                   >
                     {d}
