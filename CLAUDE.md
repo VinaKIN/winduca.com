@@ -124,3 +124,4 @@ Menu và hằng số chung ở `src/lib/site.ts` (`MENU_CHINH`, hotline 0947 686
 
 - Quy trình và dữ liệu Hệ cửa: [docs/BAN-GIAO.md](docs/BAN-GIAO.md)
 - Token, linh kiện và quy tắc giao diện: [docs/DESIGN-SYSTEM.md](docs/DESIGN-SYSTEM.md)
+- Tên miền riêng (17/11/2026): winduca.com trỏ về GitHub Pages (4 bản ghi A + CNAME www ở PA Việt Nam). Workflow Pages đặt `CUSTOM_DOMAIN=true` nên build không có basePath; `public/CNAME` = winduca.com. Chờ: xác thực email chủ thể tên miền ở PA, khai Custom domain + Enforce HTTPS trong Settings > Pages.

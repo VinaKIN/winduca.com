@@ -12,7 +12,8 @@ import type { NextConfig } from "next";
 const pages = process.env.GITHUB_PAGES === "true";
 const goc = process.env.STATIC_EXPORT === "true"; // hosting dùng chung, đặt ở gốc tên miền
 const tinh = pages || goc;
-const basePath = pages ? "/winduca.com" : "";
+// Có tên miền riêng (CUSTOM_DOMAIN=true, đặt trong workflow Pages) thì site nằm ở gốc tên miền, không cần basePath.
+const basePath = pages && process.env.CUSTOM_DOMAIN !== "true" ? "/winduca.com" : "";
 
 const nextConfig: NextConfig = {
   // Xuất bản tĩnh (export) không hỗ trợ PPR, nên tắt hai tùy chọn này ở chế độ GitHub Pages.
@@ -35,7 +36,7 @@ const nextConfig: NextConfig = {
   ...(tinh
     ? {
         output: "export" as const,
-        ...(pages ? { basePath } : {}),
+        ...(pages && basePath ? { basePath } : {}),
         trailingSlash: true,
       }
     : {}),
