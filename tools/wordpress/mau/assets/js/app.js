@@ -33,7 +33,7 @@
     else if (!e.shiftKey && document.activeElement === cuoi) { e.preventDefault(); dau.focus(); }
   });
 
-  // Mục con: bấm dấu cộng mở/đóng, rê chuột trên màn hình có chuột cũng mở
+  // Mục con: bấm dấu cộng mở/đóng, rê chuột trên màn hình có chuột cũng mở (xem cuối tệp cho trang bài viết)
   function datMuc(nut, mo) {
     var hop = document.getElementById(nut.getAttribute('data-muc-con'));
     if (!hop) return;

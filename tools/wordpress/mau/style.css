@@ -6,3 +6,13 @@ Description: Theme WINDUCA mô phỏng website Next.js (Roboto, Ngà, Than đen,
 Version: 0.1.0
 Text Domain: winduca
 */
+
+/* Thân bài viết (nội dung do WordPress sinh ra, không có lớp Tailwind riêng) */
+.wd-noi p { margin-top: 1rem; font-size: 17px; font-weight: 300; line-height: 1.8; color: rgba(35, 31, 32, 0.9); }
+.wd-noi ul, .wd-noi ol { margin-top: 1rem; padding-left: 1.5rem; font-size: 17px; font-weight: 300; line-height: 1.8; }
+.wd-noi ul { list-style: disc; }
+.wd-noi ol { list-style: decimal; }
+.wd-noi li { margin-top: 0.5rem; }
+.wd-noi a { color: var(--accent-dam); text-decoration: underline; text-underline-offset: 3px; }
+.wd-noi strong { font-weight: 600; }
+@media (min-width: 768px) { .wd-noi p, .wd-noi ul, .wd-noi ol { font-size: 18px; } }
