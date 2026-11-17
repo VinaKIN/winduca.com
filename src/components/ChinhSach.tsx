@@ -14,7 +14,7 @@ export function ChinhSach({ tieuDe, capNhat, children }: { tieuDe: string; capNh
             <p className="mb-8 max-w-3xl rounded-[6px] border border-do-do/50 p-4 text-sm text-do-do">
               Bản nháp chờ bộ phận pháp chế duyệt. Nội dung có thể thay đổi trước khi website chính thức đi vào hoạt động.
             </p>
-            <div className="max-w-3xl space-y-5 text-base leading-[1.75] text-than-chi/90 [&_h2]:mt-10 [&_h2]:text-2xl [&_h2]:font-bold [&_h2]:text-than-chi [&_li]:ml-5 [&_li]:list-disc [&_ul]:space-y-2">{children}</div>
+            <div className="max-w-3xl space-y-5 text-base leading-[1.75] text-than-chi/90 [&_h2]:mt-10 [&_h2]:text-2xl [&_h2]:font-semibold [&_h2]:text-than-chi [&_li]:ml-5 [&_li]:list-disc [&_ul]:space-y-2">{children}</div>
           </div>
         </Wrap>
       </section>

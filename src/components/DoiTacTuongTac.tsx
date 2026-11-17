@@ -84,20 +84,20 @@ export function ChonNhomDoiTac() {
               aria-controls={x.id}
               onClick={() => chon(x.id)}
               className={`group relative isolate flex min-h-[88px] w-[78%] shrink-0 snap-start items-center gap-4 overflow-hidden rounded-[14px] border p-5 text-left shadow-[0_6px_22px_rgba(15,17,21,0.05)] transition-[border-color,box-shadow,transform] duration-500 sm:w-[46%] lg:w-full ${
-                dang ? "border-accent shadow-[0_14px_34px_rgba(227,25,55,0.25)] lg:translate-x-1" : "border-than-chi/15 bg-white hover:border-than-chi/40"
+                dang ? "border-accent lg:translate-x-1" : "border-than-chi/15 bg-white hover:border-than-chi/40"
               }`}
             >
               {/* lớp màu trượt từ trái sang khi được chọn */}
               <span
-                className={`absolute inset-0 -z-10 origin-left bg-gradient-to-r from-than-chi via-[#4a1620] to-accent transition-transform duration-[600ms] ease-[cubic-bezier(0.22,1,0.36,1)] ${dang ? "scale-x-100" : "scale-x-0"}`}
+                className={`absolute inset-0 -z-10 origin-left bg-than-chi transition-transform duration-[600ms] ease-[cubic-bezier(0.22,1,0.36,1)] ${dang ? "scale-x-100" : "scale-x-0"}`}
                 aria-hidden="true"
               />
               <span className={`text-[2rem] font-light leading-none transition-colors duration-500 ${dang ? "text-white/90" : "text-than-chi/30 group-hover:text-accent"}`}>{String(k + 1).padStart(2, "0")}</span>
               <span className="min-w-0">
-                <span className={`block text-[12px] font-medium uppercase tracking-[0.16em] transition-colors duration-500 ${dang ? "text-white/80" : "text-accent"}`}>{x.en}</span>
-                <span className={`mt-1 block text-[16px] font-bold leading-snug transition-colors duration-500 ${dang ? "text-white" : "text-than-chi"}`}>{x.ten}</span>
+                <span className={`block text-[13px] font-medium tracking-[0.02em] transition-colors duration-500 ${dang ? "text-white/80" : "text-accent"}`}>{x.en}</span>
+                <span className={`mt-1 block text-[16px] font-semibold leading-snug transition-colors duration-500 ${dang ? "text-white" : "text-than-chi"}`}>{x.ten}</span>
               </span>
-              <span className={`ml-auto hidden shrink-0 transition-all duration-500 sm:block ${dang ? "translate-x-0 text-white opacity-100" : "-translate-x-2 text-accent opacity-0 group-hover:translate-x-0 group-hover:opacity-100"}`} aria-hidden="true">
+              <span className={`ml-auto hidden shrink-0 transition-[opacity,transform,color] duration-500 sm:block ${dang ? "translate-x-0 text-white opacity-100" : "-translate-x-2 text-accent opacity-0 group-hover:translate-x-0 group-hover:opacity-100"}`} aria-hidden="true">
                 →
               </span>
             </button>
@@ -107,11 +107,11 @@ export function ChonNhomDoiTac() {
 
       <div id={n.id} role="tabpanel" aria-labelledby={`tab-${n.id}`} className="dau-goc overflow-hidden rounded-[6px] border border-than-chi/10 bg-white">
         <div className="relative h-[clamp(110px,17svh,160px)] bg-than-chi">
-          <Image key={n.anh} src={asset(n.anh)} alt={n.ten} fill quality={65} sizes="(min-width: 1024px) 60vw, 100vw" className="object-cover" style={{ objectPosition: VI_TRI_ANH[n.id] ?? "50% 50%" }} priority />
+          <Image key={n.anh} src={asset(n.anh)} alt={n.ten} fill quality={60} sizes="(min-width: 1024px) 60vw, 100vw" className="object-cover" style={{ objectPosition: VI_TRI_ANH[n.id] ?? "50% 50%" }} priority />
           <div className="absolute inset-0 bg-than-chi/55" aria-hidden="true" />
           <div className="absolute inset-x-0 bottom-0 p-4 text-white md:p-5">
-            <p className="text-xs font-medium uppercase tracking-[0.18em] text-accent">{n.en}</p>
-            <h3 className="mt-1 text-xl font-bold md:text-2xl">{n.ten}</h3>
+            <p className="text-[13px] font-medium tracking-[0.02em] text-accent">{n.en}</p>
+            <h3 className="mt-1 text-xl font-semibold md:text-2xl">{n.ten}</h3>
           </div>
         </div>
         <div className="p-5 md:p-6">
@@ -139,7 +139,7 @@ export function DangKyDoiTac() {
       <div>
         <p className="nhan-muc text-accent">Đăng ký hợp tác</p>
         <h2 className="mt-3 text-[clamp(1.625rem,2.6vw,2.4rem)] font-light leading-[1.15] tracking-[-0.01em]">
-          Để lại thông tin, <span className="font-bold">chúng tôi liên hệ lại.</span>
+          Để lại thông tin, <span className="font-semibold">chúng tôi liên hệ lại.</span>
         </h2>
         <p className="mt-3 text-sm text-white/70">Chọn nhóm của bạn. Chúng tôi không hỏi ngân sách.</p>
         <div className="mt-4 flex flex-wrap gap-2" role="radiogroup" aria-label="Nhóm hợp tác">
@@ -150,7 +150,7 @@ export function DangKyDoiTac() {
               role="radio"
               aria-checked={id === x.id}
               onClick={() => chon(x.id)}
-              className={`inline-flex min-h-11 items-center rounded-full border px-4 text-xs font-bold transition-colors ${id === x.id ? "border-accent bg-accent text-white" : "border-white/30 text-white/80 hover:border-accent"}`}
+              className={`inline-flex min-h-11 items-center rounded-full border px-4 text-xs font-semibold transition-colors ${id === x.id ? "border-accent bg-accent text-white" : "border-white/30 text-white/80 hover:border-accent"}`}
             >
               {x.ten.split(" và ")[0]}
             </button>

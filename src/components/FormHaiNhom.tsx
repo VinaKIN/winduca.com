@@ -18,7 +18,7 @@ export function FormHaiNhom() {
   return (
     <div className="grid gap-6 px-1 pb-1 pt-6 md:grid-cols-[0.9fr_1.3fr] md:gap-10 md:px-4 md:pt-7">
       <div>
-        <h3 className="text-xl font-bold md:text-2xl">Đăng ký tham quan</h3>
+        <h3 className="text-xl font-semibold md:text-2xl">Đăng ký tham quan</h3>
         <p className="mt-2 max-w-sm text-[15px] leading-relaxed text-than-chi/70">Chúng tôi liên hệ lại để xác nhận lịch trải nghiệm và giải đáp thắc mắc của anh chị.</p>
         <div role="tablist" aria-label="Nhóm khách hàng" className="mt-4 inline-flex rounded-full border border-than-chi/20 p-1">
           {NHOM.map((x, k) => (

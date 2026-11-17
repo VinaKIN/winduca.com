@@ -24,7 +24,7 @@ export function CongTrinhLuoi() {
   );
 
   const chip = (b: boolean) =>
-    `shrink-0 rounded-full border px-4 py-1.5 text-xs font-bold transition-colors ${b ? "border-accent bg-accent text-white" : "border-than-chi/25 hover:border-accent hover:text-accent"}`;
+    `shrink-0 rounded-full border px-4 py-1.5 text-xs font-semibold transition-colors ${b ? "border-accent bg-accent text-white" : "border-than-chi/25 hover:border-accent hover:text-accent"}`;
   const chon = "rounded-full border border-than-chi/25 bg-white px-4 py-1.5 text-xs font-medium outline-none focus:border-accent";
   const dat = () => setSoHien(5);
 
@@ -68,11 +68,11 @@ export function CongTrinhLuoi() {
                   src={asset(`/images/architecture/cong-trinh-${String(idx).padStart(2, "0")}.webp`)}
                   alt={c.ten}
                   fill
-                  quality={65}
+                  quality={60}
                   sizes={to ? "(min-width: 768px) 50vw, 100vw" : "(min-width: 768px) 25vw, 50vw"}
-                  className="object-cover transition-transform duration-700 group-hover:scale-[1.06]"
+                  className="object-cover"
                 />
-                <div className="absolute inset-x-0 bottom-0 bg-than-chi/70 p-3 text-white transition-all duration-300 md:translate-y-[calc(100%-2.4rem)] md:group-hover:translate-y-0">
+                <div className="absolute inset-x-0 bottom-0 bg-than-chi/70 p-3 text-white transition-transform duration-300 md:translate-y-[calc(100%-2.4rem)] md:group-hover:translate-y-0">
                   <p className="truncate text-sm font-semibold">{c.ten}</p>
                   <p className="mt-1 text-xs text-white/75">
                     {c.loai} · {c.khuVuc}

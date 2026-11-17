@@ -41,10 +41,10 @@ export default async function GiaiPhapChiTiet({ params }: PageProps<"/giai-phap/
     <>
       {/* ---------- BÌA BÀI ---------- */}
       <section className="relative isolate flex min-h-[86svh] flex-col justify-end overflow-hidden bg-than-chi text-white">
-        <Image src={asset(g.anh)} alt={g.chuThich} fill priority quality={70} sizes="100vw" className="-z-20 object-cover" style={{ objectPosition: g.pos }} />
+        <Image src={asset(g.anh)} alt={g.chuThich} fill priority quality={75} sizes="100vw" className="-z-20 object-cover" style={{ objectPosition: g.pos }} />
         <div className="absolute inset-0 -z-10 bg-[linear-gradient(180deg,rgba(20,17,18,0.5)_0%,rgba(20,17,18,0.42)_40%,rgba(20,17,18,0.9)_100%)]" aria-hidden="true" />
         <Wrap className="relative w-full pb-10 pt-36 md:pb-14">
-          <nav aria-label="Đường dẫn" className="flex flex-wrap items-center gap-3 border-b border-white/25 pb-4 text-[12px] font-medium uppercase tracking-[0.22em] text-white/80">
+          <nav aria-label="Đường dẫn" className="flex flex-wrap items-center gap-3 border-b border-white/25 pb-4 text-[13px] font-medium tracking-[0.02em] text-white/80">
             <Link href="/giai-phap" className="transition-colors hover:text-white">
               Tuyển tập giải pháp
             </Link>
@@ -55,7 +55,7 @@ export default async function GiaiPhapChiTiet({ params }: PageProps<"/giai-phap/
           </nav>
           <h1 className="mt-8 max-w-[20ch] text-[clamp(2.8rem,8vw,7rem)] font-light leading-[0.95] tracking-[-0.02em] [text-wrap:balance]">{g.tenDai}</h1>
           <p className="mt-6 max-w-2xl text-[clamp(1.3rem,2.2vw,1.9rem)] leading-snug text-white/90">{g.dan}</p>
-          <p className="mt-6 text-[12px] uppercase tracking-[0.2em] text-white/70">FIG. {so} · {g.chuThich} · Ảnh minh họa, nguồn Pexels</p>
+          <p className="mt-6 text-[13px] tracking-[0.02em] text-white/70">FIG. {so} · {g.chuThich} · Ảnh minh họa, nguồn Pexels</p>
         </Wrap>
       </section>
 
@@ -110,7 +110,7 @@ export default async function GiaiPhapChiTiet({ params }: PageProps<"/giai-phap/
               <Hien className="my-12">
                 <blockquote className="border-l-2 border-accent pl-6 md:pl-10">
                   <p className="text-[clamp(1.9rem,3.6vw,3.1rem)] font-light leading-[1.12] tracking-[-0.01em] [text-wrap:balance]">&ldquo;{g.trich}&rdquo;</p>
-                  <footer className="mt-4 text-[12px] uppercase tracking-[0.2em] text-than-chi/70">WINDUCA · Góc nhìn thiết kế</footer>
+                  <footer className="mt-4 text-[13px] tracking-[0.02em] text-than-chi/70">WINDUCA · Góc nhìn thiết kế</footer>
                 </blockquote>
               </Hien>
 
@@ -135,10 +135,10 @@ export default async function GiaiPhapChiTiet({ params }: PageProps<"/giai-phap/
       {/* ---------- ẢNH RỘNG ---------- */}
       <section className="nen-sang pb-0" aria-label="Ảnh minh họa thứ hai">
         <div className="relative h-[clamp(300px,58svh,640px)] w-full overflow-hidden bg-than-chi">
-          <Image src={asset(g.anh2)} alt="" fill quality={65} sizes="100vw" className="object-cover" style={{ objectPosition: g.pos2 }} aria-hidden="true" />
+          <Image src={asset(g.anh2)} alt="" fill quality={60} sizes="100vw" className="object-cover" style={{ objectPosition: g.pos2 }} aria-hidden="true" />
         </div>
         <Wrap>
-          <p className="py-3 text-[12px] uppercase tracking-[0.18em] text-than-chi/70">FIG. {so}-B · Ảnh minh họa, nguồn Pexels. Không phải công trình của WINDUCA.</p>
+          <p className="py-3 text-[13px] tracking-[0.02em] text-than-chi/70">FIG. {so}-B · Ảnh minh họa, nguồn Pexels. Không phải công trình của WINDUCA.</p>
         </Wrap>
       </section>
 
@@ -148,7 +148,7 @@ export default async function GiaiPhapChiTiet({ params }: PageProps<"/giai-phap/
           <Hien>
             <p className="nhan-muc text-accent">Ba điều cần cân nhắc</p>
             <h2 className="mt-5 max-w-3xl text-[clamp(2.1rem,4vw,3.5rem)] font-light leading-[1.05] tracking-[-0.015em]">
-              Trước khi chốt bản vẽ, <span className="font-bold">hãy hỏi ba câu này.</span>
+              Trước khi chốt bản vẽ, <span className="font-semibold">hãy hỏi ba câu này.</span>
             </h2>
           </Hien>
           <ol className="mt-12 grid gap-10 md:grid-cols-3 md:gap-8">
@@ -171,10 +171,10 @@ export default async function GiaiPhapChiTiet({ params }: PageProps<"/giai-phap/
               <div>
                 <p className="nhan-muc text-accent">Hệ cửa gợi ý</p>
                 <h2 className="mt-5 max-w-2xl text-[clamp(2.1rem,4vw,3.5rem)] font-light leading-[1.05] tracking-[-0.015em]">
-                  Kiểu cửa <span className="font-bold">phù hợp với không gian này.</span>
+                  Kiểu cửa <span className="font-semibold">phù hợp với không gian này.</span>
                 </h2>
               </div>
-              <Link href="/he-cua" className="text-[13px] font-bold uppercase tracking-[0.18em] transition-colors hover:text-accent">
+              <Link href="/he-cua" className="text-[13px] font-semibold tracking-[0.02em] transition-colors hover:text-accent">
                 Xem toàn bộ hệ cửa →
               </Link>
             </div>
@@ -185,9 +185,9 @@ export default async function GiaiPhapChiTiet({ params }: PageProps<"/giai-phap/
               <Hien key={x.slug} as="li" tre={i * 90}>
                 <Link href={`/he-cua/${x.slug}`} className="group block">
                   <div className="dau-goc relative aspect-[4/5] overflow-hidden bg-than-chi">
-                    <Image src={asset(ANH_HE_CUA[x.slug])} alt={x.ten} fill quality={60} sizes="(min-width: 1024px) 22vw, 50vw" className="object-cover transition-transform duration-[1200ms] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.05]" />
+                    <Image src={asset(ANH_HE_CUA[x.slug])} alt={x.ten} fill quality={60} sizes="(min-width: 1024px) 22vw, 50vw" className="object-cover" />
                   </div>
-                  <p className="mt-4 text-[12px] font-medium uppercase tracking-[0.18em] text-than-chi/70">{TEN_EN_HE_CUA[x.slug]}</p>
+                  <p className="mt-4 text-[13px] font-medium tracking-[0.02em] text-than-chi/70">{TEN_EN_HE_CUA[x.slug]}</p>
                   <h3 className="mt-1 text-[1.7rem] font-light leading-tight transition-colors group-hover:text-accent">{x.ten}</h3>
                   <p className="mt-1 text-[15px] leading-relaxed text-than-chi/75">{x.tagline}</p>
                 </Link>
@@ -204,7 +204,7 @@ export default async function GiaiPhapChiTiet({ params }: PageProps<"/giai-phap/
             <Hien>
               <p className="nhan-muc text-accent">Câu hỏi thường gặp</p>
               <h2 className="mt-5 text-[clamp(2.1rem,4vw,3.5rem)] font-light leading-[1.05] tracking-[-0.015em]">
-                Giải đáp <span className="font-bold">ngắn gọn.</span>
+                Giải đáp <span className="font-semibold">ngắn gọn.</span>
               </h2>
               <p className="mt-5 max-w-sm text-[15.5px] leading-relaxed text-than-chi/75">Những điều chủ đầu tư và kiến trúc sư hay hỏi với loại công trình này. Chi tiết cụ thể phụ thuộc bản vẽ.</p>
             </Hien>
@@ -233,14 +233,14 @@ export default async function GiaiPhapChiTiet({ params }: PageProps<"/giai-phap/
           <Hien>
             <p className="nhan-muc text-accent">Quy trình triển khai</p>
             <h2 className="mt-5 max-w-3xl text-[clamp(2.1rem,4vw,3.5rem)] font-light leading-[1.05] tracking-[-0.015em]">
-              Từ bản vẽ đến <span className="font-bold">nghiệm thu.</span>
+              Từ bản vẽ đến <span className="font-semibold">nghiệm thu.</span>
             </h2>
           </Hien>
           <ol className="mt-10 grid gap-px overflow-hidden border border-than-chi/15 bg-than-chi/15 md:grid-cols-5">
             {QUY_TRINH_5_BUOC.map((b, i) => (
               <Hien key={b.t} as="li" tre={i * 80} className="bg-white p-6">
                 <span className="font-light text-[2.6rem] leading-none text-accent">{String(i + 1).padStart(2, "0")}</span>
-                <h3 className="mt-4 text-[16.5px] font-bold">{b.t}</h3>
+                <h3 className="mt-4 text-[16.5px] font-semibold">{b.t}</h3>
                 <p className="mt-2 text-[14.5px] leading-relaxed text-than-chi/75">{b.m}</p>
               </Hien>
             ))}
@@ -261,7 +261,7 @@ export default async function GiaiPhapChiTiet({ params }: PageProps<"/giai-phap/
                 {tiep.tenDai}
               </span>
               <span className="mt-4 block max-w-xl text-[16px] leading-relaxed text-white/85">{tiep.tomTat}</span>
-              <span className="mt-6 inline-flex items-center gap-2 text-[13px] font-bold uppercase tracking-[0.18em]">
+              <span className="mt-6 inline-flex items-center gap-2 text-[13px] font-semibold tracking-[0.02em]">
                 Đọc bài <span aria-hidden="true" className="transition-transform duration-300 group-hover:translate-x-1">→</span>
               </span>
             </Link>
@@ -285,7 +285,7 @@ export default async function GiaiPhapChiTiet({ params }: PageProps<"/giai-phap/
               ))}
             </ul>
             <h2 className="mt-12 max-w-3xl text-[clamp(2.2rem,4.6vw,4rem)] font-light leading-[1.04] tracking-[-0.02em]">
-              Bàn về công trình của bạn <span className="font-bold">cùng đội kỹ thuật WINDUCA.</span>
+              Bàn về công trình của bạn <span className="font-semibold">cùng đội kỹ thuật WINDUCA.</span>
             </h2>
             <div className="mt-8 flex flex-wrap gap-3">
               <NutHut href="/lien-he" className="nut nut-chinh">

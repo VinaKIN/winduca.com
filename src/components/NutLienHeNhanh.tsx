@@ -51,7 +51,7 @@ export function NutLienHeNhanh() {
         aria-controls={mo ? "lien-he-nhanh" : undefined}
         aria-label={mo ? "Đóng liên hệ nhanh" : "Mở liên hệ nhanh"}
         onClick={() => setMo((v) => !v)}
-        className="flex h-12 w-12 items-center justify-center rounded-full bg-accent text-white shadow-[0_8px_24px_rgba(227,25,55,0.4)] transition-colors hover:bg-accent-dam md:h-14 md:w-14"
+        className="flex h-12 w-12 items-center justify-center rounded-full bg-accent text-white shadow-[0_8px_24px_rgba(35,31,32,0.25)] transition-colors hover:bg-accent-dam md:h-14 md:w-14"
       >
         {mo ? (
           <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" aria-hidden="true">

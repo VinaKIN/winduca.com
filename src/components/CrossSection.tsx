@@ -188,7 +188,7 @@ export function CrossSection({
                           {String(i + 1).padStart(2, "0")} · {l.ten}
                         </span>
                         <span
-                          className={`mt-1 block text-sm font-light text-than-chi/80 transition-all ${
+                          className={`mt-1 block text-sm font-light text-than-chi/80 transition-opacity ${
                             dangChon ? "max-h-40 opacity-100" : "max-h-0 overflow-hidden opacity-0"
                           }`}
                         >
@@ -205,7 +205,7 @@ export function CrossSection({
 
         <p className="mt-5 text-sm text-than-chi/75">
           Thông số kỹ thuật từng hệ cửa do hãng công bố nằm ở trang{" "}
-          <Link href="/he-cua" className="font-bold text-accent underline-offset-2 hover:underline">
+          <Link href="/he-cua" className="font-semibold text-accent underline-offset-2 hover:underline">
             Hệ cửa
           </Link>
           .

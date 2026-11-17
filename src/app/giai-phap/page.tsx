@@ -35,7 +35,7 @@ export default function GiaiPhap() {
       <section className="nen-nga py-14 md:py-20">
         <Wrap>
           <Hien>
-            <h2 className="text-[1.6rem] font-bold leading-tight md:text-[1.9rem]">Từ bản vẽ đến nghiệm thu</h2>
+            <h2 className="text-[1.6rem] font-semibold leading-tight md:text-[1.9rem]">Từ bản vẽ đến nghiệm thu</h2>
             <p className="mt-2 max-w-2xl text-[14.5px] leading-relaxed text-than-chi/75">Năm bước với một đầu mối. Giải pháp WINDUCA đề xuất mang tính tham khảo; kiến trúc sư chịu trách nhiệm thiết kế cuối cùng của công trình.</p>
           </Hien>
           <ol className="relative mt-10 grid gap-8 md:grid-cols-5 md:gap-6">
@@ -43,8 +43,8 @@ export default function GiaiPhap() {
             {QUY_TRINH_5_BUOC.map((b, i) => (
               <Hien key={b.t} as="li" tre={i * 80} className="relative">
                 <span className="relative z-10 mb-4 block h-[1.25rem] w-[1.25rem] rounded-full border border-accent bg-nga after:absolute after:inset-[4px] after:rounded-full after:bg-accent" aria-hidden="true" />
-                <span className="text-[13px] font-bold text-accent">{String(i + 1).padStart(2, "0")}</span>
-                <h3 className="mt-1 text-[17px] font-bold">{b.t}</h3>
+                <span className="text-[13px] font-semibold text-accent">{String(i + 1).padStart(2, "0")}</span>
+                <h3 className="mt-1 text-[17px] font-semibold">{b.t}</h3>
                 <p className="mt-2 text-[14.5px] leading-relaxed text-than-chi/75">{b.m}</p>
               </Hien>
             ))}
@@ -58,7 +58,7 @@ export default function GiaiPhap() {
           <Hien>
             <div className="flex flex-wrap items-end justify-between gap-8">
               <div>
-                <h2 className="max-w-2xl text-[clamp(1.6rem,2.8vw,2.4rem)] font-bold leading-tight">Gửi bản vẽ, nhận đề xuất giải pháp phù hợp</h2>
+                <h2 className="max-w-2xl text-[clamp(1.6rem,2.8vw,2.4rem)] font-semibold leading-tight">Gửi bản vẽ, nhận đề xuất giải pháp phù hợp</h2>
                 <p className="mt-3 max-w-xl text-[15px] leading-relaxed text-white/80">Đội kỹ thuật WINDUCA xem bản vẽ và phản hồi hướng triển khai.</p>
               </div>
               <div className="flex flex-wrap gap-3">

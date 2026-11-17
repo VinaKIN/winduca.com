@@ -315,7 +315,7 @@ export function TinTucKhoi() {
                       {lon && bai && <p className="mt-2 hidden max-w-md text-[15px] font-light leading-relaxed text-white/75 md:block">{bai.tomTat}</p>}
                     </div>
                     <span
-                      className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-white/30 bg-white/15 backdrop-blur-md transition-colors duration-300 group-hover:border-accent group-hover:bg-accent"
+                      className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-white/30 bg-white/15 transition-colors duration-300 group-hover:border-accent group-hover:bg-accent"
                       aria-hidden="true"
                     >
                       <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">

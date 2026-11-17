@@ -76,7 +76,7 @@ export const GIAI_PHAP: GiaiPhap[] = [
     ten: "Penthouse",
     tenDai: "Giải pháp cửa cho penthouse",
     tomTat: "Ban công và sân thượng nhìn toàn cảnh, đường nét tối giản để giữ tầm nhìn.",
-    dan: "Ở tầng cao, thứ xa xỉ nhất là khoảng trời không bị khung cửa cắt ngang.",
+    dan: "Ở tầng cao, thứ đáng giá nhất là khoảng trời không bị khung cửa cắt ngang.",
     baiViet: [
       "Penthouse sống bằng tầm nhìn. Từ sân thượng hay ban công, thành phố và đường chân trời là phần được thiết kế kỹ nhất, và cửa phải biết lùi lại để nhường chỗ cho khung cảnh đó.",
       "Ở độ cao này, gió và an toàn là câu hỏi đầu tiên chứ không phải câu hỏi cuối. Cánh cửa lớn cần vận hành ổn định, đóng kín chắc chắn và được lắp đặt chuẩn xác theo từng vị trí.",

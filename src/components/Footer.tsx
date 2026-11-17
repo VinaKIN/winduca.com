@@ -24,8 +24,8 @@ export function Footer() {
     <footer>
       {/* Đăng ký tham quan */}
       <section className="nen-ky-thuat relative overflow-hidden bg-[#121011]">
-        <Image src={asset("/images/hero.jpg")} alt="" fill quality={60} sizes="100vw" className="scale-105 object-cover opacity-30 blur-[4px]" aria-hidden="true" />
-        <div className="absolute inset-0 bg-gradient-to-br from-[#0e0c0d]/90 via-[#1a1617]/80 to-[#2a1014]/70" aria-hidden="true" />
+        <Image src={asset("/images/hero.jpg")} alt="" fill quality={60} sizes="100vw" className="object-cover opacity-30" aria-hidden="true" />
+        <div className="absolute inset-0 bg-than-chi/85" aria-hidden="true" />
         <Wrap className="relative py-6 md:py-7">
           <div className="mx-auto max-w-6xl rounded-[10px] bg-white p-4 shadow-[0_40px_80px_-40px_rgba(0,0,0,0.8)] md:p-6">
             <div className="rounded-[4px] bg-than-chi px-6 py-6 text-white md:px-10 md:py-7">
@@ -44,7 +44,7 @@ export function Footer() {
                   ].map((x) => (
                     <li key={x.t}>
                       <a href={x.h} {...(x.ext ? { target: "_blank", rel: "noopener noreferrer" } : {})} className="group flex items-center gap-3 hover:text-white">
-                        <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-accent text-white transition-transform group-hover:scale-110">
+                        <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-accent text-white">
                           <BieuTuong lop="h-[18px] w-[18px]">{x.ic}</BieuTuong>
                         </span>
                         <span className="leading-snug">{x.t}</span>
@@ -102,7 +102,7 @@ export function Footer() {
             </div>
 
             <div>
-              <BanDoChanTrang diaChi={DIA_CHI} mapsUrl={MAPS_URL} lop="mb-6 h-[260px] md:h-[290px]" />
+              <BanDoChanTrang diaChi={DIA_CHI} mapsUrl={MAPS_URL} lop="mb-6 h-[260px] md:h-[288px]" />
             <ul className="grid gap-4 text-[16px] font-light sm:grid-cols-[auto_auto_1fr] sm:gap-x-6">
               <li className="flex items-start gap-3">
                 <BieuTuong lop="mt-0.5 h-5 w-5 shrink-0 text-white/90">
@@ -135,7 +135,7 @@ export function Footer() {
             </div>
           </div>
 
-          <div className="mt-8 flex flex-wrap items-center justify-between gap-4 pt-5 text-[15px] font-light text-white/70 before:mb-0 before:block before:h-px before:w-full before:bg-gradient-to-r before:from-white/30 before:via-white/10 before:to-transparent">
+          <div className="mt-8 flex flex-wrap items-center justify-between gap-4 pt-5 text-[15px] font-light text-white/70 before:mb-0 before:block before:h-px before:w-full before:bg-white/15">
             <p>Copyright © 2026 WINDUCA. All rights reserved.</p>
             <ul className="flex flex-wrap gap-x-6 gap-y-2 pr-16 text-sm">
               <li>

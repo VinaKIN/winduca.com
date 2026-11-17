@@ -25,7 +25,7 @@ export function MucLucChinhSach() {
               aria-current={p === h ? "page" : undefined}
               className={`flex items-center gap-3 whitespace-nowrap rounded-full border px-4 py-2 text-[15px] transition-colors lg:rounded-none lg:border-0 lg:px-0 lg:py-3.5 ${p === h ? "border-accent font-semibold text-accent" : "border-than-chi/20 text-than-chi/75 hover:text-than-chi"}`}
             >
-              <span className="text-xs font-bold tracking-[0.12em]">{String(i + 1).padStart(2, "0")}</span>
+              <span className="text-xs font-semibold tracking-[0.12em]">{String(i + 1).padStart(2, "0")}</span>
               {t}
             </Link>
           </li>

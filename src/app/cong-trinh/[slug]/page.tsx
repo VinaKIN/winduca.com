@@ -38,7 +38,7 @@ export default async function ChiTiet({ params }: PageProps<"/cong-trinh/[slug]"
         <Wrap>
           <div className="grid gap-6 lg:grid-cols-[1.5fr_1fr] lg:gap-10">
             <Hien className="dau-goc relative h-[clamp(240px,46svh,420px)] overflow-hidden rounded-[6px] bg-than-chi">
-              <Image src={asset(anhCT(i))} alt={c.ten} fill quality={70} sizes="(min-width: 1024px) 60vw, 100vw" className="object-cover" priority />
+              <Image src={asset(anhCT(i))} alt={c.ten} fill quality={75} sizes="(min-width: 1024px) 60vw, 100vw" className="object-cover" priority />
             </Hien>
             <Hien tre={120}>
               <div className="flex items-end gap-4">
@@ -54,7 +54,7 @@ export default async function ChiTiet({ params }: PageProps<"/cong-trinh/[slug]"
                   ["Kiểu cửa", c.kieuCua],
                 ].map(([t, v]) => (
                   <div key={t}>
-                    <dt className="text-xs font-medium uppercase tracking-[0.14em] text-than-chi/65">{t}</dt>
+                    <dt className="text-[13px] font-medium tracking-[0.02em] text-than-chi/65">{t}</dt>
                     <dd className="mt-1 font-semibold">{v}</dd>
                   </div>
                 ))}
@@ -64,7 +64,7 @@ export default async function ChiTiet({ params }: PageProps<"/cong-trinh/[slug]"
                 công trình do WINDUCA thực hiện.
               </p>
               {kieu && (
-                <Link href={`/he-cua/${kieu.slug}`} className="mt-4 inline-block text-sm font-bold uppercase tracking-[0.06em] text-accent">
+                <Link href={`/he-cua/${kieu.slug}`} className="mt-4 inline-block text-sm font-semibold tracking-[0.02em] text-accent">
                   Xem {kieu.ten.toLowerCase()} WINDUCA
                 </Link>
               )}
@@ -95,7 +95,7 @@ export default async function ChiTiet({ params }: PageProps<"/cong-trinh/[slug]"
             <Hien>
               <p className="nhan-muc text-accent">Tham chiếu của bạn</p>
               <h2 className="mt-3 text-[clamp(1.625rem,2.6vw,2.4rem)] font-light leading-[1.15] tracking-[-0.01em]">
-                Tôi muốn không gian <span className="font-bold">như thế này</span>
+                Tôi muốn không gian <span className="font-semibold">như thế này</span>
               </h2>
               <p className="mt-3 text-sm text-white/70">Chúng tôi ghi nhận tham chiếu để chuyên viên tư vấn đúng nhu cầu. Không hỏi ngân sách.</p>
             </Hien>

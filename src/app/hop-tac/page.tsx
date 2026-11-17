@@ -41,7 +41,7 @@ const KHU_VUC = ["Miền Bắc", "Miền Trung", "Miền Nam"];
 function Dau({ tieuDe, moTa }: { tieuDe: React.ReactNode; moTa?: string }) {
   return (
     <Hien>
-      <h2 className="text-[1.6rem] font-bold leading-tight md:text-[1.9rem]">{tieuDe}</h2>
+      <h2 className="text-[1.6rem] font-semibold leading-tight md:text-[1.9rem]">{tieuDe}</h2>
       <hr className="mt-4 border-0 border-t border-than-chi/70" />
       {moTa && <p className="mt-4 max-w-2xl text-[15px] leading-relaxed text-than-chi/75">{moTa}</p>}
     </Hien>
@@ -68,8 +68,8 @@ export default function HopTac() {
           <ul className="mt-8 grid gap-px overflow-hidden border border-than-chi/15 bg-than-chi/15 sm:grid-cols-2 lg:grid-cols-4">
             {LY_DO.map((x, i) => (
               <Hien key={x.t} as="li" tre={i * 90} className="bg-white p-6">
-                <span className="text-[13px] font-bold text-accent">{String(i + 1).padStart(2, "0")}</span>
-                <h3 className="mt-2 text-[17px] font-bold leading-snug">{x.t}</h3>
+                <span className="text-[13px] font-semibold text-accent">{String(i + 1).padStart(2, "0")}</span>
+                <h3 className="mt-2 text-[17px] font-semibold leading-snug">{x.t}</h3>
                 <p className="mt-2 text-[14.5px] leading-relaxed text-than-chi/75">{x.m}</p>
               </Hien>
             ))}
@@ -85,8 +85,8 @@ export default function HopTac() {
             {LO_TRINH.map((x, i) => (
               <Hien key={x.t} as="li" tre={i * 100} className="relative">
                 <span className="relative z-10 mb-4 block h-[1.25rem] w-[1.25rem] rounded-full border border-accent bg-white after:absolute after:inset-[4px] after:rounded-full after:bg-accent" aria-hidden="true" />
-                <span className="text-[13px] font-bold text-accent">{String(i + 1).padStart(2, "0")}</span>
-                <h3 className="mt-1 text-[17px] font-bold">{x.t}</h3>
+                <span className="text-[13px] font-semibold text-accent">{String(i + 1).padStart(2, "0")}</span>
+                <h3 className="mt-1 text-[17px] font-semibold">{x.t}</h3>
                 <p className="mt-2 text-[14.5px] leading-relaxed text-than-chi/75">{x.m}</p>
               </Hien>
             ))}
@@ -98,7 +98,7 @@ export default function HopTac() {
         <Wrap>
           <div className="grid gap-10 lg:grid-cols-[0.8fr_1.4fr] lg:gap-16">
             <Hien>
-              <h2 className="text-[1.6rem] font-bold leading-tight md:text-[1.9rem]">Câu hỏi thường gặp</h2>
+              <h2 className="text-[1.6rem] font-semibold leading-tight md:text-[1.9rem]">Câu hỏi thường gặp</h2>
               <hr className="mt-4 border-0 border-t border-than-chi/70" />
               <p className="mt-4 max-w-sm text-[15px] leading-relaxed text-than-chi/75">Những điều đối tác tiềm năng hay hỏi. Cần biết thêm, để lại thông tin ở cuối trang.</p>
             </Hien>
@@ -106,7 +106,7 @@ export default function HopTac() {
               <div className="border-t border-than-chi/25">
                 {HOI_DAP.map((f) => (
                   <details key={f.h} className="group border-b border-than-chi/15">
-                    <summary className="flex min-h-11 cursor-pointer list-none items-start justify-between gap-6 py-5 text-[1.05rem] font-bold leading-snug marker:hidden [&::-webkit-details-marker]:hidden">
+                    <summary className="flex min-h-11 cursor-pointer list-none items-start justify-between gap-6 py-5 text-[1.05rem] font-semibold leading-snug marker:hidden [&::-webkit-details-marker]:hidden">
                       {f.h}
                       <span className="mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center rounded-full border border-than-chi/30 text-accent transition-transform duration-300 group-open:rotate-45" aria-hidden="true">
                         +
@@ -127,7 +127,7 @@ export default function HopTac() {
           <ul className="mt-8 grid gap-4 md:grid-cols-3">
             {KHU_VUC.map((v, i) => (
               <Hien key={v} as="li" tre={i * 90} className="flex items-center justify-between gap-4 rounded-[12px] border border-than-chi/15 px-6 py-5">
-                <span className="text-[17px] font-bold">{v}</span>
+                <span className="text-[17px] font-semibold">{v}</span>
                 <span className="rounded-full border border-than-chi/20 px-3 py-1 text-[12px] text-than-chi/75">Đang mở rộng</span>
               </Hien>
             ))}

@@ -11,7 +11,7 @@ export function BanDoChanTrang({ diaChi, mapsUrl, lop = "h-[300px]" }: { diaChi:
         src={`https://www.google.com/maps?q=${encodeURIComponent(diaChi)}&hl=vi&z=16&output=embed`}
         loading="lazy"
         referrerPolicy="no-referrer-when-downgrade"
-        className="absolute inset-x-0 -top-[170px] h-[calc(100%+170px)] w-full border-0 [filter:grayscale(1)_invert(0.9)_contrast(0.92)_brightness(0.95)]"
+        className="absolute inset-x-0 -top-[168px] h-[calc(100%+170px)] w-full border-0 [filter:grayscale(1)_invert(0.9)_contrast(0.92)_brightness(0.95)]"
       />
       <a
         href={mapsUrl}

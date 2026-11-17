@@ -49,14 +49,14 @@ export function MucLucNoi({ muc }: { muc: { id: string; h: string }[] }) {
 
   return (
     <nav aria-label="Mục lục bài viết" className="lg:sticky lg:top-28">
-      <p className="text-[12px] font-medium uppercase tracking-[0.2em] text-than-chi/70">Trong bài này</p>
+      <p className="text-[13px] font-medium tracking-[0.02em] text-than-chi/70">Trong bài này</p>
       <ol className="mt-4 space-y-1 border-l border-than-chi/20">
         {muc.map((m, i) => (
           <li key={m.id}>
             <a
               href={`#${m.id}`}
               aria-current={dang === m.id ? "true" : undefined}
-              className={`-ml-px flex min-h-11 items-start gap-3 border-l-2 py-2 pl-4 text-[14.5px] leading-snug transition-colors ${dang === m.id ? "border-accent font-bold text-than-chi" : "border-transparent text-than-chi/70 hover:text-than-chi"}`}
+              className={`-ml-px flex min-h-11 items-start gap-3 border-l-2 py-2 pl-4 text-[14.5px] leading-snug transition-colors ${dang === m.id ? "border-accent font-semibold text-than-chi" : "border-transparent text-than-chi/70 hover:text-than-chi"}`}
             >
               <span className={`text-[12px] tabular-nums ${dang === m.id ? "text-accent" : "text-than-chi/45"}`}>{String(i + 1).padStart(2, "0")}</span>
               {m.h}

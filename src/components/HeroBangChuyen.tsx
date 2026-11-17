@@ -37,14 +37,13 @@ export function HeroBangChuyen({ mau }: { mau: MauNoiBat[] }) {
 
   return (
     <div
-      className="relative mx-auto hidden h-[380px] w-full max-w-[600px] select-none sm:block lg:h-[430px]"
+      className="relative mx-auto hidden h-[380px] w-full max-w-[600px] select-none sm:block lg:h-[432px]"
       onMouseEnter={() => (dungTuQuay.current = true)}
       onMouseLeave={() => (dungTuQuay.current = false)}
       role="group"
       aria-roledescription="băng chuyền"
       aria-label="Mẫu góc nổi bật"
     >
-      <div className="absolute inset-x-[10%] bottom-[16%] top-[10%] rounded-full bg-accent/20 blur-[70px]" aria-hidden="true" />
       {/* vòng elip dưới chân, gợi quỹ đạo */}
       <div className="absolute inset-x-[2%] bottom-[14%] h-[26%] rounded-[50%] border border-white/10" aria-hidden="true" />
       {mau.map((m, i) => {
@@ -74,8 +73,8 @@ export function HeroBangChuyen({ mau }: { mau: MauNoiBat[] }) {
       {/* chú thích kiểu bản vẽ */}
       <div className="absolute inset-x-0 bottom-0 z-40 flex items-end justify-between gap-4 border-t border-white/15 pt-3 text-white/70">
         <div aria-live="polite">
-          <p className="text-[12px] font-medium uppercase tracking-[0.2em] text-accent">FIG. {String(dang + 1).padStart(2, "0")}</p>
-          <p className="mt-1 text-[13px] font-medium uppercase tracking-[0.16em] text-white">
+          <p className="text-[13px] font-medium tracking-[0.02em] text-accent">FIG. {String(dang + 1).padStart(2, "0")}</p>
+          <p className="mt-1 text-[13px] font-medium tracking-[0.02em] text-white">
             {mau[dang].hang} · {mau[dang].ma}
           </p>
         </div>
@@ -85,7 +84,7 @@ export function HeroBangChuyen({ mau }: { mau: MauNoiBat[] }) {
           </span>
           <span className="flex gap-1.5" aria-hidden="true">
             {mau.map((m, i) => (
-              <i key={m.src} className={`h-1.5 rounded-full transition-all duration-500 ${i === dang ? "w-5 bg-accent" : "w-1.5 bg-white/30"}`} />
+              <i key={m.src} className={`h-1.5 rounded-full transition-colors duration-500 ${i === dang ? "w-5 bg-accent" : "w-1.5 bg-white/30"}`} />
             ))}
           </span>
         </div>

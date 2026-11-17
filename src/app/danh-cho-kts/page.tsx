@@ -87,10 +87,10 @@ export default function DanhChoKts() {
                   <Image src={asset(x.anh)} alt={x.t} fill quality={60} sizes="25vw" className="object-cover" />
                 </div>
               )}
-              <h3 className="text-lg font-bold">{x.t}</h3>
+              <h3 className="text-lg font-semibold">{x.t}</h3>
               <p className="mt-1.5 flex-1 text-[15px] leading-relaxed text-than-chi/70">{x.m}</p>
               {x.href ? (
-                <a href={x.href} className="mt-4 text-sm font-bold uppercase tracking-[0.06em] text-accent">
+                <a href={x.href} className="mt-4 text-sm font-semibold tracking-[0.02em] text-accent">
                   {x.nut}
                 </a>
               ) : (
@@ -105,7 +105,7 @@ export default function DanhChoKts() {
         <ul className="grid grid-cols-2 gap-3 md:grid-cols-5">
           {["profile-1", "profile-2", "profile-3", "profile-4", "section-drawing-1"].map((n) => (
             <li key={n} className="relative h-[24svh] min-h-[140px] overflow-hidden rounded-[16px] bg-white">
-              <Image src={asset(`/images/engineering/${n}.webp`)} alt="Hình minh họa cấu tạo profile nhôm" fill quality={65} sizes="(min-width: 768px) 20vw, 50vw" className="object-cover" />
+              <Image src={asset(`/images/engineering/${n}.webp`)} alt="Hình minh họa cấu tạo profile nhôm" fill quality={60} sizes="(min-width: 768px) 20vw, 50vw" className="object-cover" />
             </li>
           ))}
         </ul>

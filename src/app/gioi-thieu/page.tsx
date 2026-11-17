@@ -52,7 +52,7 @@ export default function GioiThieu() {
           <Hien>
             <NhanSo so="01" nhan="Câu chuyện thương hiệu" />
             <h2 className="mt-4 max-w-3xl text-[clamp(1.625rem,2.6vw,2.5rem)] font-light leading-[1.15] tracking-[-0.01em]">
-              Cánh cửa là một phần của <span className="font-bold">kiến trúc.</span>
+              Cánh cửa là một phần của <span className="font-semibold">kiến trúc.</span>
             </h2>
           </Hien>
           <div className="mt-8 grid items-center gap-10 md:mt-10 lg:grid-cols-[1.3fr_1fr] lg:gap-16">
@@ -132,7 +132,7 @@ export default function GioiThieu() {
           <Hien>
             <p className="nhan-muc text-accent">Kết nối với WINDUCA</p>
             <h2 className="mt-3 max-w-3xl text-[clamp(1.75rem,3vw,2.75rem)] font-light leading-[1.12] tracking-[-0.01em]">
-              Cùng trao đổi về <span className="font-bold">công trình của bạn.</span>
+              Cùng trao đổi về <span className="font-semibold">công trình của bạn.</span>
             </h2>
             <div className="mt-6 flex flex-wrap gap-3">
               <NutHut href="/lien-he" className="nut nut-chinh">

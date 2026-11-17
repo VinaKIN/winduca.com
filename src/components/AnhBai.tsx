@@ -7,7 +7,7 @@ import { mauChuDe } from "@/lib/bai-viet";
  * `relative overflow-hidden`. Ảnh kỹ thuật của WINDUCA (mẫu 3D, bản vẽ 2D nền trong) nằm trên nền tối kẻ lưới kiểu
  * bản vẽ, giữ nguyên tỉ lệ; ảnh còn lại phủ kín khung. Thanh mảnh dưới ảnh mang màu của chủ đề.
  */
-export function AnhBai({ anh, kieu, chuDe, sizes, quality = 65, priority = false, zoom = "group-hover:scale-[1.06]" }: { anh: string; kieu?: "ky-thuat"; chuDe: string; sizes: string; quality?: number; priority?: boolean; zoom?: string }) {
+export function AnhBai({ anh, kieu, chuDe, sizes, quality = 60, priority = false, zoom = "" }: { anh: string; kieu?: "ky-thuat"; chuDe: string; sizes: string; quality?: number; priority?: boolean; zoom?: string }) {
   const kt = kieu === "ky-thuat";
   return (
     <>

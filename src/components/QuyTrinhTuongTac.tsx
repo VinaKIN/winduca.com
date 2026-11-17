@@ -68,7 +68,7 @@ export function QuyTrinhTuongTac({ daoBen = false }: { daoBen?: boolean }) {
           <div
             key={x.t}
             aria-hidden={k !== i}
-            className={`[grid-area:1/1] transition-all duration-500 ease-out ${k === i ? "translate-y-0 opacity-100" : "pointer-events-none translate-y-2 opacity-0"}`}
+            className={`[grid-area:1/1] transition-[opacity,transform] duration-500 ease-out ${k === i ? "translate-y-0 opacity-100" : "pointer-events-none translate-y-2 opacity-0"}`}
           >
             <KhungAnhChong chinh={x.chinh} phu={x.phu} />
           </div>
@@ -97,13 +97,13 @@ export function QuyTrinhTuongTac({ daoBen = false }: { daoBen?: boolean }) {
                 className="group flex flex-col items-start justify-start text-left"
               >
                 <span
-                  className={`relative z-10 flex h-[3.2rem] w-[3.2rem] items-center justify-center rounded-full border text-sm font-bold transition-colors duration-300 ${
+                  className={`relative z-10 flex h-[3.2rem] w-[3.2rem] items-center justify-center rounded-full border text-sm font-semibold transition-colors duration-300 ${
                     dang ? "border-accent bg-accent text-white" : "border-accent bg-white text-accent group-hover:bg-accent/10"
                   }`}
                 >
                   {String(k + 1).padStart(2, "0")}
                 </span>
-                <span className={`mt-4 block text-xl font-bold transition-colors ${dang ? "text-than-chi" : "text-than-chi/70 group-hover:text-than-chi"}`}>{x.t}</span>
+                <span className={`mt-4 block text-xl font-semibold transition-colors ${dang ? "text-than-chi" : "text-than-chi/70 group-hover:text-than-chi"}`}>{x.t}</span>
                 <span className="mt-2 block text-[15px] leading-relaxed text-than-chi/70">{x.m}</span>
               </button>
             );

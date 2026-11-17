@@ -44,7 +44,7 @@ export default function CongTrinh() {
           <Hien>
             <div className="flex flex-wrap items-end justify-between gap-8">
               <div>
-                <h2 className="max-w-2xl text-[clamp(1.6rem,2.8vw,2.4rem)] font-bold leading-tight">Công trình của bạn là câu chuyện tiếp theo</h2>
+                <h2 className="max-w-2xl text-[clamp(1.6rem,2.8vw,2.4rem)] font-semibold leading-tight">Công trình của bạn là câu chuyện tiếp theo</h2>
                 <p className="mt-3 max-w-xl text-[15px] leading-relaxed text-white/80">Chọn giải pháp theo loại công trình hoặc gửi bản vẽ để được tư vấn.</p>
               </div>
               <div className="flex flex-wrap gap-3">

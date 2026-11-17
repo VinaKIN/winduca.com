@@ -31,7 +31,7 @@ export default async function CaseStudy({ params }: PageProps<"/cong-trinh/du-an
       <PageHero congNghe nhan={`${d.loai} · ${d.khuVuc}`} tieuDe={d.ten} anh={d.anhTongThe} />
       <Section tone="sang" nhan="Case Study" tieuDe="Tổng quan công trình">
         <div className="relative aspect-[16/9] overflow-hidden rounded-[20px] bg-than-chi md:max-h-[50svh] md:w-full">
-          <Image src={asset(d.anhTongThe)} alt={d.ten} fill quality={70} sizes="100vw" className="object-cover" priority />
+          <Image src={asset(d.anhTongThe)} alt={d.ten} fill quality={75} sizes="100vw" className="object-cover" priority />
         </div>
         <dl className="mt-6 grid gap-6 md:grid-cols-3">
           <div>
@@ -56,7 +56,7 @@ export default async function CaseStudy({ params }: PageProps<"/cong-trinh/du-an
             ["Kết quả thực tế", d.ketQua],
           ].map(([t, m]) => (
             <div key={t}>
-              <h3 className="text-xl font-bold">{t}</h3>
+              <h3 className="text-xl font-semibold">{t}</h3>
               <p className="mt-2 text-[15px] leading-relaxed text-than-chi/75">{m}</p>
             </div>
           ))}
@@ -72,7 +72,7 @@ export default async function CaseStudy({ params }: PageProps<"/cong-trinh/du-an
           <ul className="grid grid-cols-2 gap-3 md:grid-cols-3">
             {d.anhChiTiet.map((a) => (
               <li key={a} className="relative aspect-[4/3] overflow-hidden rounded-[16px] bg-than-chi">
-                <Image src={asset(a)} alt={`${d.ten}: chi tiết cửa`} fill quality={65} sizes="(min-width: 768px) 30vw, 50vw" className="object-cover" />
+                <Image src={asset(a)} alt={`${d.ten}: chi tiết cửa`} fill quality={60} sizes="(min-width: 768px) 30vw, 50vw" className="object-cover" />
               </li>
             ))}
           </ul>

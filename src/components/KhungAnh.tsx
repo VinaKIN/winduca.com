@@ -38,7 +38,7 @@ export function KhungAnh({
           quality={72}
           sizes={sizes}
           priority={uuTien}
-          className="anh-dong-bo object-cover transition-transform duration-[1400ms] ease-out group-hover:scale-[1.04]"
+          className="anh-dong-bo object-cover"
           style={{ objectPosition: viTri }}
         />
         <div className="anh-am pointer-events-none absolute inset-0" aria-hidden="true" />
@@ -55,12 +55,12 @@ export function KhungAnh({
             <span className="diem-do" aria-hidden="true" />
             <span className="hidden items-center gap-2 sm:flex" aria-hidden="true">
               <span className="h-px w-8 bg-accent" />
-              <span className="rounded-[3px] bg-than-chi/75 px-2 py-1 text-[12px] uppercase tracking-[0.16em] text-white backdrop-blur-sm">{diem.nhan}</span>
+              <span className="rounded-[3px] bg-than-chi/75 px-2 py-1 text-[13px] tracking-[0.02em] text-white">{diem.nhan}</span>
             </span>
           </span>
         )}
         {chuThich && (
-          <figcaption className="absolute bottom-3 left-3 z-[3] flex items-center gap-2 rounded-full bg-than-chi/70 px-3 py-1.5 text-[12px] font-medium uppercase tracking-[0.14em] text-white backdrop-blur-sm">
+          <figcaption className="absolute bottom-3 left-3 z-[3] flex items-center gap-2 rounded-full bg-than-chi/70 px-3 py-1.5 text-[12px] font-medium uppercase tracking-[0.14em] text-white">
             <span className="h-1.5 w-1.5 rounded-full bg-accent" aria-hidden="true" />
             {chuThich}
           </figcaption>

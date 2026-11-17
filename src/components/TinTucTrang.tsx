@@ -14,7 +14,7 @@ export function TinTucTrang({ muc = "tat-ca" }: { muc?: MucId | "tat-ca" }) {
       <section className="luoi-ban-ve nen-nga pb-14 pt-28 md:pb-20 md:pt-36">
         <Wrap>
           <Hien>
-            <div className="flex items-center justify-between gap-4 pb-5 text-[12px] font-medium uppercase tracking-[0.22em] text-than-chi/70">
+            <div className="flex items-center justify-between gap-4 pb-5 text-[13px] font-medium tracking-[0.02em] text-than-chi/70">
               <span className="inline-flex items-center gap-3">
                 <i className="h-px w-8 bg-accent" aria-hidden="true" />
                 WINDUCA · Tin tức
@@ -25,11 +25,11 @@ export function TinTucTrang({ muc = "tat-ca" }: { muc?: MucId | "tat-ca" }) {
               <h1 className="text-[clamp(2.3rem,5.4vw,4.6rem)] font-light leading-[1.04] tracking-[-0.02em] [text-wrap:balance]">
                 {m ? (
                   <>
-                    <span className="font-bold">{m.ten}</span> của WINDUCA
+                    <span className="font-semibold">{m.ten}</span> của WINDUCA
                   </>
                 ) : (
                   <>
-                    Tin tức và <span className="font-bold">kiến thức.</span>
+                    Tin tức và <span className="font-semibold">kiến thức.</span>
                   </>
                 )}
               </h1>
@@ -48,7 +48,7 @@ export function TinTucTrang({ muc = "tat-ca" }: { muc?: MucId | "tat-ca" }) {
           <Hien>
             <div className="flex flex-wrap items-end justify-between gap-8">
               <div>
-                <h2 className="max-w-2xl text-[clamp(1.6rem,2.8vw,2.4rem)] font-bold leading-tight">Cần hỏi thêm về cửa cho công trình của bạn?</h2>
+                <h2 className="max-w-2xl text-[clamp(1.6rem,2.8vw,2.4rem)] font-semibold leading-tight">Cần hỏi thêm về cửa cho công trình của bạn?</h2>
                 <p className="mt-3 max-w-xl text-[15px] leading-relaxed text-white/80">Gửi bản vẽ hoặc mô tả không gian, đội kỹ thuật WINDUCA sẽ phản hồi hướng triển khai.</p>
               </div>
               <div className="flex flex-wrap gap-3">
