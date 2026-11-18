@@ -1,0 +1,65 @@
+/*
+Theme Name:   WINDUCA (Flatsome Child)
+Theme URI:    https://winduca.com
+Description:  Theme con Flatsome cho WINDUCA: Roboto, đỏ #e31937, Than đen #231f20, Ngà #f5f3ee. Cấu trúc giống theme con của Winboss.
+Author:       VinaKIN Group
+Template:     flatsome
+Version:      0.1.0
+Text Domain:  winduca
+*/
+
+:root {
+  --wd-do: #e31937;
+  --wd-do-dam: #b8122b;
+  --wd-than: #231f20;
+  --wd-nga: #f5f3ee;
+  --wd-vien: #e3e7ec;
+}
+
+/* Chữ: Roboto, tiêu đề nhẹ + chữ đậm 600, không chữ hoa rải rộng */
+body { font-family: "Roboto", Arial, sans-serif; font-size: 16px; line-height: 1.65; color: var(--wd-than); }
+h1, h2, h3, h4, h5, h6, .heading-font { font-family: "Roboto", Arial, sans-serif; color: var(--wd-than); letter-spacing: -0.01em; }
+h1 { font-size: clamp(2rem, 3.8vw, 3.5rem); font-weight: 500 !important; line-height: 1.18; }
+h2 { font-size: clamp(1.625rem, 2.6vw, 2.5rem); font-weight: 300 !important; line-height: 1.15; }
+h2 b, h2 strong { font-weight: 600; }
+h3 { font-size: 1.375rem; font-weight: 600 !important; line-height: 1.3; }
+.uppercase, h6, span.widget-title, th { text-transform: none; letter-spacing: 0.02em; }
+.wd-nhan { display: block; margin: 0 0 8px; font-size: 13px; font-weight: 500; letter-spacing: 0.02em; color: var(--wd-do); }
+.dark .wd-nhan { color: #ff5a6e; }
+
+/* Nút viên thuốc */
+.button, button, input[type=submit] { border-radius: 999px; text-transform: uppercase; letter-spacing: 0.04em; font-weight: 600; font-size: .8125rem; }
+.button.primary { background: var(--wd-do); border-color: var(--wd-do); }
+.button.primary:hover { background: var(--wd-do-dam); border-color: var(--wd-do-dam); }
+.button.is-outline { border-width: 1px; }
+
+/* Header: nền Than đen, chữ trắng, hai nút tròn bên trái (gọi, thư) */
+#header .header-main, #masthead { background: var(--wd-than); }
+#header .nav > li > a { color: #fff; text-transform: uppercase; font-weight: 600; letter-spacing: 0.02em; }
+#header .nav > li > a:hover, #header .nav > li.active > a { color: #ff5a6e; }
+.wd-nut-tron { display: inline-flex; width: 40px; height: 40px; align-items: center; justify-content: center; border-radius: 50%; background: #fff; color: var(--wd-do); margin-right: 8px; }
+.wd-nut-tron:hover { background: var(--wd-do); color: #fff; }
+
+/* Khối nội dung */
+.wd-nen-nga { background: var(--wd-nga); }
+.wd-nen-toi { background: var(--wd-than); color: #fff; }
+.wd-the { background: #fff; border: 1px solid var(--wd-vien); border-radius: 20px; overflow: hidden; transition: border-color .2s, box-shadow .25s, transform .25s; }
+.wd-the:hover { border-color: var(--wd-than); box-shadow: 0 16px 32px -20px rgba(35,31,32,.3); transform: translateY(-3px); }
+.wd-the .wd-the-than { padding: 20px; }
+.wd-the img { display: block; width: 100%; height: 220px; object-fit: cover; }
+.wd-luoi-3 { display: grid; gap: 24px; grid-template-columns: repeat(3, 1fr); }
+@media (max-width: 849px) { .wd-luoi-3 { grid-template-columns: 1fr; } }
+.wd-so { font-size: 2.5rem; font-weight: 500; color: var(--wd-do); }
+.wd-dai-so { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; border-top: 1px solid var(--wd-vien); padding-top: 24px; }
+.wd-dai-so dt { font-size: .875rem; color: rgba(35,31,32,.7); }
+.wd-dai-so dd { margin: 4px 0 0; font-size: 2.25rem; font-weight: 500; color: rgba(35,31,32,.4); }
+
+/* Hero */
+.wd-hero .text-box h1 { color: #fff; max-width: 880px; }
+.wd-hero .text-box p { color: rgba(255,255,255,.92); font-weight: 300; font-size: 1.125rem; max-width: 720px; }
+
+/* Chân trang */
+.footer-wrapper, #footer { background: var(--wd-than); color: rgba(255,255,255,.8); }
+#footer a { color: rgba(255,255,255,.85); }
+#footer a:hover { color: #ff5a6e; }
+.absolute-footer { background: #1a1718; color: rgba(255,255,255,.7); }

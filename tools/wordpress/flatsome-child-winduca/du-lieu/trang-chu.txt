@@ -1,0 +1,151 @@
+[ux_slider hide_nav="false" bullets="true" bullet_style="dashes" timer="6500" auto_slide="true"]
+
+[ux_banner height="100%" height__sm="560px" bg="{{ANH:hero.jpg}}" bg_overlay="rgba(35,31,32,0.55)" class="wd-hero" bg_pos="50% 50%"]
+[text_box text_align="left" position_x="5" position_y="85" width="60" width__sm="100"]
+<h1>Kiến tạo không gian mở ra chuẩn sống mới.</h1>
+<p>Giải pháp cửa nhôm kính kiến trúc cao cấp, đồng bộ từ hệ nhôm, kính, phụ kiện đến thi công hoàn thiện.</p>
+[button text="Khám phá hệ cửa" style="white" radius="99" link="/he-cua/"]
+[button text="Tư vấn giải pháp" style="outline" color="white" radius="99" link="/lien-he/"]
+[/text_box]
+[/ux_banner]
+
+[ux_banner height="100%" height__sm="560px" bg="{{ANH:chu-nha.jpg}}" bg_overlay="rgba(35,31,32,0.5)" class="wd-hero"]
+[text_box text_align="left" position_x="5" position_y="85" width="60" width__sm="100"]
+<h1>Mở rộng tầm nhìn, giữ trọn sự tĩnh lặng</h1>
+<p>Cửa trượt nâng khổ lớn cho biệt thự và penthouse.</p>
+[button text="Xem các hệ cửa" style="white" radius="99" link="/he-cua/"]
+[button text="Nhận hộp mẫu góc nhôm" style="outline" color="white" radius="99" link="/trai-nghiem/"]
+[/text_box]
+[/ux_banner]
+
+[ux_banner height="100%" height__sm="560px" bg="{{ANH:biet-thu-go-kinh.jpg}}" bg_overlay="rgba(35,31,32,0.5)" class="wd-hero"]
+[text_box text_align="left" position_x="5" position_y="85" width="60" width__sm="100"]
+<h1>Từ bản vẽ đến công trình, một đầu mối đồng bộ</h1>
+<p>Tư vấn · Cung cấp · Thi công</p>
+[button text="Xem công trình" style="white" radius="99" link="/cong-trinh/"]
+[button text="Trở thành đối tác" style="outline" color="white" radius="99" link="/hop-tac/"]
+[/text_box]
+[/ux_banner]
+
+[/ux_slider]
+
+[section padding="80px"]
+[row v_align="middle" h_align="center"]
+[col span="6" span__sm="12"]
+[ux_image id="{{ANH:intro-chi-tiet.jpg}}" image_size="large" image_radius="8"]
+[/col]
+[col span="6" span__sm="12"]
+<span class="wd-nhan">Giới thiệu</span>
+<h2>Không chỉ là một hệ cửa. <strong>Đó là giải pháp kiến trúc đồng bộ.</strong></h2>
+<p>WINDUCA mang đến giải pháp cửa nhôm kính cao cấp cho biệt thự, penthouse và các công trình cao cấp, từ tư vấn bản vẽ đến thi công hoàn thiện.</p>
+<p><strong>01 · European-inspired Engineering.</strong> Kỹ thuật lấy cảm hứng từ tiêu chuẩn châu Âu, ưu tiên độ chính xác và độ bền.</p>
+<p><strong>02 · Integrated Window Solutions.</strong> Từ hệ nhôm, kính, phụ kiện đến thi công: một đầu mối đồng bộ.</p>
+<p><strong>03 · Architectural Precision.</strong> Cửa khổ lớn, đường nét mảnh, hoàn thiện theo bản vẽ kiến trúc sư.</p>
+[button text="Về chúng tôi" style="primary" radius="99" link="/gioi-thieu/"]
+[/col]
+[/row]
+[/section]
+
+[section bg_color="#f5f3ee" padding="80px"]
+[row]
+[col span="12" align="center"]
+<span class="wd-nhan">Sản phẩm</span>
+<h2>Hệ cửa nổi bật</h2>
+[/col]
+[/row]
+[row]
+[col span="12"]
+[ux_html]
+<div class="wd-luoi-3">
+<a class="wd-the" href="/he-cua/"><img src="{{ANH:lift-slide.webp}}" alt="Cửa trượt nâng"><div class="wd-the-than"><span class="wd-nhan">Cửa trượt</span><h3>Cửa trượt khung slim</h3><p>Khung nhôm mảnh, mặt kính lớn cho tầm nhìn thoáng.</p></div></a>
+<a class="wd-the" href="/he-cua/"><img src="{{ANH:casement.webp}}" alt="Cửa đi mở quay"><div class="wd-the-than"><span class="wd-nhan">Cửa đi</span><h3>Cửa đi mở quay</h3><p>Kín khít, cách nhiệt, hoàn thiện theo bản vẽ.</p></div></a>
+<a class="wd-the" href="/he-cua/"><img src="{{ANH:bi-fold.webp}}" alt="Cửa xếp gấp"><div class="wd-the-than"><span class="wd-nhan">Cửa xếp gấp</span><h3>Cửa xếp gấp</h3><p>Mở trọn khẩu độ, nối nội thất với sân vườn.</p></div></a>
+</div>
+[/ux_html]
+[/col]
+[/row]
+[row]
+[col span="12" align="center"]
+[button text="Xem toàn bộ hệ cửa" style="primary" radius="99" link="/he-cua/"]
+[/col]
+[/row]
+[/section]
+
+[section bg_color="#231f20" dark="true" padding="80px"]
+[row v_align="middle"]
+[col span="6" span__sm="12"]
+<span class="wd-nhan">Giải pháp đồng bộ</span>
+<h2>Một giải pháp. <strong>Đồng bộ từng thành phần.</strong></h2>
+<p>Hệ profile nhôm, kính, phụ kiện và thi công cùng một đầu mối, giúp công trình giữ đúng bản vẽ và đúng tiến độ.</p>
+[button text="Xem giải pháp" style="white" radius="99" link="/giai-phap/"]
+[/col]
+[col span="6" span__sm="12"]
+[ux_image id="{{ANH:mat-cat-khung-cua.jpg}}" image_size="large" image_radius="8"]
+[/col]
+[/row]
+[/section]
+
+[section padding="80px"]
+[row]
+[col span="6" span__sm="12"]
+<span class="wd-nhan">Dịch vụ</span>
+<h2>Danh sách các dịch vụ</h2>
+<p>Cửa đi, cửa sổ, vách kính và phụ kiện đồng bộ, đi cùng dịch vụ tư vấn, thi công và hậu mãi. WINDUCA là đối tác cho chủ nhà, kiến trúc sư, công ty thiết kế và nhà thầu.</p>
+[ux_html]
+<dl class="wd-dai-so"><div><dt>Số dự án</dt><dd>—</dd></div><div><dt>Số nhà máy</dt><dd>—</dd></div><div><dt>Số quốc gia</dt><dd>—</dd></div></dl>
+[/ux_html]
+[/col]
+[col span="6" span__sm="12"]
+<h3>01 · Tư vấn giải pháp kiến trúc, thiết kế</h3><p>Đội kỹ thuật cùng kiến trúc sư chọn kiểu cửa phù hợp từng công trình.</p>
+<h3>02 · Cung cấp và lắp đặt</h3><p>Cung cấp hệ nhôm, phụ kiện và thi công, kiểm soát chất lượng đến khi nghiệm thu.</p>
+<h3>03 · Dịch vụ hậu mãi</h3><p>Bảo trì, hiệu chỉnh và hỗ trợ sau bàn giao.</p>
+<h3>04 · Hỗ trợ đối tác</h3><p>Đào tạo kỹ thuật và bán hàng cho đại lý, nhà thầu.</p>
+[/col]
+[/row]
+[/section]
+
+[section bg_color="#f5f3ee" padding="80px"]
+[row]
+[col span="12"]
+<span class="wd-nhan">Công trình</span>
+<h2>Không gian sống tiêu biểu</h2>
+[ux_html]
+<div class="wd-luoi-3">
+<a class="wd-the" href="/cong-trinh/"><img src="{{ANH:cong-trinh-05.webp}}" alt="Biệt thự"><div class="wd-the-than"><h3>Biệt thự</h3></div></a>
+<a class="wd-the" href="/cong-trinh/"><img src="{{ANH:cong-trinh-04.webp}}" alt="Nhà phố cao cấp"><div class="wd-the-than"><h3>Nhà phố cao cấp</h3></div></a>
+<a class="wd-the" href="/cong-trinh/"><img src="{{ANH:cong-trinh-06.webp}}" alt="Khách sạn và resort"><div class="wd-the-than"><h3>Khách sạn &amp; Resort</h3></div></a>
+</div>
+[/ux_html]
+[button text="Xem thêm công trình" style="secondary" radius="99" link="/cong-trinh/"]
+[/col]
+[/row]
+[/section]
+
+[section bg_color="#231f20" dark="true" padding="60px"]
+[row]
+[col span="12"]
+<span class="wd-nhan">Vì sao chọn WINDUCA</span>
+<h2>Sự thật về WINDUCA</h2>
+[ux_html]
+<div class="wd-luoi-3">
+<div><span class="wd-so">01</span><h3>Hệ nhôm cầu cách nhiệt</h3><p>Khung nhôm cầu cách nhiệt cho không gian êm và bền.</p></div>
+<div><span class="wd-so">02</span><h3>Tiêu chuẩn châu Âu</h3><p>Hệ nhôm, phụ kiện và quy trình tham chiếu tiêu chuẩn châu Âu.</p></div>
+<div><span class="wd-so">03</span><h3>Đồng bộ đến thi công</h3><p>Một đầu mối từ hệ nhôm, phụ kiện đến lắp đặt và nghiệm thu.</p></div>
+</div>
+[/ux_html]
+[button text="Tìm hiểu thêm về WINDUCA" style="primary" radius="99" link="/gioi-thieu/"]
+[button text="Trở thành đối tác" style="outline" color="white" radius="99" link="/hop-tac/"]
+[/col]
+[/row]
+[/section]
+
+[section padding="80px"]
+[row]
+[col span="12"]
+<span class="wd-nhan">Tin tức</span>
+<h2>Kiến thức và câu chuyện công trình</h2>
+[blog_posts style="normal" type="row" columns="4" columns__sm="1" posts="4" show_date="false" excerpt="visible" excerpt_length="18" image_height="70%" image_radius="8"]
+[button text="Xem thêm bài viết" style="secondary" radius="99" link="/tin-tuc/"]
+[/col]
+[/row]
+[/section]
