@@ -20,6 +20,14 @@ add_action('wp_enqueue_scripts', function () {
     wp_enqueue_style('winduca-child', get_stylesheet_uri(), array('flatsome-style'), WD_VER);
 }, 20);
 
+// Trang dựng bằng UX Builder: tắt tự thêm thẻ <p> và <br> của WordPress (nó làm vỡ lưới thẻ trong [ux_html])
+add_action('wp', function () {
+    if (is_page()) {
+        remove_filter('the_content', 'wpautop');
+        remove_filter('the_excerpt', 'wpautop');
+    }
+});
+
 // Shortcode [site_menu name="..."] (giống Winboss)
 add_shortcode('site_menu', function ($atts) {
     $a = shortcode_atts(array('name' => ''), $atts);

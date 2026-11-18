@@ -20,6 +20,7 @@ function winduca_thiet_lap_mac_dinh() {
         'header_bg'              => '#231f20',
         'header_width'           => 'container',
         'header_elements_left'   => array('html'),
+        'topbar_left'            => '<a class="wd-nut-tron" href="tel:0947686668" aria-label="Gọi hotline 0947 686 668"><i class="icon-phone"></i></a><a class="wd-nut-tron" href="mailto:info@winduca.com" aria-label="Gửi email"><i class="icon-envelop"></i></a>',
         'header_elements_right'  => array('nav'),
         'topbar_show'            => '0',
         'mobile_sidebar'         => array('nav'),

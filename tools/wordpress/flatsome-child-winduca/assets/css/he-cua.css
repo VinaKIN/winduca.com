@@ -22,7 +22,7 @@
 .wd-hc-rong { grid-column: 1 / -1; text-align: center; padding: 64px 0; color: var(--mute); }
 .wd-hc-the { width: 100%; height: 100%; text-align: left; background: #fff; border: 1px solid var(--line); border-radius: 20px; overflow: hidden; padding: 0 0 16px; display: block; margin: 0; text-transform: none; letter-spacing: 0; color: var(--ink); transition: border-color .2s, box-shadow .25s, transform .25s; }
 .wd-hc-the:hover { border-color: var(--ink); box-shadow: 0 16px 32px -20px rgba(35,31,32,.3); transform: translateY(-3px); }
-.wd-hc-the > strong, .wd-hc-the > .wd-hc-loai, .wd-hc-the > dl, .wd-hc-the > p, .wd-hc-the > .wd-hc-tag, .wd-hc-the > .wd-hc-hang { display: block; margin: 12px 18px 0; }
+.wd-hc-the > strong, .wd-hc-the > .wd-hc-loai, .wd-hc-the > p, .wd-hc-the > .wd-hc-tag, .wd-hc-the > .wd-hc-hang { display: block; margin: 12px 18px 0; }
 .wd-hc-the > .wd-hc-hang { margin-top: 14px; }
 .wd-hc-anh { display: flex; aspect-ratio: 1 / .62; align-items: center; justify-content: center; border-bottom: 1px solid var(--line); background-color: var(--tile); background-image: linear-gradient(rgba(15,17,21,.05) 1px, transparent 1px), linear-gradient(90deg, rgba(15,17,21,.05) 1px, transparent 1px); background-size: 26px 26px; }
 .wd-hc-anh img { max-width: 92%; max-height: 92%; object-fit: contain; }

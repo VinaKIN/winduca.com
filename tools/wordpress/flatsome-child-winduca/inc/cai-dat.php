@@ -172,7 +172,7 @@ function winduca_trang_cai_dat() {
     echo '<p>Chạy theo thứ tự "Làm tất cả" lần đầu. Các bước chạy lại được, không nhân đôi nội dung. Cần bật theme Flatsome và theme con này, nên cài sẵn Contact Form 7.</p>';
     echo '<form method="post">';
     wp_nonce_field('winduca_cai_dat');
-    foreach (array('tat-ca' => 'Làm tất cả (khuyến nghị)', 'trang' => '1. Nhập trang (15 trang, kể cả Trang chủ, Hệ cửa)', 'he-cua' => '2. Nhập 115 hệ cửa', 'tin-tuc' => '3. Nhập 9 bài viết', 'thiet-lap' => '4. Áp dụng thiết lập, menu, trang chủ') as $k => $t) {
+    foreach (array('tat-ca' => 'Làm tất cả (khuyến nghị)', 'trang' => '1. Nhập trang (16 trang, kể cả Trang chủ, Hệ cửa)', 'he-cua' => '2. Nhập 115 hệ cửa', 'tin-tuc' => '3. Nhập 9 bài viết', 'thiet-lap' => '4. Áp dụng thiết lập, menu, trang chủ') as $k => $t) {
         echo '<p><button class="button ' . ($k === 'tat-ca' ? 'button-primary' : '') . '" name="wd_hd" value="' . esc_attr($k) . '">' . esc_html($t) . '</button></p>';
     }
     echo '</form></div>';
