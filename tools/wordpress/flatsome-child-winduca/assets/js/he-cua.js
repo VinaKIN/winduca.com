@@ -20,6 +20,7 @@
   ];
   var MOT = 12;
   var S = { b: '', h: [], k: [], f: [], q: '', p: 1 };
+  var CMP = [];
 
   function e(s) { return String(s == null ? '' : s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
   function khop(r, boQuaHang) {
@@ -79,7 +80,7 @@
     if (S.h.length + S.k.length + S.f.length || S.b || S.q) h += '<button type="button" class="wd-hc-xoa" data-xoa="1">Xóa bộ lọc</button>';
     h += '</div><ul class="wd-hc-luoi">';
     ds.slice(bd, bd + MOT).forEach(function (r) {
-      h += '<li><button type="button" class="wd-hc-the" data-id="' + r.id + '"><span class="wd-hc-anh">' + anh(r) + '</span>' +
+      h += '<li><label class="wd-hc-sosanh"><input type="checkbox" data-c="' + r.id + '"' + (CMP.indexOf(r.id) >= 0 ? ' checked' : '') + ' aria-label="So sánh ' + e(HANG[r.hang] + ' ' + r.ma) + '"><span>So sánh</span></label><button type="button" class="wd-hc-the" data-id="' + r.id + '"><span class="wd-hc-anh">' + anh(r) + '</span>' +
         '<span class="wd-hc-hang">' + HANG[r.hang] + '</span><strong>' + e(r.ma) + '</strong><span class="wd-hc-loai">' + e(r.loai) + '</span>' + chiSo(r) +
         '<span class="wd-hc-tag">' + r.tags.map(function (t) { return '<i>' + TAG[t] + '</i>'; }).join('') + '</span></button></li>';
     });
@@ -89,6 +90,9 @@
       h += '<nav class="wd-hc-trang" aria-label="Phân trang"><span>Hiển thị ' + (bd + 1) + '–' + Math.min(bd + MOT, ds.length) + ' / ' + ds.length + ' hệ</span>';
       for (var i = 1; i <= soTrang; i++) h += '<button type="button" data-p="' + i + '"' + (i === S.p ? ' aria-current="page"' : '') + '>' + i + '</button>';
       h += '</nav>';
+    }
+    if (CMP.length) {
+      h += '<div class="wd-hc-bar" role="status">Đã chọn ' + CMP.length + '/3 hệ <button type="button" data-ss="1"' + (CMP.length < 2 ? ' disabled' : '') + '>So sánh</button> <button type="button" data-bo="1">Bỏ chọn</button></div>';
     }
     var giu = document.activeElement && document.activeElement.id === 'wd-hc-q';
     goc.innerHTML = h;
@@ -118,6 +122,22 @@
     document.body.style.overflow = 'hidden';
     document.querySelector('.wd-hc-dong').focus();
   }
+  function soSanh() {
+    var ds = CMP.map(function (id) { return DU.filter(function (x) { return x.id === id; })[0]; }).filter(Boolean);
+    var dong6 = [['U-value (W/m²K)', 'u'], ['Kín khí', 'kinKhi'], ['Cách âm', 'cachAm'], ['Kín nước', 'kinNuoc'], ['Chịu gió', 'chiuGio'], ['Chống đột nhập', 'chongTrom']]
+      .filter(function (d) { return ds.some(function (r) { return r[d[1]]; }); });
+    var h = '<div class="wd-hc-nen" id="wd-hc-hop"><div class="wd-hc-hop wd-hc-hop-rong" role="dialog" aria-modal="true" aria-label="So sánh các hệ đã chọn"><button type="button" class="wd-hc-dong" aria-label="Đóng">×</button><div class="wd-hc-phai"><p class="wd-hc-hang">So sánh</p><h3>Các hệ đã chọn</h3><div class="wd-hc-cuon"><table class="wd-hc-bang-ss"><thead><tr><th></th>' +
+      ds.map(function (r) { return '<th><span class="wd-hc-hang">' + HANG[r.hang] + '</span><br>' + e(r.ma) + '</th>'; }).join('') + '</tr></thead><tbody>' +
+      dong6.map(function (d) { return '<tr><th>' + d[0] + '</th>' + ds.map(function (r) { return '<td>' + (e(r[d[1]]) || '—') + '</td>'; }).join('') + '</tr>'; }).join('') +
+      '<tr><th>Nhãn</th>' + ds.map(function (r) { return '<td>' + (r.tags.map(function (t) { return TAG[t]; }).join(' · ') || '—') + '</td>'; }).join('') + '</tr></tbody></table></div>' +
+      '<p class="wd-hc-luu-y">Mọi số liệu do hãng công bố, điều kiện thử có thể khác nhau giữa các hệ. Liên hệ để được tư vấn theo công trình.</p>' +
+      '<p><a class="button primary" href="' + e(LIEN_HE) + '">Nhận tư vấn</a> <a class="button is-outline" href="' + e(TEL) + '">Gọi ' + e(HOTLINE) + '</a></p></div></div></div>';
+    var d = document.createElement('div');
+    d.innerHTML = h;
+    document.body.appendChild(d.firstChild);
+    document.body.style.overflow = 'hidden';
+    document.querySelector('.wd-hc-dong').focus();
+  }
   function dong() {
     var x = document.getElementById('wd-hc-hop');
     if (x) { x.parentNode.removeChild(x); document.body.style.overflow = ''; }
@@ -140,7 +160,17 @@
     if (th) return mo(+th.getAttribute('data-id'));
     var nh = t.closest('.wd-hc-nho button');
     if (nh) { document.getElementById('wd-hc-lon').src = nh.getAttribute('data-a'); return; }
+    if (t.closest('[data-ss]')) return soSanh();
+    if (t.closest('[data-bo]')) { CMP = []; return dung(); }
     if (t.closest('.wd-hc-dong') || t.id === 'wd-hc-hop') dong();
+  });
+  document.addEventListener('change', function (ev) {
+    var c = ev.target.closest && ev.target.closest('[data-c]');
+    if (!c || !goc.contains(c)) return;
+    var id = +c.getAttribute('data-c'), i = CMP.indexOf(id);
+    if (c.checked) { if (CMP.length >= 3) { c.checked = false; alert('Chỉ so sánh tối đa 3 hệ.'); return; } if (i < 0) CMP.push(id); }
+    else if (i >= 0) CMP.splice(i, 1);
+    dung();
   });
   document.addEventListener('input', function (ev) {
     if (ev.target.id === 'wd-hc-q') { S.q = ev.target.value.trim(); S.p = 1; dung(); }

@@ -41,6 +41,6 @@ Bản dựng lại website winduca.com trên WordPress, thiết kế bằng **Fl
 - Gói đã được chạy thử trên WordPress cục bộ (WordPress 7.x, PHP 8.2, Flatsome 3.20.9, Contact Form 7 6.0.6): kích hoạt theme, nhập 16 trang, 115 hệ cửa, 9 bài viết, hiển thị Trang chủ, Giới thiệu, Hệ cửa (lọc, hộp chi tiết), Tin tức. Biểu mẫu Liên hệ được tạo và hiển thị đúng (chưa thử gửi thư thật, cần cấu hình SMTP). **Chưa thử** UX Builder trong wp-admin, và trên hosting thật. Đơn vị thiết kế nên chạy thử và chỉnh giao diện cho khớp thiết kế gốc (bản Next.js ở repo `VinaKIN/winduca.com`).
 - Các trang khác Trang chủ và Hệ cửa được chuyển từ bản web hiện tại thành nội dung chữ và ảnh đơn giản, cần dàn lại bằng UX Builder để đẹp như thiết kế.
 - Tên khóa thiết lập header/menu của Flatsome được lấy từ preset trong theme, có thể phải chỉnh bằng Tùy biến.
-- Trang Hệ cửa: bản WordPress chưa có chức năng so sánh 3 hệ và hộp "Chọn hệ" 5 bước như bản Next.js.
+- Trang Hệ cửa: đã có so sánh tối đa 3 hệ (đã thử). Chưa có hộp "Chọn hệ" 5 bước như bản Next.js.
 - Trang Hệ cửa nêu tên hãng và số liệu của hãng: cần xác nhận quyền sử dụng trước khi công bố. Số liệu dịch vụ ở Trang chủ để "—" vì chưa xác nhận. Ảnh stock có nhãn "Minh họa".
 - Biểu mẫu Liên hệ gửi thư qua Contact Form 7 tới email quản trị; không lưu dữ liệu khách ngoài kho nhận của WINDUCA. Chưa nối kho nhận lead.

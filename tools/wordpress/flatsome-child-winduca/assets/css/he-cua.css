@@ -60,3 +60,18 @@
 @media (max-width: 849px) { .wd-hc-luoi { grid-template-columns: 1fr 1fr; gap: 16px; } .wd-hc-hop { grid-template-columns: 1fr; } .wd-hc-bang { grid-template-columns: 1fr; } }
 @media (max-width: 620px) { .wd-hc-luoi { grid-template-columns: 1fr; } .wd-hc-tim input { width: 100%; } }
 @media (prefers-reduced-motion: reduce) { .wd-hc-the { transition: none; } }
+
+/* So sánh tối đa 3 hệ */
+.wd-hc-luoi li { position: relative; }
+.wd-hc-sosanh { position: absolute; right: 10px; top: 10px; z-index: 2; display: inline-flex; align-items: center; gap: 6px; min-height: 36px; padding: 0 10px; background: rgba(255,255,255,.92); border: 1px solid var(--line, #e3e7ec); border-radius: 999px; font-size: 12px; cursor: pointer; margin: 0; }
+.wd-hc-sosanh input { margin: 0; }
+.wd-hc-bar { position: fixed; left: 50%; bottom: 88px; transform: translateX(-50%); z-index: 9990; background: #231f20; color: #fff; border-radius: 14px; padding: 8px 10px 8px 20px; display: flex; gap: 12px; align-items: center; box-shadow: 0 14px 36px rgba(0,0,0,.3); white-space: nowrap; font-size: 14px; }
+.wd-hc-bar button { min-height: 40px; border: 0; border-radius: 999px; padding: 0 18px; margin: 0; font-size: 13px; cursor: pointer; background: #e31937; color: #fff; text-transform: none; letter-spacing: 0; }
+.wd-hc-bar button[data-bo] { background: none; text-decoration: underline; color: #cfd5de; }
+.wd-hc-bar button:disabled { opacity: .5; cursor: default; }
+.wd-hc-hop-rong { max-width: 860px; grid-template-columns: 1fr; }
+.wd-hc-cuon { overflow-x: auto; }
+.wd-hc-bang-ss { width: 100%; border-collapse: collapse; font-size: 14px; margin: 16px 0; }
+.wd-hc-bang-ss th, .wd-hc-bang-ss td { text-align: left; padding: 10px 12px; border-bottom: 1px solid #e3e7ec; vertical-align: top; font-weight: 300; }
+.wd-hc-bang-ss thead th { font-weight: 700; }
+.wd-hc-bang-ss tbody th { color: #697280; }
