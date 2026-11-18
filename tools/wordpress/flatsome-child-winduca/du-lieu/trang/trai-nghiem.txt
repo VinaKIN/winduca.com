@@ -1,0 +1,73 @@
+[ux_banner height="420px" height__sm="360px" bg="" bg_overlay="rgba(35,31,32,0.62)" class="wd-hero"]
+[text_box text_align="left" position_x="5" position_y="50" width="70" width__sm="100"]
+<p>Trải nghiệm</p>
+<h1>Chạm vào chất liệu, trước khi quyết định.</h1>
+<p>Nhận hộp mẫu góc nhôm tại nhà, hoặc đặt lịch trải nghiệm tại showroom WINDUCA.</p>
+ <a href="#sample-box">Nhận hộp mẫu góc nhôm</a><a href="#showroom">Đặt lịch xem showroom</a>    <figure><img src="{{ANH:xuong/thanh-nhom-tay-nam.webp}}" alt=""/><figcaption>Mẫu góc nhôm và tay nắm</figcaption></figure>
+[/text_box]
+[/ux_banner]
+
+[section padding="60px"]
+[row]
+[col span="12"]
+<p>Hộp mẫu</p>
+<h2>Hộp mẫu góc nhôm tận nơi</h2>
+<p>Bốn món trong hộp mẫu, để anh chị chạm và so với không gian nhà mình.</p>
+      <ol><li> 01 <h3>Chuyên viên liên hệ xác nhận</h3>
+<p>Chúng tôi gọi hoặc nhắn Zalo để xác nhận đăng ký.</p>
+</li>
+<li> 02 <h3>Hỏi địa chỉ nhận hộp</h3>
+<p>Địa chỉ được hỏi qua điện thoại, không thu trên website.</p>
+</li>
+<li> 03 <h3>Giao hộp mẫu</h3>
+<p>Chính sách nhận hộp mẫu sẽ được công bố khi có xác nhận.</p>
+</li>
+</ol>
+[/col]
+[/row]
+[/section]
+
+[section padding="60px"]
+[row]
+[col span="12"]
+<h2>Đăng ký nhận hộp mẫu</h2>
+<p>Chúng tôi không hỏi ngân sách và không đăng giá.</p>
+[/col]
+[/row]
+[/section]
+
+[section padding="60px"]
+[row]
+[col span="12"]
+<p>Showroom</p>
+<h2>Showroom WINDUCA</h2>
+<p>Xem cửa mẫu, chạm vật liệu và trao đổi bản vẽ cùng chuyên viên tư vấn.</p>
+    <ol><li> 01   Đón tiếp  Chuyên viên tư vấn WINDUCA đón anh chị theo lịch đã hẹn.  </li>
+<li> 02   Xem cửa mẫu  Xem các kiểu cửa và cảm nhận vận hành.  </li>
+<li> 03   Chạm mẫu &amp; chọn màu  So màu hoàn thiện và chi tiết phụ kiện.  </li>
+<li> 04   Trao đổi bản vẽ &amp; tư vấn  Mang theo bản vẽ hoặc ảnh công trình để trao đổi.  </li>
+</ol>
+  <p>Thông tin showroom</p>
+<dl> <dt>Địa chỉ</dt><dd><a href="https://www.google.com/maps/search/?api=1&query=T%C3%B2a%20nh%C3%A0%20VinaKIN%20Building%2C%20280A5%20L%C6%B0%C6%A1ng%20%C4%90%E1%BB%8Bnh%20C%E1%BB%A7a%2C%20B%C3%ACnh%20Tr%C6%B0ng%2C%20H%E1%BB%93%20Ch%C3%AD%20Minh">Tòa nhà VinaKIN Building, 280A5 Lương Định Của, Bình Trưng, Hồ Chí Minh</a></dd>  <dt>Hotline</dt><dd><a href="tel:0947686668">0947 686 668</a></dd>  <dt>Tham quan</dt><dd>Theo lịch đặt trước.</dd> </dl>
+ <p>Bản đồ sẽ hiển thị khi có địa chỉ showroom</p>
+[/col]
+[/row]
+[/section]
+
+[section padding="60px"]
+[row]
+[col span="12"]
+<h2>Đặt lịch trải nghiệm showroom</h2>
+<p>Chuyên viên sẽ xác nhận giờ cụ thể qua điện thoại.</p>
+[/col]
+[/row]
+[/section]
+
+[section padding="60px"]
+[row]
+[col span="12"]
+<p>Dành cho kiến trúc sư</p>
+  <p>Anh chị là kiến trúc sư và muốn đưa khách đến showroom? Chọn “Tư vấn trực tiếp” ở form trên và ghi chú “Đặt lịch cho khách của tôi”, hoặc gọi hotline 0947 686 668.</p>
+[/col]
+[/row]
+[/section]

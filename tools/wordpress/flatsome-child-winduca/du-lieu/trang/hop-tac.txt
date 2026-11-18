@@ -1,0 +1,99 @@
+[section padding="60px"]
+[row]
+[col span="12"]
+<h2>Ba nhóm đối tác của WINDUCA</h2>
+         <img src="{{ANH:doi-tac/dai-ly.webp}}" alt="Đại lý và nhà phân phối"/> <p>Dealer Partnership</p>
+<h3>Đại lý và nhà phân phối</h3>
+   <p>Đồng hành cùng đội ngũ WINDUCA để đưa giải pháp cửa nhôm kính đến công trình trong khu vực của bạn.</p>
+  <p>Quyền lợi</p>
+<ul><li> Trao đổi chương trình hợp tác phân phối theo khu vực </li>
+<li> Đào tạo sản phẩm và kỹ năng tư vấn </li>
+<li> Hỗ trợ trưng bày mẫu vật </li>
+</ul>
+  <p>Hỗ trợ kỹ thuật</p>
+<ul><li> Tư vấn kỹ thuật theo từng công trình </li>
+<li> Phối hợp xử lý yêu cầu của khách hàng </li>
+</ul>
+  <p>Tài liệu</p>
+<ul><li> Catalog sản phẩm (đang hoàn thiện) </li>
+<li> Tài liệu bán hàng (đang hoàn thiện) </li>
+</ul>
+  <a href="#dang-ky-tham-quan">Đăng ký hợp tác nhóm này</a>
+[/col]
+[/row]
+[/section]
+
+[section padding="60px"]
+[row]
+[col span="12"]
+<h2>Vì sao hợp tác với WINDUCA</h2>
+  <p>Bốn điều đối tác nhận được khi làm việc cùng chúng tôi.</p>
+ <ul><li> 01 <h3>Một đầu mối kỹ thuật</h3>
+<p>Mỗi đối tác có một đầu mối trao đổi, từ chọn hệ cửa, đọc bản vẽ đến xử lý phát sinh tại công trình.</p>
+</li>
+<li> 02 <h3>Tài liệu và hộp mẫu</h3>
+<p>Hộp mẫu góc nhôm, tài liệu kỹ thuật và hình ảnh để giới thiệu giải pháp với khách hàng của bạn.</p>
+</li>
+<li> 03 <h3>Đào tạo sản phẩm</h3>
+<p>Buổi giới thiệu về hệ cửa, cách mở và cách tư vấn lựa chọn theo từng loại công trình.</p>
+</li>
+<li> 04 <h3>Phối hợp trên công trình</h3>
+<p>Cùng khảo sát, bóc tách và triển khai để công trình đúng bản vẽ và đúng tiến độ đã trao đổi.</p>
+</li>
+</ul>
+[/col]
+[/row]
+[/section]
+
+[section padding="60px"]
+[row]
+[col span="12"]
+<h2>Bốn bước từ đăng ký đến triển khai</h2>
+   <ol><li> 01 <h3>Đăng ký</h3>
+<p>Để lại thông tin và chọn nhóm hợp tác của bạn.</p>
+</li>
+<li> 02 <h3>Trao đổi</h3>
+<p>Chuyên viên liên hệ để hiểu nhu cầu và khu vực hoạt động.</p>
+</li>
+<li> 03 <h3>Làm quen sản phẩm</h3>
+<p>Nhận hộp mẫu, tài liệu và buổi giới thiệu giải pháp.</p>
+</li>
+<li> 04 <h3>Cùng triển khai</h3>
+<p>Phối hợp trên công trình thực tế với một đầu mối hỗ trợ.</p>
+</li>
+</ol>
+[/col]
+[/row]
+[/section]
+
+[section padding="60px"]
+[row]
+[col span="12"]
+<h2>Câu hỏi thường gặp</h2>
+  <p>Những điều đối tác tiềm năng hay hỏi. Cần biết thêm, để lại thông tin ở cuối trang.</p>
+     <p>Ai có thể đăng ký làm đối tác?</p>
+ <p>Đại lý và nhà phân phối, nhà thầu và đơn vị thi công, kiến trúc sư và công ty thiết kế. Chưa chắc thuộc nhóm nào vẫn có thể để lại thông tin để được tư vấn.</p>
+   <p>Sau khi đăng ký thì chuyện gì xảy ra?</p>
+ <p>Chuyên viên liên hệ trong giờ làm việc để hiểu nhu cầu và khu vực của bạn, sau đó đề xuất hình thức hợp tác và tài liệu phù hợp.</p>
+   <p>Có điều kiện hay yêu cầu tối thiểu nào không?</p>
+ <p>Điều kiện cụ thể tùy nhóm đối tác và khu vực. Chuyên viên sẽ trao đổi trực tiếp; trang này không công bố điều kiện chưa được xác nhận.</p>
+   <p>Tôi nhận được hỗ trợ gì khi đã là đối tác?</p>
+ <p>Đầu mối kỹ thuật, tài liệu, hộp mẫu và buổi giới thiệu sản phẩm. Phạm vi chi tiết được thống nhất theo từng nhóm.</p>
+   <p>WINDUCA có hỏi ngân sách của tôi không?</p>
+ <p>Không. Chúng tôi không hỏi ngân sách và không đăng giá trên website.</p>
+[/col]
+[/row]
+[/section]
+
+[section padding="60px"]
+[row]
+[col span="12"]
+<h2>Khu vực phụ trách</h2>
+  <p>Chúng tôi đang mở rộng mạng lưới đối tác theo ba miền. Để lại thông tin để biết khu vực của bạn đã có đầu mối hỗ trợ chưa.</p>
+ <ul><li> Miền Bắc  Đang mở rộng </li>
+<li> Miền Trung  Đang mở rộng </li>
+<li> Miền Nam  Đang mở rộng </li>
+</ul>
+[/col]
+[/row]
+[/section]

@@ -1,0 +1,26 @@
+[ux_banner height="420px" height__sm="360px" bg="{{ANH:hero.jpg}}" bg_overlay="rgba(35,31,32,0.62)" class="wd-hero"]
+[text_box text_align="left" position_x="5" position_y="50" width="70" width__sm="100"]
+<p>Pháp lý</p>
+<h1>Chính sách cookie</h1>
+<p>Cập nhật: 09/11/2026 (bản nháp)</p>
+[/text_box]
+[/ux_banner]
+
+[section padding="60px"]
+[row]
+[col span="12"]
+<p>Bản nháp chờ bộ phận pháp chế duyệt. Nội dung có thể thay đổi trước khi website chính thức đi vào hoạt động.</p>
+ <p>Cookie là các tệp nhỏ được lưu trên thiết bị của anh chị khi truy cập website.</p>
+<h2>1. Cookie cần thiết</h2>
+<p>Giúp website hoạt động đúng, ví dụ bảo vệ biểu mẫu khỏi spam. Loại này luôn bật.</p>
+<h2>2. Cookie không thiết yếu (chỉ khi anh chị đồng ý)</h2>
+<ul><li>Đo lường lượt truy cập (Google Analytics) và quảng cáo (Meta Pixel).</li>
+</ul>
+<p>Hiện website chưa bật các công cụ trên nên không đặt cookie loại này. Khi bật, chúng tôi sẽ hiển thị thông báo cookie và chỉ chạy sau khi anh chị đồng ý.</p>
+<h2>2a. Bản đồ nhúng (Google Maps)</h2>
+<p>Bản đồ ở chân trang được tải từ Google khi anh chị cuộn tới phần đó. Khi tải, Google có thể ghi nhận địa chỉ IP và đặt cookie theo chính sách của Google. Anh chị có thể bấm “Mở trong Maps” nếu muốn xem bản đồ trên ứng dụng của mình.</p>
+<h2>3. Thay đổi lựa chọn</h2>
+<p>Khi có thông báo cookie, anh chị có thể đổi lựa chọn bất cứ lúc nào bằng cách xóa dữ liệu trang trong trình duyệt.</p>
+[/col]
+[/row]
+[/section]

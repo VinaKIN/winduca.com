@@ -1,0 +1,23 @@
+[section padding="60px"]
+[row]
+[col span="12"]
+<h2>Văn bản</h2>
+  <ul><li><a href="/chinh-sach-bao-mat/"><h3>Chính sách bảo mật</h3>
+<p>Cách chúng tôi thu thập, sử dụng và bảo vệ thông tin.</p>
+</a></li>
+<li><a href="/dieu-khoan-su-dung/"><h3>Điều khoản sử dụng</h3>
+<p>Quy định khi sử dụng website WINDUCA.</p>
+</a></li>
+<li><a href="/chinh-sach-cookie/"><h3>Chính sách cookie</h3>
+<p>Cookie cần thiết và cookie đo lường (chỉ khi đồng ý).</p>
+</a></li>
+<li><a href="/chinh-sach-bao-hanh/"><h3>Bảo hành và hậu mãi</h3>
+<p>Thời hạn, điều kiện và quy trình hỗ trợ sau bàn giao.</p>
+</a></li>
+<li><a href="/chinh-sach-doi-tac/"><h3>Đối tác và đại lý</h3>
+<p>Điều kiện và quyền lợi hợp tác.</p>
+</a></li>
+</ul>
+[/col]
+[/row]
+[/section]

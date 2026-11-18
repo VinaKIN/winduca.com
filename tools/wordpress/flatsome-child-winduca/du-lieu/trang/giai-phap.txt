@@ -1,0 +1,52 @@
+[section padding="60px"]
+[row]
+[col span="12"]
+<h2>Giải pháp</h2>
+             <p>Ảnh minh họa, nguồn Pexels. Không phải công trình của WINDUCA.</p>
+<ul><li><a href="/giai-phap/biet-thu/"> <img src="{{ANH:giai-phap/biet-thu-1.webp}}" alt=""/>  Giải pháp cửa cho biệt thự  Mặt kính lớn nhìn ra sân vườn và hồ bơi, đường nét mảnh, vận hành êm. </a></li>
+<li><a href="/giai-phap/penthouse/"> <img src="{{ANH:giai-phap/penthouse-1.webp}}" alt=""/>  Giải pháp cửa cho penthouse  Ban công và sân thượng nhìn toàn cảnh, đường nét tối giản để giữ tầm nhìn. </a></li>
+<li><a href="/giai-phap/can-ho-cao-cap/"> <img src="{{ANH:giai-phap/can-ho-cao-cap-1.webp}}" alt=""/>  Giải pháp cửa cho căn hộ cao cấp  Cửa kính lớn đón sáng và tầm nhìn, giữ không gian yên tĩnh giữa đô thị. </a></li>
+<li><a href="/giai-phap/nha-pho-cao-cap/"> <img src="{{ANH:giai-phap/nha-pho-cao-cap-1.webp}}" alt=""/>  Giải pháp cho nhà phố cao cấp  Mặt tiền hẹp cần lấy sáng, thông gió và đồng bộ từ cửa chính đến cửa sổ. </a></li>
+<li><a href="/giai-phap/khach-san-resort/"> <img src="{{ANH:giai-phap/khach-san-resort-1.webp}}" alt=""/>  Giải pháp cho khách sạn và resort  Sảnh, nhà hàng và khu hồ bơi mở ra thiên nhiên; cần bền và dễ bảo trì. </a></li>
+<li><a href="/giai-phap/van-phong-hang-a/"> <img src="{{ANH:giai-phap/van-phong-hang-a-1.webp}}" alt=""/>  Giải pháp cho văn phòng hạng A  Vách kính và cửa lớn tạo không gian làm việc sáng, thoáng và chuyên nghiệp. </a></li>
+<li><a href="/giai-phap/nha-hang-quan-ca-phe/"> <img src="{{ANH:giai-phap/nha-hang-quan-ca-phe-1.webp}}" alt=""/>  Giải pháp cho nhà hàng và quán cà phê  Mặt kính lớn mời khách từ ngoài phố, mở ra khi cần để không gian liền mạch. </a></li>
+<li><a href="/giai-phap/cong-trinh-dac-thu/"> <img src="{{ANH:giai-phap/cong-trinh-dac-thu-1.webp}}" alt=""/>  Giải pháp cho công trình kiến trúc đặc thù  Hình khối, góc cắt hoặc kích thước ngoài tiêu chuẩn, cần chi tiết riêng theo bản vẽ. </a></li>
+</ul>
+[/col]
+[/row]
+[/section]
+
+[section padding="60px"]
+[row]
+[col span="12"]
+<h2>Từ bản vẽ đến nghiệm thu</h2>
+<p>Năm bước với một đầu mối. Giải pháp WINDUCA đề xuất mang tính tham khảo; kiến trúc sư chịu trách nhiệm thiết kế cuối cùng của công trình.</p>
+ <ol><li> 01 <h3>Tiếp nhận</h3>
+<p>Nhận bản vẽ, mặt đứng và yêu cầu kiến trúc. Chưa có bản vẽ vẫn có thể bắt đầu bằng trao đổi ý tưởng.</p>
+</li>
+<li> 02 <h3>Đề xuất</h3>
+<p>Gợi ý kiểu cửa, hệ nhôm, kính và phụ kiện phù hợp từng vị trí trong công trình.</p>
+</li>
+<li> 03 <h3>Bóc tách</h3>
+<p>Tư vấn chi tiết theo bản vẽ, thống nhất cấu hình và các điểm cần làm rõ cùng kiến trúc sư.</p>
+</li>
+<li> 04 <h3>Gia công</h3>
+<p>Sản xuất theo bản vẽ đã chốt, kiểm soát vật tư để các hạng mục đồng đều.</p>
+</li>
+<li> 05 <h3>Lắp đặt và nghiệm thu</h3>
+<p>Lắp đặt tại công trình, kiểm tra vận hành và nghiệm thu cùng chủ đầu tư.</p>
+</li>
+</ol>
+[/col]
+[/row]
+[/section]
+
+[section padding="60px"]
+[row]
+[col span="12"]
+<h2>Gửi bản vẽ, nhận đề xuất giải pháp phù hợp</h2>
+<p>Đội kỹ thuật WINDUCA xem bản vẽ và phản hồi hướng triển khai.</p>
+  <a href="/danh-cho-kts/#tu-van">Gửi bản vẽ để tư vấn</a><a href="/lien-he/">Liên hệ tư vấn</a>
+[/col]
+[/row]
+[/section]

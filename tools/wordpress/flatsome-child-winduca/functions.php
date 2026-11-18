@@ -34,4 +34,6 @@ add_shortcode('wd_anh', function ($atts) {
 
 // Nạp thiết lập mặc định (màu, phông, header) khi kích hoạt theme
 require_once get_stylesheet_directory() . '/inc/thiet-lap.php';
+require_once get_stylesheet_directory() . '/inc/he-cua.php';
+require_once get_stylesheet_directory() . '/inc/cai-dat.php';
 add_action('after_switch_theme', 'winduca_ap_dung_thiet_lap');

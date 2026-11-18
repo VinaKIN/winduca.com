@@ -1,0 +1,25 @@
+[ux_banner height="420px" height__sm="360px" bg="{{ANH:hero.jpg}}" bg_overlay="rgba(35,31,32,0.62)" class="wd-hero"]
+[text_box text_align="left" position_x="5" position_y="50" width="70" width__sm="100"]
+<p>Pháp lý</p>
+<h1>Chính sách đối tác và đại lý</h1>
+<p>Cập nhật: 10/11/2026 (bản nháp)</p>
+[/text_box]
+[/ux_banner]
+
+[section padding="60px"]
+[row]
+[col span="12"]
+<p>Bản nháp chờ bộ phận pháp chế duyệt. Nội dung có thể thay đổi trước khi website chính thức đi vào hoạt động.</p>
+ <p>WINDUCA hợp tác với đại lý, nhà thầu, kiến trúc sư và công ty thiết kế.</p>
+<h2>1. Đối tượng hợp tác</h2>
+<ul><li>Đại lý và nhà phân phối.</li>
+<li>Nhà thầu và đơn vị thi công.</li>
+<li>Kiến trúc sư và công ty thiết kế.</li>
+</ul>
+<h2>2. Điều kiện và quyền lợi</h2>
+<p>Điều kiện hợp tác, quyền lợi, hỗ trợ kỹ thuật và tài liệu: [CHỜ XÁC NHẬN].</p>
+<h2>3. Đăng ký</h2>
+<p>Anh chị để lại thông tin tại trang Hợp tác, đội ngũ WINDUCA sẽ liên hệ trao đổi.</p>
+[/col]
+[/row]
+[/section]

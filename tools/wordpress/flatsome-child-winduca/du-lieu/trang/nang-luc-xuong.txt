@@ -1,0 +1,106 @@
+[ux_banner height="420px" height__sm="360px" bg="" bg_overlay="rgba(35,31,32,0.62)" class="wd-hero"]
+[text_box text_align="left" position_x="5" position_y="50" width="70" width__sm="100"]
+<p>Xưởng gia công WINDUCA · Trung tâm sản xuất chính xác</p>
+<h1>Mỗi bộ cửa bắt đầu từ một bản vẽ.</h1>
+<p>Gia công chính xác theo bản vẽ kiến trúc sư, rồi lắp đặt tại công trình.</p>
+ <a href="/danh-cho-kts/#tu-van">Gửi bản vẽ, nhận bóc tách</a>    <figure><img src="{{ANH:xuong/xuong-chan-dung.webp}}" alt=""/><figcaption>Xưởng gia công WINDUCA</figcaption></figure>
+[/text_box]
+[/ux_banner]
+
+[section padding="60px"]
+[row]
+[col span="12"]
+<p>Từ bản vẽ đến bộ cửa</p>
+<h2>Bảy bước của một bộ cửa WINDUCA.</h2>
+  <ol><li> 01 <h3>Tiếp nhận bản vẽ</h3>
+<p>Nhận bản vẽ kiến trúc và yêu cầu của công trình.</p>
+</li>
+<li> 02 <h3>Bóc tách</h3>
+<p>Đội kỹ thuật bóc tách theo bản vẽ và đề xuất giải pháp.</p>
+</li>
+<li> 03 <h3>Cắt</h3>
+<p>Cắt thanh nhôm theo kích thước đã bóc tách.</p>
+</li>
+<li> 04 <h3>Gia công</h3>
+<p>Gia công CNC/phay theo chi tiết từng bộ cửa.</p>
+</li>
+<li> 05 <h3>Lắp ráp</h3>
+<p>Ép góc, lắp ráp cánh, lắp kính và phụ kiện.</p>
+</li>
+<li> 06 <h3>Kiểm tra</h3>
+<p>Kiểm tra theo quy trình của xưởng trước khi giao.</p>
+</li>
+<li> 07 <h3>Đóng gói &amp; giao</h3>
+<p>Bảo vệ bề mặt, dán dấu bảo hành và tem, giao đến công trình.</p>
+</li>
+</ol>
+[/col]
+[/row]
+[/section]
+
+[section padding="60px"]
+[row]
+[col span="12"]
+<p>Công đoạn tại xưởng</p>
+<h2>Những gì được làm tại xưởng.</h2>
+      <figure><img src="{{ANH:xuong/may-khoan-nhom.webp}}" alt="Máy khoan gia công thanh nhôm"/>  <figcaption>Khoan, phay thanh nhôm</figcaption></figure>
+   <figure><img src="{{ANH:xuong/kiem-tra-gia-cong.webp}}" alt="Thợ kiểm tra trong lúc gia công"/></figure>
+    <ul><li>Cắt và gia công CNC/phay</li>
+<li>Ép góc và lắp ráp cánh</li>
+<li>Lắp kính và phụ kiện</li>
+<li>Xử lý bề mặt: anode hóa, sơn tĩnh điện</li>
+</ul>
+ <p>Thanh nhôm định hình là vật tư đầu vào; xưởng thực hiện các công đoạn gia công, lắp ráp và hoàn thiện nêu trên.</p>
+[/col]
+[/row]
+[/section]
+
+[section padding="60px"]
+[row]
+[col span="12"]
+<p>Kiểm soát chất lượng</p>
+<h2>Ba điểm kiểm tra.</h2>
+  <ol><li> 01 <h3>Nhận vật tư</h3>
+<p>Kiểm tra vật tư đầu vào trước khi đưa vào gia công.</p>
+</li>
+<li> 02 <h3>Sau gia công</h3>
+<p>Kiểm tra bộ cửa sau khi gia công và lắp ráp.</p>
+</li>
+<li> 03 <h3>Trước giao</h3>
+<p>Kiểm tra lần cuối trước khi đóng gói và giao.</p>
+</li>
+</ol>
+<p>Hạng mục kiểm tra chi tiết và kết quả thử nghiệm sẽ được công bố khi có xác nhận.</p>
+[/col]
+[/row]
+[/section]
+
+[section padding="60px"]
+[row]
+[col span="12"]
+<p>Bảo vệ &amp; bảo hành</p>
+<h2>Đến tay anh chị trong tình trạng nguyên vẹn.</h2>
+  <ul><li><h3>Màng bảo vệ kính</h3>
+<p>Bề mặt kính được bảo vệ trong quá trình vận chuyển và lắp đặt.</p>
+</li>
+<li><h3>Băng bảo vệ thanh nhôm</h3>
+<p>Bề mặt khung nhôm được bảo vệ cho đến khi bàn giao.</p>
+</li>
+<li><h3>Dấu bảo hành &amp; tem</h3>
+<p>Mỗi bộ cửa có dấu bảo hành và tem. Thời hạn: theo chính sách công bố.</p>
+</li>
+</ul>
+[/col]
+[/row]
+[/section]
+
+[section padding="60px"]
+[row]
+[col span="12"]
+<p>Tay nghề</p>
+<h2>Chính xác đến từng chi tiết.</h2>
+    <p>Chúng tôi chọn sự bền bỉ thay vì phô trương. Từng bộ cửa được gia công theo bản vẽ, kiểm tra và hoàn thiện cẩn thận trước khi đến công trình.</p>
+ <a href="/danh-cho-kts/#tu-van">Gửi bản vẽ, nhận bóc tách</a><a href="/trai-nghiem/#sample-box">Nhận hộp mẫu góc nhôm</a>    <figure><img src="{{ANH:xuong/tay-nghe-phu-kien.webp}}" alt="Kiểm tra tay nắm tại xưởng WINDUCA"/>  <figcaption>Kiểm tra bề mặt tay nắm</figcaption></figure>
+[/col]
+[/row]
+[/section]

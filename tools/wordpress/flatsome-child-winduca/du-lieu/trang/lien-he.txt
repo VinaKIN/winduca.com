@@ -1,0 +1,15 @@
+[section padding="60px"]
+[row]
+[col span="12"]
+<p>Kênh trực tiếp</p>
+<dl> <dt>Hotline</dt><dd><a href="tel:0947686668">0947 686 668</a></dd>  <dt>Email</dt><dd><a href="mailto:info@winduca.com">info@winduca.com</a></dd>  <dt>Showroom</dt><dd><a href="https://www.google.com/maps/search/?api=1&query=T%C3%B2a%20nh%C3%A0%20VinaKIN%20Building%2C%20280A5%20L%C6%B0%C6%A1ng%20%C4%90%E1%BB%8Bnh%20C%E1%BB%A7a%2C%20B%C3%ACnh%20Tr%C6%B0ng%2C%20H%E1%BB%93%20Ch%C3%AD%20Minh">Tòa nhà VinaKIN Building, 280A5 Lương Định Của, Bình Trưng, Hồ Chí Minh</a></dd> </dl>
+ <a href="https://www.google.com/maps/search/?api=1&query=T%C3%B2a%20nh%C3%A0%20VinaKIN%20Building%2C%20280A5%20L%C6%B0%C6%A1ng%20%C4%90%E1%BB%8Bnh%20C%E1%BB%A7a%2C%20B%C3%ACnh%20Tr%C6%B0ng%2C%20H%E1%BB%93%20Ch%C3%AD%20Minh">Chỉ đường</a><a href="/trai-nghiem/#showroom">Đặt lịch tư vấn</a>   <p>Chọn nhu cầu của bạn</p>
+<ul><li><a href="/he-cua/">Tư vấn sản phẩm</a></li>
+<li><a href="/trai-nghiem/#sample-box">Nhận hộp mẫu</a></li>
+<li><a href="/danh-cho-kts/#tu-van">Gửi bản vẽ kỹ thuật</a></li>
+<li><a href="/hop-tac/#dang-ky-tham-quan">Đăng ký đại lý, nhà thầu</a></li>
+<li><a href="/hop-tac/#architect">Hợp tác kiến trúc sư</a></li>
+</ul>
+[/col]
+[/row]
+[/section]

@@ -1,0 +1,26 @@
+[ux_banner height="420px" height__sm="360px" bg="{{ANH:hero.jpg}}" bg_overlay="rgba(35,31,32,0.62)" class="wd-hero"]
+[text_box text_align="left" position_x="5" position_y="50" width="70" width__sm="100"]
+<p>Pháp lý</p>
+<h1>Chính sách bảo hành và hậu mãi</h1>
+<p>Cập nhật: 10/11/2026 (bản nháp)</p>
+[/text_box]
+[/ux_banner]
+
+[section padding="60px"]
+[row]
+[col span="12"]
+<p>Bản nháp chờ bộ phận pháp chế duyệt. Nội dung có thể thay đổi trước khi website chính thức đi vào hoạt động.</p>
+ <p>Chính sách này mô tả cách WINDUCA hỗ trợ anh chị sau khi bàn giao bộ cửa.</p>
+<h2>1. Phạm vi bảo hành</h2>
+<p>Thời hạn và phạm vi bảo hành cho khung nhôm, bề mặt, kính và phụ kiện: [CHỜ XÁC NHẬN].</p>
+<h2>2. Điều kiện bảo hành</h2>
+<ul><li>Điều kiện lắp đặt và sử dụng: [CHỜ XÁC NHẬN].</li>
+<li>Các trường hợp không thuộc phạm vi bảo hành: [CHỜ XÁC NHẬN].</li>
+</ul>
+<h2>3. Hậu mãi</h2>
+<p>Bảo trì, hiệu chỉnh và hỗ trợ kỹ thuật sau bàn giao. Anh chị liên hệ hotline 0947 686 668 hoặc info@winduca.com để được hỗ trợ.</p>
+<h2>4. Quy trình tiếp nhận yêu cầu</h2>
+<p>Thời gian phản hồi và quy trình xử lý: [CHỜ XÁC NHẬN].</p>
+[/col]
+[/row]
+[/section]

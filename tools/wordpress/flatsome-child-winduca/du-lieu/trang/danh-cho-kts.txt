@@ -1,0 +1,167 @@
+[ux_banner height="420px" height__sm="360px" bg="" bg_overlay="rgba(35,31,32,0.62)" class="wd-hero"]
+[text_box text_align="left" position_x="5" position_y="50" width="70" width__sm="100"]
+<p>Kiến trúc sư &amp; nhà thiết kế</p>
+<h1>Tài liệu kỹ thuật, sẵn sàng cho bản vẽ của bạn.</h1>
+<p>Thư viện mặt cắt, mô hình BIM, hồ sơ kỹ thuật và tư vấn chi tiết theo bản vẽ cho từng kiểu cửa.</p>
+ <a href="#thu-vien">Tải thư viện kỹ thuật</a><a href="#tu-van">Gửi bản vẽ để tư vấn</a>    <figure><img src="{{ANH:xuong/ban-ve-chuyen-gia.webp}}" alt=""/><figcaption>Giải thích mặt cắt kỹ thuật</figcaption></figure>
+[/text_box]
+[/ux_banner]
+
+[section padding="60px"]
+[row]
+[col span="12"]
+<p>Technical Portal</p>
+<h2>Cổng tài liệu kỹ thuật</h2>
+<p>Tệp chỉ hiện nút tải khi đã được kiểm duyệt và có quyền phân phối.</p>
+  <ul><li> <img src="{{ANH:materials/showroom-display.webp}}" alt="Thư viện catalog"/> <h3>Thư viện catalog</h3>
+<p>Catalog các hệ cửa của WINDUCA.</p>
+ Sắp có </li>
+<li> <img src="{{ANH:mat-cat-khung-cua.jpg}}" alt="Mặt cắt DWG"/> <h3>Mặt cắt DWG</h3>
+<p>Bản vẽ mặt cắt cho hồ sơ thiết kế.</p>
+ Sắp có </li>
+<li> <img src="{{ANH:engineering/exploded-windows.webp}}" alt="Mô hình BIM"/> <h3>Mô hình BIM</h3>
+<p>Mô hình BIM dùng trong phần mềm thiết kế.</p>
+ Sắp có </li>
+<li> <img src="{{ANH:engineering/section-drawing-2.webp}}" alt="Hồ sơ kỹ thuật PDF"/> <h3>Hồ sơ kỹ thuật PDF</h3>
+<p>Mô tả kỹ thuật và hồ sơ năng lực.</p>
+ Sắp có </li>
+<li> <img src="{{ANH:bang-mau-vat-lieu-1.jpg}}" alt="Bảng màu vật liệu"/> <h3>Bảng màu vật liệu</h3>
+<p>Màu hoàn thiện cho khung cửa.</p>
+<a href="/he-cua/cua-truot-nang">Xem màu</a></li>
+<li> <img src="{{ANH:khoan-rap-chi-tiet.jpg}}" alt="Hướng dẫn lắp đặt"/> <h3>Hướng dẫn lắp đặt</h3>
+<p>Tài liệu hướng dẫn cho nhà thầu.</p>
+ Sắp có </li>
+<li><h3>Gửi bản vẽ để tư vấn</h3>
+<p>Gửi bản vẽ, nhận đề xuất giải pháp và chi tiết.</p>
+<a href="#tu-van">Gửi bản vẽ</a></li>
+<li><h3>Đăng ký nhận tài liệu</h3>
+<p>Để lại thông tin để được báo khi có tài liệu mới.</p>
+<a href="#thu-vien">Đăng ký</a></li>
+</ul>
+[/col]
+[/row]
+[/section]
+
+[section padding="60px"]
+[row]
+[col span="12"]
+<p>Cấu tạo &amp; mặt cắt</p>
+<h2>Hình minh họa cấu tạo nhôm kính</h2>
+<p>Hình tham khảo về cấu tạo profile, kính và gioăng. Bản vẽ và mặt cắt chính thức của WINDUCA sẽ thay thế khi được xác nhận.</p>
+  <ul><li><img src="{{ANH:engineering/profile-1.webp}}" alt="Hình minh họa cấu tạo profile nhôm"/></li>
+<li><img src="{{ANH:engineering/profile-2.webp}}" alt="Hình minh họa cấu tạo profile nhôm"/></li>
+<li><img src="{{ANH:engineering/profile-3.webp}}" alt="Hình minh họa cấu tạo profile nhôm"/></li>
+<li><img src="{{ANH:engineering/profile-4.webp}}" alt="Hình minh họa cấu tạo profile nhôm"/></li>
+<li><img src="{{ANH:engineering/section-drawing-1.webp}}" alt="Hình minh họa cấu tạo profile nhôm"/></li>
+</ul>
+[/col]
+[/row]
+[/section]
+
+[section padding="60px"]
+[row]
+[col span="12"]
+<p>Thư viện kỹ thuật</p>
+<h2>DWG · PDF · BIM</h2>
+<p>Các tệp đang được hoàn thiện. Đăng ký để được báo khi có tệp.</p>
+      <p>Kiểu cửa</p>
+    <p>Loại tệp</p>
+    <ul><li><p>DWG · PDF</p>
+<p>Mặt cắt — Cửa trượt nâng</p>
+<p>Cửa trượt nâng</p>
+<p>Sắp có</p>
+</li>
+<li><p>RFA · IFC</p>
+<p>Mô hình BIM</p>
+<p>Cửa trượt nâng</p>
+<p>Sắp có</p>
+</li>
+<li><p>PDF</p>
+<p>Catalog kỹ thuật</p>
+<p>Tất cả</p>
+<p>Sắp có</p>
+</li>
+</ul>
+  <h3>Đăng ký nhận tài liệu</h3>
+[/col]
+[/row]
+[/section]
+
+[section padding="60px"]
+[row]
+[col span="12"]
+<p>Xem trước mặt cắt 2D</p>
+<h2>Mặt cắt nét mảnh, có đường kích thước.</h2>
+<p>Đây là hình minh họa. Giá trị kích thước sẽ hiển thị khi có bản vẽ kỹ thuật được xác nhận.</p>
+[/col]
+[/row]
+[/section]
+
+[section padding="60px"]
+[row]
+[col span="12"]
+<p>Mô tả kỹ thuật mẫu</p>
+<h2>Mô tả để dán vào thuyết minh hoặc hồ sơ mời thầu.</h2>
+<p>Văn bản định tính, chưa có số liệu kỹ thuật. Số liệu sẽ được bổ sung cùng nguồn kiểm định.</p>
+     <h3>Cửa trượt nâng</h3>
+  <p>Cửa trượt nâng — hệ nhôm cầu cách nhiệt tiêu chuẩn châu Âu, thương hiệu WINDUCA. Cách mở: trượt ngang, cánh nâng khỏi ray khi mở. Khung nhôm gồm hai nửa liên kết bằng thanh cầu cách nhiệt polyamide. Bề mặt hoàn thiện: anode hóa hoặc sơn tĩnh điện, màu theo chỉ định của chủ đầu tư. Kính hộp, gioăng EPDM ôm sát khung và kính. Phụ kiện đồng bộ màu và đường nét với khung cửa; tay nắm khắc chữ WINDUCA. Gia công chính xác theo bản vẽ kiến trúc tại xưởng WINDUCA; lắp đặt tại công trình. Thông số kỹ thuật (hệ số truyền nhiệt, độ kín, tải gió): theo kết quả kiểm định khi có xác nhận.</p>
+    <h3>Cửa đi mở quay</h3>
+  <p>Cửa đi mở quay — hệ nhôm cầu cách nhiệt tiêu chuẩn châu Âu, thương hiệu WINDUCA. Cách mở: mở quay vào trong hoặc ra ngoài. Khung nhôm gồm hai nửa liên kết bằng thanh cầu cách nhiệt polyamide. Bề mặt hoàn thiện: anode hóa hoặc sơn tĩnh điện, màu theo chỉ định của chủ đầu tư. Kính hộp, gioăng EPDM ôm sát khung và kính. Phụ kiện đồng bộ màu và đường nét với khung cửa; tay nắm khắc chữ WINDUCA. Gia công chính xác theo bản vẽ kiến trúc tại xưởng WINDUCA; lắp đặt tại công trình. Thông số kỹ thuật (hệ số truyền nhiệt, độ kín, tải gió): theo kết quả kiểm định khi có xác nhận.</p>
+    <h3>Cửa xếp trượt</h3>
+  <p>Cửa xếp trượt — hệ nhôm cầu cách nhiệt tiêu chuẩn châu Âu, thương hiệu WINDUCA. Cách mở: cánh gập và xếp gọn về một hoặc hai phía. Khung nhôm gồm hai nửa liên kết bằng thanh cầu cách nhiệt polyamide. Bề mặt hoàn thiện: anode hóa hoặc sơn tĩnh điện, màu theo chỉ định của chủ đầu tư. Kính hộp, gioăng EPDM ôm sát khung và kính. Phụ kiện đồng bộ màu và đường nét với khung cửa; tay nắm khắc chữ WINDUCA. Gia công chính xác theo bản vẽ kiến trúc tại xưởng WINDUCA; lắp đặt tại công trình. Thông số kỹ thuật (hệ số truyền nhiệt, độ kín, tải gió): theo kết quả kiểm định khi có xác nhận.</p>
+    <h3>Cửa sổ</h3>
+  <p>Cửa sổ — hệ nhôm cầu cách nhiệt tiêu chuẩn châu Âu, thương hiệu WINDUCA. Cách mở: mở quay hoặc mở hất. Khung nhôm gồm hai nửa liên kết bằng thanh cầu cách nhiệt polyamide. Bề mặt hoàn thiện: anode hóa hoặc sơn tĩnh điện, màu theo chỉ định của chủ đầu tư. Kính hộp, gioăng EPDM ôm sát khung và kính. Phụ kiện đồng bộ màu và đường nét với khung cửa; tay nắm khắc chữ WINDUCA. Gia công chính xác theo bản vẽ kiến trúc tại xưởng WINDUCA; lắp đặt tại công trình. Thông số kỹ thuật (hệ số truyền nhiệt, độ kín, tải gió): theo kết quả kiểm định khi có xác nhận.</p>
+[/col]
+[/row]
+[/section]
+
+[section padding="60px"]
+[row]
+[col span="12"]
+<p>Tư vấn chi tiết theo bản vẽ</p>
+<h2>Gửi bản vẽ, nhận đề xuất giải pháp và chi tiết.</h2>
+  <ol><li> 01 <h3>Gửi bản vẽ</h3>
+<p>PDF, DWG, JPG hoặc PNG, tối đa 30MB.</p>
+</li>
+<li> 02 <h3>Đội kỹ thuật đề xuất</h3>
+<p>Giải pháp và chi tiết tham khảo theo bản vẽ.</p>
+</li>
+<li> 03 <h3>Trao đổi, hoàn thiện</h3>
+<p>Qua điện thoại, Zalo, email hoặc họp online.</p>
+</li>
+</ol>
+<p>Chi tiết WINDUCA đề xuất mang tính tham khảo; kiến trúc sư chịu trách nhiệm thiết kế cuối cùng.</p>
+[/col]
+[/row]
+[/section]
+
+[section padding="60px"]
+[row]
+[col span="12"]
+<h2>Gửi bản vẽ để tư vấn</h2>
+<p>Chúng tôi không hỏi ngân sách.</p>
+[/col]
+[/row]
+[/section]
+
+[section padding="60px"]
+[row]
+[col span="12"]
+<p>Trao đổi trực tiếp</p>
+<h2>Đặt lịch trao đổi 1-1 hoặc đưa khách đến showroom.</h2>
+  <p>Anh chị có thể đặt lịch trao đổi trực tuyến hoặc tại showroom. <a href="/trai-nghiem/#showroom">Đặt lịch</a>, và ghi chú “Đặt lịch cho khách của tôi” nếu anh chị muốn dẫn khách đến xem.</p>
+[/col]
+[/row]
+[/section]
+
+[section padding="60px"]
+[row]
+[col span="12"]
+<p>Câu hỏi</p>
+<h2>Câu hỏi thường gặp</h2>
+  <ul><li><p>Các tệp DWG, BIM và catalog đang được hoàn thiện cùng đội kỹ thuật. Anh chị đăng ký ở mục Thư viện để được báo khi có tệp.</p>
+</li>
+</ul>
+[/col]
+[/row]
+[/section]
