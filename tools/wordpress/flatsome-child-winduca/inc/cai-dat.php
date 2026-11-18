@@ -19,15 +19,16 @@ function winduca_bieu_mau_lien_he() {
     if (!function_exists('wpcf7_save_contact_form') || !class_exists('WPCF7_ContactForm')) {
         return '<p>Gửi yêu cầu qua email <a href="mailto:info@winduca.com">info@winduca.com</a> hoặc gọi <a href="tel:0947686668">0947 686 668</a>. (Cài plugin Contact Form 7 rồi chạy lại bước nhập trang để có biểu mẫu.)</p>';
     }
-    $id = (int) get_option('winduca_cf7_id');
+    $id = (int) get_option('winduca_cf7_id2');
     if (!$id || !get_post($id)) {
-        $mau = "<label>Họ và tên [text* ten autocomplete:name]</label>\n<label>Số điện thoại / Zalo [tel* sdt autocomplete:tel]</label>\n<label>Email (không bắt buộc) [email email autocomplete:email]</label>\n<label>Nội dung cần tư vấn [textarea noidung]</label>\n[acceptance dongy] Tôi đồng ý để WINDUCA liên hệ tư vấn theo Chính sách bảo mật. [/acceptance]\n[submit \"Gửi yêu cầu\"]";
+        $mau = "<label>Bạn cần gì [select* loai \"Tư vấn sản phẩm\" \"Nhận hộp mẫu góc nhôm\" \"Đặt lịch showroom\" \"Gửi bản vẽ để tư vấn\" \"Hợp tác đại lý, nhà thầu\" \"Hợp tác kiến trúc sư\"]</label>
+<label>Họ và tên [text* ten autocomplete:name]</label>\n<label>Số điện thoại / Zalo [tel* sdt autocomplete:tel]</label>\n<label>Email (không bắt buộc) [email email autocomplete:email]</label>\n<label>Nội dung cần tư vấn [textarea noidung]</label>\n[acceptance dongy] Tôi đồng ý để WINDUCA liên hệ tư vấn theo Chính sách bảo mật. [/acceptance]\n[submit \"Gửi yêu cầu\"]";
         $f = WPCF7_ContactForm::get_template();
         $f->set_title('Liên hệ WINDUCA');
         $f->set_properties(array('form' => $mau, 'mail' => array_merge($f->prop('mail'), array('subject' => 'WINDUCA: yêu cầu liên hệ mới', 'body' => "Họ tên: [ten]\nSĐT: [sdt]\nEmail: [email]\nNội dung: [noidung]"))));
         $f->save();
         $id = $f->id();
-        update_option('winduca_cf7_id', $id);
+        update_option('winduca_cf7_id2', $id);
     }
     return '[contact-form-7 id="' . $id . '" title="Liên hệ WINDUCA"]';
 }
@@ -42,8 +43,10 @@ function winduca_nhap_trang() {
             $nd = '[ux_banner height="300px" bg_color="#231f20" class="wd-hero"][text_box text_align="left" position_x="5" position_y="50" width="70"]<p>Hệ cửa nhôm kính · Romadio · Civro · Ponzio</p><h1>Chọn hệ cửa theo thông số kỹ thuật</h1><p>Lọc theo hãng, kết cấu, chức năng và hệ thống. Mỗi hệ hiển thị chỉ số do hãng công bố để so sánh nhanh.</p>[/text_box][/ux_banner]' . "\n" . '[section padding="40px"][row][col span="12"][wd_he_cua][/col][/row][/section]';
         } else {
             $nd = winduca_thay_anh(file_get_contents($dir . $t['slug'] . '.txt'));
-            if ($t['slug'] === 'lien-he') {
-                $nd .= "\n[section padding=\"40px\"][row][col span=\"8\" span__sm=\"12\"]<h2>Gửi yêu cầu</h2>" . winduca_bieu_mau_lien_he() . '[/col][/row][/section]';
+            $tieu_form = array('lien-he' => 'Gửi yêu cầu', 'trai-nghiem' => 'Đăng ký nhận hộp mẫu hoặc đặt lịch showroom', 'danh-cho-kts' => 'Gửi bản vẽ để tư vấn', 'hop-tac' => 'Đăng ký hợp tác');
+            if (isset($tieu_form[$t['slug']])) {
+                $nd .= "
+[section bg_color=\"#f5f3ee\" padding=\"50px\"][row][col span=\"8\" span__sm=\"12\"]<h2>" . $tieu_form[$t['slug']] . '</h2>' . winduca_bieu_mau_lien_he() . '[/col][/row][/section]';
             }
         }
         $p = get_page_by_path($t['slug']);

@@ -14,7 +14,7 @@ Bản dựng lại website winduca.com trên WordPress, thiết kế bằng **Fl
    - tạo 16 trang (Trang chủ, Giới thiệu, Hệ cửa, Giải pháp, Công trình, Hợp tác, Liên hệ, Trải nghiệm, Dành cho KTS, Năng lực xưởng, 5 trang chính sách, Điều khoản);
    - nhập **115 hệ cửa** vào mục "Hệ cửa" ở menu trái;
    - nhập **9 bài viết** kèm ảnh đại diện;
-   - đặt Trang chủ, trang Tin tức, menu chính, tạo biểu mẫu Liên hệ.
+   - đặt Trang chủ, trang Tin tức, menu chính, tạo biểu mẫu Contact Form 7 "Liên hệ WINDUCA" (có ô chọn nhu cầu) và gắn vào các trang Liên hệ, Trải nghiệm, Dành cho KTS, Hợp tác.
    Chạy lại được, không nhân đôi nội dung.
 4. Cài Elementor **không cần**: các trang dựng bằng UX Builder của Flatsome. Mở từng trang → "Edit with UX Builder" để chỉnh.
 5. Cài chứng chỉ HTTPS, đặt tên miền, tắt noindex khi mở chính thức: Cài đặt → Đọc → bỏ "Ngăn công cụ tìm kiếm".
