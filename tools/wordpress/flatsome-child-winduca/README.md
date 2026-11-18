@@ -5,7 +5,7 @@ Bản dựng lại website winduca.com trên WordPress, thiết kế bằng **Fl
 ## Cần có
 - WordPress 6.4 trở lên, PHP 7.4 trở lên (khuyến nghị 8.1+), HTTPS.
 - Theme **Flatsome 3.20.x** bản chính thức, đơn vị thiết kế tự cung cấp theo bản quyền của mình. **Gói này không kèm Flatsome.**
-- Plugin **Contact Form 7** (biểu mẫu Liên hệ). Tuỳ chọn như Winboss: WPS Hide Login, Secure Custom Fields.
+- Plugin **Contact Form 7** (biểu mẫu Liên hệ). Lưu ý: bản mới nhất yêu cầu **PHP 8.3**; hosting dùng PHP thấp hơn thì dùng bản 6.0.x (đã thử với 6.0.6 trên PHP 8.2). Tuỳ chọn như Winboss: WPS Hide Login, Secure Custom Fields.
 
 ## Cài đặt (khoảng 10 phút)
 1. Cài WordPress mới. Cài và kích hoạt **Flatsome**, rồi cài Contact Form 7.
@@ -38,7 +38,7 @@ Bản dựng lại website winduca.com trên WordPress, thiết kế bằng **Fl
 - **Thêm hệ cửa mới:** Thêm mới trong "Hệ cửa", điền các trường, ảnh đường dẫn bắt đầu bằng `/images/` (đặt trong `assets/images`).
 
 ## Lưu ý, chưa kiểm chứng
-- Gói đã được chạy thử trên WordPress cục bộ (WordPress 7.x, PHP 8.2, Flatsome 3.20.9, **chưa có Contact Form 7**): kích hoạt theme, nhập 16 trang, 115 hệ cửa, 9 bài viết, hiển thị Trang chủ, Giới thiệu, Hệ cửa (lọc, hộp chi tiết), Tin tức. **Chưa thử** biểu mẫu Liên hệ (cần Contact Form 7), UX Builder trong wp-admin, và trên hosting thật. Đơn vị thiết kế nên chạy thử và chỉnh giao diện cho khớp thiết kế gốc (bản Next.js ở repo `VinaKIN/winduca.com`).
+- Gói đã được chạy thử trên WordPress cục bộ (WordPress 7.x, PHP 8.2, Flatsome 3.20.9, Contact Form 7 6.0.6): kích hoạt theme, nhập 16 trang, 115 hệ cửa, 9 bài viết, hiển thị Trang chủ, Giới thiệu, Hệ cửa (lọc, hộp chi tiết), Tin tức. Biểu mẫu Liên hệ được tạo và hiển thị đúng (chưa thử gửi thư thật, cần cấu hình SMTP). **Chưa thử** UX Builder trong wp-admin, và trên hosting thật. Đơn vị thiết kế nên chạy thử và chỉnh giao diện cho khớp thiết kế gốc (bản Next.js ở repo `VinaKIN/winduca.com`).
 - Các trang khác Trang chủ và Hệ cửa được chuyển từ bản web hiện tại thành nội dung chữ và ảnh đơn giản, cần dàn lại bằng UX Builder để đẹp như thiết kế.
 - Tên khóa thiết lập header/menu của Flatsome được lấy từ preset trong theme, có thể phải chỉnh bằng Tùy biến.
 - Trang Hệ cửa: bản WordPress chưa có chức năng so sánh 3 hệ và hộp "Chọn hệ" 5 bước như bản Next.js.
