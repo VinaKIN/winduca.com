@@ -1,7 +1,6 @@
 [ux_banner height="420px" height__sm="360px" bg="" bg_overlay="rgba(35,31,32,0.62)" class="wd-hero"]
 [text_box text_align="left" position_x="5" position_y="50" width="70" width__sm="100"]
-<p>Kiến trúc sư &amp; nhà thiết kế</p>
-<h1>Tài liệu kỹ thuật, sẵn sàng cho bản vẽ của bạn.</h1>
+<span class="wd-nhan">Kiến trúc sư &amp; nhà thiết kế</span><h1>Tài liệu kỹ thuật, sẵn sàng cho bản vẽ của bạn.</h1>
 <p>Thư viện mặt cắt, mô hình BIM, hồ sơ kỹ thuật và tư vấn chi tiết theo bản vẽ cho từng kiểu cửa.</p>
  <a href="#thu-vien">Tải thư viện kỹ thuật</a><a href="#tu-van">Gửi bản vẽ để tư vấn</a>    <figure><img src="{{ANH:xuong/ban-ve-chuyen-gia.webp}}" alt=""/><figcaption>Giải thích mặt cắt kỹ thuật</figcaption></figure>
 [/text_box]
@@ -10,8 +9,7 @@
 [section padding="60px"]
 [row]
 [col span="12"]
-<p>Technical Portal</p>
-<h2>Cổng tài liệu kỹ thuật</h2>
+<span class="wd-nhan">Technical Portal</span><h2>Cổng tài liệu kỹ thuật</h2>
 <p>Tệp chỉ hiện nút tải khi đã được kiểm duyệt và có quyền phân phối.</p>
   <ul><li> <img src="{{ANH:materials/showroom-display.webp}}" alt="Thư viện catalog"/> <h3>Thư viện catalog</h3>
 <p>Catalog các hệ cửa của WINDUCA.</p>
@@ -45,8 +43,7 @@
 [section padding="60px"]
 [row]
 [col span="12"]
-<p>Cấu tạo &amp; mặt cắt</p>
-<h2>Hình minh họa cấu tạo nhôm kính</h2>
+<span class="wd-nhan">Cấu tạo &amp; mặt cắt</span><h2>Hình minh họa cấu tạo nhôm kính</h2>
 <p>Hình tham khảo về cấu tạo profile, kính và gioăng. Bản vẽ và mặt cắt chính thức của WINDUCA sẽ thay thế khi được xác nhận.</p>
   <ul><li><img src="{{ANH:engineering/profile-1.webp}}" alt="Hình minh họa cấu tạo profile nhôm"/></li>
 <li><img src="{{ANH:engineering/profile-2.webp}}" alt="Hình minh họa cấu tạo profile nhôm"/></li>
@@ -61,8 +58,7 @@
 [section padding="60px"]
 [row]
 [col span="12"]
-<p>Thư viện kỹ thuật</p>
-<h2>DWG · PDF · BIM</h2>
+<span class="wd-nhan">Thư viện kỹ thuật</span><h2>DWG · PDF · BIM</h2>
 <p>Các tệp đang được hoàn thiện. Đăng ký để được báo khi có tệp.</p>
       <p>Kiểu cửa</p>
     <p>Loại tệp</p>
@@ -90,8 +86,7 @@
 [section padding="60px"]
 [row]
 [col span="12"]
-<p>Xem trước mặt cắt 2D</p>
-<h2>Mặt cắt nét mảnh, có đường kích thước.</h2>
+<span class="wd-nhan">Xem trước mặt cắt 2D</span><h2>Mặt cắt nét mảnh, có đường kích thước.</h2>
 <p>Đây là hình minh họa. Giá trị kích thước sẽ hiển thị khi có bản vẽ kỹ thuật được xác nhận.</p>
 [/col]
 [/row]
@@ -100,8 +95,7 @@
 [section padding="60px"]
 [row]
 [col span="12"]
-<p>Mô tả kỹ thuật mẫu</p>
-<h2>Mô tả để dán vào thuyết minh hoặc hồ sơ mời thầu.</h2>
+<span class="wd-nhan">Mô tả kỹ thuật mẫu</span><h2>Mô tả để dán vào thuyết minh hoặc hồ sơ mời thầu.</h2>
 <p>Văn bản định tính, chưa có số liệu kỹ thuật. Số liệu sẽ được bổ sung cùng nguồn kiểm định.</p>
      <h3>Cửa trượt nâng</h3>
   <p>Cửa trượt nâng — hệ nhôm cầu cách nhiệt tiêu chuẩn châu Âu, thương hiệu WINDUCA. Cách mở: trượt ngang, cánh nâng khỏi ray khi mở. Khung nhôm gồm hai nửa liên kết bằng thanh cầu cách nhiệt polyamide. Bề mặt hoàn thiện: anode hóa hoặc sơn tĩnh điện, màu theo chỉ định của chủ đầu tư. Kính hộp, gioăng EPDM ôm sát khung và kính. Phụ kiện đồng bộ màu và đường nét với khung cửa; tay nắm khắc chữ WINDUCA. Gia công chính xác theo bản vẽ kiến trúc tại xưởng WINDUCA; lắp đặt tại công trình. Thông số kỹ thuật (hệ số truyền nhiệt, độ kín, tải gió): theo kết quả kiểm định khi có xác nhận.</p>
@@ -118,8 +112,7 @@
 [section padding="60px"]
 [row]
 [col span="12"]
-<p>Tư vấn chi tiết theo bản vẽ</p>
-<h2>Gửi bản vẽ, nhận đề xuất giải pháp và chi tiết.</h2>
+<span class="wd-nhan">Tư vấn chi tiết theo bản vẽ</span><h2>Gửi bản vẽ, nhận đề xuất giải pháp và chi tiết.</h2>
   <ol><li> 01 <h3>Gửi bản vẽ</h3>
 <p>PDF, DWG, JPG hoặc PNG, tối đa 30MB.</p>
 </li>
@@ -147,8 +140,7 @@
 [section padding="60px"]
 [row]
 [col span="12"]
-<p>Trao đổi trực tiếp</p>
-<h2>Đặt lịch trao đổi 1-1 hoặc đưa khách đến showroom.</h2>
+<span class="wd-nhan">Trao đổi trực tiếp</span><h2>Đặt lịch trao đổi 1-1 hoặc đưa khách đến showroom.</h2>
   <p>Anh chị có thể đặt lịch trao đổi trực tuyến hoặc tại showroom. <a href="/trai-nghiem/#showroom">Đặt lịch</a>, và ghi chú “Đặt lịch cho khách của tôi” nếu anh chị muốn dẫn khách đến xem.</p>
 [/col]
 [/row]
@@ -157,8 +149,7 @@
 [section padding="60px"]
 [row]
 [col span="12"]
-<p>Câu hỏi</p>
-<h2>Câu hỏi thường gặp</h2>
+<span class="wd-nhan">Câu hỏi</span><h2>Câu hỏi thường gặp</h2>
   <ul><li><p>Các tệp DWG, BIM và catalog đang được hoàn thiện cùng đội kỹ thuật. Anh chị đăng ký ở mục Thư viện để được báo khi có tệp.</p>
 </li>
 </ul>

@@ -1,7 +1,6 @@
 [ux_banner height="420px" height__sm="360px" bg="{{ANH:hero.jpg}}" bg_overlay="rgba(35,31,32,0.62)" class="wd-hero"]
 [text_box text_align="left" position_x="5" position_y="50" width="70" width__sm="100"]
-<p>Pháp lý</p>
-<h1>Chính sách đối tác và đại lý</h1>
+<span class="wd-nhan">Pháp lý</span><h1>Chính sách đối tác và đại lý</h1>
 <p>Cập nhật: 10/11/2026 (bản nháp)</p>
 [/text_box]
 [/ux_banner]

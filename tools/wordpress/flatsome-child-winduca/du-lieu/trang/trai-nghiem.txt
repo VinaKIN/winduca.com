@@ -1,7 +1,6 @@
 [ux_banner height="420px" height__sm="360px" bg="" bg_overlay="rgba(35,31,32,0.62)" class="wd-hero"]
 [text_box text_align="left" position_x="5" position_y="50" width="70" width__sm="100"]
-<p>Trải nghiệm</p>
-<h1>Chạm vào chất liệu, trước khi quyết định.</h1>
+<span class="wd-nhan">Trải nghiệm</span><h1>Chạm vào chất liệu, trước khi quyết định.</h1>
 <p>Nhận hộp mẫu góc nhôm tại nhà, hoặc đặt lịch trải nghiệm tại showroom WINDUCA.</p>
  <a href="#sample-box">Nhận hộp mẫu góc nhôm</a><a href="#showroom">Đặt lịch xem showroom</a>    <figure><img src="{{ANH:xuong/thanh-nhom-tay-nam.webp}}" alt=""/><figcaption>Mẫu góc nhôm và tay nắm</figcaption></figure>
 [/text_box]
@@ -10,8 +9,7 @@
 [section padding="60px"]
 [row]
 [col span="12"]
-<p>Hộp mẫu</p>
-<h2>Hộp mẫu góc nhôm tận nơi</h2>
+<span class="wd-nhan">Hộp mẫu</span><h2>Hộp mẫu góc nhôm tận nơi</h2>
 <p>Bốn món trong hộp mẫu, để anh chị chạm và so với không gian nhà mình.</p>
       <ol><li> 01 <h3>Chuyên viên liên hệ xác nhận</h3>
 <p>Chúng tôi gọi hoặc nhắn Zalo để xác nhận đăng ký.</p>
@@ -39,8 +37,7 @@
 [section padding="60px"]
 [row]
 [col span="12"]
-<p>Showroom</p>
-<h2>Showroom WINDUCA</h2>
+<span class="wd-nhan">Showroom</span><h2>Showroom WINDUCA</h2>
 <p>Xem cửa mẫu, chạm vật liệu và trao đổi bản vẽ cùng chuyên viên tư vấn.</p>
     <ol><li> 01   Đón tiếp  Chuyên viên tư vấn WINDUCA đón anh chị theo lịch đã hẹn.  </li>
 <li> 02   Xem cửa mẫu  Xem các kiểu cửa và cảm nhận vận hành.  </li>

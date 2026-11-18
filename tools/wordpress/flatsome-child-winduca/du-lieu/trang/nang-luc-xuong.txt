@@ -10,8 +10,7 @@
 [section padding="60px"]
 [row]
 [col span="12"]
-<p>Từ bản vẽ đến bộ cửa</p>
-<h2>Bảy bước của một bộ cửa WINDUCA.</h2>
+<span class="wd-nhan">Từ bản vẽ đến bộ cửa</span><h2>Bảy bước của một bộ cửa WINDUCA.</h2>
   <ol><li> 01 <h3>Tiếp nhận bản vẽ</h3>
 <p>Nhận bản vẽ kiến trúc và yêu cầu của công trình.</p>
 </li>
@@ -41,8 +40,7 @@
 [section padding="60px"]
 [row]
 [col span="12"]
-<p>Công đoạn tại xưởng</p>
-<h2>Những gì được làm tại xưởng.</h2>
+<span class="wd-nhan">Công đoạn tại xưởng</span><h2>Những gì được làm tại xưởng.</h2>
       <figure><img src="{{ANH:xuong/may-khoan-nhom.webp}}" alt="Máy khoan gia công thanh nhôm"/>  <figcaption>Khoan, phay thanh nhôm</figcaption></figure>
    <figure><img src="{{ANH:xuong/kiem-tra-gia-cong.webp}}" alt="Thợ kiểm tra trong lúc gia công"/></figure>
     <ul><li>Cắt và gia công CNC/phay</li>
@@ -58,8 +56,7 @@
 [section padding="60px"]
 [row]
 [col span="12"]
-<p>Kiểm soát chất lượng</p>
-<h2>Ba điểm kiểm tra.</h2>
+<span class="wd-nhan">Kiểm soát chất lượng</span><h2>Ba điểm kiểm tra.</h2>
   <ol><li> 01 <h3>Nhận vật tư</h3>
 <p>Kiểm tra vật tư đầu vào trước khi đưa vào gia công.</p>
 </li>
@@ -78,8 +75,7 @@
 [section padding="60px"]
 [row]
 [col span="12"]
-<p>Bảo vệ &amp; bảo hành</p>
-<h2>Đến tay anh chị trong tình trạng nguyên vẹn.</h2>
+<span class="wd-nhan">Bảo vệ &amp; bảo hành</span><h2>Đến tay anh chị trong tình trạng nguyên vẹn.</h2>
   <ul><li><h3>Màng bảo vệ kính</h3>
 <p>Bề mặt kính được bảo vệ trong quá trình vận chuyển và lắp đặt.</p>
 </li>
@@ -97,8 +93,7 @@
 [section padding="60px"]
 [row]
 [col span="12"]
-<p>Tay nghề</p>
-<h2>Chính xác đến từng chi tiết.</h2>
+<span class="wd-nhan">Tay nghề</span><h2>Chính xác đến từng chi tiết.</h2>
     <p>Chúng tôi chọn sự bền bỉ thay vì phô trương. Từng bộ cửa được gia công theo bản vẽ, kiểm tra và hoàn thiện cẩn thận trước khi đến công trình.</p>
  <a href="/danh-cho-kts/#tu-van">Gửi bản vẽ, nhận bóc tách</a><a href="/trai-nghiem/#sample-box">Nhận hộp mẫu góc nhôm</a>    <figure><img src="{{ANH:xuong/tay-nghe-phu-kien.webp}}" alt="Kiểm tra tay nắm tại xưởng WINDUCA"/>  <figcaption>Kiểm tra bề mặt tay nắm</figcaption></figure>
 [/col]
