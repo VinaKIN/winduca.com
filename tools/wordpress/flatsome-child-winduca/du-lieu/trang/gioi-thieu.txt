@@ -1,18 +1,25 @@
 [ux_banner height="420px" height__sm="360px" bg="{{ANH:khung-cua-nhom-xem.jpg}}" bg_overlay="rgba(35,31,32,0.62)" class="wd-hero"]
 [text_box text_align="left" position_x="5" position_y="50" width="70" width__sm="100"]
-<span class="wd-nhan">Giới thiệu</span><h1>WINDUCA – Premium Window &amp; Door</h1>
+    <span class="wd-nhan">Giới thiệu</span><h1>WINDUCA – Premium Window &amp; Door</h1>
 <p>Giải pháp cửa nhôm kính kiến trúc cao cấp, đồng bộ từ hệ nhôm, kính, phụ kiện đến thi công hoàn thiện.</p>
+    
 [/text_box]
 [/ux_banner]
 
 [section padding="60px"]
-[row]
-[col span="12"]
-<span class="wd-nhan">Câu chuyện thương hiệu</span><h2>Cánh cửa là một phần của  kiến trúc. </h2>
-     <figure><img src="{{ANH:mau-khung-nhom-den.jpg}}" alt="Chi tiết khung cửa nhôm"/>  <figcaption>Khung nhôm cầu cách nhiệt</figcaption></figure>
-   <figure><img src="{{ANH:mat-cat-khung-cua.jpg}}" alt="Mặt cắt khung cửa nhôm"/></figure>
+[row v_align="middle"]
+[col span="6" span__sm="12"]
+<p>Câu chuyện thương hiệu</p>
+ <h2>Cánh cửa là một phần của  kiến trúc. </h2>
+     
+   
      <p>WINDUCA theo đuổi cửa nhôm kính như một thành phần của kiến trúc: đường nét mảnh, khẩu độ lớn, vận hành êm và đồng bộ từ hệ nhôm đến thi công.</p>
 <p>Chúng tôi làm việc cùng chủ nhà, kiến trúc sư và nhà thầu để mỗi bộ cửa đúng với bản vẽ và đúng với không gian sống mà nó thuộc về.</p>
+    
+[/col]
+[col span="6" span__sm="12"]
+<figure><img src="{{ANH:mau-khung-nhom-den.jpg}}" alt="Chi tiết khung cửa nhôm"/> ¦<figcaption>Khung nhôm cầu cách nhiệt</figcaption></figure>
+<figure><img src="{{ANH:mat-cat-khung-cua.jpg}}" alt="Mặt cắt khung cửa nhôm"/></figure>
 [/col]
 [/row]
 [/section]
@@ -20,50 +27,58 @@
 [section padding="60px"]
 [row]
 [col span="12"]
-<span class="wd-nhan">Tầm nhìn &amp; giá trị</span><h2>Điều chúng tôi theo đuổi</h2>
+     <p>Tầm nhìn &amp; giá trị</p>
+ <h2>Điều chúng tôi theo đuổi</h2>
 <p>Ba điều dẫn dắt cách WINDUCA làm việc với chủ nhà, kiến trúc sư và nhà thầu, từ bản vẽ đầu tiên đến ngày bàn giao.</p>
- <ul><li>  Tầm nhìn  Trở thành đối tác giải pháp cửa nhôm kính kiến trúc đáng tin cậy của chủ nhà, kiến trúc sư và nhà thầu.  </li>
-<li>  Sứ mệnh  Mang đến giải pháp cửa đồng bộ, đúng bản vẽ, từ tư vấn đến thi công và hậu mãi.  </li>
-<li>  Giá trị  Chính xác trong từng chi tiết. Đồng bộ từ hệ nhôm đến thi công. Minh bạch trong thông tin.  </li>
-</ul>
+ [ux_html]<div class="wd-luoi-3"><div class="wd-the"><div class="wd-the-than"><h3>Tầm nhìn</h3><p>Trở thành đối tác giải pháp cửa nhôm kính kiến trúc đáng tin cậy của chủ nhà, kiến trúc sư và nhà thầu.</p></div></div><div class="wd-the"><div class="wd-the-than"><h3>Sứ mệnh</h3><p>Mang đến giải pháp cửa đồng bộ, đúng bản vẽ, từ tư vấn đến thi công và hậu mãi.</p></div></div><div class="wd-the"><div class="wd-the-than"><h3>Giá trị</h3><p>Chính xác trong từng chi tiết. Đồng bộ từ hệ nhôm đến thi công. Minh bạch trong thông tin.</p></div></div></div>[/ux_html]
+   
 [/col]
 [/row]
 [/section]
 
-[section padding="60px"]
-[row]
-[col span="12"]
-<span class="wd-nhan">03 · Cấu tạo</span><h2>Xem tận mắt cấu tạo</h2>
+[section bg_color="#231f20" dark="true" padding="60px"]
+[row h_align="center"]
+[col span="9" span__sm="12" align="center"]
+<p>03 · Cấu tạo</p>
+    <h2>Xem tận mắt cấu tạo</h2>
 <p>Tiêu chuẩn kỹ thuật châu Âu, trong từng lớp cấu tạo.</p>
                       <p>Liền khối</p>
   <p>Tách rời</p>
-    <p>Thông số kỹ thuật từng hệ cửa do hãng công bố nằm ở trang <a href="/he-cua/">Hệ cửa</a>.</p>
+    <p>Thông số kỹ thuật từng hệ cửa do hãng công bố nằm ở trang [button text="Hệ cửa" style="primary" radius="99" link="/he-cua/"].</p>
+  
 [/col]
 [/row]
 [/section]
 
-[section padding="60px"]
-[row]
-[col span="12"]
+[section bg_color="#231f20" dark="true" padding="60px"]
+[row h_align="center"]
+[col span="9" span__sm="12" align="center"]
 <span class="wd-nhan">Giải pháp đồng bộ</span><h2>Một giải pháp. Đồng bộ từng thành phần. </h2>
-<a href="/nang-luc-xuong/">Xem năng lực và xưởng</a>   <h3>Hệ profile nhôm</h3>
+[button text="Xem năng lực và xưởng" style="primary" radius="99" link="/nang-luc-xuong/"]   <h3>Hệ profile nhôm</h3>
 <p>Khung nhôm định hình cho cửa đi, cửa sổ và vách kính, tối ưu cho khẩu độ lớn và đường nét mảnh.</p>
+     
 [/col]
 [/row]
 [/section]
 
 [section padding="60px"]
-[row]
-[col span="12"]
-<span class="wd-nhan">Quy trình kiểm soát chất lượng</span><h2>Bốn bước từ bản vẽ đến nghiệm thu</h2>
-       <figure><img src="{{ANH:xuong/ban-ve-chuyen-gia.webp}}" alt="Chuyên viên giải thích mặt cắt trên bản vẽ"/>  <figcaption>Rà soát bản vẽ</figcaption></figure>
-   <figure><img src="{{ANH:engineering/section-drawing-1.webp}}" alt="Bản vẽ mặt cắt khung cửa"/></figure>
+[row v_align="middle"]
+[col span="6" span__sm="12"]
+<p>Quy trình kiểm soát chất lượng</p>
+ <h2>Bốn bước từ bản vẽ đến nghiệm thu</h2>
+       
+   
          <p>Bước 01 · Kiểm tra bản vẽ</p>
 <ul><li> Đối chiếu kích thước từng ô cửa </li>
 <li> Xác nhận kiểu mở và hướng mở </li>
 <li> Ghi chú yêu cầu màu và hoàn thiện </li>
 </ul>
   <p>Quy trình tham khảo, đội kỹ thuật sẽ xác nhận chi tiết.</p>
+        
+[/col]
+[col span="6" span__sm="12"]
+<figure><img src="{{ANH:xuong/ban-ve-chuyen-gia.webp}}" alt="Chuyên viên giải thích mặt cắt trên bản vẽ"/> ¦<figcaption>Rà soát bản vẽ</figcaption></figure>
+<figure><img src="{{ANH:engineering/section-drawing-1.webp}}" alt="Bản vẽ mặt cắt khung cửa"/></figure>
 [/col]
 [/row]
 [/section]
@@ -72,25 +87,17 @@
 [row]
 [col span="12"]
 <span class="wd-nhan">Hệ sinh thái đối tác</span><h2>Kết nối năng lực. Kiến tạo giá trị dài hạn. </h2>
-<a href="/hop-tac/">Khám phá chương trình hợp tác</a> <ul><li><a href="/danh-cho-kts/"> <h3>Dành cho kiến trúc sư</h3>
-<p>Thư viện kỹ thuật, bản vẽ mặt cắt và tư vấn theo bản vẽ.</p>
-   </a></li>
-<li><a href="/hop-tac/"> <h3>Dành cho nhà thầu</h3>
-<p>Bóc tách khối lượng, phối hợp thi công và hỗ trợ kỹ thuật.</p>
-   </a></li>
-<li><a href="/hop-tac/"> <h3>Dành cho đại lý</h3>
-<p>Chương trình hợp tác phân phối, đào tạo sản phẩm và kỹ thuật.</p>
-   </a></li>
-</ul>
+<a href="/hop-tac/">Khám phá chương trình hợp tác</a> [ux_html]<div class="wd-luoi-3"><a class="wd-the" href="/danh-cho-kts/"><div class="wd-the-than"><h3>Dành cho kiến trúc sư</h3><p>Thư viện kỹ thuật, bản vẽ mặt cắt và tư vấn theo bản vẽ.</p></div></a><a class="wd-the" href="/hop-tac/"><div class="wd-the-than"><h3>Dành cho nhà thầu</h3><p>Bóc tách khối lượng, phối hợp thi công và hỗ trợ kỹ thuật.</p></div></a><a class="wd-the" href="/hop-tac/"><div class="wd-the-than"><h3>Dành cho đại lý</h3><p>Chương trình hợp tác phân phối, đào tạo sản phẩm và kỹ thuật.</p></div></a></div>[/ux_html]
+   
 [/col]
 [/row]
 [/section]
 
-[section padding="60px"]
-[row]
-[col span="12"]
+[section bg_color="#231f20" dark="true" padding="60px"]
+[row h_align="center"]
+[col span="9" span__sm="12" align="center"]
 <span class="wd-nhan">Kết nối với WINDUCA</span><h2>Cùng trao đổi về  công trình của bạn. </h2>
- <a href="/lien-he/">Liên hệ tư vấn</a><a href="/giai-phap/">Xem giải pháp theo công trình</a>
+ [button text="Liên hệ tư vấn" style="primary" radius="99" link="/lien-he/"][button text="Xem giải pháp theo công trình" style="outline" radius="99" link="/giai-phap/"]    
 [/col]
 [/row]
 [/section]

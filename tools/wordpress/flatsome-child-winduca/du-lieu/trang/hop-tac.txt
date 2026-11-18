@@ -18,7 +18,7 @@
 <ul><li> Catalog sản phẩm (đang hoàn thiện) </li>
 <li> Tài liệu bán hàng (đang hoàn thiện) </li>
 </ul>
-  <a href="#dang-ky-tham-quan">Đăng ký hợp tác nhóm này</a>
+  <a href="#dang-ky-tham-quan">Đăng ký hợp tác nhóm này</a>      
 [/col]
 [/row]
 [/section]
@@ -28,19 +28,8 @@
 [col span="12"]
 <h2>Vì sao hợp tác với WINDUCA</h2>
   <p>Bốn điều đối tác nhận được khi làm việc cùng chúng tôi.</p>
- <ul><li> 01 <h3>Một đầu mối kỹ thuật</h3>
-<p>Mỗi đối tác có một đầu mối trao đổi, từ chọn hệ cửa, đọc bản vẽ đến xử lý phát sinh tại công trình.</p>
-</li>
-<li> 02 <h3>Tài liệu và hộp mẫu</h3>
-<p>Hộp mẫu góc nhôm, tài liệu kỹ thuật và hình ảnh để giới thiệu giải pháp với khách hàng của bạn.</p>
-</li>
-<li> 03 <h3>Đào tạo sản phẩm</h3>
-<p>Buổi giới thiệu về hệ cửa, cách mở và cách tư vấn lựa chọn theo từng loại công trình.</p>
-</li>
-<li> 04 <h3>Phối hợp trên công trình</h3>
-<p>Cùng khảo sát, bóc tách và triển khai để công trình đúng bản vẽ và đúng tiến độ đã trao đổi.</p>
-</li>
-</ul>
+ [ux_html]<div class="wd-luoi-3"><div class="wd-the"><div class="wd-the-than"><span class="wd-so">01</span><h3>Một đầu mối kỹ thuật</h3><p>Mỗi đối tác có một đầu mối trao đổi, từ chọn hệ cửa, đọc bản vẽ đến xử lý phát sinh tại công trình.</p></div></div><div class="wd-the"><div class="wd-the-than"><span class="wd-so">02</span><h3>Tài liệu và hộp mẫu</h3><p>Hộp mẫu góc nhôm, tài liệu kỹ thuật và hình ảnh để giới thiệu giải pháp với khách hàng của bạn.</p></div></div><div class="wd-the"><div class="wd-the-than"><span class="wd-so">03</span><h3>Đào tạo sản phẩm</h3><p>Buổi giới thiệu về hệ cửa, cách mở và cách tư vấn lựa chọn theo từng loại công trình.</p></div></div><div class="wd-the"><div class="wd-the-than"><span class="wd-so">04</span><h3>Phối hợp trên công trình</h3><p>Cùng khảo sát, bóc tách và triển khai để công trình đúng bản vẽ và đúng tiến độ đã trao đổi.</p></div></div></div>[/ux_html]
+  
 [/col]
 [/row]
 [/section]
@@ -49,19 +38,8 @@
 [row]
 [col span="12"]
 <h2>Bốn bước từ đăng ký đến triển khai</h2>
-   <ol><li> 01 <h3>Đăng ký</h3>
-<p>Để lại thông tin và chọn nhóm hợp tác của bạn.</p>
-</li>
-<li> 02 <h3>Trao đổi</h3>
-<p>Chuyên viên liên hệ để hiểu nhu cầu và khu vực hoạt động.</p>
-</li>
-<li> 03 <h3>Làm quen sản phẩm</h3>
-<p>Nhận hộp mẫu, tài liệu và buổi giới thiệu giải pháp.</p>
-</li>
-<li> 04 <h3>Cùng triển khai</h3>
-<p>Phối hợp trên công trình thực tế với một đầu mối hỗ trợ.</p>
-</li>
-</ol>
+   [ux_html]<div class="wd-luoi-3"><div class="wd-the"><div class="wd-the-than"><span class="wd-so">01</span><h3>Đăng ký</h3><p>Để lại thông tin và chọn nhóm hợp tác của bạn.</p></div></div><div class="wd-the"><div class="wd-the-than"><span class="wd-so">02</span><h3>Trao đổi</h3><p>Chuyên viên liên hệ để hiểu nhu cầu và khu vực hoạt động.</p></div></div><div class="wd-the"><div class="wd-the-than"><span class="wd-so">03</span><h3>Làm quen sản phẩm</h3><p>Nhận hộp mẫu, tài liệu và buổi giới thiệu giải pháp.</p></div></div><div class="wd-the"><div class="wd-the-than"><span class="wd-so">04</span><h3>Cùng triển khai</h3><p>Phối hợp trên công trình thực tế với một đầu mối hỗ trợ.</p></div></div></div>[/ux_html]
+  
 [/col]
 [/row]
 [/section]
@@ -81,6 +59,7 @@
  <p>Đầu mối kỹ thuật, tài liệu, hộp mẫu và buổi giới thiệu sản phẩm. Phạm vi chi tiết được thống nhất theo từng nhóm.</p>
    <p>WINDUCA có hỏi ngân sách của tôi không?</p>
  <p>Không. Chúng tôi không hỏi ngân sách và không đăng giá trên website.</p>
+      
 [/col]
 [/row]
 [/section]
@@ -90,10 +69,8 @@
 [col span="12"]
 <h2>Khu vực phụ trách</h2>
   <p>Chúng tôi đang mở rộng mạng lưới đối tác theo ba miền. Để lại thông tin để biết khu vực của bạn đã có đầu mối hỗ trợ chưa.</p>
- <ul><li> Miền Bắc  Đang mở rộng </li>
-<li> Miền Trung  Đang mở rộng </li>
-<li> Miền Nam  Đang mở rộng </li>
-</ul>
+ [ux_html]<div class="wd-luoi-3"><div class="wd-the"><div class="wd-the-than"><h3>Miền Bắc</h3><p>Đang mở rộng</p></div></div><div class="wd-the"><div class="wd-the-than"><h3>Miền Trung</h3><p>Đang mở rộng</p></div></div><div class="wd-the"><div class="wd-the-than"><h3>Miền Nam</h3><p>Đang mở rộng</p></div></div></div>[/ux_html]
+  
 [/col]
 [/row]
 [/section]

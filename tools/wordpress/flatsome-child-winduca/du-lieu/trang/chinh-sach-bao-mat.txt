@@ -1,13 +1,14 @@
 [ux_banner height="420px" height__sm="360px" bg="{{ANH:hero.jpg}}" bg_overlay="rgba(35,31,32,0.62)" class="wd-hero"]
 [text_box text_align="left" position_x="5" position_y="50" width="70" width__sm="100"]
-<span class="wd-nhan">Pháp lý</span><h1>Chính sách bảo mật</h1>
+    <span class="wd-nhan">Pháp lý</span><h1>Chính sách bảo mật</h1>
 <p>Cập nhật: 09/11/2026 (bản nháp)</p>
+    
 [/text_box]
 [/ux_banner]
 
-[section padding="60px"]
-[row]
-[col span="12"]
+[section padding="40px"]
+[row h_align="center"]
+[col span="8" span__sm="12"]
 <p>Bản nháp chờ bộ phận pháp chế duyệt. Nội dung có thể thay đổi trước khi website chính thức đi vào hoạt động.</p>
  <p>Chính sách này giải thích chúng tôi thu thập, sử dụng và bảo vệ thông tin cá nhân của anh chị khi sử dụng website winduca.com, theo quy định về bảo vệ dữ liệu cá nhân của Việt Nam (Nghị định 13/2023/NĐ-CP).</p>
 <h2>1. Thông tin chúng tôi thu thập</h2>
@@ -31,6 +32,7 @@
 <p>Chúng tôi chỉ dùng cookie cần thiết mặc định. Cookie đo lường và bản đồ chỉ hoạt động khi anh chị đồng ý. Xem <a href="/chinh-sach-cookie/">Chính sách cookie</a>.</p>
 <h2>6. Thông tin liên hệ</h2>
 <p>WINDUCA — [CHỖ TRỐNG] tên pháp nhân, mã số thuế. Địa chỉ: Tòa nhà VinaKIN Building, 280A5 Lương Định Của, Bình Trưng, Hồ Chí Minh. Hotline: 0947 686 668. Email: info@winduca.com.</p>
+    
 [/col]
 [/row]
 [/section]

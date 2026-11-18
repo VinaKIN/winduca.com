@@ -2,7 +2,8 @@
 [text_box text_align="left" position_x="5" position_y="50" width="70" width__sm="100"]
 <span class="wd-nhan">Kiến trúc sư &amp; nhà thiết kế</span><h1>Tài liệu kỹ thuật, sẵn sàng cho bản vẽ của bạn.</h1>
 <p>Thư viện mặt cắt, mô hình BIM, hồ sơ kỹ thuật và tư vấn chi tiết theo bản vẽ cho từng kiểu cửa.</p>
- <a href="#thu-vien">Tải thư viện kỹ thuật</a><a href="#tu-van">Gửi bản vẽ để tư vấn</a>    <figure><img src="{{ANH:xuong/ban-ve-chuyen-gia.webp}}" alt=""/><figcaption>Giải thích mặt cắt kỹ thuật</figcaption></figure>
+ [button text="Tải thư viện kỹ thuật" style="primary" radius="99" link="#thu-vien"][button text="Gửi bản vẽ để tư vấn" style="outline" radius="99" link="#tu-van"]    <figure><img src="{{ANH:xuong/ban-ve-chuyen-gia.webp}}" alt=""/><figcaption>Giải thích mặt cắt kỹ thuật</figcaption></figure>
+     
 [/text_box]
 [/ux_banner]
 
@@ -11,31 +12,8 @@
 [col span="12"]
 <span class="wd-nhan">Technical Portal</span><h2>Cổng tài liệu kỹ thuật</h2>
 <p>Tệp chỉ hiện nút tải khi đã được kiểm duyệt và có quyền phân phối.</p>
-  <ul><li> <img src="{{ANH:materials/showroom-display.webp}}" alt="Thư viện catalog"/> <h3>Thư viện catalog</h3>
-<p>Catalog các hệ cửa của WINDUCA.</p>
- Sắp có </li>
-<li> <img src="{{ANH:mat-cat-khung-cua.jpg}}" alt="Mặt cắt DWG"/> <h3>Mặt cắt DWG</h3>
-<p>Bản vẽ mặt cắt cho hồ sơ thiết kế.</p>
- Sắp có </li>
-<li> <img src="{{ANH:engineering/exploded-windows.webp}}" alt="Mô hình BIM"/> <h3>Mô hình BIM</h3>
-<p>Mô hình BIM dùng trong phần mềm thiết kế.</p>
- Sắp có </li>
-<li> <img src="{{ANH:engineering/section-drawing-2.webp}}" alt="Hồ sơ kỹ thuật PDF"/> <h3>Hồ sơ kỹ thuật PDF</h3>
-<p>Mô tả kỹ thuật và hồ sơ năng lực.</p>
- Sắp có </li>
-<li> <img src="{{ANH:bang-mau-vat-lieu-1.jpg}}" alt="Bảng màu vật liệu"/> <h3>Bảng màu vật liệu</h3>
-<p>Màu hoàn thiện cho khung cửa.</p>
-<a href="/he-cua/cua-truot-nang">Xem màu</a></li>
-<li> <img src="{{ANH:khoan-rap-chi-tiet.jpg}}" alt="Hướng dẫn lắp đặt"/> <h3>Hướng dẫn lắp đặt</h3>
-<p>Tài liệu hướng dẫn cho nhà thầu.</p>
- Sắp có </li>
-<li><h3>Gửi bản vẽ để tư vấn</h3>
-<p>Gửi bản vẽ, nhận đề xuất giải pháp và chi tiết.</p>
-<a href="#tu-van">Gửi bản vẽ</a></li>
-<li><h3>Đăng ký nhận tài liệu</h3>
-<p>Để lại thông tin để được báo khi có tài liệu mới.</p>
-<a href="#thu-vien">Đăng ký</a></li>
-</ul>
+  [ux_html]<div class="wd-luoi-3"><div class="wd-the"><img src="{{ANH:materials/showroom-display.webp}}" alt="Thư viện catalog"/><div class="wd-the-than"><h3>Thư viện catalog</h3><p>Catalog các hệ cửa của WINDUCA. Sắp có</p></div></div><div class="wd-the"><img src="{{ANH:mat-cat-khung-cua.jpg}}" alt="Mặt cắt DWG"/><div class="wd-the-than"><h3>Mặt cắt DWG</h3><p>Bản vẽ mặt cắt cho hồ sơ thiết kế. Sắp có</p></div></div><div class="wd-the"><img src="{{ANH:engineering/exploded-windows.webp}}" alt="Mô hình BIM"/><div class="wd-the-than"><h3>Mô hình BIM</h3><p>Mô hình BIM dùng trong phần mềm thiết kế. Sắp có</p></div></div><div class="wd-the"><img src="{{ANH:engineering/section-drawing-2.webp}}" alt="Hồ sơ kỹ thuật PDF"/><div class="wd-the-than"><h3>Hồ sơ kỹ thuật PDF</h3><p>Mô tả kỹ thuật và hồ sơ năng lực. Sắp có</p></div></div><a class="wd-the" href="/he-cua/cua-truot-nang"><img src="{{ANH:bang-mau-vat-lieu-1.jpg}}" alt="Bảng màu vật liệu"/><div class="wd-the-than"><h3>Bảng màu vật liệu</h3><p>Màu hoàn thiện cho khung cửa. Xem màu</p></div></a><div class="wd-the"><img src="{{ANH:khoan-rap-chi-tiet.jpg}}" alt="Hướng dẫn lắp đặt"/><div class="wd-the-than"><h3>Hướng dẫn lắp đặt</h3><p>Tài liệu hướng dẫn cho nhà thầu. Sắp có</p></div></div><a class="wd-the" href="#tu-van"><div class="wd-the-than"><h3>Gửi bản vẽ để tư vấn</h3><p>Gửi bản vẽ, nhận đề xuất giải pháp và chi tiết. Gửi bản vẽ</p></div></a><a class="wd-the" href="#thu-vien"><div class="wd-the-than"><h3>Đăng ký nhận tài liệu</h3><p>Để lại thông tin để được báo khi có tài liệu mới. Đăng ký</p></div></a></div>[/ux_html]
+   
 [/col]
 [/row]
 [/section]
@@ -45,12 +23,8 @@
 [col span="12"]
 <span class="wd-nhan">Cấu tạo &amp; mặt cắt</span><h2>Hình minh họa cấu tạo nhôm kính</h2>
 <p>Hình tham khảo về cấu tạo profile, kính và gioăng. Bản vẽ và mặt cắt chính thức của WINDUCA sẽ thay thế khi được xác nhận.</p>
-  <ul><li><img src="{{ANH:engineering/profile-1.webp}}" alt="Hình minh họa cấu tạo profile nhôm"/></li>
-<li><img src="{{ANH:engineering/profile-2.webp}}" alt="Hình minh họa cấu tạo profile nhôm"/></li>
-<li><img src="{{ANH:engineering/profile-3.webp}}" alt="Hình minh họa cấu tạo profile nhôm"/></li>
-<li><img src="{{ANH:engineering/profile-4.webp}}" alt="Hình minh họa cấu tạo profile nhôm"/></li>
-<li><img src="{{ANH:engineering/section-drawing-1.webp}}" alt="Hình minh họa cấu tạo profile nhôm"/></li>
-</ul>
+  [ux_html]<div class="wd-luoi-3"><div class="wd-the"><img src="{{ANH:engineering/profile-1.webp}}" alt="Hình minh họa cấu tạo profile nhôm"/><div class="wd-the-than"><h3></h3></div></div><div class="wd-the"><img src="{{ANH:engineering/profile-2.webp}}" alt="Hình minh họa cấu tạo profile nhôm"/><div class="wd-the-than"><h3></h3></div></div><div class="wd-the"><img src="{{ANH:engineering/profile-3.webp}}" alt="Hình minh họa cấu tạo profile nhôm"/><div class="wd-the-than"><h3></h3></div></div><div class="wd-the"><img src="{{ANH:engineering/profile-4.webp}}" alt="Hình minh họa cấu tạo profile nhôm"/><div class="wd-the-than"><h3></h3></div></div><div class="wd-the"><img src="{{ANH:engineering/section-drawing-1.webp}}" alt="Hình minh họa cấu tạo profile nhôm"/><div class="wd-the-than"><h3></h3></div></div></div>[/ux_html]
+   
 [/col]
 [/row]
 [/section]
@@ -79,6 +53,7 @@
 </li>
 </ul>
   <h3>Đăng ký nhận tài liệu</h3>
+       
 [/col]
 [/row]
 [/section]
@@ -88,6 +63,7 @@
 [col span="12"]
 <span class="wd-nhan">Xem trước mặt cắt 2D</span><h2>Mặt cắt nét mảnh, có đường kích thước.</h2>
 <p>Đây là hình minh họa. Giá trị kích thước sẽ hiển thị khi có bản vẽ kỹ thuật được xác nhận.</p>
+       
 [/col]
 [/row]
 [/section]
@@ -105,6 +81,7 @@
   <p>Cửa xếp trượt — hệ nhôm cầu cách nhiệt tiêu chuẩn châu Âu, thương hiệu WINDUCA. Cách mở: cánh gập và xếp gọn về một hoặc hai phía. Khung nhôm gồm hai nửa liên kết bằng thanh cầu cách nhiệt polyamide. Bề mặt hoàn thiện: anode hóa hoặc sơn tĩnh điện, màu theo chỉ định của chủ đầu tư. Kính hộp, gioăng EPDM ôm sát khung và kính. Phụ kiện đồng bộ màu và đường nét với khung cửa; tay nắm khắc chữ WINDUCA. Gia công chính xác theo bản vẽ kiến trúc tại xưởng WINDUCA; lắp đặt tại công trình. Thông số kỹ thuật (hệ số truyền nhiệt, độ kín, tải gió): theo kết quả kiểm định khi có xác nhận.</p>
     <h3>Cửa sổ</h3>
   <p>Cửa sổ — hệ nhôm cầu cách nhiệt tiêu chuẩn châu Âu, thương hiệu WINDUCA. Cách mở: mở quay hoặc mở hất. Khung nhôm gồm hai nửa liên kết bằng thanh cầu cách nhiệt polyamide. Bề mặt hoàn thiện: anode hóa hoặc sơn tĩnh điện, màu theo chỉ định của chủ đầu tư. Kính hộp, gioăng EPDM ôm sát khung và kính. Phụ kiện đồng bộ màu và đường nét với khung cửa; tay nắm khắc chữ WINDUCA. Gia công chính xác theo bản vẽ kiến trúc tại xưởng WINDUCA; lắp đặt tại công trình. Thông số kỹ thuật (hệ số truyền nhiệt, độ kín, tải gió): theo kết quả kiểm định khi có xác nhận.</p>
+      
 [/col]
 [/row]
 [/section]
@@ -113,17 +90,9 @@
 [row]
 [col span="12"]
 <span class="wd-nhan">Tư vấn chi tiết theo bản vẽ</span><h2>Gửi bản vẽ, nhận đề xuất giải pháp và chi tiết.</h2>
-  <ol><li> 01 <h3>Gửi bản vẽ</h3>
-<p>PDF, DWG, JPG hoặc PNG, tối đa 30MB.</p>
-</li>
-<li> 02 <h3>Đội kỹ thuật đề xuất</h3>
-<p>Giải pháp và chi tiết tham khảo theo bản vẽ.</p>
-</li>
-<li> 03 <h3>Trao đổi, hoàn thiện</h3>
-<p>Qua điện thoại, Zalo, email hoặc họp online.</p>
-</li>
-</ol>
+  [ux_html]<div class="wd-luoi-3"><div class="wd-the"><div class="wd-the-than"><span class="wd-so">01</span><h3>Gửi bản vẽ</h3><p>PDF, DWG, JPG hoặc PNG, tối đa 30MB.</p></div></div><div class="wd-the"><div class="wd-the-than"><span class="wd-so">02</span><h3>Đội kỹ thuật đề xuất</h3><p>Giải pháp và chi tiết tham khảo theo bản vẽ.</p></div></div><div class="wd-the"><div class="wd-the-than"><span class="wd-so">03</span><h3>Trao đổi, hoàn thiện</h3><p>Qua điện thoại, Zalo, email hoặc họp online.</p></div></div></div>[/ux_html]
 <p>Chi tiết WINDUCA đề xuất mang tính tham khảo; kiến trúc sư chịu trách nhiệm thiết kế cuối cùng.</p>
+   
 [/col]
 [/row]
 [/section]
@@ -133,15 +102,17 @@
 [col span="12"]
 <h2>Gửi bản vẽ để tư vấn</h2>
 <p>Chúng tôi không hỏi ngân sách.</p>
+     
 [/col]
 [/row]
 [/section]
 
-[section padding="60px"]
-[row]
-[col span="12"]
+[section bg_color="#231f20" dark="true" padding="60px"]
+[row h_align="center"]
+[col span="9" span__sm="12" align="center"]
 <span class="wd-nhan">Trao đổi trực tiếp</span><h2>Đặt lịch trao đổi 1-1 hoặc đưa khách đến showroom.</h2>
-  <p>Anh chị có thể đặt lịch trao đổi trực tuyến hoặc tại showroom. <a href="/trai-nghiem/#showroom">Đặt lịch</a>, và ghi chú “Đặt lịch cho khách của tôi” nếu anh chị muốn dẫn khách đến xem.</p>
+  <p>Anh chị có thể đặt lịch trao đổi trực tuyến hoặc tại showroom. [button text="Đặt lịch" style="primary" radius="99" link="/trai-nghiem/#showroom"], và ghi chú “Đặt lịch cho khách của tôi” nếu anh chị muốn dẫn khách đến xem.</p>
+   
 [/col]
 [/row]
 [/section]
@@ -153,6 +124,7 @@
   <ul><li><p>Các tệp DWG, BIM và catalog đang được hoàn thiện cùng đội kỹ thuật. Anh chị đăng ký ở mục Thư viện để được báo khi có tệp.</p>
 </li>
 </ul>
+   
 [/col]
 [/row]
 [/section]

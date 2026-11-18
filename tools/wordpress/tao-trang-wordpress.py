@@ -72,7 +72,7 @@ class P(HTMLParser):
                 elif self.skip == 0 and tag in CHO_PHEP:
                     self.out.append("</%s>" % tag)
                 elif self.skip == 0:
-                    self.out.append(" ")
+                    self.out.append("¦")
                 break
 
     def handle_data(self, d):
@@ -95,20 +95,98 @@ def lam_sach(h):
     return h.strip()
 
 
-def chuyen_section(s, dau):
+def van_ban(h):
+    return re.sub(r"\s+", " ", re.sub(r"<[^>]+>", " ", h)).strip()
+
+
+def the_tu_li(li):
+    """Một <li> -> (href, ảnh, tiêu đề, mô tả, số)."""
+    href = (re.search(r'<a href="([^"]*)"', li) or [None, ""])[1]
+    if re.match(r"^/(giai-phap|cong-trinh)/[^#]", href):
+        href = ""  # trang chi tiết riêng chưa có trong bản WordPress
+    img = re.search(r"<img[^>]*>", li)
+    anh = img.group(0) if img else ""
+    sp = re.sub(r"<img[^>]*>", "", li)
+    h3 = re.search(r"<h[2-4]>(.*?)</h[2-4]>", sp, re.S)
+    if h3:
+        tieu = van_ban(h3.group(1))
+        rest = sp.replace(h3.group(0), "¦")
+    else:
+        tieu, rest = "", sp
+    phan = [x.strip() for x in re.split(r"[¦]+", van_ban(rest.replace("¦", "¦"))) if x.strip()]
+    so = ""
+    if phan and re.fullmatch(r"\d{1,2}", phan[0]):
+        so = phan.pop(0)
+    if not tieu and phan:
+        tieu = phan.pop(0)
+    return href, anh, tieu, " ".join(phan), so
+
+
+def luoi_the(html, danh_so=False):
+    """<ul>/<ol> có ≥3 mục kèm ảnh/tiêu đề -> lưới thẻ."""
+    def doi(m):
+        goc = m.group(0)
+        items = re.findall(r"<li>(.*?)</li>", goc, re.S)
+        if len(items) < 3:
+            return goc
+        ds = [the_tu_li(x) for x in items]
+        co_anh = sum(1 for d in ds if d[1])
+        co_tieu = sum(1 for d in ds if d[2] and d[3])
+        if not (co_anh >= len(ds) - 1 or co_tieu >= len(ds) - 1):
+            return goc
+        ra = ['[ux_html]<div class="wd-luoi-3">']
+        for href, anh, tieu, mota, so in ds:
+            th = "a" if href else "div"
+            at = ' href="%s"' % href if href else ""
+            ra.append('<%s class="wd-the"%s>%s<div class="wd-the-than">%s<h3>%s</h3>%s</div></%s>' % (
+                th, at, anh, ('<span class="wd-so">%s</span>' % so) if so else "", tieu, ("<p>%s</p>" % mota) if mota else "", th))
+        ra.append("</div>[/ux_html]")
+        return "".join(ra)
+    return re.sub(r"<(ul|ol)>.*?</\1>", doi, html, flags=re.S)
+
+
+def nut_tu_lien_ket(html):
+    """Liên kết đứng riêng (không trong đoạn văn/danh sách) -> nút."""
+    ra = []
+    def doi(m):
+        kieu = "primary" if not ra else "outline"
+        ra.append(1)
+        return '[button text="%s" style="%s" radius="99" link="%s"]' % (van_ban(m.group(2)).replace('"', "'"), kieu, m.group(1))
+    return re.sub(r'<a href="([^"]*)">([^<]*)</a>', doi, html)
+
+
+def chuyen_section(s, dau, hep=False):
     p = P()
     p.feed(s)
     noi = lam_sach(p.out)
     if not noi:
         return ""
-    # nhãn nhỏ đứng trước tiêu đề -> span nhãn
     noi = re.sub(r"<p>([^<]{2,40})</p>\s*(<h[12]>)", lambda m: '<span class="wd-nhan">' + m.group(1) + '</span>' + m.group(2), noi)
     if dau:
         bg = p.anh_nen or ""
-        # hero: banner nền tối, chữ trái
+        noi = nut_tu_lien_ket(noi).replace("¦", " ")
         return ('[ux_banner height="420px" height__sm="360px" bg="%s" bg_overlay="rgba(35,31,32,0.62)" class="wd-hero"]\n'
                 '[text_box text_align="left" position_x="5" position_y="50" width="70" width__sm="100"]\n%s\n[/text_box]\n[/ux_banner]\n') % (bg, noi)
-    return '[section padding="60px"]\n[row]\n[col span="12"]\n%s\n[/col]\n[/row]\n[/section]\n' % noi
+    if hep:
+        return '[section padding="40px"]\n[row h_align="center"]\n[col span="8" span__sm="12"]\n%s\n[/col]\n[/row]\n[/section]\n' % noi.replace("¦", " ")
+    # có lưới thẻ
+    if re.search(r"<(ul|ol)>", noi):
+        n2 = luoi_the(noi)
+        if "wd-luoi-3" in n2:
+            return '[section padding="60px"]\n[row]\n[col span="12"]\n%s\n[/col]\n[/row]\n[/section]\n' % n2.replace("¦", " ")
+    # đoạn kêu gọi: tiêu đề + ít chữ + liên kết, không danh sách/ảnh
+    if re.search(r'<a href', noi) and not re.search(r"<(li|figure|img|table)", noi) and len(van_ban(noi)) < 420:
+        n2 = nut_tu_lien_ket(noi).replace("¦", " ")
+        return '[section bg_color="#231f20" dark="true" padding="60px"]\n[row h_align="center"]\n[col span="9" span__sm="12" align="center"]\n%s\n[/col]\n[/row]\n[/section]\n' % n2
+    # chữ + ảnh: hai cột
+    figs = re.findall(r"<figure>.*?</figure>", noi, re.S)
+    if figs and not re.search(r"<table", noi):
+        chu = noi
+        for f in figs:
+            chu = chu.replace(f, "")
+        return ('[section padding="60px"]\n[row v_align="middle"]\n[col span="6" span__sm="12"]\n%s\n[/col]\n[col span="6" span__sm="12"]\n%s\n[/col]\n[/row]\n[/section]\n'
+                % (chu.replace("¦", " "), "\n".join(figs[:2])))
+    return '[section padding="60px"]\n[row]\n[col span="12"]\n%s\n[/col]\n[/row]\n[/section]\n' % noi.replace("¦", " ")
 
 
 ds = []
@@ -125,7 +203,7 @@ for slug in TRANG:
     phan = [x for x in phan if x.strip().startswith("<section")]
     kq = []
     for i, x in enumerate(phan):
-        c = chuyen_section(x, i == 0 and "hero" in x[:200])
+        c = chuyen_section(x, i == 0 and "hero" in x[:200], hep=slug.startswith("chinh-sach") or slug == "dieu-khoan-su-dung")
         if c:
             kq.append(c)
     nd = "\n".join(kq)

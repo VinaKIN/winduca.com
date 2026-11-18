@@ -3,29 +3,18 @@
 [col span="12"]
 <h2>Công trình</h2>
              <p>Công trình thực tế của WINDUCA đang được cập nhật. Các ảnh dưới đây là cảm hứng kiến trúc, không phải công trình do WINDUCA thực hiện.</p>
-<ul><li><a href="/cong-trinh/minh-hoa-01/"> <img src="{{ANH:architecture/cong-trinh-01.webp}}" alt=""/>  Biệt thự ven biển  Miền Trung · Cửa trượt nâng. Ảnh cảm hứng kiến trúc. </a></li>
-<li><a href="/cong-trinh/minh-hoa-02/"> <img src="{{ANH:architecture/cong-trinh-02.webp}}" alt=""/>  Khách sạn trung tâm  Miền Nam · Cửa xếp trượt. Ảnh cảm hứng kiến trúc. </a></li>
-<li><a href="/cong-trinh/minh-hoa-03/"> <img src="{{ANH:architecture/cong-trinh-03.webp}}" alt=""/>  Biệt thự vườn  Miền Bắc · Cửa đi mở quay. Ảnh cảm hứng kiến trúc. </a></li>
-<li><a href="/cong-trinh/minh-hoa-04/"> <img src="{{ANH:architecture/cong-trinh-04.webp}}" alt=""/>  Nhà phố cải tạo  Miền Bắc · Cửa sổ. Ảnh cảm hứng kiến trúc. </a></li>
-<li><a href="/cong-trinh/minh-hoa-05/"> <img src="{{ANH:architecture/cong-trinh-05.webp}}" alt=""/>  Biệt thự hồ bơi  Miền Nam · Cửa trượt nâng. Ảnh cảm hứng kiến trúc. </a></li>
-<li><a href="/cong-trinh/minh-hoa-06/"> <img src="{{ANH:architecture/cong-trinh-06.webp}}" alt=""/>  Resort nghỉ dưỡng  Miền Bắc · Cửa xếp trượt. Ảnh cảm hứng kiến trúc. </a></li>
-<li><a href="/cong-trinh/minh-hoa-07/"> <img src="{{ANH:architecture/cong-trinh-07.webp}}" alt=""/>  Biệt thự đồi  Miền Trung · Cửa trượt nâng. Ảnh cảm hứng kiến trúc. </a></li>
-<li><a href="/cong-trinh/minh-hoa-08/"> <img src="{{ANH:architecture/cong-trinh-08.webp}}" alt=""/>  Nhà phố mặt tiền kính  Miền Nam · Cửa đi mở quay. Ảnh cảm hứng kiến trúc. </a></li>
-<li><a href="/cong-trinh/minh-hoa-09/"> <img src="{{ANH:architecture/cong-trinh-09.webp}}" alt=""/>  Biệt thự nghỉ dưỡng  Miền Trung · Cửa xếp trượt. Ảnh cảm hứng kiến trúc. </a></li>
-<li><a href="/cong-trinh/minh-hoa-10/"> <img src="{{ANH:architecture/cong-trinh-10.webp}}" alt=""/>  Khách sạn ven biển  Miền Nam · Cửa trượt nâng. Ảnh cảm hứng kiến trúc. </a></li>
-<li><a href="/cong-trinh/minh-hoa-11/"> <img src="{{ANH:architecture/cong-trinh-11.webp}}" alt=""/>  Biệt thự ven sông  Miền Nam · Cửa đi mở quay. Ảnh cảm hứng kiến trúc. </a></li>
-<li><a href="/cong-trinh/minh-hoa-12/"> <img src="{{ANH:architecture/cong-trinh-12.webp}}" alt=""/>  Nhà phố hiện đại  Miền Bắc · Cửa sổ. Ảnh cảm hứng kiến trúc. </a></li>
-</ul>
+[ux_html]<div class="wd-luoi-3"><div class="wd-the"><img src="{{ANH:architecture/cong-trinh-01.webp}}" alt=""/><div class="wd-the-than"><h3>Biệt thự ven biển</h3><p>Miền Trung · Cửa trượt nâng. Ảnh cảm hứng kiến trúc.</p></div></div><div class="wd-the"><img src="{{ANH:architecture/cong-trinh-02.webp}}" alt=""/><div class="wd-the-than"><h3>Khách sạn trung tâm</h3><p>Miền Nam · Cửa xếp trượt. Ảnh cảm hứng kiến trúc.</p></div></div><div class="wd-the"><img src="{{ANH:architecture/cong-trinh-03.webp}}" alt=""/><div class="wd-the-than"><h3>Biệt thự vườn</h3><p>Miền Bắc · Cửa đi mở quay. Ảnh cảm hứng kiến trúc.</p></div></div><div class="wd-the"><img src="{{ANH:architecture/cong-trinh-04.webp}}" alt=""/><div class="wd-the-than"><h3>Nhà phố cải tạo</h3><p>Miền Bắc · Cửa sổ. Ảnh cảm hứng kiến trúc.</p></div></div><div class="wd-the"><img src="{{ANH:architecture/cong-trinh-05.webp}}" alt=""/><div class="wd-the-than"><h3>Biệt thự hồ bơi</h3><p>Miền Nam · Cửa trượt nâng. Ảnh cảm hứng kiến trúc.</p></div></div><div class="wd-the"><img src="{{ANH:architecture/cong-trinh-06.webp}}" alt=""/><div class="wd-the-than"><h3>Resort nghỉ dưỡng</h3><p>Miền Bắc · Cửa xếp trượt. Ảnh cảm hứng kiến trúc.</p></div></div><div class="wd-the"><img src="{{ANH:architecture/cong-trinh-07.webp}}" alt=""/><div class="wd-the-than"><h3>Biệt thự đồi</h3><p>Miền Trung · Cửa trượt nâng. Ảnh cảm hứng kiến trúc.</p></div></div><div class="wd-the"><img src="{{ANH:architecture/cong-trinh-08.webp}}" alt=""/><div class="wd-the-than"><h3>Nhà phố mặt tiền kính</h3><p>Miền Nam · Cửa đi mở quay. Ảnh cảm hứng kiến trúc.</p></div></div><div class="wd-the"><img src="{{ANH:architecture/cong-trinh-09.webp}}" alt=""/><div class="wd-the-than"><h3>Biệt thự nghỉ dưỡng</h3><p>Miền Trung · Cửa xếp trượt. Ảnh cảm hứng kiến trúc.</p></div></div><div class="wd-the"><img src="{{ANH:architecture/cong-trinh-10.webp}}" alt=""/><div class="wd-the-than"><h3>Khách sạn ven biển</h3><p>Miền Nam · Cửa trượt nâng. Ảnh cảm hứng kiến trúc.</p></div></div><div class="wd-the"><img src="{{ANH:architecture/cong-trinh-11.webp}}" alt=""/><div class="wd-the-than"><h3>Biệt thự ven sông</h3><p>Miền Nam · Cửa đi mở quay. Ảnh cảm hứng kiến trúc.</p></div></div><div class="wd-the"><img src="{{ANH:architecture/cong-trinh-12.webp}}" alt=""/><div class="wd-the-than"><h3>Nhà phố hiện đại</h3><p>Miền Bắc · Cửa sổ. Ảnh cảm hứng kiến trúc.</p></div></div></div>[/ux_html]
+  
 [/col]
 [/row]
 [/section]
 
-[section padding="60px"]
-[row]
-[col span="12"]
+[section bg_color="#231f20" dark="true" padding="60px"]
+[row h_align="center"]
+[col span="9" span__sm="12" align="center"]
 <h2>Công trình của bạn là câu chuyện tiếp theo</h2>
 <p>Chọn giải pháp theo loại công trình hoặc gửi bản vẽ để được tư vấn.</p>
-  <a href="/giai-phap/">Giải pháp theo công trình</a><a href="/lien-he/">Liên hệ tư vấn</a>
+  [button text="Giải pháp theo công trình" style="primary" radius="99" link="/giai-phap/"][button text="Liên hệ tư vấn" style="outline" radius="99" link="/lien-he/"]     
 [/col]
 [/row]
 [/section]
