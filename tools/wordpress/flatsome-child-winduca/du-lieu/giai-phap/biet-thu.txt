@@ -1,0 +1,58 @@
+[ux_banner height="420px" height__sm="340px" bg="{{ANH:giai-phap/biet-thu-1.webp}}" bg_overlay="rgba(35,31,32,0.62)" class="wd-hero"]
+[text_box text_align="left" position_x="5" position_y="50" width="70" width__sm="100"]
+<span class="wd-nhan">Giải pháp theo công trình</span><h1>Giải pháp cửa cho biệt thự</h1><p>Trong một căn biệt thự, cánh cửa là ranh giới mềm nhất giữa phòng khách và khu vườn.</p>
+[/text_box]
+[/ux_banner]
+[section padding="60px"]
+[row]
+[col span="7" span__sm="12"]
+<p>Biệt thự hiện đại thường được thiết kế quanh một ý tưởng: kéo thiên nhiên vào không gian sống. Mặt kính vì thế rộng hơn, thanh nhôm mảnh hơn và ít gờ chắn tầm nhìn hơn. Cửa không còn chỉ là lớp ngăn mà trở thành một phần của kiến trúc.</p><p>Khi mặt tiền có nhiều lớp kính, đường nét của từng cánh cần thống nhất từ cửa chính, cửa ra vườn đến ô thoáng. Một bản vẽ chỉ đẹp khi các cánh cửa cùng nói một ngôn ngữ, từ màu hoàn thiện đến tỉ lệ khung.</p><blockquote>Cánh cửa đẹp là cánh cửa mà bạn quên mất nó đang ở đó.</blockquote>
+[/col]
+[col span="5" span__sm="12"]
+<img src="{{ANH:giai-phap/biet-thu-2.webp}}" alt="Phòng khách mở ra hồ bơi qua mặt kính lớn"/><p class="wd-chu-thich">Phòng khách mở ra hồ bơi qua mặt kính lớn. Ảnh minh họa, nguồn Pexels, không phải công trình của WINDUCA.</p>
+<h3>Không gian thường gặp</h3><ul><li>Phòng khách và sảnh liên thông với sân vườn, hồ bơi.</li><li>Mặt tiền nhiều lớp kính cần đường nét thống nhất.</li><li>Cửa chính và cửa ra vườn cần đóng mở chắc chắn.</li><li>Cân nhắc khẩu độ lớn, hướng nắng, gió và tầm nhìn.</li></ul>
+[/col]
+[/row]
+[/section]
+[section bg_color="#f5f3ee" padding="60px"]
+[row]
+[col span="12"]
+<h2>Cân nhắc khi thiết kế</h2>
+[ux_html]<div class="wd-luoi-3"><div class="wd-the"><div class="wd-the-than"><h3>Khẩu độ và tầm nhìn</h3><p>Mặt kính càng rộng, khung càng nên mảnh. Cần chốt sớm vị trí cánh cố định và cánh mở để không làm đứt mạch nhìn.</p></div></div><div class="wd-the"><div class="wd-the-than"><h3>Nắng, gió và mưa</h3><p>Hướng của từng mặt nhà quyết định cấu hình kính và cách che nắng. Nên xét cùng kiến trúc sư từ giai đoạn thiết kế.</p></div></div><div class="wd-the"><div class="wd-the-than"><h3>Đóng mở hằng ngày</h3><p>Cửa ra vườn và cửa hồ bơi được dùng nhiều nhất. Chọn kiểu mở theo thói quen của gia đình, không chỉ theo bản vẽ.</p></div></div></div>[/ux_html]
+[/col]
+[/row]
+[/section]
+[section padding="60px"]
+[row]
+[col span="12"]
+<h2>Kiểu cửa thường dùng</h2>
+<ul><li>Cửa trượt nâng</li><li>Cửa đi mở quay</li><li>Cửa sổ</li></ul><p>Cửa trượt nâng cho mặt kính lớn; cửa đi mở quay cho lối vào; cửa sổ đồng bộ đường nét với mặt tiền.</p>
+[button text="Xem hệ cửa" style="outline" radius="99" link="/he-cua/"]
+[/col]
+[/row]
+[/section]
+[section bg_color="#f5f3ee" padding="60px"]
+[row]
+[col span="12"]
+<h2>Từ bản vẽ đến nghiệm thu</h2>
+[ux_html]<div class="wd-luoi-3"><div class="wd-the"><div class="wd-the-than"><span class="wd-so">01</span><h3>Tiếp nhận</h3><p>Nhận bản vẽ, mặt đứng và yêu cầu kiến trúc. Chưa có bản vẽ vẫn có thể bắt đầu bằng trao đổi ý tưởng.</p></div></div><div class="wd-the"><div class="wd-the-than"><span class="wd-so">02</span><h3>Đề xuất</h3><p>Gợi ý kiểu cửa, hệ nhôm, kính và phụ kiện phù hợp từng vị trí trong công trình.</p></div></div><div class="wd-the"><div class="wd-the-than"><span class="wd-so">03</span><h3>Bóc tách</h3><p>Tư vấn chi tiết theo bản vẽ, thống nhất cấu hình và các điểm cần làm rõ cùng kiến trúc sư.</p></div></div><div class="wd-the"><div class="wd-the-than"><span class="wd-so">04</span><h3>Gia công</h3><p>Sản xuất theo bản vẽ đã chốt, kiểm soát vật tư để các hạng mục đồng đều.</p></div></div><div class="wd-the"><div class="wd-the-than"><span class="wd-so">05</span><h3>Lắp đặt và nghiệm thu</h3><p>Lắp đặt tại công trình, kiểm tra vận hành và nghiệm thu cùng chủ đầu tư.</p></div></div></div>[/ux_html]
+[/col]
+[/row]
+[/section]
+[section padding="60px"]
+[row h_align="center"]
+[col span="8" span__sm="12"]
+<h2>Câu hỏi thường gặp</h2>
+<h3>Mặt kính lớn nên chọn kiểu cửa nào?</h3><p>Với khẩu độ rộng nhìn ra sân vườn hoặc hồ bơi, cửa trượt nâng thường được cân nhắc đầu tiên vì cánh lớn, đường nét mảnh. Kiểu cuối cùng còn tùy bản vẽ, tải trọng và cách sử dụng.</p><h3>Làm sao để cửa chính và cửa sổ trông đồng bộ?</h3><p>Thống nhất màu hoàn thiện, tỉ lệ khung và cách chia ô ngay từ bản vẽ. Chọn các hệ cùng một ngôn ngữ thiết kế giúp mặt tiền liền mạch.</p><h3>Cần chuẩn bị gì trước khi nhờ WINDUCA tư vấn?</h3><p>Bản vẽ kiến trúc hoặc mặt đứng, vị trí các ô cửa và mong muốn về cách mở. Chưa có bản vẽ vẫn có thể trao đổi trước về ý tưởng.</p>
+[/col]
+[/row]
+[/section]
+[section bg_color="#231f20" dark="true" padding="60px"]
+[row h_align="center"]
+[col span="9" span__sm="12" align="center"]
+<h2>Gửi bản vẽ, nhận đề xuất giải pháp phù hợp</h2>
+<p>Đội kỹ thuật WINDUCA xem bản vẽ và phản hồi hướng triển khai.</p>
+[button text="Gửi bản vẽ để tư vấn" style="primary" radius="99" link="/danh-cho-kts/#tu-van"][button text="Liên hệ tư vấn" style="outline" radius="99" link="/lien-he/"]
+[/col]
+[/row]
+[/section]

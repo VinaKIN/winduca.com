@@ -11,7 +11,7 @@ Bản dựng lại website winduca.com trên WordPress, thiết kế bằng **Fl
 1. Cài WordPress mới. Cài và kích hoạt **Flatsome**, rồi cài Contact Form 7.
 2. Giao diện → Thêm mới → Tải lên: chọn `winduca-flatsome-child.zip`, cài đặt và **kích hoạt** (thư mục theme là `winduca-flatsome-child`). Khi kích hoạt, theme tự đặt màu đỏ #e31937, Roboto, logo, header Than đen.
 3. Vào **Công cụ → WINDUCA** và bấm **Làm tất cả**. Bước này:
-   - tạo 16 trang (Trang chủ, Giới thiệu, Hệ cửa, Giải pháp, Công trình, Hợp tác, Liên hệ, Trải nghiệm, Dành cho KTS, Năng lực xưởng, 5 trang chính sách, Điều khoản);
+   - tạo 16 trang cùng 8 trang con Giải pháp theo loại công trình (/giai-phap/biet-thu/ và các trang tương tự, đã thử) (Trang chủ, Giới thiệu, Hệ cửa, Giải pháp, Công trình, Hợp tác, Liên hệ, Trải nghiệm, Dành cho KTS, Năng lực xưởng, 5 trang chính sách, Điều khoản);
    - nhập **115 hệ cửa** vào mục "Hệ cửa" ở menu trái;
    - nhập **9 bài viết** kèm ảnh đại diện;
    - đặt Trang chủ, trang Tin tức, menu chính, tạo biểu mẫu Contact Form 7 "Liên hệ WINDUCA" (có ô chọn nhu cầu) và gắn vào các trang Liên hệ, Trải nghiệm, Dành cho KTS, Hợp tác.
@@ -42,5 +42,6 @@ Bản dựng lại website winduca.com trên WordPress, thiết kế bằng **Fl
 - Các trang khác Trang chủ và Hệ cửa được chuyển từ bản web hiện tại thành nội dung chữ và ảnh đơn giản, cần dàn lại bằng UX Builder để đẹp như thiết kế.
 - Tên khóa thiết lập header/menu của Flatsome được lấy từ preset trong theme, có thể phải chỉnh bằng Tùy biến.
 - Trang Hệ cửa: đã có thanh 5 bước (hãng, loại hệ, đặc điểm, danh sách, so sánh và tư vấn) kèm số hệ ở mỗi lựa chọn, và so sánh tối đa 3 hệ (đã thử trên WordPress cục bộ).
+- Công trình: 12 mục cảm hứng ở trang Công trình không có trang chi tiết, vì chưa có công trình thật được chủ đầu tư xác nhận.
 - Trang Hệ cửa nêu tên hãng và số liệu của hãng: cần xác nhận quyền sử dụng trước khi công bố. Số liệu dịch vụ ở Trang chủ để "—" vì chưa xác nhận. Ảnh stock có nhãn "Minh họa".
 - Biểu mẫu Liên hệ gửi thư qua Contact Form 7 tới email quản trị; không lưu dữ liệu khách ngoài kho nhận của WINDUCA. Chưa nối kho nhận lead.

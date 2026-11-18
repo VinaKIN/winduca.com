@@ -1,0 +1,58 @@
+[ux_banner height="420px" height__sm="340px" bg="{{ANH:giai-phap/van-phong-hang-a-1.webp}}" bg_overlay="rgba(35,31,32,0.62)" class="wd-hero"]
+[text_box text_align="left" position_x="5" position_y="50" width="70" width__sm="100"]
+<span class="wd-nhan">Giải pháp theo công trình</span><h1>Giải pháp cho văn phòng hạng A</h1><p>Một văn phòng tốt nhận ra mình qua ánh sáng: đủ sáng để làm việc, đủ kín để tập trung.</p>
+[/text_box]
+[/ux_banner]
+[section padding="60px"]
+[row]
+[col span="7" span__sm="12"]
+<p>Văn phòng hạng A cần tạo ấn tượng ngay từ sảnh đón, đồng thời phải thực dụng trong từng phòng họp và khu làm việc. Vách kính và cửa kính lớn giúp ánh sáng tự nhiên đi sâu vào không gian, giữ cảm giác thoáng mà vẫn phân chia được khu chức năng.</p><p>Điều quan trọng là sự đồng bộ. Khi mặt ngoài tòa nhà, sảnh và các phòng bên trong cùng một ngôn ngữ đường nét, thương hiệu doanh nghiệp được thể hiện nhất quán, không cần thêm một chi tiết trang trí nào.</p><blockquote>Ánh sáng tự nhiên là tiện nghi đắt giá nhất của một văn phòng.</blockquote>
+[/col]
+[col span="5" span__sm="12"]
+<img src="{{ANH:giai-phap/van-phong-hang-a-2.webp}}" alt="Vách kính phân chia không gian làm việc"/><p class="wd-chu-thich">Vách kính phân chia không gian làm việc. Ảnh minh họa, nguồn Pexels, không phải công trình của WINDUCA.</p>
+<h3>Không gian thường gặp</h3><ul><li>Sảnh đón và phòng họp cần vách kính lớn, sáng và sang.</li><li>Phân chia khu chức năng mà vẫn giữ cảm giác thoáng.</li><li>Cần giữ yên tĩnh cho phòng họp và khu làm việc tập trung.</li><li>Đồng bộ đường nét từ mặt ngoài đến nội thất.</li></ul>
+[/col]
+[/row]
+[/section]
+[section bg_color="#f5f3ee" padding="60px"]
+[row]
+[col span="12"]
+<h2>Cân nhắc khi thiết kế</h2>
+[ux_html]<div class="wd-luoi-3"><div class="wd-the"><div class="wd-the-than"><h3>Ánh sáng và chói</h3><p>Mặt kính lớn đón sáng nhưng cũng cần cách xử lý chói và nhiệt. Nên xét cùng thiết kế che nắng và nội thất.</p></div></div><div class="wd-the"><div class="wd-the-than"><h3>Yên tĩnh cho phòng họp</h3><p>Vách phân chia nên chọn cấu hình phù hợp nhu cầu riêng tư và cách âm của từng phòng.</p></div></div><div class="wd-the"><div class="wd-the-than"><h3>Hình ảnh thương hiệu</h3><p>Cửa sảnh là điểm chạm đầu tiên với đối tác. Đường nét gọn và vận hành êm tạo cảm giác chuyên nghiệp.</p></div></div></div>[/ux_html]
+[/col]
+[/row]
+[/section]
+[section padding="60px"]
+[row]
+[col span="12"]
+<h2>Kiểu cửa thường dùng</h2>
+<ul><li>Cửa đi mở quay</li><li>Cửa sổ</li><li>Cửa trượt nâng</li></ul><p>Cửa đi mở quay cho sảnh và phòng họp; cửa sổ cho mặt ngoài; cửa trượt cho khu liên thông.</p>
+[button text="Xem hệ cửa" style="outline" radius="99" link="/he-cua/"]
+[/col]
+[/row]
+[/section]
+[section bg_color="#f5f3ee" padding="60px"]
+[row]
+[col span="12"]
+<h2>Từ bản vẽ đến nghiệm thu</h2>
+[ux_html]<div class="wd-luoi-3"><div class="wd-the"><div class="wd-the-than"><span class="wd-so">01</span><h3>Tiếp nhận</h3><p>Nhận bản vẽ, mặt đứng và yêu cầu kiến trúc. Chưa có bản vẽ vẫn có thể bắt đầu bằng trao đổi ý tưởng.</p></div></div><div class="wd-the"><div class="wd-the-than"><span class="wd-so">02</span><h3>Đề xuất</h3><p>Gợi ý kiểu cửa, hệ nhôm, kính và phụ kiện phù hợp từng vị trí trong công trình.</p></div></div><div class="wd-the"><div class="wd-the-than"><span class="wd-so">03</span><h3>Bóc tách</h3><p>Tư vấn chi tiết theo bản vẽ, thống nhất cấu hình và các điểm cần làm rõ cùng kiến trúc sư.</p></div></div><div class="wd-the"><div class="wd-the-than"><span class="wd-so">04</span><h3>Gia công</h3><p>Sản xuất theo bản vẽ đã chốt, kiểm soát vật tư để các hạng mục đồng đều.</p></div></div><div class="wd-the"><div class="wd-the-than"><span class="wd-so">05</span><h3>Lắp đặt và nghiệm thu</h3><p>Lắp đặt tại công trình, kiểm tra vận hành và nghiệm thu cùng chủ đầu tư.</p></div></div></div>[/ux_html]
+[/col]
+[/row]
+[/section]
+[section padding="60px"]
+[row h_align="center"]
+[col span="8" span__sm="12"]
+<h2>Câu hỏi thường gặp</h2>
+<h3>Cửa cho phòng họp cần lưu ý gì?</h3><p>Quan trọng là độ kín và cách âm tương đối cho cuộc họp riêng tư. Đội kỹ thuật sẽ đề xuất cấu hình theo yêu cầu của từng phòng.</p><h3>Có thể đồng bộ cửa ngoài và vách trong không?</h3><p>Có. Thống nhất màu hoàn thiện và tỉ lệ khung giúp mặt ngoài và nội thất đọc như một tổng thể.</p><h3>Dự án văn phòng có tiến độ gấp thì sao?</h3><p>Cần trao đổi sớm về mốc bàn giao để sắp xếp bóc tách, gia công và lắp đặt hợp lý. Liên hệ để được tư vấn kế hoạch cụ thể.</p>
+[/col]
+[/row]
+[/section]
+[section bg_color="#231f20" dark="true" padding="60px"]
+[row h_align="center"]
+[col span="9" span__sm="12" align="center"]
+<h2>Gửi bản vẽ, nhận đề xuất giải pháp phù hợp</h2>
+<p>Đội kỹ thuật WINDUCA xem bản vẽ và phản hồi hướng triển khai.</p>
+[button text="Gửi bản vẽ để tư vấn" style="primary" radius="99" link="/danh-cho-kts/#tu-van"][button text="Liên hệ tư vấn" style="outline" radius="99" link="/lien-he/"]
+[/col]
+[/row]
+[/section]

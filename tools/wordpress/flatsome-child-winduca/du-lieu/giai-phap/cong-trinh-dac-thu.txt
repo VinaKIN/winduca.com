@@ -1,0 +1,58 @@
+[ux_banner height="420px" height__sm="340px" bg="{{ANH:giai-phap/cong-trinh-dac-thu-1.webp}}" bg_overlay="rgba(35,31,32,0.62)" class="wd-hero"]
+[text_box text_align="left" position_x="5" position_y="50" width="70" width__sm="100"]
+<span class="wd-nhan">Giải pháp theo công trình</span><h1>Giải pháp cho công trình kiến trúc đặc thù</h1><p>Khi hình khối đã khác thường, cánh cửa cũng phải được vẽ riêng cho nó.</p>
+[/text_box]
+[/ux_banner]
+[section padding="60px"]
+[row]
+[col span="7" span__sm="12"]
+<p>Có những công trình không đi theo lối mòn: mặt kính cong, góc cắt xiên, kích thước vượt khuôn mẫu. Ở đó, hệ cửa tiêu chuẩn chỉ là điểm khởi đầu và phần còn lại được hoàn thiện bằng chi tiết riêng theo ý đồ của kiến trúc sư.</p><p>Loại công trình này đòi hỏi phối hợp chặt chẽ giữa kiến trúc sư, nhà thầu và đội kỹ thuật ngay từ sớm. Phương án thi công, lắp đặt và dung sai càng được làm rõ sớm thì rủi ro phát sinh càng ít.</p><blockquote>Công trình đặc thù cần một người đối thoại, không chỉ một nhà cung cấp.</blockquote>
+[/col]
+[col span="5" span__sm="12"]
+<img src="{{ANH:giai-phap/cong-trinh-dac-thu-2.webp}}" alt="Mặt đứng kính cong của một công trình đặc thù"/><p class="wd-chu-thich">Mặt đứng kính cong của một công trình đặc thù. Ảnh minh họa, nguồn Pexels, không phải công trình của WINDUCA.</p>
+<h3>Không gian thường gặp</h3><ul><li>Hình khối, góc cắt hoặc kích thước ngoài tiêu chuẩn.</li><li>Cần chi tiết riêng theo bản vẽ của kiến trúc sư.</li><li>Phối hợp chặt chẽ giữa kiến trúc sư, nhà thầu và đội kỹ thuật.</li><li>Cân nhắc phương án thi công và lắp đặt từ sớm.</li></ul>
+[/col]
+[/row]
+[/section]
+[section bg_color="#f5f3ee" padding="60px"]
+[row]
+[col span="12"]
+<h2>Cân nhắc khi thiết kế</h2>
+[ux_html]<div class="wd-luoi-3"><div class="wd-the"><div class="wd-the-than"><h3>Bản vẽ làm điểm xuất phát</h3><p>Mọi đề xuất đi từ bản vẽ của kiến trúc sư. Càng có chi tiết, đội kỹ thuật càng đề xuất sát ý đồ.</p></div></div><div class="wd-the"><div class="wd-the-than"><h3>Dung sai và lắp đặt</h3><p>Hình khối phức tạp cần làm rõ dung sai và trình tự lắp đặt từ đầu để tránh sửa đổi tại công trình.</p></div></div><div class="wd-the"><div class="wd-the-than"><h3>Phối hợp nhiều bên</h3><p>Kiến trúc sư, nhà thầu và đội kỹ thuật nên có đầu mối trao đổi chung, cập nhật theo từng mốc.</p></div></div></div>[/ux_html]
+[/col]
+[/row]
+[/section]
+[section padding="60px"]
+[row]
+[col span="12"]
+<h2>Kiểu cửa thường dùng</h2>
+<ul><li>Cửa trượt nâng</li><li>Cửa đi mở quay</li><li>Cửa xếp trượt</li><li>Cửa sổ</li></ul><p>Lựa chọn tùy bản vẽ; đội kỹ thuật đề xuất kiểu cửa và chi tiết phù hợp từng hạng mục.</p>
+[button text="Xem hệ cửa" style="outline" radius="99" link="/he-cua/"]
+[/col]
+[/row]
+[/section]
+[section bg_color="#f5f3ee" padding="60px"]
+[row]
+[col span="12"]
+<h2>Từ bản vẽ đến nghiệm thu</h2>
+[ux_html]<div class="wd-luoi-3"><div class="wd-the"><div class="wd-the-than"><span class="wd-so">01</span><h3>Tiếp nhận</h3><p>Nhận bản vẽ, mặt đứng và yêu cầu kiến trúc. Chưa có bản vẽ vẫn có thể bắt đầu bằng trao đổi ý tưởng.</p></div></div><div class="wd-the"><div class="wd-the-than"><span class="wd-so">02</span><h3>Đề xuất</h3><p>Gợi ý kiểu cửa, hệ nhôm, kính và phụ kiện phù hợp từng vị trí trong công trình.</p></div></div><div class="wd-the"><div class="wd-the-than"><span class="wd-so">03</span><h3>Bóc tách</h3><p>Tư vấn chi tiết theo bản vẽ, thống nhất cấu hình và các điểm cần làm rõ cùng kiến trúc sư.</p></div></div><div class="wd-the"><div class="wd-the-than"><span class="wd-so">04</span><h3>Gia công</h3><p>Sản xuất theo bản vẽ đã chốt, kiểm soát vật tư để các hạng mục đồng đều.</p></div></div><div class="wd-the"><div class="wd-the-than"><span class="wd-so">05</span><h3>Lắp đặt và nghiệm thu</h3><p>Lắp đặt tại công trình, kiểm tra vận hành và nghiệm thu cùng chủ đầu tư.</p></div></div></div>[/ux_html]
+[/col]
+[/row]
+[/section]
+[section padding="60px"]
+[row h_align="center"]
+[col span="8" span__sm="12"]
+<h2>Câu hỏi thường gặp</h2>
+<h3>Công trình có hình khối đặc biệt có làm được không?</h3><p>Tùy bản vẽ cụ thể. Đội kỹ thuật sẽ xem xét và trao đổi phương án khả thi trước khi đề xuất hướng triển khai.</p><h3>Nên liên hệ ở giai đoạn nào của dự án?</h3><p>Càng sớm càng tốt, lý tưởng là giai đoạn thiết kế cơ sở hoặc kỹ thuật. Khi đó có thể tối ưu chi tiết thay vì xử lý lại sau.</p><h3>Kiến trúc sư có làm việc trực tiếp với đội kỹ thuật không?</h3><p>Có. WINDUCA sắp xếp để kiến trúc sư trao đổi trực tiếp với đội kỹ thuật về chi tiết và phương án triển khai.</p>
+[/col]
+[/row]
+[/section]
+[section bg_color="#231f20" dark="true" padding="60px"]
+[row h_align="center"]
+[col span="9" span__sm="12" align="center"]
+<h2>Gửi bản vẽ, nhận đề xuất giải pháp phù hợp</h2>
+<p>Đội kỹ thuật WINDUCA xem bản vẽ và phản hồi hướng triển khai.</p>
+[button text="Gửi bản vẽ để tư vấn" style="primary" radius="99" link="/danh-cho-kts/#tu-van"][button text="Liên hệ tư vấn" style="outline" radius="99" link="/lien-he/"]
+[/col]
+[/row]
+[/section]

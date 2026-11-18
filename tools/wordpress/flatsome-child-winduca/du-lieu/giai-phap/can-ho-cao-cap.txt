@@ -1,0 +1,58 @@
+[ux_banner height="420px" height__sm="340px" bg="{{ANH:giai-phap/can-ho-cao-cap-1.webp}}" bg_overlay="rgba(35,31,32,0.62)" class="wd-hero"]
+[text_box text_align="left" position_x="5" position_y="50" width="70" width__sm="100"]
+<span class="wd-nhan">Giải pháp theo công trình</span><h1>Giải pháp cửa cho căn hộ cao cấp</h1><p>Trong căn hộ, mỗi mét vuông đều quý, và ánh sáng là thứ mở rộng không gian mà không tốn diện tích.</p>
+[/text_box]
+[/ux_banner]
+[section padding="60px"]
+[row]
+[col span="7" span__sm="12"]
+<p>Căn hộ cao cấp thường có mặt kính lớn quay ra thành phố, sông hoặc biển. Cửa ban công vì vậy vừa là lối ra, vừa là khung tranh của cả phòng khách.</p><p>Sống giữa đô thị còn có câu chuyện tiếng ồn và sự riêng tư. Cấu hình kính, độ kín của cửa và cách bố trí cánh mở đều góp phần giữ không gian bên trong yên tĩnh, dễ chịu.</p><blockquote>Một khung cửa tốt biến căn hộ thành một khung nhìn.</blockquote>
+[/col]
+[col span="5" span__sm="12"]
+<img src="{{ANH:giai-phap/can-ho-cao-cap-2.webp}}" alt="Phòng khách đón ánh sáng qua cửa kính lớn"/><p class="wd-chu-thich">Phòng khách đón ánh sáng qua cửa kính lớn. Ảnh minh họa, nguồn Pexels, không phải công trình của WINDUCA.</p>
+<h3>Không gian thường gặp</h3><ul><li>Cửa ban công và cửa kính phòng khách nhìn ra thành phố.</li><li>Cần giữ yên tĩnh và riêng tư giữa khu đô thị đông đúc.</li><li>Mặt tiền tòa nhà có quy định chung về màu và hình thức.</li><li>Cân nhắc không gian hẹp, ưu tiên kiểu mở tiết kiệm diện tích.</li></ul>
+[/col]
+[/row]
+[/section]
+[section bg_color="#f5f3ee" padding="60px"]
+[row]
+[col span="12"]
+<h2>Cân nhắc khi thiết kế</h2>
+[ux_html]<div class="wd-luoi-3"><div class="wd-the"><div class="wd-the-than"><h3>Quy định của tòa nhà</h3><p>Ban quản lý thường có yêu cầu về màu khung, hình thức mặt ngoài và cách lắp đặt. Nên kiểm tra trước khi chốt phương án.</p></div></div><div class="wd-the"><div class="wd-the-than"><h3>Yên tĩnh và riêng tư</h3><p>Chọn cấu hình kính và độ kín phù hợp với vị trí căn hộ, nhất là mặt hướng ra đường lớn.</p></div></div><div class="wd-the"><div class="wd-the-than"><h3>Diện tích sử dụng</h3><p>Cánh trượt giúp không chiếm chỗ khi mở, phù hợp ban công và phòng khách không quá rộng.</p></div></div></div>[/ux_html]
+[/col]
+[/row]
+[/section]
+[section padding="60px"]
+[row]
+[col span="12"]
+<h2>Kiểu cửa thường dùng</h2>
+<ul><li>Cửa trượt nâng</li><li>Cửa sổ</li><li>Cửa đi mở quay</li></ul><p>Cửa trượt cho ban công và phòng khách; cửa sổ cho phòng ngủ; cửa đi mở quay cho lối vào hoặc phòng riêng.</p>
+[button text="Xem hệ cửa" style="outline" radius="99" link="/he-cua/"]
+[/col]
+[/row]
+[/section]
+[section bg_color="#f5f3ee" padding="60px"]
+[row]
+[col span="12"]
+<h2>Từ bản vẽ đến nghiệm thu</h2>
+[ux_html]<div class="wd-luoi-3"><div class="wd-the"><div class="wd-the-than"><span class="wd-so">01</span><h3>Tiếp nhận</h3><p>Nhận bản vẽ, mặt đứng và yêu cầu kiến trúc. Chưa có bản vẽ vẫn có thể bắt đầu bằng trao đổi ý tưởng.</p></div></div><div class="wd-the"><div class="wd-the-than"><span class="wd-so">02</span><h3>Đề xuất</h3><p>Gợi ý kiểu cửa, hệ nhôm, kính và phụ kiện phù hợp từng vị trí trong công trình.</p></div></div><div class="wd-the"><div class="wd-the-than"><span class="wd-so">03</span><h3>Bóc tách</h3><p>Tư vấn chi tiết theo bản vẽ, thống nhất cấu hình và các điểm cần làm rõ cùng kiến trúc sư.</p></div></div><div class="wd-the"><div class="wd-the-than"><span class="wd-so">04</span><h3>Gia công</h3><p>Sản xuất theo bản vẽ đã chốt, kiểm soát vật tư để các hạng mục đồng đều.</p></div></div><div class="wd-the"><div class="wd-the-than"><span class="wd-so">05</span><h3>Lắp đặt và nghiệm thu</h3><p>Lắp đặt tại công trình, kiểm tra vận hành và nghiệm thu cùng chủ đầu tư.</p></div></div></div>[/ux_html]
+[/col]
+[/row]
+[/section]
+[section padding="60px"]
+[row h_align="center"]
+[col span="8" span__sm="12"]
+<h2>Câu hỏi thường gặp</h2>
+<h3>Căn hộ có cần xin phép khi thay cửa không?</h3><p>Nhiều tòa nhà có quy định riêng về mặt ngoài và thi công. Nên hỏi ban quản lý và đưa quy định đó cho đội kỹ thuật để tính vào phương án.</p><h3>Cửa trượt hay cửa mở quay cho ban công?</h3><p>Ban công hẹp thường hợp cửa trượt vì không chiếm diện tích khi mở. Ban công rộng có thể cân nhắc thêm các kiểu khác tùy bản vẽ.</p><h3>Làm sao giảm tiếng ồn từ bên ngoài?</h3><p>Độ kín của cửa và cấu hình kính ảnh hưởng nhiều. Đội kỹ thuật sẽ tư vấn theo vị trí căn hộ; số liệu cụ thể sẽ được cung cấp khi có xác nhận.</p>
+[/col]
+[/row]
+[/section]
+[section bg_color="#231f20" dark="true" padding="60px"]
+[row h_align="center"]
+[col span="9" span__sm="12" align="center"]
+<h2>Gửi bản vẽ, nhận đề xuất giải pháp phù hợp</h2>
+<p>Đội kỹ thuật WINDUCA xem bản vẽ và phản hồi hướng triển khai.</p>
+[button text="Gửi bản vẽ để tư vấn" style="primary" radius="99" link="/danh-cho-kts/#tu-van"][button text="Liên hệ tư vấn" style="outline" radius="99" link="/lien-he/"]
+[/col]
+[/row]
+[/section]

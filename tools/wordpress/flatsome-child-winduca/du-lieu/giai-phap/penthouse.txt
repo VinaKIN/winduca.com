@@ -1,0 +1,58 @@
+[ux_banner height="420px" height__sm="340px" bg="{{ANH:giai-phap/penthouse-1.webp}}" bg_overlay="rgba(35,31,32,0.62)" class="wd-hero"]
+[text_box text_align="left" position_x="5" position_y="50" width="70" width__sm="100"]
+<span class="wd-nhan">Giải pháp theo công trình</span><h1>Giải pháp cửa cho penthouse</h1><p>Ở tầng cao, thứ đáng giá nhất là khoảng trời không bị khung cửa cắt ngang.</p>
+[/text_box]
+[/ux_banner]
+[section padding="60px"]
+[row]
+[col span="7" span__sm="12"]
+<p>Penthouse sống bằng tầm nhìn. Từ sân thượng hay ban công, thành phố và đường chân trời là phần được thiết kế kỹ nhất, và cửa phải biết lùi lại để nhường chỗ cho khung cảnh đó.</p><p>Ở độ cao này, gió và an toàn là câu hỏi đầu tiên chứ không phải câu hỏi cuối. Cánh cửa lớn cần vận hành ổn định, đóng kín chắc chắn và được lắp đặt chuẩn xác theo từng vị trí.</p><blockquote>Tầng càng cao, đường nét càng cần tối giản.</blockquote>
+[/col]
+[col span="5" span__sm="12"]
+<img src="{{ANH:giai-phap/penthouse-2.webp}}" alt="Sân thượng với lan can kính nhìn ra thành phố"/><p class="wd-chu-thich">Sân thượng với lan can kính nhìn ra thành phố. Ảnh minh họa, nguồn Pexels, không phải công trình của WINDUCA.</p>
+<h3>Không gian thường gặp</h3><ul><li>Ban công, sân thượng nhìn toàn cảnh thành phố hoặc biển.</li><li>Mặt kính cao, khẩu độ lớn, cần vận hành ổn định.</li><li>Cân nhắc gió và an toàn ở tầng cao.</li><li>Đường nét tối giản để giữ trọn tầm nhìn.</li></ul>
+[/col]
+[/row]
+[/section]
+[section bg_color="#f5f3ee" padding="60px"]
+[row]
+[col span="12"]
+<h2>Cân nhắc khi thiết kế</h2>
+[ux_html]<div class="wd-luoi-3"><div class="wd-the"><div class="wd-the-than"><h3>Tầm nhìn không bị cắt</h3><p>Hạn chế thanh ngang ở tầm mắt, ưu tiên cánh lớn và khung mảnh để đường chân trời liền một mạch.</p></div></div><div class="wd-the"><div class="wd-the-than"><h3>Gió ở tầng cao</h3><p>Cần xét điều kiện gió thực tế của tòa nhà khi chọn cấu hình kính và hệ cửa. Kiến trúc sư và đội kỹ thuật cùng chốt.</p></div></div><div class="wd-the"><div class="wd-the-than"><h3>Vận hành và an toàn</h3><p>Cánh lớn phải đóng mở êm, khóa chắc, và có phương án an toàn cho khu vực sát lan can.</p></div></div></div>[/ux_html]
+[/col]
+[/row]
+[/section]
+[section padding="60px"]
+[row]
+[col span="12"]
+<h2>Kiểu cửa thường dùng</h2>
+<ul><li>Cửa trượt nâng</li><li>Cửa xếp trượt</li><li>Cửa sổ</li></ul><p>Cửa trượt nâng và cửa xếp trượt cho khẩu độ rộng; cửa sổ cho các phòng riêng.</p>
+[button text="Xem hệ cửa" style="outline" radius="99" link="/he-cua/"]
+[/col]
+[/row]
+[/section]
+[section bg_color="#f5f3ee" padding="60px"]
+[row]
+[col span="12"]
+<h2>Từ bản vẽ đến nghiệm thu</h2>
+[ux_html]<div class="wd-luoi-3"><div class="wd-the"><div class="wd-the-than"><span class="wd-so">01</span><h3>Tiếp nhận</h3><p>Nhận bản vẽ, mặt đứng và yêu cầu kiến trúc. Chưa có bản vẽ vẫn có thể bắt đầu bằng trao đổi ý tưởng.</p></div></div><div class="wd-the"><div class="wd-the-than"><span class="wd-so">02</span><h3>Đề xuất</h3><p>Gợi ý kiểu cửa, hệ nhôm, kính và phụ kiện phù hợp từng vị trí trong công trình.</p></div></div><div class="wd-the"><div class="wd-the-than"><span class="wd-so">03</span><h3>Bóc tách</h3><p>Tư vấn chi tiết theo bản vẽ, thống nhất cấu hình và các điểm cần làm rõ cùng kiến trúc sư.</p></div></div><div class="wd-the"><div class="wd-the-than"><span class="wd-so">04</span><h3>Gia công</h3><p>Sản xuất theo bản vẽ đã chốt, kiểm soát vật tư để các hạng mục đồng đều.</p></div></div><div class="wd-the"><div class="wd-the-than"><span class="wd-so">05</span><h3>Lắp đặt và nghiệm thu</h3><p>Lắp đặt tại công trình, kiểm tra vận hành và nghiệm thu cùng chủ đầu tư.</p></div></div></div>[/ux_html]
+[/col]
+[/row]
+[/section]
+[section padding="60px"]
+[row h_align="center"]
+[col span="8" span__sm="12"]
+<h2>Câu hỏi thường gặp</h2>
+<h3>Penthouse cần lưu ý gì về gió?</h3><p>Điều kiện gió thay đổi theo độ cao và vị trí tòa nhà. Nên đưa thông tin này cho đội kỹ thuật ngay từ đầu để đề xuất cấu hình phù hợp.</p><h3>Cửa xếp trượt hay cửa trượt nâng phù hợp hơn?</h3><p>Cửa xếp trượt mở được gần hết khẩu độ, hợp với ban công muốn thông hẳn ra ngoài. Cửa trượt nâng cho cánh lớn, đóng kín và giữ tầm nhìn liền mạch. Tùy bản vẽ và cách dùng.</p><h3>Có làm được cửa cho ô kính rất cao không?</h3><p>Tùy khẩu độ và bản vẽ cụ thể. Đội kỹ thuật sẽ xem bản vẽ và trao đổi phương án khả thi trước khi báo hướng triển khai.</p>
+[/col]
+[/row]
+[/section]
+[section bg_color="#231f20" dark="true" padding="60px"]
+[row h_align="center"]
+[col span="9" span__sm="12" align="center"]
+<h2>Gửi bản vẽ, nhận đề xuất giải pháp phù hợp</h2>
+<p>Đội kỹ thuật WINDUCA xem bản vẽ và phản hồi hướng triển khai.</p>
+[button text="Gửi bản vẽ để tư vấn" style="primary" radius="99" link="/danh-cho-kts/#tu-van"][button text="Liên hệ tư vấn" style="outline" radius="99" link="/lien-he/"]
+[/col]
+[/row]
+[/section]

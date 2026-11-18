@@ -1,0 +1,58 @@
+[ux_banner height="420px" height__sm="340px" bg="{{ANH:giai-phap/nha-hang-quan-ca-phe-1.webp}}" bg_overlay="rgba(35,31,32,0.62)" class="wd-hero"]
+[text_box text_align="left" position_x="5" position_y="50" width="70" width__sm="100"]
+<span class="wd-nhan">Giải pháp theo công trình</span><h1>Giải pháp cho nhà hàng và quán cà phê</h1><p>Một quán ăn đẹp bắt đầu từ ô kính mặt tiền, nơi người qua đường quyết định có bước vào hay không.</p>
+[/text_box]
+[/ux_banner]
+[section padding="60px"]
+[row]
+[col span="7" span__sm="12"]
+<p>Với nhà hàng và quán cà phê, mặt kính là phương tiện giới thiệu rẻ nhất mà hiệu quả nhất. Ánh đèn, bàn ghế và người ngồi bên trong trở thành bức tranh sống động nhìn từ ngoài phố.</p><p>Cửa mở ra còn giúp không gian linh hoạt theo thời tiết và giờ cao điểm, biến mặt tiền thành khu ngồi ngoài trời khi cần. Cánh cửa phải vận hành thuận tay, vì nhân viên và khách ra vào cả ngày.</p><blockquote>Mặt kính là bảng hiệu đẹp nhất của một quán.</blockquote>
+[/col]
+[col span="5" span__sm="12"]
+<img src="{{ANH:giai-phap/nha-hang-quan-ca-phe-2.webp}}" alt="Quán ăn mở mặt kính nhìn ra phố"/><p class="wd-chu-thich">Quán ăn mở mặt kính nhìn ra phố. Ảnh minh họa, nguồn Pexels, không phải công trình của WINDUCA.</p>
+<h3>Không gian thường gặp</h3><ul><li>Mặt tiền kính lớn thu hút khách từ ngoài phố.</li><li>Cần mở rộng khu ngồi khi thời tiết đẹp hoặc giờ cao điểm.</li><li>Cửa vận hành liên tục, cần êm và bền.</li><li>Cân nhắc ánh sáng, nhiệt và độ riêng tư theo từng khung giờ.</li></ul>
+[/col]
+[/row]
+[/section]
+[section bg_color="#f5f3ee" padding="60px"]
+[row]
+[col span="12"]
+<h2>Cân nhắc khi thiết kế</h2>
+[ux_html]<div class="wd-luoi-3"><div class="wd-the"><div class="wd-the-than"><h3>Mặt tiền như một bảng hiệu</h3><p>Đường nét khung mảnh giúp kính nổi bật; màu khung nên hòa với nhận diện thương hiệu của quán.</p></div></div><div class="wd-the"><div class="wd-the-than"><h3>Mở khi cần</h3><p>Cửa xếp trượt hoặc cửa trượt cho phép nối khu trong và ngoài nhà, linh hoạt theo thời tiết.</p></div></div><div class="wd-the"><div class="wd-the-than"><h3>Vận hành cả ngày</h3><p>Cửa ra vào được dùng liên tục, nên ưu tiên phụ kiện bền và dễ bảo trì.</p></div></div></div>[/ux_html]
+[/col]
+[/row]
+[/section]
+[section padding="60px"]
+[row]
+[col span="12"]
+<h2>Kiểu cửa thường dùng</h2>
+<ul><li>Cửa xếp trượt</li><li>Cửa đi mở quay</li><li>Cửa trượt nâng</li></ul><p>Cửa xếp trượt để mở rộng mặt tiền; cửa đi mở quay cho lối vào; cửa trượt nâng cho mặt kính lớn.</p>
+[button text="Xem hệ cửa" style="outline" radius="99" link="/he-cua/"]
+[/col]
+[/row]
+[/section]
+[section bg_color="#f5f3ee" padding="60px"]
+[row]
+[col span="12"]
+<h2>Từ bản vẽ đến nghiệm thu</h2>
+[ux_html]<div class="wd-luoi-3"><div class="wd-the"><div class="wd-the-than"><span class="wd-so">01</span><h3>Tiếp nhận</h3><p>Nhận bản vẽ, mặt đứng và yêu cầu kiến trúc. Chưa có bản vẽ vẫn có thể bắt đầu bằng trao đổi ý tưởng.</p></div></div><div class="wd-the"><div class="wd-the-than"><span class="wd-so">02</span><h3>Đề xuất</h3><p>Gợi ý kiểu cửa, hệ nhôm, kính và phụ kiện phù hợp từng vị trí trong công trình.</p></div></div><div class="wd-the"><div class="wd-the-than"><span class="wd-so">03</span><h3>Bóc tách</h3><p>Tư vấn chi tiết theo bản vẽ, thống nhất cấu hình và các điểm cần làm rõ cùng kiến trúc sư.</p></div></div><div class="wd-the"><div class="wd-the-than"><span class="wd-so">04</span><h3>Gia công</h3><p>Sản xuất theo bản vẽ đã chốt, kiểm soát vật tư để các hạng mục đồng đều.</p></div></div><div class="wd-the"><div class="wd-the-than"><span class="wd-so">05</span><h3>Lắp đặt và nghiệm thu</h3><p>Lắp đặt tại công trình, kiểm tra vận hành và nghiệm thu cùng chủ đầu tư.</p></div></div></div>[/ux_html]
+[/col]
+[/row]
+[/section]
+[section padding="60px"]
+[row h_align="center"]
+[col span="8" span__sm="12"]
+<h2>Câu hỏi thường gặp</h2>
+<h3>Làm sao để quán thoáng mà vẫn kín khi máy lạnh chạy?</h3><p>Chọn cửa có độ kín tốt khi đóng và cho phép mở rộng khi cần. Đội kỹ thuật sẽ tư vấn theo cách quán vận hành.</p><h3>Mặt tiền kính lớn có phù hợp quán nhỏ không?</h3><p>Có, miễn là tỉ lệ cửa và vị trí cánh mở được tính trong bản vẽ. Quán nhỏ càng cần mặt kính để tạo cảm giác rộng.</p><h3>Có thể làm màu khung theo nhận diện thương hiệu không?</h3><p>Có thể trao đổi về màu hoàn thiện phù hợp. Liên hệ để xem mẫu và phương án.</p>
+[/col]
+[/row]
+[/section]
+[section bg_color="#231f20" dark="true" padding="60px"]
+[row h_align="center"]
+[col span="9" span__sm="12" align="center"]
+<h2>Gửi bản vẽ, nhận đề xuất giải pháp phù hợp</h2>
+<p>Đội kỹ thuật WINDUCA xem bản vẽ và phản hồi hướng triển khai.</p>
+[button text="Gửi bản vẽ để tư vấn" style="primary" radius="99" link="/danh-cho-kts/#tu-van"][button text="Liên hệ tư vấn" style="outline" radius="99" link="/lien-he/"]
+[/col]
+[/row]
+[/section]

@@ -1,0 +1,58 @@
+[ux_banner height="420px" height__sm="340px" bg="{{ANH:giai-phap/nha-pho-cao-cap-1.webp}}" bg_overlay="rgba(35,31,32,0.62)" class="wd-hero"]
+[text_box text_align="left" position_x="5" position_y="50" width="70" width__sm="100"]
+<span class="wd-nhan">Giải pháp theo công trình</span><h1>Giải pháp cho nhà phố cao cấp</h1><p>Nhà phố có chiều ngang hẹp, nên mỗi ô cửa phải làm việc nhiều hơn một nhiệm vụ.</p>
+[/text_box]
+[/ux_banner]
+[section padding="60px"]
+[row]
+[col span="7" span__sm="12"]
+<p>Mặt tiền nhà phố là nơi kiến trúc sư phải cân bằng giữa vẻ đẹp, ánh sáng và sự kín đáo. Cửa đi, cửa sổ và cửa ban công cùng xuất hiện trên một mặt đứng hẹp, nên chỉ cần lệch đường nét là thấy ngay.</p><p>Bên trong, giếng trời và cầu thang là hai nguồn sáng quan trọng. Cửa kính lấy sáng và thông gió tự nhiên giúp ngôi nhà sâu mà vẫn thoáng, đồng thời vẫn cần tính đến tiếng ồn từ mặt phố.</p><blockquote>Nhà hẹp không có nghĩa là tối. Có khi chỉ cần một ô kính đặt đúng chỗ.</blockquote>
+[/col]
+[col span="5" span__sm="12"]
+<img src="{{ANH:giai-phap/nha-pho-cao-cap-2.webp}}" alt="Dãy nhà phố với mặt tiền nhiều ô cửa"/><p class="wd-chu-thich">Dãy nhà phố với mặt tiền nhiều ô cửa. Ảnh minh họa, nguồn Pexels, không phải công trình của WINDUCA.</p>
+<h3>Không gian thường gặp</h3><ul><li>Mặt tiền hẹp, cần lấy sáng và thông gió tự nhiên.</li><li>Cửa đi, cửa sổ và cửa ban công cần đồng bộ đường nét.</li><li>Giếng trời và cầu thang cần ánh sáng.</li><li>Cân nhắc tiếng ồn từ mặt phố khi chọn cấu hình.</li></ul>
+[/col]
+[/row]
+[/section]
+[section bg_color="#f5f3ee" padding="60px"]
+[row]
+[col span="12"]
+<h2>Cân nhắc khi thiết kế</h2>
+[ux_html]<div class="wd-luoi-3"><div class="wd-the"><div class="wd-the-than"><h3>Đồng bộ mặt đứng</h3><p>Cửa chính, cửa sổ và ban công nên cùng màu và cùng tỉ lệ khung để mặt tiền trông liền khối.</p></div></div><div class="wd-the"><div class="wd-the-than"><h3>Sáng và thoáng</h3><p>Bố trí ô mở và ô cố định để vừa lấy sáng, vừa thông gió chéo cho ngôi nhà sâu.</p></div></div><div class="wd-the"><div class="wd-the-than"><h3>Tiếng ồn mặt phố</h3><p>Phòng hướng ra đường cần cấu hình kín hơn. Nên phân biệt khu cần yên tĩnh và khu cần thoáng.</p></div></div></div>[/ux_html]
+[/col]
+[/row]
+[/section]
+[section padding="60px"]
+[row]
+[col span="12"]
+<h2>Kiểu cửa thường dùng</h2>
+<ul><li>Cửa đi mở quay</li><li>Cửa sổ</li><li>Cửa xếp trượt</li></ul><p>Cửa đi mở quay cho lối vào; cửa sổ cho thông gió; cửa xếp trượt cho khu sinh hoạt liên thông.</p>
+[button text="Xem hệ cửa" style="outline" radius="99" link="/he-cua/"]
+[/col]
+[/row]
+[/section]
+[section bg_color="#f5f3ee" padding="60px"]
+[row]
+[col span="12"]
+<h2>Từ bản vẽ đến nghiệm thu</h2>
+[ux_html]<div class="wd-luoi-3"><div class="wd-the"><div class="wd-the-than"><span class="wd-so">01</span><h3>Tiếp nhận</h3><p>Nhận bản vẽ, mặt đứng và yêu cầu kiến trúc. Chưa có bản vẽ vẫn có thể bắt đầu bằng trao đổi ý tưởng.</p></div></div><div class="wd-the"><div class="wd-the-than"><span class="wd-so">02</span><h3>Đề xuất</h3><p>Gợi ý kiểu cửa, hệ nhôm, kính và phụ kiện phù hợp từng vị trí trong công trình.</p></div></div><div class="wd-the"><div class="wd-the-than"><span class="wd-so">03</span><h3>Bóc tách</h3><p>Tư vấn chi tiết theo bản vẽ, thống nhất cấu hình và các điểm cần làm rõ cùng kiến trúc sư.</p></div></div><div class="wd-the"><div class="wd-the-than"><span class="wd-so">04</span><h3>Gia công</h3><p>Sản xuất theo bản vẽ đã chốt, kiểm soát vật tư để các hạng mục đồng đều.</p></div></div><div class="wd-the"><div class="wd-the-than"><span class="wd-so">05</span><h3>Lắp đặt và nghiệm thu</h3><p>Lắp đặt tại công trình, kiểm tra vận hành và nghiệm thu cùng chủ đầu tư.</p></div></div></div>[/ux_html]
+[/col]
+[/row]
+[/section]
+[section padding="60px"]
+[row h_align="center"]
+[col span="8" span__sm="12"]
+<h2>Câu hỏi thường gặp</h2>
+<h3>Nhà phố hẹp nên chọn cửa nào để thoáng?</h3><p>Cửa sổ mở quay hoặc mở hất cho phép thông gió tốt mà ít chiếm chỗ. Với khu sinh hoạt liên thông, cửa xếp trượt cho phép mở rộng khi cần.</p><h3>Làm sao để mặt tiền trông đồng bộ?</h3><p>Thống nhất màu, độ dày khung và cách chia ô cho mọi loại cửa trên mặt đứng, ngay từ khi dựng bản vẽ.</p><h3>Có thể cải tạo cửa cho nhà đã xây xong không?</h3><p>Được, nếu đo đạc hiện trạng chính xác. Đội kỹ thuật sẽ khảo sát và đề xuất phương án phù hợp với kết cấu hiện có.</p>
+[/col]
+[/row]
+[/section]
+[section bg_color="#231f20" dark="true" padding="60px"]
+[row h_align="center"]
+[col span="9" span__sm="12" align="center"]
+<h2>Gửi bản vẽ, nhận đề xuất giải pháp phù hợp</h2>
+<p>Đội kỹ thuật WINDUCA xem bản vẽ và phản hồi hướng triển khai.</p>
+[button text="Gửi bản vẽ để tư vấn" style="primary" radius="99" link="/danh-cho-kts/#tu-van"][button text="Liên hệ tư vấn" style="outline" radius="99" link="/lien-he/"]
+[/col]
+[/row]
+[/section]

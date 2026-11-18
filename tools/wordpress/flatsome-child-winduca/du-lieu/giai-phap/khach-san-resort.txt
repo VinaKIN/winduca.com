@@ -1,0 +1,58 @@
+[ux_banner height="420px" height__sm="340px" bg="{{ANH:giai-phap/khach-san-resort-1.webp}}" bg_overlay="rgba(35,31,32,0.62)" class="wd-hero"]
+[text_box text_align="left" position_x="5" position_y="50" width="70" width__sm="100"]
+<span class="wd-nhan">Giải pháp theo công trình</span><h1>Giải pháp cho khách sạn và resort</h1><p>Với khách sạn, cánh cửa đầu tiên khách chạm vào cũng là lời chào đầu tiên của thương hiệu.</p>
+[/text_box]
+[/ux_banner]
+[section padding="60px"]
+[row]
+[col span="7" span__sm="12"]
+<p>Khách sạn và resort vận hành mỗi ngày, với dòng người đi lại liên tục. Cửa ở sảnh, nhà hàng và khu hồ bơi phải vừa đẹp để tạo ấn tượng, vừa bền và dễ bảo trì để giữ chất lượng lâu dài.</p><p>Công trình quy mô lớn còn đặt ra bài toán thống nhất: số lượng nhiều, tiến độ chặt, vật tư phải đồng đều từ lô đầu đến lô cuối. Một đầu mối tư vấn và triển khai giúp giảm rủi ro phối hợp.</p><blockquote>Công trình đẹp trong ảnh nghiệm thu chưa đủ, nó phải đẹp sau mỗi mùa cao điểm.</blockquote>
+[/col]
+[col span="5" span__sm="12"]
+<img src="{{ANH:giai-phap/khach-san-resort-2.webp}}" alt="Khu hồ bơi và sảnh mở ra thiên nhiên"/><p class="wd-chu-thich">Khu hồ bơi và sảnh mở ra thiên nhiên. Ảnh minh họa, nguồn Pexels, không phải công trình của WINDUCA.</p>
+<h3>Không gian thường gặp</h3><ul><li>Sảnh, nhà hàng và khu hồ bơi mở ra thiên nhiên.</li><li>Số lượng lớn, cần thống nhất vật tư và tiến độ.</li><li>Vận hành thường xuyên, cần bền và dễ bảo trì.</li><li>Cân nhắc dòng người đi lại và an toàn.</li></ul>
+[/col]
+[/row]
+[/section]
+[section bg_color="#f5f3ee" padding="60px"]
+[row]
+[col span="12"]
+<h2>Cân nhắc khi thiết kế</h2>
+[ux_html]<div class="wd-luoi-3"><div class="wd-the"><div class="wd-the-than"><h3>Thống nhất từ lô đầu đến lô cuối</h3><p>Số lượng lớn đòi hỏi vật tư đồng đều và quy trình sản xuất ổn định để các phòng, các tầng đồng nhất.</p></div></div><div class="wd-the"><div class="wd-the-than"><h3>Bền và dễ bảo trì</h3><p>Chọn kiểu cửa và phụ kiện theo tần suất sử dụng thực tế, có phương án bảo trì rõ ràng cho đội vận hành.</p></div></div><div class="wd-the"><div class="wd-the-than"><h3>Dòng người và an toàn</h3><p>Khu sảnh và hồ bơi cần xét lối đi, cách mở cánh và an toàn khi đông người.</p></div></div></div>[/ux_html]
+[/col]
+[/row]
+[/section]
+[section padding="60px"]
+[row]
+[col span="12"]
+<h2>Kiểu cửa thường dùng</h2>
+<ul><li>Cửa xếp trượt</li><li>Cửa trượt nâng</li><li>Cửa sổ</li></ul><p>Cửa xếp trượt cho khu mở; cửa trượt nâng cho mặt kính lớn; cửa sổ cho phòng nghỉ.</p>
+[button text="Xem hệ cửa" style="outline" radius="99" link="/he-cua/"]
+[/col]
+[/row]
+[/section]
+[section bg_color="#f5f3ee" padding="60px"]
+[row]
+[col span="12"]
+<h2>Từ bản vẽ đến nghiệm thu</h2>
+[ux_html]<div class="wd-luoi-3"><div class="wd-the"><div class="wd-the-than"><span class="wd-so">01</span><h3>Tiếp nhận</h3><p>Nhận bản vẽ, mặt đứng và yêu cầu kiến trúc. Chưa có bản vẽ vẫn có thể bắt đầu bằng trao đổi ý tưởng.</p></div></div><div class="wd-the"><div class="wd-the-than"><span class="wd-so">02</span><h3>Đề xuất</h3><p>Gợi ý kiểu cửa, hệ nhôm, kính và phụ kiện phù hợp từng vị trí trong công trình.</p></div></div><div class="wd-the"><div class="wd-the-than"><span class="wd-so">03</span><h3>Bóc tách</h3><p>Tư vấn chi tiết theo bản vẽ, thống nhất cấu hình và các điểm cần làm rõ cùng kiến trúc sư.</p></div></div><div class="wd-the"><div class="wd-the-than"><span class="wd-so">04</span><h3>Gia công</h3><p>Sản xuất theo bản vẽ đã chốt, kiểm soát vật tư để các hạng mục đồng đều.</p></div></div><div class="wd-the"><div class="wd-the-than"><span class="wd-so">05</span><h3>Lắp đặt và nghiệm thu</h3><p>Lắp đặt tại công trình, kiểm tra vận hành và nghiệm thu cùng chủ đầu tư.</p></div></div></div>[/ux_html]
+[/col]
+[/row]
+[/section]
+[section padding="60px"]
+[row h_align="center"]
+[col span="8" span__sm="12"]
+<h2>Câu hỏi thường gặp</h2>
+<h3>Dự án nhiều hạng mục thì làm việc thế nào?</h3><p>WINDUCA tiếp nhận toàn bộ bản vẽ, bóc tách theo từng hạng mục và đề xuất cấu hình thống nhất. Một đầu mối phụ trách giúp tiến độ và vật tư đồng bộ.</p><h3>Cửa cho khu có độ ẩm cao như hồ bơi cần lưu ý gì?</h3><p>Cần chọn hoàn thiện bề mặt và phụ kiện phù hợp môi trường. Đội kỹ thuật sẽ tư vấn khi nắm điều kiện cụ thể của công trình.</p><h3>Có hỗ trợ khảo sát tại công trình không?</h3><p>Có thể trao đổi để sắp xếp khảo sát tùy quy mô và vị trí. Liên hệ để được hướng dẫn cụ thể.</p>
+[/col]
+[/row]
+[/section]
+[section bg_color="#231f20" dark="true" padding="60px"]
+[row h_align="center"]
+[col span="9" span__sm="12" align="center"]
+<h2>Gửi bản vẽ, nhận đề xuất giải pháp phù hợp</h2>
+<p>Đội kỹ thuật WINDUCA xem bản vẽ và phản hồi hướng triển khai.</p>
+[button text="Gửi bản vẽ để tư vấn" style="primary" radius="99" link="/danh-cho-kts/#tu-van"][button text="Liên hệ tư vấn" style="outline" radius="99" link="/lien-he/"]
+[/col]
+[/row]
+[/section]

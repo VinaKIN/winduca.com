@@ -55,6 +55,19 @@ function winduca_nhap_trang() {
         update_post_meta($id, '_wp_page_template', 'page-blank.php');
         $n++;
     }
+    // Trang con của Giải pháp (8 loại công trình): /giai-phap/<slug>/
+    $cha = get_page_by_path('giai-phap');
+    $dc = get_stylesheet_directory() . '/du-lieu/giai-phap/';
+    if ($cha && file_exists($dc . '_danh-sach.json')) {
+        foreach (json_decode(file_get_contents($dc . '_danh-sach.json'), true) as $t) {
+            $nd = winduca_thay_anh(file_get_contents($dc . $t['slug'] . '.txt'));
+            $p = get_page_by_path('giai-phap/' . $t['slug']);
+            $mang = array('post_title' => $t['tieuDe'], 'post_name' => $t['slug'], 'post_parent' => $cha->ID, 'post_type' => 'page', 'post_status' => 'publish', 'post_content' => $nd);
+            if ($p) { $mang['ID'] = $p->ID; $id = wp_update_post($mang); } else { $id = wp_insert_post($mang); }
+            update_post_meta($id, '_wp_page_template', 'page-blank.php');
+            $n++;
+        }
+    }
     // Trang chủ
     $nd = winduca_thay_anh(file_get_contents(get_stylesheet_directory() . '/du-lieu/trang-chu.txt'));
     $p = get_page_by_path('trang-chu');

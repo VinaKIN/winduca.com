@@ -18,12 +18,16 @@ add_action('wp_enqueue_scripts', function () {
     wp_enqueue_style('winduca-app', $u . '/assets/css/app.css', [], filemtime($d . '/assets/css/app.css'));
     wp_enqueue_style('winduca-theme', get_stylesheet_uri(), ['winduca-app'], $v);
     wp_enqueue_script('winduca-app', $u . '/assets/js/app.js', [], filemtime($d . '/assets/js/app.js'), ['in_footer' => true, 'strategy' => 'defer']);
+    if (is_page('he-cua')) {
+        wp_enqueue_script('winduca-he-cua', $u . '/assets/js/he-cua.js', [], filemtime($d . '/assets/js/he-cua.js'), ['in_footer' => true, 'strategy' => 'defer']);
+    }
     if (is_single()) {
         wp_enqueue_script('winduca-bai-viet', $u . '/assets/js/bai-viet.js', [], filemtime($d . '/assets/js/bai-viet.js'), ['in_footer' => true, 'strategy' => 'defer']);
     }
 });
 
 require_once get_template_directory() . '/inc/tin-tuc.php';
+require_once get_template_directory() . '/inc/he-cua.php';
 
 // Gọn đầu trang: bỏ emoji, oembed rác
 remove_action('wp_head', 'print_emoji_detection_script', 7);
