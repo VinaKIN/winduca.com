@@ -75,3 +75,37 @@
 .wd-hc-bang-ss th, .wd-hc-bang-ss td { text-align: left; padding: 10px 12px; border-bottom: 1px solid #e3e7ec; vertical-align: top; font-weight: 300; }
 .wd-hc-bang-ss thead th { font-weight: 700; }
 .wd-hc-bang-ss tbody th { color: #697280; }
+
+/* Các bước chọn hệ (1 hãng, 2 loại hệ, 3 đặc điểm, 4 danh sách, 5 so sánh) */
+.wd-hc-buoc { list-style: none; display: flex; gap: 6px; margin: 0 0 24px; padding: 0; flex-wrap: wrap; }
+.wd-hc-buoc li { margin: 0; flex: 1 1 100px; }
+.wd-hc-buoc button { width: 100%; min-height: 48px; display: flex; align-items: center; justify-content: center; gap: 8px; border: 1px solid var(--line); background: #fff; border-radius: 999px; padding: 6px 12px; margin: 0; text-transform: none; letter-spacing: 0; color: var(--mute); }
+.wd-hc-buoc button i { font-style: normal; width: 26px; height: 26px; border-radius: 50%; background: var(--tile); display: inline-flex; align-items: center; justify-content: center; font-weight: 700; font-size: 13px; }
+.wd-hc-buoc button[aria-current="step"] { background: var(--ink); color: #fff; border-color: var(--ink); }
+.wd-hc-buoc button[aria-current="step"] i { background: var(--red); color: #fff; }
+.wd-hc-buoc-dau h3 { font-size: 28px; font-weight: 300 !important; margin: 4px 0; }
+.wd-hc-buoc-dau p { color: var(--mute); margin: 0 0 16px; }
+.wd-hc-buoc-dau p.wd-hc-hang { color: var(--red); margin: 0; }
+.wd-hc-chon-luoi { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+.wd-hc-chon-6 { grid-template-columns: repeat(3, 1fr); }
+.wd-hc-chon-4 { grid-template-columns: repeat(4, 1fr); }
+.wd-hc-chon { position: relative; text-align: left; border: 1px solid var(--line); background: #fff; border-radius: 18px; padding: 0 0 14px; overflow: hidden; margin: 0; text-transform: none; letter-spacing: 0; color: var(--ink); transition: border-color .2s, box-shadow .2s; }
+.wd-hc-chon:hover:not(:disabled) { border-color: var(--ink); }
+.wd-hc-chon[aria-pressed="true"] { border-color: var(--red); box-shadow: 0 0 0 2px var(--red); }
+.wd-hc-chon:disabled { opacity: .45; cursor: default; }
+.wd-hc-chon-anh { display: flex; aspect-ratio: 1 / .62; align-items: center; justify-content: center; background: var(--tile); border-bottom: 1px solid var(--line); margin-bottom: 12px; }
+.wd-hc-chon-anh img { max-width: 90%; max-height: 90%; object-fit: contain; }
+.wd-hc-chon strong, .wd-hc-chon .wd-hc-chon-mt, .wd-hc-chon em { display: block; margin: 0 16px; }
+.wd-hc-chon:not(:has(.wd-hc-chon-anh)) strong { margin-top: 14px; }
+.wd-hc-chon strong { font-size: 17px; }
+.wd-hc-chon .wd-hc-chon-mt { font-size: 13px; color: var(--mute); margin-top: 4px; }
+.wd-hc-chon em { font-style: normal; font-size: 12px; color: var(--red); font-weight: 700; margin-top: 6px; }
+.wd-hc-chon-tieu { margin: 24px 0 12px; font-size: 16px; }
+.wd-hc-tim-buoc { margin-top: 24px; }
+.wd-hc-dieu { display: flex; justify-content: space-between; align-items: center; gap: 12px; margin-top: 32px; padding-top: 20px; border-top: 1px solid var(--line); flex-wrap: wrap; }
+.wd-hc-dieu .button { margin: 0; }
+.wd-hc-dieu span { color: var(--mute); font-size: 14px; }
+.wd-hc-b5 { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+.wd-hc-b5-tt { border: 1px solid var(--line); border-radius: 18px; padding: 24px; }
+.wd-hc-b5-tt h4 { margin: 0 0 8px; }
+@media (max-width: 849px) { .wd-hc-chon-luoi, .wd-hc-chon-4 { grid-template-columns: 1fr 1fr; } .wd-hc-b5 { grid-template-columns: 1fr; } }

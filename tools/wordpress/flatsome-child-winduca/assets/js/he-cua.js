@@ -21,13 +21,15 @@
   var MOT = 12;
   var S = { b: '', h: [], k: [], f: [], q: '', p: 1 };
   var CMP = [];
+  var BUOC = 1;
 
   function e(s) { return String(s == null ? '' : s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
-  function khop(r, boQuaHang) {
-    if (!boQuaHang && S.b && r.hang !== S.b) return false;
-    if (S.k.length && !S.k.some(function (k) { return r.ketCau === k || r.ketCau === 'tn'; })) return false;
-    if (S.f.length && !S.f.some(function (f) { return r.tags.indexOf(f) >= 0; })) return false;
-    if (S.h.length && !S.h.some(function (h) { return r.he.indexOf(h) >= 0; })) return false;
+  function khop(r, boQua) {
+    if (boQua === true) boQua = 'b';
+    if (boQua !== 'b' && S.b && r.hang !== S.b) return false;
+    if (boQua !== 'k' && S.k.length && !S.k.some(function (k) { return r.ketCau === k || r.ketCau === 'tn'; })) return false;
+    if (boQua !== 'f' && S.f.length && !S.f.some(function (f) { return r.tags.indexOf(f) >= 0; })) return false;
+    if (boQua !== 'h' && S.h.length && !S.h.some(function (h) { return r.he.indexOf(h) >= 0; })) return false;
     if (S.q && (HANG[r.hang] + ' ' + r.ma + ' ' + r.loai).toLowerCase().indexOf(S.q.toLowerCase()) < 0) return false;
     return true;
   }
@@ -57,7 +59,7 @@
     return '<dl class="wd-hc-so">' + ds.map(function (x) { return '<div><dt>' + x[0] + '</dt><dd>' + (e(x[1]) || '—') + '</dd></div>'; }).join('') + '</dl>';
   }
 
-  function dung() {
+  function dsHtml() {
     var ds = DU.filter(function (r) { return khop(r); });
     var soTrang = Math.max(1, Math.ceil(ds.length / MOT));
     if (S.p > soTrang) S.p = soTrang;
@@ -94,6 +96,77 @@
     if (CMP.length) {
       h += '<div class="wd-hc-bar" role="status">Đã chọn ' + CMP.length + '/3 hệ <button type="button" data-ss="1"' + (CMP.length < 2 ? ' disabled' : '') + '>So sánh</button> <button type="button" data-bo="1">Bỏ chọn</button></div>';
     }
+    return h;
+  }
+
+  var BUOC_TEN = [['Hãng', 'Chọn hãng', 'Bỏ trống để xem cả ba hãng.'], ['Loại hệ', 'Chọn loại hệ', 'Chọn một hoặc nhiều loại hệ cửa.'],
+    ['Đặc điểm', 'Chọn đặc điểm', 'Kết cấu và chức năng bạn quan tâm, hoặc tìm theo mã hệ.'], ['Danh sách', 'Danh sách hệ cửa', 'Bấm thẻ để xem thông số, tích ô góc thẻ để so sánh.'],
+    ['So sánh', 'So sánh và tư vấn', 'Đặt tối đa 3 hệ cạnh nhau hoặc nhận tư vấn.']];
+  var ANH_HANG = { '': '/images/he-cua/mau-goc/civro-xw65-g1.webp', romadio: '/images/he-cua/mau-goc/romadio-rd80fd-g1.webp', civro: '/images/he-cua/mau-goc/civro-xd65-g1.webp', ponzio: '/images/he-cua/mau-goc/ponzio-ws-65-thi-g1.webp' };
+  var ANH_HE = { w: '/images/he-cua/mau-goc/civro-xw65-g1.webp', d: '/images/he-cua/mau-goc/civro-xd65-g1.webp', s: '/images/he-cua/mau-goc/civro-pd65-enfini-pro-g1.webp', l: '/images/he-cua/mau-goc/romadio-rd120ls-ss-g1.webp', f: '/images/he-cua/mau-goc/romadio-rd80fd-g1.webp', v: '/images/he-cua/mau-goc/romadio-rct65-g1.webp' };
+  var MO_TA = { t: 'Khung nhôm có thanh cầu ngăn dẫn nhiệt.', n: 'Khung nhôm liền, gọn nhẹ.', cn: 'U-value thấp theo số liệu hãng.', an: 'Chống đột nhập từ cấp RC2 trở lên.', de: 'Ngưỡng thấp, dễ đi qua.', sm: 'Vận hành bằng động cơ.' };
+
+  function demHang(h) { return DU.filter(function (r) { return khop(r, 'b') && (h === '' || r.hang === h); }).length; }
+  function demNhom(g, v) {
+    return DU.filter(function (r) {
+      if (!khop(r, g)) return false;
+      if (g === 'h') return r.he.indexOf(v) >= 0;
+      if (g === 'k') return r.ketCau === v || r.ketCau === 'tn';
+      return r.tags.indexOf(v) >= 0;
+    }).length;
+  }
+  function theChon(attrs, bat, anhP, ten, n, mota) {
+    return '<button type="button" class="wd-hc-chon" ' + attrs + ' aria-pressed="' + bat + '"' + (n === 0 && !bat ? ' disabled' : '') + '>' +
+      (anhP ? '<span class="wd-hc-chon-anh"><img src="' + e(url(anhP)) + '" alt="" loading="lazy"></span>' : '') +
+      '<strong>' + e(ten) + '</strong>' + (mota ? '<span class="wd-hc-chon-mt">' + e(mota) + '</span>' : '') + '<em>' + n + ' hệ</em></button>';
+  }
+  function buocHtml() {
+    var h = '';
+    if (BUOC === 1) {
+      h += '<div class="wd-hc-chon-luoi">';
+      [['', 'Tất cả hãng'], ['romadio', 'Romadio'], ['civro', 'Civro'], ['ponzio', 'Ponzio']].forEach(function (t) {
+        h += theChon('data-b="' + t[0] + '"', S.b === t[0], ANH_HANG[t[0]], t[1], demHang(t[0]));
+      });
+      return h + '</div>';
+    }
+    if (BUOC === 2) {
+      h += '<div class="wd-hc-chon-luoi wd-hc-chon-6">';
+      NHOM[0][2].forEach(function (o) { h += theChon('data-k="h" data-v="' + o[0] + '"', S.h.indexOf(o[0]) >= 0, ANH_HE[o[0]], o[1], demNhom('h', o[0])); });
+      return h + '</div>';
+    }
+    if (BUOC === 3) {
+      [1, 2].forEach(function (i) {
+        var g = NHOM[i];
+        h += '<h4 class="wd-hc-chon-tieu">' + g[1] + '</h4><div class="wd-hc-chon-luoi wd-hc-chon-4">';
+        g[2].forEach(function (o) { h += theChon('data-k="' + g[0] + '" data-v="' + o[0] + '"', S[g[0]].indexOf(o[0]) >= 0, '', o[1], demNhom(g[0], o[0]), MO_TA[o[0]]); });
+        h += '</div>';
+      });
+      return h + '<div class="wd-hc-tim wd-hc-tim-buoc"><span>Tìm theo mã hệ</span><input type="search" id="wd-hc-q" placeholder="XW98, WS 75 THI…" aria-label="Tìm hệ cửa" value="' + e(S.q) + '"></div>';
+    }
+    if (BUOC === 4) return dsHtml();
+    var ds = CMP.length;
+    h += '<div class="wd-hc-b5"><div class="wd-hc-b5-tt"><h4>So sánh các hệ đã chọn</h4><p>' + (ds ? 'Bạn đã chọn ' + ds + '/3 hệ ở bước danh sách.' : 'Bạn chưa tích ô so sánh ở bước danh sách. Quay lại bước 4 và tích tối đa 3 hệ.') + '</p>' +
+      '<p><button type="button" class="button primary" data-ss="1"' + (ds < 2 ? ' disabled' : '') + '>Xem bảng so sánh</button></p></div>' +
+      '<div class="wd-hc-b5-tt"><h4>Bước tiếp theo</h4><p>Gửi nhu cầu cho đội ngũ WINDUCA, kèm hệ bạn quan tâm, để được tư vấn theo công trình.</p>' +
+      '<p><a class="button primary" href="' + e(LIEN_HE) + '">Nhận tư vấn</a> <a class="button is-outline" href="' + e(TEL) + '">Gọi ' + e(HOTLINE) + '</a></p></div></div>';
+    return h;
+  }
+  function dung() {
+    var n = DU.filter(function (r) { return khop(r); }).length;
+    var h = '<ol class="wd-hc-buoc" aria-label="Các bước chọn hệ">';
+    BUOC_TEN.forEach(function (b, i) {
+      h += '<li><button type="button" data-buoc="' + (i + 1) + '"' + (BUOC === i + 1 ? ' aria-current="step"' : '') + '><i>' + (i + 1) + '</i><span>' + b[0] + '</span></button></li>';
+    });
+    h += '</ol><div class="wd-hc-buoc-dau"><p class="wd-hc-hang">Bước ' + BUOC + ' / 5</p><h3>' + BUOC_TEN[BUOC - 1][1] + '</h3><p>' + BUOC_TEN[BUOC - 1][2] + '</p></div>';
+    h += buocHtml();
+    if (BUOC !== 4) {
+      h += '<div class="wd-hc-dieu"><button type="button" class="button is-outline" data-lui="1"' + (BUOC === 1 ? ' disabled' : '') + '>Quay lại</button>' +
+        '<span role="status" aria-live="polite">' + n + ' / ' + DU.length + ' hệ phù hợp</span>' +
+        '<button type="button" class="button primary" data-tien="1"' + (BUOC === 5 ? ' disabled' : '') + '>' + (BUOC === 3 ? 'Xem ' + n + ' hệ' : 'Tiếp theo') + '</button></div>';
+    } else {
+      h += '<div class="wd-hc-dieu"><button type="button" class="button is-outline" data-lui="1">Quay lại</button><span></span><button type="button" class="button primary" data-tien="1">So sánh và tư vấn</button></div>';
+    }
+    if (CMP.length && BUOC !== 4) h += '<div class="wd-hc-bar" role="status">Đã chọn ' + CMP.length + '/3 hệ <button type="button" data-ss="1"' + (CMP.length < 2 ? ' disabled' : '') + '>So sánh</button> <button type="button" data-bo="1">Bỏ chọn</button></div>';
     var giu = document.activeElement && document.activeElement.id === 'wd-hc-q';
     goc.innerHTML = h;
     if (giu) { var q = document.getElementById('wd-hc-q'); q.focus(); q.setSelectionRange(q.value.length, q.value.length); }
@@ -145,6 +218,10 @@
 
   document.addEventListener('click', function (ev) {
     var t = ev.target;
+    var bu = t.closest('[data-buoc]');
+    if (bu && goc.contains(bu)) { BUOC = +bu.getAttribute('data-buoc'); dung(); return goc.scrollIntoView({ behavior: 'smooth' }); }
+    if (t.closest('[data-tien]') && goc.contains(t)) { BUOC = Math.min(5, BUOC + 1); dung(); return goc.scrollIntoView({ behavior: 'smooth' }); }
+    if (t.closest('[data-lui]') && goc.contains(t)) { BUOC = Math.max(1, BUOC - 1); dung(); return goc.scrollIntoView({ behavior: 'smooth' }); }
     var b = t.closest('[data-b]');
     if (b && goc.contains(b)) { S.b = b.getAttribute('data-b'); S.p = 1; return dung(); }
     var k = t.closest('[data-k]');
