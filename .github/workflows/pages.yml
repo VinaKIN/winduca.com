@@ -1,6 +1,6 @@
 name: Xuat ban ban xem thu len GitHub Pages
 
-# Bản TĨNH tại tên miền riêng https://winduca.com (CNAME trong public/, DNS ở PA Việt Nam).
+# Bản TĨNH xem thử tại https://vinakin.github.io/winduca.com (đã gỡ CNAME 21/11/2026 vì winduca.com trỏ về WordPress).
 # Không có API biểu mẫu (xuất tĩnh không hỗ trợ route handler). Bản chạy thật dùng Vercel.
 
 on:
@@ -38,8 +38,8 @@ jobs:
         run: npm run build
         env:
           GITHUB_PAGES: "true"
-          CUSTOM_DOMAIN: "true"
-          NEXT_PUBLIC_SITE_URL: https://winduca.com
+          CUSTOM_DOMAIN: "false"
+          NEXT_PUBLIC_SITE_URL: https://vinakin.github.io/winduca.com
           NEXT_PUBLIC_LEAD_ENDPOINT: ${{ vars.LEAD_ENDPOINT }}
           NEXT_PUBLIC_GA_ID: ${{ vars.GA_ID }}
 
